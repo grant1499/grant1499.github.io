@@ -13,18 +13,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"grant1499.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"grant1499.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.常用库函数这些库函数大都在&lt;algorithm&gt;中。 (1)  reverse 翻转既可以用于一般的数组，也能够用于vector。 翻转一个vector： 1reverse(a.begin(), a.end());  翻转一个数组，元素存放在下标1~n： 123456789101112131415161718reverse(a + 1, a + 1 + n);#include &amp;l">
+  <meta name="description" content="1.常用库函数这些库函数大都在&lt;algorithm&gt;中。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++竞赛语法总结（九）">
 <meta property="og:url" content="https://grant1499.github.io/2021/02/24/C-%E7%AB%9E%E8%B5%9B%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/index.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="1.常用库函数这些库函数大都在&lt;algorithm&gt;中。 (1)  reverse 翻转既可以用于一般的数组，也能够用于vector。 翻转一个vector： 1reverse(a.begin(), a.end());  翻转一个数组，元素存放在下标1~n： 123456789101112131415161718reverse(a + 1, a + 1 + n);#include &amp;l">
+<meta property="og:description" content="1.常用库函数这些库函数大都在&lt;algorithm&gt;中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-23T23:03:28.000Z">
-<meta property="article:modified_time" content="2021-02-24T00:19:28.493Z">
+<meta property="article:modified_time" content="2021-02-24T02:51:55.846Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="竞赛语法">
 <meta property="article:tag" content="STL">
@@ -182,10 +182,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
 
   <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -226,7 +222,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-24 07:03:28 / 修改时间：08:19:28" itemprop="dateCreated datePublished" datetime="2021-02-24T07:03:28+08:00">2021-02-24</time>
+              <time title="创建时间：2021-02-24 07:03:28 / 修改时间：10:51:55" itemprop="dateCreated datePublished" datetime="2021-02-24T07:03:28+08:00">2021-02-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,6 +271,8 @@
 
       
         <h4 id="1-常用库函数"><a href="#1-常用库函数" class="headerlink" title="1.常用库函数"></a>1.常用库函数</h4><p>这些库函数大都在<code>&lt;algorithm&gt;</code>中。</p>
+<span id="more"></span>
+
 <h5 id="1-reverse-翻转"><a href="#1-reverse-翻转" class="headerlink" title="(1)  reverse 翻转"></a>(1)  reverse 翻转</h5><p>既可以用于一般的数组，也能够用于vector。</p>
 <p>翻转一个vector：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reverse(a.begin(), a.end());</span><br></pre></td></tr></table></figure>
@@ -421,6 +419,7 @@
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
             
               <a href="/" rel="tag"><i class="fa fa-tag"></i> </a>
@@ -506,7 +505,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E5%BA%93%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">1.常用库函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-reverse-%E7%BF%BB%E8%BD%AC"><span class="nav-number">1.1.</span> <span class="nav-text">(1)  reverse 翻转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-unique-%E5%8E%BB%E9%87%8D"><span class="nav-number">1.2.</span> <span class="nav-text">(2)  unique 去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-random-shuffle-%E9%9A%8F%E6%9C%BA%E6%89%93%E4%B9%B1"><span class="nav-number">1.3.</span> <span class="nav-text">(3)  random_shuffle 随机打乱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-sort-%E9%9D%9E%E5%B8%B8%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81"><span class="nav-number">1.4.</span> <span class="nav-text">(4)  sort(非常非常重要)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.1.</span> <span class="nav-text">结构体排序</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-lower-bound-upper-bound-%E4%BA%8C%E5%88%86"><span class="nav-number">1.5.</span> <span class="nav-text">(5)  lower_bound&#x2F;upper_bound 二分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-acwing-53-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">2.acwing.53.最小的k个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-acwing-75-%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97"><span class="nav-number">3.</span> <span class="nav-text">3.acwing.75.和为S的两个数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-acwing-51-%E6%95%B0%E5%AD%97%E6%8E%92%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">4.acwing.51.数字排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-acwing-26-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">5.acwing.26.二进制中1的个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-acwing-862-%E4%B8%89%E5%85%83%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="nav-number">6.</span> <span class="nav-text">6.acwing.862.三元组排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-acwing-20-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%EF%BC%88%E5%89%91%E6%8C%87offer%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">7.acwing.20.用两个栈实现队列（剑指offer）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Acwing%EF%BC%9A%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%B3%BB%E5%88%97%E6%AD%A3%E5%BC%8F%E5%AE%8C%E7%BB%93%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-number"></span> <span class="nav-text">Acwing：语法基础课系列正式完结！！！</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B8%B8%E7%94%A8%E5%BA%93%E5%87%BD%E6%95%B0"><span class="nav-text">1.常用库函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-reverse-%E7%BF%BB%E8%BD%AC"><span class="nav-text">(1)  reverse 翻转</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-unique-%E5%8E%BB%E9%87%8D"><span class="nav-text">(2)  unique 去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-random-shuffle-%E9%9A%8F%E6%9C%BA%E6%89%93%E4%B9%B1"><span class="nav-text">(3)  random_shuffle 随机打乱</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-sort-%E9%9D%9E%E5%B8%B8%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81"><span class="nav-text">(4)  sort(非常非常重要)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%8E%92%E5%BA%8F"><span class="nav-text">结构体排序</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-lower-bound-upper-bound-%E4%BA%8C%E5%88%86"><span class="nav-text">(5)  lower_bound&#x2F;upper_bound 二分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-acwing-53-%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0"><span class="nav-text">2.acwing.53.最小的k个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-acwing-75-%E5%92%8C%E4%B8%BAS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97"><span class="nav-text">3.acwing.75.和为S的两个数字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-acwing-51-%E6%95%B0%E5%AD%97%E6%8E%92%E5%88%97"><span class="nav-text">4.acwing.51.数字排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-acwing-26-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-text">5.acwing.26.二进制中1的个数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-acwing-862-%E4%B8%89%E5%85%83%E7%BB%84%E6%8E%92%E5%BA%8F"><span class="nav-text">6.acwing.862.三元组排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-acwing-20-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97%EF%BC%88%E5%89%91%E6%8C%87offer%EF%BC%89"><span class="nav-text">7.acwing.20.用两个栈实现队列（剑指offer）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Acwing%EF%BC%9A%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%B3%BB%E5%88%97%E6%AD%A3%E5%BC%8F%E5%AE%8C%E7%BB%93%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-text">Acwing：语法基础课系列正式完结！！！</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -552,6 +551,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -723,5 +726,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
