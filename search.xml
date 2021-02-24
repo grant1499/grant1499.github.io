@@ -2819,6 +2819,8 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 <p>只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
 <p>在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
+<p><a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
+<p>其实核心问题就是找到span id里是否有style = “display: none”</p>
 ]]></content>
   </entry>
   <entry>
