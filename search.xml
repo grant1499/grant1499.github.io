@@ -883,7 +883,7 @@
 <p>输出样例：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 2 3</span><br><span class="line">1 3 2</span><br><span class="line">2 1 3</span><br><span class="line">2 3 1</span><br><span class="line">3 1 2</span><br><span class="line">3 2 1</span><br></pre></td></tr></table></figure>
 
-<p>首先画出深度遍历搜索树！！！用到深度遍历的思想。</p>
+<p>首先画出<strong>深度遍历搜索树</strong>！！！用到深度遍历的思想。</p>
 <p><img src="/2021/02/24/C-%E7%AB%9E%E8%B5%9B%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/image-20210207183231960.png" alt="image-20210207183231960"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> nums[],<span class="keyword">bool</span> st[])</span><span class="comment">// u是填充的位数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (u &gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">cout</span> &lt;&lt; nums[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">            <span class="keyword">if</span> (!st[i])</span><br><span class="line">            &#123;</span><br><span class="line">                st[i] = <span class="literal">true</span>;</span><br><span class="line">                nums[u] = i;</span><br><span class="line">                dfs(u + <span class="number">1</span>,nums,st);</span><br><span class="line">                st[i] = <span class="literal">false</span>; <span class="comment">// 恢复现场</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> nums[N];</span><br><span class="line">    <span class="keyword">bool</span> st[N] = &#123;<span class="number">0</span>&#125;;<span class="comment">// 初始化为false</span></span><br><span class="line">    dfs(<span class="number">1</span>,nums,st);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意：当输入输出比较多时，用scanf和printf会快很多</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -1156,6 +1156,254 @@
         <tag>链表</tag>
         <tag>指针</tag>
         <tag>斐波那契数列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java入门笔记（一）</title>
+    <url>/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="1-java简介"><a href="#1-java简介" class="headerlink" title="1.java简介"></a>1.java简介</h4><p>随着Java的发展，SUN给Java又分出了三个不同版本：</p>
+<ul>
+<li>Java SE：Standard Edition</li>
+<li>Java EE：Enterprise Edition</li>
+<li>Java ME：Micro Edition</li>
+</ul>
+<span id="more"></span>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌───────────────────────────┐</span><br><span class="line">│Java EE                    │</span><br><span class="line">│    ┌────────────────────┐ │</span><br><span class="line">│    │Java SE             │ │</span><br><span class="line">│    │    ┌─────────────┐ │ │</span><br><span class="line">│    │    │   Java ME   │ │ │</span><br><span class="line">│    │    └─────────────┘ │ │</span><br><span class="line">│    └────────────────────┘ │</span><br><span class="line">└───────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JDK：Java Development Kit（java开发工具包）</li>
+<li>JRE：Java Runtime Environment(Java运行环境)</li>
+<li>简单而言，使用JDK的开发工具完成的java程序，交给JRE去运行。</li>
+</ul>
+<p>简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。</p>
+<p>JDK:<strong>JRE + 开发工具集</strong>（编译器(Javac) + 其他工具）；JRE:<strong>Java虚拟机(JVM) + Java类库</strong> + 其他。</p>
+<p>二者关系如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ┌─    ┌──────────────────────────────────┐</span><br><span class="line"> │     │     Compiler, debugger, etc.     │</span><br><span class="line"> │     └──────────────────────────────────┘</span><br><span class="line">JDK ┌─ ┌──────────────────────────────────┐</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> │ JRE │      JVM + Runtime Library       │</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> └─ └─ └──────────────────────────────────┘</span><br><span class="line">       ┌───────┐┌───────┐┌───────┐┌───────┐</span><br><span class="line">       │Windows││ Linux ││ macOS ││others │</span><br><span class="line">       └───────┘└───────┘└───────┘└───────┘</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>java：这个可执行程序其实就是JVM，运行Java程序，就是启动JVM，然后让JVM执行指定的编译后的代码；</li>
+<li>javac：这是Java的编译器，它用于把Java源码文件（以<code>.java</code>后缀结尾）编译为Java字节码文件（以<code>.class</code>后缀结尾）；</li>
+<li>jar：用于把一组<code>.class</code>文件打包成一个<code>.jar</code>文件，便于发布；</li>
+<li>javadoc：用于从Java源码中自动提取注释并生成文档；</li>
+<li>jdb：Java调试器，用于开发阶段的运行调试。</li>
+</ul>
+<p>如果遇到编码问题，我们可以使用 <strong>-encoding</strong> 选项设置 <strong>utf-8</strong> 来编译：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javac -encoding UTF-8 HelloWorld.java </span><br><span class="line">java HelloWorld </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-java语法规范"><a href="#2-java语法规范" class="headerlink" title="2.java语法规范"></a>2.java语法规范</h4><p>编写 Java 程序时，应注意以下几点：</p>
+<ul>
+<li><strong>大小写敏感</strong>：Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。</li>
+<li><strong>类名</strong>：（class）对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 <strong>MyFirstJavaClass</strong> 。</li>
+<li><strong>方法名</strong>：（method）所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。</li>
+<li><strong>源文件名</strong>：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 <strong>.java</strong>。（如果文件名和类名不相同则会导致编译错误）。</li>
+<li><strong>主方法入口</strong>：所有的 Java 程序由 <strong>public static void main(String[] args)</strong> 方法开始执行。</li>
+</ul>
+<p>像其他语言一样，Java可以使用修饰符来修饰类中方法和属性。主要有两类修饰符：</p>
+<ol>
+<li>访问控制修饰符 : default, public , protected, private</li>
+<li>非访问控制修饰符 : final, abstract, static, synchronized</li>
+</ol>
+<ul>
+<li><p><strong>标识符命名规范</strong>：</p>
+<p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210101349712.png" alt="image-20210210101349712"></p>
+</li>
+</ul>
+<p><strong>小结</strong></p>
+<p>一个Java源码只能定义一个<code>public</code>类型的class，并且class名称和文件名要完全一致；</p>
+<p>但是可以定义多个class（类）;</p>
+<p>使用<code>javac</code>可以将<code>.java</code>源码编译成<code>.class</code>字节码；（JVM运行字节码）</p>
+<p>使用<code>java</code>可以运行一个已编译的Java程序，参数是类名。</p>
+<h4 id="3-Java与C-的区别"><a href="#3-Java与C-的区别" class="headerlink" title="3.Java与C++的区别"></a>3.Java与C++的区别</h4><p>我知道很多人没学过 C++，但是面试官就是没事喜欢拿咱们 Java 和 C++ 比呀！没办法！！！就算没学过 C++，也要记下来！</p>
+<ul>
+<li>都是面向对象的语言，都支持封装、继承和多态</li>
+<li>Java 不提供指针来直接访问内存，程序内存更加安全</li>
+<li>Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。</li>
+<li>Java 有自动内存管理垃圾回收机制(GC)，不需要程序员手动释放无用内存</li>
+<li><strong>在 C 语言中，字符串或字符数组最后都会有一个额外的字符<code>&#39;\0&#39;</code>来表示结束。但是，Java 语言中没有结束符这一概念。</strong> 这是一个值得深度思考的问题，具体原因推荐看这篇文章： <a href="https://blog.csdn.net/sszgg2006/article/details/49148189">https://blog.csdn.net/sszgg2006/article/details/49148189</a></li>
+</ul>
+<h4 id="4-java语言编译-compile-与解释并存"><a href="#4-java语言编译-compile-与解释并存" class="headerlink" title="4.java语言编译(compile)与解释并存"></a>4.java语言编译(compile)与解释并存</h4><p>Java 语言既具有编译型语言的特征，也具有解释型语言的特征，因为 Java 程序要经过先编译，后解释两个步骤，由 Java 编写的程序需要先<strong>经过编译步骤，生成字节码</strong>（*.class 文件），这种字节码必须<strong>由 Java 解释器来解释执行</strong>。因此，我们可以认为 Java 语言编译与解释并存。</p>
+<h4 id="5-字符型常量和字符串常量的区别"><a href="#5-字符型常量和字符串常量的区别" class="headerlink" title="5.字符型常量和字符串常量的区别"></a>5.字符型常量和字符串常量的区别</h4><ol>
+<li><p>形式上: 字符常量是单引号引起的一个字符; 字符串常量是双引号引起的 0 个或若干个字符</p>
+</li>
+<li><p>含义上: 字符常量相当于一个整型值( ASCII 值),可以参加表达式运算; 字符串常量代表一个地址值(该字符串在内存中存放位置)</p>
+</li>
+<li><p>占内存大小 字符常量只占 2 个字节; 字符串常量占若干个字节 (<strong>注意： char 在 Java 中占两个字节</strong>),</p>
+<blockquote>
+<p>字符封装类 <code>Character</code> 有一个成员常量 <code>Character.SIZE</code> 值为 16,单位是<code>bits</code>,该值除以 8(<code>1byte=8bits</code>)后就可以得到 2 个字节</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="6-Java注释"><a href="#6-Java注释" class="headerlink" title="6.Java注释"></a>6.Java注释</h4><p>主要分为三种：单行、多行和文档注释。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">   <span class="comment">/* 这是第一个Java程序</span></span><br><span class="line"><span class="comment">    * 它将输出 Hello World</span></span><br><span class="line"><span class="comment">    * 这是一个文档的示例</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="comment">// 这是单行注释的示例</span></span><br><span class="line">       <span class="comment">/* </span></span><br><span class="line"><span class="comment">       多行注释</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       System.out.println(<span class="string">&quot;Hello World&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-Java关键字"><a href="#7-Java关键字" class="headerlink" title="7.Java关键字"></a>7.Java关键字</h4><table>
+<thead>
+<tr>
+<th>访问控制</th>
+<th>private</th>
+<th>protected</th>
+<th>public</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类，方法和变量修饰符</td>
+<td>abstract</td>
+<td>class</td>
+<td>extends</td>
+<td>final</td>
+<td>implements</td>
+<td>interface</td>
+<td>native</td>
+</tr>
+<tr>
+<td></td>
+<td>new</td>
+<td>static</td>
+<td>strictfp</td>
+<td>synchronized</td>
+<td>transient</td>
+<td>volatile</td>
+<td></td>
+</tr>
+<tr>
+<td>程序控制</td>
+<td>break</td>
+<td>continue</td>
+<td>return</td>
+<td>do</td>
+<td>while</td>
+<td>if</td>
+<td>else</td>
+</tr>
+<tr>
+<td></td>
+<td>for</td>
+<td>instanceof</td>
+<td>switch</td>
+<td>case</td>
+<td>default</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>try</td>
+<td>catch</td>
+<td>throw</td>
+<td>throws</td>
+<td>finally</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>包相关</td>
+<td>import</td>
+<td>package</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>基本类型</td>
+<td>boolean</td>
+<td>byte</td>
+<td>char</td>
+<td>double</td>
+<td>float</td>
+<td>int</td>
+<td>long</td>
+</tr>
+<tr>
+<td></td>
+<td>short</td>
+<td>null</td>
+<td>true</td>
+<td>false</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>变量引用</td>
+<td>super</td>
+<td>this</td>
+<td>void</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>保留字</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="8-java变量"><a href="#8-java变量" class="headerlink" title="8.java变量"></a>8.java变量</h4><p>Java变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的数据类型（Java分为两种数据类型：基本数据类型和引用数据类型）。变量按作用域的范围又可分为三种类型：<strong>局部变量，成员变量和静态变量</strong>。</p>
+<p>Java中并没有全局变量的概念，这与C/C++不同！！</p>
+<h5 id="8-1-主要分类"><a href="#8-1-主要分类" class="headerlink" title="8.1 主要分类"></a>8.1 主要分类</h5><p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210102225703.png" alt="image-20210210102225703"></p>
+<h5 id="8-2-局部变量"><a href="#8-2-局部变量" class="headerlink" title="8.2 局部变量"></a>8.2 局部变量</h5><p>声明局部变量时的注意事项：</p>
+<ul>
+<li>局部变量声明在方法，构造方法或语句块中。</li>
+<li>局部变量在方法，构造方法，或者语句块被执行的时候创建，当其执行完成后，将会被销毁。</li>
+<li>访问修饰符不能用于局部变量。</li>
+<li>局部变量只在声明它的方法，构造方法或语句块中可见。</li>
+<li>局部变量是在栈上分配的。</li>
+<li>局部变量没有默认值，所以局部变量被声明后，<strong>必须经过初始化，才可以使用</strong>。</li>
+</ul>
+<h5 id="8-3-成员变量"><a href="#8-3-成员变量" class="headerlink" title="8.3 成员变量"></a>8.3 成员变量</h5><p>在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 微信搜「沉默王二」，回复关键字 PDF</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceVariable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data = <span class="number">88</span>;<span class="comment">// data是成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InstanceVariable iv = <span class="keyword">new</span> InstanceVariable();</span><br><span class="line">        System.out.println(iv.data); <span class="comment">// 88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以是一个变量，它是一个引用类型的变量。<code>new</code>关键字可以创建一个类的实例（也称为对象），通过“ =”操作符赋值给iv这个变量，iv就成了这个对象的引用，通过<code>iv.data</code>就可以访问成员变量了。</p>
+<p>声明成员变量时的注意事项：</p>
+<ul>
+<li>成员变量声明在一个类中，但在方法，构造方法和语句块之外。</li>
+<li>当一个对象被实例化之后，每个成员变量的值就跟着确定。</li>
+<li>成员变量在对象创造的时候创造，在对象被销毁的时候销毁。</li>
+<li>成员变量的值应该至少被一个方法，构造方法或语句块引用，以便外部能够通过这些方式获取实例变量信息。</li>
+<li>成员变量可以声明在使用前或使用后。</li>
+<li>访问修饰符可以修饰成员变量。</li>
+<li>一般情况下应该把成员变量设为所有权。通过使用访问修饰符可以使成员变量对子类可见；成员变量具有唯一值。数值型成员变量对于类中的方法，构造方法或语句块是可见的。变量的默认值是0，布尔型变量的默认值是false，引用类型变量的默认值是null。变量的值可以在声明时指定，也可以在构造方法中指定。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Latex常用语法总结</title>
+    <url>/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>文章开头加上一句：<code>mathjax: true</code>，即可启动Latex渲染。</p>
+<span id="more"></span>
+
+<p>1.打出斜体：$O(n)$,<code>$O(n)$</code></p>
+<p>2.打出根号：$\sqrt n$ ,<code>$\sqrt n$</code></p>
+<p>3.打出上标（单字符）：A$^2$,<code>A$^2$</code></p>
+<p>4.打出上标（多字符）：A$^{mod}$,<code>A$^&#123;mod&#125;$</code></p>
+<p>5.打出下标（单字符）：A$_2$,<code>A$_2$</code></p>
+<p>6.打出下标（多字符）：A$_{mod}$,<code>A$_&#123;mod&#125;$</code></p>
+<p>7.打出log对数：$\log_ax$，<code>$\log_ax$</code>;    $\ln x$，<code>\ln x$</code>;    $\lg x$,<code>$\lg x$</code></p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -1440,254 +1688,6 @@
       </categories>
       <tags>
         <tag>Python入门</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java入门笔记（一）</title>
-    <url>/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h4 id="1-java简介"><a href="#1-java简介" class="headerlink" title="1.java简介"></a>1.java简介</h4><p>随着Java的发展，SUN给Java又分出了三个不同版本：</p>
-<ul>
-<li>Java SE：Standard Edition</li>
-<li>Java EE：Enterprise Edition</li>
-<li>Java ME：Micro Edition</li>
-</ul>
-<span id="more"></span>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">┌───────────────────────────┐</span><br><span class="line">│Java EE                    │</span><br><span class="line">│    ┌────────────────────┐ │</span><br><span class="line">│    │Java SE             │ │</span><br><span class="line">│    │    ┌─────────────┐ │ │</span><br><span class="line">│    │    │   Java ME   │ │ │</span><br><span class="line">│    │    └─────────────┘ │ │</span><br><span class="line">│    └────────────────────┘ │</span><br><span class="line">└───────────────────────────┘</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>JDK：Java Development Kit（java开发工具包）</li>
-<li>JRE：Java Runtime Environment(Java运行环境)</li>
-<li>简单而言，使用JDK的开发工具完成的java程序，交给JRE去运行。</li>
-</ul>
-<p>简单地说，JRE就是运行Java字节码的虚拟机。但是，如果只有Java源码，要编译成Java字节码，就需要JDK，因为JDK除了包含JRE，还提供了编译器、调试器等开发工具。</p>
-<p>JDK:<strong>JRE + 开发工具集</strong>（编译器(Javac) + 其他工具）；JRE:<strong>Java虚拟机(JVM) + Java类库</strong> + 其他。</p>
-<p>二者关系如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ┌─    ┌──────────────────────────────────┐</span><br><span class="line"> │     │     Compiler, debugger, etc.     │</span><br><span class="line"> │     └──────────────────────────────────┘</span><br><span class="line">JDK ┌─ ┌──────────────────────────────────┐</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> │ JRE │      JVM + Runtime Library       │</span><br><span class="line"> │  │  │                                  │</span><br><span class="line"> └─ └─ └──────────────────────────────────┘</span><br><span class="line">       ┌───────┐┌───────┐┌───────┐┌───────┐</span><br><span class="line">       │Windows││ Linux ││ macOS ││others │</span><br><span class="line">       └───────┘└───────┘└───────┘└───────┘</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>java：这个可执行程序其实就是JVM，运行Java程序，就是启动JVM，然后让JVM执行指定的编译后的代码；</li>
-<li>javac：这是Java的编译器，它用于把Java源码文件（以<code>.java</code>后缀结尾）编译为Java字节码文件（以<code>.class</code>后缀结尾）；</li>
-<li>jar：用于把一组<code>.class</code>文件打包成一个<code>.jar</code>文件，便于发布；</li>
-<li>javadoc：用于从Java源码中自动提取注释并生成文档；</li>
-<li>jdb：Java调试器，用于开发阶段的运行调试。</li>
-</ul>
-<p>如果遇到编码问题，我们可以使用 <strong>-encoding</strong> 选项设置 <strong>utf-8</strong> 来编译：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">javac -encoding UTF-8 HelloWorld.java </span><br><span class="line">java HelloWorld </span><br></pre></td></tr></table></figure>
-
-<h4 id="2-java语法规范"><a href="#2-java语法规范" class="headerlink" title="2.java语法规范"></a>2.java语法规范</h4><p>编写 Java 程序时，应注意以下几点：</p>
-<ul>
-<li><strong>大小写敏感</strong>：Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。</li>
-<li><strong>类名</strong>：（class）对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 <strong>MyFirstJavaClass</strong> 。</li>
-<li><strong>方法名</strong>：（method）所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。</li>
-<li><strong>源文件名</strong>：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 <strong>.java</strong>。（如果文件名和类名不相同则会导致编译错误）。</li>
-<li><strong>主方法入口</strong>：所有的 Java 程序由 <strong>public static void main(String[] args)</strong> 方法开始执行。</li>
-</ul>
-<p>像其他语言一样，Java可以使用修饰符来修饰类中方法和属性。主要有两类修饰符：</p>
-<ol>
-<li>访问控制修饰符 : default, public , protected, private</li>
-<li>非访问控制修饰符 : final, abstract, static, synchronized</li>
-</ol>
-<ul>
-<li><p><strong>标识符命名规范</strong>：</p>
-<p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210101349712.png" alt="image-20210210101349712"></p>
-</li>
-</ul>
-<p><strong>小结</strong></p>
-<p>一个Java源码只能定义一个<code>public</code>类型的class，并且class名称和文件名要完全一致；</p>
-<p>但是可以定义多个class（类）;</p>
-<p>使用<code>javac</code>可以将<code>.java</code>源码编译成<code>.class</code>字节码；（JVM运行字节码）</p>
-<p>使用<code>java</code>可以运行一个已编译的Java程序，参数是类名。</p>
-<h4 id="3-Java与C-的区别"><a href="#3-Java与C-的区别" class="headerlink" title="3.Java与C++的区别"></a>3.Java与C++的区别</h4><p>我知道很多人没学过 C++，但是面试官就是没事喜欢拿咱们 Java 和 C++ 比呀！没办法！！！就算没学过 C++，也要记下来！</p>
-<ul>
-<li>都是面向对象的语言，都支持封装、继承和多态</li>
-<li>Java 不提供指针来直接访问内存，程序内存更加安全</li>
-<li>Java 的类是单继承的，C++ 支持多重继承；虽然 Java 的类不可以多继承，但是接口可以多继承。</li>
-<li>Java 有自动内存管理垃圾回收机制(GC)，不需要程序员手动释放无用内存</li>
-<li><strong>在 C 语言中，字符串或字符数组最后都会有一个额外的字符<code>&#39;\0&#39;</code>来表示结束。但是，Java 语言中没有结束符这一概念。</strong> 这是一个值得深度思考的问题，具体原因推荐看这篇文章： <a href="https://blog.csdn.net/sszgg2006/article/details/49148189">https://blog.csdn.net/sszgg2006/article/details/49148189</a></li>
-</ul>
-<h4 id="4-java语言编译-compile-与解释并存"><a href="#4-java语言编译-compile-与解释并存" class="headerlink" title="4.java语言编译(compile)与解释并存"></a>4.java语言编译(compile)与解释并存</h4><p>Java 语言既具有编译型语言的特征，也具有解释型语言的特征，因为 Java 程序要经过先编译，后解释两个步骤，由 Java 编写的程序需要先<strong>经过编译步骤，生成字节码</strong>（*.class 文件），这种字节码必须<strong>由 Java 解释器来解释执行</strong>。因此，我们可以认为 Java 语言编译与解释并存。</p>
-<h4 id="5-字符型常量和字符串常量的区别"><a href="#5-字符型常量和字符串常量的区别" class="headerlink" title="5.字符型常量和字符串常量的区别"></a>5.字符型常量和字符串常量的区别</h4><ol>
-<li><p>形式上: 字符常量是单引号引起的一个字符; 字符串常量是双引号引起的 0 个或若干个字符</p>
-</li>
-<li><p>含义上: 字符常量相当于一个整型值( ASCII 值),可以参加表达式运算; 字符串常量代表一个地址值(该字符串在内存中存放位置)</p>
-</li>
-<li><p>占内存大小 字符常量只占 2 个字节; 字符串常量占若干个字节 (<strong>注意： char 在 Java 中占两个字节</strong>),</p>
-<blockquote>
-<p>字符封装类 <code>Character</code> 有一个成员常量 <code>Character.SIZE</code> 值为 16,单位是<code>bits</code>,该值除以 8(<code>1byte=8bits</code>)后就可以得到 2 个字节</p>
-</blockquote>
-</li>
-</ol>
-<h4 id="6-Java注释"><a href="#6-Java注释" class="headerlink" title="6.Java注释"></a>6.Java注释</h4><p>主要分为三种：单行、多行和文档注释。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">   <span class="comment">/* 这是第一个Java程序</span></span><br><span class="line"><span class="comment">    * 它将输出 Hello World</span></span><br><span class="line"><span class="comment">    * 这是一个文档的示例</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="comment">// 这是单行注释的示例</span></span><br><span class="line">       <span class="comment">/* </span></span><br><span class="line"><span class="comment">       多行注释</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       System.out.println(<span class="string">&quot;Hello World&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-Java关键字"><a href="#7-Java关键字" class="headerlink" title="7.Java关键字"></a>7.Java关键字</h4><table>
-<thead>
-<tr>
-<th>访问控制</th>
-<th>private</th>
-<th>protected</th>
-<th>public</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>类，方法和变量修饰符</td>
-<td>abstract</td>
-<td>class</td>
-<td>extends</td>
-<td>final</td>
-<td>implements</td>
-<td>interface</td>
-<td>native</td>
-</tr>
-<tr>
-<td></td>
-<td>new</td>
-<td>static</td>
-<td>strictfp</td>
-<td>synchronized</td>
-<td>transient</td>
-<td>volatile</td>
-<td></td>
-</tr>
-<tr>
-<td>程序控制</td>
-<td>break</td>
-<td>continue</td>
-<td>return</td>
-<td>do</td>
-<td>while</td>
-<td>if</td>
-<td>else</td>
-</tr>
-<tr>
-<td></td>
-<td>for</td>
-<td>instanceof</td>
-<td>switch</td>
-<td>case</td>
-<td>default</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>错误处理</td>
-<td>try</td>
-<td>catch</td>
-<td>throw</td>
-<td>throws</td>
-<td>finally</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>包相关</td>
-<td>import</td>
-<td>package</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>基本类型</td>
-<td>boolean</td>
-<td>byte</td>
-<td>char</td>
-<td>double</td>
-<td>float</td>
-<td>int</td>
-<td>long</td>
-</tr>
-<tr>
-<td></td>
-<td>short</td>
-<td>null</td>
-<td>true</td>
-<td>false</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>变量引用</td>
-<td>super</td>
-<td>this</td>
-<td>void</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>保留字</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h4 id="8-java变量"><a href="#8-java变量" class="headerlink" title="8.java变量"></a>8.java变量</h4><p>Java变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的数据类型（Java分为两种数据类型：基本数据类型和引用数据类型）。变量按作用域的范围又可分为三种类型：<strong>局部变量，成员变量和静态变量</strong>。</p>
-<p>Java中并没有全局变量的概念，这与C/C++不同！！</p>
-<h5 id="8-1-主要分类"><a href="#8-1-主要分类" class="headerlink" title="8.1 主要分类"></a>8.1 主要分类</h5><p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210102225703.png" alt="image-20210210102225703"></p>
-<h5 id="8-2-局部变量"><a href="#8-2-局部变量" class="headerlink" title="8.2 局部变量"></a>8.2 局部变量</h5><p>声明局部变量时的注意事项：</p>
-<ul>
-<li>局部变量声明在方法，构造方法或语句块中。</li>
-<li>局部变量在方法，构造方法，或者语句块被执行的时候创建，当其执行完成后，将会被销毁。</li>
-<li>访问修饰符不能用于局部变量。</li>
-<li>局部变量只在声明它的方法，构造方法或语句块中可见。</li>
-<li>局部变量是在栈上分配的。</li>
-<li>局部变量没有默认值，所以局部变量被声明后，<strong>必须经过初始化，才可以使用</strong>。</li>
-</ul>
-<h5 id="8-3-成员变量"><a href="#8-3-成员变量" class="headerlink" title="8.3 成员变量"></a>8.3 成员变量</h5><p>在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 微信搜「沉默王二」，回复关键字 PDF</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceVariable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data = <span class="number">88</span>;<span class="comment">// data是成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InstanceVariable iv = <span class="keyword">new</span> InstanceVariable();</span><br><span class="line">        System.out.println(iv.data); <span class="comment">// 88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以是一个变量，它是一个引用类型的变量。<code>new</code>关键字可以创建一个类的实例（也称为对象），通过“ =”操作符赋值给iv这个变量，iv就成了这个对象的引用，通过<code>iv.data</code>就可以访问成员变量了。</p>
-<p>声明成员变量时的注意事项：</p>
-<ul>
-<li>成员变量声明在一个类中，但在方法，构造方法和语句块之外。</li>
-<li>当一个对象被实例化之后，每个成员变量的值就跟着确定。</li>
-<li>成员变量在对象创造的时候创造，在对象被销毁的时候销毁。</li>
-<li>成员变量的值应该至少被一个方法，构造方法或语句块引用，以便外部能够通过这些方式获取实例变量信息。</li>
-<li>成员变量可以声明在使用前或使用后。</li>
-<li>访问修饰符可以修饰成员变量。</li>
-<li>一般情况下应该把成员变量设为所有权。通过使用访问修饰符可以使成员变量对子类可见；成员变量具有唯一值。数值型成员变量对于类中的方法，构造方法或语句块是可见的。变量的默认值是0，布尔型变量的默认值是false，引用类型变量的默认值是null。变量的值可以在声明时指定，也可以在构造方法中指定。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java入门</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Latex常用语法总结</title>
-    <url>/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>文章开头加上一句：<code>mathjax: true</code>，即可启动Latex渲染。</p>
-<span id="more"></span>
-
-<p>1.打出斜体：$O(n)$,<code>$O(n)$</code></p>
-<p>2.打出根号：$\sqrt n$ ,<code>$\sqrt n$</code></p>
-<p>3.打出上标（单字符）：A$^2$,<code>A$^2$</code></p>
-<p>4.打出上标（多字符）：A$^{mod}$,<code>A$^&#123;mod&#125;$</code></p>
-<p>5.打出下标（单字符）：A$_2$,<code>A$_2$</code></p>
-<p>6.打出下标（多字符）：A$_{mod}$,<code>A$_&#123;mod&#125;$</code></p>
-<p>7.打出log对数：$\log_ax$，<code>$\log_ax$</code>;    $\ln x$，<code>\ln x$</code>;    $\lg x$,<code>$\lg x$</code></p>
-]]></content>
-      <categories>
-        <category>Latex</category>
-      </categories>
-      <tags>
-        <tag>Latex</tag>
       </tags>
   </entry>
   <entry>
@@ -2120,6 +2120,80 @@
       </tags>
   </entry>
   <entry>
+    <title>Python入门笔记（五）</title>
+    <url>/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    <content><![CDATA[<h5 id="1-文件读取指针函数seek-用法详解"><a href="#1-文件读取指针函数seek-用法详解" class="headerlink" title="1.文件读取指针函数seek()用法详解"></a>1.文件读取指针函数seek()用法详解</h5><p>seek()方法的语法如下：<code>fileObject.seek(offset, from)</code></p>
+<p>offset ： 开始的偏移量，也就是代表需要移动偏移的字节数，如果是负数表示从倒数第几位开始。 </p>
+<p>from：可选，默认值为 0。给 offset 定义一个参数，表示要从哪个位置开始偏移；0 代表从文件开头开始算起，1 代表从当前位置开始算起，2 代表从文件末尾算起。</p>
+<span id="more"></span>
+
+<p><strong>实例1</strong></p>
+<p>下面将用实例演示一下seek()方法的用法<br>下面是‘test.txt’文件内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="comment">#只读方式，文件读取指针指向开头</span></span><br><span class="line">print(file.tell())           <span class="comment">#file.tell()返回当前读取指针</span></span><br><span class="line">file_data = file.readline()  <span class="comment">#读取一行数据</span></span><br><span class="line">print(file_data)</span><br><span class="line"></span><br><span class="line">file.seek(<span class="number">3</span>,<span class="number">0</span>)               <span class="comment">#从0开始偏移3个字节</span></span><br><span class="line">print(file.tell())</span><br><span class="line">file_data = file.readline()  <span class="comment">#读取一行数据</span></span><br><span class="line">print(file_data)</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">0123456789</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3456789</span></span><br><span class="line"></span><br><span class="line"><span class="number">123456</span></span><br></pre></td></tr></table></figure>
+
+<p>上述结果之间空一行是因为读取了末尾的换行符</p>
+<p><strong>实例2</strong></p>
+<p>下面我再说一个例子，关于文件打开模式为‘a+’情况下的例子<br>文件跟上一个例子一样，先看代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;a+&#x27;</span>)  <span class="comment">#可读写方式，文件读取指针指向末尾，数据追加在末尾</span></span><br><span class="line">print(file.tell())             <span class="comment">#file.tell()返回当前读取指针</span></span><br><span class="line">file.write(<span class="string">&#x27;9876543210\n&#x27;</span>)     <span class="comment">#末尾写入数据</span></span><br><span class="line">print(file.tell())             <span class="comment">#文件写入后返回当前读取指针</span></span><br><span class="line">file_data = file.readline()    <span class="comment">#读取一行数据</span></span><br><span class="line">print(<span class="string">&#x27;one&#x27;</span> + file_data)       <span class="comment">#文件读取指针在末尾，读取数据为空</span></span><br><span class="line">file.seek(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">print(<span class="string">&#x27;two&#x27;</span> + file.readline()) <span class="comment">#文件读取指针在开头，读取第一行数据</span></span><br><span class="line"><span class="number">12345678</span></span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">48</span></span><br><span class="line">one</span><br><span class="line">two0123456789</span><br><span class="line"><span class="number">1234</span></span><br></pre></td></tr></table></figure>
+
+<p>没有读取到数据是因为文件读取指针指向了末尾，所以在使用‘a+’模式时，如果要读取数据要利用seek(0,0)设置文件读取指针<br>‘test.txt’的变化：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line"><span class="number">9876543210</span></span><br><span class="line"></span><br><span class="line"><span class="number">12345</span></span><br></pre></td></tr></table></figure>
+
+<p>上述这个例子是我学习Python文件操作时遇到的坑，在利用‘a+’模式打开文件并写入数据后，用readline()怎么都无法读取数据，后来了解到是因为文件读取指针在末尾，所以无法读取数据，要用seek(0，0)方法将文件读取指针重置，才可以读取数据。</p>
+<h5 id="2-小练习"><a href="#2-小练习" class="headerlink" title="2.小练习"></a>2.小练习</h5><h6 id="2-1-题目简化："><a href="#2-1-题目简化：" class="headerlink" title="2.1 题目简化："></a>2.1 题目简化：</h6><p>将浮点数num保留整数部分输出。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">print(<span class="string">&quot;&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">int</span>(num)))</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">print(<span class="string">&quot;&#123;:.0f&#125;&quot;</span>.<span class="built_in">format</span>(num)) <span class="comment"># 掌握这种做法</span></span><br><span class="line"><span class="comment"># print(&quot;&#123;:d&#125;&quot;.format(num))这样不行，无法直接将浮点型转换为int</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="2-2-python的连续不等式写法："><a href="#2-2-python的连续不等式写法：" class="headerlink" title="2.2 python的连续不等式写法："></a>2.2 python的连续不等式写法：</h6><p><code>1 &lt;= n &lt;=  2</code></p>
+<p>这种写法在python中是合理的，在其他大多数语言可能不成立。</p>
+<h6 id="2-3-小例题1"><a href="#2-3-小例题1" class="headerlink" title="2.3 小例题1"></a>2.3 小例题1</h6><p>让用户输入一个数字，判断它是否等于553，如果不等于则让用户再次输入，否则退出程序。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">not</span> n.isdigit()) <span class="keyword">or</span> n != <span class="number">553</span>:<span class="comment">#  错误示范！！！教训！！！</span></span><br><span class="line">	n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    </span><br><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">not</span> n.isdigit()) <span class="keyword">or</span> <span class="built_in">int</span>(n) != <span class="number">553</span>: <span class="comment"># n是字符串，需要先转换！！</span></span><br><span class="line">	n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-4-小例题2"><a href="#2-4-小例题2" class="headerlink" title="2.4 小例题2"></a>2.4 小例题2</h6><p><img src="/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/image-20210204162557662.png" alt="image-20210204162557662"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line">sa = s.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">a = <span class="built_in">int</span>(sa[<span class="number">0</span>])</span><br><span class="line">b = <span class="built_in">int</span>(sa[<span class="number">1</span>])</span><br><span class="line">c = <span class="built_in">int</span>(sa[<span class="number">2</span>])</span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(c):</span><br><span class="line">	ls.append(a + b * i)</span><br><span class="line">print(ls)</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">a,b,c = <span class="built_in">input</span>().split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">a,b,c = <span class="built_in">int</span>(a),<span class="built_in">int</span>(b),<span class="built_in">int</span>(c)</span><br><span class="line">ls = [a + b * i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(c)] <span class="comment"># 生成列表一步到位</span></span><br><span class="line">print(ls)</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-5-小例题3"><a href="#2-5-小例题3" class="headerlink" title="2.5 小例题3"></a>2.5 小例题3</h6><p>判断用户输入的一个数是不是回文数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">t = n</span><br><span class="line">m = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> t:</span><br><span class="line">	m = m*<span class="number">10</span> + t%<span class="number">10</span></span><br><span class="line">	t //= <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> n == m:</span><br><span class="line">	print(<span class="string">&quot;是&quot;</span>) </span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">&quot;否&quot;</span>)</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">if</span> s == s[::-<span class="number">1</span>]:</span><br><span class="line">    print(<span class="string">&quot;是&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">&quot;否&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-pass语句"><a href="#3-pass语句" class="headerlink" title="3.pass语句"></a>3.pass语句</h5><p>Python pass 是空语句，是为了保持程序结构的完整性。</p>
+<p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
+<p>在 Python 中有时候会看到一个 def 函数:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sample</span>(<span class="params">n_samples</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>该处的 pass 便是占据一个位置，因为如果定义一个空函数程序会报错，当你没有想好函数的内容是可以用 pass 填充，使程序可以正常运行。（python3中好像可以定义空函数）</p>
+<h5 id="4-for循环补充小知识"><a href="#4-for循环补充小知识" class="headerlink" title="4.for循环补充小知识"></a>4.for循环补充小知识</h5><p>在for-in循环中，不能对<code>虚拟变量i</code>进行修改，但是可以对<code>可迭代对象s</code>进行修改。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&quot;abcdefghijklmn&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">&quot;a&quot;</span>:</span><br><span class="line">        i = <span class="string">&quot;s&quot;</span></span><br><span class="line">print(s)</span><br><span class="line"><span class="comment"># abcdefghijklmn</span></span><br><span class="line">s = <span class="string">&quot;abcdefghijklmn&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    s = <span class="string">&quot;vn&quot;</span></span><br><span class="line">print(s)</span><br><span class="line"><span class="comment"># vn</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-错题1"><a href="#5-错题1" class="headerlink" title="5.错题1"></a>5.错题1</h5><p>以下说法中错误的是（）<br>A、对已经关闭的文件进行读写操作会默认再次打开文件<br>B、对文件操作完成后即使不关闭文件也不会报错，所以可以不关闭文件<br>C、对于非空文本文件，read()返回字符串，readlines()返回列表<br>D、file = open(filename,’rb’)表示只读、二进制方式打开名为filename的文件</p>
+<p>答案选A.    B选项是正确的。</p>
+<h5 id="6-错题2"><a href="#6-错题2" class="headerlink" title="6.错题2"></a>6.错题2</h5><p>1、编写代码将列表ls  = [‘新年都未有芳华，\n’,’ 二月初惊见草芽。\n’,’白雪却嫌春色晚，\n’,’故穿庭树作飞花。’]、<br>写入a.txt文件内容如下：<br>新年都未有芳华，<br>二月初惊见草芽。<br>白雪却嫌春色晚，<br>故穿庭树作飞花。</p>
+<p>2、读取a.txt中的内容，并输出。输出格式如下(输出为一行)：<br>     新年都未有芳华，二月初惊见草芽。白雪却嫌春色晚， 故穿庭树作飞花。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution for 1</span></span><br><span class="line">ls  = [<span class="string">&#x27;新年都未有芳华，\n&#x27;</span>,<span class="string">&#x27;二月初惊见草芽。\n&#x27;</span>,<span class="string">&#x27;白雪却嫌春色晚，\n&#x27;</span>,<span class="string">&#x27;故穿庭树作飞花。&#x27;</span>]</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line">f.writelines(ls)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">	f.write(s)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># solution for 2，不会啊</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">t = f.readlines()</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> t:</span><br><span class="line">	print(line.strip(<span class="string">&quot;\n&quot;</span>),end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="7-练习"><a href="#7-练习" class="headerlink" title="7.练习"></a>7.练习</h5><p>二千多年前希腊的天文学家希巴克斯命名十二星座，它们是水瓶座、双鱼座、白羊座、金牛座、<br>双子座、巨蟹座、狮子座、处女座、天秤座、天蝎座、射手座、摩羯座。给出一个CSV文件（SunSign.csv），<br>内容示例如下：<br>序号,星座,开始月日,结束月日,Unicode<br>1,水瓶座,120,218,9810<br>2,双色座,219,320,9811<br>3,白羊座,321,419,9800<br>4,金牛座,420,520,9801<br>5,双子座,521,621,9802<br>…（略）<br>以第1行为例,120表示1月20日,218表示2月18日,9810是Unicode码。<br>问题：读入CSV文件中数据，获得用户输入。根据用户输入的星座名称，输出此星座的出生日期范围。<br>参考输入和输出示例格式如下：<br>请输入星座中文名称（例如，双子座）：双子座<br>双子座的生日位于521-621之间</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;SunSign.csv&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">ls = f.readlines()</span><br><span class="line">L = []</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> ls:</span><br><span class="line">	L.append(line.strip(<span class="string">&quot;\n&quot;</span>).split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> L:</span><br><span class="line">	<span class="keyword">if</span>(l[<span class="number">1</span>] == n):</span><br><span class="line">		print(<span class="string">&quot;&#123;&#125;的生日位于&#123;&#125;-&#123;&#125;之间&quot;</span>.<span class="built_in">format</span>(n,l[<span class="number">2</span>],l[<span class="number">3</span>]))</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># solution 2，巧妙的解法</span></span><br><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;SunSign.csv&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">ls = f.readlines()</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; ls : </span></span><br><span class="line"><span class="string">[&#x27;序号,星座,开始月日,结束月日,Unicode\n&#x27;,</span></span><br><span class="line"><span class="string">     ...,</span></span><br><span class="line"><span class="string">&#x27;12,魔蝎座,1222,119,9809\n&#x27;]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> ls:</span><br><span class="line">    lt = line.split(<span class="string">&quot;,&quot;</span>)<span class="comment"># 用&#x27;,&#x27;分隔产生列表lt</span></span><br><span class="line">    <span class="keyword">if</span> s == lt[<span class="number">1</span>]:</span><br><span class="line">        print(<span class="string">&quot;&#123;&#125;的生日位于&#123;&#125;-&#123;&#125;之间&quot;</span>.<span class="built_in">format</span>(n,lt[<span class="number">2</span>],lt[<span class="number">3</span>]))</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-错题3"><a href="#8-错题3" class="headerlink" title="8.错题3"></a>8.错题3</h5><p><img src="/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/image-20210222184011849.png" alt="image-20210222184011849"></p>
+<p>当<code>fo.write()</code>完成后，指针指向文件末尾，此时<code>fo.read()</code>无法读取到内容。</p>
+<p>==100-days04.循环结构，开始看130道字符串内置方法==</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python入门</tag>
+        <tag>习题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python入门笔记（四）</title>
     <url>/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
     <content><![CDATA[<h5 id="1-小练习"><a href="#1-小练习" class="headerlink" title="1.小练习"></a>1.小练习</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># s = &quot;* ** ** hel  l* o*  ** * *  &quot;</span></span><br><span class="line"><span class="comment"># 去除两边的&#x27; &#x27;和&#x27;*&#x27;</span></span><br><span class="line"><span class="keyword">while</span> s[<span class="number">0</span>] == <span class="string">&quot;*&quot;</span> <span class="keyword">or</span> s[<span class="number">0</span>] == <span class="string">&quot; &quot;</span>:</span><br><span class="line">    s.strip()</span><br><span class="line">    s.strip(<span class="string">&quot;*&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> s[-<span class="number">1</span>] == <span class="string">&quot;*&quot;</span> <span class="keyword">or</span> s[-<span class="number">1</span>] == <span class="string">&quot; &quot;</span>:</span><br><span class="line">    s.strip()</span><br><span class="line">    s.strip(<span class="string">&quot;*&quot;</span>)  </span><br></pre></td></tr></table></figure>
@@ -2454,80 +2528,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python入门笔记（五）</title>
-    <url>/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/</url>
-    <content><![CDATA[<h5 id="1-文件读取指针函数seek-用法详解"><a href="#1-文件读取指针函数seek-用法详解" class="headerlink" title="1.文件读取指针函数seek()用法详解"></a>1.文件读取指针函数seek()用法详解</h5><p>seek()方法的语法如下：<code>fileObject.seek(offset, from)</code></p>
-<p>offset ： 开始的偏移量，也就是代表需要移动偏移的字节数，如果是负数表示从倒数第几位开始。 </p>
-<p>from：可选，默认值为 0。给 offset 定义一个参数，表示要从哪个位置开始偏移；0 代表从文件开头开始算起，1 代表从当前位置开始算起，2 代表从文件末尾算起。</p>
-<span id="more"></span>
-
-<p><strong>实例1</strong></p>
-<p>下面将用实例演示一下seek()方法的用法<br>下面是‘test.txt’文件内容：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
-
-<p>代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="comment">#只读方式，文件读取指针指向开头</span></span><br><span class="line">print(file.tell())           <span class="comment">#file.tell()返回当前读取指针</span></span><br><span class="line">file_data = file.readline()  <span class="comment">#读取一行数据</span></span><br><span class="line">print(file_data)</span><br><span class="line"></span><br><span class="line">file.seek(<span class="number">3</span>,<span class="number">0</span>)               <span class="comment">#从0开始偏移3个字节</span></span><br><span class="line">print(file.tell())</span><br><span class="line">file_data = file.readline()  <span class="comment">#读取一行数据</span></span><br><span class="line">print(file_data)</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">0123456789</span><br><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3456789</span></span><br><span class="line"></span><br><span class="line"><span class="number">123456</span></span><br></pre></td></tr></table></figure>
-
-<p>上述结果之间空一行是因为读取了末尾的换行符</p>
-<p><strong>实例2</strong></p>
-<p>下面我再说一个例子，关于文件打开模式为‘a+’情况下的例子<br>文件跟上一个例子一样，先看代码：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">file = <span class="built_in">open</span>(<span class="string">&#x27;test.txt&#x27;</span>, <span class="string">&#x27;a+&#x27;</span>)  <span class="comment">#可读写方式，文件读取指针指向末尾，数据追加在末尾</span></span><br><span class="line">print(file.tell())             <span class="comment">#file.tell()返回当前读取指针</span></span><br><span class="line">file.write(<span class="string">&#x27;9876543210\n&#x27;</span>)     <span class="comment">#末尾写入数据</span></span><br><span class="line">print(file.tell())             <span class="comment">#文件写入后返回当前读取指针</span></span><br><span class="line">file_data = file.readline()    <span class="comment">#读取一行数据</span></span><br><span class="line">print(<span class="string">&#x27;one&#x27;</span> + file_data)       <span class="comment">#文件读取指针在末尾，读取数据为空</span></span><br><span class="line">file.seek(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">print(<span class="string">&#x27;two&#x27;</span> + file.readline()) <span class="comment">#文件读取指针在开头，读取第一行数据</span></span><br><span class="line"><span class="number">12345678</span></span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">48</span></span><br><span class="line">one</span><br><span class="line">two0123456789</span><br><span class="line"><span class="number">1234</span></span><br></pre></td></tr></table></figure>
-
-<p>没有读取到数据是因为文件读取指针指向了末尾，所以在使用‘a+’模式时，如果要读取数据要利用seek(0,0)设置文件读取指针<br>‘test.txt’的变化：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line">0123456789</span><br><span class="line"><span class="number">9876543210</span></span><br><span class="line"></span><br><span class="line"><span class="number">12345</span></span><br></pre></td></tr></table></figure>
-
-<p>上述这个例子是我学习Python文件操作时遇到的坑，在利用‘a+’模式打开文件并写入数据后，用readline()怎么都无法读取数据，后来了解到是因为文件读取指针在末尾，所以无法读取数据，要用seek(0，0)方法将文件读取指针重置，才可以读取数据。</p>
-<h5 id="2-小练习"><a href="#2-小练习" class="headerlink" title="2.小练习"></a>2.小练习</h5><h6 id="2-1-题目简化："><a href="#2-1-题目简化：" class="headerlink" title="2.1 题目简化："></a>2.1 题目简化：</h6><p>将浮点数num保留整数部分输出。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">print(<span class="string">&quot;&#123;&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">int</span>(num)))</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">print(<span class="string">&quot;&#123;:.0f&#125;&quot;</span>.<span class="built_in">format</span>(num)) <span class="comment"># 掌握这种做法</span></span><br><span class="line"><span class="comment"># print(&quot;&#123;:d&#125;&quot;.format(num))这样不行，无法直接将浮点型转换为int</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="2-2-python的连续不等式写法："><a href="#2-2-python的连续不等式写法：" class="headerlink" title="2.2 python的连续不等式写法："></a>2.2 python的连续不等式写法：</h6><p><code>1 &lt;= n &lt;=  2</code></p>
-<p>这种写法在python中是合理的，在其他大多数语言可能不成立。</p>
-<h6 id="2-3-小例题1"><a href="#2-3-小例题1" class="headerlink" title="2.3 小例题1"></a>2.3 小例题1</h6><p>让用户输入一个数字，判断它是否等于553，如果不等于则让用户再次输入，否则退出程序。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">not</span> n.isdigit()) <span class="keyword">or</span> n != <span class="number">553</span>:<span class="comment">#  错误示范！！！教训！！！</span></span><br><span class="line">	n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">    </span><br><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">not</span> n.isdigit()) <span class="keyword">or</span> <span class="built_in">int</span>(n) != <span class="number">553</span>: <span class="comment"># n是字符串，需要先转换！！</span></span><br><span class="line">	n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-4-小例题2"><a href="#2-4-小例题2" class="headerlink" title="2.4 小例题2"></a>2.4 小例题2</h6><p><img src="/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/image-20210204162557662.png" alt="image-20210204162557662"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line">sa = s.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">a = <span class="built_in">int</span>(sa[<span class="number">0</span>])</span><br><span class="line">b = <span class="built_in">int</span>(sa[<span class="number">1</span>])</span><br><span class="line">c = <span class="built_in">int</span>(sa[<span class="number">2</span>])</span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(c):</span><br><span class="line">	ls.append(a + b * i)</span><br><span class="line">print(ls)</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">a,b,c = <span class="built_in">input</span>().split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line">a,b,c = <span class="built_in">int</span>(a),<span class="built_in">int</span>(b),<span class="built_in">int</span>(c)</span><br><span class="line">ls = [a + b * i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(c)] <span class="comment"># 生成列表一步到位</span></span><br><span class="line">print(ls)</span><br></pre></td></tr></table></figure>
-
-<h6 id="2-5-小例题3"><a href="#2-5-小例题3" class="headerlink" title="2.5 小例题3"></a>2.5 小例题3</h6><p>判断用户输入的一个数是不是回文数。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">n = <span class="built_in">eval</span>(<span class="built_in">input</span>())</span><br><span class="line">t = n</span><br><span class="line">m = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> t:</span><br><span class="line">	m = m*<span class="number">10</span> + t%<span class="number">10</span></span><br><span class="line">	t //= <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> n == m:</span><br><span class="line">	print(<span class="string">&quot;是&quot;</span>) </span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">&quot;否&quot;</span>)</span><br><span class="line"><span class="comment"># solution 2</span></span><br><span class="line">s = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">if</span> s == s[::-<span class="number">1</span>]:</span><br><span class="line">    print(<span class="string">&quot;是&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	print(<span class="string">&quot;否&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-pass语句"><a href="#3-pass语句" class="headerlink" title="3.pass语句"></a>3.pass语句</h5><p>Python pass 是空语句，是为了保持程序结构的完整性。</p>
-<p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
-<p>在 Python 中有时候会看到一个 def 函数:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sample</span>(<span class="params">n_samples</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<p>该处的 pass 便是占据一个位置，因为如果定义一个空函数程序会报错，当你没有想好函数的内容是可以用 pass 填充，使程序可以正常运行。（python3中好像可以定义空函数）</p>
-<h5 id="4-for循环补充小知识"><a href="#4-for循环补充小知识" class="headerlink" title="4.for循环补充小知识"></a>4.for循环补充小知识</h5><p>在for-in循环中，不能对<code>虚拟变量i</code>进行修改，但是可以对<code>可迭代对象s</code>进行修改。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = <span class="string">&quot;abcdefghijklmn&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">&quot;a&quot;</span>:</span><br><span class="line">        i = <span class="string">&quot;s&quot;</span></span><br><span class="line">print(s)</span><br><span class="line"><span class="comment"># abcdefghijklmn</span></span><br><span class="line">s = <span class="string">&quot;abcdefghijklmn&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    s = <span class="string">&quot;vn&quot;</span></span><br><span class="line">print(s)</span><br><span class="line"><span class="comment"># vn</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="5-错题1"><a href="#5-错题1" class="headerlink" title="5.错题1"></a>5.错题1</h5><p>以下说法中错误的是（）<br>A、对已经关闭的文件进行读写操作会默认再次打开文件<br>B、对文件操作完成后即使不关闭文件也不会报错，所以可以不关闭文件<br>C、对于非空文本文件，read()返回字符串，readlines()返回列表<br>D、file = open(filename,’rb’)表示只读、二进制方式打开名为filename的文件</p>
-<p>答案选A.    B选项是正确的。</p>
-<h5 id="6-错题2"><a href="#6-错题2" class="headerlink" title="6.错题2"></a>6.错题2</h5><p>1、编写代码将列表ls  = [‘新年都未有芳华，\n’,’ 二月初惊见草芽。\n’,’白雪却嫌春色晚，\n’,’故穿庭树作飞花。’]、<br>写入a.txt文件内容如下：<br>新年都未有芳华，<br>二月初惊见草芽。<br>白雪却嫌春色晚，<br>故穿庭树作飞花。</p>
-<p>2、读取a.txt中的内容，并输出。输出格式如下(输出为一行)：<br>     新年都未有芳华，二月初惊见草芽。白雪却嫌春色晚， 故穿庭树作飞花。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution for 1</span></span><br><span class="line">ls  = [<span class="string">&#x27;新年都未有芳华，\n&#x27;</span>,<span class="string">&#x27;二月初惊见草芽。\n&#x27;</span>,<span class="string">&#x27;白雪却嫌春色晚，\n&#x27;</span>,<span class="string">&#x27;故穿庭树作飞花。&#x27;</span>]</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line">f.writelines(ls)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">	f.write(s)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># solution for 2，不会啊</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;a.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">t = f.readlines()</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> t:</span><br><span class="line">	print(line.strip(<span class="string">&quot;\n&quot;</span>),end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-
-<h5 id="7-练习"><a href="#7-练习" class="headerlink" title="7.练习"></a>7.练习</h5><p>二千多年前希腊的天文学家希巴克斯命名十二星座，它们是水瓶座、双鱼座、白羊座、金牛座、<br>双子座、巨蟹座、狮子座、处女座、天秤座、天蝎座、射手座、摩羯座。给出一个CSV文件（SunSign.csv），<br>内容示例如下：<br>序号,星座,开始月日,结束月日,Unicode<br>1,水瓶座,120,218,9810<br>2,双色座,219,320,9811<br>3,白羊座,321,419,9800<br>4,金牛座,420,520,9801<br>5,双子座,521,621,9802<br>…（略）<br>以第1行为例,120表示1月20日,218表示2月18日,9810是Unicode码。<br>问题：读入CSV文件中数据，获得用户输入。根据用户输入的星座名称，输出此星座的出生日期范围。<br>参考输入和输出示例格式如下：<br>请输入星座中文名称（例如，双子座）：双子座<br>双子座的生日位于521-621之间</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># solution 1</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;SunSign.csv&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">ls = f.readlines()</span><br><span class="line">L = []</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> ls:</span><br><span class="line">	L.append(line.strip(<span class="string">&quot;\n&quot;</span>).split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line"><span class="keyword">for</span> l <span class="keyword">in</span> L:</span><br><span class="line">	<span class="keyword">if</span>(l[<span class="number">1</span>] == n):</span><br><span class="line">		print(<span class="string">&quot;&#123;&#125;的生日位于&#123;&#125;-&#123;&#125;之间&quot;</span>.<span class="built_in">format</span>(n,l[<span class="number">2</span>],l[<span class="number">3</span>]))</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># solution 2，巧妙的解法</span></span><br><span class="line">n = <span class="built_in">input</span>()</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;SunSign.csv&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">ls = f.readlines()</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27; ls : </span></span><br><span class="line"><span class="string">[&#x27;序号,星座,开始月日,结束月日,Unicode\n&#x27;,</span></span><br><span class="line"><span class="string">     ...,</span></span><br><span class="line"><span class="string">&#x27;12,魔蝎座,1222,119,9809\n&#x27;]</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> ls:</span><br><span class="line">    lt = line.split(<span class="string">&quot;,&quot;</span>)<span class="comment"># 用&#x27;,&#x27;分隔产生列表lt</span></span><br><span class="line">    <span class="keyword">if</span> s == lt[<span class="number">1</span>]:</span><br><span class="line">        print(<span class="string">&quot;&#123;&#125;的生日位于&#123;&#125;-&#123;&#125;之间&quot;</span>.<span class="built_in">format</span>(n,lt[<span class="number">2</span>],lt[<span class="number">3</span>]))</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-
-<h5 id="8-错题3"><a href="#8-错题3" class="headerlink" title="8.错题3"></a>8.错题3</h5><p><img src="/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%94%EF%BC%89/image-20210222184011849.png" alt="image-20210222184011849"></p>
-<p>当<code>fo.write()</code>完成后，指针指向文件末尾，此时<code>fo.read()</code>无法读取到内容。</p>
-<p>==100-days04.循环结构，开始看130道字符串内置方法==</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python入门</tag>
-        <tag>习题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python进阶笔记（一）</title>
     <url>/2021/02/24/Python%E8%BF%9B%E9%98%B6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="一-面向对象概述"><a href="#一-面向对象概述" class="headerlink" title="一.面向对象概述"></a>一.面向对象概述</h1><h4 id="1-面向过程与面向对象"><a href="#1-面向过程与面向对象" class="headerlink" title="1.面向过程与面向对象"></a>1.面向过程与面向对象</h4><ol>
@@ -2817,51 +2817,14 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p>只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
-<p>在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
-<p><a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
-<p>其实核心问题就是找到span id里是否有style = “display: none”</p>
+<h3 id="hexo相关问题汇总"><a href="#hexo相关问题汇总" class="headerlink" title="hexo相关问题汇总"></a>hexo相关问题汇总</h3><p>1.只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
+<p>2.在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
+<p>3.<a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
+<p>其实核心问题就是找到span id里是否有style = “display: none”，找到对应文件对应位置的代码并删除即可</p>
+<p>4.hexo s本地样式与网页样式不一致？</p>
+<p>其实原因很简单，拉到服务器之前要<code>hexo clean</code>清理一下缓存，然后再生成和部署，你学会了吗？</p>
+<p>（可能<code>hexo c &amp;&amp; hexo g &amp;&amp; hexo d</code>一步到位，有时候不太行，分开写）</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>寒假每日一题入门题（一）</title>
-    <url>/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="Day-01-104-货仓选址"><a href="#Day-01-104-货仓选址" class="headerlink" title="Day_01 104.货仓选址"></a>Day_01 104.货仓选址</h2><p><strong>这题考察绝对值不等式</strong></p>
-<p><a href="https://www.acwing.com/solution/content/36228/">参考题解</a></p>
-<p><img src="/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/image-20210222105937470.png" alt="image-20210222105937470"></p>
-<p>由绝对值不等式可证明：<br>将n个数两两分组，如果n是奇数，货仓取中位数时取到不等式的等号，此时为最小值；如果n是偶数，货仓取中间两个数的中间即可。<br><strong>结论：中位数就是此题的最优解。</strong></p>
-<span id="more"></span>
-
-<hr>
-<h3 id="算法1：排序-中位数"><a href="#算法1：排序-中位数" class="headerlink" title="算法1：排序+中位数"></a><strong>算法1：排序+中位数</strong></h3><p><strong>时间复杂度</strong>：$O(nlogn)$</p>
-<p>中位数有非常优秀的性质，比如说在这道题目中，每一个点到中位数的距离，都是满足全局的最有性，而不是局部最优性。</p>
-<p>具体的来说，我们设在仓库左边的所有点，到仓库的距离之和为p,右边的距离之和则为q，那么我们就必须让p+q的值尽量小。</p>
-<p>当仓库向左移动的话，p会减少x，但是q会增加n−x，所以说当为仓库中位数的时候,p+q最小。</p>
-<p>还是同样的一句话，画图理解很重要。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) res += a[i] - a[i&gt;&gt;<span class="number">1</span>];</span><br><span class="line">    <span class="comment">// ==&gt; res += abs(a[i] - a[n&gt;&gt;1])</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>将 abs(a[i] - a[n &gt;&gt; 1]) 改为 a[i] - a[i &gt;&gt; 1]也可以 AC（这样可以不用取绝对值）</p>
-<p>证明如下：<br><img src="/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/image-20210222110203712.png" alt="image-20210222110203712"></p>
-<h3 id="算法2：快速选择-中位数"><a href="#算法2：快速选择-中位数" class="headerlink" title="算法2：快速选择+中位数"></a><strong>算法2：快速选择+中位数</strong></h3><p>快速选择函数nth_element(数组初位置，寻找元素，数组末位置)（STL）</p>
-<p>C++的STL库中的nth_element()方法，默认是求区间<strong>第k小</strong>的（划重点）。</p>
-<p>举个栗子求第3小，对于 a[9]={4,7,6,9,1,8,2,3,5};</p>
-<p>nth_element(a,a+2,a+9)，**将下标为2，也就是第3个数放在正确的位置，求的是第3小的数a[2]**。（下标从零开始）</p>
-<p><strong>nth_element(a,a+k,a+n)，函数只是把下标为k的元素放在了正确位置，对其它元素并没有排序，当然k左边元素都小于等于它，右边元素都大于等于它，所以可以利用这个函数快速定位某个元素</strong>。</p>
-<p>那求第k大时呢？我们可以转化成求第n-k+1小，此时下标应该是n - k。</p>
-<p><strong>nth_element(a,a+n-k,a+n)，将下标为n-k，也就是第n-k+1个数放在正确的位置，求的是第k大的数a[n-k]。</strong></p>
-<p><strong>时间复杂度</strong>：$O(n)$</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,s=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">    nth_element(p,p+n/<span class="number">2</span>,p+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) s+=<span class="built_in">abs</span>(p[i]-p[n/<span class="number">2</span>]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>中位数</tag>
-        <tag>绝对值不等式</tag>
-      </tags>
   </entry>
   <entry>
     <title>蓝桥杯学习总结（一）</title>
@@ -2930,13 +2893,34 @@
 <p>再考虑代码实现：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// soluition 1，y总题解，直接输出排列</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;// 4个最常见的头文件先写上</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> st[N];<span class="comment">// 状态，记录每个位置当前状态，0表示还没考虑，1表示选他，2表示不选</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (u &gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (st[i] == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    st[u] = <span class="number">1</span>;<span class="comment">// 第一个分支</span></span><br><span class="line">    dfs(u+<span class="number">1</span>);</span><br><span class="line">    st[u] = <span class="number">0</span>;<span class="comment">// 恢复现场</span></span><br><span class="line">    </span><br><span class="line">    st[u] = <span class="number">2</span>;<span class="comment">// 第二个分支</span></span><br><span class="line">    dfs(u+<span class="number">1</span>);</span><br><span class="line">    st[u] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// solution 2，用vector存储数组再输出，y总思路</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> st[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ways;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (u &gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; way;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )  <span class="comment">// 记录方案</span></span><br><span class="line">            <span class="keyword">if</span> (st[i] == <span class="number">1</span>)</span><br><span class="line">                way.push_back(i);</span><br><span class="line">        ways.push_back(way);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    st[u] = <span class="number">2</span>;</span><br><span class="line">    dfs(u + <span class="number">1</span>);     <span class="comment">// 第一个分支：不选</span></span><br><span class="line">    st[u] = <span class="number">0</span>;  <span class="comment">// 恢复现场</span></span><br><span class="line"></span><br><span class="line">    st[u] = <span class="number">1</span>;</span><br><span class="line">    dfs(u + <span class="number">1</span>);     <span class="comment">// 第二个分支：选</span></span><br><span class="line">    st[u] = <span class="number">0</span>;  <span class="comment">// 恢复现场</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ways.size(); i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; ways[i].size(); j ++ ) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, ways[i][j]);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">作者：Bug_FreeOωO</span><br><span class="line">链接：https:<span class="comment">//www.acwing.com/solution/content/6682/</span></span><br><span class="line">来源：AcWing</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
 
-<h5 id="2-2-acwing-94-递归实现排列型枚举"><a href="#2-2-acwing-94-递归实现排列型枚举" class="headerlink" title="2.2 acwing.94.递归实现排列型枚举"></a>2.2 acwing.94.递归实现排列型枚举</h5><p>把 1~n 这 n 个整数排成一行后随机打乱顺序，输出所有可能的次序。</p>
+<h5 id="2-2-acwing-94-递归实现排列型枚举"><a href="#2-2-acwing-94-递归实现排列型枚举" class="headerlink" title="2.2 acwing.94.递归实现排列型枚举"></a>2.2 acwing.94.递归实现排列型枚举</h5><p> <a href="https://grant1499.github.io/2021/02/24/C-%E7%AB%9E%E8%B5%9B%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/">语法课有一道类似题目823.排列</a></p>
+<p>把 1~n 这 n 个整数排成一行后随机打乱顺序，输出所有可能的次序。</p>
 <p>输入格式<br>            一个整数n。</p>
 <p>输出格式<br>        按照从小到大的顺序输出所有方案，每行1个。</p>
 <p>首先，同一行相邻两个数用一个空格隔开。</p>
-<p>其次，对于两个不同的行，对应下标的数一一比较，字典序较小的排在前面。</p>
+<p>其次，对于两个不同的行，对应下标的数一一比较，<strong>字典序较小的排在前面</strong>。</p>
 <p>数据范围<br>         1≤n≤9<br>        输入样例：<br>              3<br>        输出样例：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>1思路</strong>：</p>
+<p>顺序1：依次枚举每个数放在哪个位置；</p>
+<p>顺序2：依次枚举每个位置放哪个数。</p>
+<p><strong>2画出递归搜索树</strong>（以顺序2为例）：</p>
+<p><img src="/2021/02/23/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/image-20210225172255694.png" alt="image-20210225172255694"></p>
+<p><strong>3代码实现</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span>  state[N]; <span class="comment">// 0表示还没放数，1~n表示放了哪个数</span></span><br><span class="line"><span class="keyword">bool</span> used[N]; <span class="comment">// true表示用过，false表示没用过</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (u &gt; n)<span class="comment">// 边界</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,state[i]);<span class="comment">// 打印方案</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 依次枚举每个分支，当前位置可以填哪些数</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!used[i])</span><br><span class="line">		&#123;</span><br><span class="line">			state[u] = i;</span><br><span class="line">			used[i] = <span class="literal">true</span>;</span><br><span class="line">			dfs(u+<span class="number">1</span>);</span><br><span class="line">			<span class="comment">// 恢复现场</span></span><br><span class="line">			state[u] = <span class="number">0</span>;</span><br><span class="line">			used[i] = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">	dfs(<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4时间复杂度分析</strong>：</p>
+<p>（作为扩展内容，蓝桥杯不要求掌握，但以后面试会用到）</p>
+<p><img src="/2021/02/23/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/image-20210225175859772.png" alt="image-20210225175859772"></p>
+<p><img src="/2021/02/23/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%80%EF%BC%89/image-20210225180930832.png" alt="image-20210225180930832"></p>
+<p>第一层：枚举分支，有一个for循环，复杂度为n；</p>
+<p>第二层：有n个函数，每个函数有一个for循环，复杂度为n*n；</p>
+<p>第三层：填完一个位置后，还有n-1个位置，复杂度为<code>n*(n-1)*n</code>；</p>
+<p>…</p>
+<p>最后一层：每个叶子节点输出方案，有一个for循环，复杂度为<code>n!*n</code>。</p>
+<p>加起来，通过不等式放缩证明：<code>n! &lt;= (1+n+n(n-1)+n(n-1)(n-2)+...+n!) &lt;= 3*n!</code>，因为括号外层还有个n，所以最终时间复杂度为$O(n*n!)$</p>
+]]></content>
       <categories>
         <category>C++</category>
         <category>算法</category>
@@ -2946,6 +2930,46 @@
         <tag>蓝桥杯</tag>
         <tag>竞赛</tag>
         <tag>递推</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>寒假每日一题入门题（一）</title>
+    <url>/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="Day-01-104-货仓选址"><a href="#Day-01-104-货仓选址" class="headerlink" title="Day_01 104.货仓选址"></a>Day_01 104.货仓选址</h2><p><strong>这题考察绝对值不等式</strong></p>
+<p><a href="https://www.acwing.com/solution/content/36228/">参考题解</a></p>
+<p><img src="/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/image-20210222105937470.png" alt="image-20210222105937470"></p>
+<p>由绝对值不等式可证明：<br>将n个数两两分组，如果n是奇数，货仓取中位数时取到不等式的等号，此时为最小值；如果n是偶数，货仓取中间两个数的中间即可。<br><strong>结论：中位数就是此题的最优解。</strong></p>
+<span id="more"></span>
+
+<hr>
+<h3 id="算法1：排序-中位数"><a href="#算法1：排序-中位数" class="headerlink" title="算法1：排序+中位数"></a><strong>算法1：排序+中位数</strong></h3><p><strong>时间复杂度</strong>：$O(nlogn)$</p>
+<p>中位数有非常优秀的性质，比如说在这道题目中，每一个点到中位数的距离，都是满足全局的最有性，而不是局部最优性。</p>
+<p>具体的来说，我们设在仓库左边的所有点，到仓库的距离之和为p,右边的距离之和则为q，那么我们就必须让p+q的值尽量小。</p>
+<p>当仓库向左移动的话，p会减少x，但是q会增加n−x，所以说当为仓库中位数的时候,p+q最小。</p>
+<p>还是同样的一句话，画图理解很重要。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) res += a[i] - a[i&gt;&gt;<span class="number">1</span>];</span><br><span class="line">    <span class="comment">// ==&gt; res += abs(a[i] - a[n&gt;&gt;1])</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>将 abs(a[i] - a[n &gt;&gt; 1]) 改为 a[i] - a[i &gt;&gt; 1]也可以 AC（这样可以不用取绝对值）</p>
+<p>证明如下：<br><img src="/2021/02/24/%E5%AF%92%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E5%85%A5%E9%97%A8%E9%A2%98%EF%BC%88%E4%B8%80%EF%BC%89/image-20210222110203712.png" alt="image-20210222110203712"></p>
+<h3 id="算法2：快速选择-中位数"><a href="#算法2：快速选择-中位数" class="headerlink" title="算法2：快速选择+中位数"></a><strong>算法2：快速选择+中位数</strong></h3><p>快速选择函数nth_element(数组初位置，寻找元素，数组末位置)（STL）</p>
+<p>C++的STL库中的nth_element()方法，默认是求区间<strong>第k小</strong>的（划重点）。</p>
+<p>举个栗子求第3小，对于 a[9]={4,7,6,9,1,8,2,3,5};</p>
+<p>nth_element(a,a+2,a+9)，**将下标为2，也就是第3个数放在正确的位置，求的是第3小的数a[2]**。（下标从零开始）</p>
+<p><strong>nth_element(a,a+k,a+n)，函数只是把下标为k的元素放在了正确位置，对其它元素并没有排序，当然k左边元素都小于等于它，右边元素都大于等于它，所以可以利用这个函数快速定位某个元素</strong>。</p>
+<p>那求第k大时呢？我们可以转化成求第n-k+1小，此时下标应该是n - k。</p>
+<p><strong>nth_element(a,a+n-k,a+n)，将下标为n-k，也就是第n-k+1个数放在正确的位置，求的是第k大的数a[n-k]。</strong></p>
+<p><strong>时间复杂度</strong>：$O(n)$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,s=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">    nth_element(p,p+n/<span class="number">2</span>,p+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) s+=<span class="built_in">abs</span>(p[i]-p[n/<span class="number">2</span>]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>中位数</tag>
+        <tag>绝对值不等式</tag>
       </tags>
   </entry>
   <entry>
