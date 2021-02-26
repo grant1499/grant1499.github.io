@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://grant1499.github.io/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210101349712.png">
 <meta property="og:image" content="https://grant1499.github.io/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210102225703.png">
 <meta property="article:published_time" content="2021-02-23T23:04:32.000Z">
-<meta property="article:modified_time" content="2021-02-24T02:50:26.291Z">
+<meta property="article:modified_time" content="2021-02-26T01:25:03.015Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">23</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">24</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,10 +214,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-24 07:04:32 / 修改时间：10:50:26" itemprop="dateCreated datePublished" datetime="2021-02-24T07:04:32+08:00">2021-02-24</time>
+              <time title="创建时间：2021-02-24 07:04:32" itemprop="dateCreated datePublished" datetime="2021-02-24T07:04:32+08:00">2021-02-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-26 09:25:03" itemprop="dateModified" datetime="2021-02-26T09:25:03+08:00">2021-02-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,7 +243,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>4.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -286,30 +292,9 @@
 <p>如果遇到编码问题，我们可以使用 <strong>-encoding</strong> 选项设置 <strong>utf-8</strong> 来编译：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">javac -encoding UTF-8 HelloWorld.java </span><br><span class="line">java HelloWorld </span><br></pre></td></tr></table></figure>
 
-<h4 id="2-java语法规范"><a href="#2-java语法规范" class="headerlink" title="2.java语法规范"></a>2.java语法规范</h4><p>编写 Java 程序时，应注意以下几点：</p>
-<ul>
-<li><strong>大小写敏感</strong>：Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。</li>
-<li><strong>类名</strong>：（class）对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 <strong>MyFirstJavaClass</strong> 。</li>
-<li><strong>方法名</strong>：（method）所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。</li>
-<li><strong>源文件名</strong>：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 <strong>.java</strong>。（如果文件名和类名不相同则会导致编译错误）。</li>
-<li><strong>主方法入口</strong>：所有的 Java 程序由 <strong>public static void main(String[] args)</strong> 方法开始执行。</li>
-</ul>
-<p>像其他语言一样，Java可以使用修饰符来修饰类中方法和属性。主要有两类修饰符：</p>
-<ol>
-<li>访问控制修饰符 : default, public , protected, private</li>
-<li>非访问控制修饰符 : final, abstract, static, synchronized</li>
-</ol>
-<ul>
-<li><p><strong>标识符命名规范</strong>：</p>
-<p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210101349712.png" alt="image-20210210101349712"></p>
-</li>
-</ul>
-<p><strong>小结</strong></p>
-<p>一个Java源码只能定义一个<code>public</code>类型的class，并且class名称和文件名要完全一致；</p>
-<p>但是可以定义多个class（类）;</p>
-<p>使用<code>javac</code>可以将<code>.java</code>源码编译成<code>.class</code>字节码；（JVM运行字节码）</p>
-<p>使用<code>java</code>可以运行一个已编译的Java程序，参数是类名。</p>
-<h4 id="3-Java与C-的区别"><a href="#3-Java与C-的区别" class="headerlink" title="3.Java与C++的区别"></a>3.Java与C++的区别</h4><p>我知道很多人没学过 C++，但是面试官就是没事喜欢拿咱们 Java 和 C++ 比呀！没办法！！！就算没学过 C++，也要记下来！</p>
+
+
+<h4 id="2-Java与C-的区别"><a href="#2-Java与C-的区别" class="headerlink" title="2.Java与C++的区别"></a>2.Java与C++的区别</h4><p>我知道很多人没学过 C++，但是面试官就是没事喜欢拿咱们 Java 和 C++ 比呀！没办法！！！就算没学过 C++，也要记下来！</p>
 <ul>
 <li>都是面向对象的语言，都支持封装、继承和多态</li>
 <li>Java 不提供指针来直接访问内存，程序内存更加安全</li>
@@ -317,8 +302,8 @@
 <li>Java 有自动内存管理垃圾回收机制(GC)，不需要程序员手动释放无用内存</li>
 <li><strong>在 C 语言中，字符串或字符数组最后都会有一个额外的字符<code>&#39;\0&#39;</code>来表示结束。但是，Java 语言中没有结束符这一概念。</strong> 这是一个值得深度思考的问题，具体原因推荐看这篇文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/sszgg2006/article/details/49148189">https://blog.csdn.net/sszgg2006/article/details/49148189</a></li>
 </ul>
-<h4 id="4-java语言编译-compile-与解释并存"><a href="#4-java语言编译-compile-与解释并存" class="headerlink" title="4.java语言编译(compile)与解释并存"></a>4.java语言编译(compile)与解释并存</h4><p>Java 语言既具有编译型语言的特征，也具有解释型语言的特征，因为 Java 程序要经过先编译，后解释两个步骤，由 Java 编写的程序需要先<strong>经过编译步骤，生成字节码</strong>（*.class 文件），这种字节码必须<strong>由 Java 解释器来解释执行</strong>。因此，我们可以认为 Java 语言编译与解释并存。</p>
-<h4 id="5-字符型常量和字符串常量的区别"><a href="#5-字符型常量和字符串常量的区别" class="headerlink" title="5.字符型常量和字符串常量的区别"></a>5.字符型常量和字符串常量的区别</h4><ol>
+<h4 id="3-java语言编译-compile-与解释并存"><a href="#3-java语言编译-compile-与解释并存" class="headerlink" title="3.java语言编译(compile)与解释并存"></a>3.java语言编译(compile)与解释并存</h4><p>Java 语言既具有编译型语言的特征，也具有解释型语言的特征，因为 <u>Java 程序要经过先编译，后解释两个步骤</u>，由 Java 编写的程序需要先<strong>经过编译步骤，生成字节码</strong>（*.class 文件），这种字节码必须<strong>由 Java 解释器来解释执行</strong>。因此，我们可以认为 Java 语言编译与解释并存。</p>
+<h4 id="4-字符型常量和字符串常量的区别"><a href="#4-字符型常量和字符串常量的区别" class="headerlink" title="4.字符型常量和字符串常量的区别"></a>4.字符型常量和字符串常量的区别</h4><ol>
 <li><p>形式上: 字符常量是单引号引起的一个字符; 字符串常量是双引号引起的 0 个或若干个字符</p>
 </li>
 <li><p>含义上: 字符常量相当于一个整型值( ASCII 值),可以参加表达式运算; 字符串常量代表一个地址值(该字符串在内存中存放位置)</p>
@@ -329,10 +314,10 @@
 </blockquote>
 </li>
 </ol>
-<h4 id="6-Java注释"><a href="#6-Java注释" class="headerlink" title="6.Java注释"></a>6.Java注释</h4><p>主要分为三种：单行、多行和文档注释。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">   <span class="comment">/* 这是第一个Java程序</span></span><br><span class="line"><span class="comment">    * 它将输出 Hello World</span></span><br><span class="line"><span class="comment">    * 这是一个文档的示例</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="comment">// 这是单行注释的示例</span></span><br><span class="line">       <span class="comment">/* </span></span><br><span class="line"><span class="comment">       多行注释</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       System.out.println(<span class="string">&quot;Hello World&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-Java注释"><a href="#5-Java注释" class="headerlink" title="5.Java注释"></a>5.Java注释</h4><p>主要分为三种：单行、多行和文档注释。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">   <span class="comment">/** 这是第一个Java程序</span></span><br><span class="line"><span class="comment">    * 它将输出 Hello World</span></span><br><span class="line"><span class="comment">    * 这是一个文档的示例</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">       <span class="comment">// 这是单行注释的示例</span></span><br><span class="line">       <span class="comment">/* </span></span><br><span class="line"><span class="comment">       多行注释</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">       System.out.println(<span class="string">&quot;Hello World&quot;</span>); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="7-Java关键字"><a href="#7-Java关键字" class="headerlink" title="7.Java关键字"></a>7.Java关键字</h4><table>
+<h4 id="6-Java关键字"><a href="#6-Java关键字" class="headerlink" title="6.Java关键字"></a>6.Java关键字</h4><table>
 <thead>
 <tr>
 <th>访问控制</th>
@@ -437,18 +422,52 @@
 </tr>
 <tr>
 <td>保留字</td>
-<td></td>
-<td></td>
-<td></td>
+<td>goto</td>
+<td>const</td>
+<td>null</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="8-java变量"><a href="#8-java变量" class="headerlink" title="8.java变量"></a>8.java变量</h4><p>Java变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的数据类型（Java分为两种数据类型：基本数据类型和引用数据类型）。变量按作用域的范围又可分为三种类型：<strong>局部变量，成员变量和静态变量</strong>。</p>
+<h4 id="7-java语法规范"><a href="#7-java语法规范" class="headerlink" title="7.java语法规范"></a>7.java语法规范</h4><p>编写 Java 程序时，应注意以下几点：</p>
+<ul>
+<li><strong>大小写敏感</strong>：Java 是大小写敏感的，这就意味着标识符 Hello 与 hello 是不同的。</li>
+<li><strong>类名</strong>：（class）对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 <strong>MyFirstJavaClass</strong> 。</li>
+<li><strong>方法名</strong>：（method）所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写。</li>
+<li><strong>源文件名</strong>：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记 Java 是大小写敏感的），文件名的后缀为 <strong>.java</strong>。（如果文件名和类名不相同则会导致编译错误）。</li>
+<li><strong>主方法入口</strong>：所有的 Java 程序由 <strong>public static void main(String[] args)</strong> 方法开始执行。</li>
+</ul>
+<p>像其他语言一样，Java可以使用修饰符来修饰类中方法和属性。主要有两类修饰符：</p>
+<ol>
+<li>访问控制修饰符 : default, public , protected, private</li>
+<li>非访问控制修饰符 : final, abstract, static, synchronized</li>
+</ol>
+<ul>
+<li><p><strong>标识符命名规范</strong>：</p>
+<p>所有的标识符都应该以英文字母、$、或者_开始。</p>
+<p>首字符之后可以是英文字母、$_或者数字`的任意组合。</p>
+<p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210101349712.png" alt="image-20210210101349712"></p>
+</li>
+</ul>
+<p><strong>小结</strong></p>
+<p>一个Java源码只能定义一个<code>public</code>类型的class，并且class名称和文件名要完全一致；</p>
+<p>但是可以定义多个class（类）;</p>
+<p>使用<code>javac</code>可以将<code>.java</code>源码编译成<code>.class</code>字节码；（JVM运行字节码）</p>
+<p>使用<code>java</code>可以运行一个已编译的Java程序，参数是类名。</p>
+<h4 id="8-java变量与数据类型"><a href="#8-java变量与数据类型" class="headerlink" title="8.java变量与数据类型"></a>8.java变量与数据类型</h4><p>Java变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的数据类型（Java分为两种数据类型：基本数据类型和引用数据类型）。变量按作用域的范围又可分为三种类型：<strong>局部变量，成员变量和静态变量</strong>。</p>
 <p>Java中并没有全局变量的概念，这与C/C++不同！！</p>
 <h5 id="8-1-主要分类"><a href="#8-1-主要分类" class="headerlink" title="8.1 主要分类"></a>8.1 主要分类</h5><p><img src="/2021/02/24/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210210102225703.png" alt="image-20210210102225703"></p>
+<p>八大基本数据类型</p>
+<ul>
+<li>1字节 的是 byte 、boolean</li>
+<li>2字节 的是 short 、<strong>char</strong>（Java采用Unicode编码）</li>
+<li>4字节 的是 int （范围约21亿=2$^{31}$）、float</li>
+<li>8字节 的是 long 、double</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> num1 = <span class="number">30L</span>;</span><br><span class="line"><span class="keyword">long</span> num1 = <span class="number">30l</span>;<span class="comment">// 两者等价</span></span><br><span class="line"><span class="keyword">float</span> num2 = <span class="number">23.1F</span>;</span><br><span class="line"><span class="keyword">float</span> num2 = <span class="number">23.1f</span>;<span class="comment">// 两者等价</span></span><br><span class="line"><span class="keyword">double</span> = <span class="number">23.23453456</span>;<span class="comment">// double不需要后缀，Java中的小数默认为double型</span></span><br><span class="line"><span class="keyword">char</span> c = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">Srting s = <span class="string">&quot;ABC&quot;</span>;<span class="comment">// 注意：String是一个类，不是关键字，不属于基本数据类型</span></span><br><span class="line"><span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br></pre></td></tr></table></figure>
+
 <h5 id="8-2-局部变量"><a href="#8-2-局部变量" class="headerlink" title="8.2 局部变量"></a>8.2 局部变量</h5><p>声明局部变量时的注意事项：</p>
 <ul>
 <li>局部变量声明在方法，构造方法或语句块中。</li>
@@ -459,7 +478,7 @@
 <li>局部变量没有默认值，所以局部变量被声明后，<strong>必须经过初始化，才可以使用</strong>。</li>
 </ul>
 <h5 id="8-3-成员变量"><a href="#8-3-成员变量" class="headerlink" title="8.3 成员变量"></a>8.3 成员变量</h5><p>在类内部但在方法体外声明的变量称为成员变量，或者实例变量。之所以称为实例变量，是因为该变量只能通过类的实例（对象）来访问。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 微信搜「沉默王二」，回复关键字 PDF</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceVariable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data = <span class="number">88</span>;<span class="comment">// data是成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InstanceVariable iv = <span class="keyword">new</span> InstanceVariable();</span><br><span class="line">        System.out.println(iv.data); <span class="comment">// 88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 文档注释：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 微信搜「沉默王二」，回复关键字 PDF</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceVariable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data = <span class="number">88</span>;<span class="comment">// data是成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InstanceVariable iv = <span class="keyword">new</span> InstanceVariable();</span><br><span class="line">        System.out.println(iv.data); <span class="comment">// 88</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以是一个变量，它是一个引用类型的变量。<code>new</code>关键字可以创建一个类的实例（也称为对象），通过“ =”操作符赋值给iv这个变量，iv就成了这个对象的引用，通过<code>iv.data</code>就可以访问成员变量了。</p>
 <p>声明成员变量时的注意事项：</p>
@@ -573,7 +592,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-java%E7%AE%80%E4%BB%8B"><span class="nav-text">1.java简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-java%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-text">2.java语法规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Java%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">3.Java与C++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-java%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91-compile-%E4%B8%8E%E8%A7%A3%E9%87%8A%E5%B9%B6%E5%AD%98"><span class="nav-text">4.java语言编译(compile)与解释并存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%AD%97%E7%AC%A6%E5%9E%8B%E5%B8%B8%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5.字符型常量和字符串常量的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Java%E6%B3%A8%E9%87%8A"><span class="nav-text">6.Java注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Java%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">7.Java关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-java%E5%8F%98%E9%87%8F"><span class="nav-text">8.java变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#8-1-%E4%B8%BB%E8%A6%81%E5%88%86%E7%B1%BB"><span class="nav-text">8.1 主要分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-2-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-text">8.2 局部变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-3-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-text">8.3 成员变量</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-java%E7%AE%80%E4%BB%8B"><span class="nav-text">1.java简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Java%E4%B8%8EC-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">2.Java与C++的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-java%E8%AF%AD%E8%A8%80%E7%BC%96%E8%AF%91-compile-%E4%B8%8E%E8%A7%A3%E9%87%8A%E5%B9%B6%E5%AD%98"><span class="nav-text">3.java语言编译(compile)与解释并存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AD%97%E7%AC%A6%E5%9E%8B%E5%B8%B8%E9%87%8F%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">4.字符型常量和字符串常量的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Java%E6%B3%A8%E9%87%8A"><span class="nav-text">5.Java注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Java%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">6.Java关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-java%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-text">7.java语法规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-java%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">8.java变量与数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#8-1-%E4%B8%BB%E8%A6%81%E5%88%86%E7%B1%BB"><span class="nav-text">8.1 主要分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-2-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="nav-text">8.2 局部变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-3-%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-text">8.3 成员变量</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,7 +608,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -651,13 +670,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">127k</span>
+    <span title="站点总字数">129k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:56</span>
+    <span title="站点阅读时长">1:58</span>
 </div>
 
 <span id="sitetime"></span>
