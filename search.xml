@@ -3254,8 +3254,13 @@
 <p>3.<a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
 <p>其实核心问题就是找到span id里是否有style = “display: none”，找到对应文件对应位置的代码并删除即可</p>
 <p>4.hexo s本地样式与网页样式不一致？</p>
-<p>其实原因很简单，拉到服务器之前要<code>hexo clean</code>清理一下缓存，然后再生成和部署，你学会了吗？</p>
+<ul>
+<li>其实原因很简单，拉到服务器之前要<code>hexo clean</code>清理一下缓存，然后再生成和部署，你学会了吗？</li>
+</ul>
 <p>（可能<code>hexo c &amp;&amp; hexo g &amp;&amp; hexo d</code>一步到位，有时候不太行，分开写）</p>
+<ul>
+<li>或者清理一下浏览器缓存就可以解决。</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -3824,10 +3829,10 @@
 ]]></content>
       <categories>
         <category>Python</category>
-        <category>数据分析</category>
       </categories>
       <tags>
         <tag>Jupyter notebook</tag>
+        <tag>数据分析</tag>
       </tags>
   </entry>
   <entry>
@@ -3837,10 +3842,10 @@
 <span id="more"></span>]]></content>
       <categories>
         <category>Matlab</category>
-        <category>数学建模</category>
       </categories>
       <tags>
         <tag>Matlab入门</tag>
+        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -3881,10 +3886,10 @@
 ]]></content>
       <categories>
         <category>Matlab</category>
-        <category>数学建模</category>
       </categories>
       <tags>
         <tag>Matlab入门</tag>
+        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -3911,10 +3916,33 @@
 ]]></content>
       <categories>
         <category>Matlab</category>
-        <category>数学建模</category>
       </categories>
       <tags>
         <tag>Matlab入门</tag>
+        <tag>数学建模</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数学专业常用英语表达总结</title>
+    <url>/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h2 id="Mathematical-English-Common-English-Expressions-of-Mathematical-Vocabulary"><a href="#Mathematical-English-Common-English-Expressions-of-Mathematical-Vocabulary" class="headerlink" title="Mathematical English: Common English Expressions of Mathematical Vocabulary"></a>Mathematical English: Common English Expressions of Mathematical Vocabulary</h2><span id="more"></span>
+
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193302431.png" alt="image-20210308193302431"></p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193353557.png" alt="image-20210308193353557"></p>
+<h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3:"></a>Example 3:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193518529.png" alt="image-20210308193518529"></p>
+<h3 id="Example-4"><a href="#Example-4" class="headerlink" title="Example 4:"></a>Example 4:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193555454.png" alt="image-20210308193555454"></p>
+<h3 id="Example-5"><a href="#Example-5" class="headerlink" title="Example 5:"></a>Example 5:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193635558.png" alt="image-20210308193635558"></p>
+<h3 id="Example-6"><a href="#Example-6" class="headerlink" title="Example 6:"></a>Example 6:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193713986.png" alt="image-20210308193713986"></p>
+<h3 id="Example-7"><a href="#Example-7" class="headerlink" title="Example 7:"></a>Example 7:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195015812.png" alt="image-20210308195015812"></p>
+<h3 id="Example-8"><a href="#Example-8" class="headerlink" title="Example 8:"></a>Example 8:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195119005.png" alt="image-20210308195119005"></p>
+<h3 id="Example-9"><a href="#Example-9" class="headerlink" title="Example 9:"></a>Example 9:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195215619.png" alt="image-20210308195215619"></p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数学专业词汇</tag>
+        <tag>英语</tag>
       </tags>
   </entry>
 </search>
