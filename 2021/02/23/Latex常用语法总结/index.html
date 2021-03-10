@@ -23,11 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="文章开头加上一句：mathjax: true，即可启动Latex渲染。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://grant1499.github.io/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195229711.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195310812.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/1684731-20191002102657884-1615601426.png">
 <meta property="article:published_time" content="2021-02-23T15:12:43.000Z">
-<meta property="article:modified_time" content="2021-02-24T02:50:18.319Z">
+<meta property="article:modified_time" content="2021-03-10T13:03:38.960Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Latex">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://grant1499.github.io/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195229711.png">
 
 <link rel="canonical" href="https://grant1499.github.io/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/">
 
@@ -123,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">33</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">35</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">7</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">33</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">38</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -219,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-24 10:50:18" itemprop="dateModified" datetime="2021-02-24T10:50:18+08:00">2021-02-24</time>
+                <time title="修改时间：2021-03-10 21:03:38" itemprop="dateModified" datetime="2021-03-10T21:03:38+08:00">2021-03-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,14 +244,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>262</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -269,6 +273,57 @@
 <p>5.打出下标（单字符）：A$_2$,<code>A$_2$</code></p>
 <p>6.打出下标（多字符）：A$_{mod}$,<code>A$_&#123;mod&#125;$</code></p>
 <p>7.打出log对数：$\log_ax$，<code>$\log_ax$</code>;    $\ln x$，<code>\ln x$</code>;    $\lg x$,<code>$\lg x$</code></p>
+<p>8.打出正上方的上标：$\bar a$,<code>$\bar a$</code></p>
+<p>9.小写希腊字母：</p>
+<p><img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195229711.png" alt="image-20210310195229711"></p>
+<p>10.大写希腊字母：</p>
+<p><img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195310812.png" alt="image-20210310195310812"></p>
+<p>11.打出关于x的偏微分：$\partial/\partial x$,<code>$\partial/\partial x$</code>，补充一点：\partial可以简写为\part</p>
+<p>12.打出除法：$\frac a b$,<code>$\frac a b$</code></p>
+<p>13.求和和连乘</p>
+<ul>
+<li>对于连加的情况，我们通常使用$\Sigma$来表示。它的使用用法也很简单，但是通常都要添加上下标，像<code>$\sum_&#123;&#125;^&#123;&#125;$</code>形式。除了连加，我们有时也使用连乘，虽然没有连加使用得多（连乘都能通过对数写成连加），它只要以<code>$\prod_&#123;&#125;^&#123;&#125;$</code>的形式表示。</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--连加--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--连乘--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在latex中，默认情况下行内公式都是显示像$\sum_{i = 1}^{n}x_i$的效果，如果想要这样$\displaystyle\sum_{i = 1}^{n}x_i$的效果，就需要在前面加上<code>\displaystyle</code>，来重新看一下下面的例子：</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--连加--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--连乘--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>补充：关于上下标的位置有以下三种情况</p>
+<p>\sum\nolimits_{j=1}^{M}  上下标位于求和符号的水平右端，</p>
+<p>\sum\limits_{j=1}^{M}  上下标位于求和符号的上下处，</p>
+<p>\sum_{j=1}^{M}  对上下标位置没有设定，会随公式所处环境自动调整。</p>
+<p>14.无穷大：$\infty$,<code>$\infty$</code></p>
+<p>正无穷大： +\infty</p>
+<p>负无穷大： -\infty</p>
+<p>15.极限：</p>
+<p>还记得高数里极限的符号吗<img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/1684731-20191002102657884-1615601426.png" alt="皱眉">。在latex中的极限表示，也直接使用<code>\lim</code>这个我们时常看到的符号。当然极限通常都是带下标的，所以更多的是使用<code>lim_&#123;&#125;</code>的形式。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--来看看两个重要极限--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\lim</span><span class="built_in">_</span>&#123;x <span class="keyword">\rightarrow</span> 0&#125;<span class="keyword">\frac</span>&#123;<span class="keyword">\sin</span> x&#125;&#123;x&#125; = 1<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\lim</span><span class="built_in">_</span>&#123;x <span class="keyword">\rightarrow</span> + <span class="keyword">\infty</span>&#125;(1 + <span class="keyword">\frac</span>&#123;1&#125;&#123;x&#125;)<span class="built_in">^</span>x = e<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\displaystyle\lim_{x \rightarrow 0}\frac{\sin x}{x} = 1$</p>
+<p>$\displaystyle\lim_{x \rightarrow + \infty}(1 + \frac{1}{x})^x = e$</p>
+<ul>
+<li><strong>tip1：</strong>右箭头$\rightarrow$的表示方式为<code>$\rightarrow$</code>，左箭头$\leftarrow$的表示方式是<code>$\leftarrow$</code></li>
+<li><strong>tip2：</strong>正无穷$+ \infty$的表示方式为<code>$+ \infty$</code>，负无穷$- \infty$的表示方式是<code>$- \infty$</code></li>
+</ul>
+<p>16.积分：</p>
+<p>如果想要输入积分，则需要使用<code>\int_&#123;&#125;^&#123;&#125;</code>来表示</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\int</span><span class="built_in">_</span>0<span class="built_in">^</span>1 x<span class="built_in">^</span>2 dx<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">&lt;!--来看一个更加复杂的例子--&gt;</span><br><span class="line">&lt;!--正态分布的分布函数--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span>F(x) = <span class="keyword">\int</span><span class="built_in">_</span>&#123;- <span class="keyword">\infty</span>&#125;<span class="built_in">^</span>&#123;+ <span class="keyword">\infty</span>&#125; <span class="keyword">\frac</span>&#123;1&#125;&#123;<span class="keyword">\sqrt</span>&#123;2<span class="keyword">\pi</span>&#125;<span class="keyword">\sigma</span>&#125;e<span class="built_in">^</span>&#123;-(<span class="keyword">\frac</span>&#123;x-<span class="keyword">\mu</span>&#125;&#123;<span class="keyword">\sigma</span>&#125;)<span class="built_in">^</span>2&#125; dx<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\int_0^1 x^2 dx$</p>
+<p>$F(x) = \int_{- \infty}^{+ \infty} \frac{1}{\sqrt{2\pi}\sigma}e^{-(\frac{x-\mu}{\sigma})^2} dx$</p>
+<p>17.求导：</p>
+<p>使用<code>$\mathrm&#123;d&#125;$</code>来表示求导符号，<code>$\partial$</code>来表示求偏导</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;<span class="keyword">\mathrm</span>&#123;d&#125;L(<span class="keyword">\beta</span>)&#125;&#123;<span class="keyword">\beta</span>&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--直接用d来表示求导符的效果--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;dL(<span class="keyword">\beta</span>)&#125;&#123;<span class="keyword">\beta</span>&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--偏导--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;<span class="keyword">\partial</span> L(<span class="keyword">\beta</span><span class="built_in">_</span>0, <span class="keyword">\beta</span><span class="built_in">_</span>1)&#125;&#123;<span class="keyword">\partial</span> <span class="keyword">\beta</span><span class="built_in">_</span>0&#125;<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\frac {\mathrm{d}L(\beta)}{\beta}$</p>
+<p>$\frac {dL(\beta)}{\beta}$</p>
+<p>$\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$</p>
 
     </div>
 
@@ -385,20 +440,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -447,13 +502,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">171k</span>
+    <span title="站点总字数">180k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:35</span>
+    <span title="站点阅读时长">2:44</span>
 </div>
 
 <span id="sitetime"></span>

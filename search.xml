@@ -1513,7 +1513,7 @@
 </ul>
 <h5 id="4-1-强制类型转换：从高级到低级"><a href="#4-1-强制类型转换：从高级到低级" class="headerlink" title="4.1 强制类型转换：从高级到低级"></a>4.1 强制类型转换：从高级到低级</h5><ul>
 <li>条件是转换的数据类型必须是兼容的。</li>
-<li>格式：<code>(type)value type</code>是要强制类型转换后的数据类型</li>
+<li>格式：<code>(type)value</code>是要强制类型转换后的数据类型</li>
 </ul>
 <p>隐含的强制类型转换：</p>
 <ul>
@@ -1795,6 +1795,57 @@
 <p>5.打出下标（单字符）：A$_2$,<code>A$_2$</code></p>
 <p>6.打出下标（多字符）：A$_{mod}$,<code>A$_&#123;mod&#125;$</code></p>
 <p>7.打出log对数：$\log_ax$，<code>$\log_ax$</code>;    $\ln x$，<code>\ln x$</code>;    $\lg x$,<code>$\lg x$</code></p>
+<p>8.打出正上方的上标：$\bar a$,<code>$\bar a$</code></p>
+<p>9.小写希腊字母：</p>
+<p><img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195229711.png" alt="image-20210310195229711"></p>
+<p>10.大写希腊字母：</p>
+<p><img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/image-20210310195310812.png" alt="image-20210310195310812"></p>
+<p>11.打出关于x的偏微分：$\partial/\partial x$,<code>$\partial/\partial x$</code>，补充一点：\partial可以简写为\part</p>
+<p>12.打出除法：$\frac a b$,<code>$\frac a b$</code></p>
+<p>13.求和和连乘</p>
+<ul>
+<li>对于连加的情况，我们通常使用$\Sigma$来表示。它的使用用法也很简单，但是通常都要添加上下标，像<code>$\sum_&#123;&#125;^&#123;&#125;$</code>形式。除了连加，我们有时也使用连乘，虽然没有连加使用得多（连乘都能通过对数写成连加），它只要以<code>$\prod_&#123;&#125;^&#123;&#125;$</code>的形式表示。</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">&lt;!--连加--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--连乘--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在latex中，默认情况下行内公式都是显示像$\sum_{i = 1}^{n}x_i$的效果，如果想要这样$\displaystyle\sum_{i = 1}^{n}x_i$的效果，就需要在前面加上<code>\displaystyle</code>，来重新看一下下面的例子：</li>
+</ul>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">&lt;!--连加--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\sum</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--连乘--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\prod</span><span class="built_in">_</span>&#123;i = 1&#125;<span class="built_in">^</span>&#123;n&#125;x<span class="built_in">_</span>i<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>补充：关于上下标的位置有以下三种情况</p>
+<p>\sum\nolimits_{j=1}^{M}  上下标位于求和符号的水平右端，</p>
+<p>\sum\limits_{j=1}^{M}  上下标位于求和符号的上下处，</p>
+<p>\sum_{j=1}^{M}  对上下标位置没有设定，会随公式所处环境自动调整。</p>
+<p>14.无穷大：$\infty$,<code>$\infty$</code></p>
+<p>正无穷大： +\infty</p>
+<p>负无穷大： -\infty</p>
+<p>15.极限：</p>
+<p>还记得高数里极限的符号吗<img src="/2021/02/23/Latex%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/1684731-20191002102657884-1615601426.png" alt="皱眉">。在latex中的极限表示，也直接使用<code>\lim</code>这个我们时常看到的符号。当然极限通常都是带下标的，所以更多的是使用<code>lim_&#123;&#125;</code>的形式。</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">&lt;!--来看看两个重要极限--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\lim</span><span class="built_in">_</span>&#123;x <span class="keyword">\rightarrow</span> 0&#125;<span class="keyword">\frac</span>&#123;<span class="keyword">\sin</span> x&#125;&#123;x&#125; = 1<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\displaystyle</span><span class="keyword">\lim</span><span class="built_in">_</span>&#123;x <span class="keyword">\rightarrow</span> + <span class="keyword">\infty</span>&#125;(1 + <span class="keyword">\frac</span>&#123;1&#125;&#123;x&#125;)<span class="built_in">^</span>x = e<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\displaystyle\lim_{x \rightarrow 0}\frac{\sin x}{x} = 1$</p>
+<p>$\displaystyle\lim_{x \rightarrow + \infty}(1 + \frac{1}{x})^x = e$</p>
+<ul>
+<li><strong>tip1：</strong>右箭头$\rightarrow$的表示方式为<code>$\rightarrow$</code>，左箭头$\leftarrow$的表示方式是<code>$\leftarrow$</code></li>
+<li><strong>tip2：</strong>正无穷$+ \infty$的表示方式为<code>$+ \infty$</code>，负无穷$- \infty$的表示方式是<code>$- \infty$</code></li>
+</ul>
+<p>16.积分：</p>
+<p>如果想要输入积分，则需要使用<code>\int_&#123;&#125;^&#123;&#125;</code>来表示</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\int</span><span class="built_in">_</span>0<span class="built_in">^</span>1 x<span class="built_in">^</span>2 dx<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">&lt;!--来看一个更加复杂的例子--&gt;</span><br><span class="line">&lt;!--正态分布的分布函数--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="built_in">$</span>F(x) = <span class="keyword">\int</span><span class="built_in">_</span>&#123;- <span class="keyword">\infty</span>&#125;<span class="built_in">^</span>&#123;+ <span class="keyword">\infty</span>&#125; <span class="keyword">\frac</span>&#123;1&#125;&#123;<span class="keyword">\sqrt</span>&#123;2<span class="keyword">\pi</span>&#125;<span class="keyword">\sigma</span>&#125;e<span class="built_in">^</span>&#123;-(<span class="keyword">\frac</span>&#123;x-<span class="keyword">\mu</span>&#125;&#123;<span class="keyword">\sigma</span>&#125;)<span class="built_in">^</span>2&#125; dx<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\int_0^1 x^2 dx$</p>
+<p>$F(x) = \int_{- \infty}^{+ \infty} \frac{1}{\sqrt{2\pi}\sigma}e^{-(\frac{x-\mu}{\sigma})^2} dx$</p>
+<p>17.求导：</p>
+<p>使用<code>$\mathrm&#123;d&#125;$</code>来表示求导符号，<code>$\partial$</code>来表示求偏导</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;<span class="keyword">\mathrm</span>&#123;d&#125;L(<span class="keyword">\beta</span>)&#125;&#123;<span class="keyword">\beta</span>&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--直接用d来表示求导符的效果--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;dL(<span class="keyword">\beta</span>)&#125;&#123;<span class="keyword">\beta</span>&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">&lt;!--偏导--&gt;</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\frac</span> &#123;<span class="keyword">\partial</span> L(<span class="keyword">\beta</span><span class="built_in">_</span>0, <span class="keyword">\beta</span><span class="built_in">_</span>1)&#125;&#123;<span class="keyword">\partial</span> <span class="keyword">\beta</span><span class="built_in">_</span>0&#125;<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p>$\frac {\mathrm{d}L(\beta)}{\beta}$</p>
+<p>$\frac {dL(\beta)}{\beta}$</p>
+<p>$\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$</p>
 ]]></content>
       <categories>
         <category>Latex</category>
@@ -3925,7 +3976,7 @@
   <entry>
     <title>数学专业常用英语表达总结</title>
     <url>/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h2 id="Mathematical-English-Common-English-Expressions-of-Mathematical-Vocabulary"><a href="#Mathematical-English-Common-English-Expressions-of-Mathematical-Vocabulary" class="headerlink" title="Mathematical English: Common English Expressions of Mathematical Vocabulary"></a>Mathematical English: Common English Expressions of Mathematical Vocabulary</h2><span id="more"></span>
+    <content><![CDATA[<h2 id="Mathematical-English"><a href="#Mathematical-English" class="headerlink" title="Mathematical English"></a>Mathematical English</h2><span id="more"></span>
 
 <h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193302431.png" alt="image-20210308193302431"></p>
 <h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308193353557.png" alt="image-20210308193353557"></p>
@@ -3936,6 +3987,238 @@
 <h3 id="Example-7"><a href="#Example-7" class="headerlink" title="Example 7:"></a>Example 7:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195015812.png" alt="image-20210308195015812"></p>
 <h3 id="Example-8"><a href="#Example-8" class="headerlink" title="Example 8:"></a>Example 8:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195119005.png" alt="image-20210308195119005"></p>
 <h3 id="Example-9"><a href="#Example-9" class="headerlink" title="Example 9:"></a>Example 9:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195215619.png" alt="image-20210308195215619"></p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数学专业词汇</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（三）</title>
+    <url>/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="1-C-在非OOP方面的扩充"><a href="#1-C-在非OOP方面的扩充" class="headerlink" title="1.C++在非OOP方面的扩充"></a>1.C++在非OOP方面的扩充</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309223740177.png" alt="image-20210309223740177"></p>
+<span id="more"></span>
+
+<h4 id="2-函数重载回顾"><a href="#2-函数重载回顾" class="headerlink" title="2.函数重载回顾"></a>2.函数重载回顾</h4><p>注意：下图爆红代码，编译器无法正确匹配函数（存在多义性）。</p>
+<p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230013279.png" alt="image-20210309230013279"></p>
+<p>正常运行。</p>
+<p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230508180.png" alt="image-20210309230508180"></p>
+<h4 id="3-作用域运算符"><a href="#3-作用域运算符" class="headerlink" title="3.作用域运算符::"></a>3.作用域运算符<code>::</code></h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230703134.png" alt="image-20210309230703134"></p>
+<h4 id="4-new和delete"><a href="#4-new和delete" class="headerlink" title="4.new和delete"></a>4.new和delete</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230729654.png" alt="image-20210309230729654"></p>
+<p>说明：这里p已经声明为int*指针，不需要特意强调new int编译器会自动识别。</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于VScode终端乱码问题的解决办法</title>
+    <url>/2021/03/09/%E5%85%B3%E4%BA%8EVScode%E7%BB%88%E7%AB%AF%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<p>在Windows下使用VSCode编译运行，都出现中文乱码的问题，今天我就遇见了这种情况，上网搜了半天也没有找到正确的解决方法，现将我把我的方法晒一下。</p>
+<span id="more"></span>
+
+<p>中文的windows下的cmd默认使用GBK的编码, 每次需要的时候只要在VSCode终端输入命令:<code>chcp 65001</code>, 切换代码页到使用UTF-8就可以解决中文代码的问题，只不过这种方法太麻烦了，每次进入终端都要输入命令，那有没有永久性解决的呢？当然有了。</p>
+<p>永久性地修改为VSCode的控制台代码页为65001:</p>
+<p>在VSCode中通过打开“文件”–“首选项”–“设置”, 然后在setting.json中设置, 把下面三行复制到里面:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;editor.fontSize&quot;</span>: <span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;terminal.integrated.shellArgs.windows&quot;</span>: [<span class="string">&quot;/K chcp 65001 &gt;nul&quot;</span>],</span><br><span class="line">  <span class="string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="string">&quot;Lucida Console&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/K chcp 65001 &gt;nul的含义是在运行cmd的时候将编码设置为65001;</p>
+<p>&gt;nul是避免在控制台输出修改编码的信息，否则会输出active code page: 65001;</p>
+<p>同时，赠送两个彩蛋，例如:</p>
+<p>editor.fontSize: 20(修改字体大小为 20);</p>
+<p>terminal.integrated.fontFamily:”Courier New”(字体修改为 “Courier New”).</p>
+<p>这个可以根据自己的需求填写，当然如果不需要的话，可以不写。</p>
+<p>如果上述方法出错的话可以试一试下方评论区的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;: [&quot;-NoExit&quot;, &quot;&#x2F;c&quot;, &quot;chcp 65001&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>当然了，如果你能通过修改右下方的GBK或者UTF-8可以解决的话就没必要选择上面的两种方法：</p>
+<p><img src="/2021/03/09/%E5%85%B3%E4%BA%8EVScode%E7%BB%88%E7%AB%AF%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/2020080614045655.png" alt="img"></p>
+<p>发现如果改成UTF-8的话，通过Run Code运行的话是正常的，但是到了F5调试，弹出的黑框是乱码的，如果改成GBK，那么F5调试是正常的，Run Code是乱码，反正二者不可兼得，大家自己选择。总结下来就是，Run Code运行改成UTF-8，F5调试运行改成GBK，当然这个不是绝对的，还要看一看”terminal.integrated.shellArgs.windows”修改的是什么，如果”terminal.integrated.shellArgs.windows”没有填，好像改成GBK就行了。</p>
+<p>到此这篇关于永久解决VSCode终端中文乱码问题的文章就介绍到这了,更多相关VSCode终端中文乱码内容请搜索脚本之家以前的文章或继续浏览下面的相关文章希望大家以后多多支持脚本之家！</p>
+<p>本文作者：ityanger  </p>
+<p>转载自<a href="https://www.jb51.net/article/192736.htm">脚本之家</a></p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序算法（C++实现）</title>
+    <url>/2021/03/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88C-%E5%AE%9E%E7%8E%B0%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="1-Bubble-Sort（冒泡排序）"><a href="#1-Bubble-Sort（冒泡排序）" class="headerlink" title="1.Bubble Sort（冒泡排序）"></a>1.Bubble Sort（冒泡排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+<p>冒泡排序是最基础的排序算法之一。</p>
+<span id="more"></span>
+
+<p>冒泡排序的本质就是<strong>交换</strong>；第一层循环确定冒泡（交换）执行的趟数，n个数执行n趟，每一趟选出一个最大数或最小数；第二层循环进行相邻数的比较。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[N];</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span> (k = <span class="number">0</span>;k &lt; N;k ++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[k];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Bubble Sort</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; k;i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; k - i - <span class="number">1</span>;j ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (a[j] &gt; a[j+<span class="number">1</span>]) swap(a[j],a[j+<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x : a) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">putchar</span>(<span class="number">10</span>);<span class="comment">// 输出回车</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Select-Sort（选择排序）"><a href="#2-Select-Sort（选择排序）" class="headerlink" title="2.Select Sort（选择排序）"></a>2.Select Sort（选择排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+<p>选择排序据y总说是最简单的排序算法。</p>
+<p>第一层循环对n个数进行n-1趟选择，因为最后一个多出来的数不用再选择。第二层循环对待排序区域的数进行选择，选出最大（最小）的数。每一趟选择就会选出一个最大（最小）的数。</p>
+<p><img src="/2021/03/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88C-%E5%AE%9E%E7%8E%B0%EF%BC%89/image-20210310165553787.png" alt="image-20210310165553787"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[N];</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span> (k = <span class="number">0</span>;k &lt; N;k ++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[k];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Select Sort</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; k<span class="number">-1</span>;i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> min = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>;j &lt; k;j ++)<span class="comment">// 注意边界</span></span><br><span class="line">		<span class="comment">// 从a[i+1]到a[k-1]选出最小的数，下标为min</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (a[j] &lt; a[min]) min = j;<span class="comment">//可以写成a[j] != a[k]</span></span><br><span class="line">		&#125;</span><br><span class="line">		swap(a[i],a[min]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x : a) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数学专业常用英语表达总结（二）</title>
+    <url>/2021/03/10/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="Mathematical-English-2"><a href="#Mathematical-English-2" class="headerlink" title="Mathematical English 2"></a>Mathematical English 2</h2><span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>数学专业词汇</tag>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重磅推荐 | 史上最全面最标准的数学符号、公式的英语读法</title>
+    <url>/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/</url>
+    <content><![CDATA[<p>转载自<a href="https://mp.weixin.qq.com/s/gaHfVbXLSP3-hC5bMrdQHA">英文茶馆</a> <em>2017-10-29</em></p>
+<p>说起英语和数学，大概每个人都有难忘的回忆。可是学了十几、二十年的英语和数学，你会用英语来表达数学吗？烂熟于心的数学符号和表达式用英语会说吗？想不想挑战一下自己？</p>
+<span id="more"></span>
+
+<p>先来一个最简单的：1+2=3 用英语怎么说？</p>
+<p>One plus two equals three. 哎呦不错哦， 继续！</p>
+<p> 尝试：$\sqrt {x + y}$英语怎么说？</p>
+<p>就知道你说不出来咯～今天这篇文章，将从小学到博士后的数学符号和表达式的英文读法一网打尽，全都总结好了！惊不惊喜？意不意外？！</p>
+<p>数学是所有理工学科的基础，是认识科学世界基本工具，数学的重要性不言而喻。所以，这篇文章是老少咸宜的、吐血总结的干货。可以帮助：</p>
+<p><strong>中小学生：</strong>了解英语不仅是“I am a student.My name is XXX.”,而是真正用于学习数学、学习知识的工具。</p>
+<p><strong>大学生：</strong>在外教课堂、国际会议、外企，面对常见的数学符号，简单得不能再简单的数学问题时，不再茶壶里煮饺子倒不出来。</p>
+<p><strong>留学党：</strong>缩短刚到国外听懂老师课堂讲课的过渡期。</p>
+<p><strong>学生家长</strong>可以为你家宝宝留着哦～</p>
+<h2 id="基本数学符号"><a href="#基本数学符号" class="headerlink" title="基本数学符号"></a><strong>基本数学符号</strong></h2><h3 id="1-加减乘除"><a href="#1-加减乘除" class="headerlink" title="1. 加减乘除"></a><strong>1. 加减乘除</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310194431214.png" alt="image-20210310194431214"></p>
+<p><strong>“+”**当作运算符</strong>加号**时读作plus，比如：</p>
+<p>1+2 ➡️ one plus two</p>
+<p>当”+”放在数字前表示<strong>正数</strong>时，读作positive，比如：</p>
+<p>+4 ➡️ positive four</p>
+<p>同样，<strong>“-”</strong>也有minus和negative两种读法，分别是<strong>减号</strong>和<strong>负数</strong>。</p>
+<p><strong>“×”</strong> 两种读法都可以，国外的教授会常常读成times，可能因为比较简单吧，比如：</p>
+<p>9x6 ➡️ nine times six</p>
+<p><strong>“÷”</strong>只有一种读法divided by，就是被…分成几份</p>
+<p>15÷3 ➡️ fifteen is divided by three</p>
+<p><strong>注意</strong>：</p>
+<p>其中plus和minus是不用第三人称单数形式的，因为plus和minus根本就不是动词，而是介词。</p>
+<p>但是乘和除，的的确确是动词，出现第三人称单数的形式。您记住了吗？</p>
+<h3 id="2-比较运算符"><a href="#2-比较运算符" class="headerlink" title="2. 比较运算符"></a><strong>2. 比较运算符</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310194516520.png" alt="image-20210310194516520"></p>
+<p>比较运算符用来比较两个表达式的大小关系，比如：1+4&gt;3 ➡️ one plus four is greater than three</p>
+<p>为什么用<strong>is</strong>？</p>
+<p>这里one plus four 是介词plus 连接两个名词，但是one plus four 作为一个整体当作主语，因此不用are，而是is</p>
+<p>4+5=9 ➡️ four plus five equals nine 或 four plus five is equal to nine</p>
+<p>其他的类推，只要你认识数学符号，应该不难用英语说出来。</p>
+<h3 id="3-括号"><a href="#3-括号" class="headerlink" title="3. 括号"></a><strong>3. 括号</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310194547442.png" alt="image-20210310194547442"></p>
+<p>括号是最常见的数学符号了。</p>
+<p>中文里同类词习惯有相同的部分，比如：卡车、消防车、救护车都有“车”字。<strong>小括号，中括号，大括号</strong>都是括号。（多么科学啊！）</p>
+<p>而英语里卡车、消防车、救护车分别是truck, fire engine, ambulance一点都不像。</p>
+<p>英语里<strong>小括号，中括号，大括号</strong>这三个词也是没有一点相似，分别是：parenthesis，bracket，brace.（太不科学了！）</p>
+<p><strong>左括号</strong>叫做left或open，<strong>右括号</strong>叫做right或closed. 下次碰到了就大胆地说出来吧！</p>
+<h3 id="4-级数表示"><a href="#4-级数表示" class="headerlink" title="4. 级数表示"></a><strong>4. 级数表示</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310194619498.png" alt="image-20210310194619498"></p>
+<p>哇～到中学数学了～这张表里的**<em>“a”**</em>是变量，而不是冠词“一个”的意思哦。</p>
+<p><strong><em>|a|</em></strong>是<em>a</em>的绝对值或绝对值<em>a</em>， 英文读作absolute value of <em>a</em>, 非常好理解。</p>
+<p><strong><em>a’</em></strong>是什么？**<em>a****</em>撇*<em>就是与</em>a<em>相关又不想重复的时候会用一下，英语里读成</em>a* prime, 同样有两撇a double prime，三撇a triple prime…</p>
+<p>但是注意了，如果**<em>a’**</em>表示时间分秒里的分，或者其他有具体意义的时候，就要按照具体意义读了。</p>
+<p><strong>$a^n$是a的n次方</strong>，是n个<em>a</em>相乘的结果，读作<em>a</em> superscript <em>n</em>或者<em>a</em> to the <em>n</em></p>
+<p>$\bar a$,$a^ <em>$这两个初中代数就出现了，读作</em>a* bar和<em>a</em> star. <strong>Bar</strong> 就是<strong>杆</strong>的意思。<em>a</em>上面有个杆。中文怎么读？<em>a</em>杠，<em>a</em>星。</p>
+<p>square是数学里的平方，cube是立方，root是根号，这几个词用于表示<strong>开方</strong></p>
+<p>$a_ n$是最常出现的了，读作<em>a</em> sub <em>n</em>，<strong>一定要记住了</strong>！！在数学上大量出现。<strong>根号a</strong>和<strong>三次方a</strong>读作square root of <em>a</em>和cube root of a</p>
+<h3 id="5-微分和偏微分"><a href="#5-微分和偏微分" class="headerlink" title="5. 微分和偏微分"></a><strong>5. 微分和偏微分</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310195701402.png" alt="image-20210310195701402"></p>
+<p>升级到了高等数学，经过高考的学生才会碰到这两个。</p>
+<p>$d/dx$这是什么鬼？这是一个变量对<em>x</em>微分或偏微分的运算符，符号后面还要加上某一个变量。首先，小伙伴知道中文怎么念吗？</p>
+<p>嘿嘿，<em>d</em>比<em>d x</em>？英文读作<em>d</em> by <em>d x</em>，严谨地读作the derivative with respect to <em>x</em>， with respect to 是<strong>关于</strong>的意思，就是关于<em>x</em>的微分。</p>
+<p>$\partial/\partial x$偏 比偏x？英文读作the partial derivative with respect to <em>x</em>或者简单地读作partial over partial<em>x</em>，partial是部分的意思。</p>
+<p>顺便显摆一下，<strong>微分是单变量时候叫法，如果是多变量就是偏微分喽</strong>！看咱这数学是不是杠杠滴！</p>
+<h3 id="6-其他数学符号"><a href="#6-其他数学符号" class="headerlink" title="6. 其他数学符号"></a><strong>6. 其他数学符号</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310200651457.png" alt="image-20210310200651457"></p>
+<h2 id="进阶篇"><a href="#进阶篇" class="headerlink" title="进阶篇"></a><strong>进阶篇</strong></h2><p>有点数学基础了吧，来点实用的！进阶篇！</p>
+<h3 id="1-代数-1"><a href="#1-代数-1" class="headerlink" title="1. 代数(1)"></a><strong>1. 代数(1)</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310200750422.png" alt="image-20210310200750422"></p>
+<p>以上几个是<strong>代数表达式</strong>，是符号之间的运算。表达式不是等式，所以其英文翻译也不是一个句子，类似一个名词短语。</p>
+<p>比如*<strong>ab-c**<em>读作</em>a b* minus <em>c</em>，介词minus连接两个名词变量，结果还是一堆名词变量。*</strong>ab***直接读 <em>a b</em> 就行。</p>
+<p>因为语言的本质是传递信息，懂数学的人已经明白了，没有二义性。</p>
+<p>如要更清晰地表达**<em>ab****</em>，**是 <em>a</em> times <em>b</em>，times是谓语动词 time的第三人称单数。</p>
+<p><strong><em>a-(b-c)</em></strong>和**<em>a(b+c)**</em>里有一对括号，不用把括号读出来，读出来是赵本山，读信件时读逗号、括号、括号完了(liǎo)</p>
+<p><strong><em>a-(b-c)</em></strong>数学上的意思是<em>a</em>减去<em>b</em>与<em>c</em>的差，英文也是这个逻辑，读作<em>a</em> minus the difference <em>b</em> minus <em>c</em>，没有of，其中the difference是<strong>差</strong>的意思。</p>
+<p><strong><em>a(b+c)</em></strong>读作<em>a</em> times the sum <em>b</em> plus <em>c</em>，应该很好理解了。</p>
+<p><strong><em>a-(-b-c)</em></strong>读作a minus the quantity minus <em>b</em> minus <em>c</em>，使用quantity是英语语言习惯，避免plus和minus连在一起说。</p>
+<h3 id="2-代数-2"><a href="#2-代数-2" class="headerlink" title="2. 代数(2)"></a><strong>2. 代数(2)</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310201140222.png" alt="image-20210310201140222"></p>
+<p>这几个单独拿来说事，是因为太重要了！</p>
+<p>在国外课堂上，老师一边写公式一边嘴里叨咕着，公式里分数是很多，一般都念做over！因为快！比如<strong>8/9</strong>直接念eight over nine</p>
+<p>复杂点的第二个</p>
+<p>$\frac {a+b} c + d$</p>
+<p>中文读<strong>c分之a加b加d</strong>，中文读法有歧义，分不清加**<em>d**</em>是在分子上还是分数后面。</p>
+<p>英文读作the quantity <em>a</em> plus <em>b</em> over <em>c</em>, that fraction plus <em>d</em>, 没有歧义！perfect！ </p>
+<p>$\frac {x^2}{a^2}+\frac {y^2}{b^2}=1$</p>
+<p>是拿来绕嘴的，读作the fraction <em>x</em> squared over <em>a</em> squared plus the fraction <em>y</em></p>
+<p>squared over <em>b</em> squared equals 1，其中fraction是分数的意思。</p>
+<p>$ax^2+bxy+cy^2+dx+ey+f=0$</p>
+<p>这个是拿来是给你找信心的，很简单吧：<em>a x</em> squared plus <em>b x y</em> plus <em>c y</em> squared plus <em>d x</em> plus <em>e y</em> plus <em>f</em> equals zero完全读对的童鞋奖励自己一根棒棒糖。</p>
+<h3 id="3-几个特殊的"><a href="#3-几个特殊的" class="headerlink" title="3. 几个特殊的"></a><strong>3. 几个特殊的</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310202105712.png" alt="image-20210310202105712"></p>
+<p>这几个特殊的每一个都很珍贵！拿走不谢。</p>
+<p>第一个</p>
+<p>$a^x$简单读成<em>a</em> to the <em>x</em>，例子非常多，比如$3^4$读作three to four，也可以读的更完整点，three raised to the four power</p>
+<p>$\log_ba$是以b为底的a的对数，log to the base <em>b</em> of <em>a</em>，其中the base就是为底了，介词严谨地表达了准确的数学定义。</p>
+<p>$\lg3*4$是以10为底的3乘4的积的对数，读作log to the base 10 of the product 3 times 4</p>
+<p>以此类推，</p>
+<p>$\ln \frac2 5$中注意the fraction和the ratio是一样的，分数就是比的意思嘛。</p>
+<p>$\ln x$是<em>x</em>的自然对数，读作the natural log of <em>x</em>。</p>
+<p>自然对数底是多少？哼哼，百度啊，e=2.71828</p>
+<p>注意：</p>
+<p>$a_1+a_2+…+a_n$中的“点点点”就读做dot dot dot</p>
+<p><strong><em>p(x)</em></strong>数学上是表示一个以<em>x</em>为自变量的函数<em>p</em>，读作p of x。为什么不读成<em>p x,</em> 汉语就是这么读的.应该是避免和<em>px</em>搞混吧。</p>
+<p>另外注意，</p>
+<p>$\ln x$里也有个<strong>of</strong></p>
+<h3 id="4-带of的函数"><a href="#4-带of的函数" class="headerlink" title="4. 带of的函数"></a><strong>4. 带of的函数</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310203206521.png" alt="image-20210310203206521"></p>
+<p>单独总结一下<strong>带of 的函数</strong>，数学上是以<em>x</em>为自变量的函数<em>p</em>，其他的都不复杂。</p>
+<h3 id="5-专业课里常出的数学符号"><a href="#5-专业课里常出的数学符号" class="headerlink" title="5. 专业课里常出的数学符号"></a><strong>5. 专业课里常出的数学符号</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310203321975.png" alt="image-20210310203321975"></p>
+<p>这些在工程学科的专业课里很容易见到，理论力学里用</p>
+<p>$\sigma_x$表示正应力，读作sigma sub <em>x</em>，注意 sub 表示下标。</p>
+<p>$Q_1$当有大写字母时，读作Capital <em>q</em> sub one。</p>
+<p>$E(x)$有括号，读作Capital <em>e</em> of <em>x</em>，结合上面的**<em>p(x)**</em>印象应该很深吧。</p>
+<p>$j_{(p)}$这个比较怪，下标带括号，汉语一般读成j 下标括号p，英文读作<em>j</em> sub <em>p</em> in parentheses，parentheses是括号的意思。</p>
+<h3 id="6-高等数学里面的几个符号"><a href="#6-高等数学里面的几个符号" class="headerlink" title="6. 高等数学里面的几个符号"></a><strong>6. 高等数学里面的几个符号</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310203722674.png" alt="image-20210310203722674"></p>
+<p> 这几个表达式是求和、求积和求极限。</p>
+<p>$\sum\limits_{1}^{N}$汉语读<strong>西格玛1到大n</strong>，英文读作summation from one to capital <em>n</em></p>
+<p>$\sum\limits_{i=1}^{\infty}x_i$英文里把希腊字母的意思说出来了，求和(summation), 这里多了<strong>正无穷</strong>，读作summation from <em>i</em> equals one to infinity of <em>x</em> sub <em>i</em></p>
+<p>$\prod$是infinity就是正无穷。数学上是多个量求积的符号，英文<strong>积</strong>是product，是名词。</p>
+<p>$\prod\limits_{1}^{n}$结构和求和一样，product from one to <em>n</em></p>
+<p>同理，</p>
+<p>$\prod\limits_{i=1}^{\infty}y_i$读成product from <em>i</em> equals one to infinity of <em>y</em> sub <em>i</em></p>
+<p>$\displaystyle\lim_{x \rightarrow a}y = b$的意思是当x趋近a时y的极限等于b，limit as <em>x</em> approaches <em>a</em> of <em>y</em> equals <em>b</em>，limit是极限，名词，approaches 是趋紧的第三人称单数。</p>
+<p>$\displaystyle\lim_{x \rightarrow a^-}f(x)$的数学意思是<strong>当x从左边趋紧a时关于x的函数f的极限</strong>，英文读作limit as <em>x</em> approaches <em>a</em> minus of <em>f</em>of <em>x</em>，从左边就是从minus方向</p>
+<p>$\int f(x)dx$数学意思是<strong>函数fx的不定积分</strong>，英文读作integral of <em>f</em> of <em>x d x</em>，其中integral是积分的意思。</p>
+<h3 id="7-线性代数中的英文读法"><a href="#7-线性代数中的英文读法" class="headerlink" title="7. 线性代数中的英文读法"></a><strong>7. 线性代数中的英文读法</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310210858177.png" alt="image-20210310210858177"></p>
+<p>线性代数是大学生必学的科目，里面全是<strong>矩阵</strong>和<strong>向量</strong>，英文分别是matrix和vector，不明觉厉！</p>
+<p>表里第一个是个矩阵，有四个元素，第一行是2 和 7, 第二行是3和10，用英文读时也和中文表达类似。</p>
+<p>Two by two matrix (意思是2x2 矩阵)，first row two seven, second row tree ten</p>
+<p>注意此处没有is 等动词。 </p>
+<p>第二个是<strong>行向量</strong>，读作row vector </p>
+<p>第三个是<strong>列向量</strong>，读作column vector</p>
+<h3 id="8-其他常用的表达式"><a href="#8-其他常用的表达式" class="headerlink" title="8. 其他常用的表达式"></a><strong>8. 其他常用的表达式</strong></h3><p><img src="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/image-20210310211606203.png" alt="image-20210310211606203"></p>
+<p>$\Delta y$读时汉语从不强调<strong>大写delta</strong>，英文要读capital delta <em>y</em></p>
+<p>其他的都在前面出现过，列在此处再此强调一下。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h2><p>目前国内绝大部分的英语学习，仍然停留在日常交流和一些常识性知识的英语。</p>
+<p>说的直白一些，口语练的再棒，英语水平也仅相当于英语国家受教育程度低的人的英语水平。</p>
+<p>很多人native speakers没有读过书，照样可以交流。但是在他们的语言里找不到自然科学、文学、艺术等英语的痕迹。</p>
+<p>我们虽然受过高等教育，但是专业的、学术的英语学习仍然匮乏。我们的课本是中文的、老师用中文授课、我们的知识体系也是中文的。</p>
+<p>所以在阅读原版教材、写英文论文、参加国际学术交流等很多时候，会遇到英语瓶颈。真正能够应用英语来进行知识的学习，工作等，起码需要明白数学中的英语，希望这篇文章能给您带来帮助。</p>
 ]]></content>
       <categories>
         <category>数学</category>
