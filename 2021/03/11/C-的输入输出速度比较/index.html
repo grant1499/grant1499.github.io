@@ -16,26 +16,19 @@
     var CONFIG = {"hostname":"grant1499.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.C++在非OOP方面的扩充">
+  <meta name="description" content="下面对C++中的一些常用输入输出方式速度进行比较。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++入门笔记（三）">
-<meta property="og:url" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:title" content="C++的输入输出速度比较">
+<meta property="og:url" content="https://grant1499.github.io/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/index.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="1.C++在非OOP方面的扩充">
+<meta property="og:description" content="下面对C++中的一些常用输入输出方式速度进行比较。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309223740177.png">
-<meta property="og:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230013279.png">
-<meta property="og:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230508180.png">
-<meta property="og:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230703134.png">
-<meta property="og:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230729654.png">
-<meta property="article:published_time" content="2021-03-09T14:36:49.000Z">
-<meta property="article:modified_time" content="2021-03-09T15:09:33.794Z">
+<meta property="article:published_time" content="2021-03-11T14:54:35.000Z">
+<meta property="article:modified_time" content="2021-03-11T15:09:16.228Z">
 <meta property="article:author" content="grant">
-<meta property="article:tag" content="C++入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309223740177.png">
 
-<link rel="canonical" href="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+<link rel="canonical" href="https://grant1499.github.io/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/">
 
 
 <script id="page-configurations">
@@ -48,7 +41,7 @@
   };
 </script>
 
-  <title>C++入门笔记（三） | grant's Blog</title>
+  <title>C++的输入输出速度比较 | grant's Blog</title>
   
 
 
@@ -195,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -208,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++入门笔记（三）
+          C++的输入输出速度比较
         </h1>
 
         <div class="post-meta">
@@ -219,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-09 22:36:49 / 修改时间：23:09:33" itemprop="dateCreated datePublished" datetime="2021-03-09T22:36:49+08:00">2021-03-09</time>
+              <time title="创建时间：2021-03-11 22:54:35 / 修改时间：23:09:16" itemprop="dateCreated datePublished" datetime="2021-03-11T22:54:35+08:00">2021-03-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>119</span>
+              <span>982</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,16 +252,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="1-C-在非OOP方面的扩充"><a href="#1-C-在非OOP方面的扩充" class="headerlink" title="1.C++在非OOP方面的扩充"></a>1.C++在非OOP方面的扩充</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309223740177.png" alt="image-20210309223740177"></p>
+        <p>下面对C++中的一些常用输入输出方式速度进行比较。</p>
 <span id="more"></span>
 
-<h4 id="2-函数重载回顾"><a href="#2-函数重载回顾" class="headerlink" title="2.函数重载回顾"></a>2.函数重载回顾</h4><p>注意：下图爆红代码，编译器无法正确匹配函数（存在多义性）。</p>
-<p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230013279.png" alt="image-20210309230013279"></p>
-<p>正常运行。</p>
-<p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230508180.png" alt="image-20210309230508180"></p>
-<h4 id="3-作用域运算符"><a href="#3-作用域运算符" class="headerlink" title="3.作用域运算符::"></a>3.作用域运算符<code>::</code></h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230703134.png" alt="image-20210309230703134"></p>
-<h4 id="4-new和delete"><a href="#4-new和delete" class="headerlink" title="4.new和delete"></a>4.new和delete</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210309230729654.png" alt="image-20210309230729654"></p>
-<p>说明：这里p已经声明为int*指针，不需要特意强调new int编译器会自动识别。</p>
+<p>众所周知，使用printf/scanf的速度会比cin/cout快上不少。</p>
+<p>关于输出换行（回车）的几种方式：</p>
+<p>1.cout &lt;&lt; endl;</p>
+<p>2.puts(“”);</p>
+<p>3.printf(“\n”);</p>
+<p>4.putchar(10);</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1290ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 19ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 10ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 10ms</span></span><br></pre></td></tr></table></figure>
+
+<p>结论：</p>
+<p><code>printf(&quot;\n&quot;);</code>和<code>putchar(10);</code>最快，两者差距不大；</p>
+<p><code>puts(&quot;&quot;);</code>比上面的稍慢；</p>
+<p><code>cout &lt;&lt; endl;</code>最慢，用时较长。</p>
+<p>据大佬总结的endl的好处：</p>
+<ul>
+<li>endl好处是能一直刷新流，因为要刷新适合一些交互题；</li>
+<li>而且如果是大工程，endl更容易方便debug</li>
+</ul>
 
     </div>
 
@@ -284,7 +293,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://grant1499.github.io/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/" title="C++入门笔记（三）">https://grant1499.github.io/2021/03/09/C-入门笔记（三）/</a>
+    <a href="https://grant1499.github.io/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" title="C++的输入输出速度比较">https://grant1499.github.io/2021/03/11/C-的输入输出速度比较/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -294,10 +303,6 @@
 
 
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/C-%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> C++入门</a>
-          </div>
 
         
 
@@ -305,13 +310,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/" rel="prev" title="数学专业常用英语表达总结">
-      <i class="fa fa-chevron-left"></i> 数学专业常用英语表达总结
+    <a href="/2021/03/10/%E9%87%8D%E7%A3%85%E6%8E%A8%E8%8D%90-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E9%9D%A2%E6%9C%80%E6%A0%87%E5%87%86%E7%9A%84%E6%95%B0%E5%AD%A6%E7%AC%A6%E5%8F%B7%E3%80%81%E5%85%AC%E5%BC%8F%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%BB%E6%B3%95/" rel="prev" title="重磅推荐 | 史上最全面最标准的数学符号、公式的英语读法">
+      <i class="fa fa-chevron-left"></i> 重磅推荐 | 史上最全面最标准的数学符号、公式的英语读法
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/09/%E5%85%B3%E4%BA%8EVScode%E7%BB%88%E7%AB%AF%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next" title="关于VScode终端乱码问题的解决办法">
-      关于VScode终端乱码问题的解决办法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -370,7 +372,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-C-%E5%9C%A8%E9%9D%9EOOP%E6%96%B9%E9%9D%A2%E7%9A%84%E6%89%A9%E5%85%85"><span class="nav-text">1.C++在非OOP方面的扩充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E5%9B%9E%E9%A1%BE"><span class="nav-text">2.函数重载回顾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">3.作用域运算符::</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-new%E5%92%8Cdelete"><span class="nav-text">4.new和delete</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

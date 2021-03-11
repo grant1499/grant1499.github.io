@@ -1846,6 +1846,7 @@
 <p>$\frac {\mathrm{d}L(\beta)}{\beta}$</p>
 <p>$\frac {dL(\beta)}{\beta}$</p>
 <p>$\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$</p>
+<p>18.打出空格：$a \ b$,<code>$a \ b$</code></p>
 ]]></content>
       <categories>
         <category>Latex</category>
@@ -4054,7 +4055,7 @@
   <entry>
     <title>排序算法（C++实现）</title>
     <url>/2021/03/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88C-%E5%AE%9E%E7%8E%B0%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="1-Bubble-Sort（冒泡排序）"><a href="#1-Bubble-Sort（冒泡排序）" class="headerlink" title="1.Bubble Sort（冒泡排序）"></a>1.Bubble Sort（冒泡排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+    <content><![CDATA[<h2 id="一：初等排序算法"><a href="#一：初等排序算法" class="headerlink" title="一：初等排序算法"></a>一：初等排序算法</h2><h3 id="1-Bubble-Sort（冒泡排序）"><a href="#1-Bubble-Sort（冒泡排序）" class="headerlink" title="1.Bubble Sort（冒泡排序）"></a>1.Bubble Sort（冒泡排序）</h3><p>时间复杂度：$O(n^2)$.</p>
 <p>冒泡排序是最基础的排序算法之一。</p>
 <span id="more"></span>
 
@@ -4067,8 +4068,8 @@
 <p><img src="/2021/03/10/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%EF%BC%88C-%E5%AE%9E%E7%8E%B0%EF%BC%89/image-20210310165553787.png" alt="image-20210310165553787"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[N];</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span> (k = <span class="number">0</span>;k &lt; N;k ++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[k];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Select Sort</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; k<span class="number">-1</span>;i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> min = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>;j &lt; k;j ++)<span class="comment">// 注意边界</span></span><br><span class="line">		<span class="comment">// 从a[i+1]到a[k-1]选出最小的数，下标为min</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (a[j] &lt; a[min]) min = j;<span class="comment">//可以写成a[j] != a[k]</span></span><br><span class="line">		&#125;</span><br><span class="line">		swap(a[i],a[min]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x : a) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n²) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
-]]></content>
+<p>选择排序是一种简单直观的排序算法，无论什么数据进去都是 $O(n^2)$ 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
+<h2 id="二：高等排序算法"><a href="#二：高等排序算法" class="headerlink" title="二：高等排序算法"></a>二：高等排序算法</h2>]]></content>
       <categories>
         <category>C++</category>
         <category>算法</category>
@@ -4082,6 +4083,21 @@
     <url>/2021/03/10/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h2 id="Mathematical-English-2"><a href="#Mathematical-English-2" class="headerlink" title="Mathematical English 2"></a>Mathematical English 2</h2><span id="more"></span>
 
+<p>1.表达正数：positive number a</p>
+<p>同样地，关于负数有：negative number a</p>
+<p>2.绝对值的表达：$|x-x_0|$，the absolute value of the difference of $x$ and $x_0$</p>
+<p>3.可微与可积：differentiable and integrable</p>
+<p>导数与积分（名词）：derivative and integral</p>
+<p>4.表达极限的两种方式：</p>
+<ul>
+<li><p>$\displaystyle\lim_{x \rightarrow x_0}f(x) = A$,the limit of <em>f</em> of <em>x</em> is equal to <em>A</em> as <em>x</em> approaches <em>x</em>0</p>
+</li>
+<li><p>${f(x) \rightarrow A} \ as\ {x\rightarrow x_0}$,<em>f</em> of <em>x</em> approaches <em>A</em> as <em>x</em> tends to <em>x</em>0</p>
+</li>
+</ul>
+<p>5.表达某一定理等成立：with this one hold</p>
+<p>6.常见希腊字母：</p>
+<p><img src="/2021/03/10/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210311115529635.png" alt="image-20210311115529635"></p>
 ]]></content>
       <categories>
         <category>数学</category>
@@ -4227,5 +4243,39 @@
         <tag>数学专业词汇</tag>
         <tag>英语</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>C++的输入输出速度比较</title>
+    <url>/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/</url>
+    <content><![CDATA[<p>下面对C++中的一些常用输入输出方式速度进行比较。</p>
+<span id="more"></span>
+
+<p>众所周知，使用printf/scanf的速度会比cin/cout快上不少。</p>
+<p>关于输出换行（回车）的几种方式：</p>
+<p>1.cout &lt;&lt; endl;</p>
+<p>2.puts(“”);</p>
+<p>3.printf(“\n”);</p>
+<p>4.putchar(10);</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1290ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 19ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 10ms</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 10ms</span></span><br></pre></td></tr></table></figure>
+
+<p>结论：</p>
+<p><code>printf(&quot;\n&quot;);</code>和<code>putchar(10);</code>最快，两者差距不大；</p>
+<p><code>puts(&quot;&quot;);</code>比上面的稍慢；</p>
+<p><code>cout &lt;&lt; endl;</code>最慢，用时较长。</p>
+<p>据大佬总结的endl的好处：</p>
+<ul>
+<li>endl好处是能一直刷新流，因为要刷新适合一些交互题；</li>
+<li>而且如果是大工程，endl更容易方便debug</li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
   </entry>
 </search>
