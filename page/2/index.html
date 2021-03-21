@@ -120,17 +120,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">35</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">9</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">48</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">51</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -181,6 +181,301 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/" class="post-title-link" itemprop="url">蓝桥杯学习总结（三）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-13 14:05:36" itemprop="dateCreated datePublished" datetime="2021-03-13T14:05:36+08:00">2021-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-14 18:00:02" itemprop="dateModified" datetime="2021-03-14T18:00:02+08:00">2021-03-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>续蓝桥杯学习总结（二）。</p>
+</blockquote>
+<h3 id="3-递推"><a href="#3-递推" class="headerlink" title="3.递推"></a>3.递推</h3><p>关于递归与递推的区别：</p>
+<p><strong>递推</strong>：从初值出发反复进行某一运算得到所需结果。—–从<strong>已知到未知</strong>，从小到达（比如每年长高9cm，20年180，30后270）</p>
+<p><strong>递归</strong>：从所需结果出发不断回溯前一运算直到回到初值再递推得到所需结果—-从<strong>未知到已知</strong>，从大到小，再从小到大(你想进bat，那么编程就的牛逼，就得卸载玩者农药，努力学习）。<strong>递归(Recursion)是从归纳法(Induction)衍生出来的</strong>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%89%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">蓝桥杯学习总结（二）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-12 22:52:39" itemprop="dateCreated datePublished" datetime="2021-03-12T22:52:39+08:00">2021-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-13 23:28:53" itemprop="dateModified" datetime="2021-03-13T23:28:53+08:00">2021-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>续蓝桥杯学习总结（一）。</p>
+</blockquote>
+<h4 id="2-3-acwing-93-递归实现组合型枚举"><a href="#2-3-acwing-93-递归实现组合型枚举" class="headerlink" title="2.3 acwing.93.递归实现组合型枚举"></a>2.3 acwing.93.递归实现组合型枚举</h4><p>从 1∼n 这 n 个整数中随机选出 m 个，输出所有可能的选择方案。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/" class="post-title-link" itemprop="url">C++的输入输出速度比较</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-11 22:54:35 / 修改时间：23:09:16" itemprop="dateCreated datePublished" datetime="2021-03-11T22:54:35+08:00">2021-03-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>982</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>下面对C++中的一些常用输入输出方式速度进行比较。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/11/C-%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%80%9F%E5%BA%A6%E6%AF%94%E8%BE%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -306,7 +601,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-11 11:55:31" itemprop="dateModified" datetime="2021-03-11T11:55:31+08:00">2021-03-11</time>
+                <time title="修改时间：2021-03-17 23:06:47" itemprop="dateModified" datetime="2021-03-17T23:06:47+08:00">2021-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -324,7 +619,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>396</span>
+              <span>453</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -401,7 +696,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-14 15:02:02" itemprop="dateModified" datetime="2021-03-14T15:02:02+08:00">2021-03-14</time>
+                <time title="修改时间：2021-03-17 15:58:19" itemprop="dateModified" datetime="2021-03-17T15:58:19+08:00">2021-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -427,14 +722,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -497,10 +792,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-09 22:40:04 / 修改时间：22:44:21" itemprop="dateCreated datePublished" datetime="2021-03-09T22:40:04+08:00">2021-03-09</time>
+              <time title="创建时间：2021-03-09 22:40:04" itemprop="dateCreated datePublished" datetime="2021-03-09T22:40:04+08:00">2021-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-21 09:58:40" itemprop="dateModified" datetime="2021-03-21T09:58:40+08:00">2021-03-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -689,7 +990,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 19:31:14" itemprop="dateModified" datetime="2021-03-10T19:31:14+08:00">2021-03-10</time>
+                <time title="修改时间：2021-03-17 23:06:57" itemprop="dateModified" datetime="2021-03-17T23:06:57+08:00">2021-03-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -707,7 +1008,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>100</span>
+              <span>101</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -726,7 +1027,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Mathematical-English"><a href="#Mathematical-English" class="headerlink" title="Mathematical English"></a>Mathematical English</h2>
+          <h2 id="Mathematical-English-1"><a href="#Mathematical-English-1" class="headerlink" title="Mathematical English 1"></a>Mathematical English 1</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/#more" rel="contents">
@@ -844,301 +1145,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E9%85%8D%E5%A5%97%E4%BB%A3%E7%A0%81%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E9%85%8D%E5%A5%97%E4%BB%A3%E7%A0%81%EF%BC%89/" class="post-title-link" itemprop="url">Matlab快速入门笔记（配套代码）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-07 19:51:40" itemprop="dateCreated datePublished" datetime="2021-03-07T19:51:40+08:00">2021-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-08 19:15:21" itemprop="dateModified" datetime="2021-03-08T19:15:21+08:00">2021-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>10k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>本文参考自B站西电通院科协glanny的1小时matlab速成视频！</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hE411Q7T4?from=search&seid=16973427387965814013">视频链接</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E9%85%8D%E5%A5%97%E4%BB%A3%E7%A0%81%EF%BC%89/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Matlab快速入门笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-07 19:48:41" itemprop="dateCreated datePublished" datetime="2021-03-07T19:48:41+08:00">2021-03-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-08 19:15:42" itemprop="dateModified" datetime="2021-03-08T19:15:42+08:00">2021-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>289</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1-初始Matlab"><a href="#1-初始Matlab" class="headerlink" title="1.初始Matlab"></a>1.初始Matlab</h4><p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/image-20210307201346455.png" alt="image-20210307201346455"></p>
-<p>点击新建脚本即创建<code>.m</code>文件。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://grant1499.github.io/2021/03/06/Jupyter-notebook%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/06/Jupyter-notebook%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Jupyter notebook快速入门笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-06 22:15:18" itemprop="dateCreated datePublished" datetime="2021-03-06T22:15:18+08:00">2021-03-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-08 19:15:58" itemprop="dateModified" datetime="2021-03-08T19:15:58+08:00">2021-03-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Jupyter notebook是用python进行数据科学、机器学习的必备工具。</p>
-<p>吴恩达的《深度学习》慕课的课后编程作业、大数据竞赛网站Kaggle上的代码文档、美国大学的数据科学课程的课后资料及编程作业，都是以jupyter notebook文件的形式给出的，也就是<code>.ipynb</code>文件。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/TommyZihao/zihaopython/blob/master/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%97%B4%E4%B8%8E%E6%88%90%E7%BB%A9%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%88%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%89/Jupyter%20notebook%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B.md">文章参考自TommyZihao</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/06/Jupyter-notebook%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1206,20 +1216,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1268,13 +1278,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">209k</span>
+    <span title="站点总字数">214k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:10</span>
+    <span title="站点阅读时长">3:14</span>
 </div>
 
 <span id="sitetime"></span>
