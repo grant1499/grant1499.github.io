@@ -62,3 +62,5 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 5.[markdown语法速成宝典](https://www.kuangstudy.com/bbs/1356475333565587458)
 
 6.推荐hexo搭建文章：https://tding.top/archives/aad98408.html
+
+7.使用插件备份博客源文件：https://blog.csdn.net/qq_41793001/article/details/103151182
