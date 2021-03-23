@@ -3305,21 +3305,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="hexo相关问题汇总"><a href="#hexo相关问题汇总" class="headerlink" title="hexo相关问题汇总"></a>hexo相关问题汇总</h3><p>1.只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
-<p>2.在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
-<p>3.<a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
-<p>其实核心问题就是找到span id里是否有style = “display: none”，找到对应文件对应位置的代码并删除即可</p>
-<p>4.hexo s本地样式与网页样式不一致？</p>
-<ul>
-<li>其实原因很简单，拉到服务器之前要<code>hexo clean</code>清理一下缓存，然后再生成和部署，你学会了吗？</li>
-</ul>
-<p>（可能<code>hexo c &amp;&amp; hexo g &amp;&amp; hexo d</code>一步到位，有时候不太行，分开写）</p>
-<ul>
-<li>或者清理一下浏览器缓存就可以解决。</li>
-</ul>
-<p>5.<a href="https://www.kuangstudy.com/bbs/1356475333565587458">markdown语法速成宝典</a></p>
-<p>6.推荐hexo搭建文章：<a href="https://tding.top/archives/aad98408.html">https://tding.top/archives/aad98408.html</a></p>
-<p>7.使用插件备份博客源文件：<a href="https://blog.csdn.net/qq_41793001/article/details/103151182">https://blog.csdn.net/qq_41793001/article/details/103151182</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -3902,7 +3887,14 @@
     <title>Matlab快速入门笔记（二）</title>
     <url>/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<p>续上文。</p>
-<span id="more"></span>]]></content>
+<span id="more"></span>
+
+<h4 id="4-简单解绘图"><a href="#4-简单解绘图" class="headerlink" title="4.简单解绘图"></a>4.简单解绘图</h4><p>通过弗兰克-赫兹实验的图像来简单了解matlab的绘图方法。</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">y=[<span class="number">0</span> ... <span class="number">453.8</span>];</span><br><span class="line">x=[<span class="number">0.0</span> ... <span class="number">90.0</span>]; <span class="comment">% 这里的横纵坐标数据不作展开，只是示例</span></span><br><span class="line">values = spcrv([[x(<span class="number">1</span>) x x(<span class="keyword">end</span>)];[y(<span class="number">1</span>) y y(<span class="keyword">end</span>)]],<span class="number">3</span>);</span><br><span class="line"><span class="built_in">plot</span>(values(<span class="number">1</span>,:),values(<span class="number">2</span>,:),<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">3</span>,<span class="string">&#x27;Color&#x27;</span>,[<span class="number">.2</span> <span class="number">.2</span> <span class="number">.2</span>]);</span><br><span class="line">title(<span class="string">&#x27;图一：弗兰克赫兹实验图&#x27;</span>);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">&#x27;VG2K(V)&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;IA(nA)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如图（图上的峰值谷值是手动添加的）：</p>
+<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210321204823666.png" alt="image-20210321204823666"></p>
+]]></content>
       <categories>
         <category>Matlab</category>
       </categories>
@@ -4037,9 +4029,9 @@
 <h5 id="对象指针"><a href="#对象指针" class="headerlink" title="对象指针"></a>对象指针</h5><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210316203610938.png" alt="image-20210316203610938"></p>
 <h5 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h5><p>作用基本同Java的this（这里其实没必要加上）</p>
 <p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210316203645915.png" alt="image-20210316203645915"></p>
-<h4 id="向函数传递对象"><a href="#向函数传递对象" class="headerlink" title="向函数传递对象"></a>向函数传递对象</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210316203831986.png" alt="image-20210316203831986"></p>
+<h4 id="7-向函数传递对象"><a href="#7-向函数传递对象" class="headerlink" title="7.向函数传递对象"></a>7.向函数传递对象</h4><p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210316203831986.png" alt="image-20210316203831986"></p>
 <p><img src="/2021/03/09/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210316203924539.png" alt="image-20210316203924539"></p>
-<h4 id="构造函数与析构函数的执行次序"><a href="#构造函数与析构函数的执行次序" class="headerlink" title="构造函数与析构函数的执行次序"></a>构造函数与析构函数的执行次序</h4><ul>
+<h4 id="8-构造函数与析构函数的执行次序"><a href="#8-构造函数与析构函数的执行次序" class="headerlink" title="8.构造函数与析构函数的执行次序"></a>8.构造函数与析构函数的执行次序</h4><ul>
 <li><p>构造函数在对象被创建时调用，析构函数在对象被删除前调用。</p>
 </li>
 <li><p>后调用的对象先调用析构函数。</p>
@@ -4896,6 +4888,53 @@
 <span id="more"></span>
 
 <p>如果我们从<strong>软件</strong>工程师的角度来讲，CPU 就是一个执行各种计算机指令（Instruction Code）的逻辑机器。这里的<strong>计算机指令</strong>，就好比一门 CPU 能够听得懂的语言，我们也可以把它叫作机器语言（Machine Language）。</p>
+<p>不同的 CPU 能够听懂的语言不太一样。比如，我们的个人电脑用的是 Intel 的 CPU，苹果手机用的是 ARM 的 CPU。这两者能听懂的语言就不太一样。类似这样两种 CPU 各自支持的语言，就是两组不同的<strong>计算机指令集</strong>，英文叫 Instruction Set。这里面的“Set”，其实就是数学上的集合，代表不同的单词、语法。</p>
+<p>一个计算机程序，不可能只有一条指令，而是由成千上万条指令组成的。但是 CPU 里不能一直放着所有指令，所以计算机程序平时是存储在存储器中的。这种程序指令存储在存储器里面的计算机，我们就叫作<strong>存储程序型计算机</strong>（Stored-program Computer）。</p>
+<h2 id="从编译到汇编，代码怎么变成机器码？"><a href="#从编译到汇编，代码怎么变成机器码？" class="headerlink" title="从编译到汇编，代码怎么变成机器码？"></a>从编译到汇编，代码怎么变成机器码？</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// test.c</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">1</span>; </span><br><span class="line">  <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">  a = a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要让这段程序在一个 Linux 操作系统上跑起来，我们需要把整个程序翻译成一个<strong>汇编语言</strong>（ASM，Assembly Language）的程序，这个过程我们一般叫<strong>编译</strong>（Compile）成汇编代码。</p>
+<p>针对汇编代码，我们可以再用汇编器（Assembler）翻译成机器码（Machine Code）。这些机器码由“0”和“1”组成的机器语言表示。这一条条<strong>机器码</strong>，就是一条条的<strong>计算机指令</strong>。这样一串串的 16 进制数字，就是我们 CPU 能够真正认识的计算机指令。</p>
+<p>在一个 Linux 操作系统上，我们可以简单地使用 gcc 和 objdump 这样两条命令，把对应的汇编代码和机器码都打印出来。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gcc -g -c test.c</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> objdump -d -M intel -S test.o</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到，左侧有一堆数字，这些就是一条条机器码；右边有一系列的 push、mov、add、pop 等，这些就是对应的汇编代码。一行 C 语言代码，有时候只对应一条机器码和汇编代码，有时候则是对应多条机器码和汇编代码。<u>汇编代码和机器码之间是一一对应的</u>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">test.o:     file format elf64-x86-64</span><br><span class="line">Disassembly of section .text:</span><br><span class="line">0000000000000000 &lt;main&gt;:</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">   0:   55                      push   rbp</span><br><span class="line">   1:   48 89 e5                mov    rbp,rsp</span><br><span class="line">  int a = 1; </span><br><span class="line">   4:   c7 45 fc 01 00 00 00    mov    DWORD PTR [rbp-0x4],0x1</span><br><span class="line">  int b = 2;</span><br><span class="line">   b:   c7 45 f8 02 00 00 00    mov    DWORD PTR [rbp-0x8],0x2</span><br><span class="line">  a = a + b;</span><br><span class="line">  12:   8b 45 f8                mov    eax,DWORD PTR [rbp-0x8]</span><br><span class="line">  15:   01 45 fc                add    DWORD PTR [rbp-0x4],eax</span><br><span class="line">&#125;</span><br><span class="line">  18:   5d                      pop    rbp</span><br><span class="line">  19:   c3                      ret    </span><br></pre></td></tr></table></figure>
+
+<p><strong>因为汇编代码其实就是“给程序员看的机器码”</strong>，也正因为这样，机器码和汇编代码是一一对应的。我们人类很容易记住 add、mov 这些用英文表示的指令，而 8b 45 f8 这样的指令，由于很难一下子看明白是在干什么，所以会非常难以记忆。</p>
+<p>从高级语言到汇编代码，再到机器码，就是一个日常开发程序，最终变成了 CPU 可以执行的计算机指令的过程。</p>
+<h2 id="解析指令和机器码"><a href="#解析指令和机器码" class="headerlink" title="解析指令和机器码"></a>解析指令和机器码</h2><p>一般来说，常见的指令可以分成五大类。</p>
+<ul>
+<li><p>第一类是算术类指令。我们的加减乘除，在 CPU 层面，都会变成一条条算术类指令。</p>
+</li>
+<li><p>第二类是数据传输类指令。给变量赋值、在内存里读写数据，用的都是数据传输类指令。</p>
+</li>
+<li><p>第三类是逻辑类指令。逻辑上的与或非，都是这一类指令。</p>
+</li>
+<li><p>第四类是条件分支类指令。日常我们写的“if/else”，其实都是条件分支类指令。</p>
+</li>
+<li><p>最后一类是无条件跳转指令。写一些大一点的程序，我们常常需要写一些函数或者方法。在调用函数的时候，其实就是发起了一个无条件跳转指令。你可能一下子记不住，或者对这些指令的含义还不能一下子掌握，这里我画了一个表格，给你举例子说明一下，帮你理解、记忆。</p>
+</li>
+</ul>
+<p><img src="/2021/03/17/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/image-20210322223752004.png" alt="image-20210322223752004"></p>
+<p>下面我们来看看，汇编器是怎么把对应的汇编代码，翻译成为机器码的。</p>
+<p>我们说过，不同的 CPU 有不同的指令集，也就对应着不同的汇编语言和不同的机器码。为了方便你快速理解这个机器码的计算方式，我们选用最简单的 MIPS 指令集，来看看机器码是如何生成的。</p>
+<p>MIPS 的指令是一个 <strong>32 位</strong>的整数，高 6 位叫<strong>操作码</strong>（Opcode），也就是代表这条指令具体是一条什么样的指令，剩下的 26 位有三种格式，分别是 R、I 和 J。</p>
+<p><strong>R 指令</strong>是一般用来做算术和逻辑操作，里面有读取和写入数据的寄存器的地址。如果是逻辑位移操作，后面还有位移操作的位移量，而最后的功能码，则是在前面的操作码不够的时候，扩展操作码表示对应的具体指令的。</p>
+<p><strong>I 指令</strong>，则通常是用在数据传输、条件分支，以及在运算的时候使用的并非变量还是常数的时候。这个时候，没有了位移量和操作码，也没有了第三个寄存器，而是把这三部分直接合并成了一个地址值或者一个常数。</p>
+<p><strong>J 指令</strong>就是一个跳转指令，高 6 位之外的 26 位都是一个跳转后的地址。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">add $t0,$s2,$s1</span><br></pre></td></tr></table></figure>
+
+<p>我以一个简单的加法算术指令 add t0,s1, $s2, 为例，给你解释。为了方便，我们下面都用十进制来表示对应的代码。</p>
+<p>对应的 MIPS 指令里 opcode 是 0，rs 代表第一个寄存器 s1 的地址是 17，rt 代表第二个寄存器 s2 的地址是 18，rd 代表目标的临时寄存器 t0 的地址，是 8。因为不是位移操作，所以位移量是 0。把这些数字拼在一起，就变成了一个 MIPS 的加法指令。</p>
+<p>为了读起来方便，我们一般把对应的二进制数，用 16 进制表示出来。在这里，也就是 0X02324020。这个数字也就是这条指令对应的机器码。</p>
+<blockquote>
+<p>注：这里MIPS指令是一个32位的二进制数，对应的十六进制机器码就是8位。</p>
+</blockquote>
+<p><img src="/2021/03/17/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E5%9B%9B%EF%BC%89/image-20210322224518788.png" alt="image-20210322224518788"></p>
+<h2 id="CPU-是如何执行指令的？"><a href="#CPU-是如何执行指令的？" class="headerlink" title="CPU 是如何执行指令的？"></a>CPU 是如何执行指令的？</h2><p>对于我们这些做软件的程序员来说，我们只要知道，写好的代码变成了指令之后，是一条一条<strong>顺序</strong>执行的就可以了。</p>
+<p>我们先不管几百亿的晶体管的背后是怎么通过电路运转起来的，<strong>逻辑上，我们可以认为，CPU 其实就是由一堆寄存器组成的。</strong>而寄存器就是 CPU 内部，由多个触发器（Flip-Flop）或者锁存器（Latches）组成的简单电路。</p>
+<p>触发器和锁存器，其实就是两种不同原理的数字电路组成的逻辑门。这块内容并不是我们这节课的重点，所以你只要了解就好。如果想要深入学习的话，你可以学习数字电路的相关课程，这里我们不深入探讨。</p>
+<p>好了，现在我们接着前面说。N 个触发器或者锁存器，就可以组成一个 N 位（Bit）的寄存器，能够保存 N 位的数据。比方说，我们用的 64 位 Intel 服务器，寄存器就是 64 位的。</p>
 ]]></content>
       <categories>
         <category>计算机组成原理</category>
@@ -4938,6 +4977,76 @@
       </categories>
       <tags>
         <tag>汇编</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（四）</title>
+    <url>/2021/03/23/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="1-静态成员"><a href="#1-静态成员" class="headerlink" title="1.静态成员"></a>1.静态成员</h4><h5 id="1-1静态数据成员"><a href="#1-1静态数据成员" class="headerlink" title="1.1静态数据成员"></a>1.1静态数据成员</h5><p>在某些情况下，我们需要在类中使用作用类似全局变量的变量，这时会用到静态数据成员。</p>
+<p>静态数据成员类似于Java中的类变量（静态变量），随类一起加载。</p>
+<span id="more"></span>
+
+<p>OOP中有着”类属性“的概念。<strong>也就是说，如果某个属性为整个类所共有，不属于任何一个具体的对象，则采用static关键字修饰。</strong></p>
+<p>静态成员在每一个类只有一个副本，有该类的所有对象共同维护和使用，从而实现同一类不同对象的数据共享。</p>
+<ul>
+<li>如何初始化静态数据成员？</li>
+</ul>
+<p>它的初始化应在类外单独进行，而且应在定义对象之前。一般在main函数之前和定义对象之后初始化。</p>
+<p>语法：<code>int Student::count = 0;</code> –&gt; 数据类型   类名：：静态数据成员名   =   初始值；</p>
+<ul>
+<li>如何访问静态数据成员？</li>
+</ul>
+<p>1.类名：：静态数据成员名</p>
+<p>2.对象名.静态数据成员名</p>
+<p>3.对象指针-&gt;静态数据成员名</p>
+<p>注意：私有静态数据成员不能在类外直接访问，必须通过公有的（静态）成员函数访问。</p>
+<h5 id="1-2静态成员函数"><a href="#1-2静态成员函数" class="headerlink" title="1.2静态成员函数"></a>1.2静态成员函数</h5>]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo相关问题汇总</title>
+    <url>/2021/03/21/hexo%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将介绍总结一些hexo的常见/不常见/棘手问题的解决方法。</p>
+</blockquote>
+<span id="more"></span>
+
+<p>1.只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
+<p>2.在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
+<p>3.<a href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></p>
+<p>其实核心问题就是找到span id里是否有style = “display: none”，找到对应文件对应位置的代码并删除即可</p>
+<p>4.hexo s本地样式与网页样式不一致？</p>
+<ul>
+<li>其实原因很简单，拉到服务器之前要<code>hexo clean</code>清理一下缓存，然后再生成和部署，你学会了吗？</li>
+</ul>
+<p>（可能<code>hexo c &amp;&amp; hexo g &amp;&amp; hexo d</code>一步到位，有时候不太行，分开写）</p>
+<ul>
+<li>或者清理一下浏览器缓存就可以解决。</li>
+</ul>
+<p>5.<a href="https://www.kuangstudy.com/bbs/1356475333565587458">markdown语法速成宝典</a></p>
+<p>6.推荐hexo搭建文章：<a href="https://tding.top/archives/aad98408.html">https://tding.top/archives/aad98408.html</a></p>
+<p>7.使用插件备份博客源文件：<a href="https://blog.csdn.net/qq_41793001/article/details/103151182">https://blog.csdn.net/qq_41793001/article/details/103151182</a></p>
+<hr>
+<p>有关备份问题：</p>
+<p><img src="/2021/03/21/hexo%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/image-20210321201128176.png" alt="image-20210321201128176"></p>
+<p>解决方案：<a href="https://cloud.tencent.com/developer/article/1572090">https://cloud.tencent.com/developer/article/1572090</a></p>
+<p>文章中提到的<code>.ssh</code>文件夹一般位于C:\Users\你的用户名\xxx。</p>
+<p><img src="/2021/03/21/hexo%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/image-20210321201346184.png" alt="image-20210321201346184"></p>
+<p>如果出现下图的情况，一般就成功了：</p>
+<p><img src="/2021/03/21/hexo%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/image-20210321201521647.png" alt="image-20210321201521647"></p>
+<p>这时我们再检查github上的hexo仓库，会发现用于备份的backup分支已经成功备份。</p>
+<p><img src="/2021/03/21/hexo%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/image-20210321201725486.png" alt="image-20210321201725486"></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
