@@ -1,14 +1,14 @@
 ---
 title: Java入门笔记（六）
 date: 2021-03-06 12:52:46
-tags: [Java入门,异常]
+tags: [Java入门]
 categories: 
 	- Java
 mathjax: true
 copyright: true
 ---
 
-#### 1.Java异常机制（Exception）
+## 1.Java异常机制（Exception）
 
 <!--more-->
 
@@ -34,7 +34,7 @@ public class A {
 
 ![image-20210306130155892](Java入门笔记（六）/image-20210306130155892.png)
 
-##### 错误（Error）与异常（Exception）
+### 错误（Error）与异常（Exception）
 
 ![image-20210306130317211](Java入门笔记（六）/image-20210306130317211.png)
 
@@ -44,7 +44,7 @@ Exception可以分成运行时异常和非运行时异常。
 
 以上理论只作为了解内容，重点是如何处理异常。
 
-##### 异常处理（抛出与捕获）
+### 异常处理（抛出与捕获）
 
 ![image-20210306130827800](Java入门笔记（六）/image-20210306130827800.png)
 
@@ -146,7 +146,7 @@ public class Test {
 
 **异常处理的一般经验**：捕获那些你知道如何处理的异常，继续传播（抛出）那些不知道如何处理的异常。
 
-##### 自定义异常
+### 自定义异常
 
 大部分情况下，我们不需要自定义异常。
 

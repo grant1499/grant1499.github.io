@@ -8,7 +8,7 @@ mathjax: true
 copyright: true
 ---
 
-#### 1.方法重写（重要）
+## 1.方法重写（重要）
 
 又被称为方法覆盖，override
 
@@ -97,7 +97,7 @@ A=>test()*/
 2. final 常量
 3. private方法
 
-#### 2.多态（重要）
+## 2.多态（重要）
 
 ![image-20210305195037264](Java入门笔记（五）/image-20210305195037264.png)
 
@@ -145,9 +145,9 @@ public class Application {
 }
 ```
 
-#### 3.instanceof和类型转换
+## 3.instanceof和类型转换
 
-##### instanceof
+### instanceof
 
 instanceof 是 Java 的一个二元操作符，类似于 ==，>，< 等操作符。
 
@@ -177,7 +177,7 @@ public class Application {
 
 例如：将Student类设计为Person类的子类，因为“Student is a Person”。
 
-##### 类型转换
+### 类型转换
 
 1. 父类引用指向子类的对象，不能反过来
 2. 把子类转换为父类，向上转型
@@ -216,7 +216,7 @@ public class Application {
 记住，这个过程中对象一直没变过，一直都是那个子类对象
 变的只是引用
 
-#### 4.static关键字
+## 4.static关键字
 
 ```java
 public class Person {
@@ -254,7 +254,7 @@ public class Test {
 }
 ```
 
-#### 5.抽象类（不是重点)
+## 5.抽象类（不是重点)
 
 ![image-20210305220537625](Java入门笔记（五）/image-20210305220537625.png)
 
@@ -284,7 +284,7 @@ public class A extends Action {
 
 3.抽象方法必须在抽象类中
 
-#### 6.接口（重要）
+## 6.接口（重要）
 
 ![image-20210305222342257](Java入门笔记（五）/image-20210305222342257.png)
 
@@ -325,7 +325,7 @@ public class UserServiceImpl implements UserService,TimeService{
 6. 通过implements可以实现多个接口
 7. 必须要重写接口中的方法
 
-#### 7.N种内部类
+## 7.N种内部类
 
 ![image-20210306112110052](Java入门笔记（五）/image-20210306112110052.png)
 

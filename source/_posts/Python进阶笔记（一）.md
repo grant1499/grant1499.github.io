@@ -1,7 +1,7 @@
 ---
 title: Python进阶笔记（一）
 date: 2021-02-24 07:05:57
-tags: [Python进阶,类,OOP]
+tags: [Python进阶,OOP]
 categories: 
 	- Python
 mathjax: true

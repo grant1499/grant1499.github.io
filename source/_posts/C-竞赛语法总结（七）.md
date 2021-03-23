@@ -9,7 +9,7 @@ mathjax: true
 copyright: true
 ---
 
-#### 1.acwing.66.两个链表的第一个公共结点
+## 1.acwing.66.两个链表的第一个公共结点
 
 <u>这几道链表题大多来自《剑指offer》，都不太会啊！</u>
 
@@ -58,7 +58,7 @@ public:
 };
 ```
 
-#### 2.acwing.29.删除链表中的重复结点
+## 2.acwing.29.删除链表中的重复结点
 
 在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留。
 
@@ -104,17 +104,17 @@ public:
 };
 ```
 
-#### 3.C++ STL容器
+## 3.C++ STL容器
 
 STL是提高C++编写效率的一个利器。                                                                                                            ——yxc
 
 最后两章要背的东西比较多！
 
-##### 3.1 `#include <vector>`
+### 3.1 `#include <vector>`
 
 vector是**变长数组，支持随机访问，不支持在任意位置O(1)插入**。为了保证效率，元素的增删一般应该在末尾进行。 
 
-###### 3.1.1  声明
+#### 3.1.1  声明
 
 ```C++
 #include <vector>    头文件
@@ -128,17 +128,17 @@ vector是**变长数组，支持随机访问，不支持在任意位置O(1)插�
        vector<rec> c;       自定义的结构体类型也可以保存在vector中
 ```
 
-###### 3.1.2 size/empty
+#### 3.1.2 size/empty
 
 size函数返回vector的实际长度（包含的元素个数），empty函数返回一个bool类型，表明vector是否为空，为空返回true，否则返回false。二者的时间复杂度都是O(1)。
 
 **所有的STL容器都支持这两个方法，含义也相同**，之后我们就不再重复给出。 
 
-###### 3.1.3 clear
+#### 3.1.3 clear
 
 ​       clear函数把vector清空。 
 
-###### 3.1.4 迭代器(iterator)
+#### 3.1.4 迭代器(iterator)
 
 ​       **迭代器就像STL容器的“指针”**，可以用星号“*”操作符解除引用。
 
@@ -148,7 +148,7 @@ size函数返回vector的实际长度（包含的元素个数），empty函数�
 
 vector的迭代器是“随机访问迭代器”，可以把vector的迭代器与一个整数相加减，其行为和指针的移动类似。可以把vector的两个迭代器相减，其结果也和指针相减类似，得到两个迭代器对应下标之间的距离。 
 
-###### 3.1.5 begin/end–[begin,end)
+#### 3.1.5 begin/end–[begin,end)
 
 begin函数返回指向vector中第一个元素的迭代器。例如a是一个非空的vector，则`*a.begin()`与a[0]的作用相同。
 
@@ -162,13 +162,13 @@ for (int I = 0; I < a.size(); I ++) cout << a[i] << endl;
 for (vector<int>::iterator it = a.begin(); it != a.end(); it ++) cout << *it << endl;
 ```
 
-###### 3.1.6 front/back
+#### 3.1.6 front/back
 
 ​       front函数返回vector的第一个元素，等价于`*a.begin()` 和 a[0]。
 
 ​       back函数返回vector的最后一个元素，等价于`*==a.end()` 和 `a[a.size() – 1]`。 
 
-###### 3.1.7  push_back() 和 pop_back()
+#### 3.1.7  push_back() 和 pop_back()
 
 `a.push_back(x)` 把元素x插入到vector a的尾部。
 
@@ -176,7 +176,7 @@ for (vector<int>::iterator it = a.begin(); it != a.end(); it ++) cout << *it << 
 
  `b.pop_back()` 删除vector a的最后一个元素。
 
-###### 3.1.8 实例
+#### 3.1.8 实例
 
 ```c++
 #include <iostream>
@@ -212,7 +212,7 @@ int main()
 }
 ```
 
-##### 3.2 `#include <queue> `
+### 3.2 `#include <queue> `
 
 头文件queue主要包括循环队列queue和优先队列priority_queue两个容器。 
 
@@ -225,7 +225,7 @@ int main()
 - 定义大根堆时结构体要重载小于号<；
 - 定义小根堆时结构体要重载大于号>；
 
-###### 3.2.1 声明
+#### 3.2.1 声明
 
 ```C++
 queue<int> q;
@@ -239,7 +239,7 @@ queue<int> q;
        priority_queue<pair<int, int>> q;// pair是二元组
 ```
 
-###### 3.2.2 循环队列 queue
+#### 3.2.2 循环队列 queue
 
 ​       push 从队尾插入
 
@@ -249,7 +249,7 @@ queue<int> q;
 
 ​       back 返回队尾元素 
 
-###### 3.2.3 优先队列 priority_queue
+#### 3.2.3 优先队列 priority_queue
 
 ​       push 把元素插入堆
 
@@ -257,7 +257,7 @@ queue<int> q;
 
 ​       top 查询堆顶元素（最大值）
 
-###### 3.2.4 实例
+#### 3.2.4 实例
 
 ```C++
 #include <iostream>
@@ -314,7 +314,7 @@ int main()
 }
 ```
 
-##### 3.3 `#include <stack>`
+### 3.3 `#include <stack>`
 
 头文件stack包含栈。声明和前面的容器类似。
 
@@ -348,7 +348,7 @@ int main()
 12*/
 ```
 
-##### 3.4 `#include <deque>`
+### 3.4 `#include <deque>`
 
 双端队列deque是一个支持在两端高效插入或删除元素的连续线性存储空间。它就像是vector和queue的结合。**与vector相比，deque在头部增删元素仅需要O(1)的时间；与queue相比，deque像数组一样支持随机访问。运行效率会比stack和vector慢。**
 

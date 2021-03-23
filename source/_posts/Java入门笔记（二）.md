@@ -8,7 +8,7 @@ mathjax: true
 copyright: true
 ---
 
-#### 1.IDEA快捷键
+## 1.IDEA快捷键
 
 psvm：`public static void main(String[] args)`
 
@@ -20,7 +20,7 @@ Alt + Insert：生成构造器，get/set方法
 
 <!--more-->
 
-#### 2.HelloWorld
+## 2.HelloWorld
 
 ```java
 public class HelloWorld {
@@ -31,7 +31,7 @@ public class HelloWorld {
 }
 ```
 
-#### 3.数据类型扩展
+## 3.数据类型扩展
 
 ```java
 // 1.整数扩展
@@ -71,7 +71,7 @@ public class HelloWorld {
 a*/
 ```
 
-#### 4.类型转换
+## 4.类型转换
 
 整型、实型（常量）、字符型数据可以混合运算。运算中，**不同类型的数据先转化为同一类型，然后进行运算**。
 
@@ -105,7 +105,7 @@ byte,short,char—> int —> long—> float —> double
   (int)-45.89f == -45
   ```
 
-##### 4.1 强制类型转换：从高级到低级
+### 4.1 强制类型转换：从高级到低级
 
 - 条件是转换的数据类型必须是兼容的。
 - 格式：`(type)value`是要强制类型转换后的数据类型
@@ -126,7 +126,7 @@ System.out.println(total2);
 20000000000*/
 ```
 
-##### 4.2自动类型转换：从低级到高级
+### 4.2自动类型转换：从低级到高级
 
 必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short数据类型的位数为16位，就可以自动转换位数为32的int类型，同样float数据类型的位数为32，可以自动转换为64位的double类型。
 
@@ -137,7 +137,7 @@ int m = 10_0000_0000;
 System.out.println(m);
 ```
 
-#### 5.class小例子
+## 5.class小例子
 
 ```java
 public class Demo{
@@ -170,7 +170,7 @@ public class Demo{
 }
 ```
 
-#### 6.常量
+## 6.常量
 
 常量确定后在程序运行过程中不允许修改。
 
@@ -184,7 +184,7 @@ public class Demo{
 static final double PI = 3.14;
 ```
 
-#### 7.变量命名规范（再次强调）
+## 7.变量命名规范（再次强调）
 
 1.变量，方法名：monthSalary，Run()，首字母小写和驼峰命名原则，除第一个单词以外后面单词首字母大写。
 
@@ -192,7 +192,7 @@ static final double PI = 3.14;
 
 3.类名：GoodMan，首字母大写和驼峰命名原则。
 
-#### 8.Java运算符
+## 8.Java运算符
 
 大部分同C++。
 
@@ -221,7 +221,7 @@ System.out.println(a+b+"");// 30
 2 < 3 ? true : false;
 ```
 
-#### 9.Package包机制
+## 9.Package包机制
 
 <u>为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间，防止命名空间重复。</u>
 
@@ -238,7 +238,7 @@ public class Blog{}
 import com.kunag.base.*; // 导入该包中的所有类
 ```
 
-#### 10.JavaDoc生成文档
+## 10.JavaDoc生成文档
 
 ![image-20210226153609818](Java入门笔记（二）/image-20210226153609818.png)
 

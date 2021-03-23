@@ -8,7 +8,7 @@ mathjax: true
 copyright: true
 ---
 
-#### 1.Scanner（扫描器）对象
+## 1.Scanner（扫描器）对象
 
 java.util.Scanner 是 Java5 的新特征，我们可以通过 Scanner 类来获取用户的输入。
 
@@ -74,9 +74,9 @@ public class Demo{
 }
 ```
 
-#### 2.选择分支
+## 2.选择分支
 
-##### if选择分支
+### if选择分支
 
 ```java
 public class Demo{
@@ -96,7 +96,7 @@ public class Demo{
 
 ![image-20210226180441511](Java入门笔记（三）/image-20210226180441511.png)
 
-##### switch选择分支
+### switch选择分支
 
 ![image-20210226180716484](Java入门笔记（三）/image-20210226180716484.png)
 
@@ -118,7 +118,7 @@ public class Demo{
 }
 ```
 
-#### 3.循环结构
+## 3.循环结构
 
 包括while，do-while和for循环，break和continue跳出循环。大致语法结构与C++相同。
 
@@ -142,7 +142,7 @@ public class Demo{
 // 1 2 3 4 5 6
 ```
 
-#### 4.Java中的方法
+## 4.Java中的方法
 
 ![image-20210226190359631](Java入门笔记（三）/image-20210226190359631.png)
 
@@ -164,7 +164,7 @@ public class Demo{
 
 记住：**Java中的方法都是值传递**。
 
-#### 5.方法的重载（非常重要）
+## 5.方法的重载（非常重要）
 
 ![image-20210226195152023](Java入门笔记（三）/image-20210226195152023.png)
 
@@ -189,7 +189,7 @@ public class Demo{
 }// 注意：仅仅返回类型不同不足以成为方法的重载，要求参数列表必须不同
 ```
 
-#### 6.命令行传参
+## 6.命令行传参
 
 ![image-20210226195848316](Java入门笔记（三）/image-20210226195848316.png)
 
@@ -201,7 +201,7 @@ public class Demo{
 
 通过java命令给main方法传递参数"this is..."，并打印参数。
 
-#### 7.可变参数（不定项参数）
+## 7.可变参数（不定项参数）
 
 ![image-20210226200859067](Java入门笔记（三）/image-20210226200859067.png)
 
@@ -217,7 +217,7 @@ public class Demo{
 }
 ```
 
-#### 8.数组
+## 8.数组
 
 数组是引用数据类型。数组的长度是固定的，一旦创建就不能修改。
 
@@ -292,7 +292,7 @@ public class Demo{
 }
 ```
 
-#### 9.内存分析
+## 9.内存分析
 
 ![image-20210226204256773](Java入门笔记（三）/image-20210226204256773.png)
 
@@ -304,7 +304,7 @@ public class Demo{
 
 ![image-20210226204804592](Java入门笔记（三）/image-20210226204804592.png)
 
-#### 10.Arrays类
+## 10.Arrays类
 
 ![image-20210227113849263](Java入门笔记（三）/image-20210227113849263.png)
 

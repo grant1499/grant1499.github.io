@@ -8,7 +8,7 @@ mathjax: true
 copyright: true
 ---
 
-##### 1.小练习
+## 1.小练习
 
 ```python
 # s = "* ** ** hel  l* o*  ** * *  "
@@ -23,19 +23,19 @@ while s[-1] == "*" or s[-1] == " ":
 
 <!--more-->
 
-##### 2.计算思维
+## 2.计算思维
 
 考点：计算思维的本质是抽象和自动化。
 
 自顶向下设计，自底向上执行。
 
-##### 3.常用内置函数
+## 3.常用内置函数
 
 ![image-20210121155428455](Python入门笔记（四）/image-20210121155428455.png)
 
-##### 4.turtle库
+## 4.turtle库
 
-###### turtle库的引用方式
+### turtle库的引用方式
 
 第一种，import turtle，则对turtle库中函数调 用采用turtle.<函数名>()形式。
 
@@ -55,7 +55,7 @@ import turtle as t # 类似取别名
 t.fd(100)
 ```
 
-###### 窗口函数
+### 窗口函数
 
 `turtle.setup(width, height, startx, starty)` 窗体函数
 
@@ -69,7 +69,7 @@ startx：窗口左侧与屏幕左侧的像素距离，如果值是None ，窗口
 
 starty：窗口顶部与屏幕顶部的像素距离，如果值是None ，窗口位于屏幕垂直中央。
 
-###### 常用状态函数
+### 常用状态函数
 
 | **函数**     | **描述**                           |
 | ------------ | ---------------------------------- |
@@ -92,7 +92,7 @@ starty：窗口顶部与屏幕顶部的像素距离，如果值是None ，窗口
 | showturtle           | 显示画笔形状                   |
 | Isvisible()          | 如果画笔可见则显示true         |
 
-###### 常用运动函数
+### 常用运动函数
 
 | **函数**          | **描述**                       |
 | ----------------- | ------------------------------ |
@@ -182,9 +182,7 @@ t.home()  # 画笔回到原点，方向朝东
 t.done()
 ```
 
-
-
-##### 5.random库
+## 5.random库
 
 使用random库主要目的是生成随机数 
 
@@ -227,7 +225,7 @@ lt = random.sample(ls,3)
 print(lt)
 ```
 
-##### 6.time库
+## 6.time库
 
 处理时间是程序最常用的功能之一，time库是Python提供的处理时间标准库。time库提供系统级精确计时器的计时功能，可以用来分析程序性能，也可让程序暂停运行时间。
 
@@ -275,8 +273,7 @@ for i in range(3):
     time.sleep(3)  # 每次循环睡眠3秒
 ```
 
-
-##### 7.PyInstaller库
+## 7.PyInstaller库
 
 PyInstaller是一个十分有用的Python第三方库，它能够在Windows、Linux、Mac OS  X等操作系统下将Python源文件打包，变成直接可运行的可执行文件。通过对源文件打包，Python程序可以在没有安装Python的环境中运行，也可以作为一个独立文件方便传递和管理。
 
@@ -297,7 +294,7 @@ eg : `pyinstaller -F -i 1.cio yinyang.py`
 
 eg : `pyinstaller -F -w yinyang.py  # -w去掉运行exe时的黑窗口`
 
-##### 8.jieba库
+## 8.jieba库
 
 1、由于中文文本中的单词不是通过空格或者标点符号分割，中文及类似语言存在一个重要的“分词”问题。
 
@@ -336,7 +333,7 @@ ls = jieba.lcut("作为一个年轻人，我们要努力加油，奥利给！！
 print(ls)
 ```
 
-##### 9.wordcloud库
+## 9.wordcloud库
 
 1、wordcloud库是专门用于根据文本生成词云的Python第三方库，十分常用且有趣。
 
@@ -398,7 +395,7 @@ wd = wordcloud.WordCloud(font_path=r"F:\下载\方正楷体_GBK.TTF",width=800,h
 wd.to_file("word.png")
 ```
 
-##### 10.python第三方库纵览
+## 10.python第三方库纵览
 
 考选择题，以记忆库的名称、作用为主。
 
