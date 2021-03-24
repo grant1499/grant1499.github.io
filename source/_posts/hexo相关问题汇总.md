@@ -54,3 +54,7 @@ copyright: true
 这时我们再检查github上的hexo仓库，会发现用于备份的backup分支已经成功备份。
 
 ![image-20210321201725486](hexo相关问题汇总/image-20210321201725486.png)
+
+8.hexo博客使用[Valine](https://valine.js.org/)添加评论系统：
+
+参见博客 https://www.luanzhuxian.com/post/c49d1b87.html  和 https://www.zhyong.cn/posts/95cb/
