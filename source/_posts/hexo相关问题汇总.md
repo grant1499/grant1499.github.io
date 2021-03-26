@@ -58,3 +58,5 @@ copyright: true
 8.hexo博客使用[Valine](https://valine.js.org/)添加评论系统：
 
 参见博客 https://www.luanzhuxian.com/post/c49d1b87.html  和 https://www.zhyong.cn/posts/95cb/
+
+第三方插件增强邮件提醒：https://blog.csdn.net/AC916305619/article/details/110379680 和 https://github.com/DesertsP/Valine-Admin

@@ -589,7 +589,6 @@ int main()
         cin >> a >> b >> c;
         ans.insert({a, {b, c}});
     }
-    // 不用auto的写法 (蓝桥杯不让写auto)
     // map<int, PII>::iterator iter; 迭代器
     for (map<int, PII>::iterator iter = ans.begin(); iter != ans.end(); iter ++ )
         printf("%d %.2f %s\n", iter->x, iter->y.x, iter->y.y.c_str());  //这里 iter -> x/y 是map ，后面两个是pair ：PII.first/second
