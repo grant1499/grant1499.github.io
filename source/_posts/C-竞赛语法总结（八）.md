@@ -200,6 +200,10 @@ int main()
 
 ### 3.8 二元组(pair)
 
+pair是将2个数据组合成一组数据，当需要这样的需求时就可以使用pair，如stl中的map就是将key和value放在一起来保存。另一个应用是，当一个函数需要返回2个数据的时候，可以选择pair。 
+
+pair的实现是一个结构体，主要的两个成员变量是first second 因为是使用struct不是class，所以可以直接使用pair的成员变量。
+
 ```C++
 #include <iostream>
 #include <vector>
@@ -207,6 +211,7 @@ using namespace std;
 int main()
 {
     pair<int,string> a,b;
+    pair<int,int> p;
     a = {3,"yxc"};// C++99不支持这种赋值
     a = make_pair(4,"abc");
     cout << a.first << ' ' << a.second << endl;
