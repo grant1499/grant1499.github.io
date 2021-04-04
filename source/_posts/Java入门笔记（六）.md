@@ -8,7 +8,7 @@ mathjax: true
 copyright: true
 ---
 
-## 1.Java异常机制（Exception）
+## Java异常机制（Exception）
 
 <!--more-->
 
@@ -195,5 +195,3 @@ public class Test {
 ![image-20210306143205863](Java入门笔记（六）/image-20210306143205863.png)
 
 IDEA代码出现波浪线（一些异常等），按住Alt + Enter进行处理。
-
-到这里，Java SE部分正式完结！！！

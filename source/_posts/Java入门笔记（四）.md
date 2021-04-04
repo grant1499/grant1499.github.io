@@ -118,7 +118,9 @@ public class Demo{
 
 <img src="Java入门笔记（四）/image-20210227142935926.png" alt="image-20210227142935926" style="zoom:67%;" />
 
-## 3.回顾方法的调用
+## 3.静态方法与非静态方法
+
+静态方法（类方法）的特点：只能使用参数和静态变量（包括自己类的和别的类的允许访问的），没有this自引用，但是可以通过new的对象或传入的参数对象来引用。
 
 Demo1：new一个对象来调用非静态方法（随对象创建进行加载）。
 
@@ -252,7 +254,7 @@ public class Demo{
 
 ## 6.类的构造器（构造方法）
 
-类中的构造方法是在进行创建对象时必须调用的。
+类中的构造方法是在进行创建对象时必须调用的。它只能在创建对象时被间接调用。
 
 它有以下两个特点：
 
@@ -293,6 +295,29 @@ public class Person {
 // 根据方法重载进行有参构造
 ```
 
+```java
+public class Person {
+    String name;
+    int age;
+    // 构造器实例化初始值
+    public Person(String name){
+        this.name = name;
+    }
+    // 构造器的重载与相互调用
+    //在构造器里调用重载的构造器时，必须是方法的第一行
+    public Person(String name,int age){
+        this(name);
+        this.age = age;
+    }
+}
+public class Application {
+    public static void main(String[] args) {
+        Person person = new Person("xiaoming",18);
+        System.out.println(person.name);
+    }
+}
+```
+
 ## 7.创建对象内存分析
 
 ![image-20210305150045041](Java入门笔记（四）/image-20210305150045041.png)
@@ -309,10 +334,10 @@ public class Person {
 
 也即字段Field，成员变量
 
-会进行默认初始化：
+会进行默认初始化（缺省值）：
 
 - 数字：0  0.0
-- char：u0000
+- char：`\u0000`
 - boolean：false
 - 引用类型：null
 
@@ -391,6 +416,9 @@ public class Demo{
 - 私有的东西无法被继承
 - 子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，**只是拥有**
 - 被final修饰的class不能被继承
+- 子类可以通过this访问公共继承自父类的属性，相当于子类对象里藏着一个父类对象
+- 就好像子类的引用可以一物二用，既可以当作父类的引用使用，又可以当作子类的引用
+  使用
 
 ```java
 // 父类
@@ -499,13 +527,18 @@ Teacher无参执行了*/
 
 super的注意点
 
-- super调用父类的构造器，必须在当前类（子类）的第一行
+- 子类对象里可以认为有一个特殊的父类的对象，这个父类对象和子类对象之
+  间通过super 关键字来沟通，super是沟通的桥梁
+
+- super();调用父类的构造器，**必须在当前类（子类）的第一行**
 - super必须只能出现在子类的方法或者构造器中
 - super和this不能同时调用构造方法（因为都必须放第一行）
+- super并不是父类的引用，和this自引用不一样，如果一样那不就成组合了嘛
 
 super与this的不同点
 
 - 代表的对象不同
 - this没继承也能使用，super只能在继承时使用
 - this();调用本类的构造，super();调用父类的构造
+- this可以作为返回值，但super不可以
 

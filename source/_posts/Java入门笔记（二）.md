@@ -38,7 +38,7 @@ public class HelloWorld {
 public class HelloWorld {
 	public static void main(String[] args){
 		int i = 010,i2 = 10,i3 = 0x10;
-		System.out.println(i);// 八进制0
+		System.out.println(i);// 八进制0，以0开头的就是八进制
 		System.out.println(i2);// 十进制，默认
 		System.out.println(i3);// 十六进制0x
         // 二进制0b
@@ -89,21 +89,6 @@ byte,short,char—> int —> long—> float —> double
 
 -  在把容量大的类型转换为容量小的类型时必须使用强制类型转换。
 
--  转换过程中可能导致溢出或损失精度，例如：
-
-  ```java
-  int i =128;   
-  byte b = (byte)i;// b = -128,内存溢出
-  ```
-
-  因为 byte 类型是 8 位，最大值为127，所以当 int 强制转换为 byte 类型时，值 128 时候就会导致溢出。
-
-- 浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入，例如：
-
-  ```java
-  (int)23.7 == 23;        
-  (int)-45.89f == -45
-  ```
 
 ### 4.1 强制类型转换：从高级到低级
 
@@ -126,9 +111,27 @@ System.out.println(total2);
 20000000000*/
 ```
 
+**注意：强制类型转换过程中可能导致溢出或损失精度**，例如：
+
+  ```java
+  int i =128;   
+  byte b = (byte)i;// b = -128,内存溢出
+  ```
+
+  因为 byte 类型是 8 位，最大值为127，所以当 int 强制转换为 byte 类型时，值 128 时候就会导致溢出。
+
+- 浮点数到整数的转换是通过舍弃小数得到，而不是四舍五入，例如：
+
+  ```java
+  (int)23.7 == 23;        
+  (int)-45.89f == -45
+  ```
+
 ### 4.2自动类型转换：从低级到高级
 
 必须满足转换前的数据类型的位数要低于转换后的数据类型，例如: short数据类型的位数为16位，就可以自动转换位数为32的int类型，同样float数据类型的位数为32，可以自动转换为64位的double类型。
+
+char不能自动转换为short，因为它们都是2字节，但是char是无符号数，在正数范围超过了short。
 
 ```java
 // 补充
@@ -137,7 +140,7 @@ int m = 10_0000_0000;
 System.out.println(m);
 ```
 
-## 5.class小例子
+## 5.class的属性
 
 ```java
 public class Demo{
@@ -164,8 +167,7 @@ public class Demo{
         System.out.println(salary);// 类变量可以直接打印
     }
     //其他方法
-    public void add(){
-        
+    public void add(){        
     }
 }
 ```
