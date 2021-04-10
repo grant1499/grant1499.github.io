@@ -16,17 +16,23 @@
     var CONFIG = {"hostname":"grant1499.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Tough times never last, but tough people do.">
+  <meta name="description" content="1.虚基类在多条继承路径上有一个公共的基类,在这些路径中的某几条汇合处，这个公共的基类就会产生多个实例(或多个副本)，若只想保存这个基类的一个实例，可以将这个公共基类说明为虚基类。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++入门笔记（六）">
 <meta property="og:url" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/index.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="Tough times never last, but tough people do.">
+<meta property="og:description" content="1.虚基类在多条继承路径上有一个公共的基类,在这些路径中的某几条汇合处，这个公共的基类就会产生多个实例(或多个副本)，若只想保存这个基类的一个实例，可以将这个公共基类说明为虚基类。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404174942521.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404190957863.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404191316120.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404191332961.png">
 <meta property="article:published_time" content="2021-03-26T14:01:32.000Z">
-<meta property="article:modified_time" content="2021-03-26T14:01:32.549Z">
+<meta property="article:modified_time" content="2021-04-04T12:01:58.541Z">
 <meta property="article:author" content="grant">
+<meta property="article:tag" content="C++入门">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404174942521.png">
 
 <link rel="canonical" href="https://grant1499.github.io/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/">
 
@@ -122,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">33</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">36</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -132,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">69</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">73</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -213,6 +219,22 @@
 
               <time title="创建时间：2021-03-26 22:01:32" itemprop="dateCreated datePublished" datetime="2021-03-26T22:01:32+08:00">2021-03-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-04 20:01:58" itemprop="dateModified" datetime="2021-04-04T20:01:58+08:00">2021-04-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
 
           
             <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
@@ -237,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -256,7 +278,97 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="1-虚基类"><a href="#1-虚基类" class="headerlink" title="1.虚基类"></a>1.虚基类</h2><p>在多条继承路径上有一个公共的基类,在这些路径中的某几条汇合处，这个公共的基类就会产生多个实例(或多个副本)，若只想保存这个基类的一个实例，<strong>可以将这个公共基类说明为虚基类</strong>。</p>
+<span id="more"></span>
+
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404174942521.png" alt="image-20210404174942521"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base0</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Base0(<span class="keyword">int</span> var):var0(var)&#123;&#125;</span><br><span class="line">        <span class="keyword">int</span> var0;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">fun0</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Member of Base0&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Base1(<span class="keyword">int</span> var):Base0(var)&#123;&#125;</span><br><span class="line">        <span class="keyword">int</span> var1;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span>:</span><span class="keyword">virtual</span> <span class="keyword">public</span> Base0&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Base2(<span class="keyword">int</span> var):Base0(var)&#123;&#125;</span><br><span class="line">        <span class="keyword">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span><span class="keyword">public</span> Base1,<span class="keyword">public</span> Base2&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="comment">// 需要给最远的基类Base0传参</span></span><br><span class="line">        Derived(<span class="keyword">int</span> var):Base0(var),Base1(var),Base2(var)&#123;&#125;</span><br><span class="line">        <span class="keyword">int</span> var;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Member of Derived&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Derived <span class="title">d</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    d.var0 = <span class="number">2</span>; <span class="comment">// 直接访问虚基类的数据成员</span></span><br><span class="line">    d.fun0(); <span class="comment">// 直接访问虚基类的函数成员</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>建立对象时，由最远的派生类的构造函数调用虚基类的构造函数进行初始化。该派生类的其他基类对虚基类的构造函数的调用都自动忽略。</p>
+<p>构造函数调用顺序</p>
+<ul>
+<li><p>先调用虚基类的构造函数，再调用非虚基类的构造函数，最后调用派生类的构造函数</p>
+</li>
+<li><p>对于多个虚基类或非虚基类，先左后右，自上而下</p>
+</li>
+</ul>
+<h2 id="2-基类与派生类对象之间的赋值兼容关系"><a href="#2-基类与派生类对象之间的赋值兼容关系" class="headerlink" title="2.基类与派生类对象之间的赋值兼容关系"></a>2.基类与派生类对象之间的赋值兼容关系</h2><p><strong>在需要基类对象的任何地方，都可以使用公有派生类的对象来替代。</strong></p>
+<ol>
+<li>派生类的对象可以隐含（自动）转换为基类对象</li>
+<li>派生类的对象可以初始化基类的引用</li>
+<li>派生类的指针可以隐含转换为基类的指针</li>
+<li>若函数的形参是基类对象或基类对象的引用，在调用函数时可以用派生类对象作为实参</li>
+</ol>
+<p>在替代之后，派生类对象就可以作为基类对象使用，但只能使用从基类继承的成员。</p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404190957863.png" alt="image-20210404190957863"></p>
+<h2 id="3-多态性"><a href="#3-多态性" class="headerlink" title="3.多态性"></a>3.多态性</h2><h3 id="3-1多态的分类"><a href="#3-1多态的分类" class="headerlink" title="3.1多态的分类"></a>3.1多态的分类</h3><p>C++里的多态包括了静态多态和动态多态。</p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404191316120.png" alt="image-20210404191316120"></p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210404191332961.png" alt="image-20210404191332961"></p>
+<h3 id="3-2运算符重载（重要）"><a href="#3-2运算符重载（重要）" class="headerlink" title="3.2运算符重载（重要）"></a>3.2运算符重载（重要）</h3><p>运算符重载通过创建<u>运算符重载函数</u>来实现，包括：类外的普通函数、类的成员函数和友元函数。</p>
+<p>重载的运算符是带有特殊名称的函数，函数名是由关键字 operator 和其后要重载的运算符符号构成的。与其他函数一样，重载运算符有一个返回类型和一个参数列表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Box <span class="keyword">operator</span>+(<span class="keyword">const</span> Box&amp;);</span><br></pre></td></tr></table></figure>
+
+<p>声明加法运算符用于把两个 Box 对象相加，返回最终的 Box 对象。大多数的重载运算符可被定义为普通的非成员函数或者被定义为类成员函数。如果我们定义上面的函数为类的非成员函数，那么我们需要为每次操作传递两个参数，如下所示：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Box <span class="keyword">operator</span>+(<span class="keyword">const</span> Box&amp;, <span class="keyword">const</span> Box&amp;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为类成员函数的运算符重载函数</span></span><br><span class="line"><span class="comment">// 重载 + 运算符，用于把两个 Box 对象相加</span></span><br><span class="line">Box <span class="keyword">operator</span>+(<span class="keyword">const</span> Box&amp; b)</span><br><span class="line">&#123;</span><br><span class="line">    Box box;</span><br><span class="line">    box.length = <span class="keyword">this</span>-&gt;length + b.length;</span><br><span class="line">    box.breadth = <span class="keyword">this</span>-&gt;breadth + b.breadth;</span><br><span class="line">    box.height = <span class="keyword">this</span>-&gt;height + b.height;</span><br><span class="line">    <span class="keyword">return</span> box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把两个对象相加，得到 Box3</span></span><br><span class="line">Box3 = Box1 + Box2;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可重载运算符-不可重载运算符"><a href="#可重载运算符-不可重载运算符" class="headerlink" title="可重载运算符/不可重载运算符"></a>可重载运算符/不可重载运算符</h4><p>下面是可重载的运算符列表：</p>
+<table>
+<thead>
+<tr>
+<th>双目算术运算符</th>
+<th>+ (加)，-(减)，*(乘)，/(除)，% (取模)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>关系运算符</td>
+<td>==(等于)，!= (不等于)，&lt; (小于)，&gt; (大于)，&lt;=(小于等于)，&gt;=(大于等于)</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>||(逻辑或)，&amp;&amp;(逻辑与)，!(逻辑非)</td>
+</tr>
+<tr>
+<td>单目运算符</td>
+<td>+ (正)，-(负)，*(指针)，&amp;(取地址)</td>
+</tr>
+<tr>
+<td>自增自减运算符</td>
+<td>++(自增)，–(自减)</td>
+</tr>
+<tr>
+<td>位运算符</td>
+<td>| (按位或)，&amp; (按位与)，~(按位取反)，^(按位异或),，&lt;&lt; (左移)，&gt;&gt;(右移)</td>
+</tr>
+<tr>
+<td>赋值运算符</td>
+<td>=, +=, -=, *=, /= , % = , &amp;=, |=, ^=, &lt;&lt;=, &gt;&gt;=</td>
+</tr>
+<tr>
+<td>空间申请与释放</td>
+<td>new, delete, new[ ] , delete[]</td>
+</tr>
+<tr>
+<td>其他运算符</td>
+<td><code>()</code>(函数调用)，<code>-&gt;</code>(成员访问)，<code>,</code>(逗号)，<code>[]</code>(下标)</td>
+</tr>
+</tbody></table>
+<p>下面是不可重载的运算符列表：</p>
+<ul>
+<li><code>.</code>：成员访问运算符</li>
+<li><code>.*</code>,<code> -&gt;*</code>：成员指针访问运算符</li>
+<li><code>::</code>：域运算符</li>
+<li><code>sizeof</code>：长度运算符</li>
+<li><code>?:</code>：条件运算符</li>
+<li><code>#</code>： 预处理符号</li>
+</ul>
+<p>对于++和–的重载：</p>
+<p>前缀形式重载调用 Check operator ++ () ，后缀形式重载调用 operator ++ (int)。</p>
+<p>后缀形式中的int形参不起任何作用，只是为了区分前置和后置++或–。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重载前缀递增运算符（ ++ ）</span></span><br><span class="line">Time <span class="keyword">operator</span>++ ()  </span><br><span class="line">&#123;</span><br><span class="line">    ++minutes;          <span class="comment">// 对象加 1</span></span><br><span class="line">    <span class="keyword">if</span>(minutes &gt;= <span class="number">60</span>)  </span><br><span class="line">    &#123;</span><br><span class="line">        ++hours;</span><br><span class="line">        minutes -= <span class="number">60</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Time(hours, minutes);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载后缀递增运算符（ ++ ）</span></span><br><span class="line">Time <span class="keyword">operator</span>++( <span class="keyword">int</span> )         </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 保存原始值</span></span><br><span class="line">    <span class="function">Time <span class="title">T</span><span class="params">(hours, minutes)</span></span>;</span><br><span class="line">    <span class="comment">// 对象加 1</span></span><br><span class="line">    ++minutes;                    </span><br><span class="line">    <span class="keyword">if</span>(minutes &gt;= <span class="number">60</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ++hours;</span><br><span class="line">        minutes -= <span class="number">60</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回旧的原始值</span></span><br><span class="line">    <span class="keyword">return</span> T; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     </div>
 
     
@@ -281,6 +393,10 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/C-%E5%85%A5%E9%97%A8/" rel="tag"><i class="fa fa-tag"></i> C++入门</a>
+          </div>
 
         
 
@@ -354,6 +470,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%99%9A%E5%9F%BA%E7%B1%BB"><span class="nav-text">1.虚基类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9F%BA%E7%B1%BB%E4%B8%8E%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B5%8B%E5%80%BC%E5%85%BC%E5%AE%B9%E5%85%B3%E7%B3%BB"><span class="nav-text">2.基类与派生类对象之间的赋值兼容关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%A4%9A%E6%80%81%E6%80%A7"><span class="nav-text">3.多态性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E5%A4%9A%E6%80%81%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">3.1多态的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-text">3.2运算符重载（重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6-%E4%B8%8D%E5%8F%AF%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">可重载运算符&#x2F;不可重载运算符</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,7 +486,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -382,7 +499,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -431,13 +548,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">270k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:57</span>
+    <span title="站点阅读时长">4:06</span>
 </div>
 
 <span id="sitetime"></span>
@@ -549,6 +666,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
