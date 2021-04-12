@@ -3902,14 +3902,22 @@
   <entry>
     <title>Matlab快速入门笔记（二）</title>
     <url>/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<p>续上文。</p>
-<span id="more"></span>
+    <content><![CDATA[<h2 id="1-迭代法求解线性方程组"><a href="#1-迭代法求解线性方程组" class="headerlink" title="1.迭代法求解线性方程组"></a>1.迭代法求解线性方程组</h2><h3 id="1-1雅可比（Jacobi）迭代法"><a href="#1-1雅可比（Jacobi）迭代法" class="headerlink" title="1.1雅可比（Jacobi）迭代法"></a>1.1雅可比（Jacobi）迭代法</h3><span id="more"></span>
 
-<h4 id="4-简单解绘图"><a href="#4-简单解绘图" class="headerlink" title="4.简单解绘图"></a>4.简单解绘图</h4><p>通过弗兰克-赫兹实验的图像来简单了解matlab的绘图方法。</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">y=[<span class="number">0</span> ... <span class="number">453.8</span>];</span><br><span class="line">x=[<span class="number">0.0</span> ... <span class="number">90.0</span>]; <span class="comment">% 这里的横纵坐标数据不作展开，只是示例</span></span><br><span class="line">values = spcrv([[x(<span class="number">1</span>) x x(<span class="keyword">end</span>)];[y(<span class="number">1</span>) y y(<span class="keyword">end</span>)]],<span class="number">3</span>);</span><br><span class="line"><span class="built_in">plot</span>(values(<span class="number">1</span>,:),values(<span class="number">2</span>,:),<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">3</span>,<span class="string">&#x27;Color&#x27;</span>,[<span class="number">.2</span> <span class="number">.2</span> <span class="number">.2</span>]);</span><br><span class="line">title(<span class="string">&#x27;图一：弗兰克赫兹实验图&#x27;</span>);</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">&#x27;VG2K(V)&#x27;</span>);</span><br><span class="line">ylabel(<span class="string">&#x27;IA(nA)&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210410224045532.png" alt="image-20210410224045532"></p>
+<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210410224307814.png" alt="image-20210410224307814"></p>
+<p>triu用于生成矩阵A的上三角部分的矩阵（其余部分为0），用法基本同tril。</p>
+<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210410225034024.png" alt="image-20210410225034024"></p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">X</span> = <span class="title">Jacobi</span><span class="params">(A,b,k)</span></span></span><br><span class="line">D = <span class="built_in">diag</span>(<span class="built_in">diag</span>(A));  <span class="comment">%对角矩阵</span></span><br><span class="line">L = -( <span class="built_in">tril</span>(A) - <span class="built_in">diag</span>(<span class="built_in">diag</span>(A)) ); <span class="comment">%下三角矩阵</span></span><br><span class="line">U = -( <span class="built_in">triu</span>(A) - <span class="built_in">diag</span>(<span class="built_in">diag</span>(A)) ); <span class="comment">%上三角矩阵</span></span><br><span class="line">X = <span class="built_in">zeros</span>(<span class="built_in">length</span>(A),<span class="number">1</span>);</span><br><span class="line">X_New = <span class="built_in">zeros</span>(<span class="built_in">length</span>(A),<span class="number">1</span>);</span><br><span class="line"><span class="built_in">i</span>=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">i</span>&lt;k</span><br><span class="line">    X_New = D\((L+U)*X) + D\b;</span><br><span class="line">    X = X_New;</span><br><span class="line">    <span class="built_in">i</span> = <span class="built_in">i</span> + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<p>如图（图上的峰值谷值是手动添加的）：</p>
-<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210321204823666.png" alt="image-20210321204823666"></p>
+<p><img src="/2021/03/07/Matlab%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210410231824380.png" alt="image-20210410231824380"></p>
+<p>注意：</p>
+<ul>
+<li>源文件中命令不以分号结尾会显示结果在命令行中，加上就不显示。</li>
+<li>函数名与文件名必须相同。</li>
+</ul>
+<h3 id="1-2高斯-塞德尔-Gauss-Seidel-迭代法"><a href="#1-2高斯-塞德尔-Gauss-Seidel-迭代法" class="headerlink" title="1.2高斯-塞德尔(Gauss-Seidel)迭代法"></a>1.2高斯-塞德尔(Gauss-Seidel)迭代法</h3><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">X</span> = <span class="title">Gauss_Seidel</span><span class="params">(A,b,k)</span></span></span><br><span class="line">D = <span class="built_in">diag</span>(<span class="built_in">diag</span>(A));  <span class="comment">%对角矩阵</span></span><br><span class="line">L = -( <span class="built_in">tril</span>(A) - <span class="built_in">diag</span>(<span class="built_in">diag</span>(A)) ); <span class="comment">%下三角矩阵</span></span><br><span class="line">U = -( <span class="built_in">triu</span>(A) - <span class="built_in">diag</span>(<span class="built_in">diag</span>(A)) ); <span class="comment">%上三角矩阵</span></span><br><span class="line">X = <span class="built_in">zeros</span>(<span class="built_in">length</span>(A),<span class="number">1</span>);</span><br><span class="line">X_New = <span class="built_in">zeros</span>(<span class="built_in">length</span>(A),<span class="number">1</span>);</span><br><span class="line"><span class="built_in">i</span>=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">i</span>&lt;k</span><br><span class="line">    X_New = (D-L)\(U*X) + (D-L)\b;</span><br><span class="line">    X = X_New;</span><br><span class="line">    <span class="built_in">i</span> = <span class="built_in">i</span> + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Matlab</category>
@@ -4009,7 +4017,7 @@
 <h3 id="Example-9"><a href="#Example-9" class="headerlink" title="Example 9:"></a>Example 9:</h3><p><img src="/2021/03/08/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93/image-20210308195215619.png" alt="image-20210308195215619"></p>
 ]]></content>
       <categories>
-        <category>杂谈</category>
+        <category>数学</category>
       </categories>
       <tags>
         <tag>数学专业词汇</tag>
@@ -4190,7 +4198,7 @@
 <p><img src="/2021/03/10/%E6%95%B0%E5%AD%A6%E4%B8%93%E4%B8%9A%E5%B8%B8%E7%94%A8%E8%8B%B1%E8%AF%AD%E8%A1%A8%E8%BE%BE%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210317230646313.png" alt="image-20210317230646313"></p>
 ]]></content>
       <categories>
-        <category>杂谈</category>
+        <category>数学</category>
       </categories>
       <tags>
         <tag>数学专业词汇</tag>
@@ -4326,7 +4334,7 @@
 <p>所以在阅读原版教材、写英文论文、参加国际学术交流等很多时候，会遇到英语瓶颈。真正能够应用英语来进行知识的学习，工作等，起码需要明白数学中的英语，希望这篇文章能给您带来帮助。</p>
 ]]></content>
       <categories>
-        <category>杂谈</category>
+        <category>数学</category>
       </categories>
       <tags>
         <tag>数学专业词汇</tag>
@@ -5300,6 +5308,10 @@
 <li><code>?:</code>：条件运算符</li>
 <li><code>#</code>： 预处理符号</li>
 </ul>
+<p>补充：</p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125715522.png" alt="image-20210412125715522"></p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125814210.png" alt="image-20210412125814210"></p>
+<p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125906936.png" alt="image-20210412125906936"></p>
 <p>对于++和–的重载：</p>
 <p>前缀形式重载调用 Check operator ++ () ，后缀形式重载调用 operator ++ (int)。</p>
 <p>后缀形式中的int形参不起任何作用，只是为了区分前置和后置++或–。</p>
@@ -6069,6 +6081,152 @@
         <tag>蓝桥杯</tag>
         <tag>竞赛</tag>
         <tag>二分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Texlive和TexStudio的安装与使用</title>
+    <url>/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="TexLive2021"><a href="#TexLive2021" class="headerlink" title="TexLive2021"></a>TexLive2021</h2><p>首先我们要安装Texlive，它是一个Tex的发行版。</p>
+<p>详细安装配置过程建议参考：<a href="https://blog.csdn.net/Mikchy/article/details/94448707">https://blog.csdn.net/Mikchy/article/details/94448707</a></p>
+<p>以及<a href="https://github.com/OsbertWang/install-latex-guide-zh-cn%E3%80%82">https://github.com/OsbertWang/install-latex-guide-zh-cn。</a></p>
+<span id="more"></span>
+
+<p>如果出现一些TexLive的安装问题，看这个：<a href="https://blog.csdn.net/dogfat/article/details/106962966%E3%80%82">https://blog.csdn.net/dogfat/article/details/106962966。</a></p>
+<ul>
+<li><p>注意：路径中不要出现中文，一些特殊符号和空格</p>
+</li>
+<li><p>特别提一点，安装教程中提到的.bat文件，如果双击打开闪退，就尝试右键管理员身份打开。</p>
+</li>
+<li><p>如果两种方式都会闪退，说明大概率是你没有<strong>配置好环境变量</strong>。</p>
+</li>
+<li><p> 配置环境变量时还可能会出问题：提示你此环境变量太大，最长为2047个字符。</p>
+</li>
+</ul>
+<p>这时候新建了一个Path1,把要添加的变量放到Path1里，再在Path里新建变量%Path1%就OK了。</p>
+<ul>
+<li><p>如果安装时出现如下图所示错误：</p>
+<p><img src="/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210411205554694.png" alt="image-20210411205554694"></p>
+</li>
+</ul>
+<p>多半是因为系统用户名含有中文！！！</p>
+<p>这个问题困扰我很久，才发现大佬的<a href="https://mp.weixin.qq.com/s/9aE4AlHj2XfnymmT8P3I5Q">解决方案</a>。</p>
+<p>还有这篇文章给了我提示：<a href="https://www.zhihu.com/people/zhang-shao-fan-45%E3%80%82">https://www.zhihu.com/people/zhang-shao-fan-45。</a></p>
+<p>按照文章的提示来做，就能够成功安装上TexLive2021了。(PS：安装过程可能要等很久时间，约1h40min)</p>
+<p>注意：千万不要点Abrobt！！！会直接退出安装，后期还要重装。</p>
+<p>直到出现这个，才表示安装成功！！！</p>
+<p><img src="/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210412072427033.png" alt="image-20210412072427033"></p>
+<p>接下来到cmd中测试是否成功安装上，输入命令：tex -version。</p>
+<p>如果提示’tex’不是内部或外部命令等，说明可能是没有配置好环境变量。</p>
+<p>那么我们找到TexLive的安装目录中的bin目录下的win32，将它加入系统变量Path。</p>
+<p><img src="/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210411230107676.png" alt="image-20210411230107676"></p>
+<p>然后继续输入命令：tex -version测试。</p>
+<p><img src="/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210411230204922.png" alt="image-20210411230204922"></p>
+<p>如图表示成功安装，否则需要重新安装。</p>
+<h2 id="Tex-Studio"><a href="#Tex-Studio" class="headerlink" title="Tex Studio"></a>Tex Studio</h2><p>下面我们跟着<a href="https://blog.csdn.net/Mikchy/article/details/94448707">教程</a>继续安装Tex Studio。</p>
+<p>安装过程非常简单。</p>
+<p>安装好之后，我们来测试一下。新建一个文件复制以下内容。</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 导言区</span></span><br><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">% 导入中文宏</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% 构建命令,取别名，使用degree 代替 ^ circ</span></span><br><span class="line"><span class="keyword">\newcommand</span><span class="keyword">\degree</span>&#123;<span class="built_in">^</span><span class="keyword">\circ</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\title</span>&#123;<span class="keyword">\heiti</span> 浅谈勾股定理&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;<span class="keyword">\kaishu</span> 张一根&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="comment">% 正文区</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">	<span class="keyword">\maketitle</span></span><br><span class="line">	hello world!</span><br><span class="line">	</span><br><span class="line">	勾股定理可以用现代的语言描述如下：</span><br><span class="line">	</span><br><span class="line">	直角三角形斜边的平方等于两腰的平法和。</span><br><span class="line">	</span><br><span class="line">	可以用符号语言描述为：设直角三角形 </span><br><span class="line">	<span class="built_in">$</span><span class="keyword">\angle</span> C=90<span class="keyword">\degree</span> <span class="built_in">$</span>则有：</span><br><span class="line">	<span class="built_in">$</span><span class="built_in">$</span> </span><br><span class="line">	AB<span class="built_in">^</span>2 = BC<span class="built_in">^</span>2 + AC<span class="built_in">^</span>2 </span><br><span class="line">	<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line">	这就是勾股定理</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p>出现<strong>完成</strong>表示安装成功。</p>
+<p><img src="/2021/04/11/Texlive%E5%92%8CTexStudio%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/image-20210412072609787.png" alt="image-20210412072609787"></p>
+]]></content>
+      <categories>
+        <category>Latex</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>线性代数中的向量和矩阵范数</title>
+    <url>/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>范数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>群的定义与基本性质</title>
+    <url>/2021/04/12/%E7%BE%A4%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8/</url>
+    <content><![CDATA[<p>转载自知乎用户：<a href="https://zhuanlan.zhihu.com/p/162840687?utm_source=qq&utm_medium=social&utm_oi=1122533587357892608">@0003</a>抽象代数不抽象专栏。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
+<li><p>群是代数学中最基本的代数结构，群论也是抽象代数中最基础的一部分。群是某个群及其在该群上规定的某种二元运算的集合，并且该集合满足一定的条件。集合中的元素可以是数，也可以是集合，在群论中都可以抽象为互异的元素。</p>
+<span id="more"></span>
+</li>
+<li><p>如果需要应对抽象代数的考试，请适当多做一些习题。如果不是，请适当多看一些习题。</p>
+</li>
+<li><p>本章主要包括群的定义、基本性质、群的阶与元素的阶、循环群等基本概念。有关子群、陪集、Lagrange定理、群同态与群同构、群同态基本定理等内容放在下一篇文章中。在本科低年级的抽象代数课程中，群论通常占教学内容的一半。</p>
+</li>
+</ol>
+<h2 id="1-1-群的定义"><a href="#1-1-群的定义" class="headerlink" title="1.1 群的定义"></a>1.1 群的定义</h2><p>群有几种不同的等价定义，这里先给出其中广泛采用的一种。</p>
+<blockquote>
+<p> 群的定义</p>
+<p>如果一个非空集合 $G$ 上定义了一个二元运算 $\bullet$ ，满足如下性质：</p>
+<p>(1) 封闭性, 即对于 $\forall a, b \in G$, 有 $a \bullet b \in G$;</p>
+<p>(2) 结合律, 即对于 $\forall a, b, c \in G$, 有 $(a \bullet b) \bullet c=a \bullet(b \bullet c)$;</p>
+<p>(3) 存在 $e \in G$, 使得 $\forall a \in G$, 有 $e \bullet a=a$;</p>
+<p>(4) 对于 $\forall a \in G$, 存在 $b \in G$, 使得 $b \bullet a=e$, </p>
+<p>则称 $G$ 关于运算 $\bullet$ 构成一个群, 记为 $(G, \bullet)$, 或简记为 $G$ 。</p>
+</blockquote>
+<p>上述定义中，第 $(3)$ 条中的元素 $e$ 称为<strong>单位元</strong> (identity)，第 $(4)$ 条中的 $b$ 称为 $a$ 的<strong>逆元</strong> (inverse)， 通常也记作 $a^{-1}$ 。只成立 (1) 的集合 $G$ 称为原群 (magma) ; 只成立 (1)(2) 的集合 $G$ 称为<strong>半群</strong> (semigroup) ; 只成立 (1)(2) (3) 的集合 $G$ 称为<strong>幺半群</strong> (monoid) 。例如，在 $\mathbb{R}^{3}$ 上的向量积由于不满足结合律，无法构成半群。全体正整数对于整数加法构成半群，全体自然数对于整数加法构成幺半群，全体整数对于整数加法构成群。与上述定 义等价的一种定义可以称为群的单边定义，即</p>
+<blockquote>
+<p>群的单边定义 </p>
+<p>如果一个非空集合 $G$ 上定义了一个二元运算 $\bullet$ ，满足如下性质:</p>
+<p>(1) 封闭性, 即对于 $\forall a, b \in G$, 有 $a \bullet b \in G ;$</p>
+<p>(2) 结合律, 即对于 $\forall a, b, c \in G$, 有 $(a \bullet b) \bullet c=a \bullet(b \bullet c) ;$</p>
+<p>(3’) 存在 $e \in G$, 使得 $\forall a \in G$, 有 $e \bullet a=a$;</p>
+<p>(4’) 对于 $\forall a \in G$, 存在 $b \in G$, 使得 $b \bullet a=e$, </p>
+<p>则称 $G$ 关于运算 $\bullet$ 构成一个群，记为 $(G, \bullet)$, 或简记为 $G$ 。</p>
+</blockquote>
+<p>上述定义中, 第 $\left(3^{\prime}\right)$ 条中的元素 $e$ 称为左单位元, 第 $\left(4^{\prime}\right)$ 条中的 $b$ 称为 $a$ 的左逆元。群的 单边定义与定义的等价性通常作为教科书的习题, 证明非常简单。同样地, 有右单位元和右逆元的 半群也是群。</p>
+<blockquote>
+<p>思考：有左单位元和右逆元的半群是群吗? 即在半群 $G$ 中，</p>
+<p>(3’) 存在 $e \in G$, 使得 $\forall a \in G$, 有 $e \bullet a=a$;</p>
+<p>(4’’) 对于 $\forall a \in G$, 存在 $b \in G$, 使得 $a \bullet b=e$,</p>
+</blockquote>
+<p>上述思考中，对于 “右逆元” 的定义可能会产生歧义, 这里明确第 (4’’) 条中的 $e$ 指的是第 (3’) 条中的左单位元，否则没有讨论的价值。答案是, 这样的半群并不能构成群, 而是一个可以 称之为left-right system的结构。例：规定集合中所有元素的运算规则为 $a \bullet b=b$, 则可以证 明该运算封闭、满足结合律，且集合中存在左单位元和右逆元，但并不存在右单位元。这里再给出 一种群的等价定义，其等价性也很容易证明。</p>
+<blockquote>
+<p>群的第二定义 如果一个非空集合 $G$ 上定义了一个二元运算 $\bullet$ ，满足如下性质：</p>
+<p>(1) 封闭性, 即对于 $\forall a, b \in G$, 有 $a \bullet b \in G$;</p>
+<p>(2) 结合律, 即对于 $\forall a, b, c \in G$, 有 $(a \bullet b) \bullet c=a \bullet(b \bullet c)$;</p>
+<p>(5) 对于 $\forall a, b \in G$, 方程 $x \bullet a=b$ 与 $a \bullet y=b$ 在 $G$ 中都有解, </p>
+<p>则称 $G$ 关于运算 $\bullet$ 构成一个群, 记为 $(G, \bullet)$, 或简记为 $G$ 。</p>
+</blockquote>
+<p>Remarks：群是一个带有某种运算的集合。这个运算如何表示并不重要，可以是加法和乘法, 也可 以是其他的运算。在群论中通常将运算符号省略不写，并不失一般性地称群中的运算为乘法。乘法 群中的单位元通常写作1或 $e$; 加法群中的单位元通常写作0，逆元通常写作 $-a$.</p>
+<p>群的分类方式有很多，最常见的是根据群中元素的个数分为有限群和无限群。另外，还有一种重要 的群称为交换群，定义如下：</p>
+<blockquote>
+<p>交换群的定义 </p>
+<p>如果一个群 $G$ 中的任意两个元素 $a, b$ 都满足 $a b=b a$, 则该群称为<strong>交换群</strong>或<strong>Abel群</strong>。</p>
+</blockquote>
+<p>后续部分请参看<a href="https://zhuanlan.zhihu.com/p/162840687?utm_source=qq&utm_medium=social&utm_oi=1122533587357892608">原文</a>。</p>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>群论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一道C++作业题</title>
+    <url>/2021/04/12/%E8%AE%B0%E4%B8%80%E9%81%93C-%E4%BD%9C%E4%B8%9A%E9%A2%98/</url>
+    <content><![CDATA[<p>如题：题目要求根据初始化时的日期加上一定的天数后计算得到的日期，这里用到的计算思路来自<a href="https://grant1499.github.io/2021/03/26/%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E4%B8%8E%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98/">这里</a>。</p>
+<span id="more"></span>
+
+<p><img src="/2021/04/12/%E8%AE%B0%E4%B8%80%E9%81%93C-%E4%BD%9C%E4%B8%9A%E9%A2%98/image-20210412221018035.png" alt="image-20210412221018035"></p>
+<p>只要稍做改动，就能写出代码来了，不过要注意原题计算的是日期差+1！</p>
+<p>这题主要考察了日期问题、++前缀与后缀重载等知识点。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 判断闰年，是闰年返回true</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isLeap</span><span class="params">(<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (y%<span class="number">4</span>==<span class="number">0</span> &amp;&amp;y%<span class="number">100</span>!=<span class="number">0</span>) || (y%<span class="number">400</span>==<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//顺序存放平年、闰年每月对应天数</span></span><br><span class="line"><span class="keyword">int</span> month[<span class="number">13</span>][<span class="number">2</span>] = &#123;</span><br><span class="line">	&#123;<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">28</span>,<span class="number">29</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,</span><br><span class="line">	&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Date</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Date()&#123;</span><br><span class="line">            y = <span class="number">2000</span>,m = <span class="number">1</span>,d = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Date(<span class="keyword">int</span> _y,<span class="keyword">int</span> _m,<span class="keyword">int</span> _d):</span><br><span class="line">        y(_y),m(_m),d(_d)&#123;&#125;</span><br><span class="line">        <span class="comment">// Copy Constructor</span></span><br><span class="line">        Date(Date&amp; t)&#123;</span><br><span class="line">            y = t.y,m = t.m,d = t.d;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Y:%d,M:%2d,D:%2d\n&quot;</span>,y,m,d);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>+ (Date&amp; D,<span class="keyword">int</span> n);<span class="comment">// 重载加号</span></span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>++ (Date&amp; D,<span class="keyword">int</span>);<span class="comment">// 重载后缀++</span></span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>++ (Date&amp; D);<span class="comment">// 重载++前缀</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> y;</span><br><span class="line">        <span class="keyword">int</span> m;</span><br><span class="line">        <span class="keyword">int</span> d;</span><br><span class="line">&#125;;</span><br><span class="line">Date <span class="keyword">operator</span>+ (Date&amp; D,<span class="keyword">int</span> n)&#123;</span><br><span class="line">    Date temp = D;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;<span class="comment">// 累加ans到n</span></span><br><span class="line">    <span class="comment">// ans == n退出</span></span><br><span class="line">    <span class="keyword">while</span> (ans &lt; n)&#123;</span><br><span class="line">        <span class="comment">// 优化，降低循环次数</span></span><br><span class="line">        <span class="keyword">if</span> (n- ans &gt; <span class="number">366</span>)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (isLeap(temp.y)) ans += <span class="number">366</span>;</span><br><span class="line">            <span class="keyword">else</span> ans += <span class="number">365</span>;</span><br><span class="line">            temp.y ++;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.d ++;</span><br><span class="line">        <span class="keyword">if</span> (temp.d == month[temp.m][isLeap(temp.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">            temp.d = <span class="number">1</span>;temp.m ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (temp.m == <span class="number">13</span>)&#123;</span><br><span class="line">            temp.m = <span class="number">1</span>;temp.y ++;</span><br><span class="line">        &#125;</span><br><span class="line">        ans ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载后缀++</span></span><br><span class="line">Date <span class="keyword">operator</span>++ (Date&amp; D,<span class="keyword">int</span>)&#123;</span><br><span class="line">    Date temp = D;</span><br><span class="line">    D.d ++;</span><br><span class="line">    <span class="keyword">if</span> (D.d == month[D.m][isLeap(D.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">        D.d = <span class="number">1</span>;D.m ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (D.m == <span class="number">13</span>)&#123;</span><br><span class="line">        D.m = <span class="number">1</span>;D.y ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载++前缀</span></span><br><span class="line">Date <span class="keyword">operator</span>++ (Date&amp; D)&#123;</span><br><span class="line">    D.d ++;</span><br><span class="line">    <span class="keyword">if</span> (D.d == month[D.m][isLeap(D.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">        D.d = <span class="number">1</span>;D.m ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (D.m == <span class="number">13</span>)&#123;</span><br><span class="line">        D.m = <span class="number">1</span>;D.y ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> D;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Date d1(2019,12,31),d2,d3;</span><br><span class="line">    d2 = d1++;</span><br><span class="line">    d1.print();</span><br><span class="line">    d2.print();</span><br><span class="line">    d3 = ++d1;</span><br><span class="line">    d1.print();</span><br><span class="line">    d3.print();</span><br><span class="line">    d1 = d1 + <span class="number">365</span>;</span><br><span class="line">    d1.print();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>OOP</tag>
       </tags>
   </entry>
 </search>
