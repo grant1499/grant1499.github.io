@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://grant1499.github.io/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210222183442871.png">
 <meta property="og:image" content="https://grant1499.github.io/2021/02/24/Python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210120134702444.png">
 <meta property="article:published_time" content="2021-02-23T23:05:22.000Z">
-<meta property="article:modified_time" content="2021-03-23T13:02:29.058Z">
+<meta property="article:modified_time" content="2021-04-12T14:22:40.017Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Python入门">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">38</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">46</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">77</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">83</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-23 21:02:29" itemprop="dateModified" datetime="2021-03-23T21:02:29+08:00">2021-03-23</time>
+                <time title="修改时间：2021-04-12 22:22:40" itemprop="dateModified" datetime="2021-04-12T22:22:40+08:00">2021-04-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,7 +310,7 @@
 <li>当return返回多个值时，返回的值形成元组数据类型。</li>
 <li>函数也可以没有return代表无返回值。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x+y</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">print(<span class="built_in">sum</span>(a,b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    v = x * y</span><br><span class="line">    <span class="keyword">return</span> s,v</span><br><span class="line">print(mul(a,b)) <span class="comment">#以元祖形式返回值</span></span><br><span class="line">m = mul(a,b)</span><br><span class="line">print(m[<span class="number">1</span>])  </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">(3, 2)</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x+y</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">print(<span class="built_in">sum</span>(a,b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    v = x * y</span><br><span class="line">    <span class="keyword">return</span> s,v</span><br><span class="line">print(mul(a,b)) <span class="comment">#以元组形式返回值</span></span><br><span class="line">m = mul(a,b)</span><br><span class="line">print(m[<span class="number">1</span>])  </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">(3, 2)</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>代码复用（选择题常考）</strong></p>
 <p>模块化设计指通过函数的封装功能将程序划分为主程序、子程序和子程序间关系的表达。模块化设计是使用函数设计程度的思考方法，以功能为基本单位，一般由两个基本要求：    </p>
@@ -569,7 +569,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -582,7 +582,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -631,13 +631,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">285k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:19</span>
 </div>
 
 <span id="sitetime"></span>

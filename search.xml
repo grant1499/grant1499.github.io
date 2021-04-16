@@ -1890,6 +1890,7 @@
 <p>19.打出向上向下取整符号：</p>
 <p>上取整$\lceil x \rceil$(表示不小于x的最小整数),<code>$\lceil x \rceil$</code></p>
 <p>下取整$\lfloor x \rfloor$(表示不大于x的最大整数),<code>$\lfloor x \rfloor$</code></p>
+<p>20.打出实数集符号：$\mathbb{R}$，<code>$\mathbb&#123;R&#125;$</code>;$\mathbb{R}^{n}$,<code>$\mathbb&#123;R&#125;^&#123;3&#125;$</code></p>
 ]]></content>
       <categories>
         <category>Latex</category>
@@ -2217,7 +2218,7 @@
 <li>当return返回多个值时，返回的值形成元组数据类型。</li>
 <li>函数也可以没有return代表无返回值。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x+y</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">print(<span class="built_in">sum</span>(a,b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    v = x * y</span><br><span class="line">    <span class="keyword">return</span> s,v</span><br><span class="line">print(mul(a,b)) <span class="comment">#以元祖形式返回值</span></span><br><span class="line">m = mul(a,b)</span><br><span class="line">print(m[<span class="number">1</span>])  </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">(3, 2)</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x+y</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">print(<span class="built_in">sum</span>(a,b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    v = x * y</span><br><span class="line">    <span class="keyword">return</span> s,v</span><br><span class="line">print(mul(a,b)) <span class="comment">#以元组形式返回值</span></span><br><span class="line">m = mul(a,b)</span><br><span class="line">print(m[<span class="number">1</span>])  </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">(3, 2)</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>代码复用（选择题常考）</strong></p>
 <p>模块化设计指通过函数的封装功能将程序划分为主程序、子程序和子程序间关系的表达。模块化设计是使用函数设计程度的思考方法，以功能为基本单位，一般由两个基本要求：    </p>
@@ -3924,7 +3925,7 @@
       </categories>
       <tags>
         <tag>Matlab入门</tag>
-        <tag>数学建模</tag>
+        <tag>迭代法</tag>
       </tags>
   </entry>
   <entry>
@@ -3968,7 +3969,6 @@
       </categories>
       <tags>
         <tag>Matlab入门</tag>
-        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -3998,7 +3998,6 @@
       </categories>
       <tags>
         <tag>Matlab入门</tag>
-        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -5312,8 +5311,7 @@
 <p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125715522.png" alt="image-20210412125715522"></p>
 <p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125814210.png" alt="image-20210412125814210"></p>
 <p><img src="/2021/03/26/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89/image-20210412125906936.png" alt="image-20210412125906936"></p>
-<p>对于++和–的重载：</p>
-<p>前缀形式重载调用 Check operator ++ () ，后缀形式重载调用 operator ++ (int)。</p>
+<h4 id="对于-和–的重载"><a href="#对于-和–的重载" class="headerlink" title="对于++和–的重载"></a>对于++和–的重载</h4><p>前缀形式重载调用 Check operator ++ () ，后缀形式重载调用 operator ++ (int)。</p>
 <p>后缀形式中的int形参不起任何作用，只是为了区分前置和后置++或–。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 重载前缀递增运算符（ ++ ）</span></span><br><span class="line">Time <span class="keyword">operator</span>++ ()  </span><br><span class="line">&#123;</span><br><span class="line">    ++minutes;          <span class="comment">// 对象加 1</span></span><br><span class="line">    <span class="keyword">if</span>(minutes &gt;= <span class="number">60</span>)  </span><br><span class="line">    &#123;</span><br><span class="line">        ++hours;</span><br><span class="line">        minutes -= <span class="number">60</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Time(hours, minutes);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载后缀递增运算符（ ++ ）</span></span><br><span class="line">Time <span class="keyword">operator</span>++( <span class="keyword">int</span> )         </span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 保存原始值</span></span><br><span class="line">    <span class="function">Time <span class="title">T</span><span class="params">(hours, minutes)</span></span>;</span><br><span class="line">    <span class="comment">// 对象加 1</span></span><br><span class="line">    ++minutes;                    </span><br><span class="line">    <span class="keyword">if</span>(minutes &gt;= <span class="number">60</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ++hours;</span><br><span class="line">        minutes -= <span class="number">60</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回旧的原始值</span></span><br><span class="line">    <span class="keyword">return</span> T; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -5323,6 +5321,7 @@
       </categories>
       <tags>
         <tag>C++入门</tag>
+        <tag>多态</tag>
       </tags>
   </entry>
   <entry>
@@ -5376,6 +5375,10 @@
       <categories>
         <category>C++</category>
       </categories>
+      <tags>
+        <tag>进制转换</tag>
+        <tag>日期处理</tag>
+      </tags>
   </entry>
   <entry>
     <title>深入浅出计算机组成原理（六）</title>
@@ -6063,7 +6066,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>简单数学</tag>
+        <tag>公因数</tag>
+        <tag>公倍数</tag>
       </tags>
   </entry>
   <entry>
@@ -6140,7 +6144,30 @@
   <entry>
     <title>线性代数中的向量和矩阵范数</title>
     <url>/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h2 id="向量范数与矩阵范数"><a href="#向量范数与矩阵范数" class="headerlink" title="向量范数与矩阵范数"></a>向量范数与矩阵范数</h2><span id="more"></span>
+
+<h3 id="1范数概念的引入"><a href="#1范数概念的引入" class="headerlink" title="1范数概念的引入"></a>1范数概念的引入</h3><p>为了度量线性空间中向量或矩阵的“大小”，我们引入范数。</p>
+<h3 id="2向量范数：向量的长度模"><a href="#2向量范数：向量的长度模" class="headerlink" title="2向量范数：向量的长度模"></a>2向量范数：向量的长度模</h3><p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145257456.png" alt="image-20210416145257456"></p>
+<p><strong>定义：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145311430.png" alt="image-20210416145311430"></p>
+<p><strong>常见的几种范数：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145429022.png" alt="image-20210416145429022"></p>
+<p><strong>定义向量间的距离：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145554010.png" alt="image-20210416145554010"></p>
+<p><strong>从几何角度理解范数：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145707027.png" alt="image-20210416145707027"></p>
+<h3 id="3矩阵范数"><a href="#3矩阵范数" class="headerlink" title="3矩阵范数"></a>3矩阵范数</h3><p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145806961.png" alt="image-20210416145806961"></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145818249.png" alt="image-20210416145818249"></p>
+<p><strong>常见矩阵范数：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145900729.png" alt="image-20210416145900729"></p>
+<p><strong>求矩阵范数：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145927592.png" alt="image-20210416145927592"></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145938628.png" alt="image-20210416145938628"></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416145947626.png" alt="image-20210416145947626"></p>
+<p><strong>从几何角度理解范数：</strong></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416150018177.png" alt="image-20210416150018177"></p>
+<p><img src="/2021/04/12/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%AD%E7%9A%84%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0/image-20210416150029711.png" alt="image-20210416150029711"></p>
+]]></content>
       <categories>
         <category>数学</category>
       </categories>
@@ -6181,7 +6208,7 @@
 <p>(4’) 对于 $\forall a \in G$, 存在 $b \in G$, 使得 $b \bullet a=e$, </p>
 <p>则称 $G$ 关于运算 $\bullet$ 构成一个群，记为 $(G, \bullet)$, 或简记为 $G$ 。</p>
 </blockquote>
-<p>上述定义中, 第 $\left(3^{\prime}\right)$ 条中的元素 $e$ 称为左单位元, 第 $\left(4^{\prime}\right)$ 条中的 $b$ 称为 $a$ 的左逆元。群的 单边定义与定义的等价性通常作为教科书的习题, 证明非常简单。同样地, 有右单位元和右逆元的 半群也是群。</p>
+<p>上述定义中, 第 $\left(3^{\prime}\right)$ 条中的元素 $e$ 称为左单位元, 第 $\left(4^{\prime}\right)$ 条中的 $b$ 称为 $a$ 的左逆元。群的单边定义与定义的等价性通常作为教科书的习题, 证明非常简单。同样地, 有右单位元和右逆元的 半群也是群。</p>
 <blockquote>
 <p>思考：有左单位元和右逆元的半群是群吗? 即在半群 $G$ 中，</p>
 <p>(3’) 存在 $e \in G$, 使得 $\forall a \in G$, 有 $e \bullet a=a$;</p>
@@ -6196,7 +6223,7 @@
 <p>则称 $G$ 关于运算 $\bullet$ 构成一个群, 记为 $(G, \bullet)$, 或简记为 $G$ 。</p>
 </blockquote>
 <p>Remarks：群是一个带有某种运算的集合。这个运算如何表示并不重要，可以是加法和乘法, 也可 以是其他的运算。在群论中通常将运算符号省略不写，并不失一般性地称群中的运算为乘法。乘法 群中的单位元通常写作1或 $e$; 加法群中的单位元通常写作0，逆元通常写作 $-a$.</p>
-<p>群的分类方式有很多，最常见的是根据群中元素的个数分为有限群和无限群。另外，还有一种重要 的群称为交换群，定义如下：</p>
+<p>群的分类方式有很多，最常见的是根据群中元素的个数分为有限群和无限群。另外，还有一种重要的群称为交换群，定义如下：</p>
 <blockquote>
 <p>交换群的定义 </p>
 <p>如果一个群 $G$ 中的任意两个元素 $a, b$ 都满足 $a b=b a$, 则该群称为<strong>交换群</strong>或<strong>Abel群</strong>。</p>
@@ -6227,6 +6254,210 @@
       </categories>
       <tags>
         <tag>OOP</tag>
+        <tag>日期处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计一个二维数组类并重载运算符</title>
+    <url>/2021/04/15/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%B1%BB%E5%B9%B6%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/</url>
+    <content><![CDATA[<p>如题：设计一个M*N的二维数组类，要求重载+、-运算符。</p>
+<span id="more"></span>
+
+<p><img src="/2021/04/15/%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%B1%BB%E5%B9%B6%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/image-20210415102641989.png" alt="image-20210415102641989"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Array</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">        Array()&#123;&#125;</span><br><span class="line">		Array(<span class="keyword">int</span> n[M][N])&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i ++)</span><br><span class="line">			    <span class="built_in">memcpy</span>(arr[i],n[i],<span class="keyword">sizeof</span>(n[N]));</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++)&#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\t&#x27;</span> &lt;&lt; arr[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">set</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入2*3的整型数组：\n&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++) <span class="built_in">cin</span> &gt;&gt; arr[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        Array <span class="keyword">operator</span>+ (Array&amp; a)&#123;</span><br><span class="line">                Array temp;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++)&#123;</span><br><span class="line">                        temp.arr[i][j] = <span class="keyword">this</span>-&gt;arr[i][j]+a.arr[i][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> temp;</span><br><span class="line">        &#125;</span><br><span class="line">        Array <span class="keyword">operator</span>- (Array&amp; a)&#123;</span><br><span class="line">                Array temp;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++)&#123;</span><br><span class="line">                        temp.arr[i][j] = <span class="keyword">this</span>-&gt;arr[i][j]-a.arr[i][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> temp;</span><br><span class="line">        &#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">int</span> arr[M][N];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[M][N] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">	Array A(a),B,C,D;</span><br><span class="line">	B.<span class="built_in">set</span>();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Array A:&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	A.show();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Array B:&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	B.show();</span><br><span class="line">	C = A + B;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Array C=A+B:&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	C.show();</span><br><span class="line">	D = A - B;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Array D=A-B:&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	D.show();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>OOP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（八）</title>
+    <url>/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-虚函数"><a href="#1-虚函数" class="headerlink" title="1.虚函数"></a>1.虚函数</h2><p>参考文章：<a href="https://www.jianshu.com/p/d07e0ac0ba3c?from=singlemessage">https://www.jianshu.com/p/d07e0ac0ba3c?from=singlemessage</a></p>
+<p>在基类中，虚函数被virtual关键字修饰，并在派生类中重新被定义。</p>
+<p>作用：允许在派生类中重新定义与基类同名的函数，并且可以通过基类指针或引用来访问基类和派生类的同名函数。</p>
+<p>虚函数与Java中的覆盖同属于运行（动态）多态。</p>
+<span id="more"></span>
+
+<p>与Java中的覆盖类似，在派生类重新定义时，函数原型（函数类型、函数名、参数个数和类型顺序），都必须与基类中的原型完全相同。</p>
+<p>当一个成员函数被定义为虚函数之后，其派生类中符合虚函数特点的同名函数会自动成为虚函数，所以在派生类中重新定义虚函数时，virtual可以写或不写，但为了阅读方便，最好每一层都加上。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 基类 Father</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Father::display()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在函数中调用了，子类覆盖基类的函数display()</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">fatherShowDisplay</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 子类Son</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span>:</span><span class="keyword">public</span> Father &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 重写基类中的display()函数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Son::display()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Son son;                    <span class="comment">// 子类对象</span></span><br><span class="line">    son.fatherShowDisplay();    <span class="comment">// 通过基类中未被覆盖的函数，想调用子类中覆盖的display函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与Java类似，如果父类中有m1，m2两个方法。子类覆盖了m2方法。那么如果调用m1，则m1中调用的m2会是子类中定义的m2。</p>
+<p>虚函数必须是成员函数，且不能是友元函数或静态函数，因为它的调用依赖特定的对象来决定。</p>
+<p>通过对象名和点运算调用是静态联编，只有通过基类指针的方式才是运行多态。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415115503800.png" alt="image-20210415115503800"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415115608054.png" alt="image-20210415115608054"></p>
+<p>对比上面两张图，一个定义虚函数，一个没有，很容易就理解虚函数的作用。</p>
+<p>下图也是，左边定义了虚函数，右边没有定义。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415115650383.png" alt="image-20210415115650383"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415115658294.png" alt="image-20210415115658294"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415115705660.png" alt="image-20210415115705660"></p>
+<h2 id="2-虚析构函数"><a href="#2-虚析构函数" class="headerlink" title="2.虚析构函数"></a>2.虚析构函数</h2><p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415124307380.png" alt="image-20210415124307380"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ~B()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~B()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span><span class="keyword">public</span> B&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ~D()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~D()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    D obj;</span><br><span class="line">    <span class="comment">/*call ~D()</span></span><br><span class="line"><span class="comment">	call ~B()*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先调用派生类的析构函数，再调用基类的析构函数。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ~B()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~B()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span><span class="keyword">public</span> B&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ~D()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~D()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    B* p;</span><br><span class="line">    p = <span class="keyword">new</span> D; <span class="comment">// 基类指针p指向无名派生类对象</span></span><br><span class="line">    <span class="keyword">delete</span> p; <span class="comment">// 撤销无名对象，释放动态空间</span></span><br><span class="line">    <span class="comment">//call ~B()</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415125758286.png" alt="image-20210415125758286"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~B()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~B()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>:</span><span class="keyword">public</span> B&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ~D()&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;call ~D()\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    B* p;</span><br><span class="line">    p = <span class="keyword">new</span> D; <span class="comment">// 基类指针p指向无名派生类对象</span></span><br><span class="line">    <span class="keyword">delete</span> p; <span class="comment">// 撤销无名对象，释放动态空间</span></span><br><span class="line">    <span class="comment">/*call ~B()</span></span><br><span class="line"><span class="comment">    call ~D()*/</span></span><br><span class="line">    <span class="comment">// 通过虚析构函数实现了动态多态</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415130027582.png" alt="image-20210415130027582"></p>
+<h2 id="3-虚函数与重载函数的关系"><a href="#3-虚函数与重载函数的关系" class="headerlink" title="3.虚函数与重载函数的关系"></a>3.虚函数与重载函数的关系</h2><p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415130603412.png" alt="image-20210415130603412"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415130624719.png" alt="image-20210415130624719"></p>
+<h2 id="4-虚函数与多重继承"><a href="#4-虚函数与多重继承" class="headerlink" title="4.虚函数与多重继承"></a>4.虚函数与多重继承</h2><p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415130918576.png" alt="image-20210415130918576"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210415131012252.png" alt="image-20210415131012252"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+        <tag>虚函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（九）</title>
+    <url>/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-纯虚函数与抽象类"><a href="#1-纯虚函数与抽象类" class="headerlink" title="1.纯虚函数与抽象类"></a>1.纯虚函数与抽象类</h2><h3 id="1-1纯虚函数"><a href="#1-1纯虚函数" class="headerlink" title="1.1纯虚函数"></a>1.1纯虚函数</h3><p><strong>首先：强调一个概念</strong></p>
+<p>定义一个函数为虚函数，不代表函数为不被实现的函数。</p>
+<p>定义他为虚函数是为了允许用基类的指针来调用子类的这个函数。</p>
+<p>定义一个函数为纯虚函数，才代表函数没有被实现。</p>
+<p>定义纯虚函数是为了<strong>实现一个接口</strong>，起到一个规范的作用，规范继承这个类的程序员必须实现这个函数。</p>
+<span id="more"></span>
+
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210415131524794.png" alt="image-20210415131524794"></p>
+<h3 id="1-2抽象类"><a href="#1-2抽象类" class="headerlink" title="1.2抽象类"></a>1.2抽象类</h3><p>类似Java中抽象方法与抽象类的区别，只是在基类中说明，具体实现交给派生类。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210415131904033.png" alt="image-20210415131904033"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210415131917288.png" alt="image-20210415131917288"></p>
+<h3 id="1-3应用抽象类建立栈与队列"><a href="#1-3应用抽象类建立栈与队列" class="headerlink" title="1.3应用抽象类建立栈与队列"></a>1.3应用抽象类建立栈与队列</h3><p>两种类型的表(list)：栈与队列。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">list</span>&#123;</span> <span class="comment">// 声明一个抽象类</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">list</span>* head; <span class="comment">// 表头指针</span></span><br><span class="line">        <span class="built_in">list</span>* tail; <span class="comment">// 表尾指针</span></span><br><span class="line">        <span class="built_in">list</span>* next;</span><br><span class="line">        <span class="keyword">int</span> num;</span><br><span class="line">        <span class="built_in">list</span>()&#123;</span><br><span class="line">            head=tail=next=<span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">store</span><span class="params">(<span class="keyword">int</span> i)</span> </span>= <span class="number">0</span>; <span class="comment">// 纯虚函数</span></span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">retrieve</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">queue</span>:</span><span class="keyword">public</span> <span class="built_in">list</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">store</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">retrieve</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queue::store</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123; <span class="comment">// 定义虚函数</span></span><br><span class="line">    <span class="built_in">list</span>* item;</span><br><span class="line">    item = <span class="keyword">new</span> <span class="built_in">queue</span>;</span><br><span class="line">    <span class="keyword">if</span> (!item)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Allocation error\n&quot;</span>;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    item-&gt;num = i;</span><br><span class="line">    <span class="keyword">if</span> (tail) tail-&gt;next = item;</span><br><span class="line">    tail = item;</span><br><span class="line">    item-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span> (!head) head = tail;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">queue::retrieve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">list</span>* p;</span><br><span class="line">    <span class="keyword">if</span> (!head)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;list empty\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = head-&gt;num;</span><br><span class="line">    p = head;</span><br><span class="line">    head = head-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">stack</span>:</span><span class="keyword">public</span> <span class="built_in">list</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">store</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">retrieve</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stack::store</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="built_in">list</span>* item;</span><br><span class="line">    item = <span class="keyword">new</span> <span class="built_in">stack</span>;</span><br><span class="line">    <span class="keyword">if</span> (!item)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Allocation error\n&quot;</span>;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    item-&gt;num = i;</span><br><span class="line">    <span class="keyword">if</span> (head) item-&gt;next = head;</span><br><span class="line">    head = item;</span><br><span class="line">    <span class="keyword">if</span> (!tail) tail = head;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stack::retrieve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">list</span>* p;</span><br><span class="line">    <span class="keyword">if</span> (!head)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;list empty\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = head-&gt;num;</span><br><span class="line">    p = head;</span><br><span class="line">    head = head-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">list</span>* p; <span class="comment">// 定义指向抽象类list的指针p</span></span><br><span class="line">    <span class="built_in">queue</span> q_ob;</span><br><span class="line">    p = &amp;q_ob; <span class="comment">// p指向queue对象q_ob</span></span><br><span class="line">    p-&gt;store(<span class="number">1</span>);</span><br><span class="line">    p-&gt;store(<span class="number">2</span>);</span><br><span class="line">    p-&gt;store(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;queue:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>;i ++) <span class="built_in">cout</span> &lt;&lt; p-&gt;retrieve();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="built_in">stack</span> s_ob;</span><br><span class="line">    p = &amp;s_ob;</span><br><span class="line">    p-&gt;store(<span class="number">1</span>);</span><br><span class="line">    p-&gt;store(<span class="number">2</span>);</span><br><span class="line">    p-&gt;store(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;stack:&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>;i ++) <span class="built_in">cout</span> &lt;&lt; p-&gt;retrieve();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+        <tag>抽象类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（七）</title>
+    <url>/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-类类型与系统预定义类型之间的转换"><a href="#1-类类型与系统预定义类型之间的转换" class="headerlink" title="1.类类型与系统预定义类型之间的转换"></a>1.类类型与系统预定义类型之间的转换</h2><p>这个标题很教科书，让人搞不懂，通俗的讲就是用户自己定义的类对象与内置的像int、double之类的数据之间的转换。</p>
+<span id="more"></span>
+
+<p>给出两篇参考文章：</p>
+<ol>
+<li><a href="https://blog.csdn.net/zhulinzhulinlin/article/details/80031029">https://blog.csdn.net/zhulinzhulinlin/article/details/80031029</a></li>
+<li><a href="https://blog.csdn.net/SlowIsFastLemon/article/details/104250213">https://blog.csdn.net/SlowIsFastLemon/article/details/104250213</a></li>
+</ol>
+<h3 id="1-1转换构造函数-预定义类型转换成类类型"><a href="#1-1转换构造函数-预定义类型转换成类类型" class="headerlink" title="1.1转换构造函数:预定义类型转换成类类型"></a>1.1转换构造函数:预定义类型转换成类类型</h3><p>用转换构造函数可以将一个指定类型的数据转换为类的对象。但是不能反过来将一个类的对象转换为一个其他</p>
+<p>类型的数据(例如将一个Complex类对象转换成double类型数据)。</p>
+<p>例子：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">double</span> real;</span><br><span class="line">        <span class="keyword">double</span> imag;</span><br><span class="line">        C() &#123;&#125;</span><br><span class="line">        C(<span class="keyword">double</span> i, <span class="keyword">double</span> r) &#123; real = i; imag = r; &#125;</span><br><span class="line">        C(<span class="keyword">double</span> r) &#123;<span class="comment">//转换构造函数</span></span><br><span class="line">            real = r; imag = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        C <span class="keyword">operator</span> +(C &amp;c1)</span><br><span class="line">        &#123;</span><br><span class="line">            C tem;</span><br><span class="line">            tem.real = c1.real + <span class="keyword">this</span>-&gt;real;</span><br><span class="line">            tem.imag = c1.imag + <span class="keyword">this</span>-&gt;imag;</span><br><span class="line">            <span class="keyword">return</span> tem;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*friend C operator +(C &amp;c1, C&amp;c2)</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            C tem;</span></span><br><span class="line"><span class="comment">            tem.real = c1.real + c2.real;</span></span><br><span class="line"><span class="comment">            tem.imag = c1.imag + c2.imag;</span></span><br><span class="line"><span class="comment">            return tem;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">C <span class="title">c1</span><span class="params">(<span class="number">1.1</span>, <span class="number">2.2</span>)</span></span>;</span><br><span class="line">    C c2,c3;</span><br><span class="line">    <span class="function">C <span class="title">c4</span><span class="params">(<span class="number">9.2</span>)</span></span>;</span><br><span class="line">    <span class="comment">//不同调用转换构造函数的方式</span></span><br><span class="line">    c2= C(<span class="number">2.3</span>) + c1;<span class="comment">//C（2.3）调用转换构造函数</span></span><br><span class="line">    c3 = <span class="number">4</span>;<span class="comment">//调用转换构造函数</span></span><br><span class="line">    <span class="comment">// C trans(int a)</span></span><br><span class="line">    <span class="comment">// &#123; return a&#125;</span></span><br><span class="line">    <span class="comment">//  该方式也调用转换构造函数 int-&gt;C </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//b = a + C(2.3);//出错，+重载函数必须为friend</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c1.real &lt;&lt; <span class="string">&quot;+&quot;</span> &lt;&lt; c1.imag &lt;&lt; <span class="string">&quot;i&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>C(2.1)和C c(2.1)两种方式都可以调用转换构造函数。第一种方式会生成一个临时对象。</p>
+<ul>
+<li>先声明一个类。</li>
+<li>在类中定义一个<strong>只有一个参数</strong>的构造函数，参数是待转换类型的数据。</li>
+<li>凡是需要将系统预定义的数据类型转换为类类型的都要用到转换构造函数。</li>
+<li>其中要注意的是在C++的类中，用单个实参来调用的构造函数默认定义了从形参类型到该类类型的一个隐式转换。可以写一个类测试一下 如下：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        A()&#123;&#125;;</span><br><span class="line">        A(<span class="keyword">int</span> a) :a(a) &#123;&#125;</span><br><span class="line">    <span class="comment">//加上explicit关键字的可以防止类构造函数的隐式自动转换</span></span><br><span class="line">    <span class="comment">//那么下面test= 3会报错</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A test;</span><br><span class="line">    test= <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//执行test=3时跳转到A(int a) :a(a) &#123;&#125; ,将3-&gt;A类型</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; test.a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2explicit关键字"><a href="#1-2explicit关键字" class="headerlink" title="1.2explicit关键字"></a>1.2explicit关键字</h3><p>作用就是<strong>防止类构造函数的隐式自动转换</strong>。</p>
+<ul>
+<li><p>工程中通过explicit关键字杜绝编译器的转换尝试。</p>
+</li>
+<li><p>转换构造函数被explicit修饰时只能进行显示转换。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%83%EF%BC%89/image-20210415111019594.png" alt="image-20210415111019594"></p>
+</li>
+</ul>
+<p>explicit在下面两种情况下有效：</p>
+<ul>
+<li>类的构造函数只有一个参数时；</li>
+<li>类的构造函数中除了第一个参数以外，其他参数都有默认值的时候。(第一个参数可以有默认值，也可以没有)</li>
+</ul>
+<p>google C++规范中也约定所有单参数的构造函数都必须是显示的，即使用explicit关键字。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> mValue;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test()</span><br><span class="line">    &#123;</span><br><span class="line">        mValue = <span class="number">0</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Test</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">// 只能显式转换</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mValue = i;</span><br><span class="line">    &#125;   </span><br><span class="line">    Test <span class="keyword">operator</span> + (<span class="keyword">const</span> Test&amp; p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">ret</span><span class="params">(mValue + p.mValue)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    Test t;    </span><br><span class="line">    t = <span class="keyword">static_cast</span>&lt;Test&gt;(<span class="number">5</span>);    <span class="comment">// t = Test(5);</span></span><br><span class="line">    </span><br><span class="line">    Test r;  </span><br><span class="line">    r = t + <span class="keyword">static_cast</span>&lt;Test&gt;(<span class="number">10</span>);   <span class="comment">// r = t + Test(10);</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; r.value() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3类型转换函数-类类型转换成其他类型（系统预定义类型）"><a href="#1-3类型转换函数-类类型转换成其他类型（系统预定义类型）" class="headerlink" title="1.3类型转换函数:类类型转换成其他类型（系统预定义类型）"></a>1.3类型转换函数:类类型转换成其他类型（系统预定义类型）</h3><p>作用：将一个类的对象转换为<strong>其他类型</strong>的数据。这里的其他类型不仅仅指系统预定义类型。</p>
+<p>格式：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">operator</span> 目标类型()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> 目标类型的数据；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>类型转换函数<strong>没有返回类型</strong>，但是要return 目标类型的数据，<strong>没有参数</strong>，只能定义为类的成员函数。</p>
+<p>这样做导致的结果是：类型转换函数看起来没有返回值类型，其实是隐式地指明了返回值类型。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        A() &#123;&#125;</span><br><span class="line">        <span class="function"><span class="keyword">explicit</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> a)</span> :<span class="title">a</span><span class="params">(a)</span> </span>&#123;&#125;</span><br><span class="line">        <span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span><span class="comment">//类型转换函数</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">A <span class="title">test</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">    <span class="comment">//用法1</span></span><br><span class="line">    <span class="keyword">int</span> d = test;</span><br><span class="line">    <span class="comment">//用法2</span></span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">2</span> + <span class="keyword">int</span>(test);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//3</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//5</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>类型转换函数只能定义为成员函数，不能定义为友元函数</li>
+<li>一个类可以定义多个类型转换函数，但是要避免二义性</li>
+</ol>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（十）</title>
+    <url>/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在Word2019中更好地使用数学公式</title>
+    <url>/2021/04/16/%E5%A6%82%E4%BD%95%E5%9C%A8Word2019%E4%B8%AD%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="1-为什么用Word"><a href="#1-为什么用Word" class="headerlink" title="1.为什么用Word"></a>1.为什么用Word</h2><p>关于该用Word还是用Latex的争论由来已久，这里就不再讨论，我们可以灵活使用这两种工具，它们可以在不同的场景发挥作用。</p>
+<p>有时候，用Word会更加方便省事，我们接下来就讲一讲如何在Word2019中更好地使用数学公式。</p>
+<span id="more"></span>
+
+<p><strong>友情提示：本文仅仅针对Word2019！！！</strong></p>
+<h2 id="2-Mathtype公式编辑器"><a href="#2-Mathtype公式编辑器" class="headerlink" title="2.Mathtype公式编辑器"></a>2.Mathtype公式编辑器</h2><p>Word2019虽然自带了公式插入功能，但是功能不是很强大，这里我们使用Mathtype公式编辑器。</p>
+<p>Mathtype下载安装教程：<a href="https://www.bilibili.com/video/BV1cV41117SR?from=search&seid=6028489259985023645">MathType7.4安装、加载至word</a></p>
+<p>视频讲解算是很详细了，跟着做就没什么大问题。</p>
+<p>需要用到的工具：<a href="https://pan.baidu.com/s/1aeRHoUv3iS5x8mTLRr4m4Q">https://pan.baidu.com/s/1aeRHoUv3iS5x8mTLRr4m4Q</a> 提取码:hand</p>
+<p>讲一讲会遇到的问题：</p>
+<ol>
+<li>出现Word2019的’53’错误：将破解包里的MathPage.wll文件复制到<br><code>&quot;C:\Program Files\Microsoft Office\root\Office16 &quot;</code>中</li>
+<li>Word有两个mathtype选项卡：你需要去除没用的那一个，具体参照<a href="https://www.mathtype.cn/jiqiao/an-niu-shanchu.html">这里</a></li>
+</ol>
+<p>如果没什么问题了，你就可以开心地使用Mathtype编辑器了，效率杠杠滴！</p>
+<p><strong>使用技巧：</strong>推荐一个<a href="https://www.mathtype.cn/">使用说明网站</a></p>
+<p><img src="/2021/04/16/%E5%A6%82%E4%BD%95%E5%9C%A8Word2019%E4%B8%AD%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/image-20210416141150533.png" alt="image-20210416141150533"></p>
+<p>点击内联后会弹出公式编辑窗口，然后就能编辑公式了。</p>
+<p><img src="/2021/04/16/%E5%A6%82%E4%BD%95%E5%9C%A8Word2019%E4%B8%AD%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/image-20210416141119196.png" alt="image-20210416141119196"></p>
+<p>编辑完成后，点击文件–&gt;更新 XXX就能看到公式已经显示出来了。</p>
+<p> <strong>如何实现MathType公式转换LaTeX代码</strong></p>
+<p>参考：<a href="https://www.mathtype.cn/jiqiao/gongshi-daima.html">https://www.mathtype.cn/jiqiao/gongshi-daima.html</a></p>
+<p>这里介绍最简单的一种：点击切换Tex，再点一次就会再变回来。</p>
+<p><img src="/2021/04/16/%E5%A6%82%E4%BD%95%E5%9C%A8Word2019%E4%B8%AD%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/image-20210416141814068.png" alt="image-20210416141814068"></p>
+<h2 id="3-原生插入Latex公式"><a href="#3-原生插入Latex公式" class="headerlink" title="3.原生插入Latex公式"></a>3.原生插入Latex公式</h2><p>参考：<a href="https://www.cnblogs.com/qq-757617012/p/12098279.html">https://www.cnblogs.com/qq-757617012/p/12098279.html</a></p>
+<p>自带的公式编辑器也能转换成Latex公式。</p>
+<h2 id="4-推荐一个Latex-OCR识别工具"><a href="#4-推荐一个Latex-OCR识别工具" class="headerlink" title="4.推荐一个Latex OCR识别工具"></a>4.推荐一个Latex OCR识别工具</h2><p>效果是非常不错的，亲身体验。</p>
+<p><img src="/2021/04/16/%E5%A6%82%E4%BD%95%E5%9C%A8Word2019%E4%B8%AD%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/image-20210416143919671.png" alt="image-20210416143919671"></p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>Latex</tag>
+        <tag>Word</tag>
       </tags>
   </entry>
 </search>
