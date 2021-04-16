@@ -126,7 +126,7 @@ def mul(x,y):
     s = x + y
     v = x * y
     return s,v
-print(mul(a,b)) #以元祖形式返回值
+print(mul(a,b)) #以元组形式返回值
 m = mul(a,b)
 print(m[1])  
 '''

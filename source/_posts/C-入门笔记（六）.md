@@ -1,7 +1,7 @@
 ---
 title: C++入门笔记（六）
 date: 2021-03-26 22:01:32
-tags: [C++入门]
+tags: [C++入门,多态]
 categories: 
 	- C++
 mathjax: true
@@ -152,7 +152,7 @@ Box3 = Box1 + Box2;
 
 ![image-20210412125906936](C-入门笔记（六）/image-20210412125906936.png)
 
-对于++和--的重载：
+#### 对于++和--的重载
 
 前缀形式重载调用 Check operator ++ () ，后缀形式重载调用 operator ++ (int)。
 

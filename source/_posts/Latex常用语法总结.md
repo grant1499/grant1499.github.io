@@ -145,3 +145,4 @@ $\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$
 
 下取整$\lfloor x \rfloor$(表示不大于x的最大整数),`$\lfloor x \rfloor$`
 
+20.打出实数集符号：$\mathbb{R}$，`$\mathbb{R}$`;$\mathbb{R}^{n}$,`$\mathbb{R}^{3}$`

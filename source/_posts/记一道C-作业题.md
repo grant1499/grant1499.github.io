@@ -1,7 +1,7 @@
 ---
 title: 记一道C++作业题
 date: 2021-04-12 22:09:29
-tags: [OOP]
+tags: [OOP,日期处理]
 categories: 
 	- [C++]
 mathjax: true

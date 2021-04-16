@@ -1,7 +1,7 @@
 ---
 title: Matlab快速入门笔记
 date: 2021-03-07 19:48:41
-tags: [Matlab入门,数学建模]
+tags: [Matlab入门]
 categories: 
 	- [Matlab]
 mathjax: true
