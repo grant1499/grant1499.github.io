@@ -3405,17 +3405,16 @@
 <ol>
 <li>n≤30, 指数级别, dfs+剪枝，状态压缩dp</li>
 <li>n≤100 =&gt; O(n$^3$)，floyd，dp，高斯消元</li>
+<li>n≤1000 =&gt; O(n$^2$)，O($n^2logn$)，dp，二分，朴素版Dijkstra、朴素版Prim、Bellman-Ford</li>
+<li>n≤10000 =&gt; O(n∗$\sqrt n$)，块状链表、分块、莫队</li>
+<li>n≤100000 =&gt; O($nlogn$) =&gt; 各种sort，线段树、树状数组、set/map、heap、拓扑排序、dijkstra+heap、prim+heap、spfa、求凸包、求半平面交、二分、CDQ分治、整体二分</li>
+<li>n≤1000000 =&gt; O(n), 以及常数较小的 O($nlogn$) 算法 =&gt; 单调队列、 hash、双指针扫描、并查集，kmp、AC自动机，常数比较小的 O($nlogn$)的做法：sort、树状数组、heap、dijkstra、spfa</li>
+<li>n≤10000000 =&gt; O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
+<li>n≤10$^9$=&gt; O($\sqrt n$)，判断质数</li>
+<li>n≤10$^{18}$ =&gt; O($logn$)，最大公约数，快速幂（接近long long范围）</li>
+<li>n≤10$^{1000}$=&gt; O($(logn)^2$)，高精度加减乘除</li>
+<li>n≤10$^{100000}$=&gt; O($logk×loglogk$)，k表示位数，高精度加减、FFT/NTT</li>
 </ol>
-<p>n≤1000 =&gt; O(n$^2$)，O($n^2logn$)，dp，二分，朴素版Dijkstra、朴素版Prim、Bellman-Ford</p>
-<p>n≤10000 =&gt; O(n∗$\sqrt n$)，块状链表、分块、莫队</p>
-<p>n≤100000 =&gt; O($nlogn$) =&gt; 各种sort，线段树、树状数组、set/map、heap、拓扑排序</p>
-<p>dijkstra+heap、prim+heap、spfa、求凸包、求半平面交、二分、CDQ分治、整体二分</p>
-<p>n≤1000000 =&gt; O(n), 以及常数较小的 O($nlogn$) 算法 =&gt; 单调队列、 hash、双指针扫描、并查集，kmp、AC自动机，常数比较小的 O($nlogn$)的做法：sort、树状数组、heap、dijkstra、spfa</p>
-<p>n≤10000000 =&gt; O(n)，双指针扫描、kmp、AC自动机、线性筛素数</p>
-<p>n≤10$^9$=&gt; O($\sqrt n$)，判断质数</p>
-<p>n≤10$^{18}$ =&gt; O($logn$)，最大公约数，快速幂（接近long long范围）</p>
-<p>n≤10$^{1000}$=&gt; O($(logn)^2$)，高精度加减乘除</p>
-<p>n≤10$^{100000}$=&gt; O($logk×loglogk$)，k表示位数，高精度加减、FFT/NTT</p>
 <p>作者：yxc<br>链接：<a href="https://www.acwing.com/blog/content/32/">https://www.acwing.com/blog/content/32/</a><br>来源：AcWing<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <h2 id="一-递归与递推"><a href="#一-递归与递推" class="headerlink" title="一 递归与递推"></a>一 递归与递推</h2><h3 id="1-关于scanf-printf与cin-cout的比较："><a href="#1-关于scanf-printf与cin-cout的比较：" class="headerlink" title="1.关于scanf/printf与cin/cout的比较："></a>1.关于<code>scanf/printf</code>与<code>cin/cout</code>的比较：</h3><p><code>cin/cout</code>速度稍慢，当数据范围&lt; 10$^5$时用；</p>
 <p><code>scanf/printf</code>速度巨快，当数据范围&gt;= 10$^5$时用。</p>
@@ -3839,6 +3838,7 @@
       </categories>
       <tags>
         <tag>Java入门</tag>
+        <tag>异常</tag>
       </tags>
   </entry>
   <entry>
@@ -4574,7 +4574,8 @@
   <entry>
     <title>高等排序算法</title>
     <url>/2021/03/14/%E9%AB%98%E7%AD%89%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="高等排序算法"><a href="#高等排序算法" class="headerlink" title="高等排序算法"></a>高等排序算法</h1><span id="more"></span>
+    <content><![CDATA[<h1 id="高等排序算法"><a href="#高等排序算法" class="headerlink" title="高等排序算法"></a>高等排序算法</h1><p>归并排序见另一篇文章。</p>
+<span id="more"></span>
 
 ]]></content>
       <categories>
@@ -5458,6 +5459,7 @@
 <p><img src="/2021/03/30/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/image-20210331212741322.png" alt="image-20210331212741322"></p>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>在STL中，C++其实已经帮我们写好了二分的lower_bound和upper_bound函数。</p>
 <p>详见：<a href="https://grant1499.github.io/2021/02/24/C-%E7%AB%9E%E8%B5%9B%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/">https://grant1499.github.io/2021/02/24/C-%E7%AB%9E%E8%B5%9B%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/</a></p>
+<p>如何深入理解二分法以及处理好边界问题：<a href="https://mp.weixin.qq.com/s/3fjDhS3lb5CBrzx6p0XIxw">https://mp.weixin.qq.com/s/3fjDhS3lb5CBrzx6p0XIxw</a></p>
 ]]></content>
       <categories>
         <category>C++</category>
@@ -5542,6 +5544,10 @@
 <h4 id="1-3-实数二分"><a href="#1-3-实数二分" class="headerlink" title="1.3 实数二分"></a>1.3 实数二分</h4><p>实数二分比整数二分简单多了。</p>
 <p><img src="/2021/03/29/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%BA%94%EF%BC%89/image-20210410131010056.png" alt="image-20210410131010056"></p>
 <p>注意：这里的二分除法是严格的除法，不是整数除法。</p>
+<h4 id="1-4-acwing-790-数的三次方根"><a href="#1-4-acwing-790-数的三次方根" class="headerlink" title="1.4 acwing.790.数的三次方根"></a>1.4 acwing.790.数的三次方根</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">给定一个浮点数 n，求它的三次方根。</span><br><span class="line">输入格式</span><br><span class="line">共一行，包含一个浮点数 n。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，包含一个浮点数，表示问题的解。</span><br><span class="line">注意，结果保留 <span class="number">6</span> 位小数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">−<span class="number">10000</span>≤n≤<span class="number">10000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1000.00</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">10.000000</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">-10000</span>,r = <span class="number">10000</span>;</span><br><span class="line">    <span class="keyword">while</span> (r-l&gt;<span class="number">1e-8</span>)&#123; <span class="comment">// 比题目要求多求几位</span></span><br><span class="line">        <span class="keyword">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (mid*mid*mid&gt;=n) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf&quot;</span>,r); <span class="comment">// 默认输出6位小数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>C++</category>
@@ -6076,6 +6082,36 @@
     <content><![CDATA[<blockquote>
 <p> 续蓝桥杯学习总结（五）。</p>
 </blockquote>
+<span id="more"></span>
+
+<h4 id="1-5-acwing-730-机器人跳跃问题（头条2019笔试题）"><a href="#1-5-acwing-730-机器人跳跃问题（头条2019笔试题）" class="headerlink" title="1.5 acwing.730. 机器人跳跃问题（头条2019笔试题）"></a>1.5 acwing.730. 机器人跳跃问题（头条2019笔试题）</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">机器人正在玩一个古老的基于 DOS 的游戏。</span><br><span class="line">游戏中有 N+<span class="number">1</span> 座建筑——从 <span class="number">0</span> 到 N 编号，从左到右排列。</span><br><span class="line">编号为 <span class="number">0</span> 的建筑高度为 <span class="number">0</span> 个单位，编号为 i 的建筑高度为 H(i) 个单位。</span><br><span class="line">起初，机器人在编号为 <span class="number">0</span> 的建筑处。</span><br><span class="line">每一步，它跳到下一个（右边）建筑。</span><br><span class="line">假设机器人在第 k 个建筑，且它现在的能量值是 E，下一步它将跳到第 k+<span class="number">1</span> 个建筑。</span><br><span class="line">如果 H(k+<span class="number">1</span>)&gt;E，那么机器人就失去 H(k+<span class="number">1</span>)−E 的能量值，否则它将得到 E−H(k+<span class="number">1</span>) 的能量值。</span><br><span class="line">游戏目标是到达第 N 个建筑，在这个过程中能量值不能为负数个单位。</span><br><span class="line">现在的问题是机器人至少以多少能量值开始游戏，才可以保证成功完成游戏？</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入整数 N。</span><br><span class="line">第二行是 N 个空格分隔的整数，H(<span class="number">1</span>),H(<span class="number">2</span>),…,H(N) 代表建筑物的高度。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示所需的最少单位的初始能量值上取整后的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,H(i)≤<span class="number">105</span>,</span><br><span class="line">输入样例<span class="number">1</span>：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">1</span>：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">输入样例<span class="number">2</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">2</span>：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">输入样例<span class="number">3</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">6</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">3</span>：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>y总思路：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417113943246.png" alt="image-20210417113943246"></p>
+<p>题目具有二段性，假设有E满足条件，比E小的数都不满足，比E大的数都满足。这点可以简单论证一下。</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417123437384.png" alt="image-20210417123437384"></p>
+<p>注意一个坑：如果E接近h的最大值时，<code>E*2</code>容易爆int（记住：int范围约是2*10$^9$.），其实我们只要判断<code>E&gt;=max(h)</code>，满足的话后面E肯定是递增的，就不用再判断是否大于0了。证明如下：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417124151973.png" alt="image-20210417124151973"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解奉上</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> num[N]; <span class="comment">// num[0]默认为0</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        m = <span class="number">2</span>*m - num[i];</span><br><span class="line">        <span class="keyword">if</span> (m &gt;= <span class="number">1e5</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 这里别忘了</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="comment">// 从num[1]开始读，包括num[0]在内是n+1座建筑</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;num[i]);</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>,r = <span class="number">1e5</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (check(mid))r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-acwing-1221-四平方和（蓝桥杯省赛C-A-B组）"><a href="#1-6-acwing-1221-四平方和（蓝桥杯省赛C-A-B组）" class="headerlink" title="1.6 acwing.1221. 四平方和（蓝桥杯省赛C++A/B组）"></a>1.6 acwing.1221. 四平方和（蓝桥杯省赛C++A/B组）</h4><p>类似题目：acwing.75.和为S的两个数字，语法（九）题解有暴搜与哈希表两种做法。（PS：本题不可暴搜）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">四平方和定理，又称为拉格朗日定理：</span><br><span class="line">每个正整数都可以表示为至多 <span class="number">4</span> 个正整数的平方和。</span><br><span class="line">如果把 <span class="number">0</span> 包括进去，就正好可以表示为 <span class="number">4</span> 个数的平方和。</span><br><span class="line">比如：</span><br><span class="line"><span class="number">5</span>=<span class="number">0</span>^<span class="number">2</span>+<span class="number">0</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">2</span>^<span class="number">2</span></span><br><span class="line"><span class="number">7</span>=<span class="number">1</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">2</span>^<span class="number">2</span></span><br><span class="line">对于一个给定的正整数，可能存在多种平方和的表示法。</span><br><span class="line">要求你对 <span class="number">4</span> 个数排序：</span><br><span class="line"><span class="number">0</span>≤a≤b≤c≤d</span><br><span class="line">并对所有的可能表示法按 a,b,c,d 为联合主键升序排列，最后输出第一个表示法。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入一个正整数 N。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出<span class="number">4</span>个非负整数，按从小到大排序，中间用空格分开。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>&lt;N&lt;<span class="number">5</span>∗<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>强行三重循环爆搜会超时的，怎么优化都过不了。Java能过，C++不行，Java时限更长。</p>
+<p>y总思路：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417155749683.png" alt="image-20210417155749683"></p>
+<p>(与带分数的转换方法类似)</p>
+<p>1、a^2+b^2+c^2+d^2=n可以转换成 c^2+d^2=n−a^2−b^2</p>
+<p>2、通过排序数组（或哈希表）存储c^2+d^2的值</p>
+<p>3、枚举a和b，若n−a^2−b^2在排序数组（或哈希表）中存在，则表示一定存在c和d，满足方程</p>
+<p>哈希表由于某些原因过不了。</p>
+<h5 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h5><p>时间复杂度：$O(n^2*logn)$，两重循环加一个二分查找</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总二分题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2500010</span>; <span class="comment">// 5*10^6的一半，后面枚举c、d</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sum</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> s,c,d;</span><br><span class="line">    <span class="comment">// 结构体排序，重载小于号</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Sum&amp; t) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s != t.s) <span class="keyword">return</span> s &lt; t.s; <span class="comment">// s、c、d按字典序排序</span></span><br><span class="line">        <span class="keyword">if</span> (c != t.c) <span class="keyword">return</span> c &lt; t.c;</span><br><span class="line">        <span class="keyword">return</span> d &lt; t.d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;sum[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>;c*c&lt;= n;c++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> d = c;c*c+d*d&lt;= n;d++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum[m++] = &#123;c*c+d*d,c,d&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    sort(sum,sum+m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>;a*a&lt;= n;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> b = a;a*a+b*b&lt;= n;b++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = n-a*a-b*b;</span><br><span class="line">            <span class="keyword">int</span> l = <span class="number">0</span>,r = m<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">                <span class="keyword">int</span> mid = (l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (sum[mid].s &gt;= t) r = mid;</span><br><span class="line">                <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (sum[l].s == t)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,a,b,sum[l].c,sum[l].d);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h5><p>时间复杂度$O(n^2)$，本题超时，仅作为思路拓展！</p>
+<p>不要轻信时间复杂度，这里二分与哈希表之间的常数不能忽略。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;// 哈希表</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;<span class="comment">// 必须放using...之后</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, PII&gt; S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c * c &lt;= n; c ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> d = c; c * c + d * d &lt;= n; d ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = c * c + d * d;</span><br><span class="line">            <span class="keyword">if</span> (S.count(t) == <span class="number">0</span>) S[t] = &#123;c, d&#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>; a * a &lt;= n; a ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>; a * a + b * b &lt;= n; b ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = n - a * a - b * b;</span><br><span class="line">            <span class="keyword">if</span> (S.count(t))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d\n&quot;</span>, a, b, S[t].x, S[t].y);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>C++</category>
@@ -6085,6 +6121,7 @@
         <tag>蓝桥杯</tag>
         <tag>竞赛</tag>
         <tag>二分</tag>
+        <tag>哈希</tag>
       </tags>
   </entry>
   <entry>
@@ -6411,7 +6448,41 @@
   <entry>
     <title>C++入门笔记（十）</title>
     <url>/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
+    <content><![CDATA[<h2 id="1-什么是模板"><a href="#1-什么是模板" class="headerlink" title="1.什么是模板"></a>1.什么是模板</h2><p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416202641797.png" alt="image-20210416202641797"></p>
+<span id="more"></span>
+
+<p>为什么要使用模板？</p>
+<p>因为使用重载还是有重复代码，使用模板可以写一个通用的函数适用多种不同的数据类型。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416213008855.png" alt="image-20210416213008855"></p>
+<h2 id="2-函数模板与模板函数"><a href="#2-函数模板与模板函数" class="headerlink" title="2.函数模板与模板函数"></a>2.函数模板与模板函数</h2><p><strong>函数模板</strong>就是建立一个通用函数，其函数返回类型和形参类型不具体指定，用一个虚拟类型来代表。</p>
+<p>在调用函数时系统会根据实参的类型（模板实参）来取代模板中的虚拟类型从而实现不同的函数功能。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416213921364.png" alt="image-20210416213921364"></p>
+<p>使用函数模板时必须将类型参数实例化，类型参数前要加上关键字typename或者class，推荐加上typename，class容易与类搞混。</p>
+<p><strong>typename后面的类型参数必须实例化。</strong></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215058349.png" alt="image-20210416215058349"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215118498.png" alt="image-20210416215118498"></p>
+<p><strong>实际上函数模板提供了一类函数的抽象，它经过实例化而生成的具体函数成为模板函数。</strong></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215300861.png" alt="image-20210416215300861"></p>
+<p>定义两种类型参数的函数模板：</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215736766.png" alt="image-20210416215736766"></p>
+<p>注意点：</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215654841.png" alt="image-20210416215654841"></p>
+<p>重载的函数模板例子：</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416215918724.png" alt="image-20210416215918724"></p>
+<p>函数模板与同名的非模板函数也能重载。</p>
+<p>这时的调用顺序是：先寻找一个参数完全匹配的非模板函数，找到了就调用它，否则寻找一个匹配的函数模板，实例化产生模板函数，调用它。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416220231627.png" alt="image-20210416220231627"></p>
+<h2 id="3-类模板与模板类"><a href="#3-类模板与模板类" class="headerlink" title="3.类模板与模板类"></a>3.类模板与模板类</h2><p><strong>类模板</strong>就是建立一个通用类，其数据成员、成员函数的返回类型和形参类型不具体指定，用一个虚拟类型来代表。使用类模板定义对象时，系统会根据实参的类型来取代模板中的虚拟类型从而实现了不同类的功能。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416220749449.png" alt="image-20210416220749449"></p>
+<p>还是建议使用typename关键字。</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416222050662.png" alt="image-20210416222050662"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416222039232.png" alt="image-20210416222039232"></p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416222122639.png" alt="image-20210416222122639"></p>
+<p>用数组实现的栈的例子：</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416222507375.png" alt="image-20210416222507375"></p>
+<p>含有两个类型参数的模板类的例子：</p>
+<p><img src="/2021/04/15/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%EF%BC%89/image-20210416222605659.png" alt="image-20210416222605659"></p>
+]]></content>
       <categories>
         <category>C++</category>
       </categories>
@@ -6458,6 +6529,160 @@
       <tags>
         <tag>Latex</tag>
         <tag>Word</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++入门笔记（十一）</title>
+    <url>/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-异常处理"><a href="#1-异常处理" class="headerlink" title="1.异常处理"></a>1.异常处理</h2><p>C++处理异常的机制由：检查、抛出和捕获组成，与其他语言类似。</p>
+<p>分别由3种语句完成：try、throw、和catch。</p>
+<span id="more"></span>
+
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223423799.png" alt="image-20210416223423799"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223434097.png" alt="image-20210416223434097"></p>
+<p>异常处理的例子：</p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223616929.png" alt="image-20210416223616929"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223812578.png" alt="image-20210416223812578"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+        <tag>异常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL语句大全</title>
+    <url>/2021/04/16/SQL%E8%AF%AD%E5%8F%A5%E5%A4%A7%E5%85%A8/</url>
+    <content><![CDATA[<p>转载：<a href="https://mp.weixin.qq.com/s/EbdgRbGBgzzRa2pET-6qRA">https://mp.weixin.qq.com/s/EbdgRbGBgzzRa2pET-6qRA</a></p>
+<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="1、说明：创建数据库"><a href="#1、说明：创建数据库" class="headerlink" title="1、说明：创建数据库"></a>1、说明：创建数据库</h3><p>CREATE DATABASE database-name</p>
+<h3 id="2、说明：删除数据库"><a href="#2、说明：删除数据库" class="headerlink" title="2、说明：删除数据库"></a>2、说明：删除数据库</h3><p>drop database dbname</p>
+<span id="more"></span>
+
+<h3 id="3、说明：备份sql-server"><a href="#3、说明：备份sql-server" class="headerlink" title="3、说明：备份sql server"></a>3、说明：备份sql server</h3><p>— 创建 备份数据的 device<br>USE master<br>EXEC sp_addumpdevice ‘disk’, ‘testBack’, ‘c:mssql7backupMyNwind_1.dat’<br>— 开始 备份<br>BACKUP DATABASE pubs TO testBack </p>
+<h3 id="4、说明：创建新表"><a href="#4、说明：创建新表" class="headerlink" title="4、说明：创建新表"></a>4、说明：创建新表</h3><p>create table tabname(col1 type1 [not null] [primary key],col2 type2 [not null],..)</p>
+<p>根据已有的表创建新表：<br>A：create table tab_new like tab_old (使用旧表创建新表)<br>B：create table tab_new as select col1,col2… from tab_old definition only</p>
+<h3 id="5、说明：删除新表"><a href="#5、说明：删除新表" class="headerlink" title="5、说明：删除新表"></a>5、说明：删除新表</h3><p>drop table tabname </p>
+<h3 id="6、说明：增加一个列"><a href="#6、说明：增加一个列" class="headerlink" title="6、说明：增加一个列"></a>6、说明：增加一个列</h3><p>Alter table tabname add column col type注：列增加后将不能删除。DB2中列加上后数据类型也不能改变，唯一能改变的是增加varchar类型的长度。</p>
+<h3 id="7、说明：添加主键：-Alter-table-tabname-add-primary-key-col"><a href="#7、说明：添加主键：-Alter-table-tabname-add-primary-key-col" class="headerlink" title="7、说明：添加主键： Alter table tabname add primary key(col)"></a>7、说明：添加主键： Alter table tabname add primary key(col)</h3><p>说明：删除主键： Alter table tabname drop primary key(col) </p>
+<h3 id="8、说明：创建索引：create-unique-index-idxname-on-tabname-col…"><a href="#8、说明：创建索引：create-unique-index-idxname-on-tabname-col…" class="headerlink" title="8、说明：创建索引：create [unique] index idxname on tabname(col….)"></a>8、说明：创建索引：create [unique] index idxname on tabname(col….)</h3><p>删除索引：drop index idxname<br>注：索引是不可更改的，想更改必须删除重新建。</p>
+<h3 id="9、说明：创建视图：create-view-viewname-as-select-statement"><a href="#9、说明：创建视图：create-view-viewname-as-select-statement" class="headerlink" title="9、说明：创建视图：create view viewname as select statement"></a>9、说明：创建视图：create view viewname as select statement</h3><p>删除视图：drop view viewname</p>
+<p>待更新。。。</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯学习总结（七）</title>
+    <url>/2021/04/17/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="1-7-acwing-1227-分巧克力（蓝桥杯省赛C-A-B组）"><a href="#1-7-acwing-1227-分巧克力（蓝桥杯省赛C-A-B组）" class="headerlink" title="1.7 acwing.1227. 分巧克力（蓝桥杯省赛C++A/B组）"></a>1.7 acwing.1227. 分巧克力（蓝桥杯省赛C++A/B组）</h4><span id="more"></span>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">儿童节那天有 K 位小朋友到小明家做客。</span><br><span class="line">小明拿出了珍藏的巧克力招待小朋友们。</span><br><span class="line">小明一共有 N 块巧克力，其中第 i 块是 Hi×Wi 的方格组成的长方形。</span><br><span class="line">为了公平起见，小明需要从这 N 块巧克力中切出 K 块巧克力分给小朋友们。</span><br><span class="line">切出的巧克力需要满足：</span><br><span class="line">形状是正方形，边长是整数</span><br><span class="line">大小相同</span><br><span class="line">例如一块 <span class="number">6</span>×<span class="number">5</span> 的巧克力可以切出 <span class="number">6</span> 块 <span class="number">2</span>×<span class="number">2</span> 的巧克力或者 <span class="number">2</span> 块 <span class="number">3</span>×<span class="number">3</span> 的巧克力。</span><br><span class="line">当然小朋友们都希望得到的巧克力尽可能大，你能帮小明计算出最大的边长是多少么？</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 N 和 K。</span><br><span class="line">以下 N 行每行包含两个整数 Hi 和 Wi。</span><br><span class="line">输入保证每位小朋友至少能获得一块 <span class="number">1</span>×<span class="number">1</span> 的巧克力。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出切出的正方形巧克力最大可能的边长。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,K≤<span class="number">105</span>,</span><br><span class="line"><span class="number">1</span>≤Hi,Wi≤<span class="number">105</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">2</span> <span class="number">10</span></span><br><span class="line"><span class="number">6</span> <span class="number">5</span></span><br><span class="line"><span class="number">5</span> <span class="number">6</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>y总思路：</p>
+<p><img src="/2021/04/17/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%83%EF%BC%89/image-20210421181429479.png" alt="image-20210421181429479"></p>
+<p><img src="/2021/04/17/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B8%83%EF%BC%89/image-20210421225102950.png" alt="image-20210421225102950"></p>
+<p>时间复杂度：求f(mid)是O(N)，二分是O(logH)，总的是<code>O(N*logH)</code>，也就是<code>10^5*log10^5</code>.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100000</span>;</span><br><span class="line"><span class="keyword">int</span> n,k;</span><br><span class="line"><span class="keyword">int</span> h[N],w[N];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> mid)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">        res += (h[i]/mid)*(w[i]/mid); <span class="comment">// res求边长为mid时的块数</span></span><br><span class="line">        <span class="keyword">if</span> (res &gt;= k) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;h[i],&amp;w[i]);</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">1</span>,r = <span class="number">1e5</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r+<span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (check(mid)) l = mid;</span><br><span class="line">        <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,r);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>详细题解思路请参考：<a href="https://www.acwing.com/solution/content/6883/">https://www.acwing.com/solution/content/6883/</a></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>竞赛</tag>
+        <tag>前缀和</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CLion配置使用教程</title>
+    <url>/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="CLion配置使用教程"><a href="#CLion配置使用教程" class="headerlink" title="CLion配置使用教程"></a>CLion配置使用教程</h2><p>参考下载安装教程：<a href="https://www.jb51.net/article/193508.htm">https://www.jb51.net/article/193508.htm</a></p>
+<p>最好不要下载最新的，破解可能失效，然后跟着教程来就行了。</p>
+<span id="more"></span>
+
+<p>下面讲一下会遇到的问题（坑）：</p>
+<p>配置MinGW时可能会出现如下警告。</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210418122025803.png" alt="image-20210418122025803"></p>
+<p>我们点击More，可以看到类似下图的错误：</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210418122124086.png" alt="image-20210418122124086"></p>
+<p>解决方案请参照<a href="https://zhuanlan.zhihu.com/p/43680621">这里</a></p>
+<p>有的人内容可能不是完全一样（没有乱码，都是英文，其他一致）：如果上面的方案不行，再接着往下看</p>
+<p>参照这篇<a href="https://www.pianshen.com/article/33861131114/">文章</a>，我花了大半天时间才找到这个非常有效的解决方案，我们根据提示，在D盘下新建一个CLion文件夹（或者你找别的路径也行），对照下图修改这四个部分。</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210418122720065.png" alt="image-20210418122720065"></p>
+<p>然后打开CLion，新建工程，点击 help – edit custom vm options</p>
+<p>在后面加上一行 <code>-Djava.io.tmpdir=d:/CLion/Temp</code></p>
+<p>这下再重新执行CMakelist就行了，运行main.cpp会顺利看到hello，world就成功了。</p>
+<p>有人可能还会出现头文件下方红线提示找不到的情况，可能是因为你CMake的路径改成了下载的CMake了，</p>
+<p>再按照下图改回MinGW默认的就不会报错了。</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210418123300435.png" alt="image-20210418123300435"></p>
+<p>最后就可以放心的使用CLion了！</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210418123416782.png" alt="image-20210418123416782"></p>
+<p><strong>补充关于CLion的多文件编译：</strong></p>
+<p>CLion默认一个项目之下只能有一个带main函数的源文件。</p>
+<p>我们可以通过修改CMakeList文件来分别编译一个项目下的多个带main函数的源文件。</p>
+<p>参考自：<a href="https://zhuanlan.zhihu.com/p/124284203%E3%80%82">https://zhuanlan.zhihu.com/p/124284203。</a></p>
+<p>这里我们采用安装插件的方式来实现，如果不能在CLion中在线下载安装插件，可以直接在官网中下载，然后通过本地安装插件。</p>
+<p>官网插件下载链接：<a href="https://plugins.jetbrains.com/">https://plugins.jetbrains.com/</a></p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210419133730396.png" alt="image-20210419133730396"></p>
+<p>安装插件之后就可以编写代码了。</p>
+<p>这里有两段测试程序，main.cpp和test.cpp。</p>
+<p>分别在cpp文件下单击右键：</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210419133920525.png" alt="image-20210419133920525"></p>
+<p>这时会发现CMakeList文件中多了一行代码add_executable(main main.cpp)。（其实可以不用插件手动添加）</p>
+<p>要运行单个文件，只要选择对应的文件即可，然后点击’Run’按钮。</p>
+<p><img src="/2021/04/18/CLion%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/image-20210419134154418.png" alt="image-20210419134154418"></p>
+<p>现在你已经成功掌握了CLion的基本用法了！</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>CLion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>two pointers思想与归并排序</title>
+    <url>/2021/04/17/two-pointers%E6%80%9D%E6%83%B3%E4%B8%8E%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>参考自：<a href="https://www.cnblogs.com/coderJiebao/p/Algorithmofnotes08.html">https://www.cnblogs.com/coderJiebao/p/Algorithmofnotes08.html</a></p>
+<span id="more"></span>]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+        <tag>tow pointers</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++抽象类与模板类的应用</title>
+    <url>/2021/04/21/C-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="1-抽象类的应用"><a href="#1-抽象类的应用" class="headerlink" title="1.抽象类的应用"></a>1.抽象类的应用</h2><p><img src="/2021/04/21/C-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/image-20210421233258943.png" alt="image-20210421233258943"></p>
+<span id="more"></span>
+
+<p>C++程序如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _USE_MATH_DEFINES <span class="comment">// 使用M_PI </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Container</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="title">calcSurface</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="title">calcVolume</span><span class="params">()</span> </span>= <span class="number">0</span>;	</span><br><span class="line">&#125;; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sphere</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Sphere(<span class="keyword">double</span> _r):r(_r)&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcSurface</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">4</span>*M_PI*r*r;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcVolume</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">4</span>*r*r*r*M_PI/<span class="number">3</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> r;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cylinder</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Cylinder(<span class="keyword">int</span> _r,<span class="keyword">int</span> _h):r(_r),h(_h)&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcSurface</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> r*r*<span class="number">2</span>*M_PI+<span class="number">2</span>*M_PI*r*h;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcVolume</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> r*r*M_PI*h;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> r;</span><br><span class="line">		<span class="keyword">double</span> h;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cube</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		Cube(<span class="keyword">double</span> _a):a(_a)&#123;&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcSurface</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">6</span>*a*a;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">calcVolume</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> a*a*a;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Sphere <span class="title">s</span><span class="params">(<span class="number">4.5</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Surface:&quot;</span>&lt;&lt;s.calcSurface();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;, Volume:&quot;</span>&lt;&lt;s.calcVolume()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;---------------------------------\n&quot;</span>;</span><br><span class="line">	<span class="function">Cylinder <span class="title">c1</span><span class="params">(<span class="number">4.3</span>,<span class="number">1.2</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Surface:&quot;</span>&lt;&lt;c1.calcSurface();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;, Volume:&quot;</span>&lt;&lt;c1.calcVolume()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;---------------------------------\n&quot;</span>;</span><br><span class="line">	<span class="function">Cube <span class="title">c2</span><span class="params">(<span class="number">9.0</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Surface:&quot;</span>&lt;&lt;c2.calcSurface();</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;, Volume:&quot;</span>&lt;&lt;c2.calcVolume()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-模板类的应用"><a href="#2-模板类的应用" class="headerlink" title="2.模板类的应用"></a>2.模板类的应用</h2><p><img src="/2021/04/21/C-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%B1%BB%E7%9A%84%E5%BA%94%E7%94%A8/image-20210421233409708.png" alt="image-20210421233409708"></p>
+<p>C++程序如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">15</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Set</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Set() &#123;</span><br><span class="line">        t[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Set(T num[N]) &#123;</span><br><span class="line">        <span class="built_in">memcpy</span>(t, num, <span class="keyword">sizeof</span>(T) * N);</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++, size++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t[i] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;有%d个元素：&quot;</span>, size);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) <span class="built_in">cout</span> &lt;&lt; t[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Set <span class="keyword">operator</span>+(Set &amp;s);</span><br><span class="line">    Set <span class="keyword">operator</span>-(Set &amp;s);</span><br><span class="line">    Set <span class="keyword">operator</span>*(Set &amp;s);</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T t[N];</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">Set&lt;T&gt; Set&lt;T&gt;::<span class="keyword">operator</span>+(Set&lt;T&gt; &amp;s) &#123;</span><br><span class="line">    Set&lt;T&gt; temp;</span><br><span class="line">    <span class="built_in">memcpy</span>(temp.t, t, <span class="keyword">sizeof</span>(T) * size);</span><br><span class="line">    <span class="keyword">int</span> k = size;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size; i++) &#123;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; size; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.t[i] == temp.t[j]) &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="literal">false</span>) temp.t[k++] = s.t[i];</span><br><span class="line">    &#125;</span><br><span class="line">    temp.size = k;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">Set&lt;T&gt; Set&lt;T&gt;::<span class="keyword">operator</span>-(Set&lt;T&gt; &amp;s) &#123;</span><br><span class="line">    Set&lt;T&gt; temp;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.size; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t[i] == s.t[j]) &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag == <span class="literal">false</span>) temp.t[k++] = t[i];</span><br><span class="line">    &#125;</span><br><span class="line">    temp.size = k;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">Set&lt;T&gt; Set&lt;T&gt;::<span class="keyword">operator</span>*(Set&lt;T&gt; &amp;s) &#123;</span><br><span class="line">    Set&lt;T&gt; temp;</span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.size; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t[i] == s.t[j]) temp.t[k++] = s.t[j];</span><br><span class="line">        &#125;</span><br><span class="line">    temp.size = k;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[N] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> b[N] = &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">7</span>&#125;;</span><br><span class="line">    Set&lt;int&gt; A(a), B(b), C, D, E;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;A:&quot;</span>;</span><br><span class="line">    A.show();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;B:&quot;</span>;</span><br><span class="line">    B.show();</span><br><span class="line">    C = A + B; <span class="comment">// 并</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;A和B的并集:&quot;</span>;</span><br><span class="line">    C.show();</span><br><span class="line">    D = A * B; <span class="comment">// 交</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;A和B的交集:&quot;</span>;</span><br><span class="line">    D.show();</span><br><span class="line">    E = A - B; <span class="comment">// 差</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;A和B的差集:&quot;</span>;</span><br><span class="line">    E.show();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>抽象类</tag>
+        <tag>模板</tag>
       </tags>
   </entry>
 </search>

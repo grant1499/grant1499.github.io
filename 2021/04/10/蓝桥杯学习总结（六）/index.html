@@ -23,13 +23,19 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="续蓝桥杯学习总结（五）。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417113943246.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417123437384.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417124151973.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417155749683.png">
 <meta property="article:published_time" content="2021-04-10T10:26:38.000Z">
-<meta property="article:modified_time" content="2021-04-10T10:27:44.336Z">
+<meta property="article:modified_time" content="2021-04-21T10:02:06.886Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta property="article:tag" content="二分">
+<meta property="article:tag" content="哈希">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417113943246.png">
 
 <link rel="canonical" href="https://grant1499.github.io/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/">
 
@@ -125,17 +131,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">46</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">52</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">10</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">83</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">89</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -213,10 +219,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-10 18:26:38 / 修改时间：18:27:44" itemprop="dateCreated datePublished" datetime="2021-04-10T18:26:38+08:00">2021-04-10</time>
+              <time title="创建时间：2021-04-10 18:26:38" itemprop="dateCreated datePublished" datetime="2021-04-10T18:26:38+08:00">2021-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-21 18:02:06" itemprop="dateModified" datetime="2021-04-21T18:02:06+08:00">2021-04-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -254,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>12</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -276,6 +288,36 @@
         <blockquote>
 <p> 续蓝桥杯学习总结（五）。</p>
 </blockquote>
+<span id="more"></span>
+
+<h4 id="1-5-acwing-730-机器人跳跃问题（头条2019笔试题）"><a href="#1-5-acwing-730-机器人跳跃问题（头条2019笔试题）" class="headerlink" title="1.5 acwing.730. 机器人跳跃问题（头条2019笔试题）"></a>1.5 acwing.730. 机器人跳跃问题（头条2019笔试题）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">机器人正在玩一个古老的基于 DOS 的游戏。</span><br><span class="line">游戏中有 N+<span class="number">1</span> 座建筑——从 <span class="number">0</span> 到 N 编号，从左到右排列。</span><br><span class="line">编号为 <span class="number">0</span> 的建筑高度为 <span class="number">0</span> 个单位，编号为 i 的建筑高度为 H(i) 个单位。</span><br><span class="line">起初，机器人在编号为 <span class="number">0</span> 的建筑处。</span><br><span class="line">每一步，它跳到下一个（右边）建筑。</span><br><span class="line">假设机器人在第 k 个建筑，且它现在的能量值是 E，下一步它将跳到第 k+<span class="number">1</span> 个建筑。</span><br><span class="line">如果 H(k+<span class="number">1</span>)&gt;E，那么机器人就失去 H(k+<span class="number">1</span>)−E 的能量值，否则它将得到 E−H(k+<span class="number">1</span>) 的能量值。</span><br><span class="line">游戏目标是到达第 N 个建筑，在这个过程中能量值不能为负数个单位。</span><br><span class="line">现在的问题是机器人至少以多少能量值开始游戏，才可以保证成功完成游戏？</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入整数 N。</span><br><span class="line">第二行是 N 个空格分隔的整数，H(<span class="number">1</span>),H(<span class="number">2</span>),…,H(N) 代表建筑物的高度。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示所需的最少单位的初始能量值上取整后的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,H(i)≤<span class="number">105</span>,</span><br><span class="line">输入样例<span class="number">1</span>：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">1</span>：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">输入样例<span class="number">2</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">2</span>：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">输入样例<span class="number">3</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">6</span> <span class="number">4</span></span><br><span class="line">输出样例<span class="number">3</span>：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p>y总思路：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417113943246.png" alt="image-20210417113943246"></p>
+<p>题目具有二段性，假设有E满足条件，比E小的数都不满足，比E大的数都满足。这点可以简单论证一下。</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417123437384.png" alt="image-20210417123437384"></p>
+<p>注意一个坑：如果E接近h的最大值时，<code>E*2</code>容易爆int（记住：int范围约是2*10$^9$.），其实我们只要判断<code>E&gt;=max(h)</code>，满足的话后面E肯定是递增的，就不用再判断是否大于0了。证明如下：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417124151973.png" alt="image-20210417124151973"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总题解奉上</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> num[N]; <span class="comment">// num[0]默认为0</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        m = <span class="number">2</span>*m - num[i];</span><br><span class="line">        <span class="keyword">if</span> (m &gt;= <span class="number">1e5</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 这里别忘了</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="comment">// 从num[1]开始读，包括num[0]在内是n+1座建筑</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;num[i]);</span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>,r = <span class="number">1e5</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (check(mid))r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-acwing-1221-四平方和（蓝桥杯省赛C-A-B组）"><a href="#1-6-acwing-1221-四平方和（蓝桥杯省赛C-A-B组）" class="headerlink" title="1.6 acwing.1221. 四平方和（蓝桥杯省赛C++A/B组）"></a>1.6 acwing.1221. 四平方和（蓝桥杯省赛C++A/B组）</h4><p>类似题目：acwing.75.和为S的两个数字，语法（九）题解有暴搜与哈希表两种做法。（PS：本题不可暴搜）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">四平方和定理，又称为拉格朗日定理：</span><br><span class="line">每个正整数都可以表示为至多 <span class="number">4</span> 个正整数的平方和。</span><br><span class="line">如果把 <span class="number">0</span> 包括进去，就正好可以表示为 <span class="number">4</span> 个数的平方和。</span><br><span class="line">比如：</span><br><span class="line"><span class="number">5</span>=<span class="number">0</span>^<span class="number">2</span>+<span class="number">0</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">2</span>^<span class="number">2</span></span><br><span class="line"><span class="number">7</span>=<span class="number">1</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">1</span>^<span class="number">2</span>+<span class="number">2</span>^<span class="number">2</span></span><br><span class="line">对于一个给定的正整数，可能存在多种平方和的表示法。</span><br><span class="line">要求你对 <span class="number">4</span> 个数排序：</span><br><span class="line"><span class="number">0</span>≤a≤b≤c≤d</span><br><span class="line">并对所有的可能表示法按 a,b,c,d 为联合主键升序排列，最后输出第一个表示法。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入一个正整数 N。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出<span class="number">4</span>个非负整数，按从小到大排序，中间用空格分开。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>&lt;N&lt;<span class="number">5</span>∗<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>强行三重循环爆搜会超时的，怎么优化都过不了。Java能过，C++不行，Java时限更长。</p>
+<p>y总思路：</p>
+<p><img src="/2021/04/10/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AD%EF%BC%89/image-20210417155749683.png" alt="image-20210417155749683"></p>
+<p>(与带分数的转换方法类似)</p>
+<p>1、a^2+b^2+c^2+d^2=n可以转换成 c^2+d^2=n−a^2−b^2</p>
+<p>2、通过排序数组（或哈希表）存储c^2+d^2的值</p>
+<p>3、枚举a和b，若n−a^2−b^2在排序数组（或哈希表）中存在，则表示一定存在c和d，满足方程</p>
+<p>哈希表由于某些原因过不了。</p>
+<h5 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h5><p>时间复杂度：$O(n^2*logn)$，两重循环加一个二分查找</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总二分题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2500010</span>; <span class="comment">// 5*10^6的一半，后面枚举c、d</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Sum</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> s,c,d;</span><br><span class="line">    <span class="comment">// 结构体排序，重载小于号</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Sum&amp; t) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s != t.s) <span class="keyword">return</span> s &lt; t.s; <span class="comment">// s、c、d按字典序排序</span></span><br><span class="line">        <span class="keyword">if</span> (c != t.c) <span class="keyword">return</span> c &lt; t.c;</span><br><span class="line">        <span class="keyword">return</span> d &lt; t.d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;sum[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>;c*c&lt;= n;c++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> d = c;c*c+d*d&lt;= n;d++)</span><br><span class="line">        &#123;</span><br><span class="line">            sum[m++] = &#123;c*c+d*d,c,d&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    sort(sum,sum+m);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>;a*a&lt;= n;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> b = a;a*a+b*b&lt;= n;b++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = n-a*a-b*b;</span><br><span class="line">            <span class="keyword">int</span> l = <span class="number">0</span>,r = m<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">                <span class="keyword">int</span> mid = (l+r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (sum[mid].s &gt;= t) r = mid;</span><br><span class="line">                <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (sum[l].s == t)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d&quot;</span>,a,b,sum[l].c,sum[l].d);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h5><p>时间复杂度$O(n^2)$，本题超时，仅作为思路拓展！</p>
+<p>不要轻信时间复杂度，这里二分与哈希表之间的常数不能忽略。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;// 哈希表</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;<span class="comment">// 必须放using...之后</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, PII&gt; S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>; c * c &lt;= n; c ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> d = c; c * c + d * d &lt;= n; d ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = c * c + d * d;</span><br><span class="line">            <span class="keyword">if</span> (S.count(t) == <span class="number">0</span>) S[t] = &#123;c, d&#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>; a * a &lt;= n; a ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>; a * a + b * b &lt;= n; b ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = n - a * a - b * b;</span><br><span class="line">            <span class="keyword">if</span> (S.count(t))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d %d\n&quot;</span>, a, b, S[t].x, S[t].y);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -306,6 +348,7 @@
               <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
               <a href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 竞赛</a>
               <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 二分</a>
+              <a href="/tags/%E5%93%88%E5%B8%8C/" rel="tag"><i class="fa fa-tag"></i> 哈希</a>
           </div>
 
         
@@ -380,6 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-acwing-730-%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%B7%B3%E8%B7%83%E9%97%AE%E9%A2%98%EF%BC%88%E5%A4%B4%E6%9D%A12019%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%89"><span class="nav-text">1.5 acwing.730. 机器人跳跃问题（头条2019笔试题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-acwing-1221-%E5%9B%9B%E5%B9%B3%E6%96%B9%E5%92%8C%EF%BC%88%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BC-A-B%E7%BB%84%EF%BC%89"><span class="nav-text">1.6 acwing.1221. 四平方和（蓝桥杯省赛C++A&#x2F;B组）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E5%88%86"><span class="nav-text">二分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-text">哈希表</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,20 +439,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -457,13 +501,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">285k</span>
+    <span title="站点总字数">296k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:19</span>
+    <span title="站点阅读时长">4:29</span>
 </div>
 
 <span id="sitetime"></span>
