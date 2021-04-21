@@ -1,7 +1,7 @@
 ---
 title: Java入门笔记（六）
 date: 2021-03-06 12:52:46
-tags: [Java入门]
+tags: [Java入门,异常]
 categories: 
 	- Java
 mathjax: true
