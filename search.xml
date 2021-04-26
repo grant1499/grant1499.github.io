@@ -6638,8 +6638,6 @@
 <p><strong>前缀和能快速查询，但不支持修改。</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> a[N],s[N];<span class="comment">// 表示原数组和前缀和数组</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="comment">// i从1开始，不然i-1越界</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        s[i] = s[i<span class="number">-1</span>] + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> l,r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;l,&amp;r);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s[r]-s[l<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-2-acwing-796-子矩阵的和（二维模板题）"><a href="#2-2-acwing-796-子矩阵的和（二维模板题）" class="headerlink" title="2.2 acwing.796.子矩阵的和（二维模板题）"></a>2.2 acwing.796.子矩阵的和（二维模板题）</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入一个 n 行 m 列的整数矩阵，再输入 q 个询问，每个询问包含四个整数 x1,y1,x2,y2，表示一个子矩阵的左上角坐标和右下角坐标。</span><br><span class="line">对于每个询问输出子矩阵中所有数的和。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n，m，q。</span><br><span class="line">接下来 n 行，每行包含 m 个整数，表示整数矩阵。</span><br><span class="line">接下来 q 行，每行包含四个整数 x1,y1,x2,y2，表示一组询问。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 q 行，每行输出一个询问的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤q≤<span class="number">200000</span>,</span><br><span class="line"><span class="number">1</span>≤x1≤x2≤n,</span><br><span class="line"><span class="number">1</span>≤y1≤y2≤m,</span><br><span class="line">−<span class="number">1000</span>≤矩阵内元素的值≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>C++</category>
@@ -6923,5 +6921,72 @@
       <tags>
         <tag>计算机组成原理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Windows Termial使用及美化教程</title>
+    <url>/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p>参考自：<a href="https://blog.csdn.net/yuanlaijike/article/details/107599983">https://blog.csdn.net/yuanlaijike/article/details/107599983</a></p>
+<h2 id="如何安装Windows-Terminal"><a href="#如何安装Windows-Terminal" class="headerlink" title="如何安装Windows Terminal"></a>如何安装Windows Terminal</h2><p>直接从Microsoft Store下载就行。</p>
+<span id="more"></span>
+
+<p>首先添加git bash到Windows Terminal：</p>
+<p><img src="/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/image-20210426220918332.png" alt="image-20210426220918332"></p>
+<p>在命令行选择Git\bin\bash.exe路径。</p>
+<p>如果想要添加一个图标，可以下载添加路径就可以了。</p>
+<p>常用的配置方式是直接打开JSON文件进行修改。</p>
+<h2 id="如何美化"><a href="#如何美化" class="headerlink" title="如何美化"></a>如何美化</h2><p>配置文件的大致布局如下所示，对于我们美化来说，只需要关注 <code>profiles</code> 和 <code>schemes</code> 两块即可。</p>
+<p><img src="/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/20200530155138893.png" alt="img"></p>
+<p>让我们先牛刀小试下，调整下终端的字体和字体大小。因为我想对所有终端都应用这个配置。所以我写在了 <code>defaults</code> 中，如下图所示即可。</p>
+<p><img src="/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/2020053015560247.png" alt="img"></p>
+<h2 id="把windows-terminal添加到右键菜单"><a href="#把windows-terminal添加到右键菜单" class="headerlink" title="把windows terminal添加到右键菜单"></a>把windows terminal添加到右键菜单</h2><p><a href="https://blog.csdn.net/willingtolove/article/details/109167629?ops_request_misc=&request_id=&biz_id=102&utm_term=windows%20terminal%E5%8F%B3%E9%94%AE%E6%89%BE%E4%B8%8D%E5%88%B0%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-109167629.first_rank_v2_pc_rank_v29">参考教程</a></p>
+<p>记得修改<code>startingDirectory</code>属性为<code>null</code>；（PS：没有自己加上就可以）</p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/image-20210426221738253.png" alt="image-20210426221738253"></p>
+<p><img src="/2021/04/26/Windows-Termial%E4%BD%BF%E7%94%A8%E5%8F%8A%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B/image-20210426221823207.png" alt="image-20210426221823207"></p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>Termial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯学习总结（八）</title>
+    <url>/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/</url>
+    <content><![CDATA[<h4 id="2-2-acwing-796-子矩阵的和（二维模板题）"><a href="#2-2-acwing-796-子矩阵的和（二维模板题）" class="headerlink" title="2.2 acwing.796.子矩阵的和（二维模板题）"></a>2.2 acwing.796.子矩阵的和（二维模板题）</h4><span id="more"></span>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入一个 n 行 m 列的整数矩阵，再输入 q 个询问，每个询问包含四个整数 x1,y1,x2,y2，表示一个子矩阵的左上角坐标和右下角坐标。</span><br><span class="line">对于每个询问输出子矩阵中所有数的和。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n，m，q。</span><br><span class="line">接下来 n 行，每行包含 m 个整数，表示整数矩阵。</span><br><span class="line">接下来 q 行，每行包含四个整数 x1,y1,x2,y2，表示一组询问。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 q 行，每行输出一个询问的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤q≤<span class="number">200000</span>,</span><br><span class="line"><span class="number">1</span>≤x1≤x2≤n,</span><br><span class="line"><span class="number">1</span>≤y1≤y2≤m,</span><br><span class="line">−<span class="number">1000</span>≤矩阵内元素的值≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>竞赛</tag>
+        <tag>前缀和</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>oj刷题注意事项</title>
+    <url>/2021/04/26/oj%E5%88%B7%E9%A2%98%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h2 id="oj赛制介绍"><a href="#oj赛制介绍" class="headerlink" title="oj赛制介绍"></a>oj赛制介绍</h2><p>参考自：<a href="https://zhuanlan.zhihu.com/p/129311302">https://zhuanlan.zhihu.com/p/129311302</a></p>
+<p>介绍一下编程比赛中最常见的三种赛制：ACM赛制、OI赛制、IOI赛制。</p>
+<span id="more"></span>
+
+<p><strong>ACM赛制</strong>：每道题提交之后都有反馈，可以看到“通过”、“运行错误”、“答案错误”等等结果，但看不到错误的测试样例（leetcode周赛可以看到），每道题都有多个测试点，每道题必须通过了所有的测试点才算通过。每道题不限制提交次数，但没通过的话会有罚时，仅以最后一次提交为准。比赛过程中一般可以看到实时排名，通过题数相同的情况下按照答题时间+罚时来排名。</p>
+<p><strong>ACM赛制的比赛</strong>：ICPC、CCPC、codeforces比赛、leetcode周赛及全国编程大赛、牛客小白赛练习赛挑战赛、传智杯。</p>
+<p><strong>OI赛制</strong>：每道题提交之后都没有任何反馈，每道题都有多个测试点，根据每道题通过的测试点的数量获得相应的分数。每道题不限制提交次数，如果提交错误没有任何惩罚，仅以最后一次提交为准。比赛过程中看不到实时排名，赛后按照总得分来排名。</p>
+<p><strong>OI赛制的比赛</strong>：NOI全国青少年信息学奥林匹克竞赛、CCF CSP、考研机试、蓝桥杯、牛客OI赛、全国高校计算机能力挑战赛。</p>
+<p><strong>IOI赛制</strong>：每道题提交之后都有反馈，可以看到“通过”、“运行错误”、“答案错误”等等结果，甚至可以实时看到自己每道题得了多少分，但看不到错误的测试样例。每道题都有多个测试点，根据每道题通过的测试点的数量获得相应的分数。每道题不限制提交次数，如果提交错误没有任何惩罚，仅以最后一次提交为准。比赛过程中一般可以看到实时排名（如果是考试，一般看不到排名），按照总得分来排名。可以说，IOI赛制是结合了OI赛制和ACM赛制的特点。</p>
+<p><strong>IOI赛制的比赛</strong>：PAT、团体程序设计天梯赛、CCF CCSP、洛谷月赛。</p>
+<h2 id="输出格式问题"><a href="#输出格式问题" class="headerlink" title="输出格式问题"></a>输出格式问题</h2><p>acwing对于输出格式非常宽松，末尾空格空行都能过，但有不少oj会卡输出格式，注意审题。</p>
+<p>平时做题，最好控制一下输出格式，否则爆0就很难受。</p>
+<p>末尾不要有空格做法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;a[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++).<span class="comment">//a[0]先输出了，故循环从1开始</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
   </entry>
 </search>
