@@ -14,6 +14,10 @@ Jupyter notebook是用python进行数据科学、机器学习的必备工具。
 
 [文章参考自TommyZihao](https://github.com/TommyZihao/zihaopython/blob/master/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E5%8F%AF%E8%A7%86%E5%8C%96%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%97%B4%E4%B8%8E%E6%88%90%E7%BB%A9%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%88%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%EF%BC%89/Jupyter%20notebook%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B.md)
 
+推荐教程：https://www.freeaihub.com/jupyter/setup.html
+
+五大插件推荐：https://mp.weixin.qq.com/s/nOMQNUd8fqLXvMrRRE7q6A
+
 <!--more-->
 
 Jupyter notebook是基于Ipython内核的，在浏览器中以网页形式运行Python代码的工具，十分方便。

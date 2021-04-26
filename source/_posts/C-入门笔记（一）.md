@@ -100,10 +100,11 @@ feet distance;
 
 ### using
 
-语法格式：`using 新类型名 = 已有类型名`
+语法格式：`using 新类型名 = 已有类型名;`
 
 ```C++
-using Area = double
+using Area = double; // 这和typename类似
+Area a = 10.10; // Area相当于double
 ```
 
 ## 4.枚举类型
@@ -125,7 +126,6 @@ enum 枚举名{
 ... 
     标识符[=整型常数]
 } 枚举变量;
-    
 ```
 
 如果枚举没有初始化, 即省掉”=整型常数”时, 则从第一个标识符开始。

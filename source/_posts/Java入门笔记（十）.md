@@ -152,3 +152,4 @@ public class InterviewTest {
 }
 ```
 
+补充知识：搞懂Java集合类，参照文章https://mp.weixin.qq.com/s/8EeWLdK7UZt81sGpQZvh9A，更多内容看公众号。
