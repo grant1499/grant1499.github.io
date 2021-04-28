@@ -4164,8 +4164,13 @@
 <li>如果你对插入排序的优化感兴趣，可以自行学习一下希尔排序。</li>
 <li>它们的时间复杂度都是 O(n2)，比较高，适合小规模数据的排序。</li>
 </ul>
-<h3 id="5-补充"><a href="#5-补充" class="headerlink" title="5.补充"></a>5.补充</h3><p>这里附上一份十大经典排序算法大梳理 (动图+代码)，这是经过系统整理过的！</p>
+<h3 id="5-补充"><a href="#5-补充" class="headerlink" title="5.补充"></a>5.补充</h3><ol>
+<li><p>这里附上一份十大经典排序算法大梳理 (动图+代码)，这是经过系统整理过的！</p>
 <p>链接奉上：<a href="https://mp.weixin.qq.com/s/ekGdneZrMa23ALxt5mvKpQ">https://mp.weixin.qq.com/s/ekGdneZrMa23ALxt5mvKpQ</a></p>
+</li>
+<li><p> <a href="https://www.cnblogs.com/zwtgyh/p/10631760.html">常见排序算法及其对应的时间复杂度和空间复杂度</a> （PS：部分分析不完整，请参照王争专栏）</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>C++</category>
@@ -6578,8 +6583,33 @@
 <p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223423799.png" alt="image-20210416223423799"></p>
 <p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223434097.png" alt="image-20210416223434097"></p>
 <p>异常处理的例子：</p>
-<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223616929.png" alt="image-20210416223616929"></p>
-<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223812578.png" alt="image-20210416223812578"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223616929.png" alt="image-20210416223616929"> <img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210416223812578.png" alt="image-20210416223812578"></p>
+<h2 id="2-C-为什么要建立自己的I-O系统"><a href="#2-C-为什么要建立自己的I-O系统" class="headerlink" title="2.C++为什么要建立自己的I/O系统"></a>2.C++为什么要建立自己的I/O系统</h2><p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428132831602.png" alt="image-20210428132831602"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428132843718.png" alt="image-20210428132843718"></p>
+<h2 id="3-C-的输入输出流"><a href="#3-C-的输入输出流" class="headerlink" title="3.C++的输入输出流"></a>3.C++的输入输出流</h2><p>在C++中,<strong>“流”指的是数据从一个源流到一个目的的抽象</strong>,它负责在数据的生产者(源)和数据的消费者(目的)</p>
+<p>之间建立联系,并管理数据的流动。</p>
+<p>从流中提取数据称为输入操作；向流中添加数据称为输出操作。</p>
+<p>C++编译系统带有一个<strong>I/O流类库</strong>。在I/O流类库中包含许多用于输入输出的类,称为流类。用流类定义的对象称</p>
+<p>为<strong>流对象</strong>。</p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133057533.png" alt="image-20210428133057533"></p>
+<p>I/O流类库中包含了许多用于输入输出操作的类,</p>
+<p> ios是抽象基类,输入流类istream和输出流类ostream是通过单继承从基类ios派生而来的,</p>
+<p>输入输出流类iostream是通过多继承从类istream和ostream派生而来的。</p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133204523.png" alt="image-20210428133204523"></p>
+<ul>
+<li>标准输入流 (流对象) cin</li>
+<li>标准输出流(流对象) cout</li>
+<li>非缓冲型的标准出错流 (流对象) cerr（简单了解）</li>
+<li>缓冲型的标准出错流 (流对象) clog（简单了解）</li>
+</ul>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133318072.png" alt="image-20210428133318072"></p>
+<h2 id="4-输入输出流的成员函数"><a href="#4-输入输出流的成员函数" class="headerlink" title="4.输入输出流的成员函数"></a>4.输入输出流的成员函数</h2><p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133504829.png" alt="image-20210428133504829"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133515520.png" alt="image-20210428133515520"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133527883.png" alt="image-20210428133527883"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133559247.png" alt="image-20210428133559247"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133616059.png" alt="image-20210428133616059"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133630746.png" alt="image-20210428133630746"></p>
+<p><img src="/2021/04/16/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/image-20210428133645045.png" alt="image-20210428133645045"></p>
 ]]></content>
       <categories>
         <category>C++</category>
@@ -6587,6 +6617,7 @@
       <tags>
         <tag>C++入门</tag>
         <tag>异常</tag>
+        <tag>IO流</tag>
       </tags>
   </entry>
   <entry>
@@ -6636,6 +6667,7 @@
 <p>暴力做法的话<u>每次</u>查询都得遍历数组，时间复杂度为O(n)。</p>
 <p>前缀和思想虽然很简单，但是<strong>非常的重要</strong>。</p>
 <p><strong>前缀和能快速查询，但不支持修改。</strong></p>
+<p><strong>关于前缀和的问题，为了防止-1下标越界，统一从1开始。</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> a[N],s[N];<span class="comment">// 表示原数组和前缀和数组</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="comment">// i从1开始，不然i-1越界</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        s[i] = s[i<span class="number">-1</span>] + a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> l,r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;l,&amp;r);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s[r]-s[l<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -6955,7 +6987,45 @@
     <url>/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/</url>
     <content><![CDATA[<h4 id="2-2-acwing-796-子矩阵的和（二维模板题）"><a href="#2-2-acwing-796-子矩阵的和（二维模板题）" class="headerlink" title="2.2 acwing.796.子矩阵的和（二维模板题）"></a>2.2 acwing.796.子矩阵的和（二维模板题）</h4><span id="more"></span>
 
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入一个 n 行 m 列的整数矩阵，再输入 q 个询问，每个询问包含四个整数 x1,y1,x2,y2，表示一个子矩阵的左上角坐标和右下角坐标。</span><br><span class="line">对于每个询问输出子矩阵中所有数的和。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n，m，q。</span><br><span class="line">接下来 n 行，每行包含 m 个整数，表示整数矩阵。</span><br><span class="line">接下来 q 行，每行包含四个整数 x1,y1,x2,y2，表示一组询问。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 q 行，每行输出一个询问的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤q≤<span class="number">200000</span>,</span><br><span class="line"><span class="number">1</span>≤x1≤x2≤n,</span><br><span class="line"><span class="number">1</span>≤y1≤y2≤m,</span><br><span class="line">−<span class="number">1000</span>≤矩阵内元素的值≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">输入一个 n 行 m 列的整数矩阵，再输入 q 个询问，每个询问包含四个整数 x1,y1,x2,y2，表示一个子矩阵的左上角坐标和右下角坐标。</span><br><span class="line">对于每个询问输出子矩阵中所有数的和。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n，m，q。</span><br><span class="line">接下来 n 行，每行包含 m 个整数，表示整数矩阵。</span><br><span class="line">接下来 q 行，每行包含四个整数 x1,y1,x2,y2，表示一组询问。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 q 行，每行输出一个询问的结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤q≤<span class="number">200000</span>,</span><br><span class="line"><span class="number">1</span>≤x1≤x2≤n,</span><br><span class="line"><span class="number">1</span>≤y1≤y2≤m,</span><br><span class="line">−<span class="number">1000</span>≤矩阵内元素的值≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">6</span> <span class="number">2</span> <span class="number">8</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">17</span></span><br><span class="line"><span class="number">27</span></span><br><span class="line"><span class="number">21</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>前缀和矩阵每个格子的数就是从原矩阵(1,1)到当前格子构成矩阵的和。</p>
+<p>二维前缀和和一维一样，<strong>有一个起始点</strong>，然后再计算前缀和序列。</p>
+<p><img src="/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/image-20210428170329381.png" alt="image-20210428170329381"></p>
+<p>那么如何计算前缀和矩阵呢？</p>
+<p>我们采用<strong>容斥原理</strong>的思想。</p>
+<p><img src="/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/image-20210428170757661.png" alt="image-20210428170757661"></p>
+<p>计算(1,1)到(2,3)的矩阵和：</p>
+<p>先计算1,7,3,6，再计算1,7,2，最后加上最后格子的2。</p>
+<p>所以黄色格子算了1次，蓝色格子算了2次。</p>
+<p>由此可以得到前缀和矩阵的推导公式：$S_{x,y} = S_{x-1,y}+S_{x,y-1}-S_{x-1,y-1}+a_{x,y}$</p>
+<p>正如一维一样，二维前缀和也能得到一个类似递推的公式。</p>
+<p>这样计算的话是线性时间复杂度，而通过循环将非常费时间。</p>
+<p>接下来怎么根据前缀和矩阵计算子矩阵的和呢？</p>
+<p><img src="/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/image-20210428172127766.png" alt="image-20210428172127766"></p>
+<p>计算(1,1)到(2,3)的矩阵和：</p>
+<p>原理和上面类似，先减去左边一列，再减去上面一行，最后加上左上角被多减去的部分。</p>
+<p>直接给出公式：$S_{x_2,y_2}-S_{x_2,y_1-1}-S_{x_1-1,y_2}+S_{x_1-1,y_1-1}$</p>
+<p>通过前缀和算法，我们将时间复杂度从$O(n*m)$降低到$O(1)$。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N][N],s[N][N];</span><br><span class="line"><span class="keyword">int</span> n,m,q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i][j]);</span><br><span class="line">            <span class="comment">// 求前缀和矩阵</span></span><br><span class="line">            s[i][j] = s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>]+a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x1,y1,x2,y2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s[x2][y2]-s[x2][y1<span class="number">-1</span>]-s[x1<span class="number">-1</span>][y2]+s[x1<span class="number">-1</span>][y1<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-acwing-99-激光炸弹（进阶指南）"><a href="#2-3-acwing-99-激光炸弹（进阶指南）" class="headerlink" title="2.3 acwing.99. 激光炸弹（进阶指南）"></a>2.3 acwing.99. 激光炸弹（进阶指南）</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">地图上有 N 个目标，用整数 Xi,Yi 表示目标在地图上的位置，每个目标都有一个价值 Wi。</span><br><span class="line">注意：不同目标可能在同一位置。</span><br><span class="line">现在有一种新型的激光炸弹，可以摧毁一个包含 R×R 个位置的正方形内的所有目标。</span><br><span class="line">激光炸弹的投放是通过卫星定位的，但其有一个缺点，就是其爆炸范围，即那个正方形的边必须和 x，y 轴平行。</span><br><span class="line">求一颗炸弹最多能炸掉地图上总价值为多少的目标。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入正整数 N 和 R，分别代表地图上的目标数目和正方形的边长，数据用空格隔开。</span><br><span class="line">接下来 N 行，每行输入一组数据，每组数据包括三个整数 Xi,Yi,Wi，分别代表目标的 x 坐标，y 坐标和价值，数据用空格隔开。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个正整数，代表一颗炸弹最多能炸掉地图上目标的总价值数目。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤R≤<span class="number">10</span>^<span class="number">9</span></span><br><span class="line"><span class="number">0</span>&lt;N≤<span class="number">10000</span>,</span><br><span class="line"><span class="number">0</span>≤Xi,Yi≤<span class="number">5000</span></span><br><span class="line"><span class="number">0</span>≤Wi≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>按照题意，就是求边长为R的正方形的覆盖的最大值。<strong>本质上就是二维前缀和的应用。</strong></p>
+<p>参考大佬题解1：<a href="https://www.acwing.com/solution/content/10116/">https://www.acwing.com/solution/content/10116/</a></p>
+<p>参考大佬题解2：<a href="https://www.acwing.com/solution/content/31983/">https://www.acwing.com/solution/content/31983/</a></p>
+<p><img src="/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/image-20210428183858344.png" alt="image-20210428183858344"></p>
+<p><strong>注意子矩阵和的公式</strong>，套用上一题的公式时，3-R+1与公式里的x1-1,y1-1抵消了一个1，所以变成x-R,y-R了。</p>
+<p><img src="/2021/04/26/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E5%85%AB%EF%BC%89/image-20210428214224102.png" alt="image-20210428214224102"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="comment">// 目标坐标从0到5000，移动到1到5001</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5010</span>;</span><br><span class="line"><span class="keyword">int</span> s[N][N];</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt,R;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;cnt,&amp;R);</span><br><span class="line">    R = min(<span class="number">5001</span>,R);</span><br><span class="line">    n = m = R;</span><br><span class="line">    <span class="keyword">while</span> (cnt--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y,w;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;x,&amp;y,&amp;w);</span><br><span class="line">        <span class="comment">// 坐标+1，防止越界问题</span></span><br><span class="line">        x++,y++;</span><br><span class="line">        <span class="comment">// 枚举的上限是最大坐标和R的最大值</span></span><br><span class="line">        n = max(n,x),m = max(m,y);</span><br><span class="line">        <span class="comment">// 这里必须是+=，因为目标可能重复</span></span><br><span class="line">        s[x][y] += w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 预处理前缀和</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</span><br><span class="line">            s[i][j] += s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 必须保证n,m &gt;= R，才能保证至少循环一次</span></span><br><span class="line">    <span class="comment">// 枚举所有边长是R的矩形，枚举(i, j)为右下角</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = R;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = R;j &lt;= m;j++)&#123;</span><br><span class="line">            res = max(res,s[i][j]-s[i-R][j]-s[i][j-R]+s[i-R][j-R]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>注意卡空间，题目上限是168MB，开两个<code>s[5000][5000]</code>大概是200MB，所以只开一个数组。</p>
+<p>因为同用一个数组，所以求前缀和矩阵的公式里<code>+a[i][j]</code>变成了<code>+s[i][j]</code>。</p>
+<p>所以以后用二维前缀和，完全可以只开一个数组。</p>
+]]></content>
       <categories>
         <category>C++</category>
         <category>算法</category>
@@ -6988,5 +7058,128 @@
       <categories>
         <category>杂谈</category>
       </categories>
+  </entry>
+  <entry>
+    <title>C++入门笔记（十二）</title>
+    <url>/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-输入输出运算符的实现原理"><a href="#1-输入输出运算符的实现原理" class="headerlink" title="1.输入输出运算符的实现原理"></a>1.输入输出运算符的实现原理</h2><p><strong>对输入输出运算符的重载是关键知识点。</strong></p>
+<span id="more"></span>
+
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428134441249.png" alt="image-20210428134441249"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428134501051.png" alt="image-20210428134501051"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428134708619.png" alt="image-20210428134708619"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428134723588.png" alt="image-20210428134723588"></p>
+<h2 id="2-预定义的操纵符输入输出格式控制"><a href="#2-预定义的操纵符输入输出格式控制" class="headerlink" title="2.预定义的操纵符输入输出格式控制"></a>2.预定义的操纵符输入输出格式控制</h2><p>除了操纵符，还有<strong>流成员函数</strong>可以控制输入输出格式，这里就不说了。</p>
+<p>有关C++输入输出的完整内容可以参考<a href="https://www.runoob.com/cplusplus/cpp-basic-input-output.html">菜鸟教程</a>。</p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428140029182.png" alt="image-20210428140029182"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428140136067.png" alt="image-20210428140136067"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428140208904.png" alt="image-20210428140208904"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428140236225.png" alt="image-20210428140236225"></p>
+<h2 id="3-自定义操纵符输入输出格式控制"><a href="#3-自定义操纵符输入输出格式控制" class="headerlink" title="3.自定义操纵符输入输出格式控制"></a>3.自定义操纵符输入输出格式控制</h2><p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428135006688.png" alt="image-20210428135006688"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428135030374.png" alt="image-20210428135030374"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 输入流操纵符函数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">istream&amp; <span class="title">input</span><span class="params">(istream&amp; in)</span></span>&#123;</span><br><span class="line">    in &gt;&gt; hex;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Enter number using hex format:&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> in;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; input &gt;&gt; i;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;hex:&quot;</span> &lt;&lt; hex &lt;&lt; i &lt;&lt; <span class="string">&quot;-----dec:&quot;</span> &lt;&lt; dec &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Enter number using hex format:23ae</span></span><br><span class="line"><span class="comment">hex:23ae-----dec:9134*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-重载输入输出运算符"><a href="#4-重载输入输出运算符" class="headerlink" title="4.重载输入输出运算符"></a>4.重载输入输出运算符</h2><p>注意：</p>
+<p><strong>重载输入输出运算符不能是所操作类的成员函数，但可以是该类的友元函数或普通函数。</strong><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428141954272.png" alt="image-20210428141954272"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 重载插入运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coord</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    Coord(<span class="keyword">int</span> i = <span class="number">0</span>,<span class="keyword">int</span> j = <span class="number">0</span>)&#123;</span><br><span class="line">        x = i,y = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; stream,Coord&amp; ob);</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; stream,Coord&amp; ob)&#123;</span><br><span class="line">    stream &lt;&lt; ob.x &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; ob.y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> stream;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Coord a(55,56),b(100,200);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428142554403.png" alt="image-20210428142554403"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// // 重载插入与提取运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Three_d</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    Three_d(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)&#123;</span><br><span class="line">        x = a,y = b,z = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; output,Three_d ob);</span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span>&gt;&gt; (istream&amp; input,Three_d&amp; ob);</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> x,y,z;</span><br><span class="line">&#125;;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; output,Three_d ob)&#123;</span><br><span class="line">    output &lt;&lt; ob.x &lt;&lt; <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    output &lt;&lt; ob.y &lt;&lt; <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    output &lt;&lt; ob.z &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br><span class="line">istream&amp; <span class="keyword">operator</span>&gt;&gt; (istream&amp; input,Three_d&amp; ob)&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Enter x,y,z value:&quot;</span>;</span><br><span class="line">    input &gt;&gt; ob.x;</span><br><span class="line">    input &gt;&gt; ob.y;</span><br><span class="line">    input &gt;&gt; ob.z;</span><br><span class="line">    <span class="keyword">return</span> input;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Three_d <span class="title">obj</span><span class="params">(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; obj;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; obj;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-文件的输入输出"><a href="#5-文件的输入输出" class="headerlink" title="5.文件的输入输出"></a>5.文件的输入输出</h2><p>文件的两种形式：</p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428143750640.png" alt="image-20210428143750640"></p>
+<p>为什么文本形式会多一个字节？</p>
+<p>因为要做一些转码处理，换行转为回车换行。</p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428144315193.png" alt="image-20210428144315193"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428144339078.png" alt="image-20210428144339078"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428144432437.png" alt="image-20210428144432437"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428144447690.png" alt="image-20210428144447690"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428144508143.png" alt="image-20210428144508143"></p>
+<p>文件的关闭：<code>out.close();</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 写文件与读文件</span></span><br><span class="line">    <span class="function">ofstream <span class="title">fout</span><span class="params">(<span class="string">&quot;f2.txt&quot;</span>)</span></span>;<span class="comment">// 不存在会新建</span></span><br><span class="line">    <span class="keyword">if</span> (!fout)&#123; <span class="comment">// 文件打开失败时fout返回0</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cannot open output file\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fout &lt;&lt; <span class="number">10</span> &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;hex&lt;&lt;<span class="number">100</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    fout.close();</span><br><span class="line">    <span class="function">ifstream <span class="title">fin</span><span class="params">(<span class="string">&quot;f2.txt&quot;</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (!fin)&#123; <span class="comment">// 文件打开失败时fin返回0</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cannot open input file\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">80</span>];</span><br><span class="line">    <span class="keyword">while</span> (fin)&#123;</span><br><span class="line">        fin.getline(str,<span class="number">80</span>);<span class="comment">// 读入信息赋值给str</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fin.close();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出：</span></span><br><span class="line"><span class="comment">10 64\n*/</span></span><br></pre></td></tr></table></figure>
+
+<p>提一点，C++的多行注释最好写成<code>/**/</code>，而不要写成<code>//</code>。在某种情况下，注释会与“/”产生一些奇怪的BUG。</p>
+<h2 id="6-命名空间"><a href="#6-命名空间" class="headerlink" title="6.命名空间"></a>6.命名空间</h2><p>也就是namespace。</p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428150001654.png" alt="image-20210428150001654"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428150013044.png" alt="image-20210428150013044"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428150026666.png" alt="image-20210428150026666"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428150050936.png" alt="image-20210428150050936"></p>
+<p><img src="/2021/04/28/C-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/image-20210428150114048.png" alt="image-20210428150114048"></p>
+<h2 id="7-补充"><a href="#7-补充" class="headerlink" title="7.补充"></a>7.补充</h2><p>C++入门笔记系列就到这结束了！</p>
+<p>大佬两万字总结《C++ Primer》要点：<a href="https://mp.weixin.qq.com/s/05IdvsA3NtOJwheu1ljqSQ">https://mp.weixin.qq.com/s/05IdvsA3NtOJwheu1ljqSQ</a></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++入门</tag>
+        <tag>IO流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用SQL的两个工具</title>
+    <url>/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h2 id="1-Navicat15下载安装教程"><a href="#1-Navicat15下载安装教程" class="headerlink" title="1.Navicat15下载安装教程"></a>1.Navicat15下载安装教程</h2><p>这个实在太小白了，跟着教程一步一步来就行了。</p>
+<span id="more"></span>
+
+<p>安装教程：<a href="https://www.cnblogs.com/xuexianqi/p/12797170.html">https://www.cnblogs.com/xuexianqi/p/12797170.html</a></p>
+<p>官方下载地址：<a href="http://www.navicat.com.cn/download/direct-download?product=navicat_premium_cs_x64.exe&amp;location=1">http://www.navicat.com.cn/download/direct-download?product=navicat_premium_cs_x64.exe&amp;location=1</a></p>
+<h2 id="2-SQLyog13安装与使用教程"><a href="#2-SQLyog13安装与使用教程" class="headerlink" title="2.SQLyog13安装与使用教程"></a>2.SQLyog13安装与使用教程</h2><p>SQLyog13如下：（需要安装的Ultimate版本，应该是已经免激活的）</p>
+<p>链接：<a href="https://pan.baidu.com/s/1HjkFYDpojuqANSXttGdL5Q">https://pan.baidu.com/s/1HjkFYDpojuqANSXttGdL5Q</a></p>
+<p>提取码：myn9</p>
+<p>安装完成后打开SQLyog界面，然后开始连接MySQL。</p>
+<p>参考自：<a href="https://www.jianshu.com/p/ced6e0537444">https://www.jianshu.com/p/ced6e0537444</a></p>
+<p>首先打开cmd输入命令：<code>mysql -u root -p</code>,</p>
+<p>然后输入密码就进入了MySQL，exit退出。</p>
+<p><img src="/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/image-20210427230432635.png" alt="image-20210427230432635"></p>
+<p>下一步，输入：<code>mysql -u用户名(root) -p密码</code>，</p>
+<p>出现下图表示正确连接。</p>
+<p><img src="/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/image-20210427230514742.png" alt="image-20210427230514742"></p>
+<p>最后将SQLyog连接MySQL。</p>
+<p>文件–&gt;新建一个连接，名字随意。</p>
+<p>一般会帮你把大部分地方都填好了，你只要输入MySQL的密码就行了。</p>
+<p><img src="/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/image-20210427230858468.png" alt="image-20210427230858468"></p>
+<p>然后就可以看到服务器上的数据库，并进行图形化操作了。</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝桥杯学习总结（九）</title>
+    <url>/2021/04/28/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/</url>
+    <content><![CDATA[<p><strong>100里程碑！！！</strong></p>
+<p><img src="/2021/04/28/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210428224908874.png" alt="image-20210428224908874"></p>
+<span id="more"></span>
+
+<h4 id="2-4-acwing-1230-K倍区间（蓝桥杯第八届B组）"><a href="#2-4-acwing-1230-K倍区间（蓝桥杯第八届B组）" class="headerlink" title="2.4 acwing.1230. K倍区间（蓝桥杯第八届B组）"></a>2.4 acwing.1230. K倍区间（蓝桥杯第八届B组）</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">给定一个长度为 N 的数列，A1,A2,…AN，如果其中一段连续的子序列 Ai,Ai+<span class="number">1</span>,…Aj 之和是 K 的倍数，我们就称这个区间 [i,j] 是 K 倍区间。</span><br><span class="line">你能求出数列中总共有多少个 K 倍区间吗？</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 N 和 K。</span><br><span class="line">以下 N 行每行包含一个整数 Ai。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，代表 K 倍区间的数目。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,K≤<span class="number">100000</span>,</span><br><span class="line"><span class="number">1</span>≤Ai≤<span class="number">100000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>在比赛时，未必能一下就想到最优的解法，可以先从简单的暴力做法写起，拿到一部分分数，不要放弃。</p>
+<p><img src="/2021/04/28/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210428230845430.png" alt="image-20210428230845430"></p>
+<p>对于第三重循环计算一段区间的总和，可以用前缀和简化。</p>
+<p>我们发现可以存余数来判断是否满足要求，则可以优化成O(n)。</p>
+<p>先开一个数组cnt[i]来存余数是i的数有多少个，用空间换时间。</p>
+<p>附上一份高赞题解：<a href="https://www.acwing.com/solution/content/6909/">https://www.acwing.com/solution/content/6909/</a></p>
+<p>我们可以用一个数组cnt，规定cnt[i]表示当前位置之前，前缀和取模后等于i的个数，以后每出现一次前缀和</p>
+<p>（取模后）和它相等，那么k倍区间就加上<code>cnt[s[i] % k]</code>，然后<code>cnt[s[i] % k]++</code>。</p>
+<p><code>res += cnt[s[i] % k];</code>先执行，因为要判断当前区间右端点的左边的同余元素，再更新当前位置。</p>
+<p><code>cnt=0</code>必须加上，当右端点为1时，若刚好是k的倍数，此时答案应该+1，若没有这句不会+1。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">// 可能爆int</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line">LL s[N],cnt[N];</span><br><span class="line"><span class="keyword">int</span> n,k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;s[i]);</span><br><span class="line">        s[i] += s[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    LL res = <span class="number">0</span>;</span><br><span class="line">    cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        res += cnt[s[i]%k];</span><br><span class="line">        cnt[s[i]%k]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>竞赛</tag>
+        <tag>前缀和</tag>
+      </tags>
   </entry>
 </search>
