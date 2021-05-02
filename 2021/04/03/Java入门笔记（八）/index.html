@@ -24,9 +24,11 @@
 <meta property="og:description" content="1.System类不简单">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://grant1499.github.io/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210403163004447.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210502145658876.png">
+<meta property="og:image" content="https://grant1499.github.io/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210502145722353.png">
 <meta property="og:image" content="https://grant1499.github.io/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210404091023201.png">
 <meta property="article:published_time" content="2021-04-03T08:13:08.000Z">
-<meta property="article:modified_time" content="2021-04-04T02:24:58.100Z">
+<meta property="article:modified_time" content="2021-05-02T13:07:45.306Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
@@ -126,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">55</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">58</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">100</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">106</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-04 10:24:58" itemprop="dateModified" datetime="2021-04-04T10:24:58+08:00">2021-04-04</time>
+                <time title="修改时间：2021-05-02 21:07:45" itemprop="dateModified" datetime="2021-05-02T21:07:45+08:00">2021-05-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -281,14 +283,26 @@
 <p><img src="/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210403163004447.png" alt="image-20210403163004447"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LearnSystem</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> startMS = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> endMS = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">&quot;程序执行使用了几个毫秒？&quot;</span> + (endMS - startMS));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> startNS = System.nanoTime();</span><br><span class="line"></span><br><span class="line">        counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> endNS = System.nanoTime();</span><br><span class="line">        System.out.println(<span class="string">&quot;程序执行使用了几个纳秒？&quot;</span> + (endNS - startNS));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一般常用毫米</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">程序执行使用了几个毫秒？0</span></span><br><span class="line"><span class="comment">程序执行使用了几个纳秒？7600*/</span></span><br></pre></td></tr></table></figure>
 
-<p>System.currentTimeMillis() 返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间(格林威治时间)1970年1月1号0时0分0秒所差的毫秒数。</p>
+<p><code>System.currentTimeMillis()</code> 返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间(格林威治时间)1970年1月1号0时0分0秒所差的毫秒数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">currentTimeMillis</span><span class="params">()</span> <span class="comment">// 返回long</span></span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-String类的好兄弟：StringBuilder"><a href="#2-String类的好兄弟：StringBuilder" class="headerlink" title="2.String类的好兄弟：StringBuilder"></a>2.String类的好兄弟：StringBuilder</h2><p>它是一个非常方便用于拼接和处理字符串的类，它和String不同在于<strong>它是可变的</strong>。</p>
 <p>这对“好兄弟”的关系有点像C++中的string类和vector。</p>
+<p><strong>StringBuffer</strong> 与<strong>StringBuilder</strong>类似。 </p>
+<p><strong>由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。</strong></p>
+<p><strong>String、StringBuffer、StringBuilder三者的对比</strong></p>
+<ul>
+<li><code>String</code>:不可变的字符序列；底层使用char[]存储</li>
+<li><code>StringBuffer</code>:可变的字符序列；线程安全的，效率低；底层使用char[]存储</li>
+<li><code>StringBuilder</code>:可变的字符序列；jdk5.0新增的，线程不安全的，效率高；底层使用char[]存储</li>
+</ul>
 <p>虽然可以直接拼接String字符串，但是，在循环中，每次循环都会创建新的字符串对象，然后扔掉旧的字符串。这样，绝大部分字符串都是临时对象，不但浪费内存，还会影响GC效率。</p>
 <p>为了能高效拼接字符串，Java标准库提供了<code>StringBuilder</code>，它是一个可变对象，可以预分配缓冲区，这样，往<code>StringBuilder</code>中新增字符时，不会创建新的临时对象：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//StringBuilder首先是可变的</span></span><br><span class="line">        <span class="comment">//而且对它进行操作的方法，都会返回this自引用。这样我们就可以一直点下去，对String进行构造。</span></span><br><span class="line">        StringBuilder strBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">long</span> longVal = <span class="number">123456789</span>;</span><br><span class="line">	<span class="comment">//StringBuilder sb = new StringBuilder(&quot;Run&quot;);// 可以传入参数</span></span><br><span class="line">        <span class="comment">//StringBuilder sb = new StringBuilder(10);// 初始长度为10，可以一直append</span></span><br><span class="line">    </span><br><span class="line">        strBuilder.append(<span class="keyword">true</span>).append(<span class="string">&quot;abc&quot;</span>).append(longVal);</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.toString());<span class="comment">// 转换为String对象</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());<span class="comment">//反转</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());</span><br><span class="line">        System.out.println(strBuilder.toString());</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.delete(<span class="number">0</span>, <span class="number">4</span>).toString());<span class="comment">// 左闭右开</span></span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.insert(<span class="number">3</span>,<span class="string">&quot;LLLLL&quot;</span>).toString());<span class="comment">// 放在索引为3的位置</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210502145658876.png" alt="image-20210502145658876"></p>
+<p><img src="/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210502145722353.png" alt="image-20210502145722353"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常用方法</span></span><br><span class="line">增：append(xxx)</span><br><span class="line">删：delete(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span><br><span class="line">改：setCharAt(<span class="keyword">int</span> n ,<span class="keyword">char</span> ch) / replace(<span class="keyword">int</span> start, <span class="keyword">int</span> end, String str)</span><br><span class="line">查：charAt(<span class="keyword">int</span> n )</span><br><span class="line">插：insert(<span class="keyword">int</span> offset, xxx)</span><br><span class="line">长度：length();</span><br><span class="line">*遍历：<span class="keyword">for</span>() + charAt() / toString()</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>append、reverse、delete和insert均不会创建新对象，直接在原对象上修改。</p>
@@ -303,12 +317,14 @@
 <p>动态多态：覆盖（Override）</p>
 <h2 id="4-继承专属的访问控制符"><a href="#4-继承专属的访问控制符" class="headerlink" title="4.继承专属的访问控制符"></a>4.继承专属的访问控制符</h2><p>protected 可见性= default + 对子类可见</p>
 <p>子类覆盖父类的方法，不可以使用可见性更低的修饰符，但可以使用可见性更高的修饰符。</p>
-<h2 id="5-final修饰符"><a href="#5-final修饰符" class="headerlink" title="5.final修饰符"></a>5.final修饰符</h2><p><img src="/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210404091023201.png" alt="image-20210404091023201"></p>
+<h2 id="5-final修饰符"><a href="#5-final修饰符" class="headerlink" title="5.final修饰符"></a>5.final修饰符</h2><p>final意为最终的。不可变！！不需要再扩充功能了，已经够用了。</p>
+<p><img src="/2021/04/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AB%EF%BC%89/image-20210404091023201.png" alt="image-20210404091023201"></p>
 <p>我们常用的String类就是用final修饰的，不能被随意修改。</p>
 <p>final修饰变量，也就成了常量，必须在定义时初始化，或在构造器里初始化，且不能修改。</p>
 <p>final修饰static变量，必须在定义时初始化，或在<code>static&#123;&#125;</code>代码块里赋值。</p>
 <p>final修饰父类的方法，确保不会被子类覆盖。</p>
 <p><strong>final不能修饰构造方法！</strong></p>
+<p>final修饰的类不可被继承：比如：String类、System类、StringBuffer类。</p>
 <p><strong>final修饰引用</strong>：不能修改令引用指向别的对象，但是可以修改引用指向的对象。</p>
 <p>这就有C语言的常量指针内味了，不可修改指针的指向，但能修改指针指向的值。</p>
 <p>注：常量指针与指向常量的指针不一样！</p>
@@ -438,7 +454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -451,7 +467,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -500,13 +516,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">321k</span>
+    <span title="站点总字数">340k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:52</span>
+    <span title="站点阅读时长">5:09</span>
 </div>
 
 <span id="sitetime"></span>

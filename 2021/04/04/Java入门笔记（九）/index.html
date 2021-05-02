@@ -16,18 +16,18 @@
     var CONFIG = {"hostname":"grant1499.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.万类之祖：Object类所有的类，都间接或者直接的继承自Object 类。 Object 类没有成员变量，只有一些成员方法。 注意：hashCode和equals方法基本面试必考！！！">
+  <meta name="description" content="1.万类之祖：Object类所有的类，都间接或者直接的继承自Object 类。 数组属于引用类型，也是继承自Object 类。 Object 类没有成员变量，只有一些成员方法。 注意：hashCode和equals方法基本面试必考！！！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java入门笔记（九）">
 <meta property="og:url" content="https://grant1499.github.io/2021/04/04/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/index.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="1.万类之祖：Object类所有的类，都间接或者直接的继承自Object 类。 Object 类没有成员变量，只有一些成员方法。 注意：hashCode和equals方法基本面试必考！！！">
+<meta property="og:description" content="1.万类之祖：Object类所有的类，都间接或者直接的继承自Object 类。 数组属于引用类型，也是继承自Object 类。 Object 类没有成员变量，只有一些成员方法。 注意：hashCode和equals方法基本面试必考！！！">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://grant1499.github.io/2021/04/04/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210404113052887.png">
 <meta property="og:image" content="https://grant1499.github.io/2021/04/04/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210404125900225.png">
 <meta property="og:image" content="https://grant1499.github.io/2021/04/04/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B9%9D%EF%BC%89/image-20210404131222019.png">
 <meta property="article:published_time" content="2021-04-04T02:20:22.000Z">
-<meta property="article:modified_time" content="2021-04-04T05:15:39.775Z">
+<meta property="article:modified_time" content="2021-05-02T00:59:26.066Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">55</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">58</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">100</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">106</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -215,10 +215,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-04 10:20:22 / 修改时间：13:15:39" itemprop="dateCreated datePublished" datetime="2021-04-04T10:20:22+08:00">2021-04-04</time>
+              <time title="创建时间：2021-04-04 10:20:22" itemprop="dateCreated datePublished" datetime="2021-04-04T10:20:22+08:00">2021-04-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-02 08:59:26" itemprop="dateModified" datetime="2021-05-02T08:59:26+08:00">2021-05-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -252,7 +258,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -271,7 +277,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-万类之祖：Object类"><a href="#1-万类之祖：Object类" class="headerlink" title="1.万类之祖：Object类"></a>1.万类之祖：Object类</h2><p>所有的类，都间接或者直接的继承自Object 类。</p>
+        <h2 id="1-万类之祖：Object类"><a href="#1-万类之祖：Object类" class="headerlink" title="1.万类之祖：Object类"></a>1.万类之祖：Object类</h2><p><strong>所有的类，都间接或者直接的继承自Object 类。</strong></p>
+<p><strong>数组属于引用类型，也是继承自Object 类。</strong></p>
 <p>Object 类没有成员变量，只有一些成员方法。</p>
 <p>注意：hashCode和equals方法基本面试必考！！！</p>
 <span id="more"></span>
@@ -279,7 +286,10 @@
 <p>Object getClass() 方法用于获取对象的运行时对象的类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunoobTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 创建 RunoobTest 类的对象</span></span><br><span class="line">        RunoobTest obj = <span class="keyword">new</span> RunoobTest();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// RunoobTest 继承 Object 类，Object 是所有类的超类</span></span><br><span class="line">        <span class="comment">// 调用 getClass() 方法</span></span><br><span class="line">        System.out.println(obj.getClass());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//class RunoobTest</span></span><br></pre></td></tr></table></figure>
 
-<p>Object toString() 方法用于返回对象的字符串表示形式。对于有数据的类，常用 toString() 方法展示数据内容。</p>
+<p><strong>Object toString() 方法</strong>用于返回对象的字符串表示形式。对于有数据的类，常用 toString() 方法展示数据内容。</p>
+<p>当输出对象s时，会调用toString() 方法。唯一的一点区别就是：若对象是null时，打印s显示null（保护机制，避免异常），而打印s.toString()会出现NullPointerException。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例子演示</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Circle&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;radius=&quot;</span> + radius +</span><br><span class="line">                <span class="string">&quot;, color=&#x27;&quot;</span> + color + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, weight=&quot;</span> + weight +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <p>默认返回格式：<strong>对象的 class 名称 + @ + hashCode 的十六进制字符串</strong>。</p>
 <p>Object hashCode() 方法用于获取对象的 hash 值。</p>
 <p>返回对象哈希值，是一个整数，表示在哈希表中的位置。</p>
@@ -291,10 +301,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunoobTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// Object 类使用 equals() 方法</span></span><br><span class="line">        <span class="comment">// 创建两个对象</span></span><br><span class="line">        Object obj1 = <span class="keyword">new</span> Object();</span><br><span class="line">        Object obj2 = <span class="keyword">new</span> Object();</span><br><span class="line"> </span><br><span class="line">        <span class="comment">// 判断 obj1 与 obj2 是否相等</span></span><br><span class="line">        <span class="comment">// 不同对象，内存地址不同，不相等，返回 false</span></span><br><span class="line">        System.out.println(obj1.equals(obj2)); <span class="comment">// false</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">// obj1 赋值给 obj3</span></span><br><span class="line">        <span class="comment">// String 重写了 equals() 方法</span></span><br><span class="line">        <span class="comment">// 对象引用，内存地址相同，相等，返回 true</span></span><br><span class="line">        Object obj3 = obj1;</span><br><span class="line">        System.out.println(obj1.equals(obj3)); <span class="comment">// true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//false</span></span><br><span class="line"><span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
-<p>hashCode和equals是我们最常覆盖的两个方法。</p>
+<p><strong>hashCode和equals是我们最常覆盖的两个方法。</strong></p>
 <p>覆盖的原则：equals是true，hashCode就应该相等，这是一种约定俗成的规范。</p>
 <p>即equals为true是hashCode相等的充分非必要条件，hashCode相等是equals为true的必要不充分条件。</p>
 <p>在IDEA中，右键–&gt;Generate，可以选择生成hashCode和equals方法。</p>
+<p><strong>自动生成</strong>的equals方法比自己手动写要更准确，手动可能存在漏洞。</p>
+<p><strong>以后直接自动生成就行。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> MerchandiseV2)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        MerchandiseV2 that = (MerchandiseV2) o;</span><br><span class="line">        <span class="comment">// 判断成员变量等是否相等</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getCount() == that.getCount() &amp;&amp;</span><br><span class="line">                Double.compare(that.getSoldPrice(), getSoldPrice()) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">                Double.compare(that.getPurchasePrice(), getPurchasePrice()) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">                getName().equals(that.getName()) &amp;&amp;</span><br><span class="line">                getId().equals(that.getId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(getName(), getId(), getCount(), getSoldPrice(), getPurchasePrice());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>用“==”不能判断两个对象是否相等，只能判断两个引用是否指向同一个对象。</p>
@@ -444,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -457,7 +469,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -506,13 +518,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">321k</span>
+    <span title="站点总字数">340k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:52</span>
+    <span title="站点阅读时长">5:09</span>
 </div>
 
 <span id="sitetime"></span>
