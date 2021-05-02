@@ -12,7 +12,9 @@ copyright: true
 
 ## 1.万类之祖：Object类
 
-所有的类，都间接或者直接的继承自Object 类。
+**所有的类，都间接或者直接的继承自Object 类。**
+
+**数组属于引用类型，也是继承自Object 类。**
 
 Object 类没有成员变量，只有一些成员方法。
 
@@ -37,7 +39,21 @@ class RunoobTest {
 //class RunoobTest
 ```
 
-Object toString() 方法用于返回对象的字符串表示形式。对于有数据的类，常用 toString() 方法展示数据内容。
+**Object toString() 方法**用于返回对象的字符串表示形式。对于有数据的类，常用 toString() 方法展示数据内容。
+
+当输出对象s时，会调用toString() 方法。唯一的一点区别就是：若对象是null时，打印s显示null（保护机制，避免异常），而打印s.toString()会出现NullPointerException。
+
+```Java
+// 例子演示
+@Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", color='" + color + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
+```
 
 默认返回格式：**对象的 class 名称 + @ + hashCode 的十六进制字符串**。
 
@@ -92,13 +108,17 @@ class RunoobTest {
 
 说明：
 
-hashCode和equals是我们最常覆盖的两个方法。
+**hashCode和equals是我们最常覆盖的两个方法。**
 
 覆盖的原则：equals是true，hashCode就应该相等，这是一种约定俗成的规范。
 
 即equals为true是hashCode相等的充分非必要条件，hashCode相等是equals为true的必要不充分条件。
 
 在IDEA中，右键-->Generate，可以选择生成hashCode和equals方法。
+
+**自动生成**的equals方法比自己手动写要更准确，手动可能存在漏洞。
+
+**以后直接自动生成就行。**
 
 ```java
 @Override

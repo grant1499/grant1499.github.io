@@ -233,8 +233,11 @@ public class Application {
 
 - 记住，这个过程中对象一直没变过，一直都是那个子类对象，变的只是引用
 
-
 ## 4.static关键字
+
+静态方法里面只能调用静态的东西，而main函数也是静态的。
+
+![image-20210502090403539](Java入门笔记（五）/image-20210502090403539.png)
 
 ```java
 public class Person {
@@ -304,7 +307,13 @@ public class A extends Action {
 
 ## 6.接口（重要）
 
+Java通过接口来实现C++中多继承的效果。
+
+接口和类是两个并列的结构。
+
 ![image-20210305222342257](Java入门笔记（五）/image-20210305222342257.png)
+
+![image-20210502111638626](Java入门笔记（五）/image-20210502111638626.png)
 
 ```java
 //interface修饰接口，接口都需要实现类
@@ -340,8 +349,10 @@ public class UserServiceImpl implements UserService,TimeService{
 3. 接口中方法默认用`public abstract`修饰
 4. 接口中属性默认用`public static final`修饰，也即静态常量
 5. 接口不能被实例化，接口中没有构造方法
-6. 通过implements可以实现多个接口
-7. 必须要重写接口中的方法
+6. 接口中定义的静态方法只能通过接口来调用
+7. 通过实现类的对象，可以调用接口的default方法
+8. 通过implements可以实现多个接口
+9. 必须要重写接口中的方法
 
 ## 7.N种内部类
 
@@ -412,6 +423,15 @@ public class Test(){
 class Apple{
     public void eat(){
 		System.out.println("1");
+    }
+}
+```
+
+```Java
+public class Outer {
+    // 成员内部类
+        class D{
+
     }
 }
 ```

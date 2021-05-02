@@ -102,6 +102,19 @@ public class Application {
 
 String 对象最重要的特点：**不可变（immutable）**不可变不可变，重要的事情说三遍。String 用来存储字符的数据是private 的，而且不提供任何修改内容的方法，**所以String 对象一旦生成，其内容就是完全不可能被修改的。**
 
+String是一个final类，不可变。
+
+String 对象的字符内容是存储在一个字符数组 value[] 中 的。
+
+![image-20210502134230914](Java入门笔记（七）/image-20210502134230914.png)
+
+![image-20210502134630605](Java入门笔记（七）/image-20210502134630605.png)
+
+![image-20210502134822887](Java入门笔记（七）/image-20210502134822887.png)
+
+`String s = new String("abc");`方式创建对象，在内存中创建了几个对象？
+**两个**:一个是堆空间中new结构，另一个是char[]对应的常量池中的数据："abc"
+
 ```java
 public class LearnString {
     public static void main(String[] args) {
@@ -132,9 +145,9 @@ public class LearnString {
 1234*/
 ```
 
-substring(int beginIndex，int endIndex) 形式：左闭右开
+`substring(int beginIndex，int endIndex)` 形式：左闭右开
 
-此方法中的 beginIndex 表示截取的起始索引，截取的字符串中包括起始索引对应的字符；endIndex 表示结束索引，截取的字符串中不包括结束索引对应的字符，如果不指定 endIndex，则表示截取到目标字符串末尾。
+此方法中的 `beginIndex` 表示截取的起始索引，截取的字符串中包括起始索引对应的字符；endIndex 表示结束索引，截取的字符串中不包括结束索引对应的字符，如果不指定 `endIndex`，则表示截取到目标字符串末尾。
 
 ```java
 public class LearnString2 {
@@ -151,6 +164,12 @@ public class LearnString2 {
         for (int i = 0; i < s.length; i++) {
             System.out.println(s[i]);
         }
+        
+        String s1 = "  ad ";
+        String s2 = s1.trim();//去除左右两边的空格
+        String s3 =new String("abc");
+        System.out.println(s1.compareTo(s2));//比较String大小
+        System.out.println(s1.compareTo(s3));
 
         int indexOf = content.indexOf('_');
         System.out.println(indexOf);
@@ -171,24 +190,24 @@ public class LearnString2 {
         // TODO 两个String对象比较是否相等，一定要用equals方法
         System.out.println(content.equals(content2));
         System.out.println(content.equals(content3));
-        System.out.println(content.equalsIgnoreCase(content3.trim()));
+        System.out.println(content.equalsIgnoreCase(content3.trim()));//忽略大小写
     }
 }
 ```
 
-indexOf() 方法有以下四种形式：
+`indexOf()` 方法有以下四种形式：
 
 - **int indexOf(int ch)/int indexOf(String str):** 返回指定字符（索引）或字符串在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。
 - **int indexOf(int ch, int fromIndex)/int indexOf(String str, int fromIndex):** 返回从 `fromIndex` 位置开始查找指定字符（索引）或字符串在字符串中第一次出现处的索引，如果此字符串中没有这样的字符，则返回 -1。
 
-lastIndexOf() 方法也有四种形式：
+`lastIndexOf()` 方法也有四种形式：
 
 - 前两种把第一次改成最后一次就行；
 - 后两种改为从 `fromIndex` 位置反向查找即可。
 
-startsWith()和endsWith() 方法用于测试字符串是否以指定的字符串前/后缀结束。
+`startsWith()`和`endsWith()` 方法用于测试字符串是否以指定的字符串前/后缀结束。
 
-contains() 方法用于判断字符串中是否包含指定的字符或字符串。
+`contains()` 方法用于判断字符串中是否包含指定的字符或字符串。
 
 **equals方法：**
 
@@ -207,3 +226,39 @@ equalsIgnoreCase() 方法用于将字符串与指定的对象比较，不考虑�
 contains() 方法用于判断字符串中是否包含指定的字符或字符串。
 
 trim() 方法用于删除字符串的头尾空白符。
+
+## 4.String类与char[]、byte[]之间的转换
+
+![image-20210502142039420](Java入门笔记（七）/image-20210502142039420.png)
+
+```Java
+public class StringTest {
+    public static void main(String[] args) {
+        String s1 = "abc1234";
+        char[] c1 = s1.toCharArray();
+        for (int i = 0;i < c1.length;i++){
+            System.out.println(c1[i]);
+        }
+
+        char[] c2 = {'h','e','l','l','o'};
+        String s2 = new String(c2);
+        System.out.println(s2);
+    }
+}
+```
+
+![image-20210502142755814](Java入门笔记（七）/image-20210502142755814.png)
+
+```Java
+public class StringTest {
+    public static void main(String[] args) {
+        String s1 = "abc1234";
+        byte[] b1 = s1.getBytes();// 可以在getBytes中指定编码集
+        System.out.println(Arrays.toString(b1));// 输出UTF-8编码，默认编码集
+
+        String s2 = new String(b1);
+        System.out.println(s2);
+    }
+}
+```
+

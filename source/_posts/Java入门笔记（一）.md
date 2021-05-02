@@ -10,6 +10,10 @@ copyright: true
 
 ## 1.java简介
 
+本教程推荐配合大佬[笔记](https://www.cnblogs.com/vccyb/tag/%E5%8C%85%E5%AD%90%E5%AD%A6%E7%B3%BB%E5%88%97/)食用！
+
+B站视频倍速播放：F12-->console-->输入：document.querySelector('video').playbackRate = 2.5，控制倍速。
+
 随着Java的发展，SUN给Java又分出了三个不同版本：
 
 - Java SE：Standard Edition

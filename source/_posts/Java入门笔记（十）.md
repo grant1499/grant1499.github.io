@@ -136,7 +136,10 @@ public class InterviewTest {
 	public void test3() {
 		Integer i = new Integer(1);
 		Integer j = new Integer(1);
-		System.out.println(i == j);//false		
+		System.out.println(i == j);//false
+/*解释：
+三目运算符比较基本数据类型，所以在编译阶段自动拆箱为 int 和 double 类型，由于三目运算符要求 表达式2 和 表达式3 类型一致，所以在编译阶段自动类型提升（即 int 自动类型转换为 double 类型），再自动装箱为Object，输出时使用多态调用重写的toString();即Double包装类的toString();*/
+------------------------------------------------------------------------
 //Integer内部定义了IntegerCache结构，IntegerCache中定义了Integer[],
 //保存了从-128~127范围的整数。如果我们使用自动装箱的方式，给Integer赋值的范围在
 //-128~127范围内时，可以直接使用数组中的元素，不用再去new了。目的：提高效率		
@@ -153,3 +156,86 @@ public class InterviewTest {
 ```
 
 补充知识：搞懂Java集合类，参照文章https://mp.weixin.qq.com/s/8EeWLdK7UZt81sGpQZvh9A，更多内容看公众号。
+
+## 2.单例（Singleton）设计模式
+
+什么是设计模式？
+
+设计 模式 是在大量的实践中总结和理论化之后优选的代码结构、编程风格、以及解决问题的思考方式 。 设
+
+计模免去我们自己再思考和摸索 。就 像是经典的棋谱，不同的棋局，我们用不同 的 棋谱。
+
+简而言之，就两字，**“套路”**。
+
+设计模式和算法一样，也是语言无关的。用Java较多。
+
+入门可以参考大话设计模式。
+
+所谓 类的**单例设计模式**，就是采取一定的方法保证在整个的软件系统中，对某个类 只能存在**一个对象实例** ，
+
+并且该类只提供**一个**取得其对象实例的方法。
+
+如果我们要让类在一个虚拟机中只能产生一个对象，我们首先必须将类的**构造器的访问权限设置为 private** ，这样，就不能用 new 操作符在类的外部产生类的对象了，但在类内部仍可以产生该类的对象。因为在类的外部开始还无法得到类的对象，只能调用**该类的某个静态方法**以返回类内部创建的对象，静态方法只能访问类中的静态成员变量，所以，指向类内部产生的 **该类对象的变量也必须定义成静态的** 。
+
+**单例模式分为两种：饿汉式和懒汉式。**
+
+```Java
+public class Singleton {
+    public static void main(String[] args) {
+        Bank bank1 = Bank.getInstance();
+        Bank bank2 = Bank.getInstance();
+        System.out.println(bank1 == bank2);
+
+        Order order1 = Order.getInstance();
+        Order order2 = Order.getInstance();
+        System.out.println(order1 == order2);
+    }
+}
+
+// 饿汉式
+class Bank{
+    // 1.私有化构造器
+    private Bank(){}
+
+    // 2.内部创建类的对象，必须是静态的
+    private static Bank instance = new Bank();
+
+    // 3.提供公有静态方法，返回类的对象
+    public static Bank getInstance(){
+        return instance;
+    }
+}
+
+// 懒汉式
+class Order{
+    // 1.私有化构造器
+    private Order(){}
+
+    // 2.声明当前类对象，没有初始化，必须是静态的
+    private static Order instance = null;
+
+    // 3.提供公有静态方法，返回类的对象
+    public static Order getInstance(){
+        if (instance == null){
+            instance = new Order();
+        }
+        return instance;
+    }
+}
+```
+
+**对比**
+
+1. 饿汉式：
+
+坏处：对象加载时间过长。
+
+好处：饿汉式是线程安全的。
+
+2. 懒汉式：
+
+好处：延迟对象的创建。
+
+目前的懒汉式写法坏处：线程不安全。—>到多线程内容时，再修改
+
+![image-20210502094523609](Java入门笔记（十）/image-20210502094523609.png)

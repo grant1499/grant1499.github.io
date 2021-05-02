@@ -44,7 +44,7 @@ public class LearnSystem {
 程序执行使用了几个纳秒？7600*/
 ```
 
-System.currentTimeMillis() 返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间(格林威治时间)1970年1月1号0时0分0秒所差的毫秒数。
+`System.currentTimeMillis()` 返回当前的计算机时间，时间的表达格式为当前计算机时间和GMT时间(格林威治时间)1970年1月1号0时0分0秒所差的毫秒数。
 
 ```java
 public static long currentTimeMillis() // 返回long
@@ -55,6 +55,16 @@ public static long currentTimeMillis() // 返回long
 它是一个非常方便用于拼接和处理字符串的类，它和String不同在于**它是可变的**。
 
 这对“好兄弟”的关系有点像C++中的string类和vector。
+
+**StringBuffer** 与**StringBuilder**类似。 
+
+**由于 StringBuilder 相较于 StringBuffer 有速度优势，所以多数情况下建议使用 StringBuilder 类。然而在应用程序要求线程安全的情况下，则必须使用 StringBuffer 类。**
+
+**String、StringBuffer、StringBuilder三者的对比**
+
+- `String`:不可变的字符序列；底层使用char[]存储
+- `StringBuffer`:可变的字符序列；线程安全的，效率低；底层使用char[]存储
+- `StringBuilder`:可变的字符序列；jdk5.0新增的，线程不安全的，效率高；底层使用char[]存储
 
 虽然可以直接拼接String字符串，但是，在循环中，每次循环都会创建新的字符串对象，然后扔掉旧的字符串。这样，绝大部分字符串都是临时对象，不但浪费内存，还会影响GC效率。
 
@@ -80,6 +90,21 @@ public static void main(String[] args) {
 
         System.out.println(strBuilder.insert(3,"LLLLL").toString());// 放在索引为3的位置
     }
+```
+
+![image-20210502145658876](Java入门笔记（八）/image-20210502145658876.png)
+
+![image-20210502145722353](Java入门笔记（八）/image-20210502145722353.png)
+
+```Java
+//常用方法
+增：append(xxx)
+删：delete(int start,int end)
+改：setCharAt(int n ,char ch) / replace(int start, int end, String str)
+查：charAt(int n )
+插：insert(int offset, xxx)
+长度：length();
+*遍历：for() + charAt() / toString()
 ```
 
 > append、reverse、delete和insert均不会创建新对象，直接在原对象上修改。
@@ -117,7 +142,7 @@ protected 可见性= default + 对子类可见
 
 ## 5.final修饰符
 
-
+final意为最终的。不可变！！不需要再扩充功能了，已经够用了。
 
 ![image-20210404091023201](Java入门笔记（八）/image-20210404091023201.png)
 
@@ -131,7 +156,7 @@ final修饰父类的方法，确保不会被子类覆盖。
 
 **final不能修饰构造方法！**
 
-
+final修饰的类不可被继承：比如：String类、System类、StringBuffer类。
 
 **final修饰引用**：不能修改令引用指向别的对象，但是可以修改引用指向的对象。
 
