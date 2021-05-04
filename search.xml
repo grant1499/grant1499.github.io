@@ -1929,9 +1929,6 @@
 <blockquote>
 <p>提示：华氏温度到摄氏温度的转换公式为：$C=(F−32)÷1.8$</p>
 </blockquote>
-<blockquote>
-<p>。</p>
-</blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">f = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入华氏温度: &#x27;</span>))</span><br><span class="line">c = (f - <span class="number">32</span>) / <span class="number">1.8</span></span><br><span class="line">print(<span class="string">&#x27;%.1f华氏度 = %.1f摄氏度&#x27;</span> % (f, c)) <span class="comment"># solution1</span></span><br><span class="line">print(<span class="string">&#x27;&#123;:.1f&#125;华氏度 = &#123;:.1f&#125;摄氏度&#x27;</span>.<span class="built_in">format</span>(f,c))<span class="comment"># solution2,不带编号输出</span></span><br><span class="line">print(<span class="string">&#x27;&#123;0:.1f&#125;华氏度 = &#123;1:.1f&#125;摄氏度&#x27;</span>.<span class="built_in">format</span>(f,c))<span class="comment"># solution3,带编号输出</span></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;f:<span class="number">.1</span>f&#125;</span>华氏度 = <span class="subst">&#123;c:<span class="number">.1</span>f&#125;</span>摄氏度&#x27;</span>)<span class="comment"># solution4,带关键字输出1</span></span><br><span class="line">print(<span class="string">&#x27;&#123;0:.1f&#125;华氏度 = &#123;1:.1f&#125;摄氏度&#x27;</span>.<span class="built_in">format</span>(f,c))<span class="comment"># solution5,带关键字输出2</span></span><br></pre></td></tr></table></figure>
 
 <h6 id="2-1-操作符的使用："><a href="#2-1-操作符的使用：" class="headerlink" title="2.1 %操作符的使用："></a>2.1 %操作符的使用：</h6><p>%o：oct，八进制</p>
@@ -1962,7 +1959,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>‘{:b}’.format(11)  ‘{:d}’.format(11)  ‘{:o}’.format(11)  ‘{:x}’.format(11)  ‘{:#x}’.format(11)  ‘{:#X}’.format(11)</td>
+<td><code>‘&#123;:b&#125;’.format(11)  ‘&#123;:d&#125;’.format(11)  ‘&#123;:o&#125;’.format(11)  ‘&#123;:x&#125;’.format(11)  ‘&#123;:#x&#125;’.format(11)  ‘&#123;:#X&#125;’.format(11)</code></td>
 <td>1011  11  13  b  0xb  0XB</td>
 </tr>
 </tbody></table>
@@ -3068,7 +3065,7 @@
   <entry>
     <title>Python进阶笔记（一）</title>
     <url>/2021/02/24/Python%E8%BF%9B%E9%98%B6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="一-面向对象概述"><a href="#一-面向对象概述" class="headerlink" title="一.面向对象概述"></a>一.面向对象概述</h1><h4 id="1-面向过程与面向对象"><a href="#1-面向过程与面向对象" class="headerlink" title="1.面向过程与面向对象"></a>1.面向过程与面向对象</h4><ol>
+    <content><![CDATA[<h1 id="一-面向对象概述"><a href="#一-面向对象概述" class="headerlink" title="一.面向对象概述"></a>一.面向对象概述</h1><h2 id="1-面向过程与面向对象"><a href="#1-面向过程与面向对象" class="headerlink" title="1.面向过程与面向对象"></a>1.面向过程与面向对象</h2><ol>
 <li><p><strong>面向过程</strong> —— <strong>怎么做</strong>？</p>
 </li>
 <li><p>把完成某一个需求的 <code>所有步骤</code> <code>从头到尾</code> 逐步实现</p>
@@ -3105,7 +3102,7 @@
 <li>更加适合应对复杂的需求变化，<strong>是专门应对复杂项目开发，提供的固定套路</strong></li>
 <li><strong>需要在面向过程基础上，再学习一些面向对象的语法</strong></li>
 </ol>
-<h4 id="2-重要概念：类和对象"><a href="#2-重要概念：类和对象" class="headerlink" title="2.重要概念：类和对象"></a>2.重要概念：类和对象</h4><h5 id="2-1-概念引入"><a href="#2-1-概念引入" class="headerlink" title="2.1 概念引入"></a>2.1 概念引入</h5><p>在洗衣机洗衣服的过程中，洗衣机就是我们所说的对象，整个过程描述如下：图纸—&gt;洗衣机—&gt;洗衣服。在这个过程中，图纸就是类，而洗衣机就是对象。有了类，我们就能根据它来创建对象。</p>
+<h2 id="2-重要概念：类和对象"><a href="#2-重要概念：类和对象" class="headerlink" title="2.重要概念：类和对象"></a>2.重要概念：类和对象</h2><h3 id="2-1-概念引入"><a href="#2-1-概念引入" class="headerlink" title="2.1 概念引入"></a>2.1 概念引入</h3><p>在洗衣机洗衣服的过程中，洗衣机就是我们所说的对象，整个过程描述如下：图纸—&gt;洗衣机—&gt;洗衣服。在这个过程中，图纸就是类，而洗衣机就是对象。有了类，我们就能根据它来创建对象。</p>
 <p><strong>简单的说，类是对象的蓝图和模板，而对象是类的实例。</strong>这个解释虽然有点像用概念在解释概念，但是从这句话我们至少可以看出，类是抽象的概念，而对象是具体的东西。在面向对象编程的世界中，一切皆为对象，对象都有属性和行为，每个对象都是独一无二的，而且对象一定属于某个类（型）。当我们把一大堆拥有共同特征的对象的静态特征（属性）和动态特征（行为）都抽取出来后，就可以定义出一个叫做“类”的东西。</p>
 <p><strong>类和对象的关系</strong></p>
 <ul>
@@ -3117,7 +3114,7 @@
 <li><strong>类</strong> 中定义了什么 <strong>属性和方法</strong>，<strong>对象</strong> 中就有什么属性和方法，<strong>不可能多，也不可能少</strong></li>
 </ul>
 <p><strong>总结：类和对象的关系，就是用类去创建一个对象，或者用类去实例化一个对象。</strong></p>
-<h5 id="2-2-类"><a href="#2-2-类" class="headerlink" title="2.2 类"></a>2.2 类</h5><p>类是对一系列列具有相同特征和行为的事物的统称，<strong>是一个抽象的概念，不是真实存在的事物</strong>。</p>
+<h3 id="2-2-类"><a href="#2-2-类" class="headerlink" title="2.2 类"></a>2.2 类</h3><p>类是对一系列列具有相同特征和行为的事物的统称，<strong>是一个抽象的概念，不是真实存在的事物</strong>。</p>
 <ul>
 <li>特征即是属性</li>
 <li>行为即是方法</li>
@@ -3144,22 +3141,22 @@
 <blockquote>
 <p>提示：需求中没有涉及的属性或者方法在设计类时，不需要考虑</p>
 </blockquote>
-<h5 id="2-3-对象"><a href="#2-3-对象" class="headerlink" title="2.3 对象"></a>2.3 对象</h5><p>对象是<strong>类创建出来的真实存在的事物</strong>，例如：洗衣机。</p>
+<h3 id="2-3-对象"><a href="#2-3-对象" class="headerlink" title="2.3 对象"></a>2.3 对象</h3><p>对象是<strong>类创建出来的真实存在的事物</strong>，例如：洗衣机。</p>
 <blockquote>
 <p>注意：开发中，先有类，再有对象。</p>
 </blockquote>
-<h5 id="2-4-定义类"><a href="#2-4-定义类" class="headerlink" title="2.4 定义类"></a>2.4 定义类</h5><p>在Python中可以使用<code>class</code>关键字定义类，然后在类中通过之前学习过的函数来定义方法，这样就可以将对象的动态特征描述出来，代码如下所示。</p>
+<h3 id="2-4-定义类"><a href="#2-4-定义类" class="headerlink" title="2.4 定义类"></a>2.4 定义类</h3><p>在Python中可以使用<code>class</code>关键字定义类，然后在类中通过之前学习过的函数来定义方法，这样就可以将对象的动态特征描述出来，代码如下所示。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> 类名():</span></span><br><span class="line">    代码</span><br><span class="line">    ......</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Washer</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wash</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;我会洗衣服&quot;</span>)</span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># __init__是一个特殊方法用于在创建对象时进行初始化操作</span></span><br><span class="line">    <span class="comment"># 通过这个方法我们可以为学生对象绑定name和age两个属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, age</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">study</span>(<span class="params">self, course_name</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;%s正在学习%s.&#x27;</span> % (self.name, course_name))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># PEP 8要求标识符的名字用全小写多个单词用下划线连接</span></span><br><span class="line">    <span class="comment"># 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">watch_movie</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.age &lt; <span class="number">18</span>:</span><br><span class="line">            print(<span class="string">&#x27;%s只能观看《熊出没》.&#x27;</span> % self.name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&#x27;%s正在观看爱情大电影.&#x27;</span> % self.name)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><strong>说明：</strong> 写在类中的函数，我们通常称之为（对象的）方法，这些方法就是对象可以接收的消息。</p>
 </blockquote>
-<h5 id="2-5-创建和使用对象"><a href="#2-5-创建和使用对象" class="headerlink" title="2.5 创建和使用对象"></a>2.5 创建和使用对象</h5><p>对象又名实例。创建对象也叫做实例化对象。</p>
+<h3 id="2-5-创建和使用对象"><a href="#2-5-创建和使用对象" class="headerlink" title="2.5 创建和使用对象"></a>2.5 创建和使用对象</h3><p>对象又名实例。创建对象也叫做实例化对象。</p>
 <p>语法：<code>对象名 = 类名()</code></p>
 <p>当我们定义好一个类之后，可以通过下面的方式来创建对象并给对象发消息。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 创建学生对象并指定姓名和年龄</span></span><br><span class="line">    stu1 = Student(<span class="string">&#x27;骆昊&#x27;</span>, <span class="number">38</span>)</span><br><span class="line">    <span class="comment"># 给对象发study消息</span></span><br><span class="line">    stu1.study(<span class="string">&#x27;Python程序设计&#x27;</span>)</span><br><span class="line">    <span class="comment"># 给对象发watch_av消息</span></span><br><span class="line">    stu1.watch_movie()</span><br><span class="line">    stu2 = Student(<span class="string">&#x27;王大锤&#x27;</span>, <span class="number">15</span>)</span><br><span class="line">    stu2.study(<span class="string">&#x27;思想品德&#x27;</span>)</span><br><span class="line">    stu2.watch_movie()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-面向对象基础语法"><a href="#3-面向对象基础语法" class="headerlink" title="3.面向对象基础语法"></a>3.面向对象基础语法</h4><h5 id="3-1-dir内置函数（知道）"><a href="#3-1-dir内置函数（知道）" class="headerlink" title="3.1 dir内置函数（知道）"></a>3.1 dir内置函数（知道）</h5><ul>
+<h2 id="3-面向对象基础语法"><a href="#3-面向对象基础语法" class="headerlink" title="3.面向对象基础语法"></a>3.面向对象基础语法</h2><h3 id="3-1-dir内置函数（知道）"><a href="#3-1-dir内置函数（知道）" class="headerlink" title="3.1 dir内置函数（知道）"></a>3.1 dir内置函数（知道）</h3><ul>
 <li>在 <code>Python</code> 中 <strong>对象几乎是无所不在的</strong>，我们之前学习的 <strong>变量</strong>、<strong>数据</strong>、<strong>函数</strong> 都是对象</li>
 </ul>
 <p>在 <code>Python</code> 中可以使用以下两个方法验证：</p>
@@ -3203,7 +3200,7 @@
 </tr>
 </tbody></table>
 <p><strong>提示</strong> 利用好 <code>dir()</code> 函数，在学习时很多内容就不需要死记硬背了</p>
-<h5 id="3-2-定义简单的类（仅包含方法）"><a href="#3-2-定义简单的类（仅包含方法）" class="headerlink" title="3.2 定义简单的类（仅包含方法）"></a>3.2 定义简单的类（仅包含方法）</h5><h6 id="3-2-1-定义只包含方法的类"><a href="#3-2-1-定义只包含方法的类" class="headerlink" title="3.2.1 定义只包含方法的类"></a>3.2.1 定义只包含方法的类</h6><ul>
+<h3 id="3-2-定义简单的类（仅包含方法）"><a href="#3-2-定义简单的类（仅包含方法）" class="headerlink" title="3.2 定义简单的类（仅包含方法）"></a>3.2 定义简单的类（仅包含方法）</h3><h4 id="3-2-1-定义只包含方法的类"><a href="#3-2-1-定义只包含方法的类" class="headerlink" title="3.2.1 定义只包含方法的类"></a>3.2.1 定义只包含方法的类</h4><ul>
 <li>在 <code>Python</code> 中要定义一个只包含方法的类，语法格式如下：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法1(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法2(<span class="params">self, 参数列表</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
@@ -3215,9 +3212,9 @@
 <blockquote>
 <p>注意：<strong>类名</strong> 的 命名规则 要符合 <strong>大驼峰命名法</strong></p>
 </blockquote>
-<h6 id="3-2-2-创建对象"><a href="#3-2-2-创建对象" class="headerlink" title="3.2.2 创建对象"></a>3.2.2 创建对象</h6><p>对象又名实例。创建对象也叫做实例化对象。</p>
+<h4 id="3-2-2-创建对象"><a href="#3-2-2-创建对象" class="headerlink" title="3.2.2 创建对象"></a>3.2.2 创建对象</h4><p>对象又名实例。创建对象也叫做实例化对象。</p>
 <p>语法：<code>对象名 = 类名()</code></p>
-<h6 id="3-2-3-第一个面向对象程序"><a href="#3-2-3-第一个面向对象程序" class="headerlink" title="3.2.3 第一个面向对象程序"></a>3.2.3 第一个面向对象程序</h6><p><strong>需求</strong></p>
+<h4 id="3-2-3-第一个面向对象程序"><a href="#3-2-3-第一个面向对象程序" class="headerlink" title="3.2.3 第一个面向对象程序"></a>3.2.3 第一个面向对象程序</h4><p><strong>需求</strong></p>
 <ul>
 <li><strong>小猫</strong> 爱 <strong>吃</strong> 鱼，<strong>小猫</strong> 要 <strong>喝</strong> 水</li>
 </ul>
@@ -3229,7 +3226,7 @@
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span> <span class="comment"># 对类进行封装</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat() <span class="comment"># 创建一个叫tom的对象</span></span><br><span class="line">tom.drink() <span class="comment"># 调用tom中的方法</span></span><br><span class="line">tom.eat()</span><br><span class="line">print(tom) <span class="comment"># 打印tom对象在内存中的地址</span></span><br><span class="line">addr = <span class="built_in">id</span>(tom)</span><br><span class="line">print(<span class="string">&quot;%x&quot;</span> % addr)</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7f76373fa670&gt;</span></span><br><span class="line"><span class="comment"># 7f780b7c1670</span></span><br></pre></td></tr></table></figure>
 
-<h6 id="3-2-4-引用概念的强调"><a href="#3-2-4-引用概念的强调" class="headerlink" title="3.2.4 引用概念的强调"></a>3.2.4 引用概念的强调</h6><blockquote>
+<h4 id="3-2-4-引用概念的强调"><a href="#3-2-4-引用概念的强调" class="headerlink" title="3.2.4 引用概念的强调"></a>3.2.4 引用概念的强调</h4><blockquote>
 <p>在面向对象开发中，<strong>引用</strong>的概念是同样适用的！</p>
 </blockquote>
 <ul>
@@ -3258,9 +3255,9 @@
 <p>但结果却为何要赋值无限次？</p>
 <p><strong>可以说 Python 没有赋值，只有引用</strong>。你这样相当于创建了一个引用自身的结构，所以导致了无限循环。为了理解这个问题，有个基本概念需要搞清楚。</p>
 <p>Python 没有「变量」，我们平时所说的变量其实只是「标签」，是引用。这里的引用类似C语言中的指针。</p>
-<h6 id="3-2-5-使用Cat类再创建一个对象"><a href="#3-2-5-使用Cat类再创建一个对象" class="headerlink" title="3.2.5 使用Cat类再创建一个对象"></a>3.2.5 使用Cat类再创建一个对象</h6><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">print(tom)</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.eat()</span><br><span class="line">lazy_cat.drink()</span><br><span class="line">print(lazy_cat) <span class="comment"># lazy_cat 和 tom 是两个不同的对象</span></span><br><span class="line">lazy_cat2 = lazy_cat <span class="comment"># 这里涉及到引用</span></span><br><span class="line">print(lazy_cat2) <span class="comment"># lazy_cat2和lazy_cat2表示同一个对象</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de2670&gt;</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de7fd0&gt;</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7f0869e2afd0&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-2-5-使用Cat类再创建一个对象"><a href="#3-2-5-使用Cat类再创建一个对象" class="headerlink" title="3.2.5 使用Cat类再创建一个对象"></a>3.2.5 使用Cat类再创建一个对象</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">print(tom)</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.eat()</span><br><span class="line">lazy_cat.drink()</span><br><span class="line">print(lazy_cat) <span class="comment"># lazy_cat 和 tom 是两个不同的对象</span></span><br><span class="line">lazy_cat2 = lazy_cat <span class="comment"># 这里涉及到引用</span></span><br><span class="line">print(lazy_cat2) <span class="comment"># lazy_cat2和lazy_cat2表示同一个对象</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de2670&gt;</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de7fd0&gt;</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7f0869e2afd0&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="3-3-案例改造-——-给对象增加属性"><a href="#3-3-案例改造-——-给对象增加属性" class="headerlink" title="3.3 案例改造 —— 给对象增加属性"></a>3.3 案例改造 —— 给对象增加属性</h5><ul>
+<h3 id="3-3-案例改造-——-给对象增加属性"><a href="#3-3-案例改造-——-给对象增加属性" class="headerlink" title="3.3 案例改造 —— 给对象增加属性"></a>3.3 案例改造 —— 给对象增加属性</h3><ul>
 <li><p>在Python中，要给对象设置属性，非常的容易，但是不推荐使用</p>
 <p>因为：对象属性的封装应该封装在类的内部</p>
 </li>
@@ -3272,7 +3269,7 @@
 </blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span> <span class="comment"># 这种属性只针对tom</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat.name = <span class="string">&quot;大懒猫&quot;</span> <span class="comment"># 这种属性只针对lazy_cat</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="3-4-方法中的self参数"><a href="#3-4-方法中的self参数" class="headerlink" title="3.4 方法中的self参数"></a>3.4 方法中的self参数</h5><blockquote>
+<h3 id="3-4-方法中的self参数"><a href="#3-4-方法中的self参数" class="headerlink" title="3.4 方法中的self参数"></a>3.4 方法中的self参数</h3><blockquote>
 <p>由 <strong>哪一个对象</strong> 调用的方法，方法内的 <code>self</code> 就是 <strong>哪一个对象的引用</strong></p>
 </blockquote>
 <ul>
@@ -3292,7 +3289,7 @@
 <li>在 <strong>类的外部</strong>，通过 <code>变量名.</code> 访问对象的 <strong>属性和方法</strong></li>
 <li>在 <strong>类封装的方法中</strong>，通过 <code>self.</code> 访问对象的 <strong>属性和方法</strong></li>
 </ul>
-<h5 id="3-5-注意避免在类的外部给对象增加属性"><a href="#3-5-注意避免在类的外部给对象增加属性" class="headerlink" title="3.5 注意避免在类的外部给对象增加属性"></a>3.5 注意避免在类的外部给对象增加属性</h5><ul>
+<h3 id="3-5-注意避免在类的外部给对象增加属性"><a href="#3-5-注意避免在类的外部给对象增加属性" class="headerlink" title="3.5 注意避免在类的外部给对象增加属性"></a>3.5 注意避免在类的外部给对象增加属性</h3><ul>
 <li>将案例代码进行调整，<strong>先调用方法 再设置属性</strong>，观察一下执行效果</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line">print(tom)</span><br></pre></td></tr></table></figure>
@@ -3323,10 +3320,12 @@
   <entry>
     <title>Python进阶笔记（二）</title>
     <url>/2021/02/24/Python%E8%BF%9B%E9%98%B6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<p><strong>续。。。python进阶学习笔记（一）</strong></p>
+    <content><![CDATA[<blockquote>
+<p><strong>续…python进阶学习笔记（一）</strong></p>
+</blockquote>
 <span id="more"></span>
 
-<h1 id="一-面向对象概述"><a href="#一-面向对象概述" class="headerlink" title="一.面向对象概述"></a>一.面向对象概述</h1><h4 id="3-面向对象基础语法"><a href="#3-面向对象基础语法" class="headerlink" title="3.面向对象基础语法"></a>3.面向对象基础语法</h4><h6 id="3-6-初始化方法"><a href="#3-6-初始化方法" class="headerlink" title="3.6 初始化方法"></a>3.6 初始化方法</h6>]]></content>
+<h1 id="一-面向对象概述"><a href="#一-面向对象概述" class="headerlink" title="一.面向对象概述"></a>一.面向对象概述</h1><h2 id="3-面向对象基础语法"><a href="#3-面向对象基础语法" class="headerlink" title="3.面向对象基础语法"></a>3.面向对象基础语法</h2><h3 id="3-6-初始化方法"><a href="#3-6-初始化方法" class="headerlink" title="3.6 初始化方法"></a>3.6 初始化方法</h3>]]></content>
       <categories>
         <category>Python</category>
       </categories>
@@ -7108,7 +7107,7 @@
   <entry>
     <title>oj刷题注意事项</title>
     <url>/2021/04/26/oj%E5%88%B7%E9%A2%98%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
-    <content><![CDATA[<h2 id="oj赛制介绍"><a href="#oj赛制介绍" class="headerlink" title="oj赛制介绍"></a>oj赛制介绍</h2><p>参考自：<a href="https://zhuanlan.zhihu.com/p/129311302">https://zhuanlan.zhihu.com/p/129311302</a></p>
+    <content><![CDATA[<h2 id="1-oj赛制介绍"><a href="#1-oj赛制介绍" class="headerlink" title="1.oj赛制介绍"></a>1.oj赛制介绍</h2><p>参考自：<a href="https://zhuanlan.zhihu.com/p/129311302">https://zhuanlan.zhihu.com/p/129311302</a></p>
 <p>介绍一下编程比赛中最常见的三种赛制：ACM赛制、OI赛制、IOI赛制。</p>
 <span id="more"></span>
 
@@ -7118,11 +7117,17 @@
 <p><strong>OI赛制的比赛</strong>：NOI全国青少年信息学奥林匹克竞赛、CCF CSP、考研机试、蓝桥杯、牛客OI赛、全国高校计算机能力挑战赛。</p>
 <p><strong>IOI赛制</strong>：每道题提交之后都有反馈，可以看到“通过”、“运行错误”、“答案错误”等等结果，甚至可以实时看到自己每道题得了多少分，但看不到错误的测试样例。每道题都有多个测试点，根据每道题通过的测试点的数量获得相应的分数。每道题不限制提交次数，如果提交错误没有任何惩罚，仅以最后一次提交为准。比赛过程中一般可以看到实时排名（如果是考试，一般看不到排名），按照总得分来排名。可以说，IOI赛制是结合了OI赛制和ACM赛制的特点。</p>
 <p><strong>IOI赛制的比赛</strong>：PAT、团体程序设计天梯赛、CCF CCSP、洛谷月赛。</p>
-<h2 id="输出格式问题"><a href="#输出格式问题" class="headerlink" title="输出格式问题"></a>输出格式问题</h2><p>acwing对于输出格式非常宽松，末尾空格空行都能过，但有不少oj会卡输出格式，注意审题。</p>
+<h2 id="2-输出格式问题"><a href="#2-输出格式问题" class="headerlink" title="2.输出格式问题"></a>2.输出格式问题</h2><p>acwing对于输出格式非常宽松，末尾空格空行都能过，但有不少oj会卡输出格式，注意审题。</p>
 <p>平时做题，最好控制一下输出格式，否则爆0就很难受。</p>
 <p>末尾不要有空格做法：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;a[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++).<span class="comment">//a[0]先输出了，故循环从1开始</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="3-Java刷题注意事项"><a href="#3-Java刷题注意事项" class="headerlink" title="3.Java刷题注意事项"></a>3.Java刷题注意事项</h2><p>参考1：<a href="https://www.acwing.com/blog/content/431/">https://www.acwing.com/blog/content/431/</a></p>
+<p>参考2：<a href="https://www.acwing.com/blog/content/593/">https://www.acwing.com/blog/content/593/</a></p>
+<p>参考3：<a href="https://www.acwing.com/blog/content/2414/">https://www.acwing.com/blog/content/2414/</a></p>
+<p>参考4：<a href="https://www.cnblogs.com/HardBass/p/11702918.html">https://www.cnblogs.com/HardBass/p/11702918.html</a></p>
+<h2 id="4-Java与C-刷题的多方位对比"><a href="#4-Java与C-刷题的多方位对比" class="headerlink" title="4.Java与C++刷题的多方位对比"></a>4.Java与C++刷题的多方位对比</h2><p>参考1：<a href="https://www.cnblogs.com/hx97/p/12347699.html">https://www.cnblogs.com/hx97/p/12347699.html</a></p>
+<p>参考2：我的转载文章<a href="https://grant1499.github.io/2021/04/04/C-STL%E4%B8%8EJava-util%E5%AF%B9%E6%AF%94/">C++ STL与Java util对比</a></p>
 ]]></content>
       <categories>
         <category>杂谈</category>
@@ -7493,12 +7498,55 @@
 
 <p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210502211423255.png" alt="image-20210502211423255"></p>
 <p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210502211432078.png" alt="image-20210502211432078"></p>
-<h2 id="2-枚举类的使用"><a href="#2-枚举类的使用" class="headerlink" title="2.枚举类的使用"></a>2.枚举类的使用</h2>]]></content>
+<h2 id="2-枚举类的使用"><a href="#2-枚举类的使用" class="headerlink" title="2.枚举类的使用"></a>2.枚举类的使用</h2><p>JDK1.5之前自定义枚举类了解就行。</p>
+<ul>
+<li><p>重点掌握JDK1.5的新特性，enum关键字定义枚举类。</p>
+</li>
+<li><p>类的对象只有有限个，确定的。</p>
+</li>
+<li><p>当需要定义一组常量时，强烈建议使用枚举类。</p>
+</li>
+<li><p>若枚举只有一个对象 , 则可以作为一种<strong>单例模式</strong>的实现方式。</p>
+</li>
+</ul>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503090139873.png" alt="image-20210503090139873"></p>
+<p>看看就行。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//enum关键字定义枚举类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season summer = Season.SUMMER;</span><br><span class="line">        System.out.println(summer);<span class="comment">//SUMMER，无需重写toString</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>),<span class="comment">//默认为private final</span></span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>),</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>),</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>);</span><br><span class="line">    <span class="comment">//声明Season对象的四有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503091556341.png" alt="image-20210503091556341"></p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503091617899.png" alt="image-20210503091617899"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Season[] values = Season.values();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; values.length;i++)&#123;</span><br><span class="line">        System.out.println(values[i].toString());</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;____________________________&quot;</span>);</span><br><span class="line">    <span class="comment">//valueOf(String objname)，返回枚举类中对象名是objname的对象</span></span><br><span class="line">    Season winter = Season.valueOf(<span class="string">&quot;WINTER&quot;</span>);</span><br><span class="line">    System.out.println(winter);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*SPRING</span></span><br><span class="line"><span class="comment">SUMMER</span></span><br><span class="line"><span class="comment">AUTUMN</span></span><br><span class="line"><span class="comment">WINTER</span></span><br><span class="line"><span class="comment">____________________________</span></span><br><span class="line"><span class="comment">WINTER*/</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503092548552.png" alt="image-20210503092548552"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//每个枚举值分别实现同一个接口方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season season1 = Season.SUMMER;</span><br><span class="line">        Season season2 = Season.SPRING;</span><br><span class="line">        Season season3 = Season.AUTUMN;</span><br><span class="line">        season1.show();</span><br><span class="line">        season2.show();</span><br><span class="line">        season3.show();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*summer</span></span><br><span class="line"><span class="comment">spring</span></span><br><span class="line"><span class="comment">autumn*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span> <span class="keyword">implements</span> <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;spring&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;summer&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;autumn&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;winter&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//声明Season对象的四有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-注解-Annotation）"><a href="#3-注解-Annotation）" class="headerlink" title="3.注解 (Annotation）"></a>3.注解 (Annotation）</h2><p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503093537140.png" alt="image-20210503093537140"></p>
+<p>一定程度上可以说： <strong>框架 = 注解 + 反射 + 设计模式</strong>。</p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503093702587.png" alt="image-20210503093702587"></p>
+<p><strong>自定义Annotation</strong>：</p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503094509895.png" alt="image-20210503094509895"></p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503094431440.png" alt="image-20210503094431440"></p>
+<p>没有成员定义的 Annotation 称为 <strong>标记</strong> ，包含成员变量的 Annotation 称为<strong>元数据</strong> Annotation</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//注解声明为@interface</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">//内部定义成员，通常使用value表示</span></span><br><span class="line">    <span class="comment">//可以指定成员的默认值，使用default定义</span></span><br><span class="line">    <span class="comment">//自定义注解必须使用反射才有意义</span></span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;string&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>元注解：注解其他注解的注解</p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503095742361.png" alt="image-20210503095742361"></p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503095819473.png" alt="image-20210503095819473"></p>
+<p>默认为CLASS。<img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503095906860.png" alt="image-20210503095906860"></p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503095953225.png" alt="image-20210503095953225"></p>
+<p><strong>自定义注解一般会指明以上两个元注解：Retention、Target。</strong></p>
+<p>下面两个用到频率较低。</p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503100238905.png" alt="image-20210503100238905"></p>
+<p>Java 8对注解处理提供了两点改进： <strong>可重复的注解</strong> 及 <strong>可用于类型的注解</strong> 。此外，反射也得到了加强，在 </p>
+<p>Java8 中能够得到方法参数的名称。这会简化标注在方法参数上的注解。</p>
+<p><img src="/2021/05/02/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/image-20210503101428719.png" alt="image-20210503101428719"></p>
+]]></content>
       <categories>
         <category>Java</category>
       </categories>
       <tags>
         <tag>Java入门</tag>
+        <tag>注解</tag>
       </tags>
   </entry>
   <entry>
@@ -7555,6 +7603,445 @@
       </categories>
       <tags>
         <tag>Java入门</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL学习笔记（一）</title>
+    <url>/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-什么是数据库？"><a href="#1-什么是数据库？" class="headerlink" title="1.什么是数据库？"></a>1.什么是数据库？</h2><p>DataBase，数据仓库，用于存储有组织的数据。</p>
+<p>数据库分类：</p>
+<ol>
+<li><p>关系型数据库：MySQL，Oracle，…</p>
+<ul>
+<li><p>SQL</p>
+</li>
+<li><p>RDBMS，即关系数据库管理系统(Relational Database Management System)</p>
+</li>
+<li><p>通过表和表之间，行和列之间的关系进行数据的存储，如学员信息表</p>
+</li>
+</ul>
+</li>
+<li><p>非关系型数据库：Redis，MongDB，…</p>
+<ul>
+<li><p>NoSQL，Not Only SQL</p>
+</li>
+<li><p>通过对象存储，由对象自身属性来决定。</p>
+</li>
+</ul>
+</li>
+</ol>
+<span id="more"></span>
+
+<p>DBMS：数据库管理系统</p>
+<p>它是数据库的管理软件，通过DBMS来操作管理数据库</p>
+<p>软件安装建议：</p>
+<p>尽量不要安装exe，卸载时会有注册表残留，尽可能使用压缩包安装，卸载方便</p>
+<h2 id="2-MySQL入门使用"><a href="#2-MySQL入门使用" class="headerlink" title="2.MySQL入门使用"></a>2.MySQL入门使用</h2><p>安装MySQL直接百度教程就行。</p>
+<p>打开cmd命令行，输入<code>mysql -u root -p</code>，然后输入密码，进入mysql。</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503122112663.png" alt="image-20210503122112663"></p>
+<p>然后是安装SQLyog，建议看我的另一篇<a href="https://grant1499.github.io/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/">文章</a>。</p>
+<p>新建一个数据库school，名称随意。</p>
+<p>在<code>root@localhost</code>处右键创建数据库，然后填入名称，选择字符集、排序规则，<strong>注意不要选错</strong>。</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503123218934.png" alt="image-20210503123218934"></p>
+<p>右键–&gt;创建表。</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503123942013.png" alt="image-20210503123942013"></p>
+<p>填入信息。</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503124527839.png" alt="image-20210503124527839"></p>
+<p>查看表：</p>
+<p>选中左侧表下属的student，打开表。</p>
+<p>尝试添加删除数据：</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503125105714.png" alt="image-20210503125105714"></p>
+<h2 id="3-连接数据库"><a href="#3-连接数据库" class="headerlink" title="3.连接数据库"></a>3.连接数据库</h2><p>在cmd中输入</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&gt;</span>mysql <span class="operator">-</span>uroot <span class="operator">-</span>p你的密码 <span class="comment">--连接数据库</span></span><br><span class="line"><span class="comment">-------------------------------</span></span><br><span class="line"><span class="comment">--注意：所有的语句都用;结尾</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> databases;<span class="comment">--查看所有的数据库</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+</span></span><br><span class="line"><span class="operator">|</span> Database           <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+</span></span><br><span class="line"><span class="operator">|</span> information_schema <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> bipowernode        <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> mysql              <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> performance_schema <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> school             <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> sys                <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">--------------------+</span></span><br><span class="line"><span class="number">6</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use school<span class="comment">--使用切换数据库，use 数据库名</span></span><br><span class="line">Database changed</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">show</span> tables;<span class="comment">--查看当前数据库所有的表</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> Tables_in_school <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="operator">|</span> student          <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">describe</span> student;<span class="comment">--查看查看当前数据库所有表的信息</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> Field <span class="operator">|</span> Type         <span class="operator">|</span> <span class="keyword">Null</span> <span class="operator">|</span> Key <span class="operator">|</span> <span class="keyword">Default</span> <span class="operator">|</span> Extra <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="operator">|</span> id    <span class="operator">|</span> <span class="type">int</span>(<span class="number">10</span>)      <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span> PRI <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> name  <span class="operator">|</span> <span class="type">varchar</span>(<span class="number">100</span>) <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> age   <span class="operator">|</span> <span class="type">int</span>(<span class="number">3</span>)       <span class="operator">|</span> <span class="keyword">NO</span>   <span class="operator">|</span>     <span class="operator">|</span> <span class="keyword">NULL</span>    <span class="operator">|</span>       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------+--------------+------+-----+---------+-------+</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">create</span> database school;<span class="comment">--创建一个数据库</span></span><br><span class="line"><span class="comment">-----------------------------------</span></span><br><span class="line">mysql<span class="operator">&gt;</span> exit;<span class="comment">--退出连接</span></span><br><span class="line"><span class="comment">--单行注释（SQL本来的注释）</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">SQL的多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>对于SQLyog的操作：选中语句执行</p>
+<p><img src="/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210503134031081.png" alt="image-20210503134031081"></p>
+<h2 id="4-数据库的四种语言"><a href="#4-数据库的四种语言" class="headerlink" title="4.数据库的四种语言"></a>4.数据库的四种语言</h2><p>CRUD：增删改查</p>
+<ol>
+<li>DDL： 数据库定义语言</li>
+<li>DML：数据库操作语言</li>
+<li>DQL： 数据库查询语言</li>
+<li>DCL：  数据库控制语言</li>
+</ol>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL学习笔记（二）</title>
+    <url>/2021/05/03/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-操作数据库（了解）"><a href="#1-操作数据库（了解）" class="headerlink" title="1.操作数据库（了解）"></a>1.操作数据库（了解）</h2><p>操作数据库–&gt;操作数据库中的表–&gt;操作数据库中表的数据。</p>
+<p>创建、使用和删除数据库。</p>
+<p><strong>MySQL关键字不区分大小写。</strong></p>
+<span id="more"></span>
+
+<p>1.创建数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE (IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>) xxx; <span class="comment">--注意()表示选用，不是命令的一部分，如果不存在就创建</span></span><br></pre></td></tr></table></figure>
+
+<p>2.删除数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE (IF <span class="keyword">EXISTS</span>) hello</span><br></pre></td></tr></table></figure>
+
+<p>3.使用数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">USE `school` <span class="comment">--如果你的表名或字段名是一个特殊词语，加上``修饰</span></span><br><span class="line"><span class="comment">--它是为了区分MYSQL的保留字与普通字符而引入的符号，比如使用user容易与sql关键字混淆</span></span><br></pre></td></tr></table></figure>
+
+<p>4.查看所有数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> DATABASES; <span class="comment">--记得加S</span></span><br></pre></td></tr></table></figure>
+
+<p>以上四条命令对照SQLyog的可视化操作学习。</p>
+<p>不会某个命令时，在SQLyog执行可视化操作，然后在历史记录中查看对应的语句。</p>
+<h2 id="2-数据库的列类型"><a href="#2-数据库的列类型" class="headerlink" title="2.数据库的列类型"></a>2.数据库的列类型</h2><p>参考教程：<a href="https://www.w3cschool.cn/mysql/mysql-data-types.html">https://www.w3cschool.cn/mysql/mysql-data-types.html</a></p>
+<p>MySQL 支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。</p>
+<h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><table>
+<thead>
+<tr>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>大小</strong></th>
+<th align="left"><strong>范围（有符号）</strong></th>
+<th align="left"><strong>范围（无符号）</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">TINYINT</td>
+<td align="left">1 字节</td>
+<td align="left">(-128，127)</td>
+<td align="left">(0，255)</td>
+<td align="left">小整数值</td>
+</tr>
+<tr>
+<td align="left">SMALLINT</td>
+<td align="left">2 字节，较小</td>
+<td align="left">(-32 768，32 767)</td>
+<td align="left">(0，65 535)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left">MEDIUMINT</td>
+<td align="left">3 字节</td>
+<td align="left">(-8 388 608，8 388 607)</td>
+<td align="left">(0，16 777 215)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left"><strong>INT</strong>或INTEGER</td>
+<td align="left">4 字节，常用</td>
+<td align="left">(-2 147 483 648，2 147 483 647)</td>
+<td align="left">(0，4 294 967 295)</td>
+<td align="left">大整数值</td>
+</tr>
+<tr>
+<td align="left">BIGINT</td>
+<td align="left">8 字节，类似long</td>
+<td align="left">(-9 233 372 036 854 775 808，9 223 372 036 854 775 807)</td>
+<td align="left">(0，18 446 744 073 709 551 615)</td>
+<td align="left"><strong>极大整数值</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>FLOAT</strong></td>
+<td align="left">4 字节</td>
+<td align="left">(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td align="left">0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td align="left"><strong>单精度 浮点数值</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>DOUBLE</strong></td>
+<td align="left">8 字节</td>
+<td align="left">(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="left">0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="left">双精度 浮点数值</td>
+</tr>
+<tr>
+<td align="left"><strong>DECIMAL</strong></td>
+<td align="left">对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td align="left">依赖于M和D的值，字符串形式浮点数，金融计算常用</td>
+<td align="left">依赖于M和D的值</td>
+<td align="left">小数值</td>
+</tr>
+</tbody></table>
+<h3 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h3><blockquote>
+<p>java.util.Date</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小 (字节)</th>
+<th align="left">范围</th>
+<th align="left">格式</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>DATE</strong></td>
+<td align="left">3</td>
+<td align="left">1000-01-01/9999-12-31</td>
+<td align="left"><strong>YYYY-MM-DD</strong></td>
+<td align="left">日期值</td>
+</tr>
+<tr>
+<td align="left"><strong>TIME</strong></td>
+<td align="left">3</td>
+<td align="left">‘-838:59:59’/‘838:59:59’</td>
+<td align="left"><strong>HH:MM:SS</strong></td>
+<td align="left">时间值或持续时间</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+<td align="left">1901/2155</td>
+<td align="left">YYYY</td>
+<td align="left">年份值</td>
+</tr>
+<tr>
+<td align="left"><strong>DATETIME</strong>，最常用</td>
+<td align="left">8</td>
+<td align="left">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td align="left"><strong>YYYY-MM-DD HH:MM:SS</strong></td>
+<td align="left">混合日期和时间值</td>
+</tr>
+<tr>
+<td align="left"><strong>TIMESTAMP</strong>，时间戳</td>
+<td align="left">4</td>
+<td align="left">1970-01-01 00:00:00/2038 结束时间是第 2147483647 秒，北京时间 2038-1-19 11:14:07，格林尼治时间 2038-1-19 03:14:07</td>
+<td align="left">YYYYMMDD HHMMSS</td>
+<td align="left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CHAR</td>
+<td align="left">0-255字节</td>
+<td align="left">定长字符串</td>
+</tr>
+<tr>
+<td align="left"><strong>VARCHAR</strong></td>
+<td align="left">0-65535 字节</td>
+<td align="left"><strong>变长字符串</strong>，<strong>常用</strong></td>
+</tr>
+<tr>
+<td align="left">TINYBLOB</td>
+<td align="left">0-255字节</td>
+<td align="left">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td align="left">TINYTEXT</td>
+<td align="left">0-255字节</td>
+<td align="left">短文本字符串，用于博客等</td>
+</tr>
+<tr>
+<td align="left">BLOB</td>
+<td align="left">0-65 535字节</td>
+<td align="left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="left"><strong>TEXT</strong></td>
+<td align="left">0-65 535字节</td>
+<td align="left">长文本数据，<strong>存放大文本</strong></td>
+</tr>
+<tr>
+<td align="left">MEDIUMBLOB</td>
+<td align="left">0-16 777 215字节</td>
+<td align="left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">MEDIUMTEXT</td>
+<td align="left">0-16 777 215字节</td>
+<td align="left">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">LONGBLOB</td>
+<td align="left">0-4 294 967 295字节</td>
+<td align="left">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="left">LONGTEXT</td>
+<td align="left">0-4 294 967 295字节</td>
+<td align="left">极大文本数据</td>
+</tr>
+</tbody></table>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>没有值，未知，<strong>注意不要使用它运算</strong>。</p>
+<h2 id="3-数据库的字段属性（重点）"><a href="#3-数据库的字段属性（重点）" class="headerlink" title="3.数据库的字段属性（重点）"></a>3.数据库的字段属性（重点）</h2><p>Unsigned：</p>
+<ul>
+<li>无符号整数</li>
+<li>声明该列不能为负数</li>
+</ul>
+<p>Zerofill：</p>
+<ul>
+<li>零填充</li>
+<li>不足的位数用0填充，int(3)，5–&gt;005</li>
+</ul>
+<p>自增：</p>
+<ul>
+<li><p>通常理解为自增，自动在上一条记录的基础上+1（默认）</p>
+</li>
+<li><p>通常用来设计唯一的主键，必须是整数类型</p>
+</li>
+<li><p>可以自定义主键自增的起始值和步长</p>
+</li>
+</ul>
+<p>非空 not null：</p>
+<ul>
+<li>设置为not null时，不赋值就会报错！</li>
+<li>不填写时默认为NULL</li>
+</ul>
+<p>默认：</p>
+<ul>
+<li>设置默认值，如果不指定该列的值，设定为默认值</li>
+</ul>
+<p>拓展：听听就好</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 每个表都必须存在以下五个字段！</span></span><br><span class="line"><span class="comment">id 主键</span></span><br><span class="line"><span class="comment">`version` 乐观锁</span></span><br><span class="line"><span class="comment">is_delete 伪删除</span></span><br><span class="line"><span class="comment">gmt_create 创建时间</span></span><br><span class="line"><span class="comment">gmt_update 修改时间</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>现在只作为了解，以后做项目会用到！</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java入门笔记（十四）</title>
+    <url>/2021/05/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-集合框架概述"><a href="#1-集合框架概述" class="headerlink" title="1.集合框架概述"></a>1.集合框架概述</h2><p>参考博客：<a href="https://www.acwing.com/blog/content/4414/">https://www.acwing.com/blog/content/4414/</a></p>
+<p>集合、数组都是对多个数据进行存储操作的结构，简称Java容器。</p>
+<span id="more"></span>
+
+<p><strong>Java集合类库将接口与实现分离。</strong></p>
+<p><img src="/2021/05/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/image-20210503103116117.png" alt="image-20210503103116117"></p>
+<p>这两个都是接口，不是类。</p>
+<p><img src="/2021/05/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/image-20210503103324545.png" alt="image-20210503103324545"></p>
+<p><img src="/2021/05/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/image-20210503103348318.png" alt="image-20210503103348318"></p>
+<p><img src="/2021/05/03/Java%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/image-20210503103440883.png" alt="image-20210503103440883"></p>
+<p>List接口：动态数组，Set接口：集合，Queue接口：队列。</p>
+<p>Map接口：函数，一个key不能对应多个value。</p>
+<h2 id="3-Collection接口"><a href="#3-Collection接口" class="headerlink" title="3.Collection接口"></a>3.Collection接口</h2><p>推荐一个Java全面教程：<a href="https://blog.csdn.net/qq_38490457/article/details/108281646">https://blog.csdn.net/qq_38490457/article/details/108281646</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java入门</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL学习笔记（三）</title>
+    <url>/2021/05/04/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-创建数据库表"><a href="#1-创建数据库表" class="headerlink" title="1.创建数据库表"></a>1.创建数据库表</h2><span id="more"></span>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 注意：表的名称和字段尽量用``包起来</span></span><br><span class="line"><span class="comment">-- 字符串使用单引号括起来！（双引号也行）</span></span><br><span class="line"><span class="comment">-- 所有语句后面加,最后一个不用</span></span><br><span class="line"><span class="comment">-- primary key，主键一般一张表一个</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `student` (</span><br><span class="line">`id` <span class="type">INT</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">`name` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;匿名&#x27;</span> COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">`pwd` <span class="type">VARCHAR</span>(<span class="number">15</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;12345&#x27;</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">`gender` <span class="type">VARCHAR</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;女&#x27;</span> COMMENT <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">`birthday` DATETIME <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;出生日期&#x27;</span>,</span><br><span class="line">`address` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;家庭住址&#x27;</span>,</span><br><span class="line">`email` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY(`id`)</span><br><span class="line">)ENGINE <span class="operator">=</span> INNODB <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-三个常用命令"><a href="#2-三个常用命令" class="headerlink" title="2.三个常用命令"></a>2.三个常用命令</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查看数据库和表的创建语句</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> DATABASE school</span><br><span class="line"><span class="comment">-- CREATE DATABASE `school` /*!40100 DEFAULT CHARACTER SET utf8 */</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `student`</span><br><span class="line"><span class="comment">-- CREATE TABLE IF NOT EXISTS `student`(XXX)XXX</span></span><br><span class="line"><span class="keyword">DESC</span> student</span><br><span class="line"><span class="comment">-- 查看表的结构</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/04/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504173551477.png" alt="image-20210504173551477"></p>
+<h2 id="3-数据表的类型"><a href="#3-数据表的类型" class="headerlink" title="3.数据表的类型"></a>3.数据表的类型</h2><p>关于数据库引擎：（了解）</p>
+<p>默认使用INNODB，</p>
+<p>早些年使用MYISAM。</p>
+<p>两者的区别：</p>
+<p><img src="/2021/05/04/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504173012750.png" alt="image-20210504173012750"></p>
+<p>所有数据库文件都存在data目录下，一个文件夹对应一个数据库。</p>
+<p>数据库本质还是用文件存储。</p>
+<p><img src="/2021/05/04/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504173513323.png" alt="image-20210504173513323"></p>
+<p>了解。</p>
+<p>charset设置数据库表的字符集编码。</p>
+<p>不设置的话，默认的不支持中文</p>
+]]></content>
+      <categories>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML学习笔记（三）</title>
+    <url>/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-页面结构分析"><a href="#1-页面结构分析" class="headerlink" title="1.页面结构分析"></a>1.页面结构分析</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504222223240.png" alt="image-20210504222223240"></p>
+<span id="more"></span>
+
+<p>头部、脚部和导航比较总要。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>页面结构分析<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网页头部<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网页主体<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>网页脚部<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-iframe内联框架"><a href="#2-iframe内联框架" class="headerlink" title="2.iframe内联框架"></a>2.iframe内联框架</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504223521277.png" alt="image-20210504223521277"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>内联框架<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--内联框架</span></span><br><span class="line"><span class="comment">src: 地址</span></span><br><span class="line"><span class="comment">w-h：宽-高度</span></span><br><span class="line"><span class="comment">name：标识名</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;https://www.baidu.com/&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">name</span>=<span class="string">&quot;hello&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">frameborder</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">width</span>=<span class="string">&quot;1200px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;800px&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;媒体元素.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;hello&quot;</span>&gt;</span>点击跳转<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-表单语法"><a href="#3-表单语法" class="headerlink" title="3.表单语法"></a>3.表单语法</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504224535465.png" alt="image-20210504224535465"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>表单学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--表单form</span></span><br><span class="line"><span class="comment">action: 表单提交的位置，可以是网站，也可以是一个请求处理地址</span></span><br><span class="line"><span class="comment">method：post，get 提交方式</span></span><br><span class="line"><span class="comment">get方式：可以在提交位置的url看到提交信息，不安全，高效</span></span><br><span class="line"><span class="comment">post方法：比较安全，传输大文件，可以在F12看到密码等信息</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;表格.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--文本输入框：input type=&quot;text&quot;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>名字：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--密码框：input type=&quot;password&quot;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--提交和重置--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在填写注册信息时，打开F12，查看network–&gt;Headers.</p>
+<p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89/image-20210504230152083.png" alt="image-20210504230152083"></p>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML学习笔记（一）</title>
+    <url>/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-HTML简介"><a href="#1-HTML简介" class="headerlink" title="1.HTML简介"></a>1.HTML简介</h2><p><strong>超文本标记语言</strong>（Hyper Text Markup Language，简称：HTML）是一种用于创建网页的标准标记语言。</p>
+<p>2014年10月由<strong>万维网联盟</strong>（W3C）完成标准制定。</p>
+<span id="more"></span>
+
+<p>推荐实战训练巩固知识：<a href="https://www.w3cschool.cn/codecamp/list?pename=html5_and_css_camp">https://www.w3cschool.cn/codecamp/list?pename=html5_and_css_camp</a></p>
+<p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210504193312259.png" alt="image-20210504193312259"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 第一个网页--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 告诉浏览器使用说明规范--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 显示内容必须包含在html标签之内--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--网页头部--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--meta描述性标签，描述网站信息--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--一般用来做SEO--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;一起学Java&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;来这里学Java&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--title网页标题--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">hello,world!</span><br><span class="line"><span class="comment">&lt;!--body代表网页主题--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-网页基本标签"><a href="#2-网页基本标签" class="headerlink" title="2.网页基本标签"></a>2.网页基本标签</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210504200453609.png" alt="image-20210504200453609"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>基本标签学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--标题标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>一级标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>二级标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>三级标签<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--段落标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这是    一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>这  还    是 一个段落。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--水平线标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--换行标签，间距比上面小，自闭合--&gt;</span></span><br><span class="line">这是    一个段落。<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">这  还    是 一个段落。<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--斜体与粗体--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>字体样式标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">粗体：<span class="tag">&lt;<span class="name">strong</span>&gt;</span>I love Java<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">斜体：<span class="tag">&lt;<span class="name">em</span>&gt;</span>I love C++<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>特殊符号<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--空    格，实际只有一个空格--&gt;</span></span><br><span class="line">空     格</span><br><span class="line">空<span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>格</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">大于号：<span class="symbol">&amp;gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">小于号：<span class="symbol">&amp;lt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">版权符号：<span class="symbol">&amp;copy;</span>版权所有</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">&quot;down&quot;</span>&gt;</span>底部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210504201252485.png" alt="image-20210504201252485"></p>
+<h3 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>图像<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--img标签学习</span></span><br><span class="line"><span class="comment">src: 图片地址,相对（推荐使用）、绝对路径</span></span><br><span class="line"><span class="comment"> ../  上一级目录</span></span><br><span class="line"><span class="comment">alt: 图片名字</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">src和alt必填</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../resources/image/miku.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;初音未来&quot;</span> <span class="attr">title</span>=<span class="string">&quot;悬停文字&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;800&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="链接标签"><a href="#链接标签" class="headerlink" title="链接标签"></a>链接标签</h3><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/image-20210504202647535.png" alt="image-20210504202647535"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>链接<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--a标签</span></span><br><span class="line"><span class="comment">href : 必填，表示要跳转到哪个网页</span></span><br><span class="line"><span class="comment">target : 表示窗口在哪里打开</span></span><br><span class="line"><span class="comment"> _blank : 在新标签中打开链接</span></span><br><span class="line"><span class="comment"> _self : 在自己网页打开</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--使用name作为标记--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">name</span>=<span class="string">&quot;top&quot;</span>&gt;</span>顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;图像.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>点击查看初音未来<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.w3cschool.cn/html5/html5-intro.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_self&quot;</span>&gt;</span>点击学习html<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--点击图像跳转--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.w3cschool.cn/html5/html5-intro.html&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../resources/image/miku.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;初音未来&quot;</span> <span class="attr">title</span>=<span class="string">&quot;悬停文字&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500&quot;</span> <span class="attr">height</span>=<span class="string">&quot;800&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--文字填充--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">默认情况下，链接将以以下形式出现在浏览器中：</span><br><span class="line"></span><br><span class="line">一个未访问过的链接显示为蓝色字体并带有下划线。</span><br><span class="line">访问过的链接显示为紫色并带有下划线。</span><br><span class="line">点击链接时，链接显示为红色并带有下划线。</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">默认情况下，链接将以以下形式出现在浏览器中：</span><br><span class="line"></span><br><span class="line">一个未访问过的链接显示为蓝色字体并带有下划线。</span><br><span class="line">访问过的链接显示为紫色并带有下划线。</span><br><span class="line">点击链接时，链接显示为红色并带有下划线。</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">默认情况下，链接将以以下形式出现在浏览器中：</span><br><span class="line"></span><br><span class="line">一个未访问过的链接显示为蓝色字体并带有下划线。</span><br><span class="line">访问过的链接显示为紫色并带有下划线。</span><br><span class="line">点击链接时，链接显示为红色并带有下划线。</span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--锚链接</span></span><br><span class="line"><span class="comment">1.需要一个锚标记</span></span><br><span class="line"><span class="comment">2.跳转到标记</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#top&quot;</span>&gt;</span>回到顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;基本标签学习.html#down&quot;</span>&gt;</span>跳转底部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--功能性链接</span></span><br><span class="line"><span class="comment">邮件链接 ： mailto:</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:2478881580@q.com&quot;</span>&gt;</span>点击联系我<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML学习笔记（二）</title>
+    <url>/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="1-行内元素和块元素"><a href="#1-行内元素和块元素" class="headerlink" title="1.行内元素和块元素"></a>1.行内元素和块元素</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210504213328956.png" alt="image-20210504213328956"></p>
+<span id="more"></span>
+
+<h2 id="2-列表"><a href="#2-列表" class="headerlink" title="2.列表"></a>2.列表</h2><ul>
+<li>有序列表</li>
+<li>无序列表</li>
+<li>自定义列表</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>列表学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--有序列表 orderlist</span></span><br><span class="line"><span class="comment">按123排序</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Java<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>C++<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>PHP<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Go<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--无序列表 unorderlist</span></span><br><span class="line"><span class="comment">按圆点分隔</span></span><br><span class="line"><span class="comment">应用：导航栏，侧边栏</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Java<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>C++<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--自定义列表</span></span><br><span class="line"><span class="comment">dl : 标签</span></span><br><span class="line"><span class="comment">dt : 列表名称</span></span><br><span class="line"><span class="comment">dd : 列表内容</span></span><br><span class="line"><span class="comment">应用：一些网站的底部</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Language<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Python<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Java<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>C++<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Cities<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>西安<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dd</span>&gt;</span>合肥<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-表格"><a href="#3-表格" class="headerlink" title="3.表格"></a>3.表格</h2><p><img src="/2021/05/04/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/image-20210504214925816.png" alt="image-20210504214925816"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>表格<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--表格table</span></span><br><span class="line"><span class="comment">行：tr</span></span><br><span class="line"><span class="comment">列：td</span></span><br><span class="line"><span class="comment">border:添加边框</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1px&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--跨列colspan--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;3&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;td&gt;1-2&lt;/td&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;td&gt;1-3&lt;/td&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--跨行rowspan--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>3-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;td&gt;3-2&lt;/td&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>3-3<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-视频和音频"><a href="#4-视频和音频" class="headerlink" title="4.视频和音频"></a>4.视频和音频</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>媒体元素<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--视频</span></span><br><span class="line"><span class="comment">src：路径</span></span><br><span class="line"><span class="comment">controls：视频控制条，不加看不到视频</span></span><br><span class="line"><span class="comment">autoplay：自动播放，chrome现在好像不行，其他浏览器可以</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;video src=&quot;../resources/video/girlbythesea.mp4&quot; controls autoplay&gt;&lt;/video&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;../resources/audio/music.mp3&quot;</span> <span class="attr">controls</span> <span class="attr">autoplay</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
       </tags>
   </entry>
 </search>
