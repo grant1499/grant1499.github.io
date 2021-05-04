@@ -7,7 +7,7 @@ mathjax: true
 copyright: true
 ---
 
-## oj赛制介绍
+## 1.oj赛制介绍
 
 参考自：https://zhuanlan.zhihu.com/p/129311302
 
@@ -31,7 +31,7 @@ copyright: true
 
 **IOI赛制的比赛**：PAT、团体程序设计天梯赛、CCF CCSP、洛谷月赛。
 
-## 输出格式问题
+## 2.输出格式问题
 
 acwing对于输出格式非常宽松，末尾空格空行都能过，但有不少oj会卡输出格式，注意审题。
 
@@ -48,3 +48,18 @@ for(int i=1;i<n;i++).//a[0]先输出了，故循环从1开始
 }
 ```
 
+## 3.Java刷题注意事项
+
+参考1：https://www.acwing.com/blog/content/431/
+
+参考2：https://www.acwing.com/blog/content/593/
+
+参考3：https://www.acwing.com/blog/content/2414/
+
+参考4：https://www.cnblogs.com/HardBass/p/11702918.html
+
+## 4.Java与C++刷题的多方位对比
+
+参考1：https://www.cnblogs.com/hx97/p/12347699.html
+
+参考2：我的转载文章[C++ STL与Java util对比](https://grant1499.github.io/2021/04/04/C-STL%E4%B8%8EJava-util%E5%AF%B9%E6%AF%94/)
