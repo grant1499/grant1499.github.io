@@ -5492,7 +5492,7 @@
 <h2 id="10-添加打赏功能："><a href="#10-添加打赏功能：" class="headerlink" title="10.添加打赏功能："></a>10.添加打赏功能：</h2><p>参考<a href="https://www.dazhuanlan.com/2020/01/20/5e25021a447f6/">https://www.dazhuanlan.com/2020/01/20/5e25021a447f6/</a></p>
 <h2 id="11-hexo-d时网络不稳定"><a href="#11-hexo-d时网络不稳定" class="headerlink" title="11.hexo d时网络不稳定"></a>11.hexo d时网络不稳定</h2><p>当执行<code>hexo d</code>命令时出现如下错误时，OpenSSL SSL_read: Connection was aborted, errno 10053…</p>
 <p>参考解决方案：<a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">https://blog.csdn.net/weixin_43945983/article/details/110882074</a></p>
-<p>先执行<code>git config --global http.sslVerify &quot;false&quot;</code>命令，再执行<code>hexo d</code>就行了。</p>
+<p>先执行<code>git config --global http.sslVerify &quot;false&quot;</code>命令，再执行<code>hexo d</code>就行了。<br>如果还有错，多试几次，网络不好。</p>
 <h2 id="12-文章生成永久化链接"><a href="#12-文章生成永久化链接" class="headerlink" title="12.文章生成永久化链接"></a>12.文章生成永久化链接</h2><p>参考：<a href="https://blog.csdn.net/u011063477/article/details/105929290/">https://blog.csdn.net/u011063477/article/details/105929290/</a></p>
 <p>安装hexo-abbrlink插件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
