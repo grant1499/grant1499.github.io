@@ -12,17 +12,21 @@ copyright: true
 
 <!--more-->
 
-## FAQ
+# FAQ
 
-1.只需在 md 文件里使用 `![title](同名文件夹/图片名.jpg)` ，无需路径名就可以插入图片。
+## 1.插入图片
 
-2.在文章`<!--more-->`之前的内容将作为首页的摘要部分！
+只需在 md 文件里使用 `![title](同名文件夹/图片名.jpg)` ，无需路径名就可以插入图片。
 
-3.[解决busuanzi不显示问题必看](https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/)
+## 2.文章摘要
+
+在文章`<!--more-->`之前的内容将作为首页的摘要部分！
+
+## 3.[解决busuanzi不显示问题必看](https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/)
 
 其实核心问题就是找到span id里是否有style = "display: none"，找到对应文件对应位置的代码并删除即可
 
-4.hexo s本地样式与网页样式不一致？
+## 4.hexo s本地样式与网页样式不一致？
 
 - 其实原因很简单，拉到服务器之前要`hexo clean`清理一下缓存，然后再生成和部署，你学会了吗？
 
@@ -31,11 +35,15 @@ copyright: true
 
 - 或者清理一下浏览器缓存就可以解决。
 
-5.[markdown语法速成宝典](https://www.kuangstudy.com/bbs/1356475333565587458)
+## 5.[markdown语法速成宝典](https://www.kuangstudy.com/bbs/1356475333565587458)
 
-6.推荐hexo搭建文章：https://tding.top/archives/aad98408.html
+## 6.推荐hexo搭建文章：
 
-7.使用插件备份博客源文件：https://blog.csdn.net/qq_41793001/article/details/103151182
+https://tding.top/archives/aad98408.html
+
+## 7.使用插件备份博客源文件：
+
+https://blog.csdn.net/qq_41793001/article/details/103151182
 
 ---
 
@@ -57,8 +65,20 @@ copyright: true
 
 ![image-20210321201725486](hexo相关问题汇总/image-20210321201725486.png)
 
-8.hexo博客使用[Valine](https://valine.js.org/)添加评论系统：
+## 8.hexo博客使用[Valine](https://valine.js.org/)添加评论系统：
 
 参见博客 https://www.luanzhuxian.com/post/c49d1b87.html  和 https://www.zhyong.cn/posts/95cb/
 
 第三方插件增强邮件提醒：https://blog.csdn.net/AC916305619/article/details/110379680 和 https://github.com/DesertsP/Valine-Admin
+
+## 9.文章加密处理：
+
+参考https://blog.csdn.net/weixin_45750972/article/details/111396124
+
+- password: 该Blog使用的密码，注意单词不要拼错，尬
+- abstract: Blog摘要文字（少量）
+- message: 密码框上的描述性文字
+
+## 10.添加打赏功能：
+
+参考https://www.dazhuanlan.com/2020/01/20/5e25021a447f6/
