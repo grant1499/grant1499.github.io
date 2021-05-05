@@ -1,11 +1,13 @@
 ---
 title: 使用SQL的两个工具
-date: 2021-04-27 23:03:15
-tags: [SQL]
-categories: 
-	- [SQL]
+tags:
+  - SQL
+categories:
+  - - SQL
 mathjax: true
 copyright: true
+abbrlink: 61cc3832
+date: 2021-04-27 23:03:15
 ---
 
 ## 1.Navicat15下载安装教程

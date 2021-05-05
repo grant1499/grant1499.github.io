@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（三）
-date: 2021-02-26 15:55:38
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: cb72181d
+date: 2021-02-26 15:55:38
 ---
 
 ## 1.Scanner（扫描器）对象

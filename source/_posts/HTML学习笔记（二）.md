@@ -1,11 +1,13 @@
 ---
 title: HTML学习笔记（二）
-date: 2021-05-04 21:32:09
-tags: [HTML]
-categories: 
-	- [HTML]
+tags:
+  - HTML
+categories:
+  - - HTML
 mathjax: true
 copyright: true
+abbrlink: bb44ce39
+date: 2021-05-04 21:32:09
 ---
 
 ## 1.行内元素和块元素

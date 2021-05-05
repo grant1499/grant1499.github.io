@@ -1,11 +1,14 @@
 ---
 title: C++入门笔记（十二）
-date: 2021-04-28 13:40:29
-tags: [C++入门,IO流]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - IO流
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: fbcdc12f
+date: 2021-04-28 13:40:29
 ---
 
 ## 1.输入输出运算符的实现原理

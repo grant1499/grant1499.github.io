@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（二）
-date: 2021-02-25 18:43:20
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 866cbb4f
+date: 2021-02-25 18:43:20
 ---
 
 ## 1.IDEA快捷键

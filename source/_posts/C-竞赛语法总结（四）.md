@@ -1,12 +1,14 @@
 ---
 title: C++竞赛语法总结（四）
-date: 2021-02-24 07:02:37
-tags: [竞赛语法]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 99b255e0
+date: 2021-02-24 07:02:37
 ---
 
 #### 1.acwing768.忽略大小写比较字符串大小

@@ -1,11 +1,13 @@
 ---
 title: C++入门笔记（四）
-date: 2021-03-23 12:39:58
-tags: [C++入门]
-categories: 
-	- C++
+tags:
+  - C++入门
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: d48f82eb
+date: 2021-03-23 12:39:58
 ---
 
 ## 1.静态成员

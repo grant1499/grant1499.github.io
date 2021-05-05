@@ -1,11 +1,13 @@
 ---
 title: C++入门笔记（三）
-date: 2021-03-09 22:36:49
-tags: [C++入门]
-categories: 
-	- C++
+tags:
+  - C++入门
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: 63a29b8e
+date: 2021-03-09 22:36:49
 ---
 
 ## 1.C++在非OOP方面的扩充

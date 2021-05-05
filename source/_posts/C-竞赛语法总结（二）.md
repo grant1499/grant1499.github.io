@@ -1,12 +1,15 @@
 ---
 title: C++竞赛语法总结（二）
-date: 2021-02-24 07:02:10
-tags: [竞赛语法,数组]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - 数组
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 6381efd7
+date: 2021-02-24 07:02:10
 ---
 
 ## 1.acwing725.完全数

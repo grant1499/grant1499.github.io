@@ -1,11 +1,14 @@
 ---
 title: Python进阶笔记（二）
-date: 2021-02-24 07:06:04
-tags: [Python进阶,OOP]
-categories: 
-	- Python
+tags:
+  - Python进阶
+  - OOP
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: c4e66d1d
+date: 2021-02-24 07:06:04
 ---
 
 > **续...python进阶学习笔记（一）**

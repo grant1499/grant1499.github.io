@@ -1,11 +1,13 @@
 ---
 title: 关于VScode终端乱码问题的解决办法
-date: 2021-03-09 22:40:04
-tags: [VScode]
-categories: 
-	- [杂谈]
+tags:
+  - VScode
+categories:
+  - - 杂谈
 mathjax: true
 copyright: true
+abbrlink: cfb19e20
+date: 2021-03-09 22:40:04
 ---
 
 在Windows下使用VSCode编译运行，都出现中文乱码的问题，今天我就遇见了这种情况，上网搜了半天也没有找到正确的解决方法，现将我把我的方法晒一下。

@@ -1,11 +1,13 @@
 ---
 title: C++中algorithm头文件下的常用函数总结
-date: 2021-04-23 13:27:47
-tags: [STL]
-categories: 
-	- [C++]
+tags:
+  - STL
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: d38917ef
+date: 2021-04-23 13:27:47
 ---
 
 这块内容在STL的文章中都已经介绍过了，但还是单独提下algorithm的内容。

@@ -1,11 +1,13 @@
 ---
 title: Python入门笔记（五）
-date: 2021-02-24 07:05:40
-tags: [Python入门]
-categories: 
-	- Python
+tags:
+  - Python入门
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: f5296746
+date: 2021-02-24 07:05:40
 ---
 
 ## 1.文件读取指针函数seek()用法详解

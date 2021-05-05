@@ -1,11 +1,14 @@
 ---
 title: C++入门笔记（八）
-date: 2021-04-15 11:27:18
-tags: [C++入门,虚函数]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - 虚函数
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: fb7453a9
+date: 2021-04-15 11:27:18
 ---
 
 ## 1.虚函数

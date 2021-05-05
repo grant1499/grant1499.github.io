@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（九）
-date: 2021-04-04 10:20:22
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 2969f165
+date: 2021-04-04 10:20:22
 ---
 
 

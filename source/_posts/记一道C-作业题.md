@@ -1,11 +1,14 @@
 ---
 title: 记一道C++作业题
-date: 2021-04-12 22:09:29
-tags: [OOP,日期处理]
-categories: 
-	- [C++]
+tags:
+  - OOP
+  - 日期处理
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: a83020d5
+date: 2021-04-12 22:09:29
 ---
 
 如题：题目要求根据初始化时的日期加上一定的天数后计算得到的日期，这里用到的计算思路来自[这里](https://grant1499.github.io/2021/03/26/%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E4%B8%8E%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98/)。

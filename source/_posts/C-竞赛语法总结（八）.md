@@ -1,12 +1,17 @@
 ---
 title: C++竞赛语法总结（八）
-date: 2021-02-24 07:03:17
-tags: [竞赛语法,STL,位运算,库函数]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - STL
+  - 位运算
+  - 库函数
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: b64984a2
+date: 2021-02-24 07:03:17
 ---
 
 (续上文)

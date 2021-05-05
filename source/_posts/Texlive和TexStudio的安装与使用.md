@@ -1,11 +1,13 @@
 ---
 title: Texlive和TexStudio的安装与使用
-date: 2021-04-11 16:55:17
-tags: [Latex]
-categories: 
-	- Latex
+tags:
+  - Latex
+categories:
+  - Latex
 mathjax: true
 copyright: true
+abbrlink: bc17736e
+date: 2021-04-11 16:55:17
 ---
 
 ## TexLive2021

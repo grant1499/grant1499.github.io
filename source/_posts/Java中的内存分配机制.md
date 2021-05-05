@@ -1,11 +1,13 @@
 ---
 title: Java中的内存分配机制
-date: 2021-04-03 10:16:34
-tags: [Java知识详解]
-categories: 
-	- Java
+tags:
+  - Java知识详解
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: e1b970b9
+date: 2021-04-03 10:16:34
 ---
 
 ## Java 中的内存区域

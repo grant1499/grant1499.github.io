@@ -1,11 +1,13 @@
 ---
 title: Matlab快速入门笔记（配套代码）
-date: 2021-03-07 19:51:40
-tags: [Matlab入门]
-categories: 
-	- [Matlab]
+tags:
+  - Matlab入门
+categories:
+  - - Matlab
 mathjax: true
 copyright: true
+abbrlink: fcc74e6c
+date: 2021-03-07 19:51:40
 ---
 
 > 本文参考自B站西电通院科协glanny的1小时matlab速成视频！

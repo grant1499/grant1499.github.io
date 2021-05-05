@@ -1,12 +1,15 @@
 ---
 title: C++ STL与Java util对比
-date: 2021-04-04 21:55:49
-tags: [STL,Java util]
-categories: 
-	- [C++]
-	- [Java]
+tags:
+  - STL
+  - Java util
+categories:
+  - - C++
+  - - Java
 mathjax: true
 copyright: true
+abbrlink: 4c2b5dfd
+date: 2021-04-04 21:55:49
 ---
 
 ## 常用容器操作

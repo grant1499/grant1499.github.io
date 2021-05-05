@@ -1,11 +1,14 @@
 ---
 title: Python进阶笔记（一）
-date: 2021-02-24 07:05:57
-tags: [Python进阶,OOP]
-categories: 
-	- Python
+tags:
+  - Python进阶
+  - OOP
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: f4f081c5
+date: 2021-02-24 07:05:57
 ---
 
 # 一.面向对象概述

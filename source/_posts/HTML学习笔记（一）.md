@@ -1,11 +1,13 @@
 ---
 title: HTML学习笔记（一）
-date: 2021-05-04 19:16:00
-tags: [HTML]
-categories: 
-	- [HTML]
+tags:
+  - HTML
+categories:
+  - - HTML
 mathjax: true
 copyright: true
+abbrlink: 8b5222e1
+date: 2021-05-04 19:16:00
 ---
 
 ## 1.HTML简介

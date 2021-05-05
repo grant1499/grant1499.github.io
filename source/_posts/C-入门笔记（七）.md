@@ -1,11 +1,13 @@
 ---
 title: C++入门笔记（七）
-date: 2021-04-15 10:33:15
-tags: [C++入门]
-categories: 
-	- C++
+tags:
+  - C++入门
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: c1f7bea
+date: 2021-04-15 10:33:15
 ---
 
 ## 1.类类型与系统预定义类型之间的转换

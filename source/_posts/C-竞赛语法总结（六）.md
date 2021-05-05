@@ -1,12 +1,16 @@
 ---
 title: C++竞赛语法总结（六）
-date: 2021-02-24 07:02:57
-tags: [竞赛语法,指针,链表]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - 指针
+  - 链表
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 9322db7e
+date: 2021-02-24 07:02:57
 ---
 
 类可以将变量、数组和函数完美地打包在一起。

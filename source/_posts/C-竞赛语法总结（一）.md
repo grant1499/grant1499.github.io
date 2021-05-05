@@ -1,12 +1,14 @@
 ---
 title: C++竞赛语法总结（一）
-date: 2021-02-24 07:01:57
-tags: [竞赛语法]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 5397030f
+date: 2021-02-24 07:01:57
 ---
 
 ## 1.acwing656.钞票和硬币

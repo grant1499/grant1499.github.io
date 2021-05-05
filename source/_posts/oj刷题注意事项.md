@@ -1,10 +1,11 @@
 ---
 title: oj刷题注意事项
-date: 2021-04-26 21:52:23
-categories: 
-	- [杂谈]
+categories:
+  - - 杂谈
 mathjax: true
 copyright: true
+abbrlink: 5f4a89a
+date: 2021-04-26 21:52:23
 ---
 
 ## 1.oj赛制介绍

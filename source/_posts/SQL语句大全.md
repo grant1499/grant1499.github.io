@@ -1,11 +1,13 @@
 ---
 title: SQL语句大全
-date: 2021-04-16 23:32:10
-tags: [SQL]
-categories: 
-	- [SQL]
+tags:
+  - SQL
+categories:
+  - - SQL
 mathjax: true
 copyright: true
+abbrlink: 68d55db1
+date: 2021-04-16 23:32:10
 ---
 
 转载：https://mp.weixin.qq.com/s/EbdgRbGBgzzRa2pET-6qRA

@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（十一）
-date: 2021-05-02 09:59:12
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: a2f332aa
+date: 2021-05-02 09:59:12
 ---
 
 ## 1.类的结构：代码块（初始化块）

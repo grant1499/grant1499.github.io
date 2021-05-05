@@ -1,11 +1,13 @@
 ---
 title: Latex常用语法总结
-date: 2021-02-23 23:12:43
-tags: [Latex]
-categories: 
-	- Latex
+tags:
+  - Latex
+categories:
+  - Latex
 mathjax: true
 copyright: true
+abbrlink: fcaedc74
+date: 2021-02-23 23:12:43
 ---
 
 文章开头加上一句：`mathjax: true`，即可启动Latex渲染。

@@ -1,11 +1,13 @@
 ---
 title: MySQL学习笔记（三）
-date: 2021-05-04 16:56:01
-tags: [SQL]
-categories: 
-	- [SQL]
+tags:
+  - SQL
+categories:
+  - - SQL
 mathjax: true
 copyright: true
+abbrlink: 913e0d32
+date: 2021-05-04 16:56:01
 ---
 
 ## 1.创建数据库表

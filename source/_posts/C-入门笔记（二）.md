@@ -1,11 +1,14 @@
 ---
 title: C++入门笔记（二）
-date: 2021-02-24 07:04:01
-tags: [C++入门,OOP]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - OOP
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: 2ebc38dc
+date: 2021-02-24 07:04:01
 ---
 
 ## 1.内联函数

@@ -1,11 +1,13 @@
 ---
 title: Windows Termial使用及美化教程
-date: 2021-04-26 22:02:50
-tags: [Termial]
-categories: 
-	- [杂谈]
+tags:
+  - Termial
+categories:
+  - - 杂谈
 mathjax: true
 copyright: true
+abbrlink: b2e908af
+date: 2021-04-26 22:02:50
 ---
 
 参考自：https://blog.csdn.net/yuanlaijike/article/details/107599983

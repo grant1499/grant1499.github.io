@@ -1,11 +1,14 @@
 ---
 title: C++入门笔记（九）
-date: 2021-04-15 13:04:30
-tags: [C++入门,抽象类]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - 抽象类
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: 81b972f6
+date: 2021-04-15 13:04:30
 ---
 
 ## 1.纯虚函数与抽象类

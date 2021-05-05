@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（七）
-date: 2021-04-03 11:43:13
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: a4cff879
+date: 2021-04-03 11:43:13
 ---
 
 ## 1.方法和属性的可见性修饰符

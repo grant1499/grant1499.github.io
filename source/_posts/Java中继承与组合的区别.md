@@ -1,11 +1,13 @@
 ---
 title: Java中继承与组合的区别
-date: 2021-04-03 19:54:11
-tags: [Java知识详解]
-categories: 
-	- Java
+tags:
+  - Java知识详解
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: def2ac9d
+date: 2021-04-03 19:54:11
 ---
 
 组合和继承，是拿到一个问题，设计相应的Java类的时候，不得不面对的来自灵魂的拷问。

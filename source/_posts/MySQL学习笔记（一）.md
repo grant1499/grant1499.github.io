@@ -1,11 +1,13 @@
 ---
 title: MySQL学习笔记（一）
-date: 2021-05-03 10:58:53
-tags: [SQL]
-categories: 
-	- [SQL]
+tags:
+  - SQL
+categories:
+  - - SQL
 mathjax: true
 copyright: true
+abbrlink: ec3642b8
+date: 2021-05-03 10:58:53
 ---
 
 ## 1.什么是数据库？

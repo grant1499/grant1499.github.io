@@ -1,11 +1,15 @@
 ---
 title: C++入门笔记（十一）
-date: 2021-04-16 22:29:31
-tags: [C++入门,异常,IO流]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - 异常
+  - IO流
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: cbdb2df7
+date: 2021-04-16 22:29:31
 ---
 
 ## 1.异常处理

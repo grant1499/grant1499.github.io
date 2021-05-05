@@ -1,11 +1,14 @@
 ---
 title: C++入门笔记（六）
-date: 2021-03-26 22:01:32
-tags: [C++入门,多态]
-categories: 
-	- C++
+tags:
+  - C++入门
+  - 多态
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: de1f0c75
+date: 2021-03-26 22:01:32
 ---
 
 ## 1.虚基类

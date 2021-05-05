@@ -1,10 +1,11 @@
 ---
 title: C++的输入输出速度比较
-date: 2021-03-11 22:54:35
-categories: 
-	- [C++]
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: 48fab36
+date: 2021-03-11 22:54:35
 ---
 
 下面对C++中的一些常用输入输出方式速度进行比较。

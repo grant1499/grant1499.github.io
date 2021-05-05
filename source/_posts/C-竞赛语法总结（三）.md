@@ -1,12 +1,14 @@
 ---
 title: C++竞赛语法总结（三）
-date: 2021-02-24 07:02:20
-tags: [竞赛语法]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 2e9f4c85
+date: 2021-02-24 07:02:20
 ---
 
 ## 1.scanf()函数

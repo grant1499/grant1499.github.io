@@ -1,13 +1,15 @@
 ---
 title: 排序算法（C++实现）
-date: 2021-03-10 16:42:18
-tags: [排序]
-categories: 
-	- [C++]
-	- [算法]
-	- [Java]
+tags:
+  - 排序
+categories:
+  - - C++
+  - - 算法
+  - - Java
 mathjax: true
 copyright: true
+abbrlink: 578803b6
+date: 2021-03-10 16:42:18
 ---
 
 # 初等排序算法

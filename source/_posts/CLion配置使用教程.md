@@ -1,11 +1,13 @@
 ---
 title: CLion配置使用教程
-date: 2021-04-18 12:16:18
-tags: [CLion]
-categories: 
-	- [杂谈]
+tags:
+  - CLion
+categories:
+  - - 杂谈
 mathjax: true
 copyright: true
+abbrlink: 9869850b
+date: 2021-04-18 12:16:18
 ---
 
 ## CLion配置使用教程

@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（八）
-date: 2021-04-03 16:13:08
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 53a4d03a
+date: 2021-04-03 16:13:08
 ---
 
 ## 1.System类不简单

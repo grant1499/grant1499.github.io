@@ -1,12 +1,15 @@
 ---
 title: C++竞赛语法总结（五）
-date: 2021-02-24 07:02:48
-tags: [竞赛语法,递归]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - 递归
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: f62c90a7
+date: 2021-02-24 07:02:48
 ---
 
 ## 1.acwing.779.最长公共字符串后缀

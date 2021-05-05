@@ -1,11 +1,13 @@
 ---
 title: Python入门笔记（三）
-date: 2021-02-24 07:05:22
-tags: [Python入门]
-categories: 
-	- Python
+tags:
+  - Python入门
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: 2d9abb64
+date: 2021-02-24 07:05:22
 ---
 
 ## 1.函数

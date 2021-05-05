@@ -1,11 +1,14 @@
 ---
 title: Jupyter notebook快速入门笔记
-date: 2021-03-06 22:15:18
-tags: [Jupyter notebook,数据分析]
-categories: 
-	- [Python]
+tags:
+  - Jupyter notebook
+  - 数据分析
+categories:
+  - - Python
 mathjax: true
 copyright: true
+abbrlink: c4bef09b
+date: 2021-03-06 22:15:18
 ---
 
 Jupyter notebook是用python进行数据科学、机器学习的必备工具。

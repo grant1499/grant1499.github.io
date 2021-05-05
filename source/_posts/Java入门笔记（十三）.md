@@ -1,11 +1,14 @@
 ---
 title: Java入门笔记（十三）
-date: 2021-05-02 21:06:29
-tags: [Java入门,注解]
-categories: 
-	- Java
+tags:
+  - Java入门
+  - 注解
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: dffb7d20
+date: 2021-05-02 21:06:29
 ---
 
 ## 1.BigInteger类和BigDecimal类

@@ -1,11 +1,13 @@
 ---
 title: Python入门笔记（一）
-date: 2021-02-24 07:04:58
-tags: [Python入门]
-categories: 
-	- Python
+tags:
+  - Python入门
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: 5092f4ee
+date: 2021-02-24 07:04:58
 ---
 
 ##### 1.多行语句

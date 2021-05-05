@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（十）
-date: 2021-04-04 13:04:00
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: ac5bd4a1
+date: 2021-04-04 13:04:00
 ---
 
 ## 1.包装类 (Wrapper) 的使用

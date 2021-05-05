@@ -1,11 +1,13 @@
 ---
 title: C++入门笔记（一）
-date: 2021-02-24 07:03:50
-tags: [C++入门]
-categories: 
-	- C++
+tags:
+  - C++入门
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: 1eaad404
+date: 2021-02-24 07:03:50
 ---
 
 ## 1.头文件的防卫式声明

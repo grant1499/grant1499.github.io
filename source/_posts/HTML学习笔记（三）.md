@@ -1,11 +1,13 @@
 ---
 title: HTML学习笔记（三）
-date: 2021-05-04 22:16:11
-tags: [HTML]
-categories: 
-	- [HTML]
+tags:
+  - HTML
+categories:
+  - - HTML
 mathjax: true
 copyright: true
+abbrlink: f65a6d6b
+date: 2021-05-04 22:16:11
 ---
 
 ## 1.页面结构分析

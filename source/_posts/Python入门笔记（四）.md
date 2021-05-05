@@ -1,11 +1,14 @@
 ---
 title: Python入门笔记（四）
-date: 2021-02-24 07:05:31
-tags: [Python入门,Python库]
-categories: 
-	- Python
+tags:
+  - Python入门
+  - Python库
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: 9ab7a201
+date: 2021-02-24 07:05:31
 ---
 
 ## 1.小练习

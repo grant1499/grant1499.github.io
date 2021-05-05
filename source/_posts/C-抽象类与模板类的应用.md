@@ -1,11 +1,14 @@
 ---
 title: C++抽象类与模板类的应用
-date: 2021-04-21 23:31:39
-tags: [模板,抽象类]
-categories: 
-	- [C++]
+tags:
+  - 模板
+  - 抽象类
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: 633af201
+date: 2021-04-21 23:31:39
 ---
 
 ## 1.抽象类的应用

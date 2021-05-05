@@ -1,11 +1,14 @@
 ---
 title: Java入门笔记（四）
-date: 2021-02-27 11:38:26
-tags: [Java入门,OOP]
-categories: 
-	- Java
+tags:
+  - Java入门
+  - OOP
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 7c5f0178
+date: 2021-02-27 11:38:26
 ---
 
 ## 1.数组的拓展

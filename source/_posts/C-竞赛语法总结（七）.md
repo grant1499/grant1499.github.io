@@ -1,12 +1,16 @@
 ---
 title: C++竞赛语法总结（七）
-date: 2021-02-24 07:03:06
-tags: [竞赛语法,链表,STL]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - 链表
+  - STL
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: 4122ace1
+date: 2021-02-24 07:03:06
 ---
 
 ## 1.acwing.66.两个链表的第一个公共结点

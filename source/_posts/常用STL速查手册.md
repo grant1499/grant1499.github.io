@@ -1,11 +1,13 @@
 ---
 title: 常用STL速查手册
-date: 2021-03-16 21:10:09
-tags: [STL]
-categories: 
-	- [C++]
+tags:
+  - STL
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: a70a6c57
+date: 2021-03-16 21:10:09
 ---
 
 作者：自豪的澡巾QAQ

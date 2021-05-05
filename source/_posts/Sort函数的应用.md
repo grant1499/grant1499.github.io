@@ -1,11 +1,13 @@
 ---
 title: Sort函数的应用
-date: 2021-03-23 22:00:11
-tags: [排序]
-categories: 
-	- [C++]
+tags:
+  - 排序
+categories:
+  - - C++
 mathjax: true
 copyright: true
+abbrlink: e6c1070a
+date: 2021-03-23 22:00:11
 ---
 
 ## PAT 甲级 1025

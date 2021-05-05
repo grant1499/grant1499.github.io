@@ -1,11 +1,13 @@
 ---
 title: MySQL学习笔记（二）
-date: 2021-05-03 13:41:39
-tags: [SQL]
-categories: 
-	- [SQL]
+tags:
+  - SQL
+categories:
+  - - SQL
 mathjax: true
 copyright: true
+abbrlink: dc20ae60
+date: 2021-05-03 13:41:39
 ---
 
 ## 1.操作数据库（了解）

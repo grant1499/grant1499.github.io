@@ -1,11 +1,13 @@
 ---
 title: C++入门笔记（五）
-date: 2021-03-26 19:56:25
-tags: [C++入门]
-categories: 
-	- C++
+tags:
+  - C++入门
+categories:
+  - C++
 mathjax: true
 copyright: true
+abbrlink: bb1147ac
+date: 2021-03-26 19:56:25
 ---
 
 ## 1常类型

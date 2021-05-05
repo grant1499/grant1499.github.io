@@ -1,11 +1,13 @@
 ---
 title: Java中的对象与对象引用
-date: 2021-04-03 09:11:13
-tags: [Java知识详解]
-categories: 
-	- Java
+tags:
+  - Java知识详解
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: c24ed739
+date: 2021-04-03 09:11:13
 ---
 
 ## 对象和对象引用的区别

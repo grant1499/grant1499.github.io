@@ -21,7 +21,8 @@ favicon:
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://grant1499.github.io
-permalink: :year/:month/:day/:title/
+#文章使用固定链接
+permalink: posts/:abbrlink.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -39,6 +40,12 @@ encrypt: # hexo-blog-encrypt
   wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
+# abbrlink config
+abbrlink:
+  auto_category: 
+    enable: false
+  alg: crc32  #support crc16(default) and crc32
+  rep: hex    #support dec(default) and hex
 
 # Directory
 source_dir: source

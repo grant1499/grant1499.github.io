@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（一）
-date: 2021-02-24 07:04:32
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: b67a5797
+date: 2021-02-24 07:04:32
 ---
 
 ## 1.java简介

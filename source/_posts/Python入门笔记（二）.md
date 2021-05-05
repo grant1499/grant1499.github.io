@@ -1,11 +1,13 @@
 ---
 title: Python入门笔记（二）
-date: 2021-02-24 07:05:12
-tags: [Python入门]
-categories: 
-	- Python
+tags:
+  - Python入门
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: '60841836'
+date: 2021-02-24 07:05:12
 ---
 
 ## 1.进阶赋值方法

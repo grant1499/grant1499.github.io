@@ -1,11 +1,14 @@
 ---
 title: Java入门笔记（十四）
-date: 2021-05-03 10:20:41
-tags: [Java入门,集合]
-categories: 
-	- Java
+tags:
+  - Java入门
+  - 集合
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 68d66445
+date: 2021-05-03 10:20:41
 ---
 
 ## 1.集合框架概述

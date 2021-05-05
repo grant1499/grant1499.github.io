@@ -1,12 +1,18 @@
 ---
 title: C++竞赛语法总结（九）
-date: 2021-02-24 07:03:28
-tags: [竞赛语法,库函数,STL,位运算,栈实现队列]
-categories: 
-	- [C++]
-	- [算法]
+tags:
+  - 竞赛语法
+  - 库函数
+  - STL
+  - 位运算
+  - 栈实现队列
+categories:
+  - - C++
+  - - 算法
 mathjax: true
 copyright: true
+abbrlink: cc84a5fd
+date: 2021-02-24 07:03:28
 ---
 
 ## 1.常用库函数

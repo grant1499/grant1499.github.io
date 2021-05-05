@@ -1,11 +1,13 @@
 ---
 title: Python入门笔记（六）
-date: 2021-03-16 19:17:57
-tags: [Python入门]
-categories: 
-	- Python
+tags:
+  - Python入门
+categories:
+  - Python
 mathjax: true
 copyright: true
+abbrlink: 90272c9f
+date: 2021-03-16 19:17:57
 ---
 
 ## 1.列表作为函数参数的例子

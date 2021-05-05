@@ -1,11 +1,13 @@
 ---
 title: Java入门笔记（十二）
-date: 2021-05-02 16:29:45
-tags: [Java入门]
-categories: 
-	- Java
+tags:
+  - Java入门
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 92e5de72
+date: 2021-05-02 16:29:45
 ---
 
 ## 1.JDK8中新日期时间API

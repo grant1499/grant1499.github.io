@@ -1,11 +1,13 @@
 ---
 title: Matlab快速入门笔记
-date: 2021-03-07 19:48:41
-tags: [Matlab入门]
-categories: 
-	- [Matlab]
+tags:
+  - Matlab入门
+categories:
+  - - Matlab
 mathjax: true
 copyright: true
+abbrlink: 284e5fc1
+date: 2021-03-07 19:48:41
 ---
 
 ## 1.初始Matlab

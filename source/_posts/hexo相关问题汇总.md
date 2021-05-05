@@ -1,11 +1,13 @@
 ---
 title: hexo相关问题汇总
-date: 2021-03-21 20:20:37
-tags: [hexo]
-categories: 
-	- [杂谈]
+tags:
+  - hexo
+categories:
+  - - 杂谈
 mathjax: true
 copyright: true
+abbrlink: ec93326a
+date: 2021-03-21 20:20:37
 ---
 
 > 本文将介绍总结一些hexo的常见/不常见/棘手问题的解决方法。
@@ -82,3 +84,42 @@ https://blog.csdn.net/qq_41793001/article/details/103151182
 ## 10.添加打赏功能：
 
 参考https://www.dazhuanlan.com/2020/01/20/5e25021a447f6/
+
+## 11.hexo d时网络不稳定
+
+当执行`hexo d`命令时出现如下错误时，OpenSSL SSL_read: Connection was aborted, errno 10053...
+
+参考解决方案：https://blog.csdn.net/weixin_43945983/article/details/110882074
+
+先执行`git config --global http.sslVerify "false"`命令，再执行`hexo d`就行了。
+
+## 12.文章生成永久化链接
+
+参考：https://blog.csdn.net/u011063477/article/details/105929290/
+
+安装hexo-abbrlink插件
+
+```shell
+npm install hexo-abbrlink --save
+```
+
+站点配置文件(_config.yml)里:
+
+```yml
+permalink: post/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+```
+
+先使用`hexo c && hexo g`，清除缓存，重新生成，再使用`hexo g`会自动在你的文章中加上`abbrlink: fbf5310d`。
+
+如果打开网站发现打开不同文章都会重定向到一篇文章，而且都会出现undefined.html，说明没有清除缓存。
+
+图像不显示问题：https://www.pianshen.com/article/65241119972/
+
+如果还是不显示，就`hexo s`，在md文件中先删除`![picture](arctile/image.jpg)`其中的`arctile/`，再粘贴回去，在浏览器刷新一下就能看到了。（PS：一篇文章有多张图片时只要第一张这样做就行了）
+
+个人无意中发现的，原理不清楚。可能是插入图片时会自动把文章同名目录下的图片设定为相对路径，不需要加上文章同名的上一级目录。
+
+一顿操作下来，不断CV，我手都摁麻了。

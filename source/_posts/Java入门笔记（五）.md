@@ -1,11 +1,14 @@
 ---
 title: Java入门笔记（五）
-date: 2021-03-05 17:15:15
-tags: [Java入门,OOP]
-categories: 
-	- Java
+tags:
+  - Java入门
+  - OOP
+categories:
+  - Java
 mathjax: true
 copyright: true
+abbrlink: 13c1c43f
+date: 2021-03-05 17:15:15
 ---
 
 ## 1.方法重写（覆盖）（非常重要）
