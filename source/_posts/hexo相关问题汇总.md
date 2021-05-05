@@ -92,7 +92,7 @@ https://blog.csdn.net/qq_41793001/article/details/103151182
 参考解决方案：https://blog.csdn.net/weixin_43945983/article/details/110882074
 
 先执行`git config --global http.sslVerify "false"`命令，再执行`hexo d`就行了。
-
+如果还有错，多试几次，网络不好。
 ## 12.文章生成永久化链接
 
 参考：https://blog.csdn.net/u011063477/article/details/105929290/
