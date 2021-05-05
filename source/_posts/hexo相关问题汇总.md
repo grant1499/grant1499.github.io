@@ -93,6 +93,7 @@ https://blog.csdn.net/qq_41793001/article/details/103151182
 
 先执行`git config --global http.sslVerify "false"`命令，再执行`hexo d`就行了。
 如果还有错，多试几次，网络不好。
+
 ## 12.文章生成永久化链接
 
 参考：https://blog.csdn.net/u011063477/article/details/105929290/
@@ -122,4 +123,28 @@ abbrlink:
 
 个人无意中发现的，原理不清楚。可能是插入图片时会自动把文章同名目录下的图片设定为相对路径，不需要加上文章同名的上一级目录。
 
-一顿操作下来，不断CV，我手都摁麻了。
+一顿操作下来，不停CV，我手都摁麻了。
+
+## 14.购买域名与绑定域名
+
+处理域名花了我一下午功夫，事情起因是我突然想着要不要买个域名玩玩，然后去B站搜了一下，发现一个UP做的系列视频，觉得讲得还不错，推荐给大家。
+
+视频地址：https://www.bilibili.com/video/BV18a4y1Y7e9?share_source=copy_web
+
+我是在阿里云买的域名，其实腾讯云也还不错。一次性买了三年，花了不到100软妹币。
+
+参考教程：
+
+https://noshore.cn/shuangxianbushu.html#2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90
+
+其实我更推荐看腾讯云的官方文档，看不懂的话还有人工客服。因为博客的内容毕竟不是最新的，而且不一定适合所有人。
+
+折腾老半天最后还是成功了。
+
+https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。
+
+以后用`hexo d -g`进行双线部署。
+
+## 15.配置域名后评论区出现code403
+
+参考：https://blog.csdn.net/weixin_43868299/article/details/107601150

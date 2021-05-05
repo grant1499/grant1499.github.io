@@ -20,7 +20,8 @@ favicon:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://grant1499.github.io
+#url: https://grant1499.github.io
+url: https://www.grantdrew.top
 #文章使用固定链接
 permalink: posts/:abbrlink.html
 permalink_defaults:
