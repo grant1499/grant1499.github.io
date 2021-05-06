@@ -5454,7 +5454,7 @@
   <entry>
     <title>hexo相关问题汇总</title>
     <url>/posts/ec93326a.html</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>本文将介绍总结一些hexo的常见/不常见/棘手问题的解决方法。</p>
 </blockquote>
 <span id="more"></span>
@@ -5515,7 +5515,21 @@
 <p>折腾老半天最后还是成功了。</p>
 <p><a href="https://www.grantdrew.top/%E5%92%8Chttp://www.grantdrew.top/%E9%83%BD%E8%83%BD%E8%AE%BF%E9%97%AE%E5%BD%93%E5%89%8D%E7%AB%99%E7%82%B9%E3%80%82">https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。</a></p>
 <p>以后用<code>hexo d -g</code>进行双线部署。</p>
+<p>tips：绑定域名后访问量将清零！</p>
 <h2 id="15-配置域名后评论区出现code403"><a href="#15-配置域名后评论区出现code403" class="headerlink" title="15.配置域名后评论区出现code403"></a>15.配置域名后评论区出现code403</h2><p>参考：<a href="https://blog.csdn.net/weixin_43868299/article/details/107601150">https://blog.csdn.net/weixin_43868299/article/details/107601150</a></p>
+<h2 id="16-hexo增加展示PDF功能"><a href="#16-hexo增加展示PDF功能" class="headerlink" title="16.hexo增加展示PDF功能"></a>16.hexo增加展示PDF功能</h2><p><a href="https://blog.csdn.net/qq_43827595/article/details/104574959">https://blog.csdn.net/qq_43827595/article/details/104574959</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% pdf /file/LeetCodeGuide.pdf %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这么写就行--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>记得在next主题下的配置文件搜索pdf把enable设置为true。</p>
+<p>测试效果图：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--测试代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">&quot;/file/LeetCodeGuide.pdf&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;750&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/pdf&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/ec93326a/image-20210506135934554.png" alt="image-20210506135934554"></p>
+<p>经测试发现如果设置width=”105%”会刚好贴到文章右边框，再宽就不合适了。</p>
+<h2 id="17-插入音乐之aplayer音乐播放器"><a href="#17-插入音乐之aplayer音乐播放器" class="headerlink" title="17.插入音乐之aplayer音乐播放器"></a>17.插入音乐之aplayer音乐播放器</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 方案一</span><br><span class="line"><span class="comment">&lt;!-- 音乐播放器 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">          &#123;% if theme.background_music %&#125;</span><br><span class="line">              <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; theme.background_music &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">          &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//将上面代码插入themes\next\layout\_macro\sidebar.swig inner的后面</span><br><span class="line">// 方案二，插入同样位置</span><br><span class="line"><span class="comment">&lt;!--网易云插件--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require MetingJS--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!--网易云--&gt;</span>   </span><br><span class="line">    &lt;meting-js</span><br><span class="line">      server=&quot;netease&quot;</span><br><span class="line">      id=&quot;4916164702&quot;</span><br><span class="line">	    type=&quot;playlist&quot; </span><br><span class="line">	    mini=&quot;false&quot;</span><br><span class="line">      fixed=&quot;false&quot;</span><br><span class="line">      list-folded=&quot;true&quot;</span><br><span class="line">      autoplay=&quot;false&quot;</span><br><span class="line">      volume=&quot;0.4&quot;</span><br><span class="line">      theme=&quot;#FADFA3&quot;</span><br><span class="line">      order=&quot;random&quot;</span><br><span class="line">	    loop=&quot;all&quot;</span><br><span class="line">      preload=&quot;auto&quot;</span><br><span class="line">      mutex=&quot;true&quot;&gt;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可能要等待一会才会在侧边栏看到效果。</p>
+<p><img src="/posts/ec93326a/image-20210506145254977.png" alt="image-20210506145254977"></p>
 ]]></content>
       <categories>
         <category>杂谈</category>
@@ -8092,5 +8106,14 @@
       <tags>
         <tag>计算机组成原理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Leetcode刷题笔记</title>
+    <url>/posts/2b46d45c.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><span id="more"></span>
+
+<!-- 第一种方式，可调整pdf显示的大小，比较灵活 --> 
+
+<embed src="/file/LeetCodeGuide.pdf" width="105%" height="750" type="application/pdf">]]></content>
   </entry>
 </search>

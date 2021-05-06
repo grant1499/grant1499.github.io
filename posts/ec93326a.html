@@ -27,8 +27,10 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210321201346184.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210321201521647.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210321201725486.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210506135934554.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210506145254977.png">
 <meta property="article:published_time" content="2021-03-21T12:20:37.000Z">
-<meta property="article:modified_time" content="2021-05-05T13:35:07.632Z">
+<meta property="article:modified_time" content="2021-05-06T06:52:56.712Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -138,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">114</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">115</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 21:35:07" itemprop="dateModified" datetime="2021-05-05T21:35:07+08:00">2021-05-05</time>
+                <time title="修改时间：2021-05-06 14:52:56" itemprop="dateModified" datetime="2021-05-06T14:52:56+08:00">2021-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,14 +262,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -340,7 +342,21 @@
 <p>折腾老半天最后还是成功了。</p>
 <p><a href="https://www.grantdrew.top/%E5%92%8Chttp://www.grantdrew.top/%E9%83%BD%E8%83%BD%E8%AE%BF%E9%97%AE%E5%BD%93%E5%89%8D%E7%AB%99%E7%82%B9%E3%80%82">https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。</a></p>
 <p>以后用<code>hexo d -g</code>进行双线部署。</p>
+<p>tips：绑定域名后访问量将清零！</p>
 <h2 id="15-配置域名后评论区出现code403"><a href="#15-配置域名后评论区出现code403" class="headerlink" title="15.配置域名后评论区出现code403"></a>15.配置域名后评论区出现code403</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43868299/article/details/107601150">https://blog.csdn.net/weixin_43868299/article/details/107601150</a></p>
+<h2 id="16-hexo增加展示PDF功能"><a href="#16-hexo增加展示PDF功能" class="headerlink" title="16.hexo增加展示PDF功能"></a>16.hexo增加展示PDF功能</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43827595/article/details/104574959">https://blog.csdn.net/qq_43827595/article/details/104574959</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% pdf /file/LeetCodeGuide.pdf %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这么写就行--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>记得在next主题下的配置文件搜索pdf把enable设置为true。</p>
+<p>测试效果图：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--测试代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">&quot;/file/LeetCodeGuide.pdf&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;750&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/pdf&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/posts/ec93326a/image-20210506135934554.png" alt="image-20210506135934554"></p>
+<p>经测试发现如果设置width=”105%”会刚好贴到文章右边框，再宽就不合适了。</p>
+<h2 id="17-插入音乐之aplayer音乐播放器"><a href="#17-插入音乐之aplayer音乐播放器" class="headerlink" title="17.插入音乐之aplayer音乐播放器"></a>17.插入音乐之aplayer音乐播放器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 方案一</span><br><span class="line"><span class="comment">&lt;!-- 音乐播放器 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">          &#123;% if theme.background_music %&#125;</span><br><span class="line">              <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; theme.background_music &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">          &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//将上面代码插入themes\next\layout\_macro\sidebar.swig inner的后面</span><br><span class="line">// 方案二，插入同样位置</span><br><span class="line"><span class="comment">&lt;!--网易云插件--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require MetingJS--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!--网易云--&gt;</span>   </span><br><span class="line">    &lt;meting-js</span><br><span class="line">      server=&quot;netease&quot;</span><br><span class="line">      id=&quot;4916164702&quot;</span><br><span class="line">	    type=&quot;playlist&quot; </span><br><span class="line">	    mini=&quot;false&quot;</span><br><span class="line">      fixed=&quot;false&quot;</span><br><span class="line">      list-folded=&quot;true&quot;</span><br><span class="line">      autoplay=&quot;false&quot;</span><br><span class="line">      volume=&quot;0.4&quot;</span><br><span class="line">      theme=&quot;#FADFA3&quot;</span><br><span class="line">      order=&quot;random&quot;</span><br><span class="line">	    loop=&quot;all&quot;</span><br><span class="line">      preload=&quot;auto&quot;</span><br><span class="line">      mutex=&quot;true&quot;&gt;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可能要等待一会才会在侧边栏看到效果。</p>
+<p><img src="/posts/ec93326a/image-20210506145254977.png" alt="image-20210506145254977"></p>
 
     </div>
 
@@ -452,6 +468,29 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
+    <!--网易云插件-->
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="4916164702"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
           文章目录
@@ -460,10 +499,12 @@
           站点概览
         </li>
       </ul>
+      
+      
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">1.插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="nav-text">2.文章摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3busuanzi%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E5%BF%85%E7%9C%8B"><span class="nav-text">3.解决busuanzi不显示问题必看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-hexo-s%E6%9C%AC%E5%9C%B0%E6%A0%B7%E5%BC%8F%E4%B8%8E%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%9F"><span class="nav-text">4.hexo s本地样式与网页样式不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-markdown%E8%AF%AD%E6%B3%95%E9%80%9F%E6%88%90%E5%AE%9D%E5%85%B8"><span class="nav-text">5.markdown语法速成宝典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8E%A8%E8%8D%90hexo%E6%90%AD%E5%BB%BA%E6%96%87%E7%AB%A0%EF%BC%9A"><span class="nav-text">6.推荐hexo搭建文章：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-text">7.使用插件备份博客源文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8Valine%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="nav-text">8.hexo博客使用Valine添加评论系统：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-text">9.文章加密处理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">10.添加打赏功能：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-hexo-d%E6%97%B6%E7%BD%91%E7%BB%9C%E4%B8%8D%E7%A8%B3%E5%AE%9A"><span class="nav-text">11.hexo d时网络不稳定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E6%B0%B8%E4%B9%85%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">12.文章生成永久化链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D%E4%B8%8E%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-text">14.购买域名与绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E5%90%8E%E8%AF%84%E8%AE%BA%E5%8C%BA%E5%87%BA%E7%8E%B0code403"><span class="nav-text">15.配置域名后评论区出现code403</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">1.插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="nav-text">2.文章摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3busuanzi%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E5%BF%85%E7%9C%8B"><span class="nav-text">3.解决busuanzi不显示问题必看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-hexo-s%E6%9C%AC%E5%9C%B0%E6%A0%B7%E5%BC%8F%E4%B8%8E%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%9F"><span class="nav-text">4.hexo s本地样式与网页样式不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-markdown%E8%AF%AD%E6%B3%95%E9%80%9F%E6%88%90%E5%AE%9D%E5%85%B8"><span class="nav-text">5.markdown语法速成宝典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8E%A8%E8%8D%90hexo%E6%90%AD%E5%BB%BA%E6%96%87%E7%AB%A0%EF%BC%9A"><span class="nav-text">6.推荐hexo搭建文章：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-text">7.使用插件备份博客源文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8Valine%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="nav-text">8.hexo博客使用Valine添加评论系统：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-text">9.文章加密处理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">10.添加打赏功能：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-hexo-d%E6%97%B6%E7%BD%91%E7%BB%9C%E4%B8%8D%E7%A8%B3%E5%AE%9A"><span class="nav-text">11.hexo d时网络不稳定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E6%B0%B8%E4%B9%85%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">12.文章生成永久化链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D%E4%B8%8E%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-text">14.购买域名与绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E5%90%8E%E8%AF%84%E8%AE%BA%E5%8C%BA%E5%87%BA%E7%8E%B0code403"><span class="nav-text">15.配置域名后评论区出现code403</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-hexo%E5%A2%9E%E5%8A%A0%E5%B1%95%E7%A4%BAPDF%E5%8A%9F%E8%83%BD"><span class="nav-text">16.hexo增加展示PDF功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E4%B9%8Baplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-text">17.插入音乐之aplayer音乐播放器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,7 +520,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -541,13 +582,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">359k</span>
+    <span title="站点总字数">361k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:27</span>
+    <span title="站点阅读时长">5:28</span>
 </div>
 
 <span id="sitetime"></span>
@@ -652,6 +693,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
