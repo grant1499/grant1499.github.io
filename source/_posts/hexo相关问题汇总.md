@@ -145,6 +145,80 @@ https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点�
 
 以后用`hexo d -g`进行双线部署。
 
+tips：绑定域名后访问量将清零！
+
+注意：执行`hexo d -g`时coding的用户名时你的邮箱或者手机号，输入密码时光标不会动。
+
+![image-20210506145942386](hexo相关问题汇总/image-20210506145942386.png)
+
 ## 15.配置域名后评论区出现code403
 
 参考：https://blog.csdn.net/weixin_43868299/article/details/107601150
+
+## 16.hexo增加展示PDF功能
+
+https://blog.csdn.net/qq_43827595/article/details/104574959
+
+```html
+<br>
+
+{% pdf /file/LeetCodeGuide.pdf %}
+
+<br>
+<!-- 这么写就行-->
+```
+
+记得在next主题下的配置文件搜索pdf把enable设置为true。
+
+测试效果图：
+
+```html
+<!--测试代码-->
+<embed src="/file/LeetCodeGuide.pdf" width="100%" height="750" type="application/pdf">
+```
+
+![image-20210506135934554](hexo相关问题汇总/image-20210506135934554.png)
+
+经测试发现如果设置width="105%"会刚好贴到文章右边框，再宽就不合适了。
+
+## 17.插入音乐之aplayer音乐播放器
+
+参考：https://blog.csdn.net/qq_45533937/article/details/105496572
+
+```html
+// 方案一
+<!-- 音乐播放器 -->
+      <div>
+          {% if theme.background_music %}
+              <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="{{ theme.background_music }}"></iframe>
+          {% endif %}
+      </div>
+//将上面代码插入themes\next\layout\_macro\sidebar.swig inner的后面
+// 方案二，插入同样位置
+<!--网易云插件-->
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="4916164702"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+```
+
+可能要等待一会才会在侧边栏看到效果。
+
+![image-20210506145254977](hexo相关问题汇总/image-20210506145254977.png)
