@@ -205,15 +205,15 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
     <meting-js
       server="netease"
       id="4916164702"
-	    type="playlist" 
-	    mini="false"
+	   type="playlist" 
+	   mini="false"
       fixed="false"
       list-folded="true"
       autoplay="false"
       volume="0.4"
       theme="#FADFA3"
       order="random"
-	    loop="all"
+	  loop="all"
       preload="auto"
       mutex="true">
     </meting-js>
@@ -221,4 +221,30 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
 
 可能要等待一会才会在侧边栏看到效果。
 
+注意：私有收藏歌单不能播放！
+
+有时候可能会出现渲染出错，导致侧边栏出现堆html代码，只要`hexo c && hexo g`，再重新`hexo s`就行了。
+
 ![image-20210506145254977](hexo相关问题汇总/image-20210506145254977.png)
+
+直接在网易云中分享歌曲或歌单，选择复制链接就能看到id。
+
+| 选项            | 默认值     | 功能描述                                                    |
+| :-------------- | :--------- | :---------------------------------------------------------- |
+| id              | **必须值** | 歌曲 id / 播放列表 id / 相册 id / 搜索关键字                |
+| server          | **必须值** | 音乐平台: `netease`, `tencent`, `kugou`, `xiami`, `baidu`   |
+| type            | **必须值** | `song`, `playlist`, `album`, `search`, `artist              |
+| auto            | options    | music link, support: `netease`, `tencent`, `xiami`          |
+| fixed           | `false`    | 开启固定模式                                                |
+| mini            | `false`    | 开启迷你模式                                                |
+| autoplay        | `false`    | 自动播放，移动端浏览器暂时不支持此功能                      |
+| theme           | `#2980b9`  | 播放器风格色彩设置                                          |
+| loop            | `all`      | 列表循环模式：`all`, `one`,`none`                           |
+| order           | `list`     | 列表播放模式： `list`, `random`                             |
+| preload         | `auto`     | 音乐文件预载入模式，可选项： `none`, `metadata`, `auto`     |
+| volume          | `0.7`      | 播放器音量                                                  |
+| mutex           | `true`     | 该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停 |
+| lrc-type        | `0`        | lyric type                                                  |
+| list-folded     | `false`    | 歌词格式类型                                                |
+| list-max-height | `340px`    | 播放列表的最大长度                                          |
+| storage-name    | `metingjs` | LocalStorage 中存储播放器设定的键名                         |

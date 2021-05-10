@@ -89,3 +89,6 @@ while data:
     data = input()
 ```
 
+==100-days04.循环结构，开始看130道字符串内置方法==
+
+https://github.com/jackfrued/Python-100-Days

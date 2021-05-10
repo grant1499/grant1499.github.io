@@ -8,7 +8,6 @@
   <aside class="sidebar">
     <div class="sidebar-inner">
 
-    <!--网易云插件-->
     <!-- require APlayer -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
@@ -17,7 +16,7 @@
     <!--网易云-->   
     <meting-js
       server="netease"
-      id="4916164702"
+      id="6745862996"
 	    type="playlist" 
 	    mini="false"
       fixed="false"

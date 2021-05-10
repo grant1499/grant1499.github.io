@@ -373,7 +373,3 @@ for i in ls:
 f_name.close()
 f_card.close()
 ```
-
-
-
-==100-days04.循环结构，开始看130道字符串内置方法==

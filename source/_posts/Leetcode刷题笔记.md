@@ -3,6 +3,12 @@ title: Leetcode刷题笔记
 abbrlink: 2b46d45c
 date: 2021-05-06 13:18:20
 tags:
+  - C++
+categories:
+  - - C++
+  - - 算法
+mathjax: true
+copyright: true
 ---
 <!--more-->
 
