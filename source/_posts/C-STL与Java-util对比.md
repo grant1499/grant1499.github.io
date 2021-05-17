@@ -87,11 +87,6 @@ deque, 双端队列
    push_front()/pop_front() - offerFirst()/pollFirst()
    begin()/end() - iterator()
    []
-
-作者：我要番茄锅
-链接：https://www.acwing.com/blog/content/2180/
-来源：AcWing
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 
 ### 5.priority_queue 和 PriorityQueue

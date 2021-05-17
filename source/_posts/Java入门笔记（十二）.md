@@ -194,7 +194,7 @@ public class CompareTest {
     public static void main(String[] args) {
         String[] arr = new String[]{"As","cd","sd1","12"};
         //从大到小排序
-        Arrays.sort(arr,new Comparator(){
+        Arrays.sort(arr,new Comparator()){
             public int compare(Object o1,Object o2){
                 if(o1 instanceof String && o2 instanceof String){
                     String s1 = (String)o1;

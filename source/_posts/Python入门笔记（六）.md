@@ -89,6 +89,110 @@ while data:
     data = input()
 ```
 
+## 3.Python算法刷题
+
+一位python大佬：https://www.acwing.com/user/myspace/index/73331/
+
+输入输出模板参考：（特别详细）https://blog.csdn.net/weixin_44399621/article/details/105760997
+
+**对于输入：**
+
+常见的不同的输入格式：
+
+```Python
+5 2
+1 3 5 7 2
+m,n=map(int,input().strip().split())
+nums=list(map(int,input().strip().split()))
+```
+
+**对于输出：**
+
+python中最常用的输出是使用format格式。
+
+**二维数组初始化：**
+
+```python
+result_table=[[0 for i in range(4)] for i in range(5)]
+# 以下是把一个5行4列的数组初始化为0
+result_table=[[0 for i in range(4)] for i in range(5)]
+# 更简便的做法
+s = [0]*n
+```
+
+**标准化输入输出：**
+
+例题
+
+- 题目描述
+    计算a+b
+- 输入描述
+    输入包括两个正整数a,b(1<=a, b<=10^9)，输入数据包括多组。
+- 输出描述
+    输出a+b的结果
+
+```python
+输入样例：
+1 5
+10 20
+输出样例：
+6
+30 
+```
+
+```python
+# 解法1
+while 1:
+	try:
+		a,b = map(int, input().split())
+		print(a+b)
+	except:
+		break
+# 解法2
+import sys
+for line in sys.stdin:
+	if line == '\n':break
+	a,b = (int(i) for i in line.split())
+	result = a + b
+	sys.stdout.write("{}\n".format(result))
+# 解法3
+import sys
+for a in sys.stdin:
+	b = a.split()
+	print(int(b[0])+int(b[1]))
+# 解法4
+if __name__=="__main__":
+	while True:
+		try:
+			a,b = map(int,input(),split())
+			print(a + b)
+		except:
+			break
+```
+
+1. import语句
+
+    引入模块，import sys引入python**标准库**中的sys.py模块
+
+2. sys.stdin
+
+    - sys.stdin是一个标准化输入的方法。
+
+    - 使用sys.stdin.readline()可以实现标准输入，其中默认输入的格式是字符串，如果是int，float类型则需要强制转换。
+
+    - 与input()区别
+        sys.stdin.readline()会将标准输入全部获取，包括末尾的‘\n‘，因此用len计算长度时是把换行符’\n‘计算进去的，而input()获取输入时返回的结果是不包含末尾的换行符’\n‘的。
+        此外，input()括号内可以直接填写说明文字，例如：
+
+        `n = int(input('Please input a number:\n'))`
+
+3. 解法4解释
+
+    - `if __name__="__main__"`：
+        当.py文件被直接运行时，`if __name__="__main__"`之下的代码块将被运行；
+        当.py文件以模块形式被导入时，`if __name__="__main__"`之下的代码块不被运行。
+        个人理解：相当于程序入口，方便调用。
+
 ==100-days04.循环结构，开始看130道字符串内置方法==
 
 https://github.com/jackfrued/Python-100-Days

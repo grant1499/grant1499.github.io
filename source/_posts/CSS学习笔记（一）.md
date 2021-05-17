@@ -72,6 +72,7 @@ CSS1.0 -->
             声明2;
         }
 -->
+    <!--在html的style属性中写css代码-->
     <style>
         h1{
             color: brown;
@@ -100,6 +101,7 @@ html与css分离：建议使用这种格式
             声明2;
         }
 -->
+    <!--引用css代码-->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

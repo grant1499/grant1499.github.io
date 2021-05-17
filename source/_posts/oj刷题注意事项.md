@@ -63,4 +63,5 @@ for(int i=1;i<n;i++).//a[0]先输出了，故循环从1开始
 
 参考1：https://www.cnblogs.com/hx97/p/12347699.html
 
-参考2：我的转载文章[C++ STL与Java util对比](https://grant1499.github.io/2021/04/04/C-STL%E4%B8%8EJava-util%E5%AF%B9%E6%AF%94/)
+参考2：我的转载文章[C++ STL与Java util对比](https://www.grantdrew.top/posts/4c2b5dfd.html)
+
