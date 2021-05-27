@@ -16,16 +16,16 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="初等排序算法排序算法的稳定性 仅仅用执行效率和内存消耗来衡量排序算法的好坏是不够的。针对排序算法，我们还有一个重要的度量指标，稳定性。这个概念是说，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。">
+  <meta name="description" content="初等排序算法排序算法的稳定性 仅仅用执行效率和内存消耗来衡量排序算法的好坏是不够的。针对排序算法，我们还有一个重要的度量指标，稳定性。这个概念是说，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。 动态算法演示：https:&#x2F;&#x2F;visualgo.net&#x2F;zh&#x2F;sorting。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序算法（C++实现）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/578803b6.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="初等排序算法排序算法的稳定性 仅仅用执行效率和内存消耗来衡量排序算法的好坏是不够的。针对排序算法，我们还有一个重要的度量指标，稳定性。这个概念是说，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。">
+<meta property="og:description" content="初等排序算法排序算法的稳定性 仅仅用执行效率和内存消耗来衡量排序算法的好坏是不够的。针对排序算法，我们还有一个重要的度量指标，稳定性。这个概念是说，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。 动态算法演示：https:&#x2F;&#x2F;visualgo.net&#x2F;zh&#x2F;sorting。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/578803b6/image-20210310165553787.png">
 <meta property="article:published_time" content="2021-03-10T08:42:18.000Z">
-<meta property="article:modified_time" content="2021-05-05T06:19:28.070Z">
+<meta property="article:modified_time" content="2021-05-24T05:04:32.976Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary">
@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">68</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">76</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">129</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">138</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 14:19:28" itemprop="dateModified" datetime="2021-05-05T14:19:28+08:00">2021-05-05</time>
+                <time title="修改时间：2021-05-24 13:04:32" itemprop="dateModified" datetime="2021-05-24T13:04:32+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,13 +286,14 @@
       
         <h1 id="初等排序算法"><a href="#初等排序算法" class="headerlink" title="初等排序算法"></a>初等排序算法</h1><p><strong>排序算法的稳定性</strong></p>
 <p>仅仅用执行效率和内存消耗来衡量排序算法的好坏是不够的。针对排序算法，我们还有一个重要的度量指标，稳定性。这个概念是说，如果待排序的序列中存在值相等的元素，经过排序之后，相等元素之间原有的先后顺序不变。</p>
+<p>动态算法演示：<a target="_blank" rel="noopener" href="https://visualgo.net/zh/sorting%E3%80%82">https://visualgo.net/zh/sorting。</a></p>
 <span id="more"></span>
 
 <p><strong>空间复杂度</strong></p>
 <p>我们前面讲过，算法的内存消耗可以通过空间复杂度来衡量，排序算法也不例外。不过，针对排序算法的空间复杂度，我们还引入了一个新的概念，<strong>原地排序</strong>（Sorted in place）。原地排序算法，就是特指空间复杂度是 O(1) 的排序算法。</p>
 <p><strong>时间复杂度</strong></p>
 <p>我们在分析排序算法的时间复杂度时，要分别给出最好情况、最坏情况、平均情况下的时间复杂度。除此之外，你还要说出最好、最坏时间复杂度对应的要排序的原始数据是什么样的。为什么要区分这三种时间复杂度呢？第一，有些排序算法会区分，为了好对比，所以我们最好都做一下区分。第二，对于要排序的数据，有的接近有序，有的完全无序。有序度不同的数据，对于排序的执行时间肯定是有影响的，我们要知道排序算法在不同数据下的性能表现。</p>
-<h3 id="1-Bubble-Sort（冒泡排序）"><a href="#1-Bubble-Sort（冒泡排序）" class="headerlink" title="1.Bubble Sort（冒泡排序）"></a>1.Bubble Sort（冒泡排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+<h2 id="1-Bubble-Sort（冒泡排序）"><a href="#1-Bubble-Sort（冒泡排序）" class="headerlink" title="1.Bubble Sort（冒泡排序）"></a>1.Bubble Sort（冒泡排序）</h2><p>时间复杂度：$O(n^2)$.</p>
 <p>稳定排序算法。</p>
 <p>冒泡排序是最基础的排序算法之一。</p>
 <p>冒泡的过程只涉及相邻数据的交换操作，只需要常量级的临时空间，所以它的空间复杂度为 O(1)，是一个原地排序算法。</p>
@@ -302,7 +303,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java板子，极客时间</span></span><br><span class="line"><span class="comment">// 冒泡排序，a表示数组，n表示数组大小</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="comment">// 提前退出冒泡循环的标志位，优化</span></span><br><span class="line">    <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n - i - <span class="number">1</span>; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (a[j] &gt; a[j+<span class="number">1</span>]) &#123; <span class="comment">// 交换</span></span><br><span class="line">        <span class="keyword">int</span> tmp = a[j];</span><br><span class="line">        a[j] = a[j+<span class="number">1</span>];</span><br><span class="line">        a[j+<span class="number">1</span>] = tmp;</span><br><span class="line">        flag = <span class="keyword">true</span>;  <span class="comment">// 表示有数据交换      </span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!flag) <span class="keyword">break</span>;  <span class="comment">// 没有数据交换，说明已经是有序的，提前退出</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-Selection-Sort（选择排序）"><a href="#2-Selection-Sort（选择排序）" class="headerlink" title="2.Selection Sort（选择排序）"></a>2.Selection Sort（选择排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+<h2 id="2-Selection-Sort（选择排序）"><a href="#2-Selection-Sort（选择排序）" class="headerlink" title="2.Selection Sort（选择排序）"></a>2.Selection Sort（选择排序）</h2><p>时间复杂度：$O(n^2)$.</p>
 <p><strong>不稳定</strong>排序算法。正是因此，相对于冒泡排序和插入排序，选择排序就稍微逊色了。</p>
 <p>选择排序（据y总说）是最简单的排序算法。</p>
 <p>首先，选择排序空间复杂度为 O(1)，是一种原地排序算法。选择排序的最好情况时间复杂度、最坏情况和平均情况时间复杂度都为 $O(n^2)$。你可以自己来分析看看。</p>
@@ -312,7 +313,7 @@
 
 <p>选择排序是一种简单直观的排序算法，无论什么数据进去都是 $O(n^2)$ 的时间复杂度。所以用到它的时候，数据规模越小越好。好处可能就是不占用额外的内存空间了吧。</p>
 <p>由于选择排序每一趟总是从无序区中选出全局最小（或最大）的元素，所以适用于从大量元素中选择一部分排序元素。例如，从10000个元素中选出最小的前10位元素。</p>
-<h3 id="3-Insertion-Sort（插入排序）"><a href="#3-Insertion-Sort（插入排序）" class="headerlink" title="3.Insertion Sort（插入排序）"></a>3.Insertion Sort（插入排序）</h3><p>时间复杂度：$O(n^2)$.</p>
+<h2 id="3-Insertion-Sort（插入排序）"><a href="#3-Insertion-Sort（插入排序）" class="headerlink" title="3.Insertion Sort（插入排序）"></a>3.Insertion Sort（插入排序）</h2><p>时间复杂度：$O(n^2)$.</p>
 <p>稳定排序算法。</p>
 <p>原地排序算法。</p>
 <p>插入排序也是一种常见的简单算法。</p>
@@ -325,13 +326,13 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java板子，极客时间</span></span><br><span class="line"><span class="comment">// 插入排序，a表示数组，n表示数组大小</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertionSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> value = a[i];</span><br><span class="line">    <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// 查找插入的位置</span></span><br><span class="line">    <span class="keyword">for</span> (; j &gt;= <span class="number">0</span>; --j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (a[j] &gt; value) &#123;</span><br><span class="line">        a[j+<span class="number">1</span>] = a[j];  <span class="comment">// 数据移动</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j+<span class="number">1</span>] = value; <span class="comment">// 插入数据</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h3><ul>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4.小结"></a>4.小结</h2><ul>
 <li>以上三种都是原地排序算法。</li>
 <li>虽然冒泡排序和插入排序在时间复杂度上是一样的，都是$O(n^2)$，但是如果我们希望把性能优化做到极致，那肯定首选插入排序。插入排序的算法思路也有很大的优化空间，我们只是讲了最基础的一种。</li>
 <li>如果你对插入排序的优化感兴趣，可以自行学习一下希尔排序。</li>
-<li>它们的时间复杂度都是 O(n2)，比较高，适合小规模数据的排序。</li>
+<li>它们的时间复杂度都是 $O(n^2)$，比较高，适合<strong>小规模数据</strong>的排序。</li>
 </ul>
-<h3 id="5-补充"><a href="#5-补充" class="headerlink" title="5.补充"></a>5.补充</h3><ol>
+<h2 id="5-补充"><a href="#5-补充" class="headerlink" title="5.补充"></a>5.补充</h2><ol>
 <li><p>这里附上一份十大经典排序算法大梳理 (动图+代码)，这是经过系统整理过的！</p>
 <p>链接奉上：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ekGdneZrMa23ALxt5mvKpQ">https://mp.weixin.qq.com/s/ekGdneZrMa23ALxt5mvKpQ</a></p>
 </li>
@@ -486,7 +487,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E7%AD%89%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-text">初等排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Bubble-Sort%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">1.Bubble Sort（冒泡排序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Selection-Sort%EF%BC%88%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">2.Selection Sort（选择排序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Insertion-Sort%EF%BC%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">3.Insertion Sort（插入排序）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%B0%8F%E7%BB%93"><span class="nav-text">4.小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%A1%A5%E5%85%85"><span class="nav-text">5.补充</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E7%AD%89%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-text">初等排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Bubble-Sort%EF%BC%88%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">1.Bubble Sort（冒泡排序）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Selection-Sort%EF%BC%88%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">2.Selection Sort（选择排序）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Insertion-Sort%EF%BC%88%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="nav-text">3.Insertion Sort（插入排序）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B0%8F%E7%BB%93"><span class="nav-text">4.小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E8%A1%A5%E5%85%85"><span class="nav-text">5.补充</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,20 +503,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">138</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">76</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -564,13 +565,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">456k</span>
+    <span title="站点总字数">503k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:54</span>
+    <span title="站点阅读时长">7:37</span>
 </div>
 
 <span id="sitetime"></span>
