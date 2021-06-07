@@ -16,15 +16,15 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="我们为什么需要网络协议？当”Hello World!”从显示器打印出来的时候，还记得你激动的心情吗？ 12345public class HelloWorld &amp;#123;  public static void main(String[] args)&amp;#123;    System.out.println(&quot;Hello World!&quot;);  &amp;#125;&amp;#125;  如果你">
+  <meta name="description" content="这里有东西被加密了，需要输入密码查看哦。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="趣谈计算机网络协议（一）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/64abf487.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="我们为什么需要网络协议？当”Hello World!”从显示器打印出来的时候，还记得你激动的心情吗？ 12345public class HelloWorld &amp;#123;  public static void main(String[] args)&amp;#123;    System.out.println(&quot;Hello World!&quot;);  &amp;#125;&amp;#125;  如果你">
+<meta property="og:description" content="这里有东西被加密了，需要输入密码查看哦。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-26T10:24:47.000Z">
-<meta property="article:modified_time" content="2021-05-05T05:41:09.462Z">
+<meta property="article:modified_time" content="2021-06-06T12:30:23.155Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="计算机网络协议">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">76</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">84</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">138</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">154</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 13:41:09" itemprop="dateModified" datetime="2021-05-05T13:41:09+08:00">2021-05-05</time>
+                <time title="修改时间：2021-06-06 20:30:23" itemprop="dateModified" datetime="2021-06-06T20:30:23+08:00">2021-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,22 +274,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="我们为什么需要网络协议？"><a href="#我们为什么需要网络协议？" class="headerlink" title="我们为什么需要网络协议？"></a>我们为什么需要网络协议？</h2><p>当”Hello World!”从显示器打印出来的时候，还记得你激动的心情吗？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果你是程序员，一定看得懂上面这一段文字。这是每一个程序员向计算机世界说“你好，世界”的方式。但是，你不一定知道，这段文字也是一种协议，是人类和计算机沟通的协议，<strong>只有通过这种协议，计算机才知道我们想让它做什么。</strong></p>
-<span id="more"></span>
-
-<h3 id="协议三要素"><a href="#协议三要素" class="headerlink" title="协议三要素"></a>协议三要素</h3><p>当然，这种协议还是更接近人类语言，机器不能直接读懂，需要进行翻译，翻译的工作教给编译器，也就是程序员常说的 compile。</p>
-<p>但是可以看得出，计算机语言作为程序员控制一台计算机工作的协议，具备了协议的三要素。</p>
-<ul>
-<li><strong>语法</strong>，就是这一段内容要符合一定的规则和格式。例如，括号要成对，结束要使用分号等。</li>
-<li><strong>语义</strong>，就是这一段内容要代表某种意义。例如数字减去数字是有意义的，数字减去文本一般来说就没有意义。</li>
-<li><strong>顺序</strong>，就是先干啥，后干啥。例如，可以先加上某个数值，然后再减去某个数值。</li>
-</ul>
-<p>但是，要想打造互联网世界的通天塔，只教给一台机器做什么是不够的，你需要学会教给一大片机器做什么。</p>
-<p>这就需要网络协议<strong>。只有通过网络协议，才能使一大片机器互相协作、共同完成一件事。</strong></p>
-
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="cf57d2f9e2257deb7027c54a33cff3dfd768eaa042391c79918c3328d2a146f0">fb26124e0d85f363a66baed35993e1a0948953cce3d484fb31660455b92ccb286ba4467b12dd2afdc0f8bd795964707216933c479f00faf5302337078027ef66e68c754bf0232403ae44399aa06a2cad741400e24549082709cdee4a1c1e38f29d8bb6993c43448bafc4543d636ea5bfe35062ad225c74a80f232ba51d9af45093f5220e616be2d57e02341ffad661bef2886dba249b54377d8b3961fd62e8e7033554e6a1a85b429bcdccd8e910eaca84c8e447cedd760cd76a16c64ec7f94ad050108487716cc544f1ca685285a120a1c590efd559bdca18a90707fae890221e2912f079f089d10fb816e69e85944586941b721161d200273028ce2f3cb2d1a6a47461dcfac58b4612622383de37911e7101936179b0ecfeb18f3600111afc775a9e1f79696dae92585891ef4dfac11d9f3be22cf97722064b1ab128625b743406017ad9d95aec0435dac99930e0072cdbaded2c7115a36b5b5b42dafaffb6dac788fb14d6f015c20160a0393676051ef461952cc24cae74dc9e95b7431865f28504a5cf0105bb1cd9595858a317748417c59eb4c7fb2c2c0703f4c365029d3289354351557897fa5a5fc7910b63bf93a054d852af2293fef26e04261a952ba5328dd4c469bd01e9cd6c66571eb1db7b667025482cae36fe58bde6556f56f72ecdd81d44ae47a4df776930786c5021af1db8558a20744347d91934710edb63df32d103b28eae9a7208db68f2d949d7a59b86ac49ee490c80cb3476527744596dc00e6edeae2f4e56ee2dc8ab54e5966122b4c029c746883f11f2a48b8df48eea2818d015775adc3bc6b762523b0c6fa01265293781132eb3d1fd232055e9616f78314ce22daa571f9dbf832bb05beb7e9d7137b736f261b44d73c020aed96c070a5636f09e69309c6f1dbda49c0296423b3a5f8b76a4a8ca18c81a711b581f7bd20791aecd226f6267fdff6842ad230e2679b206f835f9d0d369c8112d34f9cf4de0e8d0ffedf2163bdfb00c51f0e34c9d0825f4426714a1321df9238546bc43717ed9ab7821abad79f4768a1f0d8fa3aaf5c81f9e3aac9e3db546b3e18cc4644d5f75a992ddf755f781fd87e2de7754beba74370e52763c69e0871ef14ab2860a6d3da0a5dc1353ed3e82cbf693d0a8546a697c84c170970c572aee0b575c33770fb6e29430ab5701e380797afa46dca4601e5fb9e51d86e0808cc9cbb57ed0add49429a819268295b434c2542aacb32f15228fb8f802ab11905596dd605f05581e5f08892e0636880f50d3926c71dcc42677ef22078d7579e446be609a3d58ee5b6ff7deeb7c60e501f2623c59248d4f36ea73475c376463080551970e0602fdcdfb9824ae007f765b6c366de22df943b43a13cad9466c7de9c7f5f968ad3f56899913601df979095fda0760c12452a304867287db7eab884d1008dfa0561b9c299f7ace7a83db81e67cee906cf0c69264a3989fead1252dff781f982d0acc8af9582f523cb2b91017113ac9f9e335a5e0bdb6ad4995a4e3945a03d4be48276f294248551506b4d5281ea62274986d59c7c349b1fa031d999ca0ae8f6a8de727d4b3fa8bd7cdf415261dccaaaf4022369c20912c6ff366fc3982f17f51714638c1f9041e4d1fdc7561c3592d6beac89df6ce7f21e01795bafb73eef89d9bfa6d1bd33f4768dd76ab21081668e223f805fc6a81e243f7541324ad3982a903b6a6673fbb00a63e6b4cf254f8a95df201e0eaa2030e6cd5f4b3f24e76b1c6fe3ec7f98f87ded0aa1e844bab5665cf3028d8f1df7580f3661961094333d8b5b1657e92d304a671d1e0427f5e04e9c3b623bdb4d4425efb8553315de3a570bf200d37041e02cb15142a8ad8198029fbb0e890167a748f58cc3dd30d66444d3662142ba9d3ec851bfafdf979532ae178ad726f5b13f4ccc82b9f9e4ca9361e83a430d1cfa394ecd11453227acc69e2404947ba0e2d6e4031b6d41cfbef2bab3bf26352a2305d67a30cf6a240d39d7d4a3efc73639056c8529e2c4ab379380d5131510a95a422613fa2653924613e448b7a2ab547a1e6378f49914dabfb69d6208bd253a27aea1f26afde53e6a0bd54d50d6902a98041559b737d49f2dfbef3c54ba9efe53c5f935682fd931a72c8c22df276fcb8591fd83df490a8a577716284df354f9ec6a7376075b0569da5120e59d5cf0e7779806e31e117ae911b3ebe81b3751cc2f5282f3626a7d8814f862ac2df3b239d4b6c70f0b64d34b1734a8a071ed5fa8fcea5221b78b7441b01fb8a87d4043f660930d2164170bcef5ffd7b8571bb7d56ccf3cc60c87db5537d7c36768e21ed2d78d8e7bd43e1544e110e64de3db5e9b2399fa73f1fadb2aedd2e0bdc53b45a7750ae287cdffc3309d88c2ef8a6d91490f8e5a9ee5f8147e281252f478871041cb81319c524fa4c8d243d5e1f7211f7d6bb3597c32d9c69f4252348a054ca628b10c525ddcc6e4c39f3891fba3bffd8486283ee98ed3a67de63bf9be7b71f559e894e2ecefae7d48afec134903ba1978f8a336c9af8165903e6241e4bb13ca3e7c2a7360f4ea56a3bcdc5101b6ecb75cfe972853a91442589a3a8b4c4d5c0c3d3dfc0d6be8363cd0b464d22f790df5598cb58b482c9ad430f3c92e8dc0a74e78ed5a6e3188afd8c7a39dc130dceb3efdc3dd92f9e6eb1bb7802722a73d23cd79c8e4fe2eb549de2a7fe4ad6efd6ba5ffc287d728a71dae3a8684bee91eb7844587794cfb2cf6676f7cc38a898ef29279256d5da552f503974305d8bf8c5f21bad768293b301c36ad833caa47b42597fac1218237b8587236f0c9c289973b2f403fa8e03cda63abfe42a787ea9ae0d4e5c036be6469f4201b8dd2c227c052e06b34a6ee73d6bb14f099a953b2204c59852127bf4920767ba25bf06af353a869f0b5b1226a7c53c3e95ecb32f653a88318e697d1135a54ee5e17afb15592fe719e78447c8b7c7cafc0e11bf1592c6f5768a6d7b9c5605d2be29d0342e532be5a48e6b1736db5c36fe45f5c199d3ab662eb6a1ada3e8fab72a5ade402c92d387a88e8975829ebbc2daaf4b55799d10a42c8fb84aa8be9ef0f2a0181d9dfa67d7c540583564acd4bdd94074949ba0a4588a005a2a125c55cc26c6b3160eabecdfdde5367ad88051a788639967ad740ceb95bee496996a2bfae6df212c0c3157f5b4090e623880fa2ef346e8b2000fce317311faff466965c9284348e66f794054dfb0994bf34463e81f7c3e68e442c6cfb51fad99b0a479647d0ba706088289df1a728e27a0335c6d91eb9d8909fc1fcfcea91b910642c8feb4f694996b49eb2d4f194edb11e89da3eeae6a8c5eef41872df5ae0005f4c9780d621f0cc8d6b9af76533e3726ad2c93fd115f5d9cbfd64b687737c86219b9c32d4473e0966aa1beff6a67c62f651af2a250c449628f2298120d498dfcfa321be6f6dd1cf63f2756780064cbebb7a9f658b760dc5eafbcd7031467c571a65ab43e84c93991d7305cfaa7af4ce7fff213ee650544454d88b214923b947ccfb2a41f3a85d992b84fcfd6b2a3cc15e56b171ba497f7fe47f207db66c8043d654aeec1aea6cb93087b6a2707062e21ef74ad2f74340ad12d327e5206b61cc4dd63077d79c46b30081cf282ee48fca106828a333ce480d1089e41b56e10f0b2da496a1831fcd2df2ad323a48628b31e1f942b7c0404efcbf1639b5e03973e13e924ba38fff7fc9ed2625f8be90ba273d2a6cfb1dedad44f799144d43449e2a74d9d27894ef3edd7f2706cb182c2e2f84cf9f0d76a1772f37c3c442de68c27addd15d2194cba8fef535e2b97f4f43ed17879530d358371671904dcb18bb5323c68e3cfecfe6219c925218e7911552aeb3d9470dc89c7d3f6bc8a387208230f9c9ff47cdc4cda961bea0cd993eef1bb1bda6ac980f9b34b581e7b29cd700ae8c7d57c26919ce2cfd515efa763e2c2793c4a94cfe08ee1213feebf6503a416762eadbe6b579fd13b0c86db9ba364b5a0ce56cfb973015143f252e71ad25b7dc096003868c51721fd150300e64acecb405366a0065bff8dad3a888d0f551d2f12e9d66b55b0b0770742e49c5a6c9da3716d89d4d743cbbe2cc2fb7e1b26dfb4396dac3d197f133f4271bb3b80b4bbb59f58125042cdf534926cf97b7496d1d0e5f9d0e2121fdae8fdcebf2907c873329384da2aa35685285019217442ed3e86098fd3e2f47a1eb9074fc63aaadf7e4864f8f10d270c2654a371e302b5d747288866d8a600bb2daaa5131dd6e8698c73a984a88a226d3888a4b33670</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
     </div>
 
     
@@ -435,7 +431,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="nav-text">我们为什么需要网络协议？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-text">协议三要素</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +446,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">138</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -464,7 +459,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">76</span>
+        <span class="site-state-item-count">84</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -513,13 +508,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">503k</span>
+    <span title="站点总字数">542k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:37</span>
+    <span title="站点阅读时长">8:13</span>
 </div>
 
 <span id="sitetime"></span>
