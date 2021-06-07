@@ -383,6 +383,7 @@ public:
 		y = yy;
 	}
 	Point(const Point& p);// 复制构造函数
+    // 注意用const修饰，避免修改原对象
 	int getX() { return x; }
 	int getY() { return y; }
 private:

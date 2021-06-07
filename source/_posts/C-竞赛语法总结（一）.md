@@ -11,6 +11,12 @@ abbrlink: 5397030f
 date: 2021-02-24 07:01:57
 ---
 
+
+
+## 0.C++语法知识长文总结
+
+https://www.acwing.com/solution/content/44372/
+
 ## 1.acwing656.钞票和硬币
 
 读取一个带有两个小数位的浮点数，这代表货币价值。

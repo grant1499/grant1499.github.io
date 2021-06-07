@@ -20,6 +20,8 @@ date: 2021-05-04 19:16:00
 
 推荐实战训练巩固知识：https://www.w3cschool.cn/codecamp/list?pename=html5_and_css_camp
 
+web英语教程推荐：https://www.bilibili.com/video/BV17b41137yx?p=2&share_source=copy_web
+
 ![image-20210504193312259](HTML学习笔记（一）/image-20210504193312259.png)
 
 ```html
@@ -47,6 +49,8 @@ hello,world!
 
 ## 2.网页基本标签
 
+一个网页必不可少的三个标签就是：html、head和body标签。
+
 ![image-20210504200453609](HTML学习笔记（一）/image-20210504200453609.png)
 
 ```html
@@ -66,7 +70,7 @@ hello,world!
 <p>这  还    是 一个段落。</p>
 <!--水平线标签-->
 <hr/>
-<!--换行标签，间距比上面小，自闭合-->
+<!--换行标签，间距比上面p标签小，自闭合-->
 这是    一个段落。<br>
 这  还    是 一个段落。<br/>
 

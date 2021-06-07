@@ -84,9 +84,7 @@ int merge(int A[], int B[], int C[], int n, int m) {
 
 说明：对于偶数个的数组正常对半分就行，对于奇数个的数组，留下最后1个多余的单独1组，其余两两1组。
 
-### 1. 递归实现
-
-只需反复将当前区间 [left,right] 分为两半，对两个子区间 [left,mid] 与 [mid+1, right] 分别递归进行归并排序，然后将两个已经有序的子区间合并为有序序列即可。代码如下：
+我们先写一个merge函数将数组的两个区间合并为一个有序区间。
 
 ```C++
 const int maxn = 100;
@@ -95,18 +93,25 @@ void merge(int A[], int L1, int R1, int L2, int R2) {
     int i=L1, j=L2;
     int temp[maxn], index=0;    // temp 临时储存合并序列
     while(i<=R1 && j<=R2) {
-        if(A[i] <= A[j]) {            // 若 A[i] ≤A[j]
+        if(A[i] <= A[j]) {            // 若 A[i] ≤ A[j]
             temp[index++] = A[i++];
         } else {                    // 若 A[i] > A[j]
             temp[index++] = A[j++];
         }
-        while(i <= R1) temp[index++] = A[i++];
-        while(j <= R2) temp[index++] = A[j++];
-        for(int i=0; i<index; ++i) {
-            A[L1+i] = temp[i];    // 将合并后的序列赋值回 A
-        }
+    }    
+    while(i <= R1) temp[index++] = A[i++];
+    while(j <= R2) temp[index++] = A[j++];
+    for(int i=0; i<index; ++i) {
+        A[L1+i] = temp[i];    // 将合并后的序列赋值回 A
     }
 }
+```
+
+### 1. 递归实现
+
+只需反复将当前区间 [left,right] 分为两半，对两个子区间 [left,mid] 与 [mid+1, right] 分别递归进行归并排序，然后将两个已经有序的子区间合并为有序序列即可。代码如下：
+
+```C++
 // 归并排序递归实现
 // 只需反复将当前区间 [left,right] 分为两半，对两个子区间 [left,mid] 与 [mid+1, right]
 // 分别递归进行归并排序，然后将两个已经有序的子区间合并为有序序列即可。
@@ -125,26 +130,6 @@ void mergeSort(int A[], int left, int right) {
 非递归实现主要考虑到这样一点：每次分组时组内元素个数上限都是2的幂次。于是就可以想到这样的思路：令步长 step 的初值为2，然后将数组中每 step 个元素作为一组，将其内部进行排序；再令 step 乘以2，重复上面的操作，直到 step/2 超过元素个数 n 。代码如下：
 
 ```C++
-const int maxn = 100;
-
-// 将数组A的 [L1,R1] 与 [L2,R2] 合并为有序区间（此处 L2=R1+1 ）
-void merge(int A[], int L1, int R1, int L2, int R2) {
-    int i=L1, j=L2;
-    int temp[maxn], index=0;    // temp 临时储存合并序列
-    while(i<=R1 && j<=R2) {
-        if(A[i] <= A[j]) {            // 若 A[i] ≤A[j]
-            temp[index++] = A[i++];
-        } else {                    // 若 A[i] > A[j]
-            temp[index++] = A[j++];
-        }
-        while(i <= R1) temp[index++] = A[i++];
-        while(j <= R2) temp[index++] = A[j++];
-        for(int i=0; i<index; ++i) {
-            A[L1+i] = temp[i];    // 将合并后的序列赋值回 A
-        }
-    }
-}
-
 // 归并排序非递归实现
 // 令步长 step 的初值为2，然后将数组中每 step 个元素作为一组，
 // 将其内部进行排序；再令 step 乘以2，重复上面的操作，直到 step/2 超过元素个数 n 。
@@ -170,3 +155,18 @@ void mergeSort(int A[]) {
 
 如果题目只要求给出归并排序每一趟结束时的序列，可以用sort函数代替 merge 函数，只要时间允许。
 
+### 3.算法分析
+
+时间复杂度： O(nlogn)
+
+归并排序的执行效率与要排序的原始数组的有序程度**无关**，所以其时间复杂度是非常**稳定**的，不管是最好情
+
+况、最坏情况，还是平均情况，时间复杂度都是 O(nlogn)。
+
+空间复杂度：O(n)
+
+它有一个致命的“弱点”，那就是归并排序不是原地排序算法。
+
+这是因为归并排序的合并函数，在合并两个有序数组为一个有序数组时，需要借助额外的存储空间。
+
+在每次进行合并操作时，需要O(n)的数组空间存放数据。
