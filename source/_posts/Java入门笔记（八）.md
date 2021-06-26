@@ -78,7 +78,7 @@ public static void main(String[] args) {
         //而且对它进行操作的方法，都会返回this自引用。这样我们就可以一直点下去，对String进行构造。
         StringBuilder strBuilder = new StringBuilder();
         long longVal = 123456789;
-	//StringBuilder sb = new StringBuilder("Run");// 可以传入参数
+		//StringBuilder sb = new StringBuilder("Run");// 可以传入参数
         //StringBuilder sb = new StringBuilder(10);// 初始长度为10，可以一直append
     
         strBuilder.append(true).append("abc").append(longVal);

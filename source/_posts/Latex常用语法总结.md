@@ -148,3 +148,15 @@ $\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$
 下取整$\lfloor x \rfloor$(表示不大于x的最大整数),`$\lfloor x \rfloor$`
 
 20.打出实数集符号：$\mathbb{R}$，`$\mathbb{R}$`;$\mathbb{R}^{n}$,`$\mathbb{R}^{3}$`
+
+21.打出换行符号（PS：空格或enter是没用的）：$a\\b$，`$a\\b$`
+
+22.方程组的排版：https://blog.csdn.net/weixin_45744426/article/details/102531827
+
+一个示范：$\begin{array}{l}x=x_0+k*b^{'}\\ y=y_0-k*a^{'}\end{array}$，无花括号版本的，begin的参数可以选择l、r和c，表示左、右和居中对齐。
+
+23.打出恒等号：$\equiv$，`$\equiv$`
+
+24.打出空格：$a\;b$，`$a\;b$`
+
+25.打出整除与不整除：$a\mid b,c\nmid d$，`$a\mid b,c\nmid d$`

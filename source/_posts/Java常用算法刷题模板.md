@@ -472,3 +472,59 @@ public static void main(String[] args) {
 
 参考2：https://blog.csdn.net/yubo_830/article/details/109112967
 
+### 一个模板
+
+```Java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+
+class Main {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static PrintWriter pw = new PrintWriter(System.out);
+    static int N = 10010;
+    static int n;
+    public static void main(String[] args) throws IOException {
+        n = Integer.parseInt(br.readLine());// 读入一整行
+        for (int i = 0; i < n; i++) {
+            String s[] = br.readLine().split(" ");
+            int x1 = Integer.parseInt(s[0]);
+            int y1 = Integer.parseInt(s[1]);
+        }
+
+        // ...
+        pw.print(res);
+        pw.flush();
+        pw.close();
+        br.close();
+    }
+
+class Node {
+    int l, r;
+    int cnt, len;
+
+    public Node(int l, int r) {
+        this.l = l;
+        this.r = r;
+    }
+}
+
+class Seg implements Comparable<Seg> {
+    int x, y1, y2, k;
+
+    public Seg(int x, int y1, int y2, int k) {
+        this.x = x;
+        this.y1 = y1;
+        this.y2 = y2;
+        this.k = k;
+    }
+
+    @Override
+    public int compareTo(Seg seg) {
+        return this.x - seg.x;
+    }
+}
+```
+
