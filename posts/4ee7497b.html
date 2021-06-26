@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.3 acwing.1296. 聪明的燕姿（难）《信息学奥赛一本通》 , JLOI2014">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯学习总结（三一）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/4ee7497b.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="1.3 acwing.1296. 聪明的燕姿（难）《信息学奥赛一本通》 , JLOI2014">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/4ee7497b/image-20210619101515256.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/4ee7497b/image-20210619214119402.png">
+<meta property="article:published_time" content="2021-06-10T14:45:45.000Z">
+<meta property="article:modified_time" content="2021-06-19T14:29:43.881Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="蓝桥杯">
+<meta property="article:tag" content="竞赛">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="数论">
+<meta property="article:tag" content="扩展欧几里得算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/4ee7497b/image-20210619101515256.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/4ee7497b.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>蓝桥杯学习总结（三一） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">95</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">169</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/4ee7497b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          蓝桥杯学习总结（三一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-10 22:45:45" itemprop="dateCreated datePublished" datetime="2021-06-10T22:45:45+08:00">2021-06-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-19 22:29:43" itemprop="dateModified" datetime="2021-06-19T22:29:43+08:00">2021-06-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/4ee7497b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/4ee7497b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="1-3-acwing-1296-聪明的燕姿（难）"><a href="#1-3-acwing-1296-聪明的燕姿（难）" class="headerlink" title="1.3 acwing.1296. 聪明的燕姿（难）"></a>1.3 acwing.1296. 聪明的燕姿（难）</h4><p>《信息学奥赛一本通》 , JLOI2014</p>
+<span id="more"></span>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">城市中人们总是拿着号码牌，不停寻找，不断匹配，可是谁也不知道自己等的那个人是谁。</span><br><span class="line">可是燕姿不一样，燕姿知道自己等的人是谁，因为燕姿数学学得好！</span><br><span class="line">燕姿发现了一个神奇的算法：假设自己的号码牌上写着数字 S，那么自己等的人手上的号码牌数字的所有正约数之和必定等于 S。</span><br><span class="line">所以燕姿总是拿着号码牌在地铁和人海找数字（喂！这样真的靠谱吗）。</span><br><span class="line">可是她忙着唱《绿光》，想拜托你写一个程序能够快速地找到所有自己等的人。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入包含 k 组数据。</span><br><span class="line">对于每组数据，输入包含一个号码牌 S。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">对于每组数据，输出有两行。</span><br><span class="line">第一行包含一个整数 m，表示有 m 个等的人。</span><br><span class="line">第二行包含相应的 m 个数，表示所有等的人的号码牌。</span><br><span class="line">注意：你输出的号码牌必须按照升序排列。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤k≤<span class="number">100</span>,</span><br><span class="line"><span class="number">1</span>≤S≤<span class="number">2</span>×<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">42</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">20</span> <span class="number">26</span> <span class="number">41</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>抓住题目核心，也就是求一个数的所有正约数之和等于给定号码牌，这样的数有多少个。</p>
+<p>比如S = 42，这个时候就有3个数满足条件：</p>
+<p>41 = (1 + 41) == 42，20 = (1 + 2 + 4 + 5 + 10 + 20) == 42，26 = (1 + 2 + 13 + 26) == 42</p>
+<p>约数与因数的区别：约数必须在整除的前提下才存在，而因数是从乘积的角度来提出的。</p>
+<p>约数只能对在整数范围内而言，而因数就不限于整数的范围。 </p>
+<p><strong>约数个数定理</strong></p>
+<p>定理: 若 $n=\prod_{i=1}^{m} p_{i}^{c_{i}}$ 则 $d_{i}=\prod_{i=1}^{m} c_{i}+1$.</p>
+<p>证明：我们知道 $p_{i}^{c_{i}}$ 的约数有 $p_{i}^{0}, p_{i}^{1}, \ldots, p_{i}^{c_{i}}$ 共 $c_{i}+1$ 个，根据乘法原理, $n$ 的约数个数就是 $\prod_{i=1}^{m} c_{i}+1$</p>
+<p><img src="/posts/4ee7497b/image-20210619101515256.png" alt="image-20210619101515256"></p>
+<p>假设d为N的约数，d必然由N的质因数相乘得到。</p>
+<p>参考题解：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/10545/">https://www.acwing.com/solution/content/10545/</a></p>
+<p>观察约数之和的公式，猜测满足所有正约数之和等于给定号码牌的数非常少，所以用dfs暴搜。</p>
+<p>应该先从小到大枚举p，</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(p : <span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,...)</span><br><span class="line">    <span class="keyword">for</span>(a : <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,...)</span><br><span class="line">        <span class="keyword">if</span>(S mod (<span class="number">1</span>+p1+p1^<span class="number">2</span>+...+p1^a1) == <span class="number">0</span>)</span><br><span class="line">            dfs(下一层)</span><br></pre></td></tr></table></figure>
+
+<p>直接枚举p的话，素数个数非常多，时间复杂度很大，所以必须优化。</p>
+<p>考虑特殊情况：</p>
+<ol>
+<li><p>如果ai = 1的话，S = (1+Pi)的时候，因为Pi为质数，那么S-1也一定为质数，那么这个时候只需要判断S-1是否为质数即可。</p>
+</li>
+<li><p>如果不满足1，S只会有两种情况，就是一种情况包括一个因子里面有(1+Pi)，另一种情况不包括(1+Pi)，</p>
+<p> S = (1+Pi)(1+Pj+Pj^2…..)<br> S = (1+Pi+Pi^2+…)(1+…..)</p>
+<p> 这两种情况都可以看出来Pi ^2 &lt;= S，所以我们dfs枚举Pi的上限就是$\sqrt S$。</p>
+</li>
+</ol>
+<p>找个实际的例子模拟一下，就会很清楚整个过程了。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50000</span>;<span class="comment">// 比s最大值2*10^9开根号大一点</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> primes[N],cnt;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"><span class="keyword">int</span> ans[N],len;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_primes</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;<span class="comment">// 线性筛法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!st[i]) primes[cnt++] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; cnt &amp;&amp; primes[j] * i &lt;= n;j++)&#123;</span><br><span class="line">            <span class="keyword">int</span> t = primes[j];</span><br><span class="line">            st[t*i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % t == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">// 判断素数</span></span><br><span class="line">    <span class="keyword">if</span> (x &lt; N) <span class="keyword">return</span> !st[x];<span class="comment">// 2~N-1的数已经筛过了，通过st[i]来判断是不是素数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;primes[i] &lt;= x/primes[i];i++)&#123;<span class="comment">// &gt;= N的数需要用求出的素数来筛</span></span><br><span class="line">        <span class="keyword">if</span> (x % primes[i] == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> last,<span class="keyword">int</span> prod,<span class="keyword">int</span> s)</span></span>&#123;<span class="comment">//last表示上一个素数的下标，prod表示当前数，s表示剩余未除的数</span></span><br><span class="line">    <span class="keyword">if</span> (s == <span class="number">1</span>)&#123;<span class="comment">// 剩余未除的数=1，递归边界</span></span><br><span class="line">        ans[len++] = prod;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// last=-1时，s至少为3=1+2才行，s-1&gt;上一层素数，而且素数时递增枚举的，保证不会重复</span></span><br><span class="line">    <span class="keyword">if</span> (s<span class="number">-1</span> &gt; (last&lt;<span class="number">0</span> ? <span class="number">1</span>:primes[last]) &amp;&amp; is_prime(s<span class="number">-1</span>)) ans[len++] = prod*(s<span class="number">-1</span>);</span><br><span class="line">    <span class="comment">// 素数p只需要枚举到根号s</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = last+<span class="number">1</span>;primes[i] &lt;= s/primes[i];i++)&#123;<span class="comment">// 防止相乘爆int，改成除法</span></span><br><span class="line">        <span class="keyword">int</span> p = primes[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>+p,t = p;j &lt;= s;t *= p,j += t)&#123;</span><br><span class="line">            <span class="keyword">if</span> (s % j == <span class="number">0</span>) dfs(i,prod*t,s/j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    get_primes(N<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s)&#123;</span><br><span class="line">        len = <span class="number">0</span>;<span class="comment">// 每次计算前把len清零</span></span><br><span class="line">        dfs(<span class="number">-1</span>,<span class="number">1</span>,s);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; len &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">if</span> (len)&#123;</span><br><span class="line">            sort(ans,ans+len);<span class="comment">// 记得排序答案</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; ans[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-acwing-1299-五指山"><a href="#1-4-acwing-1299-五指山" class="headerlink" title="1.4 acwing.1299. 五指山"></a>1.4 acwing.1299. 五指山</h4><p>《信息学奥赛一本通》</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">大圣在佛祖的手掌中。</span><br><span class="line">我们假设佛祖的手掌是一个圆圈，圆圈的长为 n，逆时针记为：<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,…,n−<span class="number">1</span>，而大圣每次飞的距离为 d。</span><br><span class="line">现在大圣所在的位置记为 x，而大圣想去的地方在 y。</span><br><span class="line">要你告诉大圣至少要飞多少次才能到达目的地。</span><br><span class="line">注意：孙悟空的筋斗云只沿着逆时针方向翻。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">有多组测试数据。</span><br><span class="line">第一行是一个正整数 T，表示测试数据的组数；</span><br><span class="line">每组测试数据包括一行，四个非负整数，分别为如来手掌圆圈的长度 n，筋斗所能飞的距离 d，大圣的初始位置 x 和大圣想去的地方 y。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">对于每组测试数据，输出一行，给出大圣最少要翻多少个筋斗云才能到达目的地。</span><br><span class="line">如果无论翻多少个筋斗云也不能到达，输出 Impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">2</span>&lt;n&lt;<span class="number">10</span>^<span class="number">9</span>,</span><br><span class="line"><span class="number">0</span>&lt;d&lt;n,</span><br><span class="line"><span class="number">0</span>≤x,y&lt;n</span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114568325">扩展欧几里得——裴蜀（贝祖）定理</a></p>
+<p>参考资料：《算法笔记》，<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/gcd/">https://oi-wiki.org/math/gcd/</a></p>
+<p>首先介绍<strong>裴蜀定理</strong>。（其实已经介绍过一遍了）</p>
+<blockquote>
+<p>其内容是：</p>
+<p>设a, b是不全为零的整数, 则存在整数x, y,使 $a x+b y=\operatorname{gcd}(a, b).$</p>
+<p>对于任意的一组整数x、y，ax+by一定是gcd(a,b)的整数倍。</p>
+</blockquote>
+<p>注意：裴蜀等式的<strong>解的个数不唯一</strong>！</p>
+<p>举例：a=24，b=16，d = gcd(24,16) = 8，(x,y) = (-1,1) = (2,-1) = … ，这里就列出了两组解，它们可以称为裴</p>
+<p>蜀数。 </p>
+<p>然后是<strong>扩展欧几里得算法</strong>。已经介绍过了欧几里得算法求最大公约数gcd。</p>
+<p>而扩展欧几里得算法不仅能求最大公约数，还能求解裴蜀等式的一组整数解x、y。</p>
+<p>下面叙述一下具体的<strong>数学形式</strong>的求解思路。</p>
+<p>首先假设：我们已经通过扩展欧几里得算法求解出裴蜀等式的一组整数解$x_0,y_0$。</p>
+<p>也即：$ax_0+by_0=gcd(a,b)=d$。</p>
+<p>令：$a^{‘}=\frac a d,b^{‘}=\frac b d$。则有结论，裴蜀等式的通解有这样的形式：$\begin{cases}x=x_0+k<em>b^{‘}\ y=y_0-k</em>a^{‘}\end{cases}$，其中k为任意整数。</p>
+<p>验证上述解的形式是否裴蜀等式：$ax+by=a(x_0+k<em>b^{‘})+b(y_0-k</em>a^{‘})=d$，所以必然是等式的解。</p>
+<p>下证等式的通解必然是满足上述形式：不妨设$x^{‘},y^{‘}$是等式的通解，则有：$ax^{‘}+by^{‘}=d$。</p>
+<p>与等式$ax_0+by_0=d$联立可以求得：$a(x^{‘}-x_0)=b(y_0-y^{‘})$，则有：$a^{‘}(x^{‘}-x_0)=b^{‘}(y_0-y^{‘})$，所以</p>
+<p>有：$b^{‘}|a^{‘}(x^{‘}-x_0)$，又：$(a^{‘},b^{‘})=1$，所以：$b^{‘}|(x^{‘}-x_0)$，即：$x^{‘}-x_0=kb^{‘}$，再代入</p>
+<p>$a^{‘}(x^{‘}-x_0)=b^{‘}(y_0-y^{‘})$，有：$ka^{‘}=y_0-y^{‘}$。综上所述，<strong>上述解的形式必然是裴蜀等式的通解</strong>。</p>
+<p>接下来讲解一下<strong>算法形式</strong>的求解思路。</p>
+<p>设$a x_{1}+b y_{1}=\operatorname{gcd}(a, b)$，$b x_{2}+(a \bmod b) y_{2}=\operatorname{gcd}(b, a \bmod b)$。</p>
+<p>由欧几里得定理可知： $\operatorname{gcd}(a, b)=\operatorname{gcd}(b, a \bmod b)$，所以 $a x_{1}+b y_{1}=b x_{2}+(a \bmod b) y_{2}$。</p>
+<p>又因为 $a \bmod b=a-\left(\left\lfloor\frac{a}{b}\right\rfloor \times b\right)$，所以 $a x_{1}+b y_{1}=b x_{2}+\left(a-\left(\left\lfloor\frac{a}{b}\right\rfloor \times b\right)\right) y_{2}$，</p>
+<p>$a x_{1}+b y_{1}=a y_{2}+b x_{2}-\left\lfloor\frac{a}{b}\right\rfloor \times b y_{2}=a y_{2}+b\left(x_{2}-\left\lfloor\frac{a}{b}\right\rfloor y_{2}\right)$。</p>
+<p>因为 $a=a, b=b$, 所以 $x_{1}=y_{2}, y_{1}=x_{2}-\left\lfloor\frac{a}{b}\right\rfloor y_{2}$。</p>
+<p>将 $x_{2}, y_{2}$ 不断代入递归求解直至递归边界 $x=1, y=0$ 回溯反解出$x_{1},y_{1}$。</p>
+<p>扩展欧几里得算法代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exGcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123; <span class="comment">// x和y的值需要更新</span></span><br><span class="line">    <span class="keyword">if</span> (!b)&#123;<span class="comment">// 递归边界</span></span><br><span class="line">        x = <span class="number">1</span>,y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> d = exGcd(b,a%b,y,x);<span class="comment">// 求公约数，注意x和y交换了顺序，和证明不一样，这样更方便</span></span><br><span class="line">    y -= a/b*x;<span class="comment">// 更新x和y，x不变不用写</span></span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,x,y;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">int</span> d = exGcd(a,b,x,y);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d * %d + %d * %d = %d\n&quot;</span>,a,x,b,y,d);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由上面的代码可以求出裴蜀等式的一组特解，再通过通解公式我们就能得到全部解。</p>
+<p>思路回到题目。</p>
+<p><img src="/posts/4ee7497b/image-20210619214119402.png" alt="image-20210619214119402"></p>
+<p>再介绍一下同余式的概念。形如$ax\equiv c(mod;n)$的式子称为同余式，表示：<code>(ax-c)mod n = 0</code>。</p>
+<p>我们要求的就是满足方程<code>-a*n+b*d=y-x</code>的b的最小正整数值，这些量都是整数。</p>
+<ol>
+<li>当$(n,d)\nmid y-x$时，由于左边是常量n与d的线性组合，必然被(n,d)整除，所以方程肯定没有整数解。</li>
+<li>当$(n,d)\mid y-x$时，对于裴蜀等式<code>n*x+d*y=(n,d)</code>，只要左右两边同乘$\frac {y-x} {(n,d)}$，就能转化为所求方程。</li>
+</ol>
+<p>由裴蜀等式的通解知道：$b=b_0+k*\frac n {(n,d)}$，b的最小正整数值=$b_0;mod;\frac n {(n,d)}$。</p>
+<p>原理：不论b0是个多大或者多小的一个数字，它通过k∗n/gcd(n,d)都能把这个数缩小到0−n/gcd(n,d)之间。</p>
+<p><code>int get_mod(int a,int b)  return (a % b + b) % b;// 将负余数转成正的</code></p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">exGcd</span><span class="params">(LL a,LL b,LL &amp;x,LL &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b)&#123;</span><br><span class="line">        x = <span class="number">1</span>,y = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    LL d = exGcd(b,a%b,y,x);</span><br><span class="line">    y -= a/b*x;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    LL n,d,x,y,a,b,gcd;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld%lld%lld&quot;</span>,&amp;n,&amp;d,&amp;x,&amp;y);</span><br><span class="line">        gcd = exGcd(n,d,a,b);</span><br><span class="line">        <span class="keyword">if</span> ((y-x) % gcd != <span class="number">0</span>) <span class="built_in">puts</span>(<span class="string">&quot;Impossible&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            b *= (y-x)/gcd,n /= gcd;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,(b%n+n)%n);<span class="comment">// 求b%n的正余数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/4ee7497b.html" title="蓝桥杯学习总结（三一）">https://www.grantdrew.top/posts/4ee7497b.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
+              <a href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 竞赛</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 数论</a>
+              <a href="/tags/%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 扩展欧几里得算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/bb24e60c.html" rel="prev" title="蓝桥杯学习总结（二八）">
+      <i class="fa fa-chevron-left"></i> 蓝桥杯学习总结（二八）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/748a102.html" rel="next" title="Java入门笔记（十五）">
+      Java入门笔记（十五） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-acwing-1296-%E8%81%AA%E6%98%8E%E7%9A%84%E7%87%95%E5%A7%BF%EF%BC%88%E9%9A%BE%EF%BC%89"><span class="nav-text">1.3 acwing.1296. 聪明的燕姿（难）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-acwing-1299-%E4%BA%94%E6%8C%87%E5%B1%B1"><span class="nav-text">1.4 acwing.1299. 五指山</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">623k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">9:26</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

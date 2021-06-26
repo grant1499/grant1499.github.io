@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/53a4d03a/image-20210502145722353.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/53a4d03a/image-20210404091023201.png">
 <meta property="article:published_time" content="2021-04-03T08:13:08.000Z">
-<meta property="article:modified_time" content="2021-05-05T06:26:12.901Z">
+<meta property="article:modified_time" content="2021-06-21T06:40:54.946Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">83</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">95</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">151</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">169</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 14:26:12" itemprop="dateModified" datetime="2021-05-05T14:26:12+08:00">2021-05-05</time>
+                <time title="修改时间：2021-06-21 14:40:54" itemprop="dateModified" datetime="2021-06-21T14:40:54+08:00">2021-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +299,7 @@
 </ul>
 <p>虽然可以直接拼接String字符串，但是，在循环中，每次循环都会创建新的字符串对象，然后扔掉旧的字符串。这样，绝大部分字符串都是临时对象，不但浪费内存，还会影响GC效率。</p>
 <p>为了能高效拼接字符串，Java标准库提供了<code>StringBuilder</code>，它是一个可变对象，可以预分配缓冲区，这样，往<code>StringBuilder</code>中新增字符时，不会创建新的临时对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//StringBuilder首先是可变的</span></span><br><span class="line">        <span class="comment">//而且对它进行操作的方法，都会返回this自引用。这样我们就可以一直点下去，对String进行构造。</span></span><br><span class="line">        StringBuilder strBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">long</span> longVal = <span class="number">123456789</span>;</span><br><span class="line">	<span class="comment">//StringBuilder sb = new StringBuilder(&quot;Run&quot;);// 可以传入参数</span></span><br><span class="line">        <span class="comment">//StringBuilder sb = new StringBuilder(10);// 初始长度为10，可以一直append</span></span><br><span class="line">    </span><br><span class="line">        strBuilder.append(<span class="keyword">true</span>).append(<span class="string">&quot;abc&quot;</span>).append(longVal);</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.toString());<span class="comment">// 转换为String对象</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());<span class="comment">//反转</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());</span><br><span class="line">        System.out.println(strBuilder.toString());</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.delete(<span class="number">0</span>, <span class="number">4</span>).toString());<span class="comment">// 左闭右开</span></span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.insert(<span class="number">3</span>,<span class="string">&quot;LLLLL&quot;</span>).toString());<span class="comment">// 放在索引为3的位置</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//StringBuilder首先是可变的</span></span><br><span class="line">        <span class="comment">//而且对它进行操作的方法，都会返回this自引用。这样我们就可以一直点下去，对String进行构造。</span></span><br><span class="line">        StringBuilder strBuilder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">long</span> longVal = <span class="number">123456789</span>;</span><br><span class="line">		<span class="comment">//StringBuilder sb = new StringBuilder(&quot;Run&quot;);// 可以传入参数</span></span><br><span class="line">        <span class="comment">//StringBuilder sb = new StringBuilder(10);// 初始长度为10，可以一直append</span></span><br><span class="line">    </span><br><span class="line">        strBuilder.append(<span class="keyword">true</span>).append(<span class="string">&quot;abc&quot;</span>).append(longVal);</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.toString());<span class="comment">// 转换为String对象</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());<span class="comment">//反转</span></span><br><span class="line">        System.out.println(strBuilder.reverse().toString());</span><br><span class="line">        System.out.println(strBuilder.toString());</span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.delete(<span class="number">0</span>, <span class="number">4</span>).toString());<span class="comment">// 左闭右开</span></span><br><span class="line"></span><br><span class="line">        System.out.println(strBuilder.insert(<span class="number">3</span>,<span class="string">&quot;LLLLL&quot;</span>).toString());<span class="comment">// 放在索引为3的位置</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/posts/53a4d03a/image-20210502145658876.png" alt="image-20210502145658876"></p>
 <p><img src="/posts/53a4d03a/image-20210502145722353.png" alt="image-20210502145722353"></p>
@@ -499,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">169</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -512,7 +512,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">83</span>
+        <span class="site-state-item-count">95</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -561,13 +561,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">542k</span>
+    <span title="站点总字数">623k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">8:13</span>
+    <span title="站点阅读时长">9:26</span>
 </div>
 
 <span id="sitetime"></span>
