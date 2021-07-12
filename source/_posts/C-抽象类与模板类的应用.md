@@ -75,7 +75,7 @@ int main(){
 	cout << "Surface:"<<c1.calcSurface();
 	cout << ", Volume:"<<c1.calcVolume()<<endl;
 	cout << "---------------------------------\n";
-	Cube c2(9.0);
+	Cube c2(9.0);// 用指针来调用函数，才是动态多态，待修改
 	cout << "Surface:"<<c2.calcSurface();
 	cout << ", Volume:"<<c2.calcVolume()<<endl;
 	return 0;

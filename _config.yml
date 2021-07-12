@@ -12,10 +12,10 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 favicon:
-  small: /images/16x16.png
-  medium: /images/32x32.png
-  apple_touch_icon: /images/128x128.png
-  safari_pinned_tab: /images/logo2.svg
+  small: /images/favicon-16x16-next.png
+  medium: /images/favicon-32x32-next.png
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
 
 
 # URL
