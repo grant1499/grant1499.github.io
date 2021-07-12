@@ -23,13 +23,17 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="2.习题2.1 acwing.1226. 包子凑数第八届蓝桥杯省赛C++A&#x2F;B组,第八届蓝桥杯省赛JAVAA&#x2F;B组">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/8e52910a/image-20210628210930813.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/8e52910a/image-20210628220235949.png">
 <meta property="article:published_time" content="2021-06-26T07:05:48.000Z">
-<meta property="article:modified_time" content="2021-06-26T14:39:08.865Z">
+<meta property="article:modified_time" content="2021-06-28T14:21:07.141Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="背包问题">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
+<meta property="article:tag" content="区间DP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/8e52910a/image-20210628210930813.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/8e52910a.html">
 
@@ -125,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">95</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">102</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -135,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">169</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">173</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-06-26 15:05:48 / 修改时间：22:39:08" itemprop="dateCreated datePublished" datetime="2021-06-26T15:05:48+08:00">2021-06-26</time>
+              <time title="创建时间：2021-06-26 15:05:48" itemprop="dateCreated datePublished" datetime="2021-06-26T15:05:48+08:00">2021-06-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-28 22:21:07" itemprop="dateModified" datetime="2021-06-28T22:21:07+08:00">2021-06-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -255,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.2k</span>
+              <span>5.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -300,9 +310,30 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>,M = <span class="number">10000</span>;<span class="comment">// 无法被组合出的数上限是10000</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">bool</span> dp[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? gcd(b,a%b) : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        d = gcd(d,a[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (d != <span class="number">1</span>) <span class="built_in">puts</span>(<span class="string">&quot;INF&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>;<span class="comment">// dp[0][0]初始化为true，重量为0一定能组合出来，什么都不选</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)<span class="comment">// 一维优化，j直接从a[i]开始枚举</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = a[i];j &lt;= M;j++) dp[j] |= dp[j-a[i]];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= M;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (!dp[j]) res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-acwing-1070-括号配对"><a href="#2-2-acwing-1070-括号配对" class="headerlink" title="2.2 acwing.1070. 括号配对"></a>2.2 acwing.1070. 括号配对</h4><p>《信息学奥赛一本通》</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Hecy 又接了个新任务：BE 处理。</span><br><span class="line">BE 中有一类被称为 GBE。</span><br><span class="line">以下是 GBE 的定义：</span><br><span class="line">空表达式是 GBE</span><br><span class="line">如果表达式 A 是 GBE，则 [A] 与 (A) 都是 GBE</span><br><span class="line">如果 A 与 B 都是 GBE，那么 AB 是 GBE</span><br><span class="line">下面给出一个 BE，求至少添加多少字符能使这个 BE 成为 GBE。</span><br><span class="line">注意：BE 是一个仅由(、)、[、]四种字符中的若干种构成的字符串。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入仅一行，为字符串 BE。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出仅一个整数，表示增加的最少字符数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">对于所有输入字符串，其长度小于<span class="number">100</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line">[])</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Hecy 又接了个新任务：BE 处理。</span><br><span class="line">BE 中有一类被称为 GBE。</span><br><span class="line">以下是 GBE 的定义：</span><br><span class="line">空表达式是 GBE</span><br><span class="line">如果表达式 A 是 GBE，则 [A] 与 (A) 都是 GBE</span><br><span class="line">如果 A 与 B 都是 GBE，那么 AB 是 GBE</span><br><span class="line">下面给出一个 BE，求至少添加多少字符能使这个 BE 成为 GBE。</span><br><span class="line">注意：BE 是一个仅由 (、)、[、]四种字符中的若干种构成的字符串。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入仅一行，为字符串 BE。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出仅一个整数，表示增加的最少字符数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">对于所有输入字符串，其长度小于<span class="number">100</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line">[])</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>思路：</p>
+<p>本题是acwing.1222. 密码脱落的例题，也是考察<strong>区间DP</strong>。（与POJ2955类似）</p>
+<p>与密码脱落这题不同的地方在于A、B乘起来的结果是GBE，类似于密码脱落和石子合并两题的结合。</p>
+<p>若括号序列是回文串，那么一定是合法的。但是该题新加了一个条件即()[]这样并列的括号也是合法的。</p>
+<p>这里的定义2中的GBE也就是一个<strong>回文序列</strong>（如<code>[()()]</code>），定义2中的GBE是一个<strong>并列括号序列</strong>（如<code>()[]</code>）。</p>
+<p>注意一下：定义2中的GBE和回文序列还是有一点区别的，单个符号可以是回文序列，但不满足GBE。</p>
+<p>算法1：y式DP分析法。</p>
+<p><img src="/posts/8e52910a/image-20210628210930813.png" alt="image-20210628210930813"></p>
+<p>按s[i]、s[j]是否包含在需要操作的区间划分，也就是说s[i]、s[j]是否包含在进行操作使之变成GBE的区间中。</p>
+<p>都不包含这类情况显然是包含在前两种情况中，所以可以不考虑。</p>
+<p>注意整个集合划分的特点：先进行回文序列的划分，执行计算，然后再进行并列括号序列的划分，这两步是先后顺序，不是并列的关系。（和其他大部分集合划分的一个不同点）</p>
+<p>并列括号序列中，k从i开始取，到j-1结束，因为(i,i)这种序列也需要操作。</p>
+<p>时间复杂度：O(n^3)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> dp[N][N];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">char</span> l,<span class="keyword">char</span> r)</span></span>&#123;<span class="comment">// 检查是否满足s[i] == s[j]</span></span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">&#x27;(&#x27;</span> &amp;&amp; r == <span class="string">&#x27;)&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">&#x27;[&#x27;</span> &amp;&amp; r == <span class="string">&#x27;]&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="built_in">strlen</span>(s);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>;len &lt;= n;len++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i + len - <span class="number">1</span> &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (len == <span class="number">1</span>) dp[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;<span class="comment">// len &gt;= 2的情况，至少2个字符</span></span><br><span class="line">                dp[i][j] = INF;<span class="comment">// 求min，初始化INF，排除不合法状态</span></span><br><span class="line">                <span class="keyword">if</span> (check(s[i],s[j])) dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>];<span class="comment">// 集合1情况4</span></span><br><span class="line">                dp[i][j] = min(dp[i][j], min(dp[i][j<span class="number">-1</span>],dp[i+<span class="number">1</span>][j]) + <span class="number">1</span>);<span class="comment">// 集合1情况23</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = i;k &lt;= j<span class="number">-1</span>;k++)&#123;<span class="comment">// 集合2</span></span><br><span class="line">                    dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+<span class="number">1</span>][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,dp[<span class="number">0</span>][n<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法2：另一种DP分析法。</p>
+<p>参考题解：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/8845/%E3%80%82%EF%BC%88%E5%92%8CPOJ2955%E5%81%9A%E6%B3%95%E7%B1%BB%E4%BC%BC%EF%BC%89">https://www.acwing.com/solution/content/8845/。（和POJ2955做法类似）</a></p>
+<p>从当前BE变成GBE需要添加最少字符的数量 等价于 当前BE变成最大的GBE需要去掉字符的数量<br>即至少添加最少字符 等价于 总数量 - 最大GBE子序列的长度。</p>
+<p>注意：这题和密码脱落也有些不同，GBE有回文的性质 或者 有另外一种性质，例如<code>[]()</code> , <code>([])</code>均是GBE，因此需要对s[L] 和 s[R]不匹配的情况需要进一步划分，划分方式和石子合并类似。</p>
+<p><img src="/posts/8e52910a/image-20210628220235949.png" alt="image-20210628220235949"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> dp[N][N];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">char</span> l,<span class="keyword">char</span> r)</span></span>&#123;<span class="comment">// 检查是否满足s[i] == s[j]</span></span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">&#x27;(&#x27;</span> &amp;&amp; r == <span class="string">&#x27;)&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">&#x27;[&#x27;</span> &amp;&amp; r == <span class="string">&#x27;]&#x27;</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="built_in">strlen</span>(s);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> len = <span class="number">1</span>;len &lt;= n;len++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i + len - <span class="number">1</span> &lt; n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + len - <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// if (len == 1) dp[i][j] = 0;可省略</span></span><br><span class="line">            <span class="keyword">if</span> (check(s[i],s[j])) dp[i][j] = dp[i+<span class="number">1</span>][j<span class="number">-1</span>] + <span class="number">2</span>;<span class="comment">// 集合1</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = i;k &lt;= j<span class="number">-1</span>;k++)&#123;</span><br><span class="line">                dp[i][j] = max(dp[i][j],dp[i][k] + dp[k+<span class="number">1</span>][j]);<span class="comment">// 集合2</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,n - dp[<span class="number">0</span>][n<span class="number">-1</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -353,6 +384,7 @@
               <a href="/tags/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 背包问题</a>
               <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
               <a href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 竞赛</a>
+              <a href="/tags/%E5%8C%BA%E9%97%B4DP/" rel="tag"><i class="fa fa-tag"></i> 区间DP</a>
           </div>
 
         
@@ -467,7 +499,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-count">173</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,7 +512,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">95</span>
+        <span class="site-state-item-count">102</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -529,13 +561,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">623k</span>
+    <span title="站点总字数">655k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:26</span>
+    <span title="站点阅读时长">9:55</span>
 </div>
 
 <span id="sitetime"></span>
