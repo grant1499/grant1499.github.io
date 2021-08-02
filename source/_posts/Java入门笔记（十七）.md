@@ -239,116 +239,26 @@ public void test4() throws IOException {
  * Reader          FileReader (read(char[] cbuf))                 BufferedReader (read(char[] cbuf) / readLine())
  * Writer          FileWriter (write(char[] cbuf,0,len)           BufferedWriter (write(char[] cbuf,0,len) / flush()
 
-四个节点流：
+InputStream & Reader
 
-FileReader使用。
+```C++
+InputStream 和 Reader 是所有输入流的基类
+InputStream
+    int read()
+    int read(byte[] b)
+    int read(byte[] b, int off, int len)
+Reader
+    int read()
+    int read(char [] c)
+    int read(char [] c, int off, int len)
 
-read初级方法，一个一个字符读入。
+// 程序中打开的文件 IO 资源不属于内存里的资源，垃圾回收机制无法回收该资
+源，所以应该显式关闭文件 IO 资源
 
-```Java
-@Test
-public void test01(){
-    FileReader fr = null;// 需要抛出异常
-    try {
-        // 1.实例化File对象，指明要操作的文件
-        File file = new File("hello.txt");
-        // 2.提供具体的流
-        fr = new FileReader(file);
-        // 3.数据的读入
-        // read()：返回读入的1个字符，达到文件末尾返回-1
-        // 方式1
-        int data = fr.read();
-        while (data != -1){
-            System.out.println((char)data);
-            data = fr.read();
-        }
-        // 方式2
-        //int data;
-        //while ((data = fr.read()) != -1){
-        //    System.out.println(data);
-        //}
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            // 4.流的关闭操作
-            if (fr != null)
-                fr.close();// 处理流关闭本身的异常
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // 为了保证流资源一定可以执行关闭操作。需要使用try-catch-finally处理
-    // 使用throws如果IO流已经创建，但是中途抛出异常导致流没有关闭可能造成内存泄漏
-    // ctrl+alt+T，将选中代码用try-catch-finally包住
-}
+// FileInputStream 从文件系统中的某个文件中获得输入字节。FileInputStream
+用于读取非文本数据之类的原始字节流。要读取字符流，需要使用 FileReader
 ```
 
-read重载方法，一次读入一个char数组。
+![image-20210725074959543](Java入门笔记（十七）/image-20210725074959543.png)
 
-```Java
-@Test
-public void test02(){
-    // 对read()操作升级，使用它的重载方法
-    FileReader fr = null;
-
-    try {
-        // 1.File类的实例化
-        File file = new File("hello.txt");
-        // 2.FileReader类的实例化
-        fr = new FileReader(file);
-        // 3.读入操作
-        // read(char[] cbuf)：返回每次读入cbuf数组中的字符个数，如果达到文件末尾，返回-1
-        char[] cbuf = new char[5];
-        int len;
-        while ((len = fr.read(cbuf)) != -1) {
-            // 错误演示1：数组可能存在不能完全覆盖
-            // 比如2次分别读入5、3个字符，第2次输出时会包括第1次的后2个字符
-            //    for (int i = 0;i < cbuf.length;i++){
-            //        System.out.print(cbuf[i]);
-            //    }
-
-            // 正确示范1
-            //    for (int i = 0;i < len;i++){// 拿到几个字符就输出几个
-            //        System.out.print(cbuf[i]);
-            //    }
-
-            // 错误演示2：数组可能存在不能完全覆盖
-            //String str = new String(cbuf);
-            //System.out.print(str);
-
-            // 正确示范2
-            String str = new String(cbuf,0,len);
-            System.out.print(str);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
-        if (fr != null){// if放在try的里面还是外面都一样
-            try {
-                // 4.流的关闭
-                fr.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-```
-
-说明：
-
-read()的理解：返回读入的一个字符。如果达到文件末尾，返回-1
-
-异常的处理：为了保证流资源一定可以执行关闭操作。需要使用try-catch-finally处理
-
-读入的文件一定要存在，否则就会报FileNotFoundException
-
-输入的标准化过程总结： 
-① 创建File类的对象，指明读取的数据的来源。（要求此文件一定要存在）
-② 创建相应的输入流，将File类的对象作为参数，传入流的构造器中
-③ 具体的读入过程：
-    创建相应的byte[] 或 char[]。
-④ 关闭流资源
-说明：程序中出现的异常需要使用try-catch-finally处理。
+![image-20210725075010681](Java入门笔记（十七）/image-20210725075010681.png)

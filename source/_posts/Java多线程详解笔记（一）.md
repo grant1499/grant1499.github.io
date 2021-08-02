@@ -13,7 +13,7 @@ date: 2021-06-12 19:19:24
 
 ## 1.线程简介
 
-参考视频：狂神多线程详解
+参考视频：狂神多线程详解，尚硅谷Java入门视频。
 
 学习建议：先学完IO流再来学习多线程。
 
@@ -39,11 +39,27 @@ date: 2021-06-12 19:19:24
 
 ![image-20210612212658925](Java多线程详解笔记（一）/image-20210612212658925.png)
 
+一个Java应用程序Java.exe，至少有三个线程，main()主线程，gc()垃圾回收线程，异常处理线程。当然发生异常时，会影响主线程。
+
+并行与并发：
+
+并行： 多个 CPU 同时执行多个任务。比如：多个人同时做不同的事 。
+
+并发： 一个 CPU（采用时间片）同时执行多个任务。比如：秒杀、多个人做同一件事。
+
+何时需要多线程？
+
+程序需要同时执行两个或多个任务。
+
+程序需要实现一些需要等待的任务时，如用户输入、文件读写操作、网络操作、搜索等。
+
+需要一些后台运行的程序时。
+
 ## 2.创建线程
 
 有三种创建线程的方式：
 
-1. Thread class：继承Thread类**（重点）**
+1. Thread class：继承java.lang.Thread类**（重点）**
 2. Runnable接口：实现Runnable接口**（重点）**
 3. Callable接口：实现Callable接口（了解）
 
@@ -53,11 +69,11 @@ date: 2021-06-12 19:19:24
 
 2.重写run()方法，编写线程执行体
 
-3.创建线程对象，调用start()方法启动线程
+3.创建线程对象，调用start()方法启动线程（作用：启动当前线程，调用当前线程的run方法）
 
 ```Java
 public class Thread_1 extends Thread{
-    // 创建线程方式1：继承Thread类，重写run方法，调用start启动线程
+    // 创建线程方式1：创建一个继承Thread类的子类，重写run方法，通过此对象调用start启动线程
     // 总结：线程开启不一定立即执行，由CPU调度执行
     @Override
     public void run() {
@@ -74,10 +90,73 @@ public class Thread_1 extends Thread{
         Thread_1 th1 = new Thread_1();
         // 调用start方法，开启线程
         // 看源码和学多线程是并发运行的
-        th1.run();
-
+        th1.start();// 并不是直接调用run方法
+		// 不能用th1执行2次start，会报异常，需要新创建一个线程对象执行start
         for (int i = 0; i < 1000; i++) {
             System.out.println("我在学习多线程..."+i);
+        }
+    }
+}
+```
+
+```Java
+// 通过创建Thread类的匿名子类来启动多线程
+new Thread(){
+    @Override
+    public void run() {// 重写run方法
+        for (int i = 0; i < 200; i++) {
+            System.out.println(Thread.currentThread().getName()+":"+i);
+        }
+    }
+}.start();
+```
+
+![image-20210726113402721](Java多线程详解笔记（一）/image-20210726113402721.png)
+
+![image-20210726114809437](Java多线程详解笔记（一）/image-20210726114809437.png)
+
+```Java
+class helloThread extends Thread{
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            //if (i % 3 == 0){
+            //    yield();// 释放当前CPU的执行权，可能再次抢到
+            //}
+            if (i % 40 == 0){
+                try {// 只能用try-catch处理异常
+                    sleep(1000);// 睡眠1000ms
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(Thread.currentThread().getName()+":"+i);
+        }
+    }
+    public helloThread(String name){
+        super(name);
+    }
+    public helloThread(){
+    }
+}
+public class ThreadTest {
+    public static void main(String[] args) {
+        helloThread h1 = new helloThread();
+        helloThread h2 = new helloThread("myThread");// 通过带参构造器给线程命名
+        h1.setName("helloThread");// 也可以通过setName方法实现
+        h1.start();
+        h2.start();
+        Thread.currentThread().setName("mainThread");
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(Thread.currentThread().getName()+":"+i);
+            if (i == 20){
+                try {
+                    h1.join();// 在线程a中调用线程b的join()
+                    //此时线程a就进入阻塞状态，直到线程b完全执行完才结束阻塞状态
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

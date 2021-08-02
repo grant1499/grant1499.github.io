@@ -255,3 +255,24 @@ public class InstanceVariable {
 >>>：符号位一起右移，左边补0，又称无符号右移
 <<：左移，右边补0。左移没有带符号位一说，因为符号位在最左侧
 ```
+
+## 10.关于cmd中文乱码的解决方案
+
+```shell
+F:\Java_VScode>javac -encoding utf-8 Calculation.java # 加上一个编码参数
+F:\Java_VScode>java Calculation
+2 7
+最大公约数：1
+```
+
+文件是以UTF-8的形式保存的。
+
+这样做保证javac和java的字符集统一为UTF-8，就不会出现中文乱码。
+
+在VScode通过右键code-Runner编译时发现这样做还是乱码。
+
+![image-20210723082254496](Java入门笔记（一）/image-20210723082254496.png)
+
+需要修改powershell的编码格式为UTF-8，才能保证格式统一。
+
+还是通过main方法上面的run来运行。
