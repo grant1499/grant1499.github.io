@@ -16,15 +16,25 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="3.8：二分图二分图，又称二部图，英文名叫 Bipartite graph。 二分图是什么？节点由两个集合组成，且两个集合内部没有边的图。 换言之，存在一种方案，将节点划分成满足以上性质的两个集合。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="算法基础课笔记（二二）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/e3239144.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="3.8：二分图二分图，又称二部图，英文名叫 Bipartite graph。 二分图是什么？节点由两个集合组成，且两个集合内部没有边的图。 换言之，存在一种方案，将节点划分成满足以上性质的两个集合。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/e3239144/image-20210821100113945.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/e3239144/image-20210821103236713.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/e3239144/image-20210821213005135.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/e3239144/image-20210821214224306.png">
 <meta property="article:published_time" content="2021-08-18T23:01:34.000Z">
-<meta property="article:modified_time" content="2021-08-19T04:43:49.988Z">
+<meta property="article:modified_time" content="2021-08-22T08:23:09.526Z">
 <meta property="article:author" content="grant">
+<meta property="article:tag" content="二分图">
+<meta property="article:tag" content="染色法">
+<meta property="article:tag" content="匈牙利算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/e3239144/image-20210821100113945.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/e3239144.html">
 
@@ -120,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">125</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">203</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">217</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -209,9 +219,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-19 07:01:34 / 修改时间：12:43:49" itemprop="dateCreated datePublished" datetime="2021-08-19T07:01:34+08:00">2021-08-19</time>
+              <time title="创建时间：2021-08-19 07:01:34" itemprop="dateCreated datePublished" datetime="2021-08-19T07:01:34+08:00">2021-08-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-22 16:23:09" itemprop="dateModified" datetime="2021-08-22T16:23:09+08:00">2021-08-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
             </span>
 
           
@@ -237,14 +266,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -256,7 +285,88 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="3-8：二分图"><a href="#3-8：二分图" class="headerlink" title="3.8：二分图"></a>3.8：二分图</h2><p>二分图，又称二部图，英文名叫 Bipartite graph。</p>
+<p>二分图是什么？节点由两个集合组成，且<strong>两个集合内部没有边</strong>的图。</p>
+<p>换言之，存在一种方案，将节点划分成满足以上性质的两个集合。</p>
+<span id="more"></span>
+
+<p><img src="/posts/e3239144/image-20210821100113945.png" alt="image-20210821100113945"></p>
+<h3 id="3-8-1：染色法判定二分图"><a href="#3-8-1：染色法判定二分图" class="headerlink" title="3.8.1：染色法判定二分图"></a>3.8.1：染色法判定二分图</h3><blockquote>
+<p>二分图判定定理：一张无向图是二分图当且仅当图中不存在奇环（长度为奇数的环）。</p>
+</blockquote>
+<p>简单证明：</p>
+<p><img src="/posts/e3239144/image-20210821103236713.png" alt="image-20210821103236713"></p>
+<p>以上证明必要性。</p>
+<p><strong>例题：860. 染色法判定二分图（模板题）</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环。</span><br><span class="line">请你判断这个图是否是二分图。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含两个整数 u 和 v，表示点 u 和点 v 之间存在一条边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">如果给定图是二分图，则输出 Yes，否则输出 No。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+
+<p>染色法可以用DFS或者BFS实现。它可以处理重边和自环。</p>
+<p>注意：二分图不一定是连通图。所以需要把每个点都搜一遍。</p>
+<p>处理所有边和所有点，时间复杂度：O(n+m)。</p>
+<p>算法1：DFS版本。</p>
+<p>代码思路：</p>
+<ul>
+<li>染色可以使用1和2区分不同颜色，用0表示未染色；</li>
+<li>遍历所有点，每次将未染色的点进行dfs, 默认染成1或者2；</li>
+<li>由于某个点染色成功不代表整个图就是二分图,因此只有某个点染色失败才能立刻break/return；</li>
+<li>染色失败相当于存在相邻的2个点染了相同的颜色。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> color[N];</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], idx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b,ne[idx] = h[a],h[a] = idx ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> c)</span></span>&#123;<span class="comment">// 把u所在连通块染色，判断是否矛盾</span></span><br><span class="line">    color[u] = c;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; ~i;i = ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span> (!color[j])&#123;</span><br><span class="line">            <span class="comment">// 3-1=2，3-2=1 把相邻点分别染成1和2</span></span><br><span class="line">            <span class="keyword">if</span> (!dfs(j,<span class="number">3</span> - c)) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">// 若j未染色，递归将j相邻节点染色，并判断是否矛盾</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (color[j] == c) <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">// 若j染色，且颜色与u相同，说明矛盾</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span> (m -- )&#123;</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        add(u,v),add(v,u);<span class="comment">// 无向图存两条边</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;<span class="comment">// 染色成功的标志</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;<span class="comment">// 把图中每个点都搜索一遍</span></span><br><span class="line">        <span class="keyword">if</span> (!color[i])&#123;<span class="comment">// 没有染色的才需要染色，搜索</span></span><br><span class="line">            <span class="keyword">if</span> (!dfs(i,<span class="number">1</span>))&#123;<span class="comment">// 把i所在连通块染色，判断是否矛盾</span></span><br><span class="line">                flag = <span class="literal">false</span>;<span class="comment">// 染色失败，退出</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (flag) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法2：BFS版本。改写成BFS，这样搜索不会像DFS可能造成栈溢出。</p>
+<p>代码思路：</p>
+<ul>
+<li><p>颜色 1 和 2 表示不同颜色, 0 表示 未染色；</p>
+</li>
+<li><p>同理，遍历所有点, 将未染色的点都进行bfs；</p>
+</li>
+<li><p>队列初始化将第i个点入队, 默认颜色可以是1或2；</p>
+</li>
+<li><p>while (队列不空)</p>
+</li>
+<li><p>每次获取队头t, 并遍历队头t的所有邻边</p>
+</li>
+<li><p>若邻边的点未染色则染上与队头t相反的颜色，并添加到队列</p>
+</li>
+<li><p>若邻边的点已经染色且与队头t的颜色相同, 则返回false。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> color[N];</span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], idx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b,ne[idx] = h[a],h[a] = idx ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    color[u] = c;</span><br><span class="line">    q.push(u);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (q.size())&#123;</span><br><span class="line">        <span class="keyword">int</span> t = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = h[t]; ~i;i = ne[i])&#123;</span><br><span class="line">            <span class="keyword">int</span> j = e[i];</span><br><span class="line">            <span class="keyword">if</span> (!color[j])&#123;</span><br><span class="line">                color[j] = <span class="number">3</span> - color[t];<span class="comment">// 注意：不要写成color[u]，是和相邻点比较，不是和根比较</span></span><br><span class="line">                q.push(j);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (color[j] == color[t]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span> (m -- )&#123;</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="keyword">if</span> (u != v) add(u,v),add(v,u);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!color[i])&#123;</span><br><span class="line">            <span class="keyword">if</span> (!bfs(i,<span class="number">1</span>))&#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (flag) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-8-2：匈牙利算法"><a href="#3-8-2：匈牙利算法" class="headerlink" title="3.8.2：匈牙利算法"></a>3.8.2：匈牙利算法</h3><p>参考资料： <a target="_blank" rel="noopener" href="https://www.renfei.org/blog/bipartite-matching.html%E3%80%82%EF%BC%88%E5%BE%88%E4%B8%8D%E9%94%99%EF%BC%81%EF%BC%89">https://www.renfei.org/blog/bipartite-matching.html。（很不错！）</a></p>
+<p>二分图的最大权匹配是指二分图中边权和最大的匹配。</p>
+<p>Hungarian Algorithm（Kuhn-Munkres Algorithm）</p>
+<p>匈牙利算法又称为 <strong>KM</strong> 算法，可以在O(n^3)时间内求出二分图的 <strong>最大权完美匹配</strong>。</p>
+<p>时间复杂度：<code>O(n*m)</code>，常数小，实际运行时间远小于<code>O(n*m)</code>。</p>
+<p>y总讲解： <a target="_blank" rel="noopener" href="https://www.acwing.com/video/25/">https://www.acwing.com/video/25/</a> 1:18:48。（有意思！）</p>
+<p><img src="/posts/e3239144/image-20210821213005135.png" alt="image-20210821213005135"></p>
+<p><strong>最大匹配</strong>：一个图所有匹配中，所含匹配边数最多的匹配，称为这个图的最大匹配。图 4 是一个最大匹配，它包含 4 条匹配边。</p>
+<p><strong>完美匹配</strong>：如果一个图的某个匹配中，所有的顶点都是匹配点，那么它就是一个完美匹配。图 4 是一个完美匹配。显然，完美匹配一定是最大匹配（完美匹配的任何一个点都已经匹配，添加一条新的匹配边一定会与已有的匹配边冲突）。但并非每个图都存在完美匹配。</p>
+<p>举例来说：如下图所示，如果在某一对男孩和女孩之间存在相连的边，就意味着他们彼此喜欢。是否可能让所有男孩和女孩两两配对，使得每对儿都互相喜欢呢？图论中，这就是<strong>完美匹配</strong>问题。如果换一个说法：最多有多少互相喜欢的男孩/女孩可以配对儿？这就是<strong>最大匹配</strong>问题。</p>
+<p><strong>例题：861. 二分图的最大匹配（模板题）</strong></p>
+<p>二分图的匹配：给定一个二分图 G，在 G 的一个子图 M 中，M 的边集 {E} 中的任意两条边都不依附于同一个顶点，则称 M 是一个匹配。</p>
+<p>二分图的最大匹配：所有匹配中包含边数最多的一组匹配被称为二分图的最大匹配，其边数即为最大匹配数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">给定一个二分图，其中左半部包含 n1 个点（编号 <span class="number">1</span>∼n1），右半部包含 n2 个点（编号 <span class="number">1</span>∼n2），二分图共包含 m 条边。</span><br><span class="line">数据保证任意一条边的两个端点都不可能在同一部分中。</span><br><span class="line">请你求出二分图的最大匹配数。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n1、 n2 和 m。</span><br><span class="line">接下来 m 行，每行包含两个整数 u 和 v，表示左半部点集中的点 u 和右半部点集中的点 v 之间存在一条边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示二分图的最大匹配数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n1,n2≤<span class="number">500</span>,</span><br><span class="line"><span class="number">1</span>≤u≤n1,</span><br><span class="line"><span class="number">1</span>≤v≤n2,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>匈牙利算法前置概念。</p>
+<p><strong>交替路</strong>：从一个未匹配点出发，依次经过非匹配边、匹配边、非匹配边…形成的路径叫交替路。</p>
+<p><strong>增广路</strong>：从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路（agumenting path）。例如，图 5 中的一条增广路如图 6 所示（图中的匹配点均用红色标出）：</p>
+<p><img src="/posts/e3239144/image-20210821214224306.png" alt="image-20210821214224306"></p>
+<p>增广路有一个重要特点：非匹配边比匹配边多一条。因此，研究增广路的意义是<strong>改进匹配</strong>。</p>
+<p>只要把增广路中的匹配边和非匹配边的身份交换即可。由于中间的匹配节点不存在其他相连的匹配边，所以这样做不会破坏匹配的性质。交换后，图中的匹配边数目比原来多了 1 条。</p>
+<p>我们可以通过不停地找增广路来增加匹配中的匹配边和匹配点。找不到增广路时，达到最大匹配（这是增广路定理）。匈牙利算法正是这么做的。</p>
+<hr>
+<p>存储图的时候只需要存储左半部指向右半部的边就行，因为是从左半部找匹配。</p>
+<p>左右两个点集的编号可以是重复的，因为两集合是独立的。</p>
+<p>优质题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/5334/%E3%80%82">https://www.acwing.com/solution/content/5334/。</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">510</span>,M = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> h[N],e[M],ne[M],idx;<span class="comment">// 邻接表存储图</span></span><br><span class="line"><span class="keyword">bool</span> st[N];<span class="comment">// 临时预定数组，st[j]=a表示一轮模拟匹配中，女孩j被男孩a预定了，每轮模拟需重置</span></span><br><span class="line"><span class="keyword">int</span> match[N];<span class="comment">// match[j]=a表示女孩j的配对男友是a，一旦确定不再修改</span></span><br><span class="line"><span class="keyword">int</span> n1,n2,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">// 判断,如果加入x来参与模拟配对,会不会使匹配数增多，也就是男孩x能不能找到对象</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[x]; ~i;i = ne[i])&#123;<span class="comment">// 遍历自己喜欢的女孩</span></span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span> (!st[j])&#123;<span class="comment">// 女孩j在本轮模拟尚未被预定</span></span><br><span class="line">            st[j] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (!match[j] || find(match[j]))&#123;</span><br><span class="line">                <span class="comment">// 如果女孩j没有男朋友，或者她原来的男朋友能够预定其它喜欢的女孩。配对成功,更新match</span></span><br><span class="line">                match[j] = x;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="comment">//自己中意的全部都被预定，或者找不到单身女孩，配对失败</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);<span class="comment">// 初始化</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n1 &gt;&gt; n2 &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span> (m -- )&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(a, b);<span class="comment">// 只需要用到左边集合指向右边集合的边</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n1;i ++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(st,<span class="literal">false</span>,<span class="keyword">sizeof</span> st);<span class="comment">// 每轮模拟需重置预定情况</span></span><br><span class="line">        <span class="keyword">if</span> (find(i)) res ++;<span class="comment">// 男孩i找到对象，res++</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">// 最大匹配数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：每一轮find(i)，st数组都会重置。</p>
+<p>不理解建议手动模拟一组数据。</p>
+<p>匹配结果记录在match中，st数组用来判重，避免在某次匹配中重复遍历点和边。</p>
+<p>st数组用来防止重复搜索相同的点。当图中有环的时候，不加st数组可能会无限循环下去，就出现段错误了。如果没有st数组，那么假设左边1与右边1匹配，左边2也与右边1匹配，那么在给左边第二个点找匹配的时候，就会有，去递归右边1的对象（左边1），继而左边1执行find(1)的时候因为不加st数组的原因会无限递归find(1),从而导致爆栈。</p>
+<p>match数组用来记录右边妹子的男朋友在左边的编号。</p>
+
     </div>
 
     
@@ -301,6 +411,12 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 二分图</a>
+              <a href="/tags/%E6%9F%93%E8%89%B2%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 染色法</a>
+              <a href="/tags/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 匈牙利算法</a>
+          </div>
 
         
 
@@ -311,7 +427,10 @@
     <a href="/posts/d3357d9c.html" rel="prev" title="算法基础课笔记（二一）">
       <i class="fa fa-chevron-left"></i> 算法基础课笔记（二一）
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/ae3d3216.html" rel="next" title="算法基础课笔记（二三）">
+      算法基础课笔记（二三） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -395,6 +514,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8%EF%BC%9A%E4%BA%8C%E5%88%86%E5%9B%BE"><span class="nav-text">3.8：二分图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-1%EF%BC%9A%E6%9F%93%E8%89%B2%E6%B3%95%E5%88%A4%E5%AE%9A%E4%BA%8C%E5%88%86%E5%9B%BE"><span class="nav-text">3.8.1：染色法判定二分图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-2%EF%BC%9A%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95"><span class="nav-text">3.8.2：匈牙利算法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,20 +530,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">125</span>
+        <span class="site-state-item-count">130</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -472,13 +592,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">804k</span>
+    <span title="站点总字数">870k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:11</span>
+    <span title="站点阅读时长">13:11</span>
 </div>
 
 <span id="sitetime"></span>
@@ -610,6 +730,59 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

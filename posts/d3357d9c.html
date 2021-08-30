@@ -16,18 +16,22 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="3.7：最小生成树参考资料： https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;mst&#x2F;#_2。（有图示） 我们定义无向连通图的 最小生成树（Minimum Spanning Tree，MST）为边权和最小的生成树。 注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。">
+  <meta name="description" content="3.7：最小生成树参考资料： https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;mst&#x2F;#_2。（有图示） 我们定义无向连通图的 最小生成树（Minimum Spanning Tree，MST）为边权和最小的生成树。 给定一个无向图，在图中选择若干条边把图的所有节点连起来。要求边长之和最小。在图论中，叫做求最小生成树。 注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法基础课笔记（二一）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/d3357d9c.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="3.7：最小生成树参考资料： https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;mst&#x2F;#_2。（有图示） 我们定义无向连通图的 最小生成树（Minimum Spanning Tree，MST）为边权和最小的生成树。 注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。">
+<meta property="og:description" content="3.7：最小生成树参考资料： https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;mst&#x2F;#_2。（有图示） 我们定义无向连通图的 最小生成树（Minimum Spanning Tree，MST）为边权和最小的生成树。 给定一个无向图，在图中选择若干条边把图的所有节点连起来。要求边长之和最小。在图论中，叫做求最小生成树。 注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/d3357d9c/image-20210819080953979.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/d3357d9c/image-20210819172537080.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/d3357d9c/image-20210819173006284.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/d3357d9c/image-20210821083745142.png">
 <meta property="article:published_time" content="2021-08-18T23:01:25.000Z">
-<meta property="article:modified_time" content="2021-08-19T04:43:49.988Z">
+<meta property="article:modified_time" content="2021-08-21T10:02:20.966Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Prim">
+<meta property="article:tag" content="Kruskal">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.grantdrew.top/posts/d3357d9c/image-20210819080953979.png">
 
@@ -125,17 +129,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">125</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">203</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">217</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -214,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-19 07:01:25 / 修改时间：12:43:49" itemprop="dateCreated datePublished" datetime="2021-08-19T07:01:25+08:00">2021-08-19</time>
+              <time title="创建时间：2021-08-19 07:01:25" itemprop="dateCreated datePublished" datetime="2021-08-19T07:01:25+08:00">2021-08-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-21 18:02:20" itemprop="dateModified" datetime="2021-08-21T18:02:20+08:00">2021-08-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -255,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>259</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -276,13 +286,44 @@
       
         <h2 id="3-7：最小生成树"><a href="#3-7：最小生成树" class="headerlink" title="3.7：最小生成树"></a>3.7：最小生成树</h2><p>参考资料： <a target="_blank" rel="noopener" href="https://oi-wiki.org/graph/mst/#_2%E3%80%82%EF%BC%88%E6%9C%89%E5%9B%BE%E7%A4%BA%EF%BC%89">https://oi-wiki.org/graph/mst/#_2。（有图示）</a></p>
 <p>我们定义无向连通图的 <strong>最小生成树</strong>（Minimum Spanning Tree，MST）为边权和最小的生成树。</p>
+<p>给定一个无向图，在图中选择若干条边把图的所有节点连起来。要求边长之和最小。在图论中，叫做求最小生成树。</p>
 <p>注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。</p>
 <span id="more"></span>
 
 <p><img src="/posts/d3357d9c/image-20210819080953979.png" alt="image-20210819080953979"></p>
 <p>对于最小生成树，稠密图常用朴素版Prim算法，稀疏图常用Kruskal算法，堆优化Prim用的较少。</p>
-<h3 id="3-7-1：朴素版Prim算法"><a href="#3-7-1：朴素版Prim算法" class="headerlink" title="3.7.1：朴素版Prim算法"></a>3.7.1：朴素版Prim算法</h3><p>Prim算法和Dijkstra算法非常像。</p>
+<p>最小生成树的两种算法都能处理负权和负环。最小生成树中不应该有自环。</p>
+<p>不存在最小生成树的情况：点不连通。</p>
+<h3 id="3-7-1：朴素版Prim算法"><a href="#3-7-1：朴素版Prim算法" class="headerlink" title="3.7.1：朴素版Prim算法"></a>3.7.1：朴素版Prim算法</h3><p>Prim算法和Dijkstra算法非常像，同样基于贪心思想。Prim可以处理带负权图。</p>
 <p>该算法的基本思想是从一个结点开始，不断加点（而不是 Kruskal 算法的加边）。</p>
+<p>y总讲解视频： <a target="_blank" rel="noopener" href="https://www.acwing.com/video/25/">https://www.acwing.com/video/25/</a> 12:13。（很细致）</p>
+<p><strong>例题：858. Prim算法求最小生成树（模板题）</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。</span><br><span class="line">求最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line">给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合，E 表示图中边的集合，n=|V|，m=|E|。</span><br><span class="line">由 V 中的全部 n 个顶点和 E 中 n−<span class="number">1</span> 条边构成的无向连通子图被称为 G 的一棵生成树，其中边的权值之和最小的生成树被称为无向图 G 的最小生成树。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含三个整数 u,v,w，表示点 u 和点 v 之间存在一条权值为 w 的边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，若存在最小生成树，则输出一个整数，表示最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">500</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">图中涉及边的边权的绝对值均不超过 <span class="number">10000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>每次将离连通部分的最近的点和点对应的边加入的连通部分，连通部分逐渐扩大，最后将整个图连通起来，并且边长之和最小。</p>
+<p><img src="/posts/d3357d9c/image-20210819172537080.png" alt="image-20210819172537080"></p>
+<p>定义点到集合的距离：当集合外一点有多条边连向集合内的点，取权值最小的边作为点到集合的距离。</p>
+<p>若集合外一点没有边连向集合内的点，则定义点到集合的距离为INF。</p>
+<p>这里的集合也就是最小生成树的连通块，迭代n次，每次迭代将一个点将入到集合中。</p>
+<p><img src="/posts/d3357d9c/image-20210819173006284.png" alt="image-20210819173006284"></p>
+<p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/38312/%E3%80%82">https://www.acwing.com/solution/content/38312/。</a></p>
+<p>dist数组存的是点到集合的距离，和Dijkstra不一样。</p>
+<p>时间复杂度：O(n^2)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">510</span>,INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> g[N][N];</span><br><span class="line"><span class="keyword">bool</span> s[N];</span><br><span class="line"><span class="keyword">int</span> d[N];<span class="comment">// dist存储其他点到集合S的距离</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">prim</span><span class="params">()</span></span>&#123;<span class="comment">//如果图不连通返回INF, 否则返回res</span></span><br><span class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;<span class="comment">// 存放最小生成树的边权之和</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;<span class="comment">// n次循环，每次加入一个距离S最近的点t</span></span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)&#123;<span class="comment">// 找到集合外离S最近的点t</span></span><br><span class="line">            <span class="keyword">if</span> (!s[j] &amp;&amp; (t == <span class="number">-1</span> || d[t] &gt; d[j])) t = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果第2个及以后的点没有连向集合的边，最小生成树不存在</span></span><br><span class="line">        <span class="keyword">if</span> (i &amp;&amp; d[t] == INF) <span class="keyword">return</span> INF;</span><br><span class="line">        <span class="keyword">if</span> (i) res += d[t];<span class="comment">// 第1个点不用，先累加，再更新，否则更新时会将自环加进来</span></span><br><span class="line">        s[t] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// 用t更新其他点到集合的距离</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++) d[j] = min(d[j],g[t][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(g,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> g);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">int</span> u,v,w;</span><br><span class="line">    <span class="keyword">while</span> (m -- )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        g[u][v] = g[v][u] = min(g[u][v],w);<span class="comment">// 无向图，处理重边</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> t = prim();</span><br><span class="line">    <span class="keyword">if</span> (t == INF) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// prim函数的另一种写法，少了2个判断</span></span><br><span class="line"><span class="comment">// 通过 dist[1] = 0 声明了起点为1，后面就不用特判是不是第1个点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">prim</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    d[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++ )&#123;</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            <span class="keyword">if</span> (!s[j] &amp;&amp; (t == <span class="number">-1</span> || d[t] &gt; d[j]))</span><br><span class="line">                t = j;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (d[t] == INF) <span class="keyword">return</span> INF;</span><br><span class="line">        res += d[t];</span><br><span class="line">        s[t] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++ )</span><br><span class="line">            d[j] = min(d[j], g[t][j]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Prim算法的堆优化与Dijkstra算法的堆优化做法类似，不过不常用。</p>
+<h3 id="3-7-2：Kruskal-算法"><a href="#3-7-2：Kruskal-算法" class="headerlink" title="3.7.2：Kruskal 算法"></a>3.7.2：Kruskal 算法</h3><p>Kruskal 算法是一种常见并且好写的最小生成树算法，由 Kruskal 发明。该算法的基本思想是从小到大加入边，是个贪心算法。Prim采用点贪心，Kruskal采用边贪心。</p>
+<p>前置知识：并查集，图的存储。</p>
+<p>Kruskal 算法的时间瓶颈就是第一步的边权排序O(m*logm)。（快排的常数比较小）</p>
+<p>关于并查集的部分可以参照<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/839/">连通块中点的数量</a>这道题。</p>
+<p><img src="/posts/d3357d9c/image-20210821083745142.png" alt="image-20210821083745142"></p>
+<p><strong>例题：859. Kruskal算法求最小生成树（模板题）</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。</span><br><span class="line">求最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line">给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合，E 表示图中边的集合，n=|V|，m=|E|。</span><br><span class="line">由 V 中的全部 n 个顶点和 E 中 n−<span class="number">1</span> 条边构成的无向连通子图被称为 G 的一棵生成树，其中边的权值之和最小的生成树被称为无向图 G 的最小生成树。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含三个整数 u,v,w，表示点 u 和点 v 之间存在一条权值为 w 的边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，若存在最小生成树，则输出一个整数，表示最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">2</span>∗<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">图中涉及边的边权的绝对值均不超过 <span class="number">1000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[a] != a) p[a] = find(p[a]);</span><br><span class="line">    <span class="keyword">return</span> p[a];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a,b,w;<span class="comment">// 需要对边排序，用结构体存储</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Edge&amp; W) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> w &lt; W.w;<span class="comment">// 重载小于号</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;edge[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kruskal</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sort(edge + <span class="number">1</span>,edge + m + <span class="number">1</span>);<span class="comment">// 数组从下标为1开始存边</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) p[i] = i;<span class="comment">// 初始化并查集</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>,cnt = <span class="number">0</span>;<span class="comment">// res存放最小生成树的边权之和，cnt存放最小生成树的边数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = edge[i].a,b = edge[i].b,w = edge[i].w;</span><br><span class="line">        a = find(a),b = find(b);</span><br><span class="line">        <span class="keyword">if</span> (a != b)&#123;</span><br><span class="line">            p[a] = b;</span><br><span class="line">            res += w;</span><br><span class="line">            cnt ++;</span><br><span class="line">        &#125;<span class="comment">// n个点一共n-1条边</span></span><br><span class="line">        <span class="keyword">if</span> (cnt == n<span class="number">-1</span>) <span class="keyword">break</span>;<span class="comment">// 处理完提前退出</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt &lt; n<span class="number">-1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">int</span> u,v,w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i ++ )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        edge[i] = &#123;u,v,w&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    kruskal();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -331,6 +372,7 @@
           
           <div class="post-tags">
               <a href="/tags/Prim/" rel="tag"><i class="fa fa-tag"></i> Prim</a>
+              <a href="/tags/Kruskal/" rel="tag"><i class="fa fa-tag"></i> Kruskal</a>
           </div>
 
         
@@ -429,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7%EF%BC%9A%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-text">3.7：最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-1%EF%BC%9A%E6%9C%B4%E7%B4%A0%E7%89%88Prim%E7%AE%97%E6%B3%95"><span class="nav-text">3.7.1：朴素版Prim算法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7%EF%BC%9A%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-text">3.7：最小生成树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-1%EF%BC%9A%E6%9C%B4%E7%B4%A0%E7%89%88Prim%E7%AE%97%E6%B3%95"><span class="nav-text">3.7.1：朴素版Prim算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-2%EF%BC%9AKruskal-%E7%AE%97%E6%B3%95"><span class="nav-text">3.7.2：Kruskal 算法</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,20 +487,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">125</span>
+        <span class="site-state-item-count">130</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -507,13 +549,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">804k</span>
+    <span title="站点总字数">870k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:11</span>
+    <span title="站点阅读时长">13:11</span>
 </div>
 
 <span id="sitetime"></span>

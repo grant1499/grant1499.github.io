@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/8f2ac1d3/19_860e00c489-1_597ec77c49-8-queens.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/8f2ac1d3/image-20210816165319014.png">
 <meta property="article:published_time" content="2021-08-15T01:12:14.000Z">
-<meta property="article:modified_time" content="2021-08-17T23:18:24.940Z">
+<meta property="article:modified_time" content="2021-08-22T08:17:31.961Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary">
@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">125</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">203</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">217</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-18 07:18:24" itemprop="dateModified" datetime="2021-08-18T07:18:24+08:00">2021-08-18</time>
+                <time title="修改时间：2021-08-22 16:17:31" itemprop="dateModified" datetime="2021-08-22T16:17:31+08:00">2021-08-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -335,7 +335,7 @@
 <p>时间复杂度：O(n^2*n!)，每次输出答案是O(n^2)，递归搜索是O(n!)。</p>
 <p>算法2：DFS按每个元素枚举。递归实现指数型枚举。</p>
 <p>从(0,0)一直搜索到(n-1,n-1)，对于每个位置，有放和不放皇后2种情况。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;<span class="comment">// 对角线数量是2*n-1</span></span><br><span class="line"><span class="keyword">bool</span> row[N],col[N],dg[<span class="number">2</span>*N],udg[<span class="number">2</span>*N];<span class="comment">// 判断某行，列，对角线，反对角线是否用过</span></span><br><span class="line"><span class="keyword">char</span> g[N][N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s &gt; n) <span class="keyword">return</span>;<span class="comment">// 剪枝优化</span></span><br><span class="line">    <span class="comment">// if (y == n)一定要放在对x的判断之前</span></span><br><span class="line">    <span class="keyword">if</span> (y == n) y = <span class="number">0</span>,x ++;<span class="comment">// 纵坐标走到头，从下一行第一列继续搜索</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (x == n)&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == n)&#123;<span class="comment">// 走到最后一行且放完n个皇后输出答案</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j ++) <span class="built_in">cout</span> &lt;&lt; g[i][j];</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 不放皇后</span></span><br><span class="line">    g[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    dfs(x,y+<span class="number">1</span>,s);</span><br><span class="line">    <span class="comment">// 放皇后</span></span><br><span class="line">    <span class="keyword">if</span> (!row[x] &amp;&amp; !col[y] &amp;&amp; !dg[x+y] &amp;&amp; !udg[y-x+n])&#123;<span class="comment">// 判断是否能放皇后</span></span><br><span class="line">        row[x] = col[y] = dg[x+y] = udg[y-x+n] = <span class="literal">true</span>;</span><br><span class="line">        g[x][y] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">        dfs(x,y+<span class="number">1</span>,s+<span class="number">1</span>);<span class="comment">// 可以写成dfs(x+1,0,s+1);优化，直接从下一行开始搜索</span></span><br><span class="line">        row[x] = col[y] = dg[x+y] = udg[y-x+n] = <span class="literal">false</span>;<span class="comment">// 恢复现场</span></span><br><span class="line">        g[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        </span><br><span class="line">    dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;<span class="comment">// 对角线数量是2*n-1</span></span><br><span class="line"><span class="keyword">bool</span> row[N],col[N],dg[<span class="number">2</span>*N],udg[<span class="number">2</span>*N];<span class="comment">// 判断某行，列，对角线，反对角线是否用过</span></span><br><span class="line"><span class="keyword">char</span> g[N][N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s &gt; n) <span class="keyword">return</span>;<span class="comment">// 剪枝优化</span></span><br><span class="line">    <span class="comment">// if (y == n)一定要放在对x的判断之前，不然走完最后一行还会继续dfs(4,1,0)，出错</span></span><br><span class="line">    <span class="keyword">if</span> (y == n) y = <span class="number">0</span>,x ++;<span class="comment">// 纵坐标走到头，从下一行第一列继续搜索</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (x == n)&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == n)&#123;<span class="comment">// 走到最后一行且放完n个皇后输出答案</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j ++) <span class="built_in">cout</span> &lt;&lt; g[i][j];</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 不放皇后</span></span><br><span class="line">    g[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    dfs(x,y+<span class="number">1</span>,s);</span><br><span class="line">    <span class="comment">// 放皇后</span></span><br><span class="line">    <span class="comment">// 判断是否能放皇后</span></span><br><span class="line">    <span class="keyword">if</span> (!row[x] &amp;&amp; !col[y] &amp;&amp; !dg[x+y] &amp;&amp; !udg[y-x+n] &amp;&amp; x &lt; n &amp;&amp; y &lt; n)&#123;</span><br><span class="line">        row[x] = col[y] = dg[x+y] = udg[y-x+n] = <span class="literal">true</span>;</span><br><span class="line">        g[x][y] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line">        dfs(x,y+<span class="number">1</span>,s+<span class="number">1</span>);<span class="comment">// 可以写成dfs(x+1,0,s+1);优化，直接从下一行开始搜索</span></span><br><span class="line">        row[x] = col[y] = dg[x+y] = udg[y-x+n] = <span class="literal">false</span>;<span class="comment">// 恢复现场</span></span><br><span class="line">        g[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        </span><br><span class="line">    dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>时间复杂度：$O(2^{n^{2}})$，每个位置都有两种情况，总共有 n^2 个位置。</p>
 
@@ -500,20 +500,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">203</span>
+          <span class="site-state-item-count">217</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">125</span>
+        <span class="site-state-item-count">130</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -562,13 +562,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">804k</span>
+    <span title="站点总字数">870k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">12:11</span>
+    <span title="站点阅读时长">13:11</span>
 </div>
 
 <span id="sitetime"></span>
