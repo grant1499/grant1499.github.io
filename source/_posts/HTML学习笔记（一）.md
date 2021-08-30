@@ -20,7 +20,7 @@ date: 2021-05-04 19:16:00
 
 推荐实战训练巩固知识：https://www.w3cschool.cn/codecamp/list?pename=html5_and_css_camp
 
-web英语教程推荐：https://www.bilibili.com/video/BV17b41137yx?p=2&share_source=copy_web
+web前端英语教程推荐：https://www.bilibili.com/video/BV17b41137yx?p=2&share_source=copy_web
 
 ![image-20210504193312259](HTML学习笔记（一）/image-20210504193312259.png)
 
@@ -183,7 +183,7 @@ target : 表示窗口在哪里打开
 <!--功能性链接
 邮件链接 ： mailto:
 -->
-<a href="mailto:2478881580@q.com">点击联系我</a>
+<a href="mailto:2478881580@qq.com">点击联系我</a>
 </body>
 </html>
 ```

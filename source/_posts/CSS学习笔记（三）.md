@@ -20,17 +20,9 @@ span标签：用span套起来重点要突出的字。（约定俗成）
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #title1{
+         #title1{
             font-size: 40px;
         }
-    </style>
-</head>
-<body>
-欢迎学习<span id="title1">Java</span>/*修改字体样式*/
-</body<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
         body{
             font-family: Consolas,宋体;/*字体种类*/
             /*分别设置中英文字体*/
@@ -45,6 +37,7 @@ span标签：用span套起来重点要突出的字。（约定俗成）
     </style>
 </head>
 <body>
+欢迎学习<span id="title1">Java</span>/*修改字体样式*/
 <h1>林清玄散文</h1>
 <p>You did not come,
     　　And marching Time drew on, and wore me numb.</p>
@@ -166,7 +159,7 @@ span标签：用span套起来重点要突出的字。（约定俗成）
 
 ## 7.超链接伪类
 
-补充相对路径小知识：
+补充相对路径小知识：（和Linux中一致）
 
 上一级目录表示：../
 
@@ -224,3 +217,129 @@ span标签：用span套起来重点要突出的字。（约定俗成）
 
 ![image-20210527174927700](CSS学习笔记（三）/image-20210527174927700.png)
 
+## 8.列表样式练习
+
+![image-20210824121451083](CSS学习笔记（三）/image-20210824121451083.png)
+
+## 9.背景
+
+分为背景颜色和背景图片。
+
+如何使用背景图片。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        div{
+            height:600px;
+            width:600px;
+            border: 1px solid #24c497;/* 边框 */
+            /*默认是全部平铺的repeat*/
+            background-image: url("../../resources/image/a.png");
+        }
+        .div1{/*水平平铺*/
+            background-repeat: repeat-x;
+        }
+        .div2{/*垂直平铺*/
+            background-repeat: repeat-y;
+        }
+        .div3{/*不平铺*/
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+<div class="div1"></div>
+<div class="div2"></div>
+<div class="div3"></div>
+
+</body>
+</html>
+```
+
+效果：
+
+![image-20210824123723895](CSS学习笔记（三）/image-20210824123723895.png)
+
+完善列表的练习。
+
+![image-20210824123351381](CSS学习笔记（三）/image-20210824123351381.png)
+
+渐变背景css样式网站：https://www.grabient.com/。
+
+## 10.盒子模型
+
+![image-20210824124221305](CSS学习笔记（三）/image-20210824124221305.png)
+
+不同部分的说明：
+
+- **Margin(外边距)** - 清除边框外的区域，外边距是透明的。
+- **Border(边框)** - 围绕在内边距和内容外的边框。
+- **Padding(内边距)** - 清除内容周围的区域，内边距是透明的。
+- **Content(内容)** - 盒子的内容，显示文本和图像。
+
+Border（边框）：粗细，样式，颜色。
+
+### 边框
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*body{*/
+        /*    margin: 0;*/
+        /*}*/
+        #box{/*border: 粗细，样式，颜色*/
+            text-indent: 2em;
+            width: 300px;
+            border: 1px solid red;
+        }
+        h2{
+            background: #f39cff;
+	    font-size: 16px;
+            line-height: 30px;
+        }
+        form{
+            background: #24c497;
+        }
+        div:nth-of-type(1) >input{
+            border: 4px solid #2e4370;/*solid实线*/
+        }
+        div:nth-of-type(2) input{
+            border: 4px dashed #40b52f;/*dashed虚线*/
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="box">
+    <h2>会员登录</h2>
+    <form action="#">
+        <div>
+            <span>用户名：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>密码：</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>邮箱：</span>
+            <input type="text">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
+```

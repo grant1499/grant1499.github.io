@@ -25,7 +25,7 @@ date: 2021-05-10 20:58:29
 1. 后代选择器：在某个元素的后面   祖父  父亲 儿子  孙子
 
     ```css
-    body p{
+    body p{ /*body之后的所有p标签都变色*/
         background: #24c497;
     }
     ```
@@ -35,7 +35,7 @@ date: 2021-05-10 20:58:29
     ```css
     body>p{
         background: #f39cff;
-        /*p1 p2 p3变色*/
+        /*p1 p2 p3 p7 p8变色*/
     }
     ```
 
@@ -128,6 +128,11 @@ date: 2021-05-10 20:58:29
 
     <!--避免使用class和id选择器-->
     <style>
+        ul li{
+            height: 30px;
+            list-style: none;
+            text-indent: 2em;
+        }
         /*ul的第一个子元素*/
         ul li:first-child{
             background: #f39cff;

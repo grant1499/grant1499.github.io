@@ -14,6 +14,8 @@ date: 2021-02-23 23:12:43
 
 <!--more-->
 
+推荐一个Latex工具网站： https://latexlive.com/。
+
 1.打出斜体：$O(n)$,`$O(n)$`
 
 2.打出根号：$\sqrt n$ ,`$\sqrt n$`

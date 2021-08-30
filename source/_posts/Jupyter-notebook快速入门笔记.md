@@ -43,7 +43,7 @@ pip install jupyter -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 运行Jupyter notebook
 
-打开命令行，通过cd命令切换到指定文件路径下，输入`jupter notebook`，回车。稍等片刻即可跳出浏览器网页。如果没有跳转浏览器，也可以手动复制链接到浏览器打开。
+打开命令行，通过cd命令切换到指定文件路径下，输入`jupyter notebook`，回车。稍等片刻即可跳出浏览器网页。如果没有跳转浏览器，也可以手动复制链接到浏览器打开。
 
 ![image-20210306224106698](Jupyter-notebook快速入门笔记/image-20210306224106698.png)
 

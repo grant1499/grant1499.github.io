@@ -26,6 +26,10 @@ HTML+CSS+JavaScript
 
 推荐前端学习网站：w3cschool和菜鸟教程。
 
+入门教程： https://www.runoob.com/css/css-tutorial.html。
+
+狂神CSS3教程配套笔记： https://blog.csdn.net/pan_h1995/article/details/105827181。
+
 前端和Java程序员一个很重要的区别就是：CSS。
 
 作为Java程序员只要**重点掌握选择器**就行。

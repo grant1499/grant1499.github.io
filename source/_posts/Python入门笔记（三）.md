@@ -158,7 +158,7 @@ print(m[1])
 
 ```python
 # 1
-def fun(x:y):
+def fun(x,y):
     return x+y
 # 2
 fun = lambda x,y:x+y

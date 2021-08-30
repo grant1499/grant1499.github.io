@@ -131,6 +131,7 @@ public class LearnString {
         // content指向对象的内容并没有变化
         System.out.println(content);
         //返回指定索引处的字符。索引范围为从 0 到 length() - 1
+        // Java的String索引不像C++可以用[]提取
         System.out.println(content.charAt(1));
 
         // System.out.println(content.charAt(99));
