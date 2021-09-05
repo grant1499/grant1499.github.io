@@ -40,6 +40,8 @@ server绝大多数都是部署在Linux上，所以需要先学好Linux，Linux�
 
 学习资料 ：**菜鸟教程**，黑马程序员Linux笔记，尚硅谷Linux课程资料，**韩顺平Linux课程**。
 
+参考博客： https://www.junmajinlong.com/linux/index/。
+
 # 3：lesson1
 
 ## 3.1：课程概论

@@ -248,3 +248,7 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
 | list-folded     | `false`    | 歌词格式类型                                                |
 | list-max-height | `340px`    | 播放列表的最大长度                                          |
 | storage-name    | `metingjs` | LocalStorage 中存储播放器设定的键名                         |
+
+## 18.补充
+
+以后git操作不能用密码了，需要用token代替密码。

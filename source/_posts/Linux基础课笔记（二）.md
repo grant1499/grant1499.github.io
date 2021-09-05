@@ -16,6 +16,8 @@ copyright: true
 
 y总说： 命令比较多，多写多练，不要纯靠背。
 
+<!--more-->
+
 参考文章： http://www.ruanyifeng.com/blog/2019/10/tmux.html。
 
 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称"窗口"），在里面输入命令。**用户与计算机的这种临时的交互，称为一次"会话"（session）** 。
@@ -307,10 +309,10 @@ Vim配置参考文章： https://www.ruanyifeng.com/blog/2018/09/vimrc.html。
 
 ```shell
 # 0
-acs@83ea09fe037b:~/homework/lesson_2$ cd homework_0/                                                                  acs@83ea09fe037b:~/homework/lesson_2/homework_0$ vim names.txt 
+acs@83ea09fe037b:~/homework/lesson_2$ cd homework_0/                                 acs@83ea09fe037b:~/homework/lesson_2/homework_0$ vim names.txt 
 然后输入单词并保存退出
 # 1
-acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_1/                                          acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
+acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_1/                   acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
 G101<space><backspace>x # 或者：G101<Space>i<Backspace>ESC
 3G8<space><backspace>x
 gg30<space><backspace>x
@@ -318,7 +320,7 @@ gg30<space><backspace>x
 9G80<space><backspace>x
 :wq
 # 2，错了
-acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                                          acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
+acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                   acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
 gg
 /two<enter>
 3<space>iabcESC
@@ -327,14 +329,14 @@ n3<space>d12<space>
 ndd
 :wq
 # 3
-acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                                          acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
+acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                   acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
 gg
 :5,15s/of/OFESC/g
 :1,$s/the/THEESC/g
 :1,$s/is/ISESC/gc   nynyny... # 没想到
 :wq
 # 4
-acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                                          acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
+acs@83ea09fe037b:~/homework/lesson_2/homework_0$ cd ../homework_2/                   acs@83ea09fe037b:~/homework/lesson_2/homework_1$ vim problem.txt
 11Gdd
 Gp
 5Gyy
