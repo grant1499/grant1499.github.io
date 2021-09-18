@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -281,22 +281,17 @@
 <p>顺时针：上，右，下，左。</p>
 <p>margin居中的要求：必须是块元素（如div），且块元素有固定宽度，body宽度是无限的。</p>
 <span id="more"></span>
-
 <p><img src="/posts/4b4015b4/image-20210826120113649.png" alt="image-20210826120113649"></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line"><span class="comment">/*body&#123;*/</span></span><br><span class="line"><span class="comment">/*    margin: 0;*/</span></span><br><span class="line"><span class="comment">/*&#125;*/</span></span><br><span class="line"><span class="selector-id">#box</span>&#123;<span class="comment">/*border: 粗细，样式，颜色*/</span></span><br><span class="line">    <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;<span class="comment">/*上下为0，左右自动*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h2</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#f39cff</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">form</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#24c497</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>) &gt;<span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> solid <span class="number">#2e4370</span>;<span class="comment">/*solid实线*/</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">8px</span>;<span class="comment">/*填充*/</span></span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">4px</span>;<span class="comment">/*外边距*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:nth-of-type</span>(<span class="number">2</span>) <span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> dashed <span class="number">#40b52f</span>;<span class="comment">/*dashed虚线*/</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="1-圆角边框"><a href="#1-圆角边框" class="headerlink" title="1.圆角边框"></a>1.圆角边框</h2><p>radius对应各个角的弧度。</p>
 <p>当正方形的width和height都是100px时，四个方向的radius为50px时，可以画出圆。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;           <span class="comment">/*圆形*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> solid red;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*两个参数：主、次对角线，四个参数：左上，右上，右下，左下。顺时针*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span>&#123;           <span class="comment">/*半圆*/</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> solid red;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">/*两个参数：主、次对角线，四个参数：左上，右上，右下，左下。顺时针*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>radius也可以写百分比的形式，应用：将方形图片改成圆形作为头像。</p>
 <h2 id="2-盒子阴影"><a href="#2-盒子阴影" class="headerlink" title="2.盒子阴影"></a>2.盒子阴影</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">4px</span> solid red;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> yellow;<span class="comment">/*阴影*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-浮动（display与float）"><a href="#3-浮动（display与float）" class="headerlink" title="3.浮动（display与float）"></a>3.浮动（display与float）</h2><p>行内元素：不独占一行，如span，a，img，strong等等。</p>
 <p>块级元素：独占一行，如h1~h6，p，div，ul列表等等。</p>
 <p>行内元素可以包在块级元素之内。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        <span class="comment">/*display</span></span><br><span class="line"><span class="comment">        inline：行内元素，block：块级元素</span></span><br><span class="line"><span class="comment">        inline-block：块元素，但有行内特性</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="selector-tag">div</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">1px</span> solid green;</span><br><span class="line">            <span class="attribute">display</span>: inline;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-tag">span</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">1px</span> solid green;</span><br><span class="line">            <span class="attribute">display</span>: block;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="selector-tag">div</span>&gt;<span class="selector-tag">div</span>块级元素&lt;/<span class="selector-tag">div</span>&gt;</span><br><span class="line">&lt;<span class="selector-tag">span</span>&gt;<span class="selector-tag">span</span>行内元素&lt;/<span class="selector-tag">span</span>&gt;</span><br><span class="line">&lt;/<span class="selector-tag">body</span>&gt;</span><br></pre></td></tr></table></figure>
-
 <p>CSS 的 Float（浮动），会使元素<strong>向左或向右移动</strong>，其周围的元素也会重新排列。</p>
 <p>Float（浮动），往往是用于图像，但它在布局时一样非常有用。</p>
 <p>display和float都能实现行内元素排列，常用float。</p>
@@ -305,12 +300,10 @@
 <p>浮动元素之后的元素将围绕它。</p>
 <p>浮动元素之前的元素将不会受到影响。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>: right;<span class="comment">/*图片周围的文本会环绕，使得图像保持在右边*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>如果你把几个浮动的元素放到一起，如果有空间的话，它们将彼此相邻。</p>
 <p>clear 属性指定元素两侧不能出现浮动元素。</p>
 <p>clear：<br>right：右侧不允许有浮动元素<br>left：左侧不允许有浮动元素<br>both：两侧不允许有浮动元素<br>none：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text_line</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">clear</span>:both;<span class="comment">/*text_line元素将不会环绕浮动的图片*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="4-解决父级边框塌陷问题（处理浮动影响）"><a href="#4-解决父级边框塌陷问题（处理浮动影响）" class="headerlink" title="4.解决父级边框塌陷问题（处理浮动影响）"></a>4.解决父级边框塌陷问题（处理浮动影响）</h2><p><img src="/posts/4b4015b4/image-20210828095522667.png" alt="image-20210828095522667"></p>
 <p>father以下的div设置浮动后，会导致father边框塌陷，往里缩</p>
 <p>解决塌陷问题方案：</p>
@@ -319,12 +312,11 @@
 <li>方案二：增加一个空的div标签，清除浮动</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class = &quot;clear&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">	<span class="selector-class">.clear</span>&#123;</span><br><span class="line">		<span class="attribute">clear</span>:both;</span><br><span class="line">		<span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">		<span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>方案三：在父级元素中增加一个overflow：hidden，超过父级元素的范围就隐藏。</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>:hidden/*隐藏*/</span><br><span class="line">overflow：scoll/*滚动*/</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -332,7 +324,8 @@
 <th>内容会被修剪，并且其余内容是不可见的。</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>scroll</td>
 <td>内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。</td>
 </tr>
@@ -340,20 +333,21 @@
 <td>auto</td>
 <td>如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>有时候会用到auto。</p>
 <ul>
 <li>方案四：父类添加一个伪类:after。</li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#father</span>:after&#123;</span><br><span class="line">	content:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	<span class="attribute">display</span>:block;<span class="comment">/*将空内容变成div块，和方案二效果一样*/</span></span><br><span class="line">	<span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>:after 选择器向选定元素的最后子元素后面插入内容。使用content 属性来指定要插入的内容。</p>
 <p>小结：</p>
 <ol>
-<li>浮动元素增加空div—-》简单、代码尽量避免空div</li>
-<li>设置父元素的高度—–》简单，元素假设没有了固定的高度，就会超出</li>
-<li>overflow—-》简单，下拉的一些场景避免使用</li>
-<li>父类添加一个伪类:after（推荐）—-》写法稍微复杂，但是没有副作用，<strong>推荐使用</strong></li>
+<li>浮动元素增加空div——》简单、代码尽量避免空div</li>
+<li>设置父元素的高度——-》简单，元素假设没有了固定的高度，就会超出</li>
+<li>overflow——》简单，下拉的一些场景避免使用</li>
+<li>父类添加一个伪类:after（推荐）——》写法稍微复杂，但是没有副作用，<strong>推荐使用</strong></li>
 </ol>
 <p><strong>补充：关于display与float的对比</strong></p>
 <ol>
@@ -522,20 +516,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -584,13 +578,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

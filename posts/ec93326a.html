@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210506135934554.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/ec93326a/image-20210506145254977.png">
 <meta property="article:published_time" content="2021-03-21T12:20:37.000Z">
-<meta property="article:modified_time" content="2021-08-30T02:22:36.928Z">
+<meta property="article:modified_time" content="2021-09-18T09:47:21.781Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
@@ -131,17 +131,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 10:22:36" itemprop="dateModified" datetime="2021-08-30T10:22:36+08:00">2021-08-30</time>
+                <time title="修改时间：2021-09-18 17:47:21" itemprop="dateModified" datetime="2021-09-18T17:47:21+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.8k</span>
+              <span>4.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -286,7 +286,6 @@
 <p>本文将介绍总结一些hexo的常见/不常见/棘手问题的解决方法。</p>
 </blockquote>
 <span id="more"></span>
-
 <h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="1-插入图片"><a href="#1-插入图片" class="headerlink" title="1.插入图片"></a>1.插入图片</h2><p>只需在 md 文件里使用 <code>![title](同名文件夹/图片名.jpg)</code> ，无需路径名就可以插入图片。</p>
 <h2 id="2-文章摘要"><a href="#2-文章摘要" class="headerlink" title="2.文章摘要"></a>2.文章摘要</h2><p>在文章<code>&lt;!--more--&gt;</code>之前的内容将作为首页的摘要部分！</p>
 <h2 id="3-解决busuanzi不显示问题必看"><a href="#3-解决busuanzi不显示问题必看" class="headerlink" title="3.解决busuanzi不显示问题必看"></a>3.<a target="_blank" rel="noopener" href="https://muyuuuu.github.io/2019/11/22/busuanzi-notdisplay/">解决busuanzi不显示问题必看</a></h2><p>其实核心问题就是找到span id里是否有style = “display: none”，找到对应文件对应位置的代码并删除即可</p>
@@ -324,10 +323,8 @@
 <h2 id="12-文章生成永久化链接"><a href="#12-文章生成永久化链接" class="headerlink" title="12.文章生成永久化链接"></a>12.文章生成永久化链接</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011063477/article/details/105929290/">https://blog.csdn.net/u011063477/article/details/105929290/</a></p>
 <p>安装hexo-abbrlink插件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-abbrlink --save</span><br></pre></td></tr></table></figure>
-
 <p>站点配置文件(_config.yml)里:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">post/:abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span>  <span class="comment"># 算法：crc16(default) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>    <span class="comment"># 进制：dec(default) and hex</span></span><br></pre></td></tr></table></figure>
-
 <p>先使用<code>hexo c &amp;&amp; hexo g</code>，清除缓存，重新生成，再使用<code>hexo g</code>会自动在你的文章中加上<code>abbrlink: fbf5310d</code>。</p>
 <p>如果打开网站发现打开不同文章都会重定向到一篇文章，而且都会出现undefined.html，说明没有清除缓存。</p>
 <p>图像不显示问题：<a target="_blank" rel="noopener" href="https://www.pianshen.com/article/65241119972/">https://www.pianshen.com/article/65241119972/</a></p>
@@ -341,124 +338,126 @@
 <p><a target="_blank" rel="noopener" href="https://noshore.cn/shuangxianbushu.html#2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90">https://noshore.cn/shuangxianbushu.html#2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90</a></p>
 <p>其实我更推荐看腾讯云的官方文档，看不懂的话还有人工客服。因为博客的内容毕竟不是最新的，而且不一定适合所有人。</p>
 <p>折腾老半天最后还是成功了。</p>
-<p><a href="https://www.grantdrew.top/%E5%92%8Chttp://www.grantdrew.top/%E9%83%BD%E8%83%BD%E8%AE%BF%E9%97%AE%E5%BD%93%E5%89%8D%E7%AB%99%E7%82%B9%E3%80%82">https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。</a></p>
-<p>以后用<code>hexo d -g</code>进行双线部署。</p>
+<p><a href="https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。">https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。</a></p>
+<p><strong>以后用<code>hexo d -g</code>进行双线部署。</strong></p>
 <p>tips：绑定域名后访问量将清零！</p>
 <p>注意：执行<code>hexo d -g</code>时coding的用户名时你的邮箱或者手机号，输入密码时光标不会动。</p>
 <p><img src="/posts/ec93326a/image-20210506145942386.png" alt="image-20210506145942386"></p>
 <h2 id="15-配置域名后评论区出现code403"><a href="#15-配置域名后评论区出现code403" class="headerlink" title="15.配置域名后评论区出现code403"></a>15.配置域名后评论区出现code403</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43868299/article/details/107601150">https://blog.csdn.net/weixin_43868299/article/details/107601150</a></p>
 <h2 id="16-hexo增加展示PDF功能"><a href="#16-hexo增加展示PDF功能" class="headerlink" title="16.hexo增加展示PDF功能"></a>16.hexo增加展示PDF功能</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43827595/article/details/104574959">https://blog.csdn.net/qq_43827595/article/details/104574959</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% pdf /file/LeetCodeGuide.pdf %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这么写就行--&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>记得在next主题下的配置文件搜索pdf把enable设置为true。</p>
 <p>测试效果图：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--测试代码--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">src</span>=<span class="string">&quot;/file/LeetCodeGuide.pdf&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;750&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/pdf&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/ec93326a/image-20210506135934554.png" alt="image-20210506135934554"></p>
 <p>经测试发现如果设置width=”105%”会刚好贴到文章右边框，再宽就不合适了。</p>
 <h2 id="17-插入音乐之aplayer音乐播放器"><a href="#17-插入音乐之aplayer音乐播放器" class="headerlink" title="17.插入音乐之aplayer音乐播放器"></a>17.插入音乐之aplayer音乐播放器</h2><p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45533937/article/details/105496572">https://blog.csdn.net/qq_45533937/article/details/105496572</a></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 方案一</span><br><span class="line"><span class="comment">&lt;!-- 音乐播放器 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">          &#123;% if theme.background_music %&#125;</span><br><span class="line">              <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginwidth</span>=<span class="string">&quot;0&quot;</span> <span class="attr">marginheight</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">330</span> <span class="attr">height</span>=<span class="string">86</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; theme.background_music &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">          &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//将上面代码插入themes\next\layout\_macro\sidebar.swig inner的后面</span><br><span class="line">// 方案二，插入同样位置</span><br><span class="line"><span class="comment">&lt;!--网易云插件--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require APlayer --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- require MetingJS--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!--网易云--&gt;</span>   </span><br><span class="line">    &lt;meting-js</span><br><span class="line">      server=&quot;netease&quot;</span><br><span class="line">      id=&quot;4916164702&quot;</span><br><span class="line">	   type=&quot;playlist&quot; </span><br><span class="line">	   mini=&quot;false&quot;</span><br><span class="line">      fixed=&quot;false&quot;</span><br><span class="line">      list-folded=&quot;true&quot;</span><br><span class="line">      autoplay=&quot;false&quot;</span><br><span class="line">      volume=&quot;0.4&quot;</span><br><span class="line">      theme=&quot;#FADFA3&quot;</span><br><span class="line">      order=&quot;random&quot;</span><br><span class="line">	  loop=&quot;all&quot;</span><br><span class="line">      preload=&quot;auto&quot;</span><br><span class="line">      mutex=&quot;true&quot;&gt;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">meting-js</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>可能要等待一会才会在侧边栏看到效果。</p>
 <p>注意：私有收藏歌单不能播放！</p>
 <p>有时候可能会出现渲染出错，导致侧边栏出现堆html代码，只要<code>hexo c &amp;&amp; hexo g</code>，再重新<code>hexo s</code>就行了。</p>
 <p><img src="/posts/ec93326a/image-20210506145254977.png" alt="image-20210506145254977"></p>
 <p>直接在网易云中分享歌曲或歌单，选择复制链接就能看到id。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">选项</th>
-<th align="left">默认值</th>
-<th align="left">功能描述</th>
+<th style="text-align:left">选项</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">功能描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">id</td>
-<td align="left"><strong>必须值</strong></td>
-<td align="left">歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:left"><strong>必须值</strong></td>
+<td style="text-align:left">歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
 </tr>
 <tr>
-<td align="left">server</td>
-<td align="left"><strong>必须值</strong></td>
-<td align="left">音乐平台: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>
+<td style="text-align:left">server</td>
+<td style="text-align:left"><strong>必须值</strong></td>
+<td style="text-align:left">音乐平台: <code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code></td>
 </tr>
 <tr>
-<td align="left">type</td>
-<td align="left"><strong>必须值</strong></td>
-<td align="left"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, `artist</td>
+<td style="text-align:left">type</td>
+<td style="text-align:left"><strong>必须值</strong></td>
+<td style="text-align:left"><code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, `artist</td>
 </tr>
 <tr>
-<td align="left">auto</td>
-<td align="left">options</td>
-<td align="left">music link, support: <code>netease</code>, <code>tencent</code>, <code>xiami</code></td>
+<td style="text-align:left">auto</td>
+<td style="text-align:left">options</td>
+<td style="text-align:left">music link, support: <code>netease</code>, <code>tencent</code>, <code>xiami</code></td>
 </tr>
 <tr>
-<td align="left">fixed</td>
-<td align="left"><code>false</code></td>
-<td align="left">开启固定模式</td>
+<td style="text-align:left">fixed</td>
+<td style="text-align:left"><code>false</code></td>
+<td style="text-align:left">开启固定模式</td>
 </tr>
 <tr>
-<td align="left">mini</td>
-<td align="left"><code>false</code></td>
-<td align="left">开启迷你模式</td>
+<td style="text-align:left">mini</td>
+<td style="text-align:left"><code>false</code></td>
+<td style="text-align:left">开启迷你模式</td>
 </tr>
 <tr>
-<td align="left">autoplay</td>
-<td align="left"><code>false</code></td>
-<td align="left">自动播放，移动端浏览器暂时不支持此功能</td>
+<td style="text-align:left">autoplay</td>
+<td style="text-align:left"><code>false</code></td>
+<td style="text-align:left">自动播放，移动端浏览器暂时不支持此功能</td>
 </tr>
 <tr>
-<td align="left">theme</td>
-<td align="left"><code>#2980b9</code></td>
-<td align="left">播放器风格色彩设置</td>
+<td style="text-align:left">theme</td>
+<td style="text-align:left"><code>#2980b9</code></td>
+<td style="text-align:left">播放器风格色彩设置</td>
 </tr>
 <tr>
-<td align="left">loop</td>
-<td align="left"><code>all</code></td>
-<td align="left">列表循环模式：<code>all</code>, <code>one</code>,<code>none</code></td>
+<td style="text-align:left">loop</td>
+<td style="text-align:left"><code>all</code></td>
+<td style="text-align:left">列表循环模式：<code>all</code>, <code>one</code>,<code>none</code></td>
 </tr>
 <tr>
-<td align="left">order</td>
-<td align="left"><code>list</code></td>
-<td align="left">列表播放模式： <code>list</code>, <code>random</code></td>
+<td style="text-align:left">order</td>
+<td style="text-align:left"><code>list</code></td>
+<td style="text-align:left">列表播放模式： <code>list</code>, <code>random</code></td>
 </tr>
 <tr>
-<td align="left">preload</td>
-<td align="left"><code>auto</code></td>
-<td align="left">音乐文件预载入模式，可选项： <code>none</code>, <code>metadata</code>, <code>auto</code></td>
+<td style="text-align:left">preload</td>
+<td style="text-align:left"><code>auto</code></td>
+<td style="text-align:left">音乐文件预载入模式，可选项： <code>none</code>, <code>metadata</code>, <code>auto</code></td>
 </tr>
 <tr>
-<td align="left">volume</td>
-<td align="left"><code>0.7</code></td>
-<td align="left">播放器音量</td>
+<td style="text-align:left">volume</td>
+<td style="text-align:left"><code>0.7</code></td>
+<td style="text-align:left">播放器音量</td>
 </tr>
 <tr>
-<td align="left">mutex</td>
-<td align="left"><code>true</code></td>
-<td align="left">该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
+<td style="text-align:left">mutex</td>
+<td style="text-align:left"><code>true</code></td>
+<td style="text-align:left">该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
 </tr>
 <tr>
-<td align="left">lrc-type</td>
-<td align="left"><code>0</code></td>
-<td align="left">lyric type</td>
+<td style="text-align:left">lrc-type</td>
+<td style="text-align:left"><code>0</code></td>
+<td style="text-align:left">lyric type</td>
 </tr>
 <tr>
-<td align="left">list-folded</td>
-<td align="left"><code>false</code></td>
-<td align="left">歌词格式类型</td>
+<td style="text-align:left">list-folded</td>
+<td style="text-align:left"><code>false</code></td>
+<td style="text-align:left">歌词格式类型</td>
 </tr>
 <tr>
-<td align="left">list-max-height</td>
-<td align="left"><code>340px</code></td>
-<td align="left">播放列表的最大长度</td>
+<td style="text-align:left">list-max-height</td>
+<td style="text-align:left"><code>340px</code></td>
+<td style="text-align:left">播放列表的最大长度</td>
 </tr>
 <tr>
-<td align="left">storage-name</td>
-<td align="left"><code>metingjs</code></td>
-<td align="left">LocalStorage 中存储播放器设定的键名</td>
+<td style="text-align:left">storage-name</td>
+<td style="text-align:left"><code>metingjs</code></td>
+<td style="text-align:left">LocalStorage 中存储播放器设定的键名</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="18-补充"><a href="#18-补充" class="headerlink" title="18.补充"></a>18.补充</h2><p>以后git操作不能用密码了，需要用token代替密码。</p>
+<h2 id="19-Latex公式渲染"><a href="#19-Latex公式渲染" class="headerlink" title="19.Latex公式渲染"></a>19.Latex公式渲染</h2><p>参考： <a target="_blank" rel="noopener" href="https://blog.csdn.net/littlehaes/article/details/84370393。">https://blog.csdn.net/littlehaes/article/details/84370393。</a></p>
 
     </div>
 
@@ -605,7 +604,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">1.插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="nav-text">2.文章摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3busuanzi%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E5%BF%85%E7%9C%8B"><span class="nav-text">3.解决busuanzi不显示问题必看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-hexo-s%E6%9C%AC%E5%9C%B0%E6%A0%B7%E5%BC%8F%E4%B8%8E%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%9F"><span class="nav-text">4.hexo s本地样式与网页样式不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-markdown%E8%AF%AD%E6%B3%95%E9%80%9F%E6%88%90%E5%AE%9D%E5%85%B8"><span class="nav-text">5.markdown语法速成宝典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8E%A8%E8%8D%90hexo%E6%90%AD%E5%BB%BA%E6%96%87%E7%AB%A0%EF%BC%9A"><span class="nav-text">6.推荐hexo搭建文章：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-text">7.使用插件备份博客源文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8Valine%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="nav-text">8.hexo博客使用Valine添加评论系统：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-text">9.文章加密处理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">10.添加打赏功能：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-hexo-d%E6%97%B6%E7%BD%91%E7%BB%9C%E4%B8%8D%E7%A8%B3%E5%AE%9A"><span class="nav-text">11.hexo d时网络不稳定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E6%B0%B8%E4%B9%85%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">12.文章生成永久化链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D%E4%B8%8E%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-text">14.购买域名与绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E5%90%8E%E8%AF%84%E8%AE%BA%E5%8C%BA%E5%87%BA%E7%8E%B0code403"><span class="nav-text">15.配置域名后评论区出现code403</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-hexo%E5%A2%9E%E5%8A%A0%E5%B1%95%E7%A4%BAPDF%E5%8A%9F%E8%83%BD"><span class="nav-text">16.hexo增加展示PDF功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E4%B9%8Baplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-text">17.插入音乐之aplayer音乐播放器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E8%A1%A5%E5%85%85"><span class="nav-text">18.补充</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="nav-text">1.插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="nav-text">2.文章摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3busuanzi%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E5%BF%85%E7%9C%8B"><span class="nav-text">3.解决busuanzi不显示问题必看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-hexo-s%E6%9C%AC%E5%9C%B0%E6%A0%B7%E5%BC%8F%E4%B8%8E%E7%BD%91%E9%A1%B5%E6%A0%B7%E5%BC%8F%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%9F"><span class="nav-text">4.hexo s本地样式与网页样式不一致？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-markdown%E8%AF%AD%E6%B3%95%E9%80%9F%E6%88%90%E5%AE%9D%E5%85%B8"><span class="nav-text">5.markdown语法速成宝典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%8E%A8%E8%8D%90hexo%E6%90%AD%E5%BB%BA%E6%96%87%E7%AB%A0%EF%BC%9A"><span class="nav-text">6.推荐hexo搭建文章：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E5%A4%87%E4%BB%BD%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-text">7.使用插件备份博客源文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-hexo%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8Valine%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%EF%BC%9A"><span class="nav-text">8.hexo博客使用Valine添加评论系统：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-text">9.文章加密处理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%B7%BB%E5%8A%A0%E6%89%93%E8%B5%8F%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">10.添加打赏功能：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-hexo-d%E6%97%B6%E7%BD%91%E7%BB%9C%E4%B8%8D%E7%A8%B3%E5%AE%9A"><span class="nav-text">11.hexo d时网络不稳定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E6%B0%B8%E4%B9%85%E5%8C%96%E9%93%BE%E6%8E%A5"><span class="nav-text">12.文章生成永久化链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D%E4%B8%8E%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-text">14.购买域名与绑定域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E9%85%8D%E7%BD%AE%E5%9F%9F%E5%90%8D%E5%90%8E%E8%AF%84%E8%AE%BA%E5%8C%BA%E5%87%BA%E7%8E%B0code403"><span class="nav-text">15.配置域名后评论区出现code403</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-hexo%E5%A2%9E%E5%8A%A0%E5%B1%95%E7%A4%BAPDF%E5%8A%9F%E8%83%BD"><span class="nav-text">16.hexo增加展示PDF功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E6%8F%92%E5%85%A5%E9%9F%B3%E4%B9%90%E4%B9%8Baplayer%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8"><span class="nav-text">17.插入音乐之aplayer音乐播放器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E8%A1%A5%E5%85%85"><span class="nav-text">18.补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19-Latex%E5%85%AC%E5%BC%8F%E6%B8%B2%E6%9F%93"><span class="nav-text">19.Latex公式渲染</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -621,20 +620,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -683,13 +682,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

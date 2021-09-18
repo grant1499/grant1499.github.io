@@ -132,17 +132,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -286,7 +286,6 @@
         <h2 id="汇编语言的产生"><a href="#汇编语言的产生" class="headerlink" title="汇编语言的产生"></a>汇编语言的产生</h2><p>汇编语言的主体就是汇编指令，可以说汇编指令是机器指令便于记忆的书写格式。</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ni4y1G7B9?p=2">推荐配合食用视频</a></p>
 <span id="more"></span>
-
 <p>编译器：将汇编指令转换成机器指令的翻译程序。</p>
 <p><img src="/posts/52680586/image-20210319191835269.png" alt="image-20210319191835269"></p>
 <p>我们在不断向上学习的过程中，不应该忘掉基础的底层知识，汇编语言就是了解底层核心的重要内容之一。</p>
@@ -310,19 +309,14 @@
 </ul>
 <p>为了我们方便理解二进制。二进制与十六进制的转换很方便，最好不要混入十进制。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 二进制</span></span><br><span class="line">0 1 10 11 100 101 110 111 1000 1001 1010 1011 1100 1101 1110 1111</span><br><span class="line"><span class="meta">#</span><span class="bash"> 十六进制</span></span><br><span class="line">0 1 2 3 4 5 6 7 8 9 a b c d e f</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>为什么要学习理解二进制？</li>
 </ul>
 <p>为了理解寄存器、内存、位。底层的每一个位都是有含义的。这是汇编入门理解的基础。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">十进制 二进制</span><br><span class="line">2     10</span><br><span class="line">4     100</span><br><span class="line">8     1000</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="数据宽度"><a href="#数据宽度" class="headerlink" title="数据宽度"></a>数据宽度</h2><p><img src="/posts/52680586/image-20210319204923167.png" alt="image-20210319204923167"></p>
 <p>C等强类型语言之所以要定义数据的类型，是因为计算机底层需要给数据定义宽度。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">位 0 1</span><br><span class="line">字节 0~0xFF (一个F对应二进制的1111，四个位) 8位</span><br><span class="line">字 0~0xFFFF 16位</span><br><span class="line">双字 0~0xFFFFFFFF 32位</span><br></pre></td></tr></table></figure>
-
 <p>在计算机中，每一个数据都需要给他定义类型，也就是定义宽度，在内存中的宽度。</p>
 <h2 id="有符号数无符号数"><a href="#有符号数无符号数" class="headerlink" title="有符号数无符号数"></a>有符号数无符号数</h2><p>现在我们给二进制的解码增加一些规则。</p>
 <p><strong>无符号规则</strong></p>
@@ -363,10 +357,8 @@
 <p>基本数学是建立在 加减乘除。（加法）</p>
 <p>4+5？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 计算机是怎么操作的！</span></span><br><span class="line">0000 0100</span><br><span class="line">0000 0101</span><br><span class="line">---------- （加法：计算机是不会直接加的）</span><br><span class="line">0000 1001</span><br><span class="line"><span class="meta">#</span><span class="bash"> 计算机的实现原理</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一步：异或： 如果不考虑进位，异或就可以直接出结果。</span></span><br><span class="line">0000 0100</span><br><span class="line">0000 0101</span><br><span class="line">------------</span><br><span class="line">0000 0001</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第二步：与运算（判断进位，如果与运算结果为0，没有进位。）</span></span><br><span class="line">0000 0100</span><br><span class="line">0000 0101</span><br><span class="line">------------</span><br><span class="line">0000 0100</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第三步：将与运算的结果，左移一位。 0000 1000 <span class="comment"># 进位的结果</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第四步：异或！</span></span><br><span class="line">0000 0001</span><br><span class="line">0000 1000</span><br><span class="line">-------------</span><br><span class="line">0000 1001</span><br><span class="line"><span class="meta">#</span><span class="bash"> 第五步：与运算（判断进位，如果与运算结果为0，没有进位。）</span></span><br><span class="line">0000 0001</span><br><span class="line">0000 1000</span><br><span class="line">-----------</span><br><span class="line">0000 0000</span><br><span class="line"><span class="meta">#</span><span class="bash"> 所以最终的结果就是与运算为0的结果的上一个异或运算。</span></span><br></pre></td></tr></table></figure>
-
 <p>4-5?</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 计算机是怎么操作的！</span></span><br><span class="line">4+(-5)</span><br><span class="line">0000 0100</span><br><span class="line">1111 1011</span><br><span class="line">---------- （减法：计算机是不会直接减的）</span><br><span class="line">1111 1111</span><br><span class="line"></span><br><span class="line">0000 0100</span><br><span class="line">1111 1011</span><br><span class="line">----------- 异或(如果不考虑进位，异或就可以直接出结果。)</span><br><span class="line">1111 1111</span><br><span class="line"></span><br><span class="line">0000 0100</span><br><span class="line">1111 1011</span><br><span class="line">----------- 与（判断进位，如果与运算结果为0，没有进位。）</span><br><span class="line">0000 0000</span><br><span class="line"></span><br><span class="line">最终结果 1111 1111 (16) ff (10) -1</span><br></pre></td></tr></table></figure>
-
 <p>乘：x*y， 就是 y 个 x 相加，还是加法</p>
 <p>除：x/y， 本质就是减法，就是X 能减去多少个Y。</p>
 <p><strong>计算机只会做加法！</strong></p>
@@ -534,20 +526,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -596,13 +588,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

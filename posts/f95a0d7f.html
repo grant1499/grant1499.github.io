@@ -124,17 +124,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,21 +279,18 @@
 <p>这篇文章将介绍常见的日期处理与进制转换问题。</p>
 </blockquote>
 <span id="more"></span>
-
 <h2 id="1-日期处理"><a href="#1-日期处理" class="headerlink" title="1.日期处理"></a>1.日期处理</h2><p>以题目为例：<a target="_blank" rel="noopener" href="http://codeup.hustoj.com/problem.php?cid=100000578&amp;pid=0">http://codeup.hustoj.com/problem.php?cid=100000578&amp;pid=0</a></p>
 <h3 id="问题-A-日期差值"><a href="#问题-A-日期差值" class="headerlink" title="问题 A: 日期差值"></a>问题 A: 日期差值</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>有两个日期，求两个日期之间的天数，如果两个日期是连续的我们规定他们之间的天数为两天。</p>
 <h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>有多组数据，每组数据有两行，分别表示两个日期，形式为YYYYMMDD</p>
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>每组数据输出一行，即日期差值</p>
 <h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20130101</span><br><span class="line">20130105</span><br></pre></td></tr></table></figure>
 <h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
-
 <h4 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h4><p>我们需要处理平年和闰年，大月和小月的问题。</p>
 <h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>我们不妨设第一个日期是早于第二个日期的（如果不是就交换顺序）。</p>
 <p>求日期差值的问题很直接的一个思路就是让第一个日期不断加1天，直到和第二个日期相等为止。</p>
 <p>为了存放平年和闰年每个月的天数，我们建立一个二维数组<code>int month[13][2]</code>，第一维存放月份，从1到12，第0位不用，第二维为0表示平年，为1表示闰年。</p>
 <p>我们可以先让第一个日期的年份加到与第二个日期的年份相差1为止，这样可以加快速度。对于其中的年份，只要根据平年还是闰年加365或366天即可。之后再不断让天数加1就行。</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isLeap</span><span class="params">(<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (y%<span class="number">4</span>==<span class="number">0</span> &amp;&amp;y%<span class="number">100</span>!=<span class="number">0</span>) || (y%<span class="number">400</span>==<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> month[<span class="number">13</span>][<span class="number">2</span>] = &#123;</span><br><span class="line">	&#123;<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">28</span>,<span class="number">29</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,</span><br><span class="line">	&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;     </span><br><span class="line">    <span class="keyword">int</span> time1,time2;</span><br><span class="line">    <span class="keyword">int</span> y1,m1,d1;</span><br><span class="line">    <span class="keyword">int</span> y2,m2,d2;     </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;time1,&amp;time2) != EOF)&#123;<span class="comment">// 有多组测试数据</span></span><br><span class="line">		<span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (time1 &gt; time2) swap(time1,time2);</span><br><span class="line">    	<span class="keyword">if</span>(time1 == time2) &#123;<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="number">1</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">     </span><br><span class="line">    	y1 = time1/<span class="number">10000</span>,m1 = time1%<span class="number">10000</span>/<span class="number">100</span>,d1 = time1%<span class="number">100</span>;</span><br><span class="line">    	y2 = time2/<span class="number">10000</span>,m2 = time2%<span class="number">10000</span>/<span class="number">100</span>,d2 = time2%<span class="number">100</span>;</span><br><span class="line">		<span class="comment">////if (isLeap(y1)  &amp;&amp; m1 &lt;= 2) ans += 1;</span></span><br><span class="line">		<span class="keyword">while</span> (y1 &lt; y2 || m1 &lt; m2 || d1 &lt; d2)&#123;			</span><br><span class="line">			<span class="keyword">if</span> (y1 &lt; y2 <span class="number">-1</span>)&#123; <span class="comment">// 优化判断</span></span><br><span class="line">				y1 ++;</span><br><span class="line">				<span class="keyword">if</span> (isLeap(y1)) ans+=<span class="number">366</span>;</span><br><span class="line">				<span class="keyword">else</span> ans += <span class="number">365</span>;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			d1++; <span class="comment">// 注意这里放优化判断之后</span></span><br><span class="line">			<span class="keyword">if</span> (d1==month[m1][isLeap(y1)]+<span class="number">1</span>)&#123;</span><br><span class="line">				d1 = <span class="number">1</span>;m1++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (m1 == <span class="number">13</span>)&#123;</span><br><span class="line">				m1 = <span class="number">1</span>;y1++;</span><br><span class="line">			&#125;</span><br><span class="line">			ans++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>优化代码参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/numb123r/article/details/112722689">https://blog.csdn.net/numb123r/article/details/112722689</a></p>
 <p>优化代码经过测试，存在漏洞，“20200229；20220301”这组数据会少一天，好像从闰年开始日期&lt;=2月都会少一天。</p>
 <p>CODEUP的数据应该不完整，上面这组数据和优化前代码答案不一样，但都能过。</p>
@@ -306,22 +303,21 @@
 <h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><p>输入在一行中依次给出 3 个整数 <em>A</em>、<em>B</em> 和 <em>D</em>。</p>
 <h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><p>输出 <em>A</em>+<em>B</em> 的 <em>D</em> 进制数。</p>
 <h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123 456 8</span><br></pre></td></tr></table></figure>
-
 <h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1103</span><br></pre></td></tr></table></figure>
-
 <h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>将一个P进制数转换为Q进制数，分两步：</p>
 <ol>
 <li>将P进制数x转换为10进制数y:</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> y = <span class="number">0</span>,product = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (x!=<span class="number">0</span>)&#123;</span><br><span class="line">    y += (x%<span class="number">10</span>)*product; <span class="comment">// x%10取最后一位数</span></span><br><span class="line">    x /= <span class="number">10</span>; <span class="comment">// 舍去x的最后一位数</span></span><br><span class="line">    product *= P; <span class="comment">// product作为权</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>搞不清楚的话，可以拿二进制数转换为十进制数作为参考。<br>2. 将10进制数y转换为Q进制数z:</p>
+<p>搞不清楚的话，可以拿二进制数转换为十进制数作为参考。</p>
+<ol>
+<li>将10进制数y转换为Q进制数z:</li>
+</ol>
 <p>除基取余法。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> z[<span class="number">40</span>],num = <span class="number">0</span>; <span class="comment">// 数组z用于存放Q进制数y的每一位，num为位数</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    z[num++]  = y % Q;</span><br><span class="line">    y /= Q;</span><br><span class="line">&#125;<span class="keyword">while</span> (y != <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
 <p>最后将数组z从高位z[num-1]到低位z[0]输出，就是Q进制数z。</p>
 <p>搞不清楚的话，可以拿十进制数转换为二进制数作为参考。</p>
 <h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,d;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;a,&amp;b,&amp;d);</span><br><span class="line">    a  = a+b;</span><br><span class="line">    <span class="keyword">int</span> ans[<span class="number">31</span>],num = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        ans[num++] = a%d;</span><br><span class="line">        a /= d;</span><br><span class="line">    &#125;<span class="keyword">while</span> (a != <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=num<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>提一点，PAT的编译器，如果按照scanf的一般写法可能会警告，将<code>scanf(&quot;%d&quot;,&amp;t);</code>改成<code>if(scanf(&quot;%d&quot;,&amp;t))&#123;&#125;;</code>就不会警告了。</p>
 
     </div>
@@ -486,20 +482,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -548,13 +544,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

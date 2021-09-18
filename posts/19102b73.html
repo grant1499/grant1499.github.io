@@ -16,16 +16,20 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="4.2：线性DP什么是线性DP？ 具有线性阶段划分的DP算法就是线性DP。 例题：898. 数字三角形（模板题）">
+<meta property="og:type" content="article">
 <meta property="og:title" content="算法基础课笔记（二四）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/19102b73.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="4.2：线性DP什么是线性DP？ 具有线性阶段划分的DP算法就是线性DP。 例题：898. 数字三角形（模板题）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/19102b73/image-20210907145037001.png">
 <meta property="article:published_time" content="2021-08-21T02:11:13.000Z">
-<meta property="article:modified_time" content="2021-08-22T08:40:01.519Z">
+<meta property="article:modified_time" content="2021-09-10T10:08:11.398Z">
 <meta property="article:author" content="grant">
-<meta property="article:tag" content="二分图">
+<meta property="article:tag" content="线性DP">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/19102b73/image-20210907145037001.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/19102b73.html">
 
@@ -121,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -218,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 16:40:01" itemprop="dateModified" datetime="2021-08-22T16:40:01+08:00">2021-08-22</time>
+                <time title="修改时间：2021-09-10 18:08:11" itemprop="dateModified" datetime="2021-09-10T18:08:11+08:00">2021-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +230,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -257,14 +261,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>4.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -276,7 +280,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <span id="more"></span>
+        <h2 id="4-2：线性DP"><a href="#4-2：线性DP" class="headerlink" title="4.2：线性DP"></a>4.2：线性DP</h2><p>什么是线性DP？</p>
+<p>具有线性阶段划分的DP算法就是线性DP。</p>
+<p><strong>例题：898. 数字三角形（模板题）</strong></p>
+<span id="more"></span>
+<p>经典DP入门题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个如下图所示的数字三角形，从顶部出发，在每一结点可以选择移动至其左下方的结点或移动至其右下方的结点，一直走到底层，要求找出一条路径，使路径上的数字的和最大。</span><br><span class="line"></span><br><span class="line">        <span class="number">7</span></span><br><span class="line">      <span class="number">3</span>   <span class="number">8</span></span><br><span class="line">    <span class="number">8</span>   <span class="number">1</span>   <span class="number">0</span></span><br><span class="line">  <span class="number">2</span>   <span class="number">7</span>   <span class="number">4</span>   <span class="number">4</span></span><br><span class="line"><span class="number">4</span>   <span class="number">5</span>   <span class="number">2</span>   <span class="number">6</span>   <span class="number">5</span></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n，表示数字三角形的层数。</span><br><span class="line">接下来 n 行，每行包含若干整数，其中第 i 行表示数字三角形第 i 层包含的整数。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示最大的路径数字和。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">500</span>,</span><br><span class="line">−<span class="number">10000</span>≤三角形中的整数≤<span class="number">10000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">3</span> <span class="number">8</span></span><br><span class="line"><span class="number">8</span> <span class="number">1</span> <span class="number">0</span> </span><br><span class="line"><span class="number">2</span> <span class="number">7</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">2</span> <span class="number">6</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">30</span></span><br></pre></td></tr></table></figure>
+<p><strong>算法1：自顶向下DP求解。</strong>（边界问题处理麻烦）</p>
+<p>思路：熟悉的y氏DP分析法。</p>
+<p><img src="/posts/19102b73/image-20210907145037001.png" alt="image-20210907145037001"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">		<span class="keyword">int</span> n = Integer.parseInt(reader.readLine());</span><br><span class="line">		<span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>][n+<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">int</span>[][] a = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>][n+<span class="number">5</span>];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			String[] str = reader.readLine().split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= i;j ++)&#123;</span><br><span class="line">				a[i][j] = Integer.parseInt(str[j-<span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		reader.close();</span><br><span class="line">		<span class="comment">// 处理dp数组的边界问题，注意第二个循环j &lt;= i + 1，覆盖三角形外面一圈，否则WA</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= i + <span class="number">1</span>;j ++)&#123;</span><br><span class="line">				dp[i][j] = -INF;<span class="comment">// 初始化dp数组</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		dp[<span class="number">1</span>][<span class="number">1</span>] = a[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= i;j ++)&#123;</span><br><span class="line">			    <span class="comment">// 一定要注意，先取MAX，再求和，否则dp值为-INF时+a[i][j]可能溢出</span></span><br><span class="line">				dp[i][j] = Math.max(dp[i-<span class="number">1</span>][j-<span class="number">1</span>], dp[i-<span class="number">1</span>][j]) + a[i][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> res = -INF;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			res = Math.max(res, dp[n][i]);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(res);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果这样写<code>dp[i][j] = max(dp[i - 1][j - 1] + a[i][j], dp[i - 1][j] + a[i][j]);</code>，当设置最小值为<code>INT_MIN</code>时，会溢出！！！</p>
+<p><strong>算法2：自下向上DP求解。</strong>（不需要考虑边界问题）</p>
+<p>两种算法的区别：</p>
+<ul>
+<li>算法1，不是所有点都能由两个父节点走到，可能只有一个父节点；</li>
+<li>算法2，每个父节点必然由两个子节点走到，没有特殊情况。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">		<span class="keyword">int</span> n = Integer.parseInt(reader.readLine());</span><br><span class="line">		<span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>][n+<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">int</span>[][] a = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>][n+<span class="number">5</span>];</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			String[] str = reader.readLine().split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= i;j ++)&#123;</span><br><span class="line">				a[i][j] = Integer.parseInt(str[j-<span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		reader.close();</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = n;i &gt;= <span class="number">1</span>;i --)&#123; <span class="comment">// 必须从n开始枚举</span></span><br><span class="line">		    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= i;j ++)&#123;</span><br><span class="line">		        dp[i][j] = Math.max(dp[i+<span class="number">1</span>][j],dp[i+<span class="number">1</span>][j+<span class="number">1</span>]) + a[i][j];</span><br><span class="line">		    &#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(dp[<span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于滚动数组有个处理技巧，如果上一层是j,j+1, 那么j直接顺序枚举即可。如果上一层是j,j-1,那么需要保证j是在j-1之前更新，于是就需要倒序枚举。（画个DP表就很好理解）</p>
+<p>滚动数组空间优化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">reader.close();</span><br><span class="line">		</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">    dp[i] = a[n][i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>;i &gt;= <span class="number">1</span>;i --)&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= i;j ++)&#123; <span class="comment">// 必须正向遍历</span></span><br><span class="line">        dp[j] = Math.max(dp[j],dp[j+<span class="number">1</span>]) + a[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(dp[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<p><strong>例题：895. 最长上升子序列（模板题）</strong></p>
+<p>最长上升子序列也是一类经典的DP问题。</p>
+<p>Longest Increasing Sequence，简称LIS。</p>
+<p>这题在蓝桥杯中讲过： <a href="https://www.grantdrew.top/posts/9748a29e.html。">https://www.grantdrew.top/posts/9748a29e.html。</a></p>
+<p>不再重复讲解。</p>
+<p>时间复杂度：O(n^2)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">		<span class="keyword">int</span> n = Integer.parseInt(reader.readLine());</span><br><span class="line">		<span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">2</span>];</span><br><span class="line">		<span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">2</span>];</span><br><span class="line">		</span><br><span class="line">		String[] str = reader.readLine().split(<span class="string">&quot; &quot;</span>);</span><br><span class="line"><span class="comment">// 		for (int i = 1;i &lt;= n;i ++)&#123;</span></span><br><span class="line"><span class="comment">// 			a[i] = Integer.parseInt(str[i-1]);</span></span><br><span class="line"><span class="comment">// 		&#125;</span></span><br><span class="line">		reader.close();</span><br><span class="line">		<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">		    a[i] = Integer.parseInt(str[i-<span class="number">1</span>]);</span><br><span class="line">			dp[i] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt; i;j ++)&#123;</span><br><span class="line">				<span class="keyword">if</span> (a[j] &lt; a[i])</span><br><span class="line">					dp[i] = Math.max(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (dp[i] &gt; dp[ans])<span class="comment">// 更新最终答案</span></span><br><span class="line">			    ans = i;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(dp[ans]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如何输出最长子序列？</p>
+<p>额外维护一个数组，在状态转移时记录由哪个状态转移而来。</p>
+<p><strong>例题：896. 最长上升子序列 II（模板题）</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定一个长度为 N 的数列，求数值严格单调递增的子序列的长度最长是多少。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line"></span><br><span class="line">第二行包含 N 个整数，表示完整序列。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示最大长度。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100000</span>，</span><br><span class="line">−<span class="number">10</span>^<span class="number">9</span>≤数列中的数≤<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">8</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>相比上一道题，本题数据加强，O(n^2)的算法肯定过不了，需要考虑O(n*logn)的算法。</p>
+<p>参考：《算法训练营》，《蓝桥杯十二》。</p>
+<p>类似贪心的做法。</p>
+<p>根据上升子序列的特性，开一个辅助数组<code>d[]</code>来记录最长上升子序列的长度，<strong><code>d[i]</code>表示长度为<code>i</code>的上升子序列末尾的最小数字。</strong>（加粗句子是理解的关键）用<code>len</code>来记录最长上升子序列的长度。上升子序列的特性可以使用二分查找。</p>
+<p>看算法训练营的表格图解模拟一下就很容易理解了。</p>
+<p>特别注意：<code>d[]</code>数组并不能真实记录最长上升子序列，只是辅助数组，这种做法只能求出最长上升子序列长度<code>len</code>。正确理解加粗句子就能看懂。最终的<code>d[]</code>数组是严格单调递增的，因为长度为<code>i</code>的上升子序列末尾的最小数字是逐渐变大的。</p>
+<p>样例：<code>1 7 3 5 8 4</code>。最终得到的d数组：<code>1 3 4 9</code>，显然不是最长上升子序列，但长度没错。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参考：《算法训练营》，注意将upper_bound改成lower_bound，勘误了</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">		<span class="keyword">int</span> n = Integer.parseInt(reader.readLine());</span><br><span class="line">		<span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">int</span>[] d = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">5</span>];</span><br><span class="line">		String[] str = reader.readLine().split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			a[i] = Integer.parseInt(str[i-<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		reader.close();</span><br><span class="line">		<span class="keyword">int</span> len = <span class="number">1</span>;</span><br><span class="line">		d[<span class="number">1</span>] = a[<span class="number">1</span>];<span class="comment">// 边界初始化</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">			<span class="keyword">if</span> (d[len] == a[i]) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (d[len] &lt; a[i])</span><br><span class="line">				d[++len] = a[i];</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">int</span> l = <span class="number">1</span>,r = len; <span class="comment">// lower_bound找到第一个大于a[i]的位置</span></span><br><span class="line">				<span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">					<span class="keyword">int</span> mid  = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">					<span class="keyword">if</span> (d[mid] &lt; a[i]) l = mid + <span class="number">1</span>;</span><br><span class="line">					<span class="keyword">else</span> r = mid;</span><br><span class="line">				&#125;</span><br><span class="line">				d[l] = a[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(len);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -323,7 +367,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 二分图</a>
+              <a href="/tags/%E7%BA%BF%E6%80%A7DP/" rel="tag"><i class="fa fa-tag"></i> 线性DP</a>
           </div>
 
         
@@ -422,6 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2%EF%BC%9A%E7%BA%BF%E6%80%A7DP"><span class="nav-text">4.2：线性DP</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,20 +482,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -499,13 +544,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

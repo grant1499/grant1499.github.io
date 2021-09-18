@@ -142,17 +142,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -295,7 +295,6 @@
       
         <h2 id="1-BigInteger类和BigDecimal类"><a href="#1-BigInteger类和BigDecimal类" class="headerlink" title="1.BigInteger类和BigDecimal类"></a>1.BigInteger类和BigDecimal类</h2><p><img src="/posts/dffb7d20/image-20210502211408301.png" alt="image-20210502211408301"></p>
 <span id="more"></span>
-
 <p><img src="/posts/dffb7d20/image-20210502211423255.png" alt="image-20210502211423255"></p>
 <p><img src="/posts/dffb7d20/image-20210502211432078.png" alt="image-20210502211432078"></p>
 <h2 id="2-枚举类的使用"><a href="#2-枚举类的使用" class="headerlink" title="2.枚举类的使用"></a>2.枚举类的使用</h2><p>JDK1.5之前自定义枚举类了解就行。</p>
@@ -306,20 +305,16 @@
 </li>
 <li><p>当需要定义一组常量时，强烈建议使用枚举类。</p>
 </li>
-<li><p>若枚举只有一个对象 , 则可以作为一种<strong>单例模式</strong>的实现方式。</p>
-</li>
+<li>若枚举只有一个对象 , 则可以作为一种<strong>单例模式</strong>的实现方式。</li>
 </ul>
 <p><img src="/posts/dffb7d20/image-20210503090139873.png" alt="image-20210503090139873"></p>
 <p>看看就行。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//enum关键字定义枚举类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season summer = Season.SUMMER;</span><br><span class="line">        System.out.println(summer);<span class="comment">//SUMMER，无需重写toString</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>),<span class="comment">//默认为private final</span></span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>),</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>),</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>);</span><br><span class="line">    <span class="comment">//声明Season对象的四有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/dffb7d20/image-20210503091556341.png" alt="image-20210503091556341"></p>
 <p><img src="/posts/dffb7d20/image-20210503091617899.png" alt="image-20210503091617899"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Season[] values = Season.values();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; values.length;i++)&#123;</span><br><span class="line">        System.out.println(values[i].toString());</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;____________________________&quot;</span>);</span><br><span class="line">    <span class="comment">//valueOf(String objname)，返回枚举类中对象名是objname的对象</span></span><br><span class="line">    Season winter = Season.valueOf(<span class="string">&quot;WINTER&quot;</span>);</span><br><span class="line">    System.out.println(winter);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*SPRING</span></span><br><span class="line"><span class="comment">SUMMER</span></span><br><span class="line"><span class="comment">AUTUMN</span></span><br><span class="line"><span class="comment">WINTER</span></span><br><span class="line"><span class="comment">____________________________</span></span><br><span class="line"><span class="comment">WINTER*/</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/dffb7d20/image-20210503092548552.png" alt="image-20210503092548552"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//每个枚举值分别实现同一个接口方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season season1 = Season.SUMMER;</span><br><span class="line">        Season season2 = Season.SPRING;</span><br><span class="line">        Season season3 = Season.AUTUMN;</span><br><span class="line">        season1.show();</span><br><span class="line">        season2.show();</span><br><span class="line">        season3.show();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">/*summer</span></span><br><span class="line"><span class="comment">spring</span></span><br><span class="line"><span class="comment">autumn*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span> <span class="keyword">implements</span> <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;spring&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;summer&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;autumn&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>)&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;winter&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//声明Season对象的四有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-注解-Annotation）"><a href="#3-注解-Annotation）" class="headerlink" title="3.注解 (Annotation）"></a>3.注解 (Annotation）</h2><p><img src="/posts/dffb7d20/image-20210503093537140.png" alt="image-20210503093537140"></p>
 <p>一定程度上可以说： <strong>框架 = 注解 + 反射 + 设计模式</strong>。</p>
 <p><img src="/posts/dffb7d20/image-20210503093702587.png" alt="image-20210503093702587"></p>
@@ -328,7 +323,6 @@
 <p><img src="/posts/dffb7d20/image-20210503094431440.png" alt="image-20210503094431440"></p>
 <p>没有成员定义的 Annotation 称为 <strong>标记</strong> ，包含成员变量的 Annotation 称为<strong>元数据</strong> Annotation</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注解声明为@interface</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="comment">//内部定义成员，通常使用value表示</span></span><br><span class="line">    <span class="comment">//可以指定成员的默认值，使用default定义</span></span><br><span class="line">    <span class="comment">//自定义注解必须使用反射才有意义</span></span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;string&quot;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>元注解：注解其他注解的注解</p>
 <p><img src="/posts/dffb7d20/image-20210503095742361.png" alt="image-20210503095742361"></p>
 <p><img src="/posts/dffb7d20/image-20210503095819473.png" alt="image-20210503095819473"></p>
@@ -503,20 +497,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,13 +559,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -276,61 +276,46 @@
       
         <p>作者：自豪的澡巾QAQ<br>链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/6096/">https://www.acwing.com/blog/content/6096/</a><br>来源：AcWing<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 <span id="more"></span>
-
 <p>这是我目前水平下能接触到的,如果有补充欢迎留言.<br>别抬杠,杠就是你对.</p>
 <p><code>#include&lt;string&gt;:</code></p>
 <p>常用操作:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s;</span><br><span class="line">s.begin();</span><br><span class="line">s.end();</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s.c_str()); <span class="comment">//使用scanf读入string类型的变量或者希望通过strcpy对字符串进行复制,请使用c_str();</span></span><br><span class="line">s[i] == s.at(i);        <span class="comment">//允许索引寻址</span></span><br><span class="line"><span class="keyword">int</span> indxe = s.find(<span class="keyword">char</span> ch);    <span class="comment">//返回ch在s中的索引</span></span><br><span class="line">s.size();</span><br><span class="line">s.append(<span class="built_in">string</span> post);      </span><br><span class="line">s.pop_back();</span><br><span class="line"><span class="comment">//返回s[begin,begin + len - 1],注意与java中的substring的区别,当len == -1时表示截取到最后</span></span><br><span class="line">s.substr(<span class="keyword">int</span> begin,<span class="keyword">int</span> len);</span><br><span class="line">insert(iterator iter,type val);</span><br><span class="line">erase(iterator iter);</span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;pair&gt;</code></p>
 <p>常用操作</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">char</span>&gt; PII;<span class="comment">//常结合map和sort使用</span></span><br><span class="line">PII a;</span><br><span class="line">a = <span class="built_in">make_pair</span>(<span class="number">5</span>,<span class="string">&#x27;f&#x27;</span>);<span class="comment">//等价于a = &#123;5,&#x27;f&#x27;&#125;;</span></span><br><span class="line">a.first;a.second;<span class="comment">//返回第一和第二关键字</span></span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;vector&gt;：</code></p>
 <p>vector的常用初始化操作:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vector支持比较运算</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; <span class="title">g</span><span class="params">(n,i)</span></span>;        <span class="comment">//创建一个长度为n初值为i的一维向量(数组)</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; <span class="title">f</span><span class="params">(g.begin() + [offset],g.end())</span></span>;       <span class="comment">//通过g来创建一个f向量,offset可有可无</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">c</span><span class="params">(v)</span></span>;        <span class="comment">//将v复制给c</span></span><br><span class="line">v.assign (<span class="number">7</span>,<span class="number">100</span>);             <span class="comment">// 7 ints with a value of 100</span></span><br></pre></td></tr></table></figure>
-
 <p>vector的常用函数:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear();</span><br><span class="line">begin();</span><br><span class="line">end();</span><br><span class="line">size();</span><br><span class="line">empty();</span><br><span class="line">front();</span><br><span class="line">back();</span><br><span class="line">push_back(member_type x);</span><br><span class="line">pop_back();</span><br><span class="line">erase(iterator l[,iterator r]);        <span class="comment">// 删除第l[到r]个值</span></span><br><span class="line">v.at[i] == v[i]</span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;stack&gt;:</code></p>
 <p>常用操作:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">push(type x);   <span class="comment">//压栈</span></span><br><span class="line">pop()   <span class="comment">//出栈</span></span><br><span class="line">empty();    </span><br><span class="line">size();</span><br><span class="line">top();  <span class="comment">//返回栈顶</span></span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;queue&gt;</code></p>
 <p>常用操作:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">queue&lt;int&gt; q;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">q.push(<span class="keyword">int</span> x);   <span class="comment">//入队</span></span><br><span class="line">q.pop();  <span class="comment">//出队</span></span><br><span class="line">q.empty();</span><br><span class="line">q.size();</span><br><span class="line">q.front();    <span class="comment">//队首</span></span><br><span class="line"></span><br><span class="line">q.back(); <span class="comment">//队尾</span></span><br><span class="line">-------------------</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">priority_queue&lt;int&gt; heap;   //优先队列,即堆,默认为大根堆</span></span><br><span class="line"><span class="comment">定义小根堆:</span></span><br><span class="line"><span class="comment">    priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; tt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">heap.size();</span><br><span class="line">heap.empty();</span><br><span class="line">heap.push(<span class="keyword">int</span> x);</span><br><span class="line">heap.pop();     <span class="comment">//移除堆顶元素</span></span><br><span class="line">heap.top();     <span class="comment">//返回堆顶元素</span></span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;deque&gt;</code></p>
 <p>常用操作</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">deque&lt;int&gt; q;//支持随机寻址,效率相较低</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">q.empty();</span><br><span class="line">q.size();</span><br><span class="line">q.front();</span><br><span class="line">q.back();</span><br><span class="line">q.push_back(<span class="keyword">int</span> x);</span><br><span class="line">q.push_front(<span class="keyword">int</span> x);</span><br><span class="line">q.pop_back();</span><br><span class="line">q.pop_front();</span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;map&gt;</code></p>
 <p>常用操作</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">//存储的类型为pair，因此可以通过类似dic.begin().first(second)来访问键值对</span></span><br><span class="line"><span class="comment">map&lt;string,int&gt; dic;//不可以有重复的键值,multimap可以有重复的键值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">dic.empty();</span><br><span class="line">dic.size();</span><br><span class="line">dic.insert(&#123;<span class="string">&quot;hello&quot;</span>,<span class="number">1</span>&#125;);    <span class="comment">//参数类型为pair,等价于dic[&quot;hello&quot;] = 1;</span></span><br><span class="line">dic.erase(&#123;<span class="string">&quot;hello&quot;</span>,<span class="number">1</span>&#125;);     <span class="comment">//参数类型为pair或者iterator</span></span><br><span class="line">dic.find(<span class="string">&quot;hello&quot;</span>);          <span class="comment">//注意返回的是迭代器</span></span><br><span class="line">dic.count(<span class="string">&quot;hello&quot;</span>);         <span class="comment">//返回0或者1</span></span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;set&gt;</code></p>
 <p>常用操作</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">set的含义是集合,元素有序,支持插入,删除,查找等操作,所有的操作的都是严格在logn时间之内完成,效率非常高。</span></span><br><span class="line"><span class="comment">set和multiset的区别是：set插入的元素不能相同，但是multiset可以相同。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">set</span>/<span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">s.insert(<span class="keyword">int</span> x);</span><br><span class="line">s.find(<span class="keyword">int</span> x);  <span class="comment">//返回迭代器</span></span><br><span class="line">s.erase(<span class="keyword">int</span> x/iterator);<span class="comment">//如果参数为整数,意为删除集合内所有x;如果是迭代器,则删除这个迭代器</span></span><br></pre></td></tr></table></figure>
-
 <p><code>#include&lt;unordered_set/multiset/unordered_map/multimap&gt;</code></p>
 <p>常用操作<br>带有unordered意味着底层为hash,与上面的操作类似,但时间复杂度为O(1)</p>
 <p><code>#include&lt;algorithm&gt;</code></p>
 <p>常用函数<br><strong>最大值,最小值,交换</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">max(max(a,b),c);</span><br><span class="line">min();</span><br><span class="line">swap(a,b);</span><br></pre></td></tr></table></figure>
-
 <p><strong>快速排序,默认排序结果为升序;</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num[] = &#123;<span class="number">5</span>,<span class="number">6</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">6</span>,<span class="number">2</span>&#125;;</span><br><span class="line">sort(num,num + <span class="number">6</span>,cmp);<span class="comment">//cmp可省略,可以手动实现cmp定义排序规则,通常与struct、pair形成combo</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>字符串反转</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s = <span class="string">&quot;hello wolrd&quot;</span>;</span><br><span class="line">reverse(s.begin(),s.end());<span class="comment">//能够将string,vector等类型进行翻转,返回迭代器</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;  <span class="comment">//    &quot;dlrow olleh&quot;;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>去重</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num[] = &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">30</span>,<span class="number">20</span>,<span class="number">20</span>,<span class="number">10</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">v</span><span class="params">(num,num + <span class="number">9</span>)</span></span>;</span><br><span class="line">sort(v.begin(),v.end());</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">删除重复出现的系列点,unique()函数将所有不重复的点放在数组前面,重复的点放在后面,</span></span><br><span class="line"><span class="comment">返回第一个起始重复元素的迭代器</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">v.erase(unique(v.begin(),v.end()),v.end());</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> a : v) <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span>;      <span class="comment">//10 20 30</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>全排列</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">next_permutation()将按字母表顺序生成给定序列的下一个较大的排列,直到整个序列为降序为止。</span></span><br><span class="line"><span class="comment">prev_permutation()与之相反,是生成给定序列的上一个较小的排列。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">int</span> num[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (next_permutation(num,num + <span class="number">5</span>)) &#123;</span><br><span class="line">    cnt++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : num) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; cnt;<span class="comment">// cnt == 5! == 120</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>本内容仅用作STL简单使用字典</strong></p>
 
     </div>
@@ -493,20 +478,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -555,13 +540,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

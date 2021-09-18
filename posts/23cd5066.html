@@ -16,12 +16,12 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在Matlab快速入门笔记（二）中已经提到了两种迭代法，但是并没有对敛散性进行判断。 参考：  《Numerical Analysis》(Seventh Edition)–Richard L. Burden  《数值分析及其MATLAB实现》–任玉杰   这里根据其书加上对敛散性的判断。">
+  <meta name="description" content="在Matlab快速入门笔记（二）中已经提到了两种迭代法，但是并没有对敛散性进行判断。 参考：  《Numerical Analysis》(Seventh Edition)—Richard L. Burden  《数值分析及其MATLAB实现》—任玉杰   这里根据其书加上对敛散性的判断。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="求解线性方程组的三种迭代法">
 <meta property="og:url" content="https://www.grantdrew.top/posts/23cd5066.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="在Matlab快速入门笔记（二）中已经提到了两种迭代法，但是并没有对敛散性进行判断。 参考：  《Numerical Analysis》(Seventh Edition)–Richard L. Burden  《数值分析及其MATLAB实现》–任玉杰   这里根据其书加上对敛散性的判断。">
+<meta property="og:description" content="在Matlab快速入门笔记（二）中已经提到了两种迭代法，但是并没有对敛散性进行判断。 参考：  《Numerical Analysis》(Seventh Edition)—Richard L. Burden  《数值分析及其MATLAB实现》—任玉杰   这里根据其书加上对敛散性的判断。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/23cd5066/image-20210423184726484.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/23cd5066/image-20210423190047226.png">
@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -284,22 +284,18 @@
         <p>在Matlab快速入门笔记（二）中已经提到了两种迭代法，但是并没有对敛散性进行判断。</p>
 <p>参考：</p>
 <ul>
-<li><p>《Numerical Analysis》(Seventh Edition)–Richard L. Burden</p>
+<li><p>《Numerical Analysis》(Seventh Edition)—Richard L. Burden</p>
 </li>
-<li><p>《数值分析及其MATLAB实现》–任玉杰</p>
+<li><p>《数值分析及其MATLAB实现》—任玉杰</p>
 </li>
 </ul>
 <p>这里根据其书加上对敛散性的判断。</p>
 <span id="more"></span>
-
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 用Jacobi迭代法求解AX=b，X0为初始向量，p为范数名称(1,2,inf)，error为误差，t为迭代次数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">X</span> = <span class="title">Jacobi</span><span class="params">(A,b,X0,p,error,t)</span></span></span><br><span class="line">[n,m] = <span class="built_in">size</span>(A);</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:m</span><br><span class="line">        a(<span class="built_in">j</span>) = sum(<span class="built_in">abs</span>(A(:,<span class="built_in">j</span>))) - <span class="number">2</span>*(<span class="built_in">abs</span>(A(<span class="built_in">j</span>,<span class="built_in">j</span>)));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:n</span><br><span class="line">        <span class="keyword">if</span> a(<span class="built_in">i</span>) &gt;= <span class="number">0</span></span><br><span class="line">            <span class="built_in">disp</span>(<span class="string">&#x27;系数矩阵A不是严格对角占优阵，Jacobi迭代不一定收敛&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> a(<span class="built_in">i</span>) &lt; <span class="number">0</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">&#x27;系数矩阵A是严格对角占优阵，Jacobi迭代一定收敛&#x27;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:t</span><br><span class="line">    k;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:m</span><br><span class="line">        X(<span class="built_in">j</span>) = (b(<span class="built_in">j</span>)-A(<span class="built_in">j</span>,[<span class="number">1</span>:<span class="built_in">j</span><span class="number">-1</span>,<span class="built_in">j</span>+<span class="number">1</span>:m])*X0([<span class="number">1</span>:<span class="built_in">j</span><span class="number">-1</span>,<span class="built_in">j</span>+<span class="number">1</span>:m]))/A(<span class="built_in">j</span>,<span class="built_in">j</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    djwcx = norm(X&#x27;-X0,p);xdwcx = djwcx/(norm(X&#x27;,p)+<span class="built_in">eps</span>);</span><br><span class="line">    X0 = X&#x27;;X1 = A\b;</span><br><span class="line">    <span class="keyword">if</span> (djwcx&lt;error)&amp;(xdwcx&lt;error)</span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;Jacobi迭代收敛，方程组的精确解jX和近似解X如下：&#x27;</span>)</span><br><span class="line">        k</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">if</span>(djwcx&gt;error)&amp;(xdwcx&gt;error)</span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">&#x27;Jacobi迭代次数超过上限次数 t &#x27;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">a,X = X;jX = X1&#x27;,</span><br><span class="line"><span class="comment">% A = [2 -1 1;1 1 1;-1 -1 2]</span></span><br><span class="line"><span class="comment">% b = [1 ;2 ;-5]</span></span><br><span class="line"><span class="comment">% X0 = [0 0 0]&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/23cd5066/image-20210423184726484.png" alt="image-20210423184726484"></p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 用Gauss迭代法求解AX=b，X0为初始向量，p为范数名称(1,2,inf)，error为误差，t为迭代次数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">X</span> = <span class="title">Gauss</span><span class="params">(A,b,X0,p,error,t)</span></span></span><br><span class="line">D = <span class="built_in">diag</span>(<span class="built_in">diag</span>(A));U = -<span class="built_in">triu</span>(A,<span class="number">1</span>);</span><br><span class="line">L = -<span class="built_in">tril</span>(A,<span class="number">-1</span>);dD = det(D);</span><br><span class="line"><span class="keyword">if</span> dD == <span class="number">0</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">&#x27;因为对角矩阵D奇异，方程组无解&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">disp</span>(<span class="string">&#x27;因为对角矩阵D非奇异，方程组有解&#x27;</span>)</span><br><span class="line">    iD = inv(D-L);B2 = iD*U;f2 = iD*b;jX = A\b;</span><br><span class="line">    X = X0;[n m] = <span class="built_in">size</span>(A);</span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>:t</span><br><span class="line">        X1 = B2*X+f2;djwcx = norm(X1-X,p);</span><br><span class="line">        xdwcx = djwcx/(norm(X,p)+<span class="built_in">eps</span>);</span><br><span class="line">        <span class="keyword">if</span> (djwcx&lt;error) | (xdwcx&lt;error)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            K = k+<span class="number">1</span>;X= X1;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> (djwcx&lt;error) | (xdwcx&lt;error)</span><br><span class="line">        k</span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;Gauss迭代法收敛,方程组的精确解jX和近似解X如下：&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">disp</span>(<span class="string">&#x27;Gauss迭代法没有达到给定精度，迭代次数超过上限t，方程组的精确解jX和迭代向量X如下：&#x27;</span>)</span><br><span class="line">        X = X&#x27;;jX = jX&#x27;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">X = X&#x27;;D,U,L,jX = jX&#x27;</span><br><span class="line"><span class="comment">% A = [10 -1 -2;-1 10 -2;-1 -1 0.5]</span></span><br><span class="line"><span class="comment">% b = [7.2;8.3;4.2]</span></span><br><span class="line"><span class="comment">% X0 = [0 0 0]&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/23cd5066/image-20210423190047226.png" alt="image-20210423190047226"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">% 用SOR迭代法求解AX=b，X为初始向量，om为松弛因子，error为误差，t为迭代次数</span><br><span class="line">function X = SOR(A,b,X,om,error,t)</span><br><span class="line">D = diag(diag(A));U = -triu(A,<span class="number">1</span>);</span><br><span class="line">L = -tril(A,<span class="number">-1</span>);jX = A\b;[n m] = size(A);</span><br><span class="line">iD = inv(D-om*L);B2= iD*(om*U + (<span class="number">1</span>-om)*D);</span><br><span class="line">H = eig(B2);mH = norm(H,inf);</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:t</span><br><span class="line">    iD = inv(D-om*L);B2= iD*(om*U + (<span class="number">1</span>-om)*D);</span><br><span class="line">    f2 = om*iD*b;X1 = B2*X+f2;</span><br><span class="line">    X = X1;djwcx = norm(X1-jX,inf);xdwcx = djwcx/(norm(X,inf)+eps);</span><br><span class="line">end</span><br><span class="line"><span class="keyword">if</span> mH &gt;= <span class="number">1</span></span><br><span class="line">    disp(&#x27;因为谱半径不小于1，SOR序列发散&#x27;)</span><br><span class="line">    disp(&#x27;谱半径mH，A的分解矩阵D，U，L和方程组的精确解jX和近似解X如下：&#x27;)</span><br><span class="line">    mH,D,U,L,jX,</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    disp(&#x27;因为谱半径小于1，SOR序列收敛&#x27;)</span><br><span class="line">    <span class="keyword">if</span> (djwcx&lt;error)|(xdwcx&lt;error)</span><br><span class="line">        disp(&#x27;谱半径mH，A的分解矩阵D，U，L和方程组的精确解jX和近似解X如下：&#x27;)</span><br><span class="line">        mH,D,U,L,jX = jX<span class="number">&#x27;</span>,</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        disp(&#x27;迭代次数已经超过上限t，谱半径mH，方程组的精确解jX和迭代向量X如下：&#x27;)</span><br><span class="line">        mH,D,U,L,X = X1<span class="number">&#x27;</span>;jX = jX<span class="number">&#x27;</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">% A = [<span class="number">5</span> <span class="number">1</span> <span class="number">-1</span> <span class="number">-2</span>;<span class="number">2</span> <span class="number">8</span> <span class="number">1</span> <span class="number">3</span>;<span class="number">1</span> <span class="number">-2</span> <span class="number">-4</span> <span class="number">-1</span>;<span class="number">-1</span> <span class="number">3</span> <span class="number">2</span> <span class="number">7</span>;]</span><br><span class="line">% b = [<span class="number">4</span>;<span class="number">1</span>;<span class="number">6</span>;<span class="number">-3</span>]</span><br><span class="line">% X = [<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>]&#x27;</span><br><span class="line">% X = SOR(A,b,X,<span class="number">1.15</span>,<span class="number">0.001</span>,<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/23cd5066/image-20210423191102860.png" alt="image-20210423191102860"></p>
 
     </div>
@@ -458,20 +454,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -520,13 +516,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

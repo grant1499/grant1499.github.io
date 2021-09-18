@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -278,7 +278,6 @@
       
         <h2 id="1-类类型与系统预定义类型之间的转换"><a href="#1-类类型与系统预定义类型之间的转换" class="headerlink" title="1.类类型与系统预定义类型之间的转换"></a>1.类类型与系统预定义类型之间的转换</h2><p>这个标题很教科书式，让人搞不懂，通俗的讲就是用户自己定义的类对象与内置的像int、double之类的数据之间的转换。</p>
 <span id="more"></span>
-
 <p>给出两篇参考文章：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhulinzhulinlin/article/details/80031029">https://blog.csdn.net/zhulinzhulinlin/article/details/80031029</a></li>
@@ -288,7 +287,6 @@
 <p>类型的数据(例如将一个Complex类对象转换成double类型数据)。</p>
 <p>例子：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">double</span> real;</span><br><span class="line">        <span class="keyword">double</span> imag;</span><br><span class="line">        C() &#123;&#125;</span><br><span class="line">        C(<span class="keyword">double</span> i, <span class="keyword">double</span> r) &#123; real = i; imag = r; &#125;</span><br><span class="line">        C(<span class="keyword">double</span> r) &#123;<span class="comment">//转换构造函数</span></span><br><span class="line">            real = r; imag = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        C <span class="keyword">operator</span> +(C &amp;c1)</span><br><span class="line">        &#123;</span><br><span class="line">            C tem;</span><br><span class="line">            tem.real = c1.real + <span class="keyword">this</span>-&gt;real;</span><br><span class="line">            tem.imag = c1.imag + <span class="keyword">this</span>-&gt;imag;</span><br><span class="line">            <span class="keyword">return</span> tem;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/*friend C operator +(C &amp;c1, C&amp;c2)</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            C tem;</span></span><br><span class="line"><span class="comment">            tem.real = c1.real + c2.real;</span></span><br><span class="line"><span class="comment">            tem.imag = c1.imag + c2.imag;</span></span><br><span class="line"><span class="comment">            return tem;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">C <span class="title">c1</span><span class="params">(<span class="number">1.1</span>, <span class="number">2.2</span>)</span></span>;</span><br><span class="line">    C c2,c3;</span><br><span class="line">    <span class="function">C <span class="title">c4</span><span class="params">(<span class="number">9.2</span>)</span></span>;</span><br><span class="line">    <span class="comment">//不同调用转换构造函数的方式</span></span><br><span class="line">    c2= C(<span class="number">2.3</span>) + c1;<span class="comment">//C（2.3）调用转换构造函数</span></span><br><span class="line">    c3 = <span class="number">4</span>;<span class="comment">//调用转换构造函数</span></span><br><span class="line">    <span class="comment">// C trans(int a)</span></span><br><span class="line">    <span class="comment">// &#123; return a&#125;</span></span><br><span class="line">    <span class="comment">//  该方式也调用转换构造函数 int-&gt;C </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//b = a + C(2.3);//出错，+重载函数必须为friend</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c1.real &lt;&lt; <span class="string">&quot;+&quot;</span> &lt;&lt; c1.imag &lt;&lt; <span class="string">&quot;i&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>C(2.1)和C c(2.1)两种方式都可以调用转换构造函数。第一种方式会生成一个临时对象。</p>
 <ul>
 <li>先声明一个类。</li>
@@ -297,7 +295,6 @@
 <li>其中要注意的是在C++的类中，用单个实参来调用的构造函数默认定义了从形参类型到该类类型的一个隐式转换。可以写一个类测试一下 如下：</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        A()&#123;&#125;;</span><br><span class="line">        A(<span class="keyword">int</span> a) :a(a) &#123;&#125;</span><br><span class="line">    <span class="comment">//加上explicit关键字的可以防止类构造函数的隐式自动转换</span></span><br><span class="line">    <span class="comment">//那么下面test= 3会报错</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A test;</span><br><span class="line">    test= <span class="number">3</span>;</span><br><span class="line">    <span class="comment">//执行test=3时跳转到A(int a) :a(a) &#123;&#125; ,将3-&gt;A类型</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; test.a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="1-2explicit关键字"><a href="#1-2explicit关键字" class="headerlink" title="1.2explicit关键字"></a>1.2explicit关键字</h3><p>作用就是<strong>防止类构造函数的隐式自动转换</strong>。</p>
 <ul>
 <li><p>工程中通过explicit关键字杜绝编译器的转换尝试。</p>
@@ -313,15 +310,12 @@
 </ul>
 <p>google C++规范中也约定所有单参数的构造函数都必须是显示的，即使用explicit关键字。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> mValue;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test()</span><br><span class="line">    &#123;</span><br><span class="line">        mValue = <span class="number">0</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Test</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">// 只能显式转换</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mValue = i;</span><br><span class="line">    &#125;   </span><br><span class="line">    Test <span class="keyword">operator</span> + (<span class="keyword">const</span> Test&amp; p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">ret</span><span class="params">(mValue + p.mValue)</span></span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    Test t;    </span><br><span class="line">    t = <span class="keyword">static_cast</span>&lt;Test&gt;(<span class="number">5</span>);    <span class="comment">// t = Test(5);</span></span><br><span class="line">    </span><br><span class="line">    Test r;  </span><br><span class="line">    r = t + <span class="keyword">static_cast</span>&lt;Test&gt;(<span class="number">10</span>);   <span class="comment">// r = t + Test(10);</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; r.value() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="1-3类型转换函数-类类型转换成其他类型（系统预定义类型）"><a href="#1-3类型转换函数-类类型转换成其他类型（系统预定义类型）" class="headerlink" title="1.3类型转换函数:类类型转换成其他类型（系统预定义类型）"></a>1.3类型转换函数:类类型转换成其他类型（系统预定义类型）</h3><p>作用：将一个类的对象转换为<strong>其他类型</strong>的数据。这里的其他类型不仅仅指系统预定义类型。</p>
 <p>格式：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">operator</span> 目标类型()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> 目标类型的数据；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>类型转换函数<strong>没有返回类型</strong>，但是要return 目标类型的数据，<strong>没有参数</strong>，只能定义为类的成员函数。</p>
 <p>这样做导致的结果是：类型转换函数看起来没有返回值类型，其实是隐式地指明了返回值类型。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        A() &#123;&#125;</span><br><span class="line">        <span class="function"><span class="keyword">explicit</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> a)</span> :<span class="title">a</span><span class="params">(a)</span> </span>&#123;&#125;</span><br><span class="line">        <span class="function"><span class="keyword">operator</span> <span class="title">int</span><span class="params">()</span><span class="comment">//类型转换函数</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">A <span class="title">test</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">    <span class="comment">//用法1</span></span><br><span class="line">    <span class="keyword">int</span> d = test;</span><br><span class="line">    <span class="comment">//用法2</span></span><br><span class="line">    <span class="keyword">int</span> c = <span class="number">2</span> + <span class="keyword">int</span>(test);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//3</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//5</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>注意：</p>
 <ol>
 <li>类型转换函数只能定义为成员函数，不能定义为友元函数</li>
@@ -489,20 +483,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -551,13 +545,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

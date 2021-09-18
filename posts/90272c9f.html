@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -277,9 +277,7 @@
 
       
         <h2 id="1-列表作为函数参数的例子"><a href="#1-列表作为函数参数的例子" class="headerlink" title="1.列表作为函数参数的例子"></a>1.列表作为函数参数的例子</h2><span id="more"></span>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x=[],y=[<span class="number">6</span>,<span class="number">7</span>]</span>):</span></span><br><span class="line">    x.append(<span class="number">8</span>)</span><br><span class="line">    y.append(<span class="number">8</span>)</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line">a,b = [<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">t = func(x=a)</span><br><span class="line">t = func(y=b)</span><br><span class="line">print(func(),end=<span class="string">&quot;;&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>执行完第7行：</p>
 <p>a = [1,2,8] <strong>注意</strong>：a被func函数修改了</p>
 <p>b = [3,4] # 不变</p>
@@ -295,22 +293,18 @@
 <p>func()中传入上一步得到的默认参数x和y</p>
 <p>输出[8,8,3,4,8,8];</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">x=[],y=[<span class="number">6</span>,<span class="number">7</span>]</span>):</span></span><br><span class="line">    x.append(<span class="number">8</span>)</span><br><span class="line">    print(<span class="string">&quot;x:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(x))</span><br><span class="line">    y.append(<span class="number">8</span>)</span><br><span class="line">    print(<span class="string">&quot;y:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(y))</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"></span><br><span class="line">a,b = [<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">t = func(x=a)</span><br><span class="line">t = func(y=b)</span><br><span class="line">print(func(),end=<span class="string">&quot;;&quot;</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;x:[1, 2, 8]</span></span><br><span class="line"><span class="string">y:[6, 7, 8]</span></span><br><span class="line"><span class="string">x:[8]</span></span><br><span class="line"><span class="string">y:[3, 4, 8]</span></span><br><span class="line"><span class="string">x:[8, 8]</span></span><br><span class="line"><span class="string">y:[6, 7, 8, 8]</span></span><br><span class="line"><span class="string">[8, 8, 6, 7, 8, 8];&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="2-python处理空行输入"><a href="#2-python处理空行输入" class="headerlink" title="2.python处理空行输入"></a>2.python处理空行输入</h2><p>input()遇到空行、回车即停止，即使没接收到有效输入。</p>
 <p><img src="/posts/90272c9f/image-20210317205917723.png" alt="image-20210317205917723"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="built_in">input</span>()  <span class="comment"># 课程名 考分</span></span><br><span class="line"><span class="meta">... </span> </span><br><span class="line"><span class="keyword">while</span> data:</span><br><span class="line">    ...</span><br><span class="line">    data = <span class="built_in">input</span>()</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-Python算法刷题"><a href="#3-Python算法刷题" class="headerlink" title="3.Python算法刷题"></a>3.Python算法刷题</h2><p>一位python大佬：<a target="_blank" rel="noopener" href="https://www.acwing.com/user/myspace/index/73331/">https://www.acwing.com/user/myspace/index/73331/</a></p>
 <p>输入输出模板参考：（特别详细）<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44399621/article/details/105760997">https://blog.csdn.net/weixin_44399621/article/details/105760997</a></p>
 <p><strong>对于输入：</strong></p>
 <p>常见的不同的输入格式：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">2</span></span><br><span class="line">m,n=<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().strip().split())</span><br><span class="line">nums=<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>().strip().split()))</span><br></pre></td></tr></table></figure>
-
 <p><strong>对于输出：</strong></p>
 <p>python中最常用的输出是使用format格式。</p>
 <p><strong>二维数组初始化：</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">result_table=[[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line"><span class="comment"># 以下是把一个5行4列的数组初始化为0</span></span><br><span class="line">result_table=[[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line"><span class="comment"># 更简便的做法</span></span><br><span class="line">s = [<span class="number">0</span>]*n</span><br></pre></td></tr></table></figure>
-
 <p><strong>标准化输入输出：</strong></p>
 <p>例题</p>
 <ul>
@@ -319,9 +313,7 @@
 <li>输出描述<br>  输出a+b的结果</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入样例：</span><br><span class="line"><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="number">10</span> <span class="number">20</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">30</span> </span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解法1</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		a,b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">		print(a+b)</span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line"><span class="comment"># 解法2</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">	<span class="keyword">if</span> line == <span class="string">&#x27;\n&#x27;</span>:<span class="keyword">break</span></span><br><span class="line">	a,b = (<span class="built_in">int</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> line.split())</span><br><span class="line">	result = a + b</span><br><span class="line">	sys.stdout.write(<span class="string">&quot;&#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(result))</span><br><span class="line"><span class="comment"># 解法3</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> sys.stdin:</span><br><span class="line">	b = a.split()</span><br><span class="line">	print(<span class="built_in">int</span>(b[<span class="number">0</span>])+<span class="built_in">int</span>(b[<span class="number">1</span>]))</span><br><span class="line"><span class="comment"># 解法4</span></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			a,b = <span class="built_in">map</span>(<span class="built_in">int</span>,<span class="built_in">input</span>(),split())</span><br><span class="line">			print(a + b)</span><br><span class="line">		<span class="keyword">except</span>:</span><br><span class="line">			<span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
 <ol>
 <li><p>import语句</p>
 <p> 引入模块，import sys引入python<strong>标准库</strong>中的sys.py模块</p>
@@ -507,20 +499,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,13 +561,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

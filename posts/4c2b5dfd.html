@@ -124,17 +124,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -280,21 +280,13 @@
 
       
         <h2 id="常用容器操作"><a href="#常用容器操作" class="headerlink" title="常用容器操作"></a>常用容器操作</h2><h3 id="1-vector-和-ArrayList"><a href="#1-vector-和-ArrayList" class="headerlink" title="1.vector 和 ArrayList"></a>1.vector 和 ArrayList</h3><span id="more"></span>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a; - ArrayList&lt;Integer&gt; a = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">size() - size()  <span class="comment">// 返回元素个数</span></span><br><span class="line">empty() - isEmpty()  <span class="comment">// 返回是否为空</span></span><br><span class="line">clear() - clear  <span class="comment">// 清空</span></span><br><span class="line">front()/back() - get(<span class="number">0</span>)/get(a.size() - <span class="number">1</span>)</span><br><span class="line">push_back()/pop_back() - add()/remove(a.size() - <span class="number">1</span>)</span><br><span class="line">begin()/end() - iterator()</span><br><span class="line">[] - get()</span><br><span class="line">支持比较运算 - 不支持比较运算</span><br><span class="line">    </span><br><span class="line">ArrayList 的遍历：</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.size(); i++) a.get(i);</span><br><span class="line"></span><br><span class="line">Iterator&lt;Integer&gt; iterator = <span class="built_in">list</span>.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) iterator.next()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> num : a) num;</span><br></pre></td></tr></table></figure>
-
 <h3 id="2-pair-和-Pair（Java-需要-import-javafx-util-Pair-，目前-acwing-不支持）"><a href="#2-pair-和-Pair（Java-需要-import-javafx-util-Pair-，目前-acwing-不支持）" class="headerlink" title="2.pair 和 Pair（Java 需要 import javafx.util.Pair ，目前 acwing 不支持）"></a>2.pair 和 Pair（Java 需要 import javafx.util.Pair ，目前 acwing 不支持）</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; p = <span class="built_in">make_pair</span>(<span class="number">1</span>, <span class="number">2</span>); - Pair&lt;Integer, Integer&gt; p = <span class="keyword">new</span> Pair&lt;&gt;(<span class="number">1</span>, <span class="number">2</span>); </span><br><span class="line">first - getKey() <span class="comment">// 第一个元素</span></span><br><span class="line">second - getValue() <span class="comment">// 第二个元素</span></span><br><span class="line">支持比较运算 - 不支持比较运算</span><br></pre></td></tr></table></figure>
-
 <h3 id="3-string-和-String"><a href="#3-string-和-String" class="headerlink" title="3.string 和 String"></a>3.string 和 String</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> a = <span class="string">&quot;yxc&quot;</span>; - String b = <span class="string">&quot;hqh&quot;</span>;</span><br><span class="line">size()/length() - length()  <span class="comment">// 返回字符串长度</span></span><br><span class="line">empty()</span><br><span class="line">clear()</span><br><span class="line">substr(起始下标，(子串长度)) - substring(起始下标，(终止下标 + <span class="number">1</span>)) <span class="comment">// 返回子串</span></span><br><span class="line">c_str()  <span class="comment">// 返回字符串所在字符数组的起始地址</span></span><br><span class="line">支持加法运算 - 支持加法运算</span><br></pre></td></tr></table></figure>
-
 <h3 id="4-queue-stack-deque-和-Deque-有两个实现类，一般使用-ArrayDeque"><a href="#4-queue-stack-deque-和-Deque-有两个实现类，一般使用-ArrayDeque" class="headerlink" title="4.queue, stack, deque 和 Deque (有两个实现类，一般使用 ArrayDeque)"></a>4.queue, stack, deque 和 Deque (有两个实现类，一般使用 ArrayDeque)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">queue</span>, 队列</span><br><span class="line">   size() - size()</span><br><span class="line">   empty() - isEmpty()</span><br><span class="line">   push() - offer()  <span class="comment">// 向队尾插入一个元素</span></span><br><span class="line">   front() - peek()  <span class="comment">// 返回队头元素</span></span><br><span class="line">   back()  <span class="comment">// 返回队尾元素</span></span><br><span class="line">   pop() - poll()  <span class="comment">// 弹出队头元素</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>, 栈</span><br><span class="line">   size() - size()</span><br><span class="line">   empty() - isEmpty()</span><br><span class="line">   push() - push()  <span class="comment">// 向栈顶插入一个元素</span></span><br><span class="line">   top() - peek()  <span class="comment">// 返回栈顶元素</span></span><br><span class="line">   pop() - pop()  <span class="comment">// 弹出栈顶元素</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">deque</span>, 双端队列</span><br><span class="line">   size() - size()</span><br><span class="line">   empty() - isEmpty()</span><br><span class="line">   clear() - clear()</span><br><span class="line">   front()/back() - getFirst()/getLast()</span><br><span class="line">   push_back()/pop_back() - offerLast()/pollLast()</span><br><span class="line">   push_front()/pop_front() - offerFirst()/pollFirst()</span><br><span class="line">   begin()/end() - iterator()</span><br><span class="line">   []</span><br></pre></td></tr></table></figure>
-
 <h3 id="5-priority-queue-和-PriorityQueue"><a href="#5-priority-queue-和-PriorityQueue" class="headerlink" title="5.priority_queue 和 PriorityQueue"></a>5.priority_queue 和 PriorityQueue</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">默认是大根堆 - 默认是小根堆</span><br><span class="line">push() - offer()  <span class="comment">// 插入一个元素</span></span><br><span class="line">top() - peek()  <span class="comment">// 返回堆顶元素</span></span><br><span class="line">pop() - poll() <span class="comment">// 弹出堆顶元素</span></span><br><span class="line"></span><br><span class="line">PriorityQueue 定义成大根堆的方式：</span><br><span class="line">PriorityQueue&lt;Integer&gt; pq = <span class="keyword">new</span> PriorityQueue&lt;&gt;((o1, o2) -&gt; o2 - o1);</span><br></pre></td></tr></table></figure>
-
 <h3 id="6-unordered-set-和-HashSet"><a href="#6-unordered-set-和-HashSet" class="headerlink" title="6.unordered_set 和 HashSet"></a>6.unordered_set 和 HashSet</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">size() - size()</span><br><span class="line">empty() - isEmpty()</span><br><span class="line">clear() - clear()</span><br><span class="line">insert() - add  <span class="comment">// 插入一个数</span></span><br><span class="line">find() - contains()  <span class="comment">// 查找一个数</span></span><br><span class="line">erase() - remove() <span class="comment">// 删除元素</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="7-unordered-map-和-HashMap"><a href="#7-unordered-map-和-HashMap" class="headerlink" title="7.unordered_map 和 HashMap"></a>7.unordered_map 和 HashMap</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">size() - size()</span><br><span class="line">empty() - isEmpty()</span><br><span class="line">clear() - clear()</span><br><span class="line">insert() - put() <span class="comment">// 插入的数是一个 pair</span></span><br><span class="line">find() - get(key) <span class="comment">// 查找一个 pair</span></span><br><span class="line">erase() - remove() <span class="comment">// 删除元素</span></span><br><span class="line">    - containsKey(key)/containsValue(value) <span class="comment">// 判断元素是否在集合中</span></span><br><span class="line">    - entrySet() <span class="comment">// 返回一个包含所有节点的集合</span></span><br><span class="line">    - keySet() <span class="comment">// 返回一个包含所有键的集合</span></span><br><span class="line">    - values() <span class="comment">// 返回一个包含所有值的集合</span></span><br><span class="line">    - getOrDefault(key, <span class="keyword">default</span> value) <span class="comment">// 返回指定 key 的 value，若 key 不存在 则返回 default value</span></span><br><span class="line">    - putIfAbsent(key, value) <span class="comment">// 如果集合中没有该 key 对应的节点，则插入</span></span><br></pre></td></tr></table></figure>
-
 <p>作者：我要番茄锅<br>链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/2180/">https://www.acwing.com/blog/content/2180/</a><br>来源：AcWing<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
     </div>
@@ -459,20 +451,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -521,13 +513,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

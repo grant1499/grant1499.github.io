@@ -132,17 +132,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -284,9 +284,7 @@
 
       
         <h2 id="1-小练习"><a href="#1-小练习" class="headerlink" title="1.小练习"></a>1.小练习</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># s = &quot;* ** ** hel  l* o*  ** * *  &quot;</span></span><br><span class="line"><span class="comment"># 去除两边的&#x27; &#x27;和&#x27;*&#x27;</span></span><br><span class="line"><span class="keyword">while</span> s[<span class="number">0</span>] == <span class="string">&quot;*&quot;</span> <span class="keyword">or</span> s[<span class="number">0</span>] == <span class="string">&quot; &quot;</span>:</span><br><span class="line">    s.strip()</span><br><span class="line">    s.strip(<span class="string">&quot;*&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> s[-<span class="number">1</span>] == <span class="string">&quot;*&quot;</span> <span class="keyword">or</span> s[-<span class="number">1</span>] == <span class="string">&quot; &quot;</span>:</span><br><span class="line">    s.strip()</span><br><span class="line">    s.strip(<span class="string">&quot;*&quot;</span>)  </span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <h2 id="2-计算思维"><a href="#2-计算思维" class="headerlink" title="2.计算思维"></a>2.计算思维</h2><p>考点：计算思维的本质是抽象和自动化。</p>
 <p>自顶向下设计，自底向上执行。</p>
 <h2 id="3-常用内置函数"><a href="#3-常用内置函数" class="headerlink" title="3.常用内置函数"></a>3.常用内置函数</h2><p><img src="/posts/9ab7a201/image-20210121155428455.png" alt="image-20210121155428455"></p>
@@ -294,21 +292,22 @@
 <p>第二种，from turtle import *，则对turtle库中 函数调用直接采用&lt;函数名&gt;()形式，不在使用 turtle.作为前导。</p>
 <p>第三种，import turtle as t，则对turtle库中函数 调用采用更简洁的t.&lt;函数名&gt;()形式，保留字as 的作用是将turtle库给予别名t。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.fd(<span class="number">100</span>)</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line">fd(<span class="number">100</span>)</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t <span class="comment"># 类似取别名</span></span><br><span class="line">t.fd(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
 <h3 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h3><p><code>turtle.setup(width, height, startx, starty)</code> 窗体函数</p>
 <p>作用：设置主窗体的大小和位置 参数： </p>
 <p>width ：窗口宽度，如果值是整数，表示的像素值；如果值 是小数，表示窗口宽度与屏幕的比例； </p>
 <p>height: 窗口高度，如果值是整数，表示的像素值；如果 值是小数，表示窗口高度与屏幕的比例； </p>
 <p>startx：窗口左侧与屏幕左侧的像素距离，如果值是None ，窗口位于屏幕水平中央； </p>
 <p>starty：窗口顶部与屏幕顶部的像素距离，如果值是None ，窗口位于屏幕垂直中央。</p>
-<h3 id="常用状态函数"><a href="#常用状态函数" class="headerlink" title="常用状态函数"></a>常用状态函数</h3><table>
+<h3 id="常用状态函数"><a href="#常用状态函数" class="headerlink" title="常用状态函数"></a>常用状态函数</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th><strong>函数</strong></th>
 <th><strong>描述</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>pendown()</td>
 <td>放下画笔</td>
 </tr>
@@ -344,7 +343,10 @@
 <td>clear()</td>
 <td>清空当前窗口</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -352,7 +354,8 @@
 <th><strong>描述</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>reset()</td>
 <td>清空当前窗口，并重置位置</td>
 </tr>
@@ -376,15 +379,19 @@
 <td>Isvisible()</td>
 <td>如果画笔可见则显示true</td>
 </tr>
-</tbody></table>
-<h3 id="常用运动函数"><a href="#常用运动函数" class="headerlink" title="常用运动函数"></a>常用运动函数</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="常用运动函数"><a href="#常用运动函数" class="headerlink" title="常用运动函数"></a>常用运动函数</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th><strong>函数</strong></th>
 <th><strong>描述</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>forward()</td>
 <td>沿着当前指定方向前进距离</td>
 </tr>
@@ -428,16 +435,17 @@
 <td>home()</td>
 <td>设置当前画笔位置为原点，朝向东</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>实例1：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import turtle</span></span><br><span class="line"><span class="comment"># turtle.fd(100)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># from turtle import *</span></span><br><span class="line"><span class="comment"># fd(100)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import turtle as t</span></span><br><span class="line"><span class="comment"># t.fd(100)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line">penup() <span class="comment"># 抬起画笔</span></span><br><span class="line">pendown() <span class="comment"># 放下画笔，有点多余</span></span><br><span class="line">fd(<span class="number">100</span>)</span><br><span class="line">done()  <span class="comment"># 避免一闪而过，对于第一种导入方式改成turtle.done()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.pensize(<span class="number">5</span>) <span class="comment"># 粗细为5pix</span></span><br><span class="line">t.pencolor(<span class="string">&quot;blue&quot;</span>)</span><br><span class="line">t.fd(<span class="number">110</span>)</span><br><span class="line">t.done()</span><br><span class="line"></span><br><span class="line"><span class="comment"># color(),begin_fill()和end_fill()是搭配使用的</span></span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.color(<span class="string">&quot;green&quot;</span>, <span class="string">&quot;red&quot;</span>)</span><br><span class="line">t.begin_fill()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    t.fd(<span class="number">120</span>)</span><br><span class="line">    t.left(<span class="number">120</span>)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.done()</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.fd(<span class="number">200</span>)</span><br><span class="line"><span class="comment"># turtle.clear()  # 注意！清空窗口(只擦掉痕迹)但画笔停留在200处</span></span><br><span class="line"><span class="comment"># turtle.reset()  # 清空窗口并重置画笔位置</span></span><br><span class="line">turtle.write(<span class="string">&quot;你好&quot;</span>)</span><br><span class="line">turtle.hideturtle()</span><br><span class="line">turtle.done()</span><br><span class="line"></span><br><span class="line"><span class="comment"># hideturtle()和showturtle()是搭配使用的</span></span><br></pre></td></tr></table></figure>
-
 <p>实例2：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.forward(<span class="number">100</span>),简写成fd(<span class="number">100</span>)</span><br><span class="line">t.fd(-<span class="number">100</span>) <span class="comment"># == t.backward(100)</span></span><br><span class="line">t.done()</span><br><span class="line"></span><br><span class="line">t.setheading(<span class="number">60</span>),简写成seth(<span class="number">60</span>)</span><br><span class="line">t.fd(<span class="number">100</span>)</span><br><span class="line">t.circle(<span class="number">100</span>)</span><br><span class="line">t.circle(<span class="number">100</span>, <span class="number">180</span>)</span><br><span class="line">t.circle(<span class="number">100</span>, <span class="number">180</span>, <span class="number">5</span>)</span><br><span class="line">t.undo()  <span class="comment"># 撤销最后一步动作</span></span><br><span class="line">t.done()</span><br><span class="line"></span><br><span class="line"><span class="comment"># right()和left()比较重要</span></span><br><span class="line"><span class="comment"># seth()是朝着某角度方向，left()是旋转某角度</span></span><br><span class="line">t.speed(<span class="number">1</span>)</span><br><span class="line">t.left(<span class="number">60</span>)</span><br><span class="line">t.left(<span class="number">60</span>)  <span class="comment"># 旋转是有记忆的</span></span><br><span class="line">t.fd(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">t.goto(<span class="number">100</span>, <span class="number">200</span>)  <span class="comment"># 向绝对坐标移动，不改变方向</span></span><br><span class="line">t.dot(<span class="number">100</span>, <span class="string">&quot;pink&quot;</span>)</span><br><span class="line">t.home()  <span class="comment"># 画笔回到原点，方向朝东</span></span><br><span class="line">t.done()</span><br></pre></td></tr></table></figure>
-
 <h2 id="5-random库"><a href="#5-random库" class="headerlink" title="5.random库"></a>5.random库</h2><p>使用random库主要目的是生成随机数 </p>
 <p>​    这个库提供了不同类型的随机数函数，其中最基本的函数是<code>random.random()</code>，它生成 一个[0.0, 1.0)之间的随机小数，所有其他随机函数都是基于这个函数扩展而来。</p>
 <p>random库常用函数： </p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -445,7 +453,8 @@
 <th><strong>描述</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>seed(a=None)</td>
 <td>初始化随机数种子，默认值为当前系统时间</td>
 </tr>
@@ -481,10 +490,11 @@
 <td>sample(pop,  k)</td>
 <td>从pop类型中随机选取k个元素，以列表类型返回</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">n = random.random()</span><br><span class="line"><span class="comment"># 注意生成随机数的右边区间开闭情况</span></span><br><span class="line">print(n)</span><br><span class="line"><span class="comment"># 学到了，文件名不要设置成random库名，否则会报错循环导入，憨憨</span></span><br><span class="line"><span class="comment"># random.seed()  # seed参数限定了后面生成随机数的值</span></span><br><span class="line">m = random.randint(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line">print(m)</span><br><span class="line">t = random.getrandbits(<span class="number">6</span>)</span><br><span class="line">print(<span class="built_in">bin</span>(t))</span><br><span class="line">print(random.randrange(<span class="number">2</span>,<span class="number">6</span>,<span class="number">2</span>))</span><br><span class="line">print(random.uniform(<span class="number">1</span>,<span class="number">11</span>))</span><br><span class="line">ls = [<span class="number">12</span>,<span class="number">34.56</span>,<span class="number">4</span>,<span class="string">&quot;你&quot;</span>,<span class="string">&quot;我&quot;</span>,<span class="number">1434</span>,<span class="number">34</span>,[<span class="number">2</span>,<span class="number">3</span>,<span class="number">232.4</span>]]</span><br><span class="line">print(random.choice(ls)) <span class="comment"># 有返回值</span></span><br><span class="line">random.shuffle(ls)  <span class="comment"># 无返回值</span></span><br><span class="line">print(ls)</span><br><span class="line">lt = random.sample(ls,<span class="number">3</span>)</span><br><span class="line">print(lt)</span><br></pre></td></tr></table></figure>
-
 <h2 id="6-time库"><a href="#6-time库" class="headerlink" title="6.time库"></a>6.time库</h2><p>处理时间是程序最常用的功能之一，time库是Python提供的处理时间标准库。time库提供系统级精确计时器的计时功能，可以用来分析程序性能，也可让程序暂停运行时间。</p>
 <p>time库的功能主要分为3个方面：时间处理、 时间格式化和计时。 </p>
 <p>• 时间处理主要包括4个函数：time.time()、 time.gmtime()、time.localtime() 、time.ctime()。 </p>
@@ -500,10 +510,10 @@
 <p><img src="/posts/9ab7a201/image-20210125101522267.png" alt="image-20210125101522267"></p>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">print(time.time())  <span class="comment"># 获取当前时间戳</span></span><br><span class="line">print(time.gmtime())  <span class="comment"># 很少考到，返回UTC时间</span></span><br><span class="line">print(time.localtime())  <span class="comment"># 经常考到，一定要记住，返回本地北京时间</span></span><br><span class="line">print(time.ctime())  <span class="comment"># 返回当地时间对应的字符串</span></span><br><span class="line">t = time.localtime()</span><br><span class="line">print(time.mktime(t))</span><br><span class="line">print(time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, t))  <span class="comment"># 记住这些常用的，这是考的最多的</span></span><br><span class="line">timestring = <span class="string">&quot;2020-04-17 10:17:44&quot;</span>  <span class="comment"># 反格式化</span></span><br><span class="line">print(time.strptime(timestring, <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>))  <span class="comment"># 和上面相反，用到较少</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># time.sleep()较常用到，记住</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    print(i)</span><br><span class="line">    time.sleep(<span class="number">3</span>)  <span class="comment"># 每次循环睡眠3秒</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="7-PyInstaller库"><a href="#7-PyInstaller库" class="headerlink" title="7.PyInstaller库"></a>7.PyInstaller库</h2><p>PyInstaller是一个十分有用的Python第三方库，它能够在Windows、Linux、Mac OS  X等操作系统下将Python源文件打包，变成直接可运行的可执行文件。通过对源文件打包，Python程序可以在没有安装Python的环境中运行，也可以作为一个独立文件方便传递和管理。</p>
 <p><img src="/posts/9ab7a201/image-20210125102142517.png" alt="image-20210125102142517"></p>
 <p>第2种方式在dist文件夹中只有一个exe文件。（记住常用参数指令）</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -511,7 +521,8 @@
 <th><strong>功能</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>-h,  –help</td>
 <td>查看帮助</td>
 </tr>
@@ -531,7 +542,9 @@
 <td>-i  &lt;图标文件名.ico  &gt;</td>
 <td>指定打包程序使用的图标（icon）文件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>eg : <code>pyinstaller -F -i 1.cio yinyang.py</code></p>
 <p>eg : <code>pyinstaller -F -w yinyang.py  # -w去掉运行exe时的黑窗口</code></p>
 <h2 id="8-jieba库"><a href="#8-jieba库" class="headerlink" title="8.jieba库"></a>8.jieba库</h2><p>1、由于中文文本中的单词不是通过空格或者标点符号分割，中文及类似语言存在一个重要的“分词”问题。</p>
@@ -544,12 +557,12 @@
 <p>4、<code>jieba.add_word()</code>函数，顾名思义，用来向jieba词库增加新的单词。</p>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">ls = jieba.lcut(<span class="string">&quot;全国计算机等级考试python科目&quot;</span>)</span><br><span class="line">print(ls)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> jieba <span class="keyword">import</span> *</span><br><span class="line">ls = lcut(<span class="string">&quot;全国计算机等级考试python科目&quot;</span>,cut_all = <span class="literal">True</span>)</span><br><span class="line">print(ls)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">ls = jieba.lcut_for_search(<span class="string">&quot;全国计算机等级考试python科目&quot;</span>)</span><br><span class="line">print(ls)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line">jieba.add_word(<span class="string">&quot;奥利给&quot;</span>)</span><br><span class="line">ls = jieba.lcut(<span class="string">&quot;作为一个年轻人，我们要努力加油，奥利给！！&quot;</span>)</span><br><span class="line">print(ls)</span><br></pre></td></tr></table></figure>
-
 <h2 id="9-wordcloud库"><a href="#9-wordcloud库" class="headerlink" title="9.wordcloud库"></a>9.wordcloud库</h2><p>1、wordcloud库是专门用于根据文本生成词云的Python第三方库，十分常用且有趣。</p>
 <p>2、装wordcloud库在Windows的cmd命令行使用</p>
 <p><img src="/posts/9ab7a201/image-20210125111300257.png" alt="image-20210125111300257"></p>
 <p><img src="/posts/9ab7a201/image-20210125111332948.png" alt="image-20210125111332948"></p>
 <p><strong>WordCloud对象创建的常用参数</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -557,7 +570,8 @@
 <th><strong>功能</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>font_path</td>
 <td>指定字体文件的完整路径，默认None</td>
 </tr>
@@ -597,11 +611,13 @@
 <td>background_color</td>
 <td>图片背景颜色，默认黑色</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>WordCloud不显示中文问题解决：</p>
 <p>在下面的代码中添加<code>font_path=&quot;./kai.ttf&quot;</code>（自己替换），选择一个支持中文的字体。无法确定是否支持中文的话，双击字体打开查看，有中文显示就是支持中文的。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc=WordCloud(font_path=<span class="string">&quot;./kai.ttf&quot;</span>,background_color=<span class="string">&quot;white&quot;</span>,width=<span class="number">800</span>,height=<span class="number">600</span>,max_font_size=<span class="number">50</span>,max_words=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -609,7 +625,8 @@
 <th><strong>功能</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>generate(text)</td>
 <td>由text文本生成词云</td>
 </tr>
@@ -617,10 +634,11 @@
 <td>to_file(filename)</td>
 <td>将词云图保存为名为filename的文件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>实例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wordcloud</span><br><span class="line">txt = <span class="string">&quot;i like python and i am learning python&quot;</span></span><br><span class="line">wd = wordcloud.WordCloud().generate(txt)</span><br><span class="line">wd.to_file(<span class="string">&quot;test.png&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">txt = <span class="string">&#x27;&#x27;&#x27;程序设计语言是计算机能够识别和理解用户</span></span><br><span class="line"><span class="string">操作意图的一种交互体系，它能够按照特定的规则</span></span><br><span class="line"><span class="string">组织计算机指令，使得计算机能够自动进行各种运算处理</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> jieba</span><br><span class="line"><span class="keyword">import</span> wordcloud</span><br><span class="line">ls = jieba.lcut(txt)</span><br><span class="line">txtwords = <span class="string">&#x27; &#x27;</span>.join(ls)</span><br><span class="line">print(txtwords)</span><br><span class="line">wd = wordcloud.WordCloud(font_path=<span class="string">r&quot;F:\下载\方正楷体_GBK.TTF&quot;</span>,width=<span class="number">800</span>,height=<span class="number">600</span>).generate(txtwords) </span><br><span class="line"><span class="comment"># wordcloud默认不支持中文，得设置font_path添加中文字体</span></span><br><span class="line">wd.to_file(<span class="string">&quot;word.png&quot;</span>)</span><br></pre></td></tr></table></figure>
-
 <h2 id="10-python第三方库纵览"><a href="#10-python第三方库纵览" class="headerlink" title="10.python第三方库纵览"></a>10.python第三方库纵览</h2><p>考选择题，以记忆库的名称、作用为主。</p>
 <p><img src="/posts/9ab7a201/image-20210125115734415.png" alt="image-20210125115734415"></p>
 
@@ -786,20 +804,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -848,13 +866,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

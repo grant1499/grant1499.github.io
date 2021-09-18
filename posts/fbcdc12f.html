@@ -148,17 +148,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -301,7 +301,6 @@
       
         <h2 id="1-输入输出运算符的实现原理"><a href="#1-输入输出运算符的实现原理" class="headerlink" title="1.输入输出运算符的实现原理"></a>1.输入输出运算符的实现原理</h2><p><strong>对输入输出运算符的重载是关键知识点。</strong></p>
 <span id="more"></span>
-
 <p><img src="/posts/fbcdc12f/image-20210428134441249.png" alt="image-20210428134441249"></p>
 <p><img src="/posts/fbcdc12f/image-20210428134501051.png" alt="image-20210428134501051"></p>
 <p><img src="/posts/fbcdc12f/image-20210428134708619.png" alt="image-20210428134708619"></p>
@@ -315,14 +314,11 @@
 <h2 id="3-自定义操纵符输入输出格式控制"><a href="#3-自定义操纵符输入输出格式控制" class="headerlink" title="3.自定义操纵符输入输出格式控制"></a>3.自定义操纵符输入输出格式控制</h2><p><img src="/posts/fbcdc12f/image-20210428135006688.png" alt="image-20210428135006688"></p>
 <p><img src="/posts/fbcdc12f/image-20210428135030374.png" alt="image-20210428135030374"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输入流操纵符函数</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">istream&amp; <span class="title">input</span><span class="params">(istream&amp; in)</span></span>&#123;</span><br><span class="line">    in &gt;&gt; hex;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Enter number using hex format:&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> in;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; input &gt;&gt; i;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;hex:&quot;</span> &lt;&lt; hex &lt;&lt; i &lt;&lt; <span class="string">&quot;-----dec:&quot;</span> &lt;&lt; dec &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*Enter number using hex format:23ae</span></span><br><span class="line"><span class="comment">hex:23ae-----dec:9134*/</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="4-重载输入输出运算符"><a href="#4-重载输入输出运算符" class="headerlink" title="4.重载输入输出运算符"></a>4.重载输入输出运算符</h2><p>注意：</p>
 <p><strong>重载输入输出运算符不能是所操作类的成员函数，但可以是该类的友元函数或普通函数。</strong><img src="/posts/fbcdc12f/image-20210428141954272.png" alt="image-20210428141954272"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重载插入运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Coord</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    Coord(<span class="keyword">int</span> i = <span class="number">0</span>,<span class="keyword">int</span> j = <span class="number">0</span>)&#123;</span><br><span class="line">        x = i,y = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; stream,Coord&amp; ob);</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; stream,Coord&amp; ob)&#123;</span><br><span class="line">    stream &lt;&lt; ob.x &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; ob.y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> stream;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Coord a(55,56),b(100,200);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/fbcdc12f/image-20210428142554403.png" alt="image-20210428142554403"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// // 重载插入与提取运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Three_d</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    Three_d(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c)&#123;</span><br><span class="line">        x = a,y = b,z = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; output,Three_d ob);</span><br><span class="line">    <span class="keyword">friend</span> istream&amp; <span class="keyword">operator</span>&gt;&gt; (istream&amp; input,Three_d&amp; ob);</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> x,y,z;</span><br><span class="line">&#125;;</span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt; (ostream&amp; output,Three_d ob)&#123;</span><br><span class="line">    output &lt;&lt; ob.x &lt;&lt; <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    output &lt;&lt; ob.y &lt;&lt; <span class="string">&quot;,&quot;</span>;</span><br><span class="line">    output &lt;&lt; ob.z &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> output;</span><br><span class="line">&#125;</span><br><span class="line">istream&amp; <span class="keyword">operator</span>&gt;&gt; (istream&amp; input,Three_d&amp; ob)&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Enter x,y,z value:&quot;</span>;</span><br><span class="line">    input &gt;&gt; ob.x;</span><br><span class="line">    input &gt;&gt; ob.y;</span><br><span class="line">    input &gt;&gt; ob.z;</span><br><span class="line">    <span class="keyword">return</span> input;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">Three_d <span class="title">obj</span><span class="params">(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; obj;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; obj;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; obj;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="5-文件的输入输出"><a href="#5-文件的输入输出" class="headerlink" title="5.文件的输入输出"></a>5.文件的输入输出</h2><p>文件的两种形式：</p>
 <p><img src="/posts/fbcdc12f/image-20210428143750640.png" alt="image-20210428143750640"></p>
 <p>为什么文本形式会多一个字节？</p>
@@ -334,7 +330,6 @@
 <p><img src="/posts/fbcdc12f/image-20210428144508143.png" alt="image-20210428144508143"></p>
 <p>文件的关闭：<code>out.close();</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 写文件与读文件</span></span><br><span class="line">    <span class="function">ofstream <span class="title">fout</span><span class="params">(<span class="string">&quot;f2.txt&quot;</span>)</span></span>;<span class="comment">// 不存在会新建</span></span><br><span class="line">    <span class="keyword">if</span> (!fout)&#123; <span class="comment">// 文件打开失败时fout返回0</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cannot open output file\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fout &lt;&lt; <span class="number">10</span> &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;hex&lt;&lt;<span class="number">100</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    fout.close();</span><br><span class="line">    <span class="function">ifstream <span class="title">fin</span><span class="params">(<span class="string">&quot;f2.txt&quot;</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (!fin)&#123; <span class="comment">// 文件打开失败时fin返回0</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cannot open input file\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">80</span>];</span><br><span class="line">    <span class="keyword">while</span> (fin)&#123;</span><br><span class="line">        fin.getline(str,<span class="number">80</span>);<span class="comment">// 读入信息赋值给str</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    fin.close();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 输出：</span></span><br><span class="line"><span class="comment">10 64\n*/</span></span><br></pre></td></tr></table></figure>
-
 <p>提一点，C++的多行注释最好写成<code>/**/</code>，而不要写成<code>//</code>。在某种情况下，注释会与“/”产生一些奇怪的BUG。</p>
 <h2 id="6-命名空间"><a href="#6-命名空间" class="headerlink" title="6.命名空间"></a>6.命名空间</h2><p>也就是namespace。</p>
 <p><img src="/posts/fbcdc12f/image-20210428150001654.png" alt="image-20210428150001654"></p>
@@ -507,20 +502,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,13 +564,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -275,20 +275,15 @@
 
       
         <h2 id="1-流程控制"><a href="#1-流程控制" class="headerlink" title="1.流程控制"></a>1.流程控制</h2><span id="more"></span>
-
 <p>if-else判断：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> age = <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (age &gt; <span class="number">6</span>)&#123;</span><br><span class="line">    alert(<span class="string">&quot;haha&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (age &lt; <span class="number">5</span>)&#123;</span><br><span class="line">    alert(<span class="string">&quot;hi&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    alert(<span class="string">&quot;nihao&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>while与do-while循环，以及for循环：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (i &lt; <span class="number">10</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">6</span>) &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">    alert(<span class="string">&quot;i:&quot;</span> + i);</span><br><span class="line">    i ++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// do-while</span></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">6</span>) &#123;<span class="keyword">break</span>;&#125;</span><br><span class="line">    alert(<span class="string">&quot;i:&quot;</span> + i);</span><br><span class="line">    i ++;</span><br><span class="line">&#125; <span class="keyword">while</span> (i &lt; <span class="number">10</span>);</span><br><span class="line"><span class="comment">// break和continue同java中类似</span></span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>) &#123; <span class="keyword">continue</span>; &#125;</span><br><span class="line">    text += <span class="string">&quot;数字是 &quot;</span> + i + <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
 <p>数组forEach循环：ES5.1新特性</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">24</span>,<span class="number">4</span>,<span class="number">5.6</span>,<span class="number">3</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <p>for…in 语句：用于遍历数组或者对象的属性。<strong>遍历数组下标！</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">24</span>,<span class="number">4</span>,<span class="number">5.6</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> arr)&#123;</span><br><span class="line">    <span class="keyword">if</span> (!arr.hasOwnProperty(i))&#123;<span class="comment">// 避免一些bug</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);<span class="comment">// 注意：i获取的是数组中元素的下标</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>参考文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/wangpenglonton/article/details/79095011%E3%80%82">https://blog.csdn.net/wangpenglonton/article/details/79095011。</a></p>
+<p>参考文章： <a target="_blank" rel="noopener" href="https://blog.csdn.net/wangpenglonton/article/details/79095011。">https://blog.csdn.net/wangpenglonton/article/details/79095011。</a></p>
 <p>for-in遍历数组可能出现一些<strong>bug</strong>，，有两种方式避免</p>
 <p>1.在循环数组集合时，不使用for-in，统一使用for(var i=0;i&lt;length;i++)这种形式；</p>
 <p>2.在for-in循环中增加一个hasOwnProperty的判断。（麻烦）</p>
@@ -296,59 +291,46 @@
 <p>JS中的Map对应Java中的HashMap，python中的字典，由键值对构成。</p>
 <p>Map：映射</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([[<span class="string">&quot;tom&quot;</span>,<span class="number">90</span>],[<span class="string">&quot;jerry&quot;</span>,<span class="number">76</span>]])</span><br><span class="line"><span class="keyword">let</span> name = map.get(<span class="string">&quot;jerry&quot;</span>) <span class="comment">// 通过key获得value</span></span><br><span class="line"><span class="built_in">console</span>.log(name) <span class="comment">// 76</span></span><br><span class="line">map.set(<span class="string">&quot;admin&quot;</span>,<span class="number">88</span>) <span class="comment">// 新增或修改</span></span><br><span class="line"><span class="comment">// Map(3) &#123;&quot;tom&quot; =&gt; 90, &quot;jerry&quot; =&gt; 76, &quot;admin&quot; =&gt; 88&#125;</span></span><br><span class="line">map.set(<span class="string">&quot;tom&quot;</span>,<span class="number">68</span>)</span><br><span class="line"><span class="comment">// Map(3) &#123;&quot;tom&quot; =&gt; 68, &quot;jerry&quot; =&gt; 76, &quot;admin&quot; =&gt; 88&#125;</span></span><br><span class="line">map.delete(<span class="string">&quot;tom&quot;</span>) <span class="comment">// 删除</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">map</span><br><span class="line"><span class="function"><span class="title">Map</span>(<span class="params"><span class="number">2</span></span>)</span> &#123;<span class="string">&quot;jerry&quot;</span> =&gt; <span class="number">76</span>, <span class="string">&quot;admin&quot;</span> =&gt; <span class="number">88</span>&#125;</span><br></pre></td></tr></table></figure>
-
 <p>Set：无序不重复集合，会自动去重</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="comment">// Set(3) &#123;1, 2, 3&#125;</span></span><br><span class="line">set.add(<span class="number">5</span>) <span class="comment">// 新加元素，会去重</span></span><br><span class="line"><span class="comment">// Set(4) &#123;1, 2, 3, 5&#125;</span></span><br><span class="line">set.add(<span class="number">1</span>)</span><br><span class="line"><span class="comment">// Set(4) &#123;1, 2, 3, 5&#125;</span></span><br><span class="line">set.delete(<span class="number">2</span>) <span class="comment">// 删除元素</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">set</span><br><span class="line"><span class="comment">// Set(3) &#123;1, 3, 5&#125;</span></span><br><span class="line">set.has(<span class="number">5</span>) <span class="comment">// 判断是否含有</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="3-for-of遍历"><a href="#3-for-of遍历" class="headerlink" title="3.for-of遍历"></a>3.for-of遍历</h2><p>ES6新特性~</p>
 <p>for-of可以遍历数组，Map，Set</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> set)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i) <span class="comment">// 遍历数组，Map也是一样的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>建议数组以后就用for-of遍历，不要使用for-in。</p>
 <h2 id="4-函数"><a href="#4-函数" class="headerlink" title="4.函数"></a>4.函数</h2><p>JS中的函数与Java大同小异。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abs</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> -x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// JS支持三目运算符</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ABS</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (x &gt;= <span class="number">0</span>) ? x : -x;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
 <p>一旦执行到return代表函数结束，返回结果！</p>
 <p>如果没有执行return，函数执行完也会返回结果，结果就是undefined。</p>
 <p>和python一样，JS也有匿名函数，是第二种定义函数的方式。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> abs = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>上述两种定义<em>完全等价</em>，注意第二种方式按照完整语法需要在函数体末尾加一个<code>;</code>，表示赋值语句结束。</p>
 <p><strong>参数问题：</strong></p>
 <p>由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有问题，虽然函数内部并不需要这些参数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">abs(<span class="number">10</span>, <span class="string">&#x27;blablabla&#x27;</span>); <span class="comment">// 返回10</span></span><br><span class="line">abs(-<span class="number">9</span>, <span class="string">&#x27;haha&#x27;</span>, <span class="string">&#x27;hehe&#x27;</span>, <span class="literal">null</span>); <span class="comment">// 返回9</span></span><br></pre></td></tr></table></figure>
-
 <p>传入的参数比定义的少也没有问题：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(); <span class="comment">// 返回NaN</span></span><br></pre></td></tr></table></figure>
-
 <p>此时<code>abs(x)</code>函数的参数<code>x</code>将收到<code>undefined</code>，计算结果为<code>NaN</code>。</p>
 <p>要避免收到<code>undefined</code>，可以对参数进行检查：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abs</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> x !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="string">&#x27;Not a number&#x27;</span>;<span class="comment">// 手动抛出异常</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>arguments：</strong></p>
 <p>JavaScript还有一个免费赠送的关键字<code>arguments</code>，它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;x = &#x27;</span> + x); <span class="comment">// 10</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;arg &#x27;</span> + i + <span class="string">&#x27; = &#x27;</span> + <span class="built_in">arguments</span>[i]); <span class="comment">// 10, 20, 30</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
-
 <p>实际上<code>arguments</code>最常用于判断传入参数的个数。</p>
 <hr>
 <p>问题：arguments包含所有的参数，我们有时候想使用多余的参数来进行附加操作。需要排除已有参数~</p>
 <p><strong>rest：</strong>ES6引入的新特性，获取除了已经定义的参数之外的所有参数~</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b, ...rest</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;a = &#x27;</span> + a);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;b = &#x27;</span> + b);</span><br><span class="line">    <span class="built_in">console</span>.log(rest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">// 结果:</span></span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = 2</span></span><br><span class="line"><span class="comment">// Array [ 3, 4, 5 ]</span></span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 结果:</span></span><br><span class="line"><span class="comment">// a = 1</span></span><br><span class="line"><span class="comment">// b = undefined</span></span><br><span class="line"><span class="comment">// Array []</span></span><br></pre></td></tr></table></figure>
-
 <p>rest参数只能写在最后，前面用<code>...</code>标识，从运行结果可知，传入的参数先绑定<code>a</code>、<code>b</code>，多余的参数以数组形式交给变量<code>rest</code>，所以，不再需要<code>arguments</code>我们就获取了全部参数。</p>
 <p>如果传入的参数连正常定义的参数都没填满，也不要紧，rest参数会接收一个空数组（注意不是<code>undefined</code>）。</p>
 <h2 id="5-变量的作用域"><a href="#5-变量的作用域" class="headerlink" title="5.变量的作用域"></a>5.变量的作用域</h2><p>var申明变量的作用域：</p>
 <p>如果一个变量在函数体内部申明，则该变量的作用域为整个函数体，在函数体外不可引用该变量。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">    x = x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">x = x + <span class="number">2</span>; <span class="comment">// ReferenceError! 无法在函数体外引用变量x</span></span><br></pre></td></tr></table></figure>
-
 <p>不同函数内部的同名变量互相独立，互不影响。</p>
 <p>内部函数可以访问外部函数的成员，反之则不行。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> y = x + <span class="number">1</span>; <span class="comment">// bar可以访问foo的变量x!</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> z = y + <span class="number">1</span>; <span class="comment">// ReferenceError! foo不可以访问bar的变量y!</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>假设，内部函数变量和外部函数变量，重名！</p>
 <p>函数查找变量从自身函数开始~， 由“内”向“外”查找，假设外部存在这个同名的函数变量，则内部函数会屏蔽外部函数的变量。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> x = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;x in bar() = &#x27;</span> + x); <span class="comment">// &#x27;A&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">	bar();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;x in foo() = &#x27;</span> + x); <span class="comment">// 1 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 内、外函数中的x互不影响</span></span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -511,20 +493,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -573,13 +555,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

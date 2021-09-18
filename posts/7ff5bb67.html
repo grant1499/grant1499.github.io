@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/7ff5bb67/image-20210524135808177.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/7ff5bb67/image-20210524135905185.png">
 <meta property="article:published_time" content="2021-03-14T05:55:50.000Z">
-<meta property="article:modified_time" content="2021-05-24T07:33:00.787Z">
+<meta property="article:modified_time" content="2021-09-07T10:16:08.061Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="排序">
 <meta property="article:tag" content="快排">
@@ -128,17 +128,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-24 15:33:00" itemprop="dateModified" datetime="2021-05-24T15:33:00+08:00">2021-05-24</time>
+                <time title="修改时间：2021-09-07 18:16:08" itemprop="dateModified" datetime="2021-09-07T18:16:08+08:00">2021-09-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -234,6 +234,10 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -286,7 +290,6 @@
         <h1 id="高等排序算法"><a href="#高等排序算法" class="headerlink" title="高等排序算法"></a>高等排序算法</h1><p>参考：极客时间数据结构与算法之美专栏</p>
 <p>非常推荐，王争老师写的很棒！</p>
 <span id="more"></span>
-
 <h2 id="1-如何用快排思想在O-n-内查找第K大元素？"><a href="#1-如何用快排思想在O-n-内查找第K大元素？" class="headerlink" title="1.如何用快排思想在O(n)内查找第K大元素？"></a>1.如何用快排思想在O(n)内查找第K大元素？</h2><p>本文会以这个问题为主线，介绍一些高等排序算法。</p>
 <p>在初等排序中介绍的几种算法的时间复杂度都是$O(n^2)$。</p>
 <p>接下来会介绍归并排序与快速排序，适合大规模的数据排序，比初等排序算法要更常用。</p>
@@ -304,18 +307,15 @@
 <p>如果我们不考虑<strong>空间消耗</strong>的话，partition() 分区函数可以写得非常简单。我们申请两个临时数组 X 和 Y，遍历 A[p…r]，将小于 pivot 的元素都拷贝到临时数组 X，将大于 pivot 的元素都拷贝到临时数组 Y，最后再将数组 X 和数组 Y 中数据顺序拷贝到 A[p….r]。</p>
 <p>这样写：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = a[p];</span><br><span class="line">    <span class="keyword">while</span> (p &lt; r)&#123;</span><br><span class="line">        <span class="keyword">while</span> (p &lt; r &amp;&amp; a[r] &gt; pivot) r--;</span><br><span class="line">        a[p] = a[r];</span><br><span class="line">        <span class="keyword">while</span> (p &lt; r &amp;&amp; a[r] &lt;= pivot) p++;</span><br><span class="line">        a[r] = a[p];</span><br><span class="line">    &#125;</span><br><span class="line">    a[p] = pivot;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>但是，如果按照这种思路实现的话，partition() 函数就需要很多额外的内存空间，所以快排就不是原地排序算法了。如果我们希望快排是<strong>原地排序算法</strong>，那它的空间复杂度得是 O(1)，那 partition() 分区函数就不能占用太多额外的内存空间，我们就需要在 A[p…r]的原地完成分区操作。</p>
 <p>原地分区这样写：</p>
 <figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line">partition(A, p, r) <span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  pivot := A[r]</span></span><br><span class="line"><span class="comment">  i := p</span></span><br><span class="line"><span class="comment">  for j := p to r-1 do &#123;</span></span><br><span class="line"><span class="comment">    if A[j] &lt; pivot &#123;</span></span><br><span class="line"><span class="comment">      swap A[i] with A[j]</span></span><br><span class="line"><span class="comment">      i := i+1</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">  swap A[i] <span class="keyword">with</span> A[r]</span><br><span class="line">  return i</span><br></pre></td></tr></table></figure>
-
 <p>这里的处理有点类似<strong>选择排序</strong>。我们通过游标 i 把 A[p…r-1]分成两部分。A[p…i-1]的元素都是小于 pivot 的，我们暂且叫它“已处理区间”，A[i…r-1]是“未处理区间”。我们每次都从未处理的区间 A[i…r-1]中取一个元素 A[j]，与 pivot 对比，如果小于 pivot，则将其加入到已处理区间的尾部，也就是 A[i]的位置。</p>
 <p>数组的插入操作还记得吗？在数组某个位置插入元素，需要搬移数据，非常耗时。当时我们也讲了一种处理技巧，就是<strong>交换</strong>，在 O(1) 的时间复杂度内完成插入操作。这里我们也借助这个思想，只需要将 A[i]与 A[j]交换，就可以在 O(1) 时间复杂度内将 A[j]放到下标为 i 的位置。</p>
 <p><img src="/posts/7ff5bb67/image-20210524135808177.png" alt="image-20210524135808177"></p>
 <p>因为分区的过程涉及交换操作，如果数组中有两个相同的元素，比如序列 6，8，7，6，3，5，9，4，在经过第一次分区操作之后，两个 6 的相对先后顺序就会改变。所以，快速排序并不是一个稳定的排序算法。</p>
 <p>对照上面图片会更容易理解。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java写法</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSort</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 快速排序，a是数组，n表示数组的大小</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    quickSortInternally(a, <span class="number">0</span>, n-<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 快速排序递归函数，p,r为下标</span></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSortInternally</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p &gt;= r) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> q = partition(a, p, r); <span class="comment">// 获取分区点</span></span><br><span class="line">    quickSortInternally(a, p, q-<span class="number">1</span>);</span><br><span class="line">    quickSortInternally(a, q+<span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> p, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = a[r];</span><br><span class="line">    <span class="keyword">int</span> i = p;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = p; j &lt; r; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (a[j] &lt; pivot) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == j) &#123;<span class="comment">// 相等说明a[i]和a[j]是同一个数</span></span><br><span class="line">          ++i;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">// 不等则交换a[i]和a[j]</span></span><br><span class="line">          <span class="keyword">int</span> tmp = a[i];</span><br><span class="line">          a[i++] = a[j];</span><br><span class="line">          a[j] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> tmp = a[i];</span><br><span class="line">    a[i] = a[r];</span><br><span class="line">    a[r] = tmp;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;i=&quot;</span> + i);</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="4-归并与快排的区别"><a href="#4-归并与快排的区别" class="headerlink" title="4.归并与快排的区别"></a>4.归并与快排的区别</h2><p><img src="/posts/7ff5bb67/image-20210524135905185.png" alt="image-20210524135905185"></p>
 <p>可以发现，归并排序的处理过程是<strong>由下到上</strong>的，先处理子问题，然后再合并。而快排正好相反，它的处理过程是<strong>由上到下</strong>的，先分区，然后再处理子问题。归并排序虽然是稳定的、时间复杂度为 O(nlogn) 的排序算法，但是它是非原地排序算法。我们前面讲过，归并之所以是非原地排序算法，主要原因是合并函数无法在原地执行。快速排序通过设计巧妙的原地分区函数，可以实现原地排序，解决了归并排序占用太多内存的问题。</p>
 <p>快速排序算法虽然最坏情况下的时间复杂度是 O(n^2)，但是平均情况下时间复杂度都是 O(nlogn)。不仅如此，快速排序算法时间复杂度退化到 O(n^2) 的概率非常小，我们可以通过合理地选择 pivot 来避免这种情况。</p>
@@ -488,20 +488,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -550,13 +550,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

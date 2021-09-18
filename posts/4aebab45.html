@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -276,64 +276,50 @@
       
         <h2 id="1-14：循环语句"><a href="#1-14：循环语句" class="headerlink" title="1.14：循环语句"></a>1.14：循环语句</h2><h3 id="for…in…do…done"><a href="#for…in…do…done" class="headerlink" title="for…in…do…done"></a>for…in…do…done</h3><p>命令格式：</p>
 <span id="more"></span>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for var in val1 val2 val3</span><br><span class="line">do</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">    ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例1，输出a 2 cc，每个元素一行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in a 2 cc</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例2，输出当前路径下的所有文件名，每个文件名一行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for file in `ls` # ``或者$()用于提取命令的stdout</span><br><span class="line">do</span><br><span class="line">    echo $file</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例3，输出1-10</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for i in $(seq 1 10)</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br><span class="line"><span class="meta">#</span><span class="bash"> seq命令用于获取一个序列，支持整数、浮点数，不支持字符</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 语法：seq [选项]... 起始值 增量 结束值，增量可以省略，默认为1</span></span><br></pre></td></tr></table></figure>
-
 <p>示例4，使用{1..10} 或者 {a..z}，正向反向都可以</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i in &#123;a..z&#125;</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<h3 id="命令"><a href="#命令" class="headerlink" title="(())命令"></a><code>(())</code>命令</h3><p>参考资料： <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/2480.html%E3%80%82">http://c.biancheng.net/view/2480.html。</a></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="(())命令"></a><code>(())</code>命令</h3><p>参考资料： <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/2480.html。">http://c.biancheng.net/view/2480.html。</a></p>
 <p>双小括号 (( )) 是 Bash Shell 中专门用来进行整数运算的命令，它的效率很高，写法灵活，是企业运维中常用的运算命令。</p>
 <p><strong>效率很高，推荐使用。</strong>非常灵活，<code>(())</code>命令表达式内容可以加或不加空格，也不需要转义。可以替代expr。</p>
 <p>语法格式：<code>((表达式)) 近似于 expr 表达式</code>，<code>$((表达式)) 近似于 $(expr 表达式)</code>。</p>
 <p>在 (( )) 中使用变量无需加上<code>$</code>前缀，(( )) 会自动解析变量名。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">((a=10+66) # 计算完成后给变量赋值</span><br><span class="line">((b=a-15))</span><br><span class="line">a=$((10+66) # 可以在 (( )) 前面加上$符号获取 (( )) 命令的执行结果，也即获取整个表达式的值</span><br><span class="line">b=$((a-15))</span><br><span class="line">[c.biancheng.net]$ echo $((3&lt;8))  #3&lt;8 的结果是成立的，因此，输出了 1，1 表示真</span><br><span class="line">1</span><br><span class="line">[c.biancheng.net]$ echo $((8&lt;3))  #8&lt;3 的结果是不成立的，因此，输出了 0，0 表示假。</span><br><span class="line">0</span><br><span class="line">[c.biancheng.net]$ echo $((8==8)) #判断是否相等。</span><br><span class="line">1</span><br><span class="line">[c.biancheng.net]$ if ((8&gt;7&amp;&amp;5==5))</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="keyword">then</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="built_in">echo</span> yes</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="keyword">fi</span></span></span><br><span class="line">yes</span><br></pre></td></tr></table></figure>
-
 <h3 id="for-…-…-…-do…done"><a href="#for-…-…-…-do…done" class="headerlink" title="for ((…;…;…)) do…done"></a>for ((…;…;…)) do…done</h3><p>命令格式：注意和C/C++的区别，最外层是<strong>两个小括号</strong>！！！</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for ((expression; condition; expression))</span><br><span class="line">do</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例，输出1-10，每个数占一行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for ((i=1; i&lt;=10; i++))</span><br><span class="line">do</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>shell中也有<strong>只针对变量</strong>的自增自减运算符。</p>
 <ul>
 <li>前置自增或前置自减会首先修改变量的值，然后再将变量的值传递出去；</li>
 <li>后置自增或后置自减会首先将变量的值传递出去，然后修改变量的值；</li>
 <li>自增符号为<code>++</code>，自减符号为<code>--</code>，且操作对象只能是变量，不能是常数或表达式。</li>
 <li><code>a=10;((a++));echo $a</code></li>
-<li>补充：shell脚本整型变量自增方式： <a target="_blank" rel="noopener" href="https://blog.csdn.net/yumushui/article/details/53469845%E3%80%82">https://blog.csdn.net/yumushui/article/details/53469845。</a></li>
+<li>补充：shell脚本整型变量自增方式： <a target="_blank" rel="noopener" href="https://blog.csdn.net/yumushui/article/details/53469845。">https://blog.csdn.net/yumushui/article/details/53469845。</a></li>
 </ul>
 <h3 id="while…do…done"><a href="#while…do…done" class="headerlink" title="while…do…done"></a>while…do…done</h3><p>命令格式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while condition</span><br><span class="line">do</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">    ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例，文件结束符（EOF）为<code>Ctrl+d</code>，输入文件结束符后read指令返回false。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while read name</span><br><span class="line">do</span><br><span class="line">    echo $name</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <h3 id="until…do…done"><a href="#until…do…done" class="headerlink" title="until…do…done"></a>until…do…done</h3><p>当条件为真时结束。与while是反着来的。</p>
 <p>命令格式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">until condition</span><br><span class="line">do</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">    ...</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>示例，当用户输入yes或者YES时结束，否则一直等待读入。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">until [ &quot;$&#123;word&#125;&quot; == &quot;yes&quot; ] || [ &quot;$&#123;word&#125;&quot; == &quot;YES&quot; ]</span><br><span class="line">do</span><br><span class="line">    read -p &quot;Please input yes/YES to stop this program: &quot; word</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <h3 id="break命令"><a href="#break命令" class="headerlink" title="break命令"></a>break命令</h3><p>跳出当前一层循环，注意与C/C++不同的是：break不能跳出case语句。</p>
 <p>示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">while read name</span><br><span class="line">do</span><br><span class="line">    for ((i=1;i&lt;=10;i++))</span><br><span class="line">    do</span><br><span class="line">        case $i in</span><br><span class="line">            8)</span><br><span class="line">                break # 跳出for循环</span><br><span class="line">                ;;</span><br><span class="line">            *)</span><br><span class="line">                echo $i</span><br><span class="line">                ;;</span><br><span class="line">        esac</span><br><span class="line">    done</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>该示例每读入非EOF的字符串，会输出一遍1-7。</p>
 <p>该程序可以输入<code>Ctrl+d</code>文件结束符来结束，也可以直接用<code>Ctrl+c</code>杀掉该进程。</p>
 <h3 id="continue命令"><a href="#continue命令" class="headerlink" title="continue命令"></a>continue命令</h3><p>跳出当前循环。</p>
 <p>示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">for ((i=1;i&lt;=10;i++))</span><br><span class="line">do</span><br><span class="line">    if [ `expr $i % 2` -eq 0 ]  # 等价于 if [ $((i % 2)) -eq 0]</span><br><span class="line">    then</span><br><span class="line">        continue</span><br><span class="line">    fi</span><br><span class="line">    echo $i</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
 <p>该程序输出1-10中的所有奇数。</p>
 <h3 id="死循环的处理方式"><a href="#死循环的处理方式" class="headerlink" title="死循环的处理方式"></a>死循环的处理方式</h3><p>如果AC Terminal可以打开该程序，则输入<code>Ctrl+c</code>即可。</p>
 <p>否则可以直接关闭进程：</p>
@@ -342,28 +328,22 @@
 <li>输入<code>kill -9 PID</code>即可关掉此进程</li>
 </ul>
 <h2 id="1-15：函数"><a href="#1-15：函数" class="headerlink" title="1.15：函数"></a>1.15：函数</h2><p>bash中的函数类似于C/C++中的函数，但return的返回值与C/C++不同，返回的是<code>exit code</code>，取值为0-255，0表示正常结束。</p>
-<p>如果想获取函数的输出结果，可以通过echo输出到<code>stdout</code>中，然后通过<code>$(function_name)</code>来获取<code>stdout</code>中的结果。（也可以是``` ` ）</p>
+<p>如果想获取函数的输出结果，可以通过echo输出到<code>stdout</code>中，然后通过<code>$(function_name)</code>来获取<code>stdout</code>中的结果。（也可以是<code>`` </code> ）</p>
 <p>函数的return值可以通过<code>$?</code>来获取。</p>
 <p>命令格式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[function] func_name() &#123;  # function关键字可以省略</span><br><span class="line">    语句1</span><br><span class="line">    语句2</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="不获取-return值和stdout值"><a href="#不获取-return值和stdout值" class="headerlink" title="不获取 return值和stdout值"></a>不获取 return值和stdout值</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func() &#123;</span><br><span class="line">    name=yxc</span><br><span class="line">    echo &quot;Hello $name&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func # 运行函数和执行命令差不多</span><br><span class="line">输出：</span><br><span class="line">Hello yxc</span><br></pre></td></tr></table></figure>
-
 <h3 id="获取-return值和stdout值"><a href="#获取-return值和stdout值" class="headerlink" title="获取 return值和stdout值"></a>获取 return值和stdout值</h3><p>不写return时，默认return 0。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">func() &#123;</span><br><span class="line">    name=yxc</span><br><span class="line">    echo &quot;Hello $name&quot;</span><br><span class="line"></span><br><span class="line">    return 123</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output=$(func)</span><br><span class="line">ret=$?</span><br><span class="line"></span><br><span class="line">echo &quot;output = $output&quot;</span><br><span class="line">echo &quot;return = $ret&quot;</span><br><span class="line">输出：</span><br><span class="line">output = Hello yxc</span><br><span class="line">return = 123</span><br></pre></td></tr></table></figure>
-
 <h3 id="函数的输入参数"><a href="#函数的输入参数" class="headerlink" title="函数的输入参数"></a>函数的输入参数</h3><p>在函数内，<code>$</code>1表示第一个输入参数，<code>$2</code>表示第二个输入参数，依此类推。</p>
 <p>注意：函数内的<code>$0</code>仍然是文件名，而不是函数名。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func() &#123;  # 递归计算 $1 + ($1 - 1) + ($1 - 2) + ... + 0</span><br><span class="line">    if [ $1 -le 0 ] # 递归边界</span><br><span class="line">    then</span><br><span class="line">        echo 0</span><br><span class="line">        return 0</span><br><span class="line">    fi  </span><br><span class="line"></span><br><span class="line">    sum=$(func $(expr $1 - 1))</span><br><span class="line">    echo $(expr $sum + $1)</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 函数传递参数类似shell脚本传递参数</span></span><br><span class="line">echo $(func 10) # 55</span><br><span class="line"><span class="meta">#</span><span class="bash"> stdout：func 10 == func 9 + 10 == func 8 + 9 + 10 == ... == 55</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="函数内的局部变量"><a href="#函数内的局部变量" class="headerlink" title="函数内的局部变量"></a>函数内的局部变量</h3><p>可以在函数内定义局部变量，作用范围仅在当前函数内。</p>
 <p>可以在递归函数中定义局部变量。</p>
 <p>命令格式：<code>local 变量名=变量值</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">func() &#123;</span><br><span class="line">    local name=yxc</span><br><span class="line">    echo $name</span><br><span class="line">&#125;</span><br><span class="line">func</span><br><span class="line"></span><br><span class="line">echo $name</span><br></pre></td></tr></table></figure>
-
 <p>输出结果：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yxc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>第一行为函数内的name变量，第二行为函数外调用name变量，会发现此时该变量不存在。</p>
 <h2 id="1-16：exit命令"><a href="#1-16：exit命令" class="headerlink" title="1.16：exit命令"></a>1.16：exit命令</h2><p>exit命令用来退出当前shell进程，并返回一个退出状态；使用$?可以接收这个退出状态。</p>
 <p>exit命令可以接受一个整数值作为参数，代表退出状态。如果不指定，默认状态值是 0。</p>
@@ -371,10 +351,8 @@
 <hr>
 <p>创建脚本test.sh，内容如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">if [ $# -ne 1 ]  # 如果传入参数个数等于1，则正常退出；否则非正常退出。</span><br><span class="line">then</span><br><span class="line">    echo &quot;arguments not valid&quot;</span><br><span class="line">    exit 1</span><br><span class="line">else</span><br><span class="line">    echo &quot;arguments valid&quot;</span><br><span class="line">    exit 0</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
 <p>执行该脚本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">acs@9e0ebfcd82d7:~$ chmod +x test.sh </span><br><span class="line">acs@9e0ebfcd82d7:~$ ./test.sh acwing</span><br><span class="line">arguments valid</span><br><span class="line">acs@9e0ebfcd82d7:~$ echo $?  # 传入一个参数，则正常退出，exit code为0</span><br><span class="line">0</span><br><span class="line">acs@9e0ebfcd82d7:~$ ./test.sh </span><br><span class="line">arguments not valid</span><br><span class="line">acs@9e0ebfcd82d7:~$ echo $?  # 传入参数个数不是1，则非正常退出，exit code为1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -537,20 +515,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -599,13 +577,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

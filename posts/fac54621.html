@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,7 +279,6 @@
         <h3 id="8-3-JSON"><a href="#8-3-JSON" class="headerlink" title="8.3 JSON"></a>8.3 JSON</h3><p>JSON是JavaScript Object Notation的缩写，它是一种数据交换格式。</p>
 <p>JSON 通常用于服务端向网页传递数据 。</p>
 <span id="more"></span>
-
 <p>JSON 使用 JavaScript 语法，但是 JSON 格式仅仅是一个文本。</p>
 <p>在JavaScript中一切皆是对象，任何JS支持的类型都可以用JSON来表示。</p>
 <p>在JSON中，一共就这么几种数据类型：</p>
@@ -295,8 +294,7 @@
 <p>以及上面的任意组合。</p>
 <p>json字符串与JS对象的相互转换：序列化和反序列化</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    name : <span class="string">&quot;tom&quot;</span>,</span><br><span class="line">    age : <span class="number">18</span>,</span><br><span class="line">    id : <span class="number">2001</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.JS对象--》JSON字符串</span></span><br><span class="line"><span class="keyword">var</span> jsonUser = <span class="built_in">JSON</span>.stringify(user);</span><br><span class="line"><span class="built_in">console</span>.log(jsonUser)</span><br><span class="line"><span class="comment">// &#123;&quot;name&quot;:&quot;tom&quot;,&quot;age&quot;:18,&quot;id&quot;:2001&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.JSON字符串--》JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(<span class="string">&#x27;&#123;&quot;name&quot;:&quot;tom&quot;,&quot;age&quot;:18,&quot;id&quot;:2001&#125;&#x27;</span>) <span class="comment">// 注意单、双引号</span></span><br><span class="line">obj</span><br><span class="line"><span class="comment">// &#123;name: &quot;tom&quot;, age: 18, id: 2001&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-面向对象–-gt-原型继承"><a href="#9-面向对象–-gt-原型继承" class="headerlink" title="9.面向对象–&gt;原型继承"></a>9.面向对象–&gt;原型继承</h2><p>JavaScript的面向对象编程和大多数其他语言如Java、C#的面向对象编程都不太一样。如果你熟悉Java或C#，很好，你一定明白面向对象的两个基本概念：</p>
+<h2 id="9-面向对象—-gt-原型继承"><a href="#9-面向对象—-gt-原型继承" class="headerlink" title="9.面向对象—&gt;原型继承"></a>9.面向对象—&gt;原型继承</h2><p>JavaScript的面向对象编程和大多数其他语言如Java、C#的面向对象编程都不太一样。如果你熟悉Java或C#，很好，你一定明白面向对象的两个基本概念：</p>
 <ul>
 <li><p>类：类是对象的类型模板；</p>
 </li>
@@ -306,35 +304,27 @@
 <p>JavaScript不区分类和实例的概念，而是通过<strong>原型（prototype）</strong>来实现面向对象编程。</p>
 <p>当我们用<code>obj.xxx</code>访问一个对象的属性时，JavaScript引擎先在当前对象上查找该属性，如果没有找到，就到其原型对象上找，如果还没有找到，就一直上溯到<code>Object.prototype</code>对象，最后，如果还没有找到，就只能返回<code>undefined</code>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Student = &#123;</span><br><span class="line">    name : <span class="string">&quot;wang&quot;</span>,</span><br><span class="line">    age : <span class="number">19</span>,</span><br><span class="line">    run : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="built_in">this</span>.name + <span class="string">&quot; is running...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name : <span class="string">&quot;xiaoming&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.__proto__ = Student;<span class="comment">// 小明得到原型指向了Student</span></span><br><span class="line">xiaoming.run()<span class="comment">// 小明继承了Student的方法</span></span><br></pre></td></tr></table></figure>
-
 <p>JavaScript的原型链和Java的Class区别就在，它没有“Class”的概念，所有对象都是实例，所谓继承关系不过是把一个对象的原型指向另一个对象而已。</p>
 <p>如果你把<code>xiaoming</code>的原型再指向其他对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Bird = &#123;</span><br><span class="line">    fly: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="built_in">this</span>.name + <span class="string">&#x27; is flying...&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.__proto__ = Bird;</span><br><span class="line"><span class="comment">// xiaoming.run()，此时小明跑不了了</span></span><br><span class="line">xiaoming.fly()</span><br></pre></td></tr></table></figure>
-
 <h2 id="10-构造函数"><a href="#10-构造函数" class="headerlink" title="10.构造函数"></a>10.构造函数</h2><p>除了直接用<code>&#123; ... &#125;</code>创建一个对象外，JavaScript还可以用一种构造函数的方法来创建对象。它的用法是，先定义一个构造函数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">    <span class="built_in">this</span>.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;Hello, &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>你会问，咦，这不是一个普通函数吗？</p>
 <p>这确实是一个普通函数，但是在JavaScript中，可以用关键字<code>new</code>来调用这个函数，并返回一个对象：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">xiaoming.name; <span class="comment">// &#x27;小明&#x27;</span></span><br><span class="line">xiaoming.hello(); <span class="comment">// Hello, 小明!</span></span><br></pre></td></tr></table></figure>
-
 <p><em>注意</em>，如果不写<code>new</code>，这就是一个普通函数，它返回<code>undefined</code>。但是，如果写了<code>new</code>，它就变成了一个构造函数，它绑定的<code>this</code>指向新创建的对象，并默认返回<code>this</code>，也就是说，不需要在最后写<code>return this;</code>。</p>
 <p>新创建的<code>xiaoming</code>的原型链是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xiaoming ----&gt; Student.prototype ----&gt; Object.prototype ----&gt; null</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给Student原型增加一个方法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">&#x27;Hello, &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;!&#x27;</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <h2 id="11-class继承"><a href="#11-class继承" class="headerlink" title="11.class继承"></a>11.class继承</h2><p>JavaScript的对象模型是基于原型实现的，特点是简单，缺点是理解起来比传统的类－实例模型要困难，最大的缺点是继承的实现需要编写大量代码，并且需要正确实现原型链。</p>
 <p>新的关键字<code>class</code>从ES6开始正式被引入到JavaScript中。<code>class</code>的目的就是让定义类更简单。</p>
 <p>定义一个类：像Java一样</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">name</span>)</span> &#123;<span class="comment">// 构造方法</span></span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">hello</span>(<span class="params"></span>)</span> &#123;<span class="comment">// 不需要加上function关键字</span></span><br><span class="line">        alert(<span class="string">&#x27;Hello, &#x27;</span> + <span class="built_in">this</span>.name + <span class="string">&#x27;!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xiaoming = <span class="keyword">new</span> Student(<span class="string">&#x27;小明&#x27;</span>);</span><br><span class="line">xiaoming.hello();</span><br></pre></td></tr></table></figure>
-
 <p>class继承：这很Java！</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pupil</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constuctor</span>(<span class="params">name,grader</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(name);<span class="comment">// 记得用super调用父类的构造方法!</span></span><br><span class="line">        <span class="built_in">this</span>.grade = grade;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>用<code>class</code>的好处就是极大地简化了原型链代码。原型继承和class继承没有本质区别。</p>
 <p>现在用还早了点，因为不是所有的主流浏览器都支持ES6的class。如果一定要现在就用上，就需要一个工具把<code>class</code>代码转换为传统的<code>prototype</code>代码，可以试试<a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a>这个工具。</p>
-<p>原型链参考文章： <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/be7c95714586%E3%80%82">https://www.jianshu.com/p/be7c95714586。</a></p>
+<p>原型链参考文章： <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/be7c95714586。">https://www.jianshu.com/p/be7c95714586。</a></p>
 <p><img src="/posts/fac54621/image-20210829141743641.png" alt="image-20210829141743641"></p>
 
     </div>
@@ -482,7 +472,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-JSON"><span class="nav-text">8.3 JSON</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%93-gt-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF"><span class="nav-text">9.面向对象–&gt;原型继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">10.构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-class%E7%BB%A7%E6%89%BF"><span class="nav-text">11.class继承</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-JSON"><span class="nav-text">8.3 JSON</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E2%80%94-gt-%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF"><span class="nav-text">9.面向对象—&gt;原型继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">10.构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-class%E7%BB%A7%E6%89%BF"><span class="nav-text">11.class继承</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -498,20 +488,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -560,13 +550,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

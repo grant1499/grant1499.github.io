@@ -145,17 +145,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -299,9 +299,9 @@
         <h2 id="1-头文件的防卫式声明"><a href="#1-头文件的防卫式声明" class="headerlink" title="1.头文件的防卫式声明"></a>1.头文件的防卫式声明</h2><p><img src="/posts/1eaad404/image-20210201104338919.png" alt="image-20210201104338919"></p>
 <p>写头文件时，非常建议按这种格式写防卫式声明。</p>
 <span id="more"></span>
-
 <h2 id="2-基本数据类型"><a href="#2-基本数据类型" class="headerlink" title="2.基本数据类型"></a>2.基本数据类型</h2><p>五种主要的数据类型如下：（其中bool是C语言所没有的）</p>
 <p>其实还有别的。</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -309,7 +309,8 @@
 <th>关键字</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>布尔型</td>
 <td>bool</td>
 </tr>
@@ -329,7 +330,9 @@
 <td>双浮点型</td>
 <td>double</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>一些基本类型可以使用一个或多个类型修饰符进行修饰：</p>
 <ul>
 <li><p>signed</p>
@@ -347,6 +350,7 @@
 <p><strong>注意：</strong>不同系统会有所差异，一字节为 8 位。</p>
 <p><strong>注意：</strong>long int 8 个字节，int 都是 4 个字节，早期的 C 编译器定义了 long int 占用 4 个字节，int 占用 2 个字节，新版的 C/C++ 标准兼容了早期的这一设定。</p>
 <p>bool ： 1个字节 ： 取值范围（false和true，小写）</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -355,7 +359,8 @@
 <th>范围</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>char</td>
 <td>1 个字节</td>
 <td>-128 到 127 或者 0 到 255</td>
@@ -435,40 +440,34 @@
 <td>2 或 4 个字节</td>
 <td>1 个宽字符</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>注意：</strong>C++中有字符串常量，但是基本类型中却没有字符串变量。</p>
 <p><img src="/posts/1eaad404/image-20210202172025668.png" alt="image-20210202172025668"></p>
 <p><img src="/posts/1eaad404/image-20210202172115612.png" alt="image-20210202172115612"></p>
 <h2 id="3-类型别名"><a href="#3-类型别名" class="headerlink" title="3.类型别名"></a>3.类型别名</h2><h3 id="typedef-声明"><a href="#typedef-声明" class="headerlink" title="typedef 声明"></a>typedef 声明</h3><p>您可以使用 <strong>typedef</strong> 为一个已有的类型取一个新的名字。下面是使用 typedef 定义一个新类型的语法：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> type newname; </span><br></pre></td></tr></table></figure>
-
 <p>例如，下面的语句会告诉编译器，feet 是 int 的另一个名称：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> feet;</span><br></pre></td></tr></table></figure>
-
 <p>现在，下面的声明是完全合法的，它创建了一个整型变量 distance：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feet distance;</span><br></pre></td></tr></table></figure>
-
 <h3 id="using"><a href="#using" class="headerlink" title="using"></a>using</h3><p>语法格式：<code>using 新类型名 = 已有类型名;</code></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Area = <span class="keyword">double</span>; <span class="comment">// 这和typename类似</span></span><br><span class="line">Area a = <span class="number">10.10</span>; <span class="comment">// Area相当于double</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="4-枚举类型"><a href="#4-枚举类型" class="headerlink" title="4.枚举类型"></a>4.枚举类型</h2><p>不限定作用域枚举类型。</p>
 <p><img src="/posts/1eaad404/image-20210203121020706.png" alt="image-20210203121020706"></p>
 <p>枚举类型(enumeration)是C++中的一种派生数据类型，它是由用户定义的若干枚举常量的集合。</p>
 <p>如果一个变量只有几种可能的值，可以定义为枚举(enumeration)类型。所谓”枚举”是指将变量的值一一列举出来，变量的值只能在列举出来的值的范围内。</p>
 <p>创建枚举，需要使用关键字 <strong>enum</strong>。枚举类型的一般形式为：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> 枚举名&#123;</span> </span><br><span class="line">     标识符[=整型常数], </span><br><span class="line">     标识符[=整型常数], </span><br><span class="line">... </span><br><span class="line">    标识符[=整型常数]</span><br><span class="line">&#125; 枚举变量;</span><br></pre></td></tr></table></figure>
-
 <p>如果枚举没有初始化, 即省掉”=整型常数”时, 则从第一个标识符开始。</p>
 <p>例如，下面的代码定义了一个颜色枚举，变量 c 的类型为 color。最后，c 被赋值为 “blue”。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">color</span> &#123;</span> red, green, blue &#125; c;</span><br><span class="line">c = blue;</span><br></pre></td></tr></table></figure>
-
 <p>默认情况下，第一个名称的值为 0，第二个名称的值为 1，第三个名称的值为 2，以此类推。但是，您也可以给名称赋予一个特殊的值，只需要添加一个初始值即可。例如，在下面的枚举中，<strong>green</strong> 的值为 5。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">color</span> &#123;</span> red, green=<span class="number">5</span>, blue &#125;;</span><br></pre></td></tr></table></figure>
-
 <p>在这里，<strong>blue</strong> 的值为 6，因为默认情况下，每个名称都会比它前面一个名称大 1，但 red 的值依然为 0。</p>
 <p><strong>注意</strong>：整数值不能直接赋值给枚举变量，如果需要将整数值赋值给枚举变量，应进行强制类型转换。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">GameResult</span>&#123;</span>WIN,LOSE,TIE,CANCEL&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	GameResult result;</span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">GameResult</span> <span class="title">omit</span> =</span> CANCEL; <span class="comment">// 这两种声明枚举变量的方式相同</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> count = WIN; count &lt;= CANCEL; count++)</span><br><span class="line">	&#123;</span><br><span class="line">		result = GameResult(count); <span class="comment">// 将int型变量count强制转换为GameResult</span></span><br><span class="line">        <span class="comment">// 等价于result = (GameResult)count;</span></span><br><span class="line">		<span class="keyword">if</span> (result == omit) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;The game was cancelled&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;The game was played&quot;</span>;</span><br><span class="line">			<span class="keyword">if</span> (result == WIN) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;and we won!&quot;</span>;</span><br><span class="line">			<span class="keyword">if</span> (result == LOSE) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;and we lost.&quot;</span>;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* output:</span></span><br><span class="line"><span class="comment">The game was playedand we won!</span></span><br><span class="line"><span class="comment">The game was playedand we lost.</span></span><br><span class="line"><span class="comment">The game was played</span></span><br><span class="line"><span class="comment">The game was cancelled</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="5-auto类型与decltype类型"><a href="#5-auto类型与decltype类型" class="headerlink" title="5.auto类型与decltype类型"></a>5.auto类型与decltype类型</h2><p>当变量类型名称太长时，可以使用auto进行简化。</p>
 <p><img src="/posts/1eaad404/image-20210203124857742.png" alt="image-20210203124857742"></p>
 <p><img src="/posts/1eaad404/image-20210203125001245.png" alt="image-20210203125001245"></p>
@@ -479,7 +478,6 @@
 <p>例如：<code>sizeof(short)  sizeof x</code></p>
 <p><strong>位运算</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>按位与（&amp;）</span><br><span class="line">运算规则：将两个运算量的每一个位进行逻辑与操作。</span><br><span class="line">    <span class="number">3</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">    <span class="number">5</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">________________________</span><br><span class="line"><span class="number">3</span> &amp; <span class="number">5</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">相同位的两个数字都为<span class="number">1</span>，则为<span class="number">1</span>；若有一个不为<span class="number">1</span>，则为<span class="number">0</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>按位或（|）</span><br><span class="line">运算规则：将两个运算量的每一个位进行逻辑或操作。</span><br><span class="line">    <span class="number">3</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">    <span class="number">5</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">________________________</span><br><span class="line"><span class="number">3</span> | <span class="number">5</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">相同位只要一个为<span class="number">1</span>即为<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>按位异或（^）</span><br><span class="line">运算规则：两个操作数进行异或，若对应位相同，该位为<span class="number">0</span>，否则为<span class="number">1</span>。</span><br><span class="line">        <span class="number">0</span> <span class="number">7</span> <span class="number">1</span> : <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">        <span class="number">0</span> <span class="number">5</span> <span class="number">2</span> : <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line">_______________________________</span><br><span class="line"><span class="number">0</span> <span class="number">7</span> <span class="number">1</span> ^ <span class="number">0</span> <span class="number">5</span> <span class="number">2</span> : <span class="number">0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">相同位不同则为<span class="number">1</span>，相同则为<span class="number">0</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>按位取反 （~）</span><br><span class="line">运算规则：将一个二进制数按位取反。</span><br><span class="line"><span class="number">3</span> : <span class="number">0000</span> <span class="number">0011</span></span><br><span class="line">~<span class="number">3</span>: <span class="number">1111</span> <span class="number">1100</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/1eaad404/image-20210203113233625.png" alt="image-20210203113233625"></p>
 <p><img src="/posts/1eaad404/image-20210203113607711.png" alt="image-20210203113607711"></p>
 <p><img src="/posts/1eaad404/image-20210203114610229.png" alt="image-20210203114610229"></p>
@@ -670,20 +668,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -732,13 +730,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

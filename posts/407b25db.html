@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -275,12 +275,11 @@
 
       
         <h2 id="1-6：expr命令"><a href="#1-6：expr命令" class="headerlink" title="1.6：expr命令"></a>1.6：expr命令</h2><p>expr命令用户求表达式的值，格式为：<code>expr 表达式</code>。</p>
-<p>expr命令详解： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/f-ck-need-u/p/7231832.html%E3%80%82">https://www.cnblogs.com/f-ck-need-u/p/7231832.html。</a></p>
+<p>expr命令详解： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/f-ck-need-u/p/7231832.html。">https://www.cnblogs.com/f-ck-need-u/p/7231832.html。</a></p>
 <span id="more"></span>
-
 <h3 id="表达式说明："><a href="#表达式说明：" class="headerlink" title="表达式说明："></a>表达式说明：</h3><ul>
 <li>用空格隔开每一项</li>
-<li>其实expr命令自带输出，<code>expr xxx </code>等价于<code>echo $(expr xxx)</code>等价于<code>echo `expr xxx`</code></li>
+<li>其实expr命令自带输出，<code>expr xxx</code>等价于<code>echo $(expr xxx)</code>等价于<code>echo `expr xxx` </code></li>
 <li>用反斜杠放在shell特定的字符前面（发现表达式运行错误时，可以试试转义<code>\</code>）</li>
 <li>对包含空格和其他特殊字符的字符串要用引号括起来</li>
 <li>expr会在stdout中输出结果。（可以不加echo）如果为逻辑关系表达式，则结果为真，stdout为1，否则为0。</li>
@@ -292,18 +291,16 @@
 <li><code>substr STRING POSITION LENGTH</code>：返回<code>STRING</code>字符串中从<code>POSITION</code>开始，<strong>下标从1开始</strong>，长度最大为<code>LENGTH</code>的子串。如果<code>POSITION</code>或<code>LENGTH</code>为负数，0或非数值，则返回空字符串。</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line">echo &quot;两数之和为 : $val&quot;</span><br><span class="line"></span><br><span class="line">str=&quot;Hello World!&quot;</span><br><span class="line"></span><br><span class="line">echo `expr length $&#123;str&#125;` # expr: syntax error: unexpected argument &#x27;World!&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> str中间有空格，会认为是2个参数，出错，需要加上引号</span></span><br><span class="line">echo `expr length &quot;$str&quot;`  # ``不是单引号，表示执行该命令，输出12</span><br><span class="line"><span class="meta">#</span><span class="bash"> 被反引号包括的表达式可以写成$(...)，等价的，例如：<span class="built_in">echo</span> $(expr length <span class="string">&quot;<span class="variable">$str</span>&quot;</span>)</span></span><br><span class="line">echo `expr index &quot;$str&quot; aWd`  # 输出7，下标从1开始</span><br><span class="line">echo `expr substr &quot;$str&quot; 2 3`  # 输出 ell</span><br></pre></td></tr></table></figure>
-
 <p><strong>补充：</strong>shell语法中<code>;</code>可以用于区分单行的多条语句。</p>
 <p><strong>“index string chars”用法解释。</strong></p>
 <p>该表达式是从string中搜索chars中某个字符的位置，这个字符是string中最靠前的字符。例如：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xuexi ~]# expr index abcde dec</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-
 <p>该命令将对字符串”dec”逐字符分解，首先分解得到第一个字符d，从abcde中搜索到d的位置为4，再分解得到第二个字符e，该字符在abcde中的位置为5，最后得到的字符是c，该字符在abcde中的位置为3。其中3是最靠前的字符，所以命令返回的结果为3。</p>
-<p>补充关于<code>$()</code>和 <code>` `</code>：<br>在 bash shell 中，<code>$( )</code> 与 <code>` `</code>(反引号) 都是用来做命令替换用(commandsubstitution)的。可以用来给变量赋值，<code>a=$(expr $a + 3)</code>，等价于C++中<code>a += 3</code>。</p>
+<p>补充关于<code>$()</code>和 <code>` ` </code>：<br>在 bash shell 中，<code>$( )</code> 与 <code>` ` </code>(反引号) 都是用来做命令替换用(commandsubstitution)的。可以用来给变量赋值，<code>a=$(expr $a + 3)</code>，等价于C++中<code>a += 3</code>。</p>
 <p>例如 <code>version=$(uname -r)</code>和<code>version=uname -r</code>都可以是version得到内核的版本号。</p>
 <p>各自的优缺点：</p>
 <ol>
-<li><code>` `</code>基本上可用在全部的 unix shell 中使用，若写成 shell script ，其移植性比较高。但反单引号容易打错或看错。注意：反引号不能嵌套使用。</li>
+<li><code>` ` </code>基本上可用在全部的 unix shell 中使用，若写成 shell script ，其移植性比较高。但反单引号容易打错或看错。注意：反引号不能嵌套使用。</li>
 <li><code>$()</code>并不是所有shell都支持。</li>
 </ol>
 <h3 id="整数表达式："><a href="#整数表达式：" class="headerlink" title="整数表达式："></a>整数表达式：</h3><p><code>expr</code>支持普通的算术操作，算术表达式优先级低于字符串表达式，高于逻辑关系表达式。</p>
@@ -318,7 +315,6 @@
 <li>() 可以提高优先级，但需要用反斜杠转义。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=3</span><br><span class="line">b=4</span><br><span class="line"></span><br><span class="line">echo `expr $a + $b`  # 输出7</span><br><span class="line">echo `expr $a - $b`  # 输出-1</span><br><span class="line">echo `expr $a \* $b`  # 输出12，*需要转义</span><br><span class="line">echo `expr $a / $b`  # 输出0，整除</span><br><span class="line">echo `expr $a % $b` # 输出3</span><br><span class="line">echo `expr \( $a + 1 \) \* \( $b + 1 \)`  # 输出20，值为(a + 1) * (b + 1)</span><br></pre></td></tr></table></figure>
-
 <h3 id="逻辑关系表达式："><a href="#逻辑关系表达式：" class="headerlink" title="逻辑关系表达式："></a>逻辑关系表达式：</h3><ul>
 <li><code>|</code> 如果第一个参数非空且非0，则返回第一个参数的值，否则返回第二个参数的值，但要求第二个参数的值也是非空或非0，否则返回0。如果第一个参数是非空或非0时，不会计算第二个参数。<strong>短路原则。</strong></li>
 <li><code>&amp;</code> 如果两个参数都非空且非0，则返回第一个参数，否则返回0。如果第一个参为0或为空，则不会计算第二个参数。</li>
@@ -327,7 +323,6 @@
 <li>用单引号括起来特殊字符比转义方便一点。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a=3</span><br><span class="line">b=4</span><br><span class="line"></span><br><span class="line">echo `expr $a \&gt; $b`  # 输出0，&gt;需要转义</span><br><span class="line">echo `expr $a &#x27;&lt;&#x27; $b`  # 输出1，也可以将特殊字符用引号引起来</span><br><span class="line">echo `expr $a &#x27;&gt;=&#x27; $b`  # 输出0</span><br><span class="line">echo `expr $a \&lt;\= $b`  # 输出1</span><br><span class="line"></span><br><span class="line">c=0</span><br><span class="line">d=5</span><br><span class="line"></span><br><span class="line">echo `expr $c \&amp; $d`  # 输出0</span><br><span class="line">echo `expr $a \&amp; $b`  # 输出3</span><br><span class="line">echo `expr $c \| $d`  # 输出5</span><br><span class="line">echo `expr $a \| $b`  # 输出3</span><br></pre></td></tr></table></figure>
-
 <h2 id="1-7：read命令"><a href="#1-7：read命令" class="headerlink" title="1.7：read命令"></a>1.7：read命令</h2><p>read命令用于从标准输入中读取<strong>单行数据</strong>。当读到文件结束符（EOF）时，exit code为1，否则为0。</p>
 <p><strong>参数说明</strong></p>
 <ul>
@@ -337,25 +332,16 @@
 </li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">acs@9e0ebfcd82d7:~$ read name  # 读入name的值</span><br><span class="line">acwing yxc  # 标准输入</span><br><span class="line">acs@9e0ebfcd82d7:~$ echo $name  # 输出name的值</span><br><span class="line">acwing yxc  #标准输出</span><br><span class="line">acs@9e0ebfcd82d7:~$ read -p &quot;Please input your name: &quot; -t 30 name  # 读入name的值，等待时间30秒</span><br><span class="line">Please input your name: acwing yxc  # 标准输入</span><br><span class="line">acs@9e0ebfcd82d7:~$ echo $name  # 输出name的值</span><br><span class="line">acwing yxc  # 标准输出</span><br></pre></td></tr></table></figure>
-
 <h2 id="1-8：echo命令"><a href="#1-8：echo命令" class="headerlink" title="1.8：echo命令"></a>1.8：echo命令</h2><p>echo用于输出字符串。</p>
 <h3 id="显示普通字符串："><a href="#显示普通字符串：" class="headerlink" title="显示普通字符串："></a>显示普通字符串：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Hello AC Terminal&quot;</span><br><span class="line">echo Hello AC Terminal  # 引号可以省略，也可以用单引号</span><br></pre></td></tr></table></figure>
-
 <h3 id="显示转义字符："><a href="#显示转义字符：" class="headerlink" title="显示转义字符："></a>显示转义字符：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;\&quot;Hello AC Terminal\&quot;&quot;  # 注意只能使用双引号，如果使用单引号，则不转义</span><br><span class="line">echo \&quot;Hello AC Terminal\&quot;  # 也可以省略双引号</span><br></pre></td></tr></table></figure>
-
 <h3 id="显示变量："><a href="#显示变量：" class="headerlink" title="显示变量："></a>显示变量：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name=yxc</span><br><span class="line">echo &quot;My name is $name&quot;  # 输出 My name is yxc</span><br><span class="line">echo My name is $name  # 输出 My name is yxc</span><br></pre></td></tr></table></figure>
-
 <h3 id="显示换行："><a href="#显示换行：" class="headerlink" title="显示换行："></a>显示换行：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;Hi\n&quot;  # -e 开启转义</span><br><span class="line">echo &quot;acwing&quot;</span><br><span class="line">输出：</span><br><span class="line">Hi</span><br><span class="line"></span><br><span class="line">acwing</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入：man <span class="built_in">echo</span>可以找到打开-e后支持的转义符号，有\n,\c,\t等等，这些和转义字符\<span class="string">&#x27;,\*等不一样</span></span></span><br></pre></td></tr></table></figure>
-
 <h3 id="显示不换行："><a href="#显示不换行：" class="headerlink" title="显示不换行："></a>显示不换行：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;Hi \c&quot; # -e 开启转义 \c 不换行</span><br><span class="line">echo &quot;acwing&quot;</span><br><span class="line">输出：</span><br><span class="line">Hi acwing</span><br></pre></td></tr></table></figure>
-
 <p>注意：想通过-e显示转义符号\n,\c,\t等等，不能省略字符串的双引号！！！</p>
 <h3 id="显示结果定向至文件："><a href="#显示结果定向至文件：" class="headerlink" title="显示结果定向至文件："></a>显示结果定向至文件：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Hello World&quot; &gt; output.txt  # 将内容以覆盖的方式输出到output.txt中，没有会新建文件</span><br></pre></td></tr></table></figure>
-
 <h3 id="原样输出字符串，不进行转义或取变量-用单引号-："><a href="#原样输出字符串，不进行转义或取变量-用单引号-：" class="headerlink" title="原样输出字符串，不进行转义或取变量(用单引号)："></a>原样输出字符串，不进行转义或取变量(用单引号)：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name=acwing</span><br><span class="line">echo &#x27;$name\&quot;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出：<span class="variable">$name</span>\&quot;</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="显示命令的执行结果："><a href="#显示命令的执行结果：" class="headerlink" title="显示命令的执行结果："></a>显示命令的执行结果：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo `date` # 也就是获取命令的stdout</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出：Fri Sep 3 21:51:52 CST 2021</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="1-9：printf命令"><a href="#1-9：printf命令" class="headerlink" title="1.9：printf命令"></a>1.9：printf命令</h2><p>printf命令用于格式化输出，类似于C/C++中的printf函数。</p>
 <p>printf 命令模仿 C 程序库（library）里的 printf() 程序。</p>
 <p>printf 由 POSIX 标准所定义，因此使用 printf 的脚本比使用 echo 移植性好。</p>
@@ -363,10 +349,8 @@
 <p>命令格式：<code>printf format-string [arguments...]</code></p>
 <p>脚本内容：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">printf &quot;%10d!\n&quot; 123  # 占10位，右对齐</span><br><span class="line">printf &quot;%-10.2f!\n&quot; 123.123321  # 占10位，保留2位小数，左对齐</span><br><span class="line">printf &quot;My name is %s\n&quot; &quot;yxc&quot;  # 格式化输出字符串</span><br><span class="line">printf &quot;%d * %d = %d\n&quot;  2 3 `expr 2 \* 3` # 表达式的值作为参数</span><br></pre></td></tr></table></figure>
-
 <p>输出结果：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">       123!</span><br><span class="line">123.12    !</span><br><span class="line">My name is yxc</span><br><span class="line">2 * 3 = 6</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -529,20 +513,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -591,13 +575,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

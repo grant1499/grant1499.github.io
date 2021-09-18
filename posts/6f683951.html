@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -276,25 +276,19 @@
       
         <h2 id="1-数组详解"><a href="#1-数组详解" class="headerlink" title="1.数组详解"></a>1.数组详解</h2><p>下面的代码创建名为 cars 的数组：</p>
 <span id="more"></span>
-
 <p>和Java一样，JS数组下标也是从0开始。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=<span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">cars[<span class="number">0</span>]=<span class="string">&quot;Saab&quot;</span>;</span><br><span class="line">cars[<span class="number">1</span>]=<span class="string">&quot;Volvo&quot;</span>;</span><br><span class="line">cars[<span class="number">2</span>]=<span class="string">&quot;BMW&quot;</span>;</span><br></pre></td></tr></table></figure>
-
 <p>或者 (condensed array)：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">&quot;Saab&quot;</span>,<span class="string">&quot;Volvo&quot;</span>,<span class="string">&quot;BMW&quot;</span>);</span><br></pre></td></tr></table></figure>
-
 <p>或者 (literal array)：尽量采取这种写法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars=[<span class="string">&quot;Saab&quot;</span>,<span class="string">&quot;Volvo&quot;</span>,<span class="string">&quot;BMW&quot;</span>];</span><br></pre></td></tr></table></figure>
-
 <p>和python列表类似，JS数组元素可以是不同类型。</p>
 <p>数组下标越界不会报错，会出现undefined。</p>
 <p><strong>访问与修改数组：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=myCars[<span class="number">0</span>];</span><br><span class="line">myCars[<span class="number">0</span>]=<span class="string">&quot;Opel&quot;</span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>数组长度</strong>：arr.length，可以修改加长，多余的元素会是undefined，如果赋值过小，元素就会丢失。</p>
 <p><strong>JS中的数组非常灵活，是可变长的。</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">&quot;1&quot;</span>,<span class="number">2.3</span>]</span><br><span class="line"><span class="comment">// indexOf方法，通过元素获得下标索引，字符串的&quot;1&quot;和数字 1 是不同的</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="number">1</span>)) <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">&quot;1&quot;</span>)) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>裁剪数组</strong>：slice方法，类似python中的列表切片</p>
 <p>截取数组得到一部分，返回一个新数组</p>
 <p>它有两种写法，一个或者两个参数，从开始截取到末尾，顾前不顾后，省略参数截取到末尾。</p>
@@ -312,19 +306,15 @@
 <p><strong>反转数组：</strong></p>
 <p>reverse() 方法反转数组中的元素。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fruits = [<span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Mango&quot;</span>];</span><br><span class="line">fruits.sort();            <span class="comment">// 对 fruits 中的元素进行排序</span></span><br><span class="line">fruits.reverse();         <span class="comment">// 反转元素顺序</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>合并（拼接）数组：</strong>和字符串一样拼接</p>
 <p>concat() 方法通过合并（连接）现有数组来创建一个新数组：</p>
 <p>concat() 方法不会更改现有数组。它总是返回一个新数组。</p>
 <p>可以使用任意数量的数组参数，也可以将数组值作为参数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">&quot;Cecilie&quot;</span>, <span class="string">&quot;Lone&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="string">&quot;Emil&quot;</span>, <span class="string">&quot;Tobias&quot;</span>, <span class="string">&quot;Linus&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="string">&quot;Robin&quot;</span>, <span class="string">&quot;Morgan&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> myChildren = arr1.concat(arr2, arr3);   <span class="comment">// 将arr1、arr2 与 arr3 连接在一起</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">&quot;Cecilie&quot;</span>, <span class="string">&quot;Lone&quot;</span>];</span><br><span class="line"><span class="keyword">var</span> myChildren = arr1.concat([<span class="string">&quot;Emil&quot;</span>, <span class="string">&quot;Tobias&quot;</span>, <span class="string">&quot;Linus&quot;</span>]); </span><br></pre></td></tr></table></figure>
-
 <p>join() 方法也可将所有数组元素结合为一个字符串，还可以规定分隔符。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fruits = [<span class="string">&quot;Banana&quot;</span>, <span class="string">&quot;Orange&quot;</span>,<span class="string">&quot;Apple&quot;</span>, <span class="string">&quot;Mango&quot;</span>];</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;demo&quot;</span>).innerHTML = fruits.join(<span class="string">&quot; * &quot;</span>); </span><br><span class="line"><span class="comment">// Banana * Orange * Apple * Mango，是一个字符串</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>多维数组：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="string">&quot;5&quot;</span>,<span class="string">&quot;6&quot;</span>]]</span><br><span class="line"><span class="comment">// arr[1][1] = 4</span></span><br></pre></td></tr></table></figure>
-
 <p>常用的数组方法小结：</p>
 <p>slice()截断；push()，pop()，shift()，unshift()插入删除元素；concat()拼接数组。</p>
 <h2 id="2-对象"><a href="#2-对象" class="headerlink" title="2.对象"></a>2.对象</h2><p>对象由花括号分隔。在括号内部，对象的属性以名称和值对的形式 (name : value) 来定义。属性由逗号分隔：</p>
@@ -332,19 +322,15 @@
 <p>在 JavaScript中，几乎所有的事物都是对象。</p>
 <p>注意：JS中，所有的键都是字符串，值可以是任意对象。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">firstname : <span class="string">&quot;John&quot;</span>,</span><br><span class="line">lastname  : <span class="string">&quot;Doe&quot;</span>,</span><br><span class="line">id        :  <span class="number">5566</span>,</span><br><span class="line">tags : [<span class="string">&quot;C++&quot;</span>,<span class="string">&quot;Java&quot;</span>,<span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>对象属性有两种寻址方式：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name=person.lastname;<span class="comment">// 类似Java访问对象属性</span></span><br><span class="line">name=person[<span class="string">&quot;lastname&quot;</span>];<span class="comment">// 类似python字典访问方式</span></span><br><span class="line"><span class="comment">// 给对象属性赋值修改也是一样的方法</span></span><br></pre></td></tr></table></figure>
-
 <p>使用一个不存在的对象属性不会报错，会出现undefined。</p>
 <p>动态删除对象属性：<code>delete person.id</code>，会返回true。</p>
 <p>动态添加对象属性：直接给新属性添加值就行，<code>person.score = 75</code>。</p>
 <p>对象成员归属检查：通过in运算符判断。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;  <span class="comment">//定义对象</span></span><br><span class="line">    a : <span class="number">1</span>,  <span class="comment">//定义属性a</span></span><br><span class="line">    b : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;  <span class="comment">//定义方法b</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;a&quot;</span> <span class="keyword">in</span> o);  <span class="comment">//返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;b&quot;</span> <span class="keyword">in</span> o);  <span class="comment">//返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;c&quot;</span> <span class="keyword">in</span> o);  <span class="comment">//返回false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;valueOf&quot;</span> <span class="keyword">in</span> o);  <span class="comment">//返回true，继承Object的原型方法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;constructor&quot;</span> <span class="keyword">in</span> o);  <span class="comment">//返回true，继承Object的原型属性</span></span><br></pre></td></tr></table></figure>
-
 <p>判断一个属性是否是这个对象自身拥有的（继承的属性除外） ，hasOwnProperty()方法。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;  <span class="comment">//定义对象</span></span><br><span class="line">    a : <span class="number">1</span>,  <span class="comment">//定义属性a</span></span><br><span class="line">    b : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;  <span class="comment">//定义方法b</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">&quot;a&quot;</span>));  <span class="comment">//返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">&quot;c&quot;</span>));  <span class="comment">//返回false</span></span><br><span class="line"><span class="built_in">console</span>.log(o.hasOwnProperty(<span class="string">&quot;valueOf&quot;</span>)); <span class="comment">//返回false</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="3-严格检查模式strict"><a href="#3-严格检查模式strict" class="headerlink" title="3.严格检查模式strict"></a>3.严格检查模式strict</h2><p><code>i = 1</code>，对于这句代码，JS不会报错，会认为i是一个全局变量，容易冲突，应谨慎使用。</p>
 <p>使用严格检查模式，确保：IDEA或者WebStorm设置支持ES6语法。</p>
 <p><code>&#39;use strict&#39;;</code>严格检查模式，必须写在JavaScript的第一行！</p>
@@ -354,12 +340,11 @@
 <p>JS中字符串索引，转义字符都与Java相同。</p>
 <p>多行字符串：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//tab 上面 esc下面</span></span><br><span class="line"><span class="keyword">var</span> msg =</span><br><span class="line">    <span class="string">`hello</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">你好呀</span></span><br><span class="line"><span class="string">nihao</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-
 <p>模板字符串：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Name = <span class="string">&quot;wangyangming&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> age = <span class="number">21</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`hello,<span class="subst">$&#123;Name&#125;</span>!`</span>);<span class="comment">// 注意模板字符串必须使用`，不能用引号</span></span><br></pre></td></tr></table></figure>
-
 <p>JS中的字符串索引同Java类似，不能使用[]提取，需要使用charAt()函数来提取。</p>
 <p><strong>同Java中的String类似，JS字符串也是不可变的！</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -367,7 +352,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>charAt()</td>
 <td>返回指定索引位置的字符</td>
 </tr>
@@ -399,7 +385,9 @@
 <td>toUpperCase()</td>
 <td>把字符串转换为大写</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>这些方法和Java中的方法非常像，就当复习一遍Java。</p>
 
     </div>
@@ -563,20 +551,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -625,13 +613,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -279,12 +279,10 @@
       
         <p>如题：题目要求根据初始化时的日期加上一定的天数后计算得到的日期，这里用到的计算思路来自<a target="_blank" rel="noopener" href="https://grant1499.github.io/2021/03/26/%E6%97%A5%E6%9C%9F%E5%A4%84%E7%90%86%E4%B8%8E%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98/">这里</a>。</p>
 <span id="more"></span>
-
 <p><img src="/posts/a83020d5/image-20210412221018035.png" alt="image-20210412221018035"></p>
 <p>只要稍做改动，就能写出代码来了，不过要注意原题计算的是日期差+1！</p>
 <p>这题主要考察了日期问题、++前缀与后缀重载等知识点。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// 判断闰年，是闰年返回true</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isLeap</span><span class="params">(<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (y%<span class="number">4</span>==<span class="number">0</span> &amp;&amp;y%<span class="number">100</span>!=<span class="number">0</span>) || (y%<span class="number">400</span>==<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//顺序存放平年、闰年每月对应天数</span></span><br><span class="line"><span class="keyword">int</span> month[<span class="number">13</span>][<span class="number">2</span>] = &#123;</span><br><span class="line">	&#123;<span class="number">0</span>,<span class="number">0</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">28</span>,<span class="number">29</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,</span><br><span class="line">	&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;,&#123;<span class="number">30</span>,<span class="number">30</span>&#125;,&#123;<span class="number">31</span>,<span class="number">31</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Date</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Date()&#123;</span><br><span class="line">            y = <span class="number">2000</span>,m = <span class="number">1</span>,d = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Date(<span class="keyword">int</span> _y,<span class="keyword">int</span> _m,<span class="keyword">int</span> _d):</span><br><span class="line">        y(_y),m(_m),d(_d)&#123;&#125;</span><br><span class="line">        <span class="comment">// Copy Constructor</span></span><br><span class="line">        Date(Date&amp; t)&#123;</span><br><span class="line">            y = t.y,m = t.m,d = t.d;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Y:%d,M:%2d,D:%2d\n&quot;</span>,y,m,d);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>+ (Date&amp; D,<span class="keyword">int</span> n);<span class="comment">// 重载加号</span></span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>++ (Date&amp; D,<span class="keyword">int</span>);<span class="comment">// 重载后缀++</span></span><br><span class="line">        <span class="keyword">friend</span> Date <span class="keyword">operator</span>++ (Date&amp; D);<span class="comment">// 重载++前缀</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> y;</span><br><span class="line">        <span class="keyword">int</span> m;</span><br><span class="line">        <span class="keyword">int</span> d;</span><br><span class="line">&#125;;</span><br><span class="line">Date <span class="keyword">operator</span>+ (Date&amp; D,<span class="keyword">int</span> n)&#123;</span><br><span class="line">    Date temp = D;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;<span class="comment">// 累加ans到n</span></span><br><span class="line">    <span class="comment">// ans == n退出</span></span><br><span class="line">    <span class="keyword">while</span> (ans &lt; n)&#123;</span><br><span class="line">        <span class="comment">// 优化，降低循环次数</span></span><br><span class="line">        <span class="keyword">if</span> (n- ans &gt; <span class="number">366</span>)&#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (isLeap(temp.y)) ans += <span class="number">366</span>;</span><br><span class="line">            <span class="keyword">else</span> ans += <span class="number">365</span>;</span><br><span class="line">            temp.y ++;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        temp.d ++;</span><br><span class="line">        <span class="keyword">if</span> (temp.d == month[temp.m][isLeap(temp.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">            temp.d = <span class="number">1</span>;temp.m ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (temp.m == <span class="number">13</span>)&#123;</span><br><span class="line">            temp.m = <span class="number">1</span>;temp.y ++;</span><br><span class="line">        &#125;</span><br><span class="line">        ans ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载后缀++</span></span><br><span class="line">Date <span class="keyword">operator</span>++ (Date&amp; D,<span class="keyword">int</span>)&#123;</span><br><span class="line">    Date temp = D;</span><br><span class="line">    D.d ++;</span><br><span class="line">    <span class="keyword">if</span> (D.d == month[D.m][isLeap(D.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">        D.d = <span class="number">1</span>;D.m ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (D.m == <span class="number">13</span>)&#123;</span><br><span class="line">        D.m = <span class="number">1</span>;D.y ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重载++前缀</span></span><br><span class="line">Date <span class="keyword">operator</span>++ (Date&amp; D)&#123;</span><br><span class="line">    D.d ++;</span><br><span class="line">    <span class="keyword">if</span> (D.d == month[D.m][isLeap(D.y)]+<span class="number">1</span>)&#123;</span><br><span class="line">        D.d = <span class="number">1</span>;D.m ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (D.m == <span class="number">13</span>)&#123;</span><br><span class="line">        D.m = <span class="number">1</span>;D.y ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> D;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Date d1(2019,12,31),d2,d3;</span><br><span class="line">    d2 = d1++;</span><br><span class="line">    d1.print();</span><br><span class="line">    d2.print();</span><br><span class="line">    d3 = ++d1;</span><br><span class="line">    d1.print();</span><br><span class="line">    d3.print();</span><br><span class="line">    d1 = d1 + <span class="number">365</span>;</span><br><span class="line">    d1.print();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -447,20 +445,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -509,13 +507,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

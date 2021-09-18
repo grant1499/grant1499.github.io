@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="一.面向对象概述1.面向过程与面向对象 面向过程 —— 怎么做？  把完成某一个需求的 所有步骤 从头到尾 逐步实现  根据开发需求，将某些 功能独立 的代码 封装 成一个又一个 函数  最后完成的代码，就是顺序地调用 不同的函数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/f4f081c5/005_%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84self.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/f4f081c5/005_方法中的self.png">
 <meta property="article:published_time" content="2021-02-23T23:05:57.000Z">
 <meta property="article:modified_time" content="2021-05-05T06:29:23.271Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="OOP">
 <meta property="article:tag" content="Python进阶">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/f4f081c5/005_%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84self.png">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/f4f081c5/005_方法中的self.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/f4f081c5.html">
 
@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -286,15 +286,12 @@
 </li>
 <li><p>最后完成的代码，就是顺序地调用 <strong>不同的函数</strong></p>
 <span id="more"></span>
-
 </li>
 </ol>
 <p><strong>特点</strong></p>
 <ol>
-<li><p>注重 <strong>步骤与过程</strong>，不注重职责分工</p>
-</li>
-<li><p>如果需求复杂，代码会变得很复杂</p>
-</li>
+<li>注重 <strong>步骤与过程</strong>，不注重职责分工</li>
+<li>如果需求复杂，代码会变得很复杂</li>
 <li><p><strong>开发复杂项目，没有固定的套路，开发难度很大！</strong></p>
 </li>
 <li><p><strong>面向对象</strong> —— <strong>谁来做</strong>？</p>
@@ -359,7 +356,6 @@
 </blockquote>
 <h3 id="2-4-定义类"><a href="#2-4-定义类" class="headerlink" title="2.4 定义类"></a>2.4 定义类</h3><p>在Python中可以使用<code>class</code>关键字定义类，然后在类中通过之前学习过的函数来定义方法，这样就可以将对象的动态特征描述出来，代码如下所示。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本语法</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> 类名():</span></span><br><span class="line">    代码</span><br><span class="line">    ......</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Washer</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wash</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;我会洗衣服&quot;</span>)</span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># __init__是一个特殊方法用于在创建对象时进行初始化操作</span></span><br><span class="line">    <span class="comment"># 通过这个方法我们可以为学生对象绑定name和age两个属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, age</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">study</span>(<span class="params">self, course_name</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;%s正在学习%s.&#x27;</span> % (self.name, course_name))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># PEP 8要求标识符的名字用全小写多个单词用下划线连接</span></span><br><span class="line">    <span class="comment"># 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">watch_movie</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">if</span> self.age &lt; <span class="number">18</span>:</span><br><span class="line">            print(<span class="string">&#x27;%s只能观看《熊出没》.&#x27;</span> % self.name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">&#x27;%s正在观看爱情大电影.&#x27;</span> % self.name)</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p><strong>说明：</strong> 写在类中的函数，我们通常称之为（对象的）方法，这些方法就是对象可以接收的消息。</p>
 </blockquote>
@@ -367,7 +363,6 @@
 <p>语法：<code>对象名 = 类名()</code></p>
 <p>当我们定义好一个类之后，可以通过下面的方式来创建对象并给对象发消息。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 创建学生对象并指定姓名和年龄</span></span><br><span class="line">    stu1 = Student(<span class="string">&#x27;骆昊&#x27;</span>, <span class="number">38</span>)</span><br><span class="line">    <span class="comment"># 给对象发study消息</span></span><br><span class="line">    stu1.study(<span class="string">&#x27;Python程序设计&#x27;</span>)</span><br><span class="line">    <span class="comment"># 给对象发watch_av消息</span></span><br><span class="line">    stu1.watch_movie()</span><br><span class="line">    stu2 = Student(<span class="string">&#x27;王大锤&#x27;</span>, <span class="number">15</span>)</span><br><span class="line">    stu2.study(<span class="string">&#x27;思想品德&#x27;</span>)</span><br><span class="line">    stu2.watch_movie()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
 <h2 id="3-面向对象基础语法"><a href="#3-面向对象基础语法" class="headerlink" title="3.面向对象基础语法"></a>3.面向对象基础语法</h2><h3 id="3-1-dir内置函数（知道）"><a href="#3-1-dir内置函数（知道）" class="headerlink" title="3.1 dir内置函数（知道）"></a>3.1 dir内置函数（知道）</h3><ul>
 <li>在 <code>Python</code> 中 <strong>对象几乎是无所不在的</strong>，我们之前学习的 <strong>变量</strong>、<strong>数据</strong>、<strong>函数</strong> 都是对象</li>
 </ul>
@@ -377,6 +372,7 @@
 <li>使用内置函数 <code>dir</code> 传入 <strong>标识符</strong> / <strong>数据</strong>，可以查看对象内的<strong>所有属性及方法</strong></li>
 </ol>
 <p><strong>提示</strong> <code>__方法名__</code> 格式的方法是 <code>Python</code> 提供的 <strong>内置方法 / 属性</strong>，稍后会给大家介绍一些常用的内置方法 / 属性</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -386,7 +382,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>01</td>
 <td><code>__new__</code></td>
 <td>方法</td>
@@ -410,13 +407,14 @@
 <td>方法</td>
 <td>返回<strong>对象的描述信息</strong>，<code>print</code> 函数输出使用</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>提示</strong> 利用好 <code>dir()</code> 函数，在学习时很多内容就不需要死记硬背了</p>
 <h3 id="3-2-定义简单的类（仅包含方法）"><a href="#3-2-定义简单的类（仅包含方法）" class="headerlink" title="3.2 定义简单的类（仅包含方法）"></a>3.2 定义简单的类（仅包含方法）</h3><h4 id="3-2-1-定义只包含方法的类"><a href="#3-2-1-定义只包含方法的类" class="headerlink" title="3.2.1 定义只包含方法的类"></a>3.2.1 定义只包含方法的类</h4><ul>
 <li>在 <code>Python</code> 中要定义一个只包含方法的类，语法格式如下：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法1(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法2(<span class="params">self, 参数列表</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><strong>方法</strong> 的定义格式和之前学习过的<strong>函数</strong> 几乎一样</li>
 <li>区别在于第一个参数必须是 <code>self</code>，大家暂时先记住，稍后介绍 <code>self</code></li>
@@ -437,7 +435,6 @@
 <li>按照需求 —— 不需要定义属性</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span> <span class="comment"># 对类进行封装</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat() <span class="comment"># 创建一个叫tom的对象</span></span><br><span class="line">tom.drink() <span class="comment"># 调用tom中的方法</span></span><br><span class="line">tom.eat()</span><br><span class="line">print(tom) <span class="comment"># 打印tom对象在内存中的地址</span></span><br><span class="line">addr = <span class="built_in">id</span>(tom)</span><br><span class="line">print(<span class="string">&quot;%x&quot;</span> % addr)</span><br><span class="line"><span class="comment"># output:</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7f76373fa670&gt;</span></span><br><span class="line"><span class="comment"># 7f780b7c1670</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="3-2-4-引用概念的强调"><a href="#3-2-4-引用概念的强调" class="headerlink" title="3.2.4 引用概念的强调"></a>3.2.4 引用概念的强调</h4><blockquote>
 <p>在面向对象开发中，<strong>引用</strong>的概念是同样适用的！</p>
 </blockquote>
@@ -460,15 +457,12 @@
 <p>补充知识：引用与赋值</p>
 <p>在Python中，令values=[0,1,2];values[1]=values,为何结果是[0,[…],2]?]</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>values = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>values[<span class="number">1</span>] = values</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>values[<span class="number">0</span>, [...], <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
 <p>我预想应当是 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="number">2</span>]</span><br></pre></td></tr></table></figure>
-
 <p>但结果却为何要赋值无限次？</p>
 <p><strong>可以说 Python 没有赋值，只有引用</strong>。你这样相当于创建了一个引用自身的结构，所以导致了无限循环。为了理解这个问题，有个基本概念需要搞清楚。</p>
 <p>Python 没有「变量」，我们平时所说的变量其实只是「标签」，是引用。这里的引用类似C语言中的指针。</p>
 <h4 id="3-2-5-使用Cat类再创建一个对象"><a href="#3-2-5-使用Cat类再创建一个对象" class="headerlink" title="3.2.5 使用Cat类再创建一个对象"></a>3.2.5 使用Cat类再创建一个对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫爱吃鱼&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;小猫在喝水&quot;</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">print(tom)</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.eat()</span><br><span class="line">lazy_cat.drink()</span><br><span class="line">print(lazy_cat) <span class="comment"># lazy_cat 和 tom 是两个不同的对象</span></span><br><span class="line">lazy_cat2 = lazy_cat <span class="comment"># 这里涉及到引用</span></span><br><span class="line">print(lazy_cat2) <span class="comment"># lazy_cat2和lazy_cat2表示同一个对象</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de2670&gt;</span></span><br><span class="line"><span class="comment"># 小猫爱吃鱼</span></span><br><span class="line"><span class="comment"># 小猫在喝水</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7fbcf2de7fd0&gt;</span></span><br><span class="line"><span class="comment"># &lt;__main__.Cat object at 0x7f0869e2afd0&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="3-3-案例改造-——-给对象增加属性"><a href="#3-3-案例改造-——-给对象增加属性" class="headerlink" title="3.3 案例改造 —— 给对象增加属性"></a>3.3 案例改造 —— 给对象增加属性</h3><ul>
 <li><p>在Python中，要给对象设置属性，非常的容易，但是不推荐使用</p>
 <p>因为：对象属性的封装应该封装在类的内部</p>
@@ -480,7 +474,6 @@
 <p>注意：这种方式虽然简单，但是不推荐使用！</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span> <span class="comment"># 这种属性只针对tom</span></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat.name = <span class="string">&quot;大懒猫&quot;</span> <span class="comment"># 这种属性只针对lazy_cat</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="3-4-方法中的self参数"><a href="#3-4-方法中的self参数" class="headerlink" title="3.4 方法中的self参数"></a>3.4 方法中的self参数</h3><blockquote>
 <p>由 <strong>哪一个对象</strong> 调用的方法，方法内的 <code>self</code> 就是 <strong>哪一个对象的引用</strong></p>
 </blockquote>
@@ -495,8 +488,7 @@
 <li>改造代码如下：</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&quot;%s 爱吃鱼&quot;</span> % self.name)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span> <span class="comment"># 访问对象的属性</span></span><br><span class="line">tom.eat() <span class="comment"># 访问对象的方法</span></span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.name = <span class="string">&quot;大懒猫&quot;</span></span><br><span class="line">lazy_cat.eat()</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">output:</span></span><br><span class="line"><span class="string">Tom 爱吃鱼</span></span><br><span class="line"><span class="string">大懒猫 爱吃鱼</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/posts/f4f081c5/005_%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84self.png" alt="005_方法中的self"></p>
+<p><img src="/posts/f4f081c5/005_方法中的self.png" alt="005_方法中的self"></p>
 <ul>
 <li>在 <strong>类的外部</strong>，通过 <code>变量名.</code> 访问对象的 <strong>属性和方法</strong></li>
 <li>在 <strong>类封装的方法中</strong>，通过 <code>self.</code> 访问对象的 <strong>属性和方法</strong></li>
@@ -505,13 +497,11 @@
 <li>将案例代码进行调整，<strong>先调用方法 再设置属性</strong>，观察一下执行效果</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">tom.name = <span class="string">&quot;Tom&quot;</span></span><br><span class="line">print(tom)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>程序执行报错如下：</li>
 <li>原因：python自顶向下执行，执行<code>tom.drink()</code>时不能通过self.name访问name，因为name还未定义。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: <span class="string">&#x27;Cat&#x27;</span> <span class="built_in">object</span> has no attribute <span class="string">&#x27;name&#x27;</span></span><br><span class="line">属性错误：<span class="string">&#x27;Cat&#x27;</span> 对象没有 <span class="string">&#x27;name&#x27;</span> 属性</span><br></pre></td></tr></table></figure>
-
 <p><strong>提示</strong></p>
 <ul>
 <li>在日常开发中，不推荐在类的外部给对象增加属性<ul>
@@ -683,20 +673,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -745,13 +735,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

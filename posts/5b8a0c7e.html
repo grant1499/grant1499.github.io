@@ -129,17 +129,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -287,16 +287,13 @@
         <h2 id="2-3：KMP匹配算法"><a href="#2-3：KMP匹配算法" class="headerlink" title="2.3：KMP匹配算法"></a>2.3：KMP匹配算法</h2><p>在字符串中查找子串：Knuth-Morris-Pratt 算法。KMP是比较难学的算法。</p>
 <p>给定非空字符串s和p，其长度分别为n和m，为了便于讨论，将s称为主串（长文本），p称为模式串。</p>
 <span id="more"></span>
-
 <p>参考资料1： Programming Challenges。</p>
-<p>参考资料2：  <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/JO8x4q7OQG_qOk29Dt71aw%E3%80%82">https://mp.weixin.qq.com/s/JO8x4q7OQG_qOk29Dt71aw。</a></p>
+<p>参考资料2：  <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/JO8x4q7OQG_qOk29Dt71aw。">https://mp.weixin.qq.com/s/JO8x4q7OQG_qOk29Dt71aw。</a></p>
 <p><strong>例题：831. KMP字符串（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">给定一个模式串 S，以及一个模板串 P，所有字符串中只包含大小写英文字母以及阿拉伯数字。</span><br><span class="line">模板串 P 在模式串 S 中多次作为子串出现。</span><br><span class="line">求出模板串 P 在模式串 S 中所有出现的位置的起始下标。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入整数 N，表示字符串 P 的长度。</span><br><span class="line">第二行输入字符串 P。</span><br><span class="line">第三行输入整数 M，表示字符串 S 的长度。</span><br><span class="line">第四行输入字符串 S。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，输出所有出现位置的起始下标（下标从 <span class="number">0</span> 开始计数），整数之间用空格隔开。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line"><span class="number">1</span>≤M≤<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">aba</span><br><span class="line"><span class="number">5</span></span><br><span class="line">ababa</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">0</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
 <p>我们先来看看朴素（暴力）做法。</p>
 <p>将p的第一个字符与s的某个字符对齐，检查对应的字符是否相同，若从主串的某个位置开始，两者字符全部相同，则发现了匹配。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">S[N],p[M]</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;<span class="comment">// KMP中习惯i从1开始</span></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i+j<span class="number">-1</span>] != s[j])&#123;</span><br><span class="line">            flag = <span class="literal">false</span>;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用暴力匹配的方法检查字符串p是否为字符串s的子串</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">match</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span> &amp;s, <span class="keyword">const</span> <span class="built_in">string</span> &amp;p)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> si = <span class="number">0</span>; si &lt; s.length(); si++) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = si, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; s.length() &amp;&amp; j &lt; p.length() &amp;&amp; s[i] == p[j]) i++, j++; </span><br><span class="line">        <span class="keyword">if</span> (j &gt;= p.length())&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;<span class="comment">// 如果p串比较完了，输出开始位置</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;<span class="comment">// 匹配失败</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>一般来说，当s中的字符不存在较多重复的情况下，朴素匹配算法的时间复杂度能够接近Ο(n＋m)。但最坏的情况下时间复杂度为Ο(n*m)。没有额外开辟空间，空间复杂度为O(1)。</p>
 <p>图解朴素做法：</p>
 <p><img src="/posts/5b8a0c7e/image-20210808143312592.png" alt="image-20210808143312592"></p>
@@ -318,15 +315,13 @@
 <p>让模式串p和自己匹配，过程与S和p匹配类似。next数组与主串没有任何关系。</p>
 <p>前后缀相同也就是p的一段前缀和一段后缀匹配，以此求next数组。求next数组的代码部分是KMP中特别难的部分！</p>
 <p><img src="/posts/5b8a0c7e/image-20210808210456793.png" alt="image-20210808210456793"></p>
-<p>参考题解1： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/14666/%E3%80%82%EF%BC%88%E7%89%B9%E5%88%AB%E6%8E%A8%E8%8D%90%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%89">https://www.acwing.com/solution/content/14666/。（特别推荐！！！）</a></p>
-<p>参考题解2 ：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/23907/%E3%80%82">https://www.acwing.com/solution/content/23907/。</a></p>
+<p>参考题解1： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/14666/。（特别推荐！！！）">https://www.acwing.com/solution/content/14666/。（特别推荐！！！）</a></p>
+<p>参考题解2 ：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/23907/。">https://www.acwing.com/solution/content/23907/。</a></p>
 <p>注意：题目要求是下标从0开始，但是代码按从1开始算，输出要处理一下。</p>
 <p>题解1：y总代码。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>, M = <span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">char</span> p[N],S[M];</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> ne[N];<span class="comment">// 保存next数组，next重名</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; p + <span class="number">1</span> &gt;&gt; m &gt;&gt; S + <span class="number">1</span>;<span class="comment">// 下标均从1开始</span></span><br><span class="line">    <span class="comment">// 计算模式串p的next表，从ne[2]开始计算，所以i从2开始</span></span><br><span class="line">    <span class="comment">// j表示匹配成功的长度，i表示ne数组的下标</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>,j = <span class="number">0</span>;i &lt;= n;i ++)&#123;<span class="comment">// ne[1]定义为0，不会用到</span></span><br><span class="line">        <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j+<span class="number">1</span>]) j = ne[j];<span class="comment">// 如果不匹配j移动到ne[j]</span></span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j+<span class="number">1</span>]) j ++;<span class="comment">// 匹配成功了,那么j就加1,继续后面的匹配</span></span><br><span class="line">        <span class="comment">// 关键在于每次移动 i 前，将 i 前面已经匹配的长度记录到next数组中</span></span><br><span class="line">        ne[i] = j;<span class="comment">// 记录最长前缀的尾部下标j，也就是匹配成功的长度</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// KMP匹配过程</span></span><br><span class="line">    <span class="comment">// j表示匹配成功的长度，i表示主串S的下标</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>,j = <span class="number">0</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="keyword">while</span> (j &amp;&amp; S[i] != p[j+<span class="number">1</span>]) j = ne[j];<span class="comment">// 如果不匹配j移动到ne[j]</span></span><br><span class="line">        <span class="keyword">if</span> (S[i] == p[j+<span class="number">1</span>]) j ++;<span class="comment">// 匹配成功了,那么j就加1,继续后面的匹配</span></span><br><span class="line">        <span class="keyword">if</span> (j == n)&#123;<span class="comment">// 匹配成功</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i - n &lt;&lt; <span class="string">&#x27; &#x27;</span>;<span class="comment">// 题目要求下标从0开始</span></span><br><span class="line">            j = ne[j];<span class="comment">// 本题可以不加，推荐加上避免边界问题</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>题解2：字符串下标从0开始，用string处理。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> ne[N];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="built_in">string</span> p, s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; p &gt;&gt; m &gt;&gt; s;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//i是待匹配位置，j是已匹配长度，j - 1是已匹配的最后一个位置</span></span><br><span class="line">    <span class="comment">//与自身匹配i从1开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; i &lt; n; i ++)&#123;<span class="comment">// 字符串下标从0开始</span></span><br><span class="line">        <span class="keyword">while</span>(j &amp;&amp; p[i] != p[j]) j = ne[j - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(p[i] == p[j]) j ++;</span><br><span class="line">        ne[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//与长字符串匹配i从0开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; m; i ++)&#123;</span><br><span class="line">        <span class="keyword">while</span>(j &amp;&amp; s[i] != p[j]) j = ne[j - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span>(s[i] == p[j])&#123;</span><br><span class="line">            j ++;</span><br><span class="line">            <span class="keyword">if</span>(j == n)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i - n + <span class="number">1</span> &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">                j = ne[n - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>KMP的时间复杂度分析：</p>
 <p>O(n+m)=O( [n,2n] +[m,2m]) = 计算next数组的时间复杂度+遍历比较的复杂度。</p>
 
@@ -491,20 +486,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -553,13 +548,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

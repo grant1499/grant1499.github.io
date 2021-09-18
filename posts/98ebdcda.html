@@ -24,7 +24,7 @@
 <meta property="og:description" content="1.17：文件重定向每个进程默认打开3个文件描述符：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-04T04:07:13.000Z">
-<meta property="article:modified_time" content="2021-09-05T01:09:18.751Z">
+<meta property="article:modified_time" content="2021-09-10T00:16:08.959Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -123,17 +123,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-05 09:09:18" itemprop="dateModified" datetime="2021-09-05T09:09:18+08:00">2021-09-05</time>
+                <time title="修改时间：2021-09-10 08:16:08" itemprop="dateModified" datetime="2021-09-10T08:16:08+08:00">2021-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,14 +255,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>5.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -276,21 +276,22 @@
       
         <h2 id="1-17：文件重定向"><a href="#1-17：文件重定向" class="headerlink" title="1.17：文件重定向"></a>1.17：文件重定向</h2><p>每个进程默认打开3个文件描述符：</p>
 <span id="more"></span>
-
 <ul>
 <li>stdin标准输入，从命令行读取数据，文件描述符为0</li>
 <li>stdout标准输出，向命令行输出数据，文件描述符为1</li>
 <li>stderr标准错误输出，向命令行输出数据，文件描述符为2</li>
 </ul>
 <p>可以用文件重定向将这三个文件重定向到其他文件中。</p>
-<h3 id="重定向命令列表"><a href="#重定向命令列表" class="headerlink" title="重定向命令列表"></a>重定向命令列表</h3><table>
+<h3 id="重定向命令列表"><a href="#重定向命令列表" class="headerlink" title="重定向命令列表"></a>重定向命令列表</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令</th>
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>command &gt; file</code></td>
 <td>将stdout重定向到file中</td>
 </tr>
@@ -310,39 +311,32 @@
 <td><code>command n&gt;&gt; file</code></td>
 <td>将文件描述符n以追加方式重定向到file中</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="输入和输出重定向"><a href="#输入和输出重定向" class="headerlink" title="输入和输出重定向"></a>输入和输出重定向</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo -e &quot;Hello \c&quot; &gt; output.txt  # 将stdout重定向到output.txt中</span><br><span class="line">echo &quot;World&quot; &gt;&gt; output.txt  # 将字符串追加到output.txt中</span><br><span class="line"></span><br><span class="line">read str &lt; output.txt  # 从output.txt中读取字符串</span><br><span class="line"></span><br><span class="line">echo $str  # 输出结果：Hello World</span><br></pre></td></tr></table></figure>
-
 <h3 id="同时重定向stdin和stdout"><a href="#同时重定向stdin和stdout" class="headerlink" title="同时重定向stdin和stdout"></a>同时重定向stdin和stdout</h3><p>创建bash脚本：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read a</span><br><span class="line">read b</span><br><span class="line"></span><br><span class="line">echo $(expr &quot;$a&quot; + &quot;$b&quot;)</span><br></pre></td></tr></table></figure>
-
 <p>创建input.txt，里面的内容为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
-
 <p>执行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">acs@9e0ebfcd82d7:~$ chmod +x test.sh  # 添加可执行权限</span><br><span class="line">acs@9e0ebfcd82d7:~$ ./test.sh &lt; input.txt &gt; output.txt  # 从input.txt中读取内容，将输出写入output.txt中</span><br><span class="line">acs@9e0ebfcd82d7:~$ cat output.txt  # 查看output.txt中的内容</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-
 <h2 id="1-18：引入外部脚本"><a href="#1-18：引入外部脚本" class="headerlink" title="1.18：引入外部脚本"></a>1.18：引入外部脚本</h2><p>类似于C/C++中的include操作，bash也可以引入其他文件中的代码。</p>
 <p>语法格式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">. filename  # 注意点和文件名之间有一个空格</span><br><span class="line">或</span><br><span class="line">source filename</span><br></pre></td></tr></table></figure>
-
 <p>创建test1.sh，内容为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">name=yxc  # 定义变量name</span><br></pre></td></tr></table></figure>
-
 <p>然后创建test2.sh，内容为：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以用相对路径或者绝对路径</span></span><br><span class="line">source test1.sh # 或 . test1.sh</span><br><span class="line"></span><br><span class="line">echo My name is: $name  # 可以使用test1.sh中的变量</span><br></pre></td></tr></table></figure>
-
 <p>执行命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">acs@9e0ebfcd82d7:~$ chmod +x test2.sh # 引入的test1文件不需要可执行权限</span><br><span class="line">acs@9e0ebfcd82d7:~$ ./test2.sh </span><br><span class="line">My name is: yxc</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-18：Linux作业"><a href="#1-18：Linux作业" class="headerlink" title="1.18：Linux作业"></a>1.18：Linux作业</h2><ol start="3">
+<h2 id="1-19：Linux作业"><a href="#1-19：Linux作业" class="headerlink" title="1.19：Linux作业"></a>1.19：Linux作业</h2><ol>
 <li>作业<br> 创建好作业后，先进入文件夹/home/acs/homework/lesson_3/，然后：<br> (0) 进入homework_0文件夹，编写自动完成lesson_1作业的脚本helper.sh。要求：<pre><code> [1] 当前目录下仅包含helper.sh
  [2] helper.sh具有可执行权限
  [3] 在任意路径依次执行下列命令后，lesson_1的作业可以得到满分：
      1) homework 1 create
      2) /home/acs/homework/lesson_3/homework_0/helper.sh
-</code></pre>
- (1) 进入homework_1文件夹，编写脚本check_file.sh。要求：<pre><code> [1] 当前目录下仅包含check_file.sh。
+</code></pre> (1) 进入homework_1文件夹，编写脚本check_file.sh。要求：<pre><code> [1] 当前目录下仅包含check_file.sh。
  [2] check_file.sh具有可执行权限。
  [3] check_file.sh接收一个传入参数。格式为 ./check_file.sh file
  [4] 判断传递参数，分别在标准输出中输出如下内容（不包括双引号）：
@@ -354,27 +348,24 @@
          3] 如果file具有可读权限，则输出一行：&quot;readable&quot;
          4] 如果file具有可写权限，则输出一行：&quot;writable&quot;
          5] 如果file具有可执行权限，则输出一行：&quot;executable&quot;
-</code></pre>
- (2) 进入homework_2文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
+</code></pre> (2) 进入homework_2文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
  [2] main.sh具有可执行权限
  [3] 该文件从stdin(标准输入)中读取一个整数n
  [4] 在stdout(标准输出)输出斐波那契数列的第n项。即：a[0] = 1, a[1] = 1, a[i] = a[i - 1] + a[i - 2], 求a[n]。
  [5] 数据保证 0 &lt;= n &lt;= 20，脚本不需要判断n的合法性。
-</code></pre>
- (3) 进入homework_3文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
+</code></pre> (3) 进入homework_3文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
  [2] main.sh具有可执行权限
  [3] 该文件从stdin(标准输入)中读取两行整数n和m
  [4] 在stdout(标准输出)中输出1~n的按字典序从小到大的顺序数第m个全排列，输出一行，用空格隔开所有数，行末可以有多余空格。
  [5] 数据保证 1 &lt;= n &lt;= 10, 1 &lt;= m &lt;= min(100, n!)，脚本不需要判断数据的合法性。
-</code></pre>
- (4) 进入homework_4文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
+</code></pre> (4) 进入homework_4文件夹，编写脚本main.sh。要求：<pre><code> [1] 当前目录下仅包含main.sh
  [2] main.sh具有可执行权限
  [3] main.sh接收两个传入参数。格式为 ./main.sh input_file output_file
  [4] 从input_file中读取一个正整数n，然后将前n个正整数的平方和写入output_file中
  [5] 数据保证 1 &lt;= n &lt;= 100，脚本不需要判断所有数据的合法性。
-</code></pre>
-</li>
+</code></pre></li>
 </ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> **homework_0**</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> help.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">path=/home/acs/homework/lesson_1/</span><br><span class="line">homework 1 create</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_0</span></span><br><span class="line">cd $&#123;path&#125;homework_0/</span><br><span class="line">mkdir dir_&#123;a..c&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_1</span></span><br><span class="line">cd $&#123;path&#125;homework_1/</span><br><span class="line">for i in &#123;a..c&#125;</span><br><span class="line">do</span><br><span class="line">    cp $&#123;i&#125;.txt $&#123;i&#125;.txt.bak</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_2</span></span><br><span class="line">cd $&#123;path&#125;homework_2/</span><br><span class="line">for i in &#123;a..c&#125;</span><br><span class="line">do</span><br><span class="line">    mv $&#123;i&#125;.txt $&#123;i&#125;_new.txt</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_3</span></span><br><span class="line">cd $&#123;path&#125;homework_3/</span><br><span class="line">for i in &#123;a..c&#125;</span><br><span class="line">do</span><br><span class="line">    mv dir_a/$&#123;i&#125;.txt dir_b/</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> honework_4</span></span><br><span class="line">cd $&#123;path&#125;homework_4/</span><br><span class="line">rm &#123;a..c&#125;.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_5</span></span><br><span class="line">cd $&#123;path&#125;homework_5/</span><br><span class="line">rm dir_&#123;a..c&#125; -r</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_6</span></span><br><span class="line">cd $&#123;path&#125;homework_6/</span><br><span class="line">mkdir dir_a</span><br><span class="line">mv &quot;task.txt&quot; &quot;dir_a/done.txt&quot;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_7</span></span><br><span class="line">cd $&#123;path&#125;homework_7/</span><br><span class="line">mkdir dir_&#123;0..2&#125;</span><br><span class="line">for i in &#123;0..2&#125;</span><br><span class="line">do</span><br><span class="line">    for j in &#123;a..c&#125;</span><br><span class="line">    do</span><br><span class="line">        cp $&#123;j&#125;.txt dir_$&#123;i&#125;/$&#123;j&#125;$&#123;i&#125;.txt</span><br><span class="line">    done</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_8</span></span><br><span class="line">cd $&#123;path&#125;homework_8/</span><br><span class="line">for i in &#123;a..c&#125;</span><br><span class="line">do</span><br><span class="line">    cd dir_$&#123;i&#125; </span><br><span class="line">    if [ $&#123;i&#125; == &quot;a&quot; ] # 注意中括号表达式中每项都要用空格隔开</span><br><span class="line">    then</span><br><span class="line">        rm a.txt</span><br><span class="line">    elif [ $&#123;i&#125; == &quot;b&quot; ]</span><br><span class="line">    then</span><br><span class="line">        mv b.txt b_new.txt</span><br><span class="line">    elif [ $&#123;i&#125; == &quot;c&quot; ]</span><br><span class="line">    then</span><br><span class="line">        cp c.txt c.txt.bak</span><br><span class="line">    fi</span><br><span class="line">    cd ../ # 注意循环中的cd命令，在本次循环结束要cd回到上一层</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> homework_9</span></span><br><span class="line">cd $&#123;path&#125;homework_9/</span><br><span class="line">rm *.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> **homework_1**</span></span><br><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">if [ $# -ne 1 ]</span><br><span class="line">then</span><br><span class="line">    echo &quot;arguments not valid&quot;</span><br><span class="line">    exit 1</span><br><span class="line">elif [ -e &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    if [ -f &quot;$1&quot; ] #可以简写成 [ -f &quot;$1&quot; ] &amp;&amp; echo &quot;regulare file&quot;</span><br><span class="line">    then</span><br><span class="line">        echo &quot;regulare file&quot;</span><br><span class="line">    fi</span><br><span class="line">    if [ -d &quot;$1&quot; ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;directory&quot;</span><br><span class="line">    fi</span><br><span class="line">    if [ -r &quot;$1&quot; ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;readable&quot;</span><br><span class="line">    fi</span><br><span class="line">    if [ -w &quot;$1&quot; ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;writable&quot;</span><br><span class="line">    fi</span><br><span class="line">    if [ -x &quot;$1&quot; ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;executable&quot;</span><br><span class="line">    fi</span><br><span class="line">    exit 0</span><br><span class="line">else</span><br><span class="line">    echo &quot;not exist&quot;</span><br><span class="line">    exit 2</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> **homework_2**</span></span><br><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read n</span><br><span class="line"></span><br><span class="line">a[0]=1;a[1]=1</span><br><span class="line">for ((i = 2;i &lt;= 20;i++))</span><br><span class="line">do</span><br><span class="line">    a[i]=$((a[i-1] + a[i-2]))</span><br><span class="line">done</span><br><span class="line">echo $&#123;a[n]&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> **homework_3**</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> dfs + 剪枝，通过flag标记剪枝，在dfs回溯时知道已找到·答案就提前退出</span></span><br><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read n</span><br><span class="line">read m</span><br><span class="line"></span><br><span class="line">cnt=0</span><br><span class="line">st=()</span><br><span class="line">path=()</span><br><span class="line">flag=0</span><br><span class="line"></span><br><span class="line">for ((i = 1;i &lt;= n;i++))</span><br><span class="line">do</span><br><span class="line">    st[i]=0</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">dfs() &#123;</span><br><span class="line">    if [ $1 -eq $((n+1)) ]</span><br><span class="line">    then</span><br><span class="line">        ((cnt++))</span><br><span class="line">        if [ $cnt == $m ]</span><br><span class="line">        then</span><br><span class="line">            local i=1</span><br><span class="line">            for ((i = 1;i &lt;= n;i ++))</span><br><span class="line">            do</span><br><span class="line">                echo -e &quot;$&#123;path[i]&#125; \c &quot;</span><br><span class="line">            done</span><br><span class="line">            echo &quot;&quot;</span><br><span class="line">            flag=1</span><br><span class="line">        fi</span><br><span class="line">        return 0</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    local i=1</span><br><span class="line">    for (( i = 1;i &lt;= n;i++))</span><br><span class="line">    do</span><br><span class="line">        if [ $&#123;st[i]&#125; -eq 0 ]</span><br><span class="line">        then</span><br><span class="line">            st[$i]=1</span><br><span class="line">            path[$1]=$&#123;i&#125;</span><br><span class="line">            dfs $(expr $1 + 1)</span><br><span class="line">            if [ $flag -eq 1 ]</span><br><span class="line">            then</span><br><span class="line">                return 0</span><br><span class="line">            fi</span><br><span class="line">            st[$i]=0</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dfs 1</span><br><span class="line"><span class="meta">#</span><span class="bash"> **homework_4**</span></span><br><span class="line"><span class="meta">#</span><span class="bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read n &lt; &quot;$1&quot;</span><br><span class="line">res=0</span><br><span class="line">for ((i = 1;i &lt;= n;i++))</span><br><span class="line">do</span><br><span class="line">    res=$((res + i * i))</span><br><span class="line">done</span><br><span class="line">echo $res &gt; &quot;$2&quot;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -434,7 +425,10 @@
     <a href="/posts/4aebab45.html" rel="prev" title="Linux基础课笔记（六）">
       <i class="fa fa-chevron-left"></i> Linux基础课笔记（六）
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/6f80f499.html" rel="next" title="Linux基础课笔记（八）">
+      Linux基础课笔记（八） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -518,7 +512,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-17%EF%BC%9A%E6%96%87%E4%BB%B6%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">1.17：文件重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"><span class="nav-text">重定向命令列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">输入和输出重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91stdin%E5%92%8Cstdout"><span class="nav-text">同时重定向stdin和stdout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18%EF%BC%9A%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E8%84%9A%E6%9C%AC"><span class="nav-text">1.18：引入外部脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18%EF%BC%9ALinux%E4%BD%9C%E4%B8%9A"><span class="nav-text">1.18：Linux作业</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-17%EF%BC%9A%E6%96%87%E4%BB%B6%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">1.17：文件重定向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"><span class="nav-text">重定向命令列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-text">输入和输出重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E9%87%8D%E5%AE%9A%E5%90%91stdin%E5%92%8Cstdout"><span class="nav-text">同时重定向stdin和stdout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-18%EF%BC%9A%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E8%84%9A%E6%9C%AC"><span class="nav-text">1.18：引入外部脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-19%EF%BC%9ALinux%E4%BD%9C%E4%B8%9A"><span class="nav-text">1.19：Linux作业</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -534,20 +528,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -596,13 +590,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

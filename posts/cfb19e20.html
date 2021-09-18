@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -278,21 +278,18 @@
       
         <p>在Windows下使用VSCode编译运行，都出现中文乱码的问题，今天我就遇见了这种情况，上网搜了半天也没有找到正确的解决方法，现将我把我的方法晒一下。</p>
 <span id="more"></span>
-
 <p>中文的windows下的cmd默认使用GBK的编码, 每次需要的时候只要在VSCode终端输入命令:<code>chcp 65001</code>, 切换代码页到使用UTF-8就可以解决中文代码的问题，只不过这种方法太麻烦了，每次进入终端都要输入命令，那有没有永久性解决的呢？当然有了。</p>
 <p>永久性地修改为VSCode的控制台代码页为65001:</p>
-<p>在VSCode中通过打开“文件”–“首选项”–“设置”, 然后在setting.json中设置, 把下面三行复制到里面:</p>
+<p>在VSCode中通过打开“文件”—“首选项”—“设置”, 然后在setting.json中设置, 把下面三行复制到里面:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;editor.fontSize&quot;</span>: <span class="number">18</span>,</span><br><span class="line">  <span class="string">&quot;terminal.integrated.shellArgs.windows&quot;</span>: [<span class="string">&quot;/K chcp 65001 &gt;nul&quot;</span>],</span><br><span class="line">  <span class="string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="string">&quot;Lucida Console&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>/K chcp 65001 &gt;nul的含义是在运行cmd的时候将编码设置为65001;</p>
-<p>&gt;nul是避免在控制台输出修改编码的信息，否则会输出active code page: 65001;</p>
+<p>>nul是避免在控制台输出修改编码的信息，否则会输出active code page: 65001;</p>
 <p>同时，赠送两个彩蛋，例如:</p>
 <p>editor.fontSize: 20(修改字体大小为 20);</p>
 <p>terminal.integrated.fontFamily:”Courier New”(字体修改为 “Courier New”).</p>
 <p>这个可以根据自己的需求填写，当然如果不需要的话，可以不写。</p>
 <p>如果上述方法出错的话可以试一试下方评论区的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;terminal.integrated.shellArgs.windows&quot;: [&quot;-NoExit&quot;, &quot;&#x2F;c&quot;, &quot;chcp 65001&quot;]</span><br></pre></td></tr></table></figure>
-
 <p>当然了，如果你能通过修改右下方的GBK或者UTF-8可以解决的话就没必要选择上面的两种方法：</p>
 <p><img src="/posts/cfb19e20/2020080614045655.png" alt="img"></p>
 <p>发现如果改成UTF-8的话，通过Run Code运行的话是正常的，但是到了F5调试，弹出的黑框是乱码的，如果改成GBK，那么F5调试是正常的，Run Code是乱码，反正二者不可兼得，大家自己选择。总结下来就是，Run Code运行改成UTF-8，F5调试运行改成GBK，当然这个不是绝对的，还要看一看”terminal.integrated.shellArgs.windows”修改的是什么，如果”terminal.integrated.shellArgs.windows”没有填，好像改成GBK就行了。</p>
@@ -463,20 +460,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -525,13 +522,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

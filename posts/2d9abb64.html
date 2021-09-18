@@ -128,17 +128,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -281,29 +281,22 @@
       
         <h2 id="1-函数"><a href="#1-函数" class="headerlink" title="1.函数"></a>1.函数</h2><p>四种传递参数的方式！！！</p>
 <span id="more"></span>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    print(a+b)</span><br><span class="line">    </span><br><span class="line"><span class="built_in">sum</span>(<span class="number">2</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
 <p><strong>位置参数</strong>是比较常用的形式，调用函数时实参和形参的顺序必须一致，并且数量相同。</p>
 <p>​    <strong>默认值参数</strong>：函数的参数在定义时也可以指定默认值，函数调用时若该位置没有给定实际参数，则使用默认值代替。但需要注意可选参数应当放在非可选参数后面。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y=<span class="number">10</span></span>):</span></span><br><span class="line">    print(x*y)</span><br><span class="line"></span><br><span class="line">mul(<span class="number">2</span>,<span class="number">5</span>)<span class="comment"># 2 * 5 = 10</span></span><br><span class="line">mul(<span class="number">2</span>)<span class="comment"># 2 * 10 = 20</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">y=<span class="number">10</span>,x</span>):</span> <span class="comment">#ERROR:默认参数不能放在位置参数前面</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,z,y=<span class="number">10</span></span>):</span></span><br><span class="line">    print(x*y)</span><br><span class="line">mul(<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># 20</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>关键字参数</strong>：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    print(x,y)</span><br><span class="line">    </span><br><span class="line">mul(y = <span class="number">2</span>,x = <span class="number">99</span>)</span><br></pre></td></tr></table></figure>
-
 <p><strong>可变长度参数</strong>：</p>
 <p>除了以上传参方式以外，当我们不确定会接受多少个参数的时候可以利用可变长度参数解决。</p>
 <p>​    *param接收任意多个参数放在一个元组中</p>
 <p>​    **param接收任意多个关键字参数放入字典中</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  *param返回元组</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">*x</span>):</span></span><br><span class="line">    print(x)</span><br><span class="line">    </span><br><span class="line">mul(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)<span class="comment"># (2, 3, 4, 5, 6, 7)</span></span><br><span class="line"><span class="comment"># **param返回字典</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo</span>(<span class="params">**p</span>):</span></span><br><span class="line">    print(p)</span><br><span class="line">demo(a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>)<span class="comment"># &#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2, &#x27;c&#x27;: 3&#125;</span></span><br><span class="line">demo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)<span class="comment"># ERROR:只能以关键字方式接受参数</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="2-变量的作用域"><a href="#2-变量的作用域" class="headerlink" title="2.变量的作用域"></a>2.变量的作用域</h2><p>局部变量仅在函数内部，且作用域也在函数内部，全局变量的作用域跨越多个函数。</p>
 <p>当局部变量与全局变量同名时，函数内部会优先使用局部变量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span> <span class="comment"># 全局变量</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    print(s)<span class="comment"># 3，局部变量</span></span><br><span class="line">    print(a)<span class="comment"># 1</span></span><br><span class="line"><span class="built_in">sum</span>(a,b)</span><br></pre></td></tr></table></figure>
-
 <p>全局变量指在函数之外定义的变量，在程序执行全过程有效。全部变量在函数内部使用（修改）时，需要提前使用保留字global声明，语法形式如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    a = <span class="number">4</span> <span class="comment"># 未使用global，在函数内部不能修改全局变量</span></span><br><span class="line">    <span class="comment"># 此处的a是一个同名的局部变量</span></span><br><span class="line">    <span class="comment"># 建议尽量不适用global，以免与外面代码形成耦合容易出错</span></span><br><span class="line"><span class="built_in">sum</span>(a,b)</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    print(x+y)</span><br><span class="line">    <span class="keyword">global</span> a</span><br><span class="line">    a = <span class="number">4</span></span><br><span class="line"><span class="built_in">sum</span>(a,b)</span><br><span class="line">print(a)<span class="comment"># a == 4</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="3-函数的返回值"><a href="#3-函数的返回值" class="headerlink" title="3.函数的返回值"></a>3.函数的返回值</h2><ul>
 <li>用return返回函数值，作用同C/C++。</li>
 <li>return语句可以出现在函数中的任何部分。</li>
@@ -312,7 +305,6 @@
 <li>函数也可以没有return代表无返回值。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x+y</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">print(<span class="built_in">sum</span>(a,b))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    s = x + y</span><br><span class="line">    v = x * y</span><br><span class="line">    <span class="keyword">return</span> s,v</span><br><span class="line">print(mul(a,b)) <span class="comment">#以元组形式返回值</span></span><br><span class="line">m = mul(a,b)</span><br><span class="line">print(m[<span class="number">1</span>])  </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">(3, 2)</span></span><br><span class="line"><span class="string">2</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>代码复用（选择题常考）</strong></p>
 <p>模块化设计指通过函数的封装功能将程序划分为主程序、子程序和子程序间关系的表达。模块化设计是使用函数设计程度的思考方法，以功能为基本单位，一般由两个基本要求：    </p>
 <p>•紧耦合：尽可能合理划分功能模块，功能块内部耦合紧密。</p>
@@ -323,12 +315,10 @@
 <p>适合处理一些简单的函数</p>
 <p>使用语法：<code>&lt;函数对象名&gt;=lambda &lt;形式参数列表&gt;:&lt;表达式&gt;</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span>(<span class="params">x,y</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line">fun = <span class="keyword">lambda</span> x,y:x+y</span><br><span class="line"><span class="comment"># 1和2是等价的</span></span><br><span class="line">print(fun(<span class="number">2</span>,<span class="number">3</span>))<span class="comment"># 5</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="4-组合数据类型"><a href="#4-组合数据类型" class="headerlink" title="4.组合数据类型"></a>4.组合数据类型</h2><p>注意：对于基本的数据类型，如整数或字符串，可以通过等号实现元素赋值。但对于列表类型，使用等号无法实现真正的赋值。其中，ls = lt语句并不是拷贝lt中 元素给变量ls，而是新关联了一个引用，即ls和lt所指向 的是同一套内容。</p>
 <h2 id="5-做题总结"><a href="#5-做题总结" class="headerlink" title="5.做题总结"></a>5.做题总结</h2><p><img src="/posts/2d9abb64/image-20210119221538951.png" alt="image-20210119221538951"></p>
 <p>如何读取类似用空格分隔的两个字符串：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span> = <span class="built_in">input</span>()</span><br><span class="line">s = <span class="built_in">str</span>.split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">s1 = s[<span class="number">0</span>]</span><br><span class="line">s2 = s[<span class="number">1</span>]</span><br><span class="line">print(s1,s2)</span><br><span class="line"><span class="comment"># str == &quot;abc defg&quot;</span></span><br><span class="line"><span class="comment"># &quot;abc&quot; &amp; &quot;defg&quot;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="6-文件"><a href="#6-文件" class="headerlink" title="6.文件"></a>6.文件</h2><p>（记住）<strong>文件主要分为：文本文件和二进制文件</strong>。</p>
 <p>1、 文本文件一般由单一特定编码的字符组成，如 UTF-8编码，内容容易统一展示和阅读。 </p>
 <p>2、 二进制文件直接由比特0和比特1组成，文件内部数据的组织格式与文件用途有关。二进制是信息按照非字符但特定格式形成的文件，例如，png 格式的图片文件、avi格式的视频文件。</p>
@@ -337,6 +327,7 @@
 <p><strong>（记住）</strong>采用文本方式读入文件，文件经过编码形成<strong>字符串</strong>，打印出有含义的字符；采用二进制方式打开文件，文件被解析为<strong>字节流</strong></p>
 <p>Python对文本文件和二进制文件采用统一的操作步骤， 即“打开-操作-关闭”</p>
 <p>open函数语法：<code>&lt;变量名&gt; = open(&lt;文件路径及文件名&gt;, &lt;打开模式&gt;)</code></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -344,7 +335,8 @@
 <th><strong>含义</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>‘r’</td>
 <td>只读模式，如果文件不存在，返回异常FileNotFoundError，默认值</td>
 </tr>
@@ -372,12 +364,14 @@
 <td>‘+’</td>
 <td>与r/w/x/a一同使用，在原功能基础上增加同时读写功能</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><img src="/posts/2d9abb64/image-20210222182101934.png" alt="image-20210222182101934"></p>
 <p><img src="/posts/2d9abb64/image-20210222183442871.png" alt="image-20210222183442871"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)<span class="comment"># 这里的txt是相对路径（与py文件同一级）</span></span><br><span class="line"><span class="comment"># 如果中文乱码</span></span><br><span class="line"><span class="comment"># 改成open(&quot;abc.txt&quot;,&quot;r&quot;,encoding = &quot;utf-8&quot;)</span></span><br><span class="line">s = f.read()</span><br><span class="line">print(s)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;F:\\Python二级\\abc.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line"><span class="comment"># 采用绝对路径，用\\表示转义</span></span><br><span class="line"><span class="comment"># 写法2：f = open(&quot;F:/Python二级/abc.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)</span></span><br><span class="line"><span class="comment"># 写法3：f = open(r&quot;F:\Python二级\abc.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)</span></span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;b.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)<span class="comment">#  覆盖写模式</span></span><br><span class="line">f.write(<span class="string">&quot;今天天气正好&quot;</span>)</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># &quot;rb&quot;, &quot;wb&quot;, &quot;ab&quot; 以二进制形式对文件操作</span></span><br><span class="line"><span class="comment"># 二进制操作千万不要加encoding=&quot;utf-8&quot;</span></span><br><span class="line"><span class="comment"># &quot;rt&quot;与&quot;r&quot;没有区别</span></span><br><span class="line"><span class="comment"># &quot;r+&quot;在原有功能上增加同时读写功能</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;hello.txt&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f: <span class="comment"># 老师推荐，不用close文件</span></span><br><span class="line">    t = f.read()</span><br><span class="line">    print(t)</span><br></pre></td></tr></table></figure>
-
 <p>文件的读取</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -385,7 +379,8 @@
 <th><strong>含义</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>f.read(size=-1)</td>
 <td>从文件中读入整个文件内容。参数可选，如果给出，读入  前size长度的字符串或字节流</td>
 </tr>
@@ -401,14 +396,16 @@
 <td>f.seek(offset,whence)</td>
 <td>改变当前文件操作指针的位置，whence的值：  0：文件开头；1:当前位置 2: 文件结尾</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>如果文件不大，可以一次性将文件内容读入，保存到程序内部变量中。f.read()是最常用的一次性读入文件的函数，其结果是一个字符串。 </p>
 <p>f.seek(offset,whence)方法能够移动读取指针的位置。</p>
 <p>offset ： 开始的偏移量，也就是代表需要移动偏移的字节数，如果是负数表示从倒数第几位开始。 </p>
 <p>whence：可选，默认值为 0。给 offset 定义一个参数，表示要从哪个位置开始偏移；0 代表从文件开头开始算起，1 代表从当前位置开始算起，2 代表从文件末尾算起。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">s = f.read(<span class="number">5</span>)<span class="comment"># 读取前5个字符</span></span><br><span class="line">print(s)</span><br><span class="line">print(<span class="built_in">type</span>(s))  <span class="comment"># &quot;str&quot;</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">s = f.readline()<span class="comment"># 读取一行内容，继续读的话就从下一行开始，会读到行未的换行符</span></span><br><span class="line">print(<span class="built_in">type</span>(s))  <span class="comment"># &quot;str&quot;</span></span><br><span class="line">print(s)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">s = f.readlines()</span><br><span class="line">print(<span class="built_in">type</span>(s))  <span class="comment"># &quot;list&quot;这里是列表类型，不是字符串</span></span><br><span class="line"><span class="comment"># 每一行（包括\n）作为列表中的一个元素</span></span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">s = f.read()</span><br><span class="line">print(s)</span><br><span class="line">f.seek(<span class="number">0</span>, <span class="number">0</span>)  <span class="comment"># 文件指针的位置可以理解为光标位置</span></span><br><span class="line">string = f.read()</span><br><span class="line">print(string)</span><br><span class="line">print(<span class="built_in">type</span>(s))  <span class="comment"># &quot;str&quot;</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-
 <p>文件的写入</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -416,7 +413,8 @@
 <th><strong>含义</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>f.write(s)</td>
 <td>向文件写入一个字符串或字节流</td>
 </tr>
@@ -424,14 +422,14 @@
 <td>f.writelines(lines)</td>
 <td>将一个<strong>元素为字符串的列表</strong>写入文件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abcd.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">f.write(<span class="string">&quot;学习使我快乐&quot;</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abcd.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">ls = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>]</span><br><span class="line">f.writelines(ls)</span><br><span class="line">f.close()<span class="comment"># 文件里是abc连在一起</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>补充知识</strong></p>
 <p>w+：在写的基础上增加读的功能（打开文件清空内容）；</p>
 <p>r+：在读的基础上增加写的功能（打开文件不清空内容），两者不一样。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;w&quot;</span>)</span><br><span class="line">s = <span class="string">&quot;塔防&quot;</span></span><br><span class="line">f.write(s)</span><br><span class="line">f.close()<span class="comment"># abc文件中写入“塔防”</span></span><br><span class="line">---------------------Demo1</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;w+&quot;</span>)</span><br><span class="line">f.write(<span class="string">&quot;塔防&quot;</span>)</span><br><span class="line">s = f.read()</span><br><span class="line">print(s)<span class="comment"># 空</span></span><br><span class="line"><span class="comment"># abc内容：塔防</span></span><br><span class="line"><span class="comment"># 先写后读，写完后指针走到末尾，读不到内容</span></span><br><span class="line">f.close()</span><br><span class="line">---------------------Demo2</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;abc.txt&quot;</span>,<span class="string">&quot;r+&quot;</span>)</span><br><span class="line">s = f.read()</span><br><span class="line">print(s)<span class="comment"># 塔防</span></span><br><span class="line"><span class="comment"># abc内容：塔防塔防</span></span><br><span class="line">f.write(<span class="string">&quot;塔防&quot;</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-
 <h2 id="7-数据的组织维度"><a href="#7-数据的组织维度" class="headerlink" title="7.数据的组织维度"></a>7.数据的组织维度</h2><h3 id="7-1-一维数据"><a href="#7-1-一维数据" class="headerlink" title="7.1 一维数据"></a>7.1 一维数据</h3><p>一维数据是最简单的数据组织类型，由于是线性结构，在Python语言中主要采用列表形式表示。</p>
 <p>一维数据的文件存储有多种方式，总体思路是采用特殊字符分隔各数据。常用存储方法包括4种。</p>
 <p> （1）采用空格分隔元素，例如： 北京  上海  天津  重庆</p>
@@ -445,7 +443,6 @@
 <p>​      北京;上海;天津;重庆 </p>
 <p><img src="/posts/2d9abb64/image-20210120134702444.png" alt="image-20210120134702444"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##s = &quot;北京,重庆,武汉,广东&quot;  # 注意用英文逗号！！！</span></span><br><span class="line"><span class="comment">##f = open(&quot;demo.csv&quot;, &quot;w&quot;)</span></span><br><span class="line"><span class="comment">##f.write(s)</span></span><br><span class="line"><span class="comment">##f.close()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = [<span class="string">&quot;北京&quot;</span>,<span class="string">&quot;西藏&quot;</span>,<span class="string">&quot;武汉&quot;</span>,<span class="string">&quot;广州&quot;</span>] <span class="comment"># 把列表变成字符串</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;test.csv&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">f.write(<span class="string">&quot;,&quot;</span>.join(ls))</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;demo.csv&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">s = f.read()</span><br><span class="line">print(s.strip(<span class="string">&quot;\n&quot;</span>).split(<span class="string">&quot;,&quot;</span>))</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># [&#x27;北京&#x27;, &#x27;重庆&#x27;, &#x27;武汉&#x27;, &#x27;广东&#x27;]得到列表</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="7-2-二维数据"><a href="#7-2-二维数据" class="headerlink" title="7.2 二维数据"></a>7.2 二维数据</h3><p>1、二维数据由一维数据组成，用CSV格式文件存储。 CSV文件的每一行是一维数据，整个CSV文件是 一个二维数据。</p>
 <p>2、二维列表对象输出为CSV格式文件方法如下，采用遍历循环和字符串的join()方法相结合。</p>
 <p>二维数据处理等同于二维列表的操作，与一维列表不同，二维列表一般需要借助循环遍历实现对每个数据的处理，基本代码格式如下：</p>
@@ -614,20 +611,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -676,13 +673,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

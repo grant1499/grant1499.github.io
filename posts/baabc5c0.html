@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -287,7 +287,6 @@
 <p><img src="/posts/baabc5c0/image-20210222105937470.png" alt="image-20210222105937470"></p>
 <p>由绝对值不等式可证明：<br>将n个数两两分组，如果n是奇数，货仓取中位数时取到不等式的等号，此时为最小值；如果n是偶数，货仓取中间两个数的中间即可。<br><strong>结论：中位数就是此题的最优解。</strong></p>
 <span id="more"></span>
-
 <hr>
 <h3 id="算法1：排序-中位数"><a href="#算法1：排序-中位数" class="headerlink" title="算法1：排序+中位数"></a><strong>算法1：排序+中位数</strong></h3><p><strong>时间复杂度</strong>：$O(nlogn)$</p>
 <p>中位数有非常优秀的性质，比如说在这道题目中，每一个点到中位数的距离，都是满足全局的最有性，而不是局部最优性。</p>
@@ -295,20 +294,18 @@
 <p>当仓库向左移动的话，p会减少x，但是q会增加n−x，所以说当为仓库中位数的时候,p+q最小。</p>
 <p>还是同样的一句话，画图理解很重要。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) res += a[i] - a[i&gt;&gt;<span class="number">1</span>];</span><br><span class="line">    <span class="comment">// ==&gt; res += abs(a[i] - a[n&gt;&gt;1])</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <hr>
 <p>将 abs(a[i] - a[n &gt;&gt; 1]) 改为 a[i] - a[i &gt;&gt; 1]也可以 AC（这样可以不用取绝对值）</p>
 <p>证明如下：<br><img src="/posts/baabc5c0/image-20210222110203712.png" alt="image-20210222110203712"></p>
 <h3 id="算法2：快速选择-中位数"><a href="#算法2：快速选择-中位数" class="headerlink" title="算法2：快速选择+中位数"></a><strong>算法2：快速选择+中位数</strong></h3><p>快速选择函数nth_element(数组初位置，寻找元素，数组末位置)（STL）</p>
 <p>C++的STL库中的nth_element()方法，默认是求区间<strong>第k小</strong>的（划重点）。</p>
 <p>举个栗子求第3小，对于 a[9]={4,7,6,9,1,8,2,3,5};</p>
-<p>nth_element(a,a+2,a+9)，**将下标为2，也就是第3个数放在正确的位置，求的是第3小的数a[2]**。（下标从零开始）</p>
+<p>nth_element(a,a+2,a+9)，<strong>将下标为2，也就是第3个数放在正确的位置，求的是第3小的数a[2]</strong>。（下标从零开始）</p>
 <p><strong>nth_element(a,a+k,a+n)，函数只是把下标为k的元素放在了正确位置，对其它元素并没有排序，当然k左边元素都小于等于它，右边元素都大于等于它，所以可以利用这个函数快速定位某个元素</strong>。</p>
 <p>那求第k大时呢？我们可以转化成求第n-k+1小，此时下标应该是n - k。</p>
 <p><strong>nth_element(a,a+n-k,a+n)，将下标为n-k，也就是第n-k+1个数放在正确的位置，求的是第k大的数a[n-k]。</strong></p>
 <p><strong>时间复杂度</strong>：$O(n)$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,s=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">cin</span>&gt;&gt;p[i];</span><br><span class="line">    nth_element(p,p+n/<span class="number">2</span>,p+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) s+=<span class="built_in">abs</span>(p[i]-p[n/<span class="number">2</span>]);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -472,20 +469,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -534,13 +531,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

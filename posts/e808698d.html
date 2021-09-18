@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -286,22 +286,19 @@
 <p>最大公约数即为 Greatest Common Divisor，常缩写为 gcd。</p>
 <p>我们求出最大公因数可以用于分数的约分问题，只要分子、分母都除以最大公因数d。</p>
 <span id="more"></span>
-
 <p>最常用的求最大公因数的方法时欧几里得算法，也即辗转相除法。时间复杂度为$O(logn)$。</p>
 <p>欧几里得算法基于下面的定理：</p>
 <p>设a，b为均正整数，则<code>gcd(a,b) = gcd(b,a%b)</code>。</p>
 <p><img src="/posts/e808698d/image-20210409151251806.png" alt="image-20210409151251806"><img src="/posts/e808698d/image-20210409151324778.png" alt="image-20210409151324778"></p>
 <h3 id="1-1递归写法"><a href="#1-1递归写法" class="headerlink" title="1.1递归写法"></a>1.1递归写法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 常规写法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> a; <span class="comment">// 退出边界</span></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> gcd(b,a % b);<span class="comment">//递归</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简化写法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span>	</span>&#123;<span class="keyword">return</span> !b?a:gcd(b,a%b);&#125; <span class="comment">// 注意加上&#123;&#125;</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="1-2循环写法"><a href="#1-2循环写法" class="headerlink" title="1.2循环写法"></a>1.2循环写法</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> r;</span><br><span class="line">    <span class="keyword">while</span> (b != <span class="number">0</span>)&#123;</span><br><span class="line">        r = a%b,a = b,b = r; <span class="comment">// 辗转相除</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>总结：循环写法相对代码多一点，但是递归写法内存消耗大一点。</p>
 <p>个人还是推荐递归写法，毕竟码字快一点。</p>
 <p>注意：这里要求a&gt;b，但是a&lt;b也能计算，会多递归一次，相当于交换。</p>
 <h2 id="2-最小公倍数"><a href="#2-最小公倍数" class="headerlink" title="2.最小公倍数"></a>2.最小公倍数</h2><p>接下来我们介绍如何求解最小公倍数（Least Common Multiple, LCM）。</p>
 <p>我们容易发现，对于两个正整数a和b，它们的最小公倍数是ab/d(d是最大公因数)。</p>
 <p>注意：<code>为了避免a*b可能存在的溢出问题，我们可以改写为a/d*b</code>。</p>
-<p>如果你对详细证明过程感兴趣的话，推荐食用文章：<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/gcd/%E3%80%82">https://oi-wiki.org/math/gcd/。</a></p>
+<p>如果你对详细证明过程感兴趣的话，推荐食用文章：<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/gcd/。">https://oi-wiki.org/math/gcd/。</a></p>
 <h2 id="3-例题"><a href="#3-例题" class="headerlink" title="3.例题"></a>3.例题</h2><p>题目链接：<a target="_blank" rel="noopener" href="https://www.dotcpp.com/oj/problem2229.html">C语言网</a>。</p>
 <p>题目描述</p>
 <p>已知一个正整数N，问从1~N中任选出三个数，他们的最小公倍数最大可以为多少。</p>
@@ -317,21 +314,20 @@
 </blockquote>
 <p> 第一点已经在上面分析过了。而第2点也很好理解，其实就是贪心策略。</p>
 <ol>
-<li><p>N为奇数时<br> 当N为奇数时，N - 1为偶数，N - 2为奇数，显然，数学知识告诉我们，相邻的两个正整数互质。同样的，相邻的两个奇数也是互质的，那么此时题目要求的答案为N * (N - 1) * (N - 2)。</p>
+<li><p>N为奇数时<br> 当N为奇数时，N - 1为偶数，N - 2为奇数，显然，数学知识告诉我们，相邻的两个正整数互质。同样的，相邻的两个奇数也是互质的，那么此时题目要求的答案为N <em> (N - 1) </em> (N - 2)。</p>
 </li>
 <li><p>N为偶数时<br> 因为当N &gt;3时，N 和当N - 3是可能不是互质的，例如3和6。所以偶数时又分为两种可能性：</p>
 </li>
 </ol>
 <p>  2.1 当3不能整除N时<br>    当N为偶数时，N - 2同样为偶数，那么就不能满足上面思路的第1点了。但是N和N - 1还是互质的，所以</p>
 <p>在贪心策略下，我们优先考虑使用更小的值去替换N - 2，而不是替换N 和 N - 1。</p>
-<p>​        经计算发现 N - 3满足要求，所以此时答案为N * (N - 1) * (N - 3)。</p>
+<p>​        经计算发现 N - 3满足要求，所以此时答案为N <em> (N - 1) </em> (N - 3)。</p>
 <p>  2.2 当3能整除N时</p>
 <p>​        因为N能够被3整除，所以N - 3同样能被3整除，为了不违反第1点，我们再次优先用更小的值替代 N -3（为什么又是换掉第三个？因为我贪心啊）。</p>
 <p>  所以根据贪心策略，在放弃修改最小的数（在这里是N - 3）时，我们优先考虑换掉第中间大小的数（在这里是N - 2）。但是会发现，无论是使用N - 3、N - 4、N - 5……中的哪一个去替换N - 2，其结果都是跟替换最小的数（在这里是N - 3）的结果是一样的。</p>
-<p>​        所以我们只能开始考虑使用更小的值去替换最大的数，也就是N。<br>    因为采用的是贪心策略，所以我们优先考虑使用N - 1去替换N，此时结果是：(N - 1) * (N - 2) * ( N - 3)。<br>  显然相邻的两个正整数是互质的，我们只要考虑N - 1和N - 3是否互质就可以了。</p>
-<p>因为N - 1和 N - 3实际上等同于第1种情况，即N为奇数时，故 (N - 1) * (N - 2) * ( N - 3) 就是题目答案了。</p>
+<p>​        所以我们只能开始考虑使用更小的值去替换最大的数，也就是N。<br>    因为采用的是贪心策略，所以我们优先考虑使用N - 1去替换N，此时结果是：(N - 1) <em> (N - 2) </em> ( N - 3)。<br>  显然相邻的两个正整数是互质的，我们只要考虑N - 1和N - 3是否互质就可以了。</p>
+<p>因为N - 1和 N - 3实际上等同于第1种情况，即N为奇数时，故 (N - 1) <em> (N - 2) </em> ( N - 3) 就是题目答案了。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; n;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n%<span class="number">2</span> != <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; n*(n<span class="number">-1</span>)*(n<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n%<span class="number">3</span> != <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; n*(n<span class="number">-1</span>)*(n<span class="number">-3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; (n<span class="number">-1</span>)*(n<span class="number">-2</span>)*(n<span class="number">-3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -495,20 +491,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +553,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

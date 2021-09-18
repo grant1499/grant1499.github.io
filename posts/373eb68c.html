@@ -126,17 +126,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -278,13 +278,11 @@
 
       
         <h2 id="1-UDP网络编程"><a href="#1-UDP网络编程" class="headerlink" title="1.UDP网络编程"></a>1.UDP网络编程</h2><span id="more"></span>
-
 <p>类 DatagramSocket 和 DatagramPacket 实现了基于 UDP 协议网络程序。</p>
 <p>UDP数据报通过数据报套接字 DatagramSocket 发送和接收，系统不保证 UDP数据报一定能够安全送到目的地，也不能确定什么时候可以抵达。</p>
 <p>DatagramPacket 对象封装了UDP数据报，在数据报中包含了发送端的IP 地址和端口号以及接收端的IP地址和端口号。</p>
 <p>UDP协议中每个数据报都给出了完整的地址信息，因此无须建立发送方和接收方的连接。如同发快递包裹一样。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UDP网络编程示例</span></span><br><span class="line"><span class="comment">// 发送端</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sender</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    DatagramSocket socket = <span class="keyword">new</span> DatagramSocket();</span><br><span class="line">    String str = <span class="string">&quot;我是UDP方式发送的信息！&quot;</span>;</span><br><span class="line">    <span class="keyword">byte</span>[] data = str.getBytes();</span><br><span class="line">    InetAddress inet = InetAddress.getLocalHost();</span><br><span class="line">    DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(data,<span class="number">0</span>,data.length,inet,<span class="number">9090</span>);</span><br><span class="line"></span><br><span class="line">    socket.send(packet);</span><br><span class="line">    socket.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 先启动接收端再启动发送端，反过来不会报异常，但接收不到数据</span></span><br><span class="line"><span class="comment">// 接收端</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">receiver</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    DatagramSocket socket = <span class="keyword">new</span> DatagramSocket(<span class="number">9090</span>);</span><br><span class="line">    <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">100</span>];</span><br><span class="line">    DatagramPacket packet = <span class="keyword">new</span> DatagramPacket(buffer,<span class="number">0</span>,buffer.length);</span><br><span class="line">    socket.receive(packet);</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="keyword">new</span> String(packet.getData(),<span class="number">0</span>,packet.getLength()));</span><br><span class="line">    socket.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="2-URL编程"><a href="#2-URL编程" class="headerlink" title="2.URL编程"></a>2.URL编程</h2><p>URL(Uniform Resource Locator)：统一资源定位符，它表示 Internet 上某一 资源的地址。</p>
 <p>URL的5个基本结构：</p>
 <blockquote>
@@ -294,20 +292,17 @@
 <p><img src="/posts/373eb68c/image-20210802095227188.png" alt="image-20210802095227188"></p>
 <p>如何实例化：</p>
 <blockquote>
-<p>URL url = new URL(“<a target="_blank" rel="noopener" href="http://localhost:8080/examples/beauty.jpg?username=Tom&quot;">http://localhost:8080/examples/beauty.jpg?username=Tom&quot;</a>);</p>
+<p>URL url = new URL(“<a target="_blank" rel="noopener" href="http://localhost:8080/examples/beauty.jpg?username=Tom">http://localhost:8080/examples/beauty.jpg?username=Tom</a>“);</p>
 </blockquote>
 <p>常用方法：</p>
 <p>一个URL对象生成后，其属性是不能被改变的，但可以通过它给定的方法来获取这些属性：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getProtocol</span><span class="params">( )</span> 获取该URL的协议名</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getHost</span><span class="params">( )</span> 获取该URL的主机名</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPort</span><span class="params">( )</span> 获取该URL的端口号</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPath</span><span class="params">( )</span> 获取该URL的文件路径</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getFile</span><span class="params">( )</span> 获取该URL的文件名</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getQuery</span><span class="params">( )</span> 获取该URL的查询名</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">&quot;http://localhost:8080/examples/myTest.txt&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;getProtocol() :&quot;</span>+url.getProtocol());</span><br><span class="line">System.out.println(<span class="string">&quot;getHost() :&quot;</span>+url.getHost());</span><br><span class="line">System.out.println(<span class="string">&quot;getPort() :&quot;</span>+url.getPort());</span><br><span class="line">System.out.println(<span class="string">&quot;getPath() :&quot;</span>+url.getPath());</span><br><span class="line">System.out.println(<span class="string">&quot;getFile() :&quot;</span>+url.getFile());</span><br><span class="line">System.out.println(<span class="string">&quot;getQuery() :&quot;</span>+url.getQuery());</span><br><span class="line"></span><br><span class="line"><span class="comment">//=============================</span></span><br><span class="line">getProtocol() :http</span><br><span class="line">getHost() :localhost</span><br><span class="line">getPort() :<span class="number">8080</span></span><br><span class="line">getPath() :/examples/myTest.txt</span><br><span class="line">getFile() :/examples/myTest.txt</span><br><span class="line">getQuery() :<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
-
 <p>URL类的异常通常用try-catch来捕获。</p>
 <p>可以读取、下载对应的url资源：</p>
 <p>URLConnection：表示到URL所引用的远程对象的连接。当与一个URL建立连接时， 首先要在一个 URL 对象上通过方法 openConnection() 生成对应的 URLConnection 对象。如果连接过程失败，将产生IOException.</p>
 <p>通过URLConnection对象获取的输入流和输出流，即可以与现有的CGI 程序进行交互。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    HttpURLConnection urlConnection = <span class="keyword">null</span>;</span><br><span class="line">    InputStream is = <span class="keyword">null</span>;</span><br><span class="line">    FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        URL url = <span class="keyword">new</span> URL(<span class="string">&quot;http://localhost:8080/examples/beauty.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">        urlConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line"></span><br><span class="line">        urlConnection.connect();</span><br><span class="line"></span><br><span class="line">        is = urlConnection.getInputStream();</span><br><span class="line">        fos = <span class="keyword">new</span> FileOutputStream(<span class="string">&quot;day10\\beauty3.jpg&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>((len = is.read(buffer)) != -<span class="number">1</span>)&#123;</span><br><span class="line">            fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;下载完成&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//关闭资源</span></span><br><span class="line">        <span class="keyword">if</span>(is != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                is.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fos != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                fos.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(urlConnection != <span class="keyword">null</span>)&#123;</span><br><span class="line">            urlConnection.disconnect();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -471,20 +466,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -533,13 +528,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

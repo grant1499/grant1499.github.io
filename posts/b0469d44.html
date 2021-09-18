@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -287,49 +287,38 @@
 <p><strong>读取文件内容</strong>的操作。如果需要读取或写入文件内容，必须使用<strong>IO流</strong>来完成。</p>
 <p>后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的”终点”。</p>
 <span id="more"></span>
-
 <h3 id="File类的常用构造器：File的实例化"><a href="#File类的常用构造器：File的实例化" class="headerlink" title="File类的常用构造器：File的实例化"></a>File类的常用构造器：File的实例化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String filePath)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String parentPath,String childPath)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(File parentFile,String childPath)</span></span></span><br></pre></td></tr></table></figure>
-
 <p>说明：<br>    IDEA中：</p>
 <p>如果大家开发使用JUnit中的<strong>单元测试方法</strong>测试，相对路径即为当前Module下。</p>
 <p>如果大家使用main()测试，相对路径即为当前的Project下。<br>    Eclipse中：</p>
 <p>不管使用单元测试方法还是使用main()测试，相对路径都是当前的Project下。</p>
 <p>路径分隔符：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">windows和DOS系统默认使用“\”来表示</span><br><span class="line"><span class="comment">// D:\xxx\Java01_基础    在java中就需要加上\\，或者/也行</span></span><br><span class="line"></span><br><span class="line">UNIX和URL使用“/”来表示</span><br><span class="line"><span class="comment">// home/cyb</span></span><br></pre></td></tr></table></figure>
-
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 方式1：</span></span><br><span class="line">    <span class="comment">// 相对路径, 相对于当前module</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);<span class="comment">// hello.txt</span></span><br><span class="line">    <span class="comment">// 绝对路径</span></span><br><span class="line">    File file1 = <span class="keyword">new</span> File(<span class="string">&quot;D:/xxx/xxx/hello.txt&quot;</span>);<span class="comment">// D:\xxx\xxx\hello.txt</span></span><br><span class="line">    System.out.println(file);</span><br><span class="line">    System.out.println(file1);</span><br><span class="line">    <span class="comment">// 方式2：</span></span><br><span class="line">    File file2 = <span class="keyword">new</span> File(<span class="string">&quot;D:/Java&quot;</span>,<span class="string">&quot;Java基础&quot;</span>);</span><br><span class="line">    System.out.println(file2);<span class="comment">// D:\Java\Java基础</span></span><br><span class="line">    <span class="comment">// 方式3：</span></span><br><span class="line">    File file3 = <span class="keyword">new</span> File(file2,<span class="string">&quot;hi.txt&quot;</span>);</span><br><span class="line">    System.out.println(file3);<span class="comment">// D:\Java\Java基础\hi.txt</span></span><br><span class="line">    <span class="comment">// 以上的file对象只是内存层面的，在硬盘中实际并不存在</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/b0469d44/image-20210613125356257.png" alt="image-20210613125356257"></p>
 <h3 id="File类的常用方法"><a href="#File类的常用方法" class="headerlink" title="File类的常用方法"></a>File类的常用方法</h3><p>File类的获取功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getAbsolutePath</span><span class="params">()</span>：获取绝对路径</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPath</span><span class="params">()</span> ：获取路径</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> ：获取名称</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getParent</span><span class="params">()</span>：获取上层文件目录路径。若无，返回<span class="keyword">null</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span> ：获取文件长度（即：字节数）。不能获取目录的长度。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span> ：获取最后一次的修改时间，毫秒值</span></span><br><span class="line"><span class="function">如下的两个方法适用于文件目录</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String[] <span class="title">list</span><span class="params">()</span> ：获取指定目录下的所有文件或者文件目录的名称数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span> ：获取指定目录下的所有文件或者文件目录的File数组</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;D:\\Hexo\\blog&quot;</span>);</span><br><span class="line">    System.out.println(file.getPath());</span><br><span class="line">    String[] list = file.list();</span><br><span class="line">    <span class="keyword">for</span> (String s: list)&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">    File[] files = file.listFiles();</span><br><span class="line">    <span class="keyword">for</span> (File f:files)&#123;</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*D:\Hexo\blog</span></span><br><span class="line"><span class="comment">.deploy_git</span></span><br><span class="line"><span class="comment">.git</span></span><br><span class="line"><span class="comment">.gitignore</span></span><br><span class="line"><span class="comment">db.json</span></span><br><span class="line"><span class="comment">xxx省略</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.deploy_git</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.git</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.gitignore</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\db.json</span></span><br><span class="line"><span class="comment">xxx*/</span></span><br></pre></td></tr></table></figure>
-
 <p>File类的重命名功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">renameTo</span><span class="params">(File dest)</span>:把文件重命名为指定的文件路径</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    File file1 = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">    File file2 = <span class="keyword">new</span> File(<span class="string">&quot;F:\\VS_cpp\\hi.txt&quot;</span>);</span><br><span class="line">    <span class="comment">// 要想保证返回true，file1必须在硬盘中存在，file2不能存在</span></span><br><span class="line">    <span class="comment">// 结果是true，file1不存在hello，file2多了hi，文件内容还是hello的，只是改名了</span></span><br><span class="line">    <span class="keyword">boolean</span> renameTo = file1.renameTo(file2);</span><br><span class="line">    System.out.println(renameTo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>File类的判断功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span>：判断是否是文件目录</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span> ：判断是否是文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span> ：判断是否存在</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canRead</span><span class="params">()</span> ：判断是否可读</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canWrite</span><span class="params">()</span> ：判断是否可写</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHidden</span><span class="params">()</span> ：判断是否隐藏</span></span><br></pre></td></tr></table></figure>
-
 <p>File类的创建功能：硬盘中文件的创建</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">createNewFile</span><span class="params">()</span> ：创建文件。若文件存在，则不创建，返回<span class="keyword">false</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdir</span><span class="params">()</span> ：创建文件目录。如果此文件目录存在，就不创建了。如果此文件目录的上层目录不存在，也不创建。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdirs</span><span class="params">()</span> ：创建文件目录。如果上层文件目录不存在，一并创建</span></span><br></pre></td></tr></table></figure>
-
 <p>注意事项：如果你创建文件或者文件目录没有写盘符路径，那么，默认在项目 路径下。</p>
 <p>File类的删除功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span>：删除文件或者文件夹</span></span><br></pre></td></tr></table></figure>
-
 <p>删除注意事项：</p>
 <p>Java中的删除不走回收站。 要删除一个文件目录，请注意<strong>该文件目录内不能包含文件或者文件目录</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">// 文件的创建与删除</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!file.exists())&#123;</span><br><span class="line">        file.createNewFile();</span><br><span class="line">        System.out.println(<span class="string">&quot;创建成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        file.delete();</span><br><span class="line">        System.out.println(<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="2-IO流"><a href="#2-IO流" class="headerlink" title="2.IO流"></a>2.IO流</h2><p>输入input：读取外部数据（磁盘、光盘等存储设备的数据）到程序（内存）中。</p>
 <p>输出output：将程序（内存） 数据输出到磁盘、光盘等存储设备中。</p>
 <p>分界是以内存为标准：进内存处理就是输入流、 出内存就是输出流。</p>
 <p><strong>程序员从内存（程序）的角度来看是输入还是输出。</strong></p>
 <p>最基本的流：4个抽象基类</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -338,7 +327,8 @@
 <th>字符流</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>输入流</td>
 <td>InputStream</td>
 <td>Reader</td>
@@ -348,7 +338,9 @@
 <td>OutputStream</td>
 <td>Writer</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>字节流：Byte，字符流：char。字符流更适合处理文本文件。</p>
 <p>流的分类</p>
 <ol>
@@ -382,7 +374,6 @@
 </ul>
 <p>InputStream &amp; Reader</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">InputStream 和 Reader 是所有输入流的基类</span><br><span class="line">InputStream</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(byte[] b)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(byte[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function">Reader</span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span> [] c)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span> [] c, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 程序中打开的文件 IO 资源不属于内存里的资源，垃圾回收机制无法回收该资</span></span></span><br><span class="line">源，所以应该显式关闭文件 IO 资源</span><br><span class="line"></span><br><span class="line"><span class="comment">// FileInputStream 从文件系统中的某个文件中获得输入字节。FileInputStream</span></span><br><span class="line">用于读取非文本数据之类的原始字节流。要读取字符流，需要使用 FileReader</span><br></pre></td></tr></table></figure>
-
 <p><img src="/posts/b0469d44/image-20210725074959543.png" alt="image-20210725074959543"></p>
 <p><img src="/posts/b0469d44/image-20210725075010681.png" alt="image-20210725075010681"></p>
 
@@ -548,20 +539,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -610,13 +601,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>

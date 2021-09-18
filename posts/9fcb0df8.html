@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/9fcb0df8/image-20210830091329489.png">
 <meta property="article:published_time" content="2021-08-29T06:19:55.000Z">
-<meta property="article:modified_time" content="2021-08-30T08:46:37.926Z">
+<meta property="article:modified_time" content="2021-09-06T11:05:10.649Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -125,17 +125,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">130</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">18</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">223</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 16:46:37" itemprop="dateModified" datetime="2021-08-30T16:46:37+08:00">2021-08-30</time>
+                <time title="修改时间：2021-09-06 19:05:10" itemprop="dateModified" datetime="2021-09-06T19:05:10+08:00">2021-09-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -279,7 +279,6 @@
         <h2 id="1-操作BOM对象（重点）"><a href="#1-操作BOM对象（重点）" class="headerlink" title="1.操作BOM对象（重点）"></a>1.操作BOM对象（重点）</h2><p>浏览器对象模型 (BOM) 使 JavaScript 有能力与浏览器”对话”。</p>
 <p>浏览器对象模型（<strong>B</strong>rowser <strong>O</strong>bject <strong>M</strong>odel (BOM)）尚无正式标准。</p>
 <span id="more"></span>
-
 <h3 id="Window-对象（重要）"><a href="#Window-对象（重要）" class="headerlink" title="Window 对象（重要）"></a>Window 对象（重要）</h3><p>所有浏览器都支持 window 对象。它表示浏览器窗口。</p>
 <p>所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。</p>
 <p>全局变量是 window 对象的属性。</p>
@@ -293,26 +292,22 @@
 <hr>
 <p>Navigator封装了浏览器的信息，不建议使用，因为可以人为修改！</p>
 <h3 id="Window-Screen"><a href="#Window-Screen" class="headerlink" title="Window Screen"></a>Window Screen</h3><p>window.screen 对象包含有关用户屏幕的信息。可以省略前面的window。</p>
-<p><code>screen.height </code></p>
+<p><code>screen.height</code></p>
 <p><code>screen.width</code></p>
 <h3 id="Window-Location（重要）"><a href="#Window-Location（重要）" class="headerlink" title="Window Location（重要）"></a>Window Location（重要）</h3><p>window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。</p>
 <p><img src="/posts/9fcb0df8/image-20210830091329489.png" alt="image-20210830091329489"></p>
 <h3 id="document（DOM）"><a href="#document（DOM）" class="headerlink" title="document（DOM）"></a>document（DOM）</h3><p><code>document</code>对象表示当前页面。由于HTML在浏览器中以DOM形式表示为树形结构，<code>document</code>对象就是整个DOM树的根节点。</p>
 <p><code>document</code>的<code>title</code>属性是从HTML文档中的<code>&lt;title&gt;xxx&lt;/title&gt;</code>读取的，但是可以动态改变：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.title = <span class="string">&#x27;努力学习JavaScript!&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
 <p>用<code>document</code>对象提供的<code>getElementById()</code>和<code>getElementsByTagName()</code>可以按ID获得一个DOM节点和按Tag名称获得一组DOM节点：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl id=<span class="string">&quot;app&quot;</span>&gt;</span><br><span class="line">        &lt;dt&gt;Java&lt;/dt&gt;</span><br><span class="line">	&lt;dd&gt;JavaSE&lt;/dd&gt;</span><br><span class="line">	&lt;dd&gt;JavaEE&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br><span class="line"><span class="keyword">var</span> dl = <span class="built_in">document</span>.getElementById(<span class="string">&quot;app&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> dd = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;dd&quot;</span>);</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Java<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>JavaSE<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dd</span>&gt;</span>JavaEE<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br><span class="line">var dl = document.getElementById(&quot;app&quot;);</span><br><span class="line">var dd = document.getElementsByTagName(&quot;dd&quot;);</span><br></pre></td></tr></table></figure>
 <p><code>document</code>对象还有一个<code>cookie</code>属性，可以获取当前页面的Cookie。</p>
 <p>Cookie是由服务器发送的key-value标示符。因为HTTP协议是无状态的，但是服务器要区分到底是哪个用户发过来的请求，就可以用Cookie来区分。当一个用户成功登录后，服务器发送一个Cookie给浏览器，例如<code>user=ABC123XYZ(加密的字符串)...</code>，此后，浏览器访问该网站时，会在请求头附上这个Cookie，服务器根据Cookie即可区分出用户。</p>
 <p>Cookie还可以存储网站的一些设置，例如，页面显示的语言等等。</p>
 <p>JavaScript可以通过<code>document.cookie</code>读取到当前页面的Cookie：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie</span><br><span class="line"><span class="string">&quot;Hm_lvt_2efddd14a5f2b304677462d06fb4f964=1630192613,1630227410,1630241840,1630284920; Hm_lpvt_2efddd14a5f2b304677462d06fb4f964=1630284928&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>由于JavaScript能读取到页面的Cookie，而用户的登录信息通常也存在Cookie中，这就造成了巨大的安全隐患。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 当前页面在wwwexample.com --&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;<span class="comment">// 劫持cookie</span></span><br><span class="line">        &lt;script src=<span class="string">&quot;http://www.foo.com/jquery.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 当前页面在wwwexample.com --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span>// 劫持cookie</span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://www.foo.com/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果引入的第三方的JavaScript中存在恶意代码，则<code>www.foo.com</code>网站将直接获取到<code>www.example.com</code>网站的用户登录信息。</p>
 <p>为了确保安全，服务器端在设置Cookie时，应该始终坚持使用<code>httpOnly</code>。这由浏览器实现。</p>
 <p>history代表浏览器的历史记录，不建议使用。</p>
@@ -326,9 +321,9 @@
 <li>删除：将该节点从HTML中删除，相当于删掉了该DOM节点的内容以及它包含的所有子节点。</li>
 </ul>
 <p><strong>在操作一个DOM节点前，我们需要通过各种方式先拿到这个DOM节点。</strong></p>
+<p><strong>注意！！！</strong>操作DOM节点时script标签应该放在<code>&lt;body&gt;</code>内部，不要放在<code>&lt;head&gt;</code>内部。<strong>否则拿不到节点。</strong></p>
 <p>由于ID在HTML文档中是唯一的，所以<code>document.getElementById()</code>可以直接定位唯一的一个DOM节点。<code>document.getElementsByTagName()</code>和<code>document.getElementsByClassName()</code>总是返回一组DOM节点。要精确地选择DOM，可以先定位父节点，再从父节点开始选择，以缩小范围。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对应CSS的各种选择器</span></span><br><span class="line"><span class="comment">// 返回ID为&#x27;test&#x27;的节点：</span></span><br><span class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先定位ID为&#x27;test-table&#x27;的节点，再返回其内部所有tr节点：</span></span><br><span class="line"><span class="keyword">var</span> trs = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;test-table&#x27;</span>).getElementsByTagName(<span class="string">&#x27;tr&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先定位ID为&#x27;test-div&#x27;的节点，再返回其内部所有class包含red的节点：</span></span><br><span class="line"><span class="keyword">var</span> reds = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;test-div&#x27;</span>).getElementsByClassName(<span class="string">&#x27;red&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取节点test下的所有直属子节点:</span></span><br><span class="line"><span class="keyword">var</span> cs = test.children;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取节点test下第一个、最后一个子节点：</span></span><br><span class="line"><span class="keyword">var</span> first = test.firstElementChild;</span><br><span class="line"><span class="keyword">var</span> last = test.lastElementChild;</span><br></pre></td></tr></table></figure>
-
 <p>上面是原生代码，之后我们尽量都使用<code>jQuery();</code></p>
 
     </div>
@@ -492,20 +487,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">242</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">130</span>
+        <span class="site-state-item-count">140</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -554,13 +549,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">889k</span>
+    <span title="站点总字数">969k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">13:29</span>
+    <span title="站点阅读时长">14:41</span>
 </div>
 
 <span id="sitetime"></span>
