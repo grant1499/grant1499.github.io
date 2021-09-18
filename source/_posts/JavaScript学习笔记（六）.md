@@ -65,9 +65,9 @@ document.title = '努力学习JavaScript!';
 
 用`document`对象提供的`getElementById()`和`getElementsByTagName()`可以按ID获得一个DOM节点和按Tag名称获得一组DOM节点：
 
-```js
+```html
 <dl id="app">
-        <dt>Java</dt>
+    <dt>Java</dt>
 	<dd>JavaSE</dd>
 	<dd>JavaEE</dd>
 </dl>
@@ -90,7 +90,7 @@ document.cookie
 
 由于JavaScript能读取到页面的Cookie，而用户的登录信息通常也存在Cookie中，这就造成了巨大的安全隐患。
 
-```js
+```html
 <!-- 当前页面在wwwexample.com -->
 <html>
     <head>// 劫持cookie
@@ -120,6 +120,8 @@ history代表浏览器的历史记录，不建议使用。
 - 删除：将该节点从HTML中删除，相当于删掉了该DOM节点的内容以及它包含的所有子节点。
 
 **在操作一个DOM节点前，我们需要通过各种方式先拿到这个DOM节点。**
+
+**注意！！！**操作DOM节点时script标签应该放在`<body>`内部，不要放在`<head>`内部。**否则拿不到节点。**
 
 由于ID在HTML文档中是唯一的，所以`document.getElementById()`可以直接定位唯一的一个DOM节点。`document.getElementsByTagName()`和`document.getElementsByClassName()`总是返回一组DOM节点。要精确地选择DOM，可以先定位父节点，再从父节点开始选择，以缩小范围。
 

@@ -12,13 +12,10 @@ date: 2021-02-25 18:43:20
 
 ## 1.IDEA快捷键
 
-psvm：`public static void main(String[] args)`
-
-sout：`System.out.println("")`
-
-ctrl + D：复制当前行到下一行
-
-Alt + Insert：生成构造器，get/set方法
+1. psvm：`public static void main(String[] args)`
+2. sout：`System.out.println("")`
+3. ctrl + D：复制当前行到下一行
+4. Alt + Insert：生成构造器，get/set方法
 
 <!--more-->
 

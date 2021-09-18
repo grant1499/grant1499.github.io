@@ -40,8 +40,6 @@ public static MerchandiseV2 createMerchandise(String name, String id, int count,
 | 默认（default） | 可以 | 可以 |      |      |
 | private | 可以 | | | |
 
-
-
 ## 2.Math类
 
 Java 的 Math 包含了用于执行基本数学运算的属性和方法，如初等指数、对数、平方根和三角函数。

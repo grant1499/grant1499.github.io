@@ -143,7 +143,7 @@ https://noshore.cn/shuangxianbushu.html#2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90
 
 https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点。
 
-以后用`hexo d -g`进行双线部署。
+**以后用`hexo d -g`进行双线部署。**
 
 tips：绑定域名后访问量将清零！
 
@@ -252,3 +252,7 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
 ## 18.补充
 
 以后git操作不能用密码了，需要用token代替密码。
+
+## 19.Latex公式渲染
+
+参考： https://blog.csdn.net/littlehaes/article/details/84370393。

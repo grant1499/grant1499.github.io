@@ -46,3 +46,48 @@ has-a( 有 "a"  汽车有轮胎) 表示组合，包含关系。比如兔子包�
 
 组合让两个类相对保持自己的独立性，而继承则让两个类相互渗透，因为继承更确切地说是子类和父类的融合。
 类存在的目的是封装，而继承在某种程度上破坏了这种封装，让两个类紧紧耦合在了一起。
+
+## 覆盖（重写）的实例
+
+```java
+package test;
+
+class Father{
+	public void fun1(){
+		System.out.println("Father -- > fun1()");
+	}
+	
+	public void fun2(){
+		this.fun1();
+	}
+}
+
+class Son extends Father {
+	public void fun1(){
+		System.out.println("Son -- > fun1()");
+	}
+	
+	public void fun3(){
+		System.out.println("Son -- > fun3()");
+	}
+}
+
+public class override_test_1 {
+	public static void main(String[] args){
+		Father fa = new Son();
+		Son son = (Son) fa;// 左边的引用决定能调用哪些方法，右边new的对象决定具体执行哪个方法
+		son.fun1();// Son -- > fun1()
+		son.fun2();// Son -- > fun1()
+		son.fun3();// Son -- > fun3()
+	}
+}
+// 并不是强制类型转换的一个例子
+public static void main(String[] args){
+		Father fa = new Father();
+		Son son = (Son) fa; // 不能转换，不是多态，会报错
+		son.fun1();
+		son.fun2();
+		son.fun3();
+}
+```
+

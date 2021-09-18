@@ -162,3 +162,5 @@ $\frac {\partial L(\beta_0, \beta_1)}{\partial \beta_0}$
 24.打出空格：$a\;b$，`$a\;b$`
 
 25.打出整除与不整除：$a\mid b,c\nmid d$，`$a\mid b,c\nmid d$`
+
+26.Latex公式渲染问题，两个`*`会被hexo转义为斜体，所以用`\star`代替。

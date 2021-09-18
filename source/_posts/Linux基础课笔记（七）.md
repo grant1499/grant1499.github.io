@@ -110,7 +110,7 @@ acs@9e0ebfcd82d7:~$ ./test2.sh
 My name is: yxc
 ```
 
-## 1.18：Linux作业
+## 1.19：Linux作业
 
 3. 作业
     创建好作业后，先进入文件夹/home/acs/homework/lesson_3/，然后：
@@ -151,3 +151,191 @@ My name is: yxc
         [3] main.sh接收两个传入参数。格式为 ./main.sh input_file output_file
         [4] 从input_file中读取一个正整数n，然后将前n个正整数的平方和写入output_file中
         [5] 数据保证 1 <= n <= 100，脚本不需要判断所有数据的合法性。
+
+```shell
+# **homework_0**
+# help.sh
+#! /bin/bash
+
+path=/home/acs/homework/lesson_1/
+homework 1 create
+
+# homework_0
+cd ${path}homework_0/
+mkdir dir_{a..c}
+
+# homework_1
+cd ${path}homework_1/
+for i in {a..c}
+do
+    cp ${i}.txt ${i}.txt.bak
+done
+
+# homework_2
+cd ${path}homework_2/
+for i in {a..c}
+do
+    mv ${i}.txt ${i}_new.txt
+done
+
+# homework_3
+cd ${path}homework_3/
+for i in {a..c}
+do
+    mv dir_a/${i}.txt dir_b/
+done
+
+# honework_4
+cd ${path}homework_4/
+rm {a..c}.txt
+
+# homework_5
+cd ${path}homework_5/
+rm dir_{a..c} -r
+
+# homework_6
+cd ${path}homework_6/
+mkdir dir_a
+mv "task.txt" "dir_a/done.txt"
+
+# homework_7
+cd ${path}homework_7/
+mkdir dir_{0..2}
+for i in {0..2}
+do
+    for j in {a..c}
+    do
+        cp ${j}.txt dir_${i}/${j}${i}.txt
+    done
+done
+
+# homework_8
+cd ${path}homework_8/
+for i in {a..c}
+do
+    cd dir_${i} 
+    if [ ${i} == "a" ] # 注意中括号表达式中每项都要用空格隔开
+    then
+        rm a.txt
+    elif [ ${i} == "b" ]
+    then
+        mv b.txt b_new.txt
+    elif [ ${i} == "c" ]
+    then
+        cp c.txt c.txt.bak
+    fi
+    cd ../ # 注意循环中的cd命令，在本次循环结束要cd回到上一层
+done
+
+# homework_9
+cd ${path}homework_9/
+rm *.txt
+# **homework_1**
+#! /bin/bash
+
+if [ $# -ne 1 ]
+then
+    echo "arguments not valid"
+    exit 1
+elif [ -e "$1" ]
+then
+    if [ -f "$1" ] #可以简写成 [ -f "$1" ] && echo "regulare file"
+    then
+        echo "regulare file"
+    fi
+    if [ -d "$1" ]
+    then
+        echo "directory"
+    fi
+    if [ -r "$1" ]
+    then
+        echo "readable"
+    fi
+    if [ -w "$1" ]
+    then
+        echo "writable"
+    fi
+    if [ -x "$1" ]
+    then
+        echo "executable"
+    fi
+    exit 0
+else
+    echo "not exist"
+    exit 2
+fi
+# **homework_2**
+#! /bin/bash
+
+read n
+
+a[0]=1;a[1]=1
+for ((i = 2;i <= 20;i++))
+do
+    a[i]=$((a[i-1] + a[i-2]))
+done
+echo ${a[n]}
+# **homework_3**
+# dfs + 剪枝，通过flag标记剪枝，在dfs回溯时知道已找到·答案就提前退出
+#! /bin/bash
+
+read n
+read m
+
+cnt=0
+st=()
+path=()
+flag=0
+
+for ((i = 1;i <= n;i++))
+do
+    st[i]=0
+done
+
+dfs() {
+    if [ $1 -eq $((n+1)) ]
+    then
+        ((cnt++))
+        if [ $cnt == $m ]
+        then
+            local i=1
+            for ((i = 1;i <= n;i ++))
+            do
+                echo -e "${path[i]} \c "
+            done
+            echo ""
+            flag=1
+        fi
+        return 0
+    fi
+
+    local i=1
+    for (( i = 1;i <= n;i++))
+    do
+        if [ ${st[i]} -eq 0 ]
+        then
+            st[$i]=1
+            path[$1]=${i}
+            dfs $(expr $1 + 1)
+            if [ $flag -eq 1 ]
+            then
+                return 0
+            fi
+            st[$i]=0
+        fi
+    done
+}
+
+dfs 1
+# **homework_4**
+#! /bin/bash
+
+read n < "$1"
+res=0
+for ((i = 1;i <= n;i++))
+do
+    res=$((res + i * i))
+done
+echo $res > "$2"
+```
+

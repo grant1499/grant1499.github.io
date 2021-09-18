@@ -19,7 +19,7 @@ date: 2021-05-19 19:20:40
 
 主要背包问题模板整理：https://www.acwing.com/blog/content/228/
 
-八类背包问题笔记整理：[点这里](https://valen.blog.csdn.net/article/details/87878853?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1)
+八类背包问题笔记整理：[点这里](https://valen.blog.csdn.net/article/details/87878853)
 
 OI-wiki背包问题简单总结：https://oi-wiki.org/dp/knapsack/
 
@@ -116,7 +116,7 @@ int main(){
 
 对比01背包问题的状态转移方程是：`f[i][j] = max(f[i-1][j],f[i-1][j-v[i]]+w[i])`
 
-我们很容易发现，01背包和完全背包的区别就在于第二项的第一维，前者是i-1，而后者是i。
+我们很容易发现，01背包和完全背包的区别就在于第二项的第一维，前者是`i-1`，而后者是`i`。
 
 ```C++
 #include <iostream>
@@ -148,7 +148,7 @@ int main(){
 
 这里先介绍降低第一维度的题解，在01背包中没有提到过。
 
-就是将第一个维度直接&1，那么数据就会保存在`dp[0][x]`和`dp[1][x]`中。只要用到`dp[2][N]`这么大的数组就足够了。
+就是将第一个维度直接&1，那么数据就会保存在`dp[0][x]`和`dp[1][x]`中。只要用到`dp[2][N]`这么大的数组就足够了。（这就是一个两层的滚动数组）
 
 我们还可以再优化，边读入变处理。
 
@@ -181,7 +181,7 @@ int main(){
 
 利用滚动数组优化成一维：
 
-由于完全背包用到的`dp[i][j-v[i]]`是第i（即本次）次的结果，不像01背包一样用到的是上一次的结果，所以可以直接正向枚举。
+由于完全背包用到的`dp[i][j-v[i]]`是第`i`（即本次）次的结果，不像01背包一样用到的是上一次的结果，所以可以直接正向枚举。
 
 ```C++
 #include <iostream>
@@ -261,7 +261,8 @@ int main(){
     for (int i = 1;i <= n;i++){
         for (int j = 0;j <= m;j++){
             // 比完全背包多一个物品件数限制
-            for (int k = 0;k <= s[i] && j >= k*v[i];k++) dp[i][j] = max(dp[i][j],dp[i-1][j-k*v[i]] + k*w[i]);
+            for (int k = 0;k <= s[i] && j >= k*v[i];k++)
+                dp[i][j] = max(dp[i][j],dp[i-1][j-k*v[i]] + k*w[i]);
         }
     }
     cout << dp[n][m] << endl;
@@ -273,17 +274,17 @@ int main(){
 
 ### acwing.5. 多重背包问题 II
 
-数据范围
+数据范围：
 
+```C++
 0<N≤1000
-
 0<V≤2000
-
 0<vi,wi,si≤2000
+```
 
 数据范围比上一题加强了。
 
-非优化写法时间复杂度O(n^3) 接近 1e9，必超时。
+朴素写法时间复杂度O(n^3) 接近 1e9，必超时。
 
 那么需要优化解题思路了，我们是否可以尝试类似完全背包的二重优化呢？
 
@@ -293,9 +294,9 @@ int main(){
 
  再考虑其他的思路：
 
-二进制优化！
+二进制优化！（也就是倍增思想加速DP状态转移，快速缩小较大的状态空间）
 
-我们知道任意一个实数可以由二进制数来表示，也就是2^0~2^k其中一项或几项的和。
+我们知道任意一个实数可以由二进制数来表示，也就是`2^0~2^k`其中一项或几项的和。
 
 下面给出两个例子：
 
@@ -303,7 +304,7 @@ int main(){
 
 那么我们可以用10组数字1,2,4,8,...,512来表示0到1023中的任意一个数字。
 
-简单证明一下：
+**简单证明一下：**
 
 1可以表示出0和1；再加上2可以表示出2和3，一共是0到3；再加上4可以表示出4到7，一共是0到7；
 
@@ -360,7 +361,8 @@ int dp[M];
 int main(){
     cin >> n >> m;
 
-    int cnt = 0;// 重新分组
+    int cnt = 0;
+    // 重新按二进制分组
     for (int i = 1;i <= n;i++){
         int a,b,s;
         cin >> a >> b >> s;
@@ -395,6 +397,8 @@ int main(){
 比如初始s=10，进入while循环，s,10-1=9，k=2；第二次，s=9-2=7，k=4；第三次，s=7-4=3，k=8；退出循
 
 环，s有剩余，最后一组是3。
+
+> 其实，多重背包问题还可以用单调队列进一步优化。
 
 ## 4.分组背包问题
 
@@ -453,6 +457,8 @@ int main(){
 
 因为01背包每组只有1件物品，而分组背包每组有多件物品，需要每次更新最大值。
 
+说明一下：01背包max的第一项也可以写成`dp[i][j]`，可以AC。
+
 ```C++
 #include <iostream>
 #include <algorithm>
@@ -476,7 +482,8 @@ int main(){
         for (int j = 0;j <= m;j++){
             dp[i][j] = dp[i-1][j];// 不选
             for (int k = 0;k < s[i];k++){// 选第k件
-                if (j >= v[i][k]) dp[i][j] = max(dp[i][j],dp[i-1][j-v[i][k]] + w[i][k]);
+                if (j >= v[i][k])
+                    dp[i][j] = max(dp[i][j],dp[i-1][j-v[i][k]] + w[i][k]);
             }
         }
     cout << dp[n][m] << endl;

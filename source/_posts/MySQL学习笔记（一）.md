@@ -42,6 +42,12 @@ DBMS：数据库管理系统
 
 ## 2.MySQL入门使用
 
+sql练习网站： http://xuesql.cn/。
+
+牛客网sql题目： https://www.nowcoder.com/ta/sql。
+
+廖雪峰sql教程： https://www.liaoxuefeng.com/wiki/1177760294764384。
+
 安装MySQL直接百度教程就行。
 
 打开cmd命令行，输入`mysql -u root -p`，然后输入密码，进入mysql。
