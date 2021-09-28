@@ -200,4 +200,4 @@ backup:
   message: Back up my blog
   repository:
     github: git@github.com:grant1499/grant1499.github.io.git,backup
-    e.coding: git@e.coding.net:grant1499/grant1499/grant1499.git，backup
+    coding: git@e.coding.net:grant1499/grant1499/grant1499.git，backup
