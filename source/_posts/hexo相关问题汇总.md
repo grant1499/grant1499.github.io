@@ -89,10 +89,16 @@ https://blog.csdn.net/qq_41793001/article/details/103151182
 
 当执行`hexo d`命令时出现如下错误时，OpenSSL SSL_read: Connection was aborted, errno 10053...
 
-参考解决方案：https://blog.csdn.net/weixin_43945983/article/details/110882074
+参考解决方案：https://blog.csdn.net/weixin_43945983/article/details/110882074。
 
 先执行`git config --global http.sslVerify "false"`命令，再执行`hexo d`就行了。
 如果还有错，多试几次，网络不好。
+
+如果还不行，找到工作目录下的`.git/config`文件（Win下隐藏文件），找到这行：
+
+`url = http:github.com:grant1499/grant1499.github.io.git`，将`github.com`的前缀改成`http:`。
+
+参考解决方案： https://alex007.blog.csdn.net/article/details/114744671。
 
 ## 12.文章生成永久化链接
 

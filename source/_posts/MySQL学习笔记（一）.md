@@ -4,7 +4,7 @@ tags:
   - SQL
 categories:
   - - SQL
-mathjax: true
+mathjax: false
 copyright: true
 abbrlink: ec3642b8
 date: 2021-05-03 10:58:53
@@ -40,7 +40,17 @@ DBMS：数据库管理系统
 
 尽量不要安装exe，卸载时会有注册表残留，尽可能使用压缩包安装，卸载方便
 
+狂神视频配套笔记： https://www.acwing.com/blog/content/4516/。
+
+入门参考书籍： 《MySQL必知必会》。
+
+参考文章： 《SQL语法总结》。
+
+MySQL官方中文文档： https://dev.mysql.com/doc/。
+
 ## 2.MySQL入门使用
+
+数据库系统概论学习： https://caochenlei.blog.csdn.net/article/details/110132192。
 
 sql练习网站： http://xuesql.cn/。
 
@@ -128,7 +138,7 @@ SQL的多行注释
 */
 ```
 
-对于SQLyog的操作：选中语句执行
+对于SQLyog的操作：选中语句单行执行
 
 ![image-20210503134031081](MySQL学习笔记（一）/image-20210503134031081.png)
 

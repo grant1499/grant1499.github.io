@@ -333,7 +333,7 @@ public void server() {
 }
 ```
 
-注意：io流不要重复关闭。关闭顺序要求先开后，，否则会报异常“java.io.IOException:Stream Closed”。
+注意：io流不要重复关闭。关闭顺序要求先开后，否则会报异常`“java.io.IOException:Stream Closed”`。
 
 外层流关闭后内层流也会关闭。
 

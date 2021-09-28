@@ -40,6 +40,8 @@ git push -u origin master # 之后push master就不用加-u了
 
 “origin” 是当你运行 git clone 时默认的远程仓库名字，相当于一个指向本地仓库的指针。 
 
+在一台新机器执行`git clone`时需要先设置SSH密钥和公钥。（见SSH内容）
+
 **多分支：**（多人协作时用的很多）
 
 分支可以从任何一个节点延伸出来。创建一个分支相当于从这个节点多了一个箭头，但只有commit之后这个箭头才会实际指向一个节点。
@@ -127,4 +129,66 @@ git stash list：查看栈中所有元素
 删除本地仓库：`rm  project -rf`，删除云端仓库：设置-->高级-->删除项目。
 
 ## 1.5：acwing讲义
+
+注意：本次作业的10个题目不是独立的，每个题目会依赖于前一个题目，因此评测时如果当前题目错误，则不再评测后续题目。
+
+创建好作业后，先进入文件夹/home/acs/homework/lesson_5/，然后：
+    (0) 在当前目录下创建文件夹homework，并将homework目录配置成git仓库。后续作业均在homework目录下操作；
+    (1) 创建文件readme.txt，内容包含一行：111；
+        将修改提交一个commit；
+    (2) 在readme.txt文件末尾新增一行：222；
+        将修改提交一个commit；
+    (3) 创建文件夹：problem1和problem2；
+        创建文件problem1/main.cpp。文件内容为下述链接中的代码：https://www.acwing.com/problem/content/submission/code_detail/7834813/；
+        创建文件problem2/main.cpp。文件内容为下述链接中的代码：https://www.acwing.com/problem/content/submission/code_detail/7834819/；
+        将修改提交一个commit；
+    (4) 删除文件夹problem2；
+        创建文件夹problem3；
+        创建文件problem3/main.cpp。文件内为下述链接中的代码：https://www.acwing.com/problem/content/submission/code_detail/7834841/；
+        将readme.txt中最后一行222删掉，然后添加一行333；
+        将修改提交一个commit；
+    (5) 在https://git.acwing.com/上注册账号并创建仓库，仓库名称为homework；
+        将本地git仓库上传到AC Git云端仓库；
+    (6) 创建并切换至新分支dev；
+        在readme.txt文件中添加一行444；
+        将修改提交一个commit；
+        将dev分支推送至AC Git远程仓库；
+    (7) 切换回master分支；
+        在readme.txt文件中添加一行555；
+        将修改提交一个commit；
+    (8) 将dev分支合并到master分支；
+        手动处理冲突，使readme文件最终内容包含4行：111、333、555、444；
+        将修改提交一个commit；
+    (9) 将master分支的版本库push到AC Git云端仓库；
+        登录myserver服务器（4. ssh作业配置的服务器）；
+        创建并清空文件夹：~/homework/lesson_5/；
+        将AC Git云端仓库clone到~/homework/lesson_5/中；
+
+---
+
+大部分都很简单，有两个题要注意一下。
+
+```shell
+# homework_3
+# tmux 里复制会丢失 #i，要手动补全
+```
+
+```shell
+# homework_9
+# 参考题解： https://www.acwing.com/activity/content/code/content/1805869/
+
+# 如果git clone需要密码，可能是myserver服务器没有配置SSH密钥，需要生成一下公钥添加到git lab上
+如果gitlab上没有添加myserver服务器上密钥，需要添加密钥。
+
+# 解决git clone只有master(或者其他分支)分支的问题
+/*
+我们在使用 git clone + 远程仓库地址将项目下载下来之后，倘若远程仓库有多个分支，我们会发现，使用git branch查看本地分支时，只有一个master分支。*/
+
+但是，大多时候我们是需要在其他分支进行工作的，所以我们需要将远程的其他分支拉下来才可以，首先，先使用git branch -a查看远程分支,那些以rmotes开头且为红色的都是远程分支，或者理解为这些分支是隐藏的。*/
+
+如果想要将远程分支与本地分支联系起来，则执行
+git checkout -b master origin/master
+或者使用-t参数，它默认会在本地建立一个和远程分支名字一样的分支
+git checkout -t origin/master
+```
 

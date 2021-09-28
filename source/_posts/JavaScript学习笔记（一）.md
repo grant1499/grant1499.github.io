@@ -26,6 +26,8 @@ JS参考教程： https://blog.csdn.net/pan_h1995/article/details/105974385。
 
 一个ES6教程： https://www.runoob.com/w3cnote/es6-tutorial.html。
 
+又一个ES6入门教程： https://es6.ruanyifeng.com/。
+
 廖雪峰JavaScript教程： https://www.liaoxuefeng.com/wiki/1022910821149312。
 
 推荐一个Web技术学习网站： https://developer.mozilla.org/zh-CN/docs/Web/Tutorials。

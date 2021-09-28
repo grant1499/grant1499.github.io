@@ -42,6 +42,8 @@ server绝大多数都是部署在Linux上，所以需要先学好Linux，Linux�
 
 参考博客： https://www.junmajinlong.com/linux/index/。
 
+《趣谈Linux操作系统》 ： https://time.geekbang.org/column/article/87111。
+
 # 3：lesson1
 
 ## 3.1：课程概论
@@ -211,7 +213,7 @@ test.txt  test1.txt
 mkdir ./a/b/c -p # 在当前目录下创建一连串目录a/b/c
 ```
 
-### history (查看历史命令)
+### history (查看历史命令，很有用！)
 
 history命令用于显示用户以前执行过的历史命令，并且能对历史命令进行追加和删除等操作。
 

@@ -4,7 +4,7 @@ tags:
   - SQL
 categories:
   - - SQL
-mathjax: true
+mathjax: false
 copyright: true
 abbrlink: dc20ae60
 date: 2021-05-03 13:41:39
@@ -45,7 +45,7 @@ USE `school` --如果你的表名或字段名是一个特殊词语，加上``修
 SHOW DATABASES; --记得加S
 ```
 
-以上四条命令对照SQLyog的可视化操作学习。
+以上四条命令对照SQLyog的可视化操作学习。（工具选项卡-->历史记录）
 
 不会某个命令时，在SQLyog执行可视化操作，然后在历史记录中查看对应的语句。
 
