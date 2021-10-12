@@ -4,7 +4,7 @@ tags:
   - 计算机网络
 categories:
   - - 计算机网络
-mathjax: true
+mathjax: false
 copyright: true
 abbrlink: 8e8a16da
 date: 2021-09-19 14:36:33
@@ -13,6 +13,12 @@ date: 2021-09-19 14:36:33
 # 第一章：Wireshark实验
 
 《计算机网络--自顶向下方法》[笔记及配套资料](https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES)。
+
+《计算机网络--自顶向下方法》资料： https://github.com/jzplp/Computer-Network-A-Top-Down-Approach-Answer。
+
+实验与习题答案： https://blog.csdn.net/qq278672818/category_8368262.html。
+
+**在线实验平台： https://www.educoder.net/paths/734。（强烈推荐！）**
 
 <!--more-->
 

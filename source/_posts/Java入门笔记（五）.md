@@ -354,7 +354,7 @@ public class UserServiceImpl implements UserService,TimeService{
 1. 约束
 2. 定义一些方法，让不同的人实现
 3. 接口中方法默认用`public abstract`修饰
-4. 接口中属性默认用`public static final`修饰，也即静态常量
+4. 接口中属性默认用`public static final`修饰，也即静态常量，必须初始化
 5. 接口不能被实例化，接口中没有构造方法
 6. 接口中定义的静态方法只能通过接口来调用
 7. 通过实现类的对象，可以调用接口的default方法

@@ -18,7 +18,7 @@ y总说： 命令比较多，多写多练，不要纯靠背。
 
 <!--more-->
 
-参考文章： http://www.ruanyifeng.com/blog/2019/10/tmux.html。
+参考文章： http://www.ruanyifeng.com/blog/2019/10/tmux.html。（详细介绍）
 
 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称"窗口"），在里面输入命令。**用户与计算机的这种临时的交互，称为一次"会话"（session）** 。
 
@@ -81,6 +81,31 @@ $ tmux kill-session -t 0
 $ tmux kill-session -t <session-name>
 ```
 
+`tmux switch`命令用于**切换会话**。
+
+```shell
+# 使用会话编号
+$ tmux switch -t 0
+
+# 使用会话名称
+$ tmux switch -t <session-name>
+```
+
+`tmux attach`命令用于**重新接入某个已存在的会话**。
+
+```shell
+# 使用会话编号
+$ tmux attach -t 0
+
+# 使用会话名称
+$ tmux attach -t <session-name>
+```
+
+Tmux中复制文本的两种方式：
+
+1. 按住`shift`不放，鼠标选中文本，`ctrl+insert`复制，`shift+insert`粘贴；
+2. `ctrl+a, [` 选中文本复制，`ctrl+a, ]` 粘贴。
+
 ## 1.2：Vim
 
 参考资料： https://www.runoob.com/linux/linux-vim.html。（查看命令）
@@ -117,10 +142,14 @@ grant@UbuntuofLX:~/code_test$ vim +/hello main.cpp
 以下是常用的几个命令：
 
 - **i** 切换到输入模式，以输入字符。
+- **a** 切换到输入模式，以输入字符，比`i`更舒服，直接定位到光标处输入。
 - **x** 删除当前光标所在处的字符。相当于 [del] 按键。
 - **:** 切换到底线命令模式，以在最底一行输入命令。
 - 在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)
 - **.**一个点，表示重复上一次操作。
+- **cc**整行重写，开启输入模式。
+- **o**创建新行，开启输入模式。
+- **f+字母**光标跳转到本行指定字母处。
 
 若想要编辑文本：启动Vim，进入了命令模式，按下i，切换到输入模式。
 

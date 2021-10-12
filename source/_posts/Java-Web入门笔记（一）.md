@@ -18,7 +18,9 @@ date: 2021-09-25 21:20:00
 
 配套笔记： https://blog.csdn.net/bell_love/article/details/105667638。
 
-Java Web教:1： https://www.liaoxuefeng.com/wiki/1252599548343744/1304265903570978。
+相关课件： 尚硅谷Java web课件。
+
+Java Web教程1： https://www.liaoxuefeng.com/wiki/1252599548343744/1304265903570978。
 
 Java Web教程2：https://caochenlei.blog.csdn.net/article/details/108544801。
 

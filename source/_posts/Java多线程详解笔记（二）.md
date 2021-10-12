@@ -193,7 +193,7 @@ public synchronized void show (String name){
 // 实现Runnable接口的同步方法
 class MThread implements Runnable{
 
-    private int ticket = 100;
+    private static int ticket = 100;
     @Override
     public void run() {
         while (true) {
@@ -204,7 +204,7 @@ class MThread implements Runnable{
         }
     }
 
-    private synchronized void show(){// 同步方法实现线程同步
+    private static synchronized void show(){// 同步方法实现线程同步
         if (ticket > 0) {
             try {
                 Thread.sleep(100);
