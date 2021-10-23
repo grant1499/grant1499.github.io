@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/141c4cb6/image-20210520215137628.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/141c4cb6/image-20210521090754467.png">
 <meta property="article:published_time" content="2021-05-19T11:20:40.000Z">
-<meta property="article:modified_time" content="2021-09-07T05:52:08.942Z">
+<meta property="article:modified_time" content="2021-10-23T02:39:53.018Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="算法基础">
 <meta property="article:tag" content="DP">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-07 13:52:08" itemprop="dateModified" datetime="2021-09-07T13:52:08+08:00">2021-09-07</time>
+                <time title="修改时间：2021-10-23 10:39:53" itemprop="dateModified" datetime="2021-10-23T10:39:53+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,7 +315,7 @@
 <p>因为和01背包代码很相像，我们很容易想到进一步优化。</p>
 <p>这里先介绍降低第一维度的题解，在01背包中没有提到过。</p>
 <p>就是将第一个维度直接&amp;1，那么数据就会保存在<code>dp[0][x]</code>和<code>dp[1][x]</code>中。只要用到<code>dp[2][N]</code>这么大的数组就足够了。（这就是一个两层的滚动数组）</p>
-<p>我们还可以再优化，边读入变处理。</p>
+<p>我们还可以再优化，边读入边处理。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2</span>][N];</span><br><span class="line"><span class="keyword">int</span> v,w;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt;= m;j++)&#123;</span><br><span class="line">            dp[i&amp;<span class="number">1</span>][j] = dp[(i<span class="number">-1</span>)&amp;<span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span> (j &gt;= v) dp[i&amp;<span class="number">1</span>][j] = max(dp[i&amp;<span class="number">1</span>][j],dp[i&amp;<span class="number">1</span>][j-v] + w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[n&amp;<span class="number">1</span>][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来是类似01背包的更优化的滚动数组。</p>
 <p>利用滚动数组优化成一维：</p>
@@ -335,7 +335,7 @@
 <p><img src="/posts/141c4cb6/image-20210520205800390.png" alt="image-20210520205800390"></p>
 <p>由上图的两个式子，我们发现并不能推导出一个递推式。</p>
 <p> 再考虑其他的思路：</p>
-<p>二进制优化！（也就是倍增思想加速DP状态转移，快速缩小较大的状态空间）</p>
+<p><strong>二进制优化！</strong>（也就是<strong>倍增思想</strong>加速DP状态转移，快速缩小较大的状态空间）</p>
 <p>我们知道任意一个实数可以由二进制数来表示，也就是<code>2^0~2^k</code>其中一项或几项的和。</p>
 <p>下面给出两个例子：</p>
 <p>假设对于一个物品，它有s=1023件。</p>
@@ -361,6 +361,7 @@
 <p>二进制优化思维就是：现在给出一堆苹果和10个箱子，选出n个苹果。将这一堆苹果分别按照</p>
 <p>1,2,4,8,16,…..512分到10个箱子里，那么由于任何一个数字x ∈[1,1024]</p>
 <p>都可以从这10个箱子里的苹果数量表示出来，但是这样选择的次数就是 ≤10次 。</p>
+<p><strong>一句话概括：将较大的物品数量上限S，通过二进制拆分，重新分配成log S的数量上限。</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// N的上限是n*logS == 1000*log2000</span></span><br><span class="line"><span class="comment">// M表示背包物品总体积不超过2010</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">12000</span>,M = <span class="number">2010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> v[N],w[N];</span><br><span class="line"><span class="keyword">int</span> dp[M];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 重新按二进制分组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,s;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; s;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt;= s)&#123;</span><br><span class="line">            cnt++;<span class="comment">//组别先增加，下标从1开始</span></span><br><span class="line">            v[cnt] = a*k;<span class="comment">//整体体积</span></span><br><span class="line">            w[cnt] = b*k;<span class="comment">// 整体价值</span></span><br><span class="line">            s -= k;</span><br><span class="line">            k *= <span class="number">2</span>;<span class="comment">// k = 1,2,4,8,...</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 处理最后的剩余一组</span></span><br><span class="line">        <span class="keyword">if</span> (s &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            cnt ++;</span><br><span class="line">            v[cnt] = a*s;</span><br><span class="line">            w[cnt] = b*s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n = cnt;<span class="comment">//枚举次数由个数变成重新划分的组别数</span></span><br><span class="line">	<span class="comment">// 求解优化后的01背包问题</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = m;j &gt;= v[i];j--)</span><br><span class="line">            dp[j] = max(dp[j],dp[j-v[i]] + w[i]);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>建议选一组数据手动模拟一下，会对二进制优化过程更清楚。</p>
 <p>比如初始s=10，进入while循环，s,10-1=9，k=2；第二次，s=9-2=7，k=4；第三次，s=7-4=3，k=8；退出循</p>
@@ -547,7 +548,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -560,7 +561,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -609,13 +610,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

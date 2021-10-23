@@ -26,9 +26,10 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/ba489fec/image-20210825204635455.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/ba489fec/image-20210825205031109.png">
 <meta property="article:published_time" content="2021-08-22T08:38:04.000Z">
-<meta property="article:modified_time" content="2021-09-17T06:04:22.615Z">
+<meta property="article:modified_time" content="2021-10-15T14:09:44.743Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Vim">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.grantdrew.top/posts/ba489fec/image-20210825204635455.png">
 
@@ -126,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-17 14:04:22" itemprop="dateModified" datetime="2021-09-17T14:04:22+08:00">2021-09-17</time>
+                <time title="修改时间：2021-10-15 22:09:44" itemprop="dateModified" datetime="2021-10-15T22:09:44+08:00">2021-10-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.2k</span>
+              <span>8.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -279,7 +280,7 @@
       
         <h1 id="1：lesson2"><a href="#1：lesson2" class="headerlink" title="1：lesson2"></a>1：lesson2</h1><h2 id="1-1：Tmux"><a href="#1-1：Tmux" class="headerlink" title="1.1：Tmux"></a>1.1：Tmux</h2><p>y总说： 命令比较多，多写多练，不要纯靠背。</p>
 <span id="more"></span>
-<p>参考文章： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/10/tmux.html。">http://www.ruanyifeng.com/blog/2019/10/tmux.html。</a></p>
+<p>参考文章： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/10/tmux.html。（详细介绍）">http://www.ruanyifeng.com/blog/2019/10/tmux.html。（详细介绍）</a></p>
 <p>命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称”窗口”），在里面输入命令。<strong>用户与计算机的这种临时的交互，称为一次”会话”（session）</strong> 。</p>
 <p><strong>Tmux 就是会话与窗口的”解绑”工具，将它们彻底分离。</strong></p>
 <p>Tmux就是一款终端复用工具。</p>
@@ -306,6 +307,15 @@
 <p>复制模式快捷键：按下ctrl + a后手指松开，然后按[，按q/ESC退出。</p>
 <p><strong>杀死会话（session）的命令：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用会话编号</span></span><br><span class="line">$ tmux kill-session -t 0</span><br><span class="line"><span class="comment"># 使用会话名称</span></span><br><span class="line">$ tmux kill-session -t &lt;session-name&gt;</span><br></pre></td></tr></table></figure>
+<p><code>tmux switch</code>命令用于<strong>切换会话</strong>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用会话编号</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux switch -t 0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用会话名称</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux switch -t &lt;session-name&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>tmux attach</code>命令用于<strong>重新接入某个已存在的会话</strong>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用会话编号</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux attach -t 0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用会话名称</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tmux attach -t &lt;session-name&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Tmux中复制文本的两种方式：</p>
+<ol>
+<li>按住<code>shift</code>不放，鼠标选中文本，<code>ctrl+insert</code>复制，<code>shift+insert</code>粘贴；</li>
+<li><code>ctrl+a, [</code> 选中文本复制，<code>ctrl+a, ]</code> 粘贴。</li>
+</ol>
 <h2 id="1-2：Vim"><a href="#1-2：Vim" class="headerlink" title="1.2：Vim"></a>1.2：Vim</h2><p>参考资料： <a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html。（查看命令）">https://www.runoob.com/linux/linux-vim.html。（查看命令）</a></p>
 <p>Vim是从 vi 发展出来的一个文本编辑器。它是<strong>命令行模式</strong>下的一个编辑器。</p>
 <p><strong>Vim重点是光标的移动，模式切换，删除，查找，替换，复制，粘贴，撤销命令的使用</strong>。</p>
@@ -322,10 +332,14 @@
 <p>以下是常用的几个命令：</p>
 <ul>
 <li><strong>i</strong> 切换到输入模式，以输入字符。</li>
+<li><strong>a</strong> 切换到输入模式，以输入字符，比<code>i</code>更舒服，直接定位到光标处输入。</li>
 <li><strong>x</strong> 删除当前光标所在处的字符。相当于 [del] 按键。</li>
 <li><strong>:</strong> 切换到底线命令模式，以在最底一行输入命令。</li>
 <li>在一行字当中，x 为向后删除一个字符 (相当于 [del] 按键)， X 为向前删除一个字符(相当于 [backspace] 亦即是退格键) (常用)</li>
 <li><strong>.</strong>一个点，表示重复上一次操作。</li>
+<li><strong>cc</strong>整行重写，开启输入模式。</li>
+<li><strong>o</strong>创建新行，开启输入模式。</li>
+<li><strong>f+字母</strong>光标跳转到本行指定字母处。</li>
 </ul>
 <p>若想要编辑文本：启动Vim，进入了命令模式，按下i，切换到输入模式。</p>
 <p>命令模式只有一些最基本的命令，因此仍要依靠底线命令模式输入更多命令。</p>
@@ -493,6 +507,7 @@
           
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/Vim/" rel="tag"><i class="fa fa-tag"></i> Vim</a>
           </div>
 
         
@@ -607,7 +622,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -620,7 +635,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -669,13 +684,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

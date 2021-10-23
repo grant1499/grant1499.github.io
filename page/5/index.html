@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/d3357d9c.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/b7b6822b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/d3357d9c.html" class="post-title-link" itemprop="url">算法基础课笔记（二一）</a>
+            <a href="/posts/b7b6822b.html" class="post-title-link" itemprop="url">汇编入门笔记（八）</a>
         </h2>
 
         <div class="post-meta">
@@ -209,27 +209,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-19 07:01:25" itemprop="dateCreated datePublished" datetime="2021-08-19T07:01:25+08:00">2021-08-19</time>
+              <time title="创建时间：2021-09-28 10:40:57 / 修改时间：21:15:52" itemprop="dateCreated datePublished" datetime="2021-09-28T10:40:57+08:00">2021-09-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-07 21:29:46" itemprop="dateModified" datetime="2021-09-07T21:29:46+08:00">2021-09-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -242,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/d3357d9c.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/d3357d9c.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/b7b6822b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/b7b6822b.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -253,14 +243,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.4k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -272,13 +262,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3-7：最小生成树"><a href="#3-7：最小生成树" class="headerlink" title="3.7：最小生成树"></a>3.7：最小生成树</h2><p>参考资料： <a target="_blank" rel="noopener" href="https://oi-wiki.org/graph/mst/#_2。（有图示）">https://oi-wiki.org/graph/mst/#_2。（有图示）</a></p>
-<p>我们定义无向连通图的 <strong>最小生成树</strong>（Minimum Spanning Tree，MST）为边权和最小的生成树。</p>
-<p>给定一个无向图，在图中选择若干条边把图的所有节点连起来。要求边长之和最小。在图论中，叫做求最小生成树。</p>
-<p>注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。</p>
+          <h2 id="0x23：汇编语言中数据位置的表达"><a href="#0x23：汇编语言中数据位置的表达" class="headerlink" title="0x23：汇编语言中数据位置的表达"></a>0x23：汇编语言中数据位置的表达</h2><p>数据处理的两个基础问题？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/d3357d9c.html#more" rel="contents">
+              <a class="btn" href="/posts/b7b6822b.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -302,7 +289,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/c914feaa.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/40ddaa68.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -316,7 +303,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/c914feaa.html" class="post-title-link" itemprop="url">算法基础课笔记（二十）</a>
+            <a href="/posts/40ddaa68.html" class="post-title-link" itemprop="url">汇编入门笔记（七）</a>
         </h2>
 
         <div class="post-meta">
@@ -326,14 +313,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-18 11:26:18" itemprop="dateCreated datePublished" datetime="2021-08-18T11:26:18+08:00">2021-08-18</time>
+              <time title="创建时间：2021-09-27 20:59:08" itemprop="dateCreated datePublished" datetime="2021-09-27T20:59:08+08:00">2021-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-20 11:08:16" itemprop="dateModified" datetime="2021-08-20T11:08:16+08:00">2021-08-20</time>
+                <time title="修改时间：2021-09-28 11:17:51" itemprop="dateModified" datetime="2021-09-28T11:17:51+08:00">2021-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -341,11 +328,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -358,8 +341,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/c914feaa.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/c914feaa.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/40ddaa68.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/40ddaa68.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -369,14 +352,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -388,10 +371,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>例题2：852. spfa判断负环（模板题）</strong></p>
+          <h2 id="0x19：-bx-idata-处理数组"><a href="#0x19：-bx-idata-处理数组" class="headerlink" title="0x19：[bx+idata] 处理数组"></a>0x19：[bx+idata] 处理数组</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/c914feaa.html#more" rel="contents">
+              <a class="btn" href="/posts/40ddaa68.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -415,7 +398,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/b582f489.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/9df3ad2f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -429,7 +412,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/b582f489.html" class="post-title-link" itemprop="url">算法基础课笔记（十九）</a>
+            <a href="/posts/9df3ad2f.html" class="post-title-link" itemprop="url">汇编语言实验（三）</a>
         </h2>
 
         <div class="post-meta">
@@ -439,14 +422,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-18 11:26:05" itemprop="dateCreated datePublished" datetime="2021-08-18T11:26:05+08:00">2021-08-18</time>
+              <time title="创建时间：2021-09-27 18:38:43" itemprop="dateCreated datePublished" datetime="2021-09-27T18:38:43+08:00">2021-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-21 07:54:02" itemprop="dateModified" datetime="2021-08-21T07:54:02+08:00">2021-08-21</time>
+                <time title="修改时间：2021-09-28 10:43:57" itemprop="dateModified" datetime="2021-09-28T10:43:57+08:00">2021-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -454,11 +437,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -471,8 +450,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/b582f489.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/b582f489.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/9df3ad2f.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/9df3ad2f.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -482,14 +461,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.1k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -501,10 +480,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="3-6-3：Bellman-Ford-算法"><a href="#3-6-3：Bellman-Ford-算法" class="headerlink" title="3.6.3：Bellman-Ford 算法"></a>3.6.3：Bellman-Ford 算法</h3><p>一种基于松弛（relax）操作的 最短路算法，支持负权。简称BF算法。</p>
+          <h2 id="实验5"><a href="#实验5" class="headerlink" title="实验5"></a>实验5</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/b582f489.html#more" rel="contents">
+              <a class="btn" href="/posts/9df3ad2f.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -528,7 +507,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/cf4fd5d6.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/92ddddf7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -542,7 +521,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/cf4fd5d6.html" class="post-title-link" itemprop="url">算法基础课笔记（十八）</a>
+            <a href="/posts/92ddddf7.html" class="post-title-link" itemprop="url">汇编入门笔记（六）</a>
         </h2>
 
         <div class="post-meta">
@@ -551,27 +530,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-08-17 07:34:46" itemprop="dateCreated datePublished" datetime="2021-08-17T07:34:46+08:00">2021-08-17</time>
+              <time title="创建时间：2021-09-27 15:21:36 / 修改时间：21:07:02" itemprop="dateCreated datePublished" datetime="2021-09-27T15:21:36+08:00">2021-09-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-19 17:37:07" itemprop="dateModified" datetime="2021-08-19T17:37:07+08:00">2021-08-19</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -584,8 +553,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/cf4fd5d6.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/cf4fd5d6.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/92ddddf7.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/92ddddf7.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -595,14 +564,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.8k</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -614,12 +583,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3-6：最短路"><a href="#3-6：最短路" class="headerlink" title="3.6：最短路"></a>3.6：最短路</h2><p>图上两点之间最短的距离就是最短路。求最短路的算法有很多种。</p>
-<p>最短路一般分为单源最短路和多源汇最短路。</p>
-<p>源点也就是起点，汇点也就是终点。</p>
+          <h2 id="0x16：包含多个段的程序"><a href="#0x16：包含多个段的程序" class="headerlink" title="0x16：包含多个段的程序"></a>0x16：包含多个段的程序</h2><h3 id="1-在代码段中使用数据"><a href="#1-在代码段中使用数据" class="headerlink" title="1.在代码段中使用数据"></a>1.在代码段中使用数据</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/cf4fd5d6.html#more" rel="contents">
+              <a class="btn" href="/posts/92ddddf7.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -643,7 +610,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/3824fd95.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/d0ed0e7d.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -657,7 +624,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/3824fd95.html" class="post-title-link" itemprop="url">算法基础课笔记（十七）</a>
+            <a href="/posts/d0ed0e7d.html" class="post-title-link" itemprop="url">汇编语言实验（二）</a>
         </h2>
 
         <div class="post-meta">
@@ -667,14 +634,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-17 07:34:36" itemprop="dateCreated datePublished" datetime="2021-08-17T07:34:36+08:00">2021-08-17</time>
+              <time title="创建时间：2021-09-27 13:25:19" itemprop="dateCreated datePublished" datetime="2021-09-27T13:25:19+08:00">2021-09-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-18 13:08:36" itemprop="dateModified" datetime="2021-08-18T13:08:36+08:00">2021-08-18</time>
+                <time title="修改时间：2021-09-28 10:43:51" itemprop="dateModified" datetime="2021-09-28T10:43:51+08:00">2021-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -682,11 +649,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -699,8 +662,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/3824fd95.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/3824fd95.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/d0ed0e7d.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/d0ed0e7d.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -710,14 +673,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.5k</span>
+              <span>305</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -729,10 +692,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>例题2：847. 图中点的层次（模板题）</strong></p>
+          <h2 id="实验2"><a href="#实验2" class="headerlink" title="实验2"></a>实验2</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/3824fd95.html#more" rel="contents">
+              <a class="btn" href="/posts/d0ed0e7d.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -756,7 +719,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/e73ce915.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/f7d3962e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -770,7 +733,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/e73ce915.html" class="post-title-link" itemprop="url">算法基础课模板（二）</a>
+            <a href="/posts/f7d3962e.html" class="post-title-link" itemprop="url">汇编入门笔记（五）</a>
         </h2>
 
         <div class="post-meta">
@@ -780,14 +743,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-15 19:57:52" itemprop="dateCreated datePublished" datetime="2021-08-15T19:57:52+08:00">2021-08-15</time>
+              <time title="创建时间：2021-09-26 21:19:48" itemprop="dateCreated datePublished" datetime="2021-09-26T21:19:48+08:00">2021-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 15:31:57" itemprop="dateModified" datetime="2021-08-22T15:31:57+08:00">2021-08-22</time>
+                <time title="修改时间：2021-09-28 13:17:11" itemprop="dateModified" datetime="2021-09-28T13:17:11+08:00">2021-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -795,11 +758,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -812,8 +771,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/e73ce915.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/e73ce915.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/f7d3962e.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/f7d3962e.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -823,14 +782,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.1k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -842,10 +801,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="二：数据结构"><a href="#二：数据结构" class="headerlink" title="二：数据结构"></a>二：数据结构</h1><h2 id="1-单、双链表"><a href="#1-单、双链表" class="headerlink" title="1.单、双链表"></a>1.单、双链表</h2>
+          <h2 id="0x10：源程序"><a href="#0x10：源程序" class="headerlink" title="0x10：源程序"></a>0x10：源程序</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/e73ce915.html#more" rel="contents">
+              <a class="btn" href="/posts/f7d3962e.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -869,7 +828,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/d72a05cd.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/e0fbe2a5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -883,7 +842,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/d72a05cd.html" class="post-title-link" itemprop="url">算法基础课模板（一）</a>
+            <a href="/posts/e0fbe2a5.html" class="post-title-link" itemprop="url">汇编语言实验（一）</a>
         </h2>
 
         <div class="post-meta">
@@ -893,14 +852,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-15 19:57:45" itemprop="dateCreated datePublished" datetime="2021-08-15T19:57:45+08:00">2021-08-15</time>
+              <time title="创建时间：2021-09-26 18:14:01" itemprop="dateCreated datePublished" datetime="2021-09-26T18:14:01+08:00">2021-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-06 18:13:28" itemprop="dateModified" datetime="2021-09-06T18:13:28+08:00">2021-09-06</time>
+                <time title="修改时间：2021-09-27 21:07:02" itemprop="dateModified" datetime="2021-09-27T21:07:02+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -908,11 +867,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -925,8 +880,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/d72a05cd.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/d72a05cd.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/e0fbe2a5.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/e0fbe2a5.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -936,14 +891,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
+              <span>707</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -955,10 +910,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一：基础算法"><a href="#一：基础算法" class="headerlink" title="一：基础算法"></a>一：基础算法</h1><h2 id="1-快排"><a href="#1-快排" class="headerlink" title="1.快排"></a>1.快排</h2>
+          <h2 id="实验1"><a href="#实验1" class="headerlink" title="实验1"></a>实验1</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/d72a05cd.html#more" rel="contents">
+              <a class="btn" href="/posts/e0fbe2a5.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -982,7 +937,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/ea248a0a.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/984d5369.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -996,7 +951,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/ea248a0a.html" class="post-title-link" itemprop="url">算法基础课笔记（十六）</a>
+            <a href="/posts/984d5369.html" class="post-title-link" itemprop="url">汇编入门笔记（四）</a>
         </h2>
 
         <div class="post-meta">
@@ -1006,14 +961,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-15 09:12:24" itemprop="dateCreated datePublished" datetime="2021-08-15T09:12:24+08:00">2021-08-15</time>
+              <time title="创建时间：2021-09-26 15:57:28" itemprop="dateCreated datePublished" datetime="2021-09-26T15:57:28+08:00">2021-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-17 10:30:37" itemprop="dateModified" datetime="2021-08-17T10:30:37+08:00">2021-08-17</time>
+                <time title="修改时间：2021-09-27 21:07:02" itemprop="dateModified" datetime="2021-09-27T21:07:02+08:00">2021-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1021,11 +976,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -1038,8 +989,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/ea248a0a.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/ea248a0a.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/984d5369.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/984d5369.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1049,14 +1000,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.6k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -1068,13 +1019,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="3-2：BFS"><a href="#3-2：BFS" class="headerlink" title="3.2：BFS"></a>3.2：BFS</h2><p>蓝桥杯（十八）中介绍过广度优先搜索（BFS）。</p>
-<p><strong>BFS所求出来的路径就是最短路径！</strong></p>
-<p>而DFS要求最短路径需要遍历所有可行路径求最小值。（太慢了！）</p>
-<p>推荐资料： 极客时间<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/70891">《数据结构与算法之美》</a>专栏。</p>
+          <h3 id="3-字单元"><a href="#3-字单元" class="headerlink" title="3.字单元"></a>3.字单元</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/ea248a0a.html#more" rel="contents">
+              <a class="btn" href="/posts/984d5369.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1098,7 +1046,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/8f2ac1d3.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/2f604a0c.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1112,7 +1060,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/8f2ac1d3.html" class="post-title-link" itemprop="url">算法基础课笔记（十五）</a>
+            <a href="/posts/2f604a0c.html" class="post-title-link" itemprop="url">汇编入门笔记（三）</a>
         </h2>
 
         <div class="post-meta">
@@ -1122,14 +1070,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-08-15 09:12:14" itemprop="dateCreated datePublished" datetime="2021-08-15T09:12:14+08:00">2021-08-15</time>
+              <time title="创建时间：2021-09-26 12:57:56" itemprop="dateCreated datePublished" datetime="2021-09-26T12:57:56+08:00">2021-09-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 16:17:31" itemprop="dateModified" datetime="2021-08-22T16:17:31+08:00">2021-08-22</time>
+                <time title="修改时间：2021-09-30 10:54:28" itemprop="dateModified" datetime="2021-09-30T10:54:28+08:00">2021-09-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1137,11 +1085,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
                 </span>
             </span>
 
@@ -1154,8 +1098,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/8f2ac1d3.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/8f2ac1d3.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/2f604a0c.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2f604a0c.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1165,7 +1109,219 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.8k</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="0x00：引言"><a href="#0x00：引言" class="headerlink" title="0x00：引言"></a>0x00：引言</h2><p>汇编入门文章： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html。">http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html。</a></p>
+<p>汇编详细教程： <a target="_blank" rel="noopener" href="http://c.biancheng.net/asm/。">http://c.biancheng.net/asm/。</a></p>
+<p>推荐书籍： 《汇编语言》，《x86汇编语言：从实模式到保护模式》。</p>
+<p>小甲鱼《汇编语言》配套视频： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rs411c7HG?share_source=copy_web。">https://www.bilibili.com/video/BV1Rs411c7HG?share_source=copy_web。</a></p>
+<p>《汇编语言》配套笔记： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39654127/article/details/88698911。">https://blog.csdn.net/qq_39654127/article/details/88698911。</a></p>
+<p>检测点答案： <a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/4ca88c2fad1ffc4ffe4733687e21af45b307fe84.html。">https://wenku.baidu.com/view/4ca88c2fad1ffc4ffe4733687e21af45b307fe84.html。</a></p>
+<h2 id="0x01：汇编的来历"><a href="#0x01：汇编的来历" class="headerlink" title="0x01：汇编的来历"></a>0x01：汇编的来历</h2><p>最早的时候，编写程序就是手写二进制指令，然后通过各种开关输入计算机，比如要做加法了，就按一下加法开关。后来，发明了纸带打孔机，通过在纸带上打孔，将二进制指令自动输入计算机。</p>
+<p>为了解决二进制指令的可读性问题，工程师将那些指令写成了八进制。二进制转八进制是轻而易举的，但是八进制的可读性也不行。很自然地，最后还是用文字表达，加法指令写成 ADD。内存地址也不再直接引用，而是用标签表示。</p>
+<p>这样的话，就多出一个步骤，要把这些文字指令翻译成二进制，这个步骤就称为 assembling，完成这个步骤的程序就叫做 assembler。它处理的文本，自然就叫做 <strong>aseembly code</strong>。标准化以后，称为 <strong>assembly language</strong>，缩写为 <strong>asm</strong>，中文译为汇编语言。</p>
+<p>汇编语言由3类指令组成。</p>
+<ul>
+<li>汇编指令</li>
+<li>伪指令：没有对应的机器码，由编译器执行，计算机并不执行</li>
+<li>其他符号：如+、-、*、/等，由编译器识别，没有对应的机器码。</li>
+</ul>
+<p>编译器：够将汇编指令转换成机器指令的翻译程序每一种CPU都有自己的汇编指令集。</p>
+<h2 id="0x02：寄存器"><a href="#0x02：寄存器" class="headerlink" title="0x02：寄存器"></a>0x02：寄存器</h2><p>本系列汇编教程以8086CPU为基础。</p>
+<p>寄存器组成（8086CPU）：</p>
+<p>8086CPU有14个寄存器：AX、BX、CX、DX、SI、DI、SP、BP、IP、CS、SS、DS、ES、PSW，都是16位。</p>
+<p>通用寄存器：</p>
+<p><strong>通用寄存器</strong>：通常用来存放一般性的数据，有AX、BX、CX、DX，它们可分为<strong>两个可独立使用的8位寄存器</strong>，</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>16位</th>
+<th>8高位</th>
+<th>8低位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AX</td>
+<td>AH</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>BX</td>
+<td>BH</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>CX</td>
+<td>CH</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>DX</td>
+<td>DH</td>
+<td>DL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在进行数据传送或运算时，要注意指令的两个操作对象的位数应当是一致的。</p>
+<p><img src="/posts/2f604a0c/image-20210926151228938.png" alt="image-20210926151228938"></p>
+<p>字（word）在寄存器中的存储：8086CPU是16位CPU，一个字分高、低位两个字节。</p>
+<p><img src="/posts/2f604a0c/image-20210926151559682.png" alt="image-20210926151559682"></p>
+<p><img src="/posts/2f604a0c/image-20210930105426394.png" alt="image-20210930105426394"></p>
+<h2 id="0x03：几条汇编指令"><a href="#0x03：几条汇编指令" class="headerlink" title="0x03：几条汇编指令"></a>0x03：几条汇编指令</h2><p><img src="/posts/2f604a0c/image-20210926152204291.png" alt="image-20210926152204291"></p>
+<p>以上汇编指令的逻辑顺序都是从右往左的，和高级语言的顺序一致。</p>
+<p>汇编指令，寄存器的名字不区分大小写！！</p>
+<p><code>mov</code>指令用于将第二个操作数复制到第一个操作数，但是注意不能直接从内存复制到内存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add al,93H</span><br><span class="line">mov ah,bl  &#x2F;&#x2F; 注意指令用的16位寄存器还是8位寄存器</span><br></pre></td></tr></table></figure>
+<p>进行数据传输或运算时，注意操作对象位数一致！！</p>
+<p><img src="/posts/2f604a0c/image-20210926153514852.png" alt="image-20210926153514852"></p>
+<h2 id="0x04：物理地址"><a href="#0x04：物理地址" class="headerlink" title="0x04：物理地址"></a>0x04：物理地址</h2><p><img src="/posts/2f604a0c/image-20210926154041732.png" alt="image-20210926154041732"></p>
+<p>什么是16位CPU？</p>
+<p><img src="/posts/2f604a0c/image-20210926154215824.png" alt="image-20210926154215824"></p>
+<p>8086CPU给出物理地址的方法：</p>
+<p>8086CPU有20位地址总线，可以传送20位地址，达到1MB寻址能力。<br>8086CPU又是16位结构，在内部一次性处理、传输、暂时存储的地址为16位。<br>从8086CPU的内部结构来看，如果将地址从内部简单地发出，那么它只能送出16位的地址，表现出的寻址能力只有64KB。</p>
+<p><strong>8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址。</strong></p>
+<p><img src="/posts/2f604a0c/image-20210926154524476.png" alt="image-20210926154524476"></p>
+<p>当8086CPU要读写内存时：</p>
+<ol>
+<li>CPU中的相关部件提供两个16位的地址，一个称为段地址，另一个称为偏移地址；</li>
+<li>地址加法器将两个16位地址合成为一个20位的物理地址；</li>
+</ol>
+<p>地址加法器采用物理地址 = 段地址×16 + 偏移地址的方法用段地址和偏移地址合成物理地址。</p>
+<p>例如，8086CPU要访问地址为<code>123C8H</code>的内存单元，<code>1230H</code>左移一位(空出4位)加上<code>00C8H</code>合成<code>123C8H</code>。</p>
+<h2 id="0x05：段-的概念"><a href="#0x05：段-的概念" class="headerlink" title="0x05：段 的概念"></a>0x05：段 的概念</h2><p><strong>内存实际并未分段，而是CPU为了便于管理内存，将它划分为段。</strong></p>
+<p>也是因为之前提到的8086CPU的特殊结构，将1MB的物理地址分段更方便16位CPU处理。</p>
+<p>一个段的大小不是固定的。</p>
+<p>我们可以将一段内存定义为一个段，用一个段地址指示段，用偏移地址访问段内的单元，可以用分段的方式来管理内存。</p>
+<p>用一个段存放数据，将它定义为“数据段”；</p>
+<p>用一个段存放代码，将它定义为“代码段”；</p>
+<p>用一个段当作栈，将它定义为“栈段”。</p>
+<p><img src="/posts/2f604a0c/image-20210926160234215.png" alt="image-20210926160234215"></p>
+<p>注意：</p>
+<ul>
+<li>一个段的起始地址一定是16的倍数；</li>
+<li>偏移地址为16位，变化范围为0-FFFFH，所以一个段的长度最大为64KB；</li>
+<li>CPU可以用不同的段地址和偏移地址形成同一个物理地址。</li>
+</ul>
+<p>在8086CPU中，通常用段地址+偏移地址来表示一个实际的内存地址，直接使用物理地址可能不唯一。</p>
+<h2 id="0x06：段寄存器"><a href="#0x06：段寄存器" class="headerlink" title="0x06：段寄存器"></a>0x06：段寄存器</h2><p>段寄存器：8086CPU有4个段寄存器：<code>CS、DS、SS、ES</code>，提供内存单元的段地址。</p>
+<h3 id="1-CS-和-IP"><a href="#1-CS-和-IP" class="headerlink" title="1.CS 和 IP"></a>1.CS 和 IP</h3><p><strong>CS为代码段寄存器，IP为指令指针寄存器，</strong></p>
+<p>CPU将CS、IP中的内容当作指令的段地址和偏移地址,用它们合成指令的物理地址，</p>
+<p>在任意时刻，CPU从内存<code>[CS]*16 + [IP]</code>单元开始读取一条指令并执行。</p>
+<p><strong>通过《汇编语言》第四版 P26 开始的图示，可以从汇编角度体会CPU执行指令的过程。</strong></p>
+<p>8086CPU的工作过程简要描述：</p>
+<ol>
+<li>从CS:IP指向的内存单元读取指令，读取的指令进入指令缓冲器；</li>
+<li>IP=IP+所读取指令的长度，从而指向下一条指令；</li>
+<li>执行指令。转到步骤1，重复这个过程。</li>
+</ol>
+<h3 id="2-修改-CS、IP-的指令"><a href="#2-修改-CS、IP-的指令" class="headerlink" title="2.修改 CS、IP 的指令"></a>2.修改 CS、IP 的指令</h3><p>两种修改指令：</p>
+<ul>
+<li>jmp 段地址:偏移地址：用指令中给出的段地址修改CS，偏移地址修改IP。如：<code>jmp 2AE3:3</code></li>
+<li>jmp 某一合法寄存器：仅修改IP的内容。如：<code>jmp ax</code>。在含义上好似：<code>mov IP,ax</code></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/b894fbe7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/b894fbe7.html" class="post-title-link" itemprop="url">Java Web入门笔记（二）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-25 23:06:52" itemprop="dateCreated datePublished" datetime="2021-09-25T23:06:52+08:00">2021-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-14 10:56:00" itemprop="dateModified" datetime="2021-10-14T10:56:00+08:00">2021-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/b894fbe7.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/b894fbe7.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1184,123 +1340,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="三：搜索与图论"><a href="#三：搜索与图论" class="headerlink" title="三：搜索与图论"></a>三：搜索与图论</h1><p>第三章：搜索与图论模板整理， <a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/405/">https://www.acwing.com/blog/content/405/</a></p>
+          <h2 id="1-发布一个web网站"><a href="#1-发布一个web网站" class="headerlink" title="1.发布一个web网站"></a>1.发布一个web网站</h2><p>不会就先模仿。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/8f2ac1d3.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/e0b40494.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/e0b40494.html" class="post-title-link" itemprop="url">算法基础课笔记（十四）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-13 11:40:19" itemprop="dateCreated datePublished" datetime="2021-08-13T11:40:19+08:00">2021-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-18 06:57:00" itemprop="dateModified" datetime="2021-08-18T06:57:00+08:00">2021-08-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/e0b40494.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/e0b40494.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="2-11：练习"><a href="#2-11：练习" class="headerlink" title="2.11：练习"></a>2.11：练习</h2><h3 id="2-11-1栈-acwing-3302-表达式求值（模板题）"><a href="#2-11-1栈-acwing-3302-表达式求值（模板题）" class="headerlink" title="2.11.1栈.acwing.3302. 表达式求值（模板题）"></a>2.11.1栈.acwing.3302. 表达式求值（模板题）</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/e0b40494.html#more" rel="contents">
+              <a class="btn" href="/posts/b894fbe7.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1323,7 +1366,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1415,7 +1458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1428,7 +1471,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1477,13 +1520,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

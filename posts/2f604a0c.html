@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="0x00：引言汇编入门文章： http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;01&#x2F;assembly-language-primer.html。 汇编详细教程： http:&#x2F;&#x2F;c.biancheng.net&#x2F;asm&#x2F;。 推荐书籍： 《汇编语言》，《x86汇编语言：从实模式到保护模式》。 小甲鱼《汇编语言》配套视频： https:&#x2F;&#x2F;www.bilibili.com&#x2F;vide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编入门笔记（三）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/2f604a0c.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="0x00：引言汇编入门文章： http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;01&#x2F;assembly-language-primer.html。 汇编详细教程： http:&#x2F;&#x2F;c.biancheng.net&#x2F;asm&#x2F;。 推荐书籍： 《汇编语言》，《x86汇编语言：从实模式到保护模式》。 小甲鱼《汇编语言》配套视频： https:&#x2F;&#x2F;www.bilibili.com&#x2F;vide">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926151228938.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926151559682.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210930105426394.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926152204291.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926153514852.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926154041732.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926154215824.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926154524476.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926160234215.png">
+<meta property="article:published_time" content="2021-09-26T04:57:56.000Z">
+<meta property="article:modified_time" content="2021-09-30T02:54:28.032Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="汇编">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/2f604a0c/image-20210926151228938.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/2f604a0c.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>汇编入门笔记（三） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/2f604a0c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          汇编入门笔记（三）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-26 12:57:56" itemprop="dateCreated datePublished" datetime="2021-09-26T12:57:56+08:00">2021-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-30 10:54:28" itemprop="dateModified" datetime="2021-09-30T10:54:28+08:00">2021-09-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B1%87%E7%BC%96/" itemprop="url" rel="index"><span itemprop="name">汇编</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2f604a0c.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2f604a0c.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="0x00：引言"><a href="#0x00：引言" class="headerlink" title="0x00：引言"></a>0x00：引言</h2><p>汇编入门文章： <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html。">http://www.ruanyifeng.com/blog/2018/01/assembly-language-primer.html。</a></p>
+<p>汇编详细教程： <a target="_blank" rel="noopener" href="http://c.biancheng.net/asm/。">http://c.biancheng.net/asm/。</a></p>
+<p>推荐书籍： 《汇编语言》，《x86汇编语言：从实模式到保护模式》。</p>
+<p>小甲鱼《汇编语言》配套视频： <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Rs411c7HG?share_source=copy_web。">https://www.bilibili.com/video/BV1Rs411c7HG?share_source=copy_web。</a></p>
+<p>《汇编语言》配套笔记： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39654127/article/details/88698911。">https://blog.csdn.net/qq_39654127/article/details/88698911。</a></p>
+<p>检测点答案： <a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/4ca88c2fad1ffc4ffe4733687e21af45b307fe84.html。">https://wenku.baidu.com/view/4ca88c2fad1ffc4ffe4733687e21af45b307fe84.html。</a></p>
+<h2 id="0x01：汇编的来历"><a href="#0x01：汇编的来历" class="headerlink" title="0x01：汇编的来历"></a>0x01：汇编的来历</h2><p>最早的时候，编写程序就是手写二进制指令，然后通过各种开关输入计算机，比如要做加法了，就按一下加法开关。后来，发明了纸带打孔机，通过在纸带上打孔，将二进制指令自动输入计算机。</p>
+<p>为了解决二进制指令的可读性问题，工程师将那些指令写成了八进制。二进制转八进制是轻而易举的，但是八进制的可读性也不行。很自然地，最后还是用文字表达，加法指令写成 ADD。内存地址也不再直接引用，而是用标签表示。</p>
+<p>这样的话，就多出一个步骤，要把这些文字指令翻译成二进制，这个步骤就称为 assembling，完成这个步骤的程序就叫做 assembler。它处理的文本，自然就叫做 <strong>aseembly code</strong>。标准化以后，称为 <strong>assembly language</strong>，缩写为 <strong>asm</strong>，中文译为汇编语言。</p>
+<p>汇编语言由3类指令组成。</p>
+<ul>
+<li>汇编指令</li>
+<li>伪指令：没有对应的机器码，由编译器执行，计算机并不执行</li>
+<li>其他符号：如+、-、*、/等，由编译器识别，没有对应的机器码。</li>
+</ul>
+<p>编译器：够将汇编指令转换成机器指令的翻译程序每一种CPU都有自己的汇编指令集。</p>
+<h2 id="0x02：寄存器"><a href="#0x02：寄存器" class="headerlink" title="0x02：寄存器"></a>0x02：寄存器</h2><p>本系列汇编教程以8086CPU为基础。</p>
+<p>寄存器组成（8086CPU）：</p>
+<p>8086CPU有14个寄存器：AX、BX、CX、DX、SI、DI、SP、BP、IP、CS、SS、DS、ES、PSW，都是16位。</p>
+<p>通用寄存器：</p>
+<p><strong>通用寄存器</strong>：通常用来存放一般性的数据，有AX、BX、CX、DX，它们可分为<strong>两个可独立使用的8位寄存器</strong>，</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>16位</th>
+<th>8高位</th>
+<th>8低位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AX</td>
+<td>AH</td>
+<td>AL</td>
+</tr>
+<tr>
+<td>BX</td>
+<td>BH</td>
+<td>BL</td>
+</tr>
+<tr>
+<td>CX</td>
+<td>CH</td>
+<td>CL</td>
+</tr>
+<tr>
+<td>DX</td>
+<td>DH</td>
+<td>DL</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>在进行数据传送或运算时，要注意指令的两个操作对象的位数应当是一致的。</p>
+<p><img src="/posts/2f604a0c/image-20210926151228938.png" alt="image-20210926151228938"></p>
+<p>字（word）在寄存器中的存储：8086CPU是16位CPU，一个字分高、低位两个字节。</p>
+<p><img src="/posts/2f604a0c/image-20210926151559682.png" alt="image-20210926151559682"></p>
+<p><img src="/posts/2f604a0c/image-20210930105426394.png" alt="image-20210930105426394"></p>
+<h2 id="0x03：几条汇编指令"><a href="#0x03：几条汇编指令" class="headerlink" title="0x03：几条汇编指令"></a>0x03：几条汇编指令</h2><p><img src="/posts/2f604a0c/image-20210926152204291.png" alt="image-20210926152204291"></p>
+<p>以上汇编指令的逻辑顺序都是从右往左的，和高级语言的顺序一致。</p>
+<p>汇编指令，寄存器的名字不区分大小写！！</p>
+<p><code>mov</code>指令用于将第二个操作数复制到第一个操作数，但是注意不能直接从内存复制到内存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add al,93H</span><br><span class="line">mov ah,bl  &#x2F;&#x2F; 注意指令用的16位寄存器还是8位寄存器</span><br></pre></td></tr></table></figure>
+<p>进行数据传输或运算时，注意操作对象位数一致！！</p>
+<p><img src="/posts/2f604a0c/image-20210926153514852.png" alt="image-20210926153514852"></p>
+<h2 id="0x04：物理地址"><a href="#0x04：物理地址" class="headerlink" title="0x04：物理地址"></a>0x04：物理地址</h2><p><img src="/posts/2f604a0c/image-20210926154041732.png" alt="image-20210926154041732"></p>
+<p>什么是16位CPU？</p>
+<p><img src="/posts/2f604a0c/image-20210926154215824.png" alt="image-20210926154215824"></p>
+<p>8086CPU给出物理地址的方法：</p>
+<p>8086CPU有20位地址总线，可以传送20位地址，达到1MB寻址能力。<br>8086CPU又是16位结构，在内部一次性处理、传输、暂时存储的地址为16位。<br>从8086CPU的内部结构来看，如果将地址从内部简单地发出，那么它只能送出16位的地址，表现出的寻址能力只有64KB。</p>
+<p><strong>8086CPU采用一种在内部用两个16位地址合成的方法来形成一个20位的物理地址。</strong></p>
+<p><img src="/posts/2f604a0c/image-20210926154524476.png" alt="image-20210926154524476"></p>
+<p>当8086CPU要读写内存时：</p>
+<ol>
+<li>CPU中的相关部件提供两个16位的地址，一个称为段地址，另一个称为偏移地址；</li>
+<li>地址加法器将两个16位地址合成为一个20位的物理地址；</li>
+</ol>
+<p>地址加法器采用物理地址 = 段地址×16 + 偏移地址的方法用段地址和偏移地址合成物理地址。</p>
+<p>例如，8086CPU要访问地址为<code>123C8H</code>的内存单元，<code>1230H</code>左移一位(空出4位)加上<code>00C8H</code>合成<code>123C8H</code>。</p>
+<h2 id="0x05：段-的概念"><a href="#0x05：段-的概念" class="headerlink" title="0x05：段 的概念"></a>0x05：段 的概念</h2><p><strong>内存实际并未分段，而是CPU为了便于管理内存，将它划分为段。</strong></p>
+<p>也是因为之前提到的8086CPU的特殊结构，将1MB的物理地址分段更方便16位CPU处理。</p>
+<p>一个段的大小不是固定的。</p>
+<p>我们可以将一段内存定义为一个段，用一个段地址指示段，用偏移地址访问段内的单元，可以用分段的方式来管理内存。</p>
+<p>用一个段存放数据，将它定义为“数据段”；</p>
+<p>用一个段存放代码，将它定义为“代码段”；</p>
+<p>用一个段当作栈，将它定义为“栈段”。</p>
+<p><img src="/posts/2f604a0c/image-20210926160234215.png" alt="image-20210926160234215"></p>
+<p>注意：</p>
+<ul>
+<li>一个段的起始地址一定是16的倍数；</li>
+<li>偏移地址为16位，变化范围为0-FFFFH，所以一个段的长度最大为64KB；</li>
+<li>CPU可以用不同的段地址和偏移地址形成同一个物理地址。</li>
+</ul>
+<p>在8086CPU中，通常用段地址+偏移地址来表示一个实际的内存地址，直接使用物理地址可能不唯一。</p>
+<h2 id="0x06：段寄存器"><a href="#0x06：段寄存器" class="headerlink" title="0x06：段寄存器"></a>0x06：段寄存器</h2><p>段寄存器：8086CPU有4个段寄存器：<code>CS、DS、SS、ES</code>，提供内存单元的段地址。</p>
+<h3 id="1-CS-和-IP"><a href="#1-CS-和-IP" class="headerlink" title="1.CS 和 IP"></a>1.CS 和 IP</h3><p><strong>CS为代码段寄存器，IP为指令指针寄存器，</strong></p>
+<p>CPU将CS、IP中的内容当作指令的段地址和偏移地址,用它们合成指令的物理地址，</p>
+<p>在任意时刻，CPU从内存<code>[CS]*16 + [IP]</code>单元开始读取一条指令并执行。</p>
+<p><strong>通过《汇编语言》第四版 P26 开始的图示，可以从汇编角度体会CPU执行指令的过程。</strong></p>
+<p>8086CPU的工作过程简要描述：</p>
+<ol>
+<li>从CS:IP指向的内存单元读取指令，读取的指令进入指令缓冲器；</li>
+<li>IP=IP+所读取指令的长度，从而指向下一条指令；</li>
+<li>执行指令。转到步骤1，重复这个过程。</li>
+</ol>
+<h3 id="2-修改-CS、IP-的指令"><a href="#2-修改-CS、IP-的指令" class="headerlink" title="2.修改 CS、IP 的指令"></a>2.修改 CS、IP 的指令</h3><p>两种修改指令：</p>
+<ul>
+<li>jmp 段地址:偏移地址：用指令中给出的段地址修改CS，偏移地址修改IP。如：<code>jmp 2AE3:3</code></li>
+<li>jmp 某一合法寄存器：仅修改IP的内容。如：<code>jmp ax</code>。在含义上好似：<code>mov IP,ax</code></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/2f604a0c.html" title="汇编入门笔记（三）">https://www.grantdrew.top/posts/2f604a0c.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%B1%87%E7%BC%96/" rel="tag"><i class="fa fa-tag"></i> 汇编</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/b894fbe7.html" rel="prev" title="Java Web入门笔记（二）">
+      <i class="fa fa-chevron-left"></i> Java Web入门笔记（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/984d5369.html" rel="next" title="汇编入门笔记（四）">
+      汇编入门笔记（四） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00%EF%BC%9A%E5%BC%95%E8%A8%80"><span class="nav-text">0x00：引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01%EF%BC%9A%E6%B1%87%E7%BC%96%E7%9A%84%E6%9D%A5%E5%8E%86"><span class="nav-text">0x01：汇编的来历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02%EF%BC%9A%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">0x02：寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03%EF%BC%9A%E5%87%A0%E6%9D%A1%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-text">0x03：几条汇编指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04%EF%BC%9A%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="nav-text">0x04：物理地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05%EF%BC%9A%E6%AE%B5-%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">0x05：段 的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06%EF%BC%9A%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">0x06：段寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CS-%E5%92%8C-IP"><span class="nav-text">1.CS 和 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9-CS%E3%80%81IP-%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="nav-text">2.修改 CS、IP 的指令</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:31</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

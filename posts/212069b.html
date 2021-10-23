@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="《计算机网络—自顶向下方法》笔记及配套资料。 《计算机网络—自顶向下方法》资料： https:&#x2F;&#x2F;github.com&#x2F;jzplp&#x2F;Computer-Network-A-Top-Down-Approach-Answer。 实验与习题答案： https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq278672818&#x2F;category_8368262.html。 在线实验平台： https:&#x2F;&#x2F;www.edu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《计算机网络--自顶向下方法》第二章：套接字编程作业">
+<meta property="og:url" content="https://www.grantdrew.top/posts/212069b.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="《计算机网络—自顶向下方法》笔记及配套资料。 《计算机网络—自顶向下方法》资料： https:&#x2F;&#x2F;github.com&#x2F;jzplp&#x2F;Computer-Network-A-Top-Down-Approach-Answer。 实验与习题答案： https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq278672818&#x2F;category_8368262.html。 在线实验平台： https:&#x2F;&#x2F;www.edu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.grantdrew.top/posts/212069b/image-20211005151424676.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/212069b/image-20211005151506183.png">
+<meta property="og:image" content="https://www.grantdrew.top/posts/212069b/image-20211005163007655.png">
+<meta property="article:published_time" content="2021-10-05T01:51:22.000Z">
+<meta property="article:modified_time" content="2021-10-07T06:13:25.342Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.grantdrew.top/posts/212069b/image-20211005151424676.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/212069b.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>《计算机网络--自顶向下方法》第二章：套接字编程作业 | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/212069b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《计算机网络--自顶向下方法》第二章：套接字编程作业
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-05 09:51:22" itemprop="dateCreated datePublished" datetime="2021-10-05T09:51:22+08:00">2021-10-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-07 14:13:25" itemprop="dateModified" datetime="2021-10-07T14:13:25+08:00">2021-10-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/212069b.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/212069b.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>15k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>《计算机网络—自顶向下方法》<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES">笔记及配套资料</a>。</p>
+<p>《计算机网络—自顶向下方法》资料： <a target="_blank" rel="noopener" href="https://github.com/jzplp/Computer-Network-A-Top-Down-Approach-Answer。">https://github.com/jzplp/Computer-Network-A-Top-Down-Approach-Answer。</a></p>
+<p>实验与习题答案： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq278672818/category_8368262.html。">https://blog.csdn.net/qq278672818/category_8368262.html。</a></p>
+<p><strong>在线实验平台： <a target="_blank" rel="noopener" href="https://www.educoder.net/paths/734。（强烈推荐！）">https://www.educoder.net/paths/734。（强烈推荐！）</a></strong></p>
+<span id="more"></span>
+<p>本文作业涉及到的相关知识可以在廖雪峰的python教程中学习！</p>
+<p>廖雪峰教程： <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017788916649408。（最全面！）">https://www.liaoxuefeng.com/wiki/1016959663602400/1017788916649408。（最全面！）</a></p>
+<h2 id="作业1：Web服务器"><a href="#作业1：Web服务器" class="headerlink" title="作业1：Web服务器"></a>作业1：Web服务器</h2><p>作业文档<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A1-Web%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BD%9C%E4%B8%9A1-Web%E6%9C%8D%E5%8A%A1%E5%99%A8-%E7%BF%BB%E8%AF%91.md">中文翻译</a>地址。<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A1-Web%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BD%9C%E4%B8%9A1-Web%E6%9C%8D%E5%8A%A1%E5%99%A8-%E8%A7%A3%E7%AD%94.md">答案</a>地址。</p>
+<p>另一份答案： <a target="_blank" rel="noopener" href="https://jzplp.blog.csdn.net/article/details/106029429。（完整答案，包括扩展练习）">https://jzplp.blog.csdn.net/article/details/106029429。（完整答案，包括扩展练习）</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import socket module</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverSocket = socket(AF_INET, SOCK_STREAM) </span><br><span class="line"><span class="comment">#Prepare a sever socket </span></span><br><span class="line"><span class="comment">#Fill in start </span></span><br><span class="line"><span class="comment">#Fill in end </span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:     </span><br><span class="line">    <span class="comment">#Establish the connection    </span></span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Ready to serve...&#x27;</span>     <span class="comment"># python2的语法</span></span><br><span class="line">    connectionSocket, addr =   <span class="comment">#Fill in start  #Fill in end</span></span><br><span class="line">    <span class="keyword">try</span>:         </span><br><span class="line">        message =   <span class="comment">#Fill in start  #Fill in end</span></span><br><span class="line">        filename = message.split()[<span class="number">1</span>]                          </span><br><span class="line">        f = <span class="built_in">open</span>(filename[<span class="number">1</span>:])</span><br><span class="line">        outputdata = <span class="comment">#Fill in start  #Fill in end</span></span><br><span class="line">        <span class="comment">#Send one HTTP header line into socket         </span></span><br><span class="line">        <span class="comment">#Fill in start         </span></span><br><span class="line">        <span class="comment">#Fill in end    </span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#Send the content of the requested file to the client</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(outputdata)):</span><br><span class="line">            connectionSocket.send(outputdata[i])</span><br><span class="line">        connectionSocket.close()</span><br><span class="line">    <span class="keyword">except</span> IOError:</span><br><span class="line">        <span class="comment">#Send response message for file not found</span></span><br><span class="line">        <span class="comment">#Fill in start</span></span><br><span class="line">        <span class="comment">#Fill in end</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#Close client socket</span></span><br><span class="line">        <span class="comment">#Fill in start</span></span><br><span class="line">        <span class="comment">#Fill in end             </span></span><br><span class="line">    serverSocket.close()</span><br></pre></td></tr></table></figure>
+<p>需要在标有#Fill in start 和 # Fill in end的地方填写代码。另外，每个地方都可能需要不止一行代码。</p>
+<p>将HTML文件（例如HelloWorld.html）放在服务器所在的目录中。运行服务器程序。确认运行服务器的主机的IP地址（例如128.238.251.26）。从另一个主机，打开浏览器并提供相应的URL。例如：</p>
+<p><a target="_blank" rel="noopener" href="http://128.238.251.26:6789/HelloWorld.html">http://128.238.251.26:6789/HelloWorld.html</a></p>
+<p>“HelloWorld.html”是您放在服务器目录中的文件。还要注意使用冒号后的端口号。您需要使用服务器代码中使用的端口号来替换此端口号。在上面的例子中，我们使用了端口号6789. 浏览器应该显示HelloWorld.html的内容。如果省略“:6789”，浏览器将使用默认端口80，只有当您的服务器正在端口80监听时，才会从服务器获取网页。</p>
+<p>然后用客户端尝试获取服务器上不存在的文件。你应该会得到一个“404 Not Found”消息。</p>
+<hr>
+<p>不会python的参照中文文档： <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.8/library/functions.html。">https://docs.python.org/zh-cn/3.8/library/functions.html。</a></p>
+<p>菜鸟教程： <a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-socket.html。">https://www.runoob.com/python/python-socket.html。</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import socket module</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">serverSocket = socket(AF_INET, SOCK_STREAM) </span><br><span class="line"><span class="comment">#Prepare a sever socket </span></span><br><span class="line"><span class="comment">#Fill in start </span></span><br><span class="line">HOST = <span class="string">&#x27;127.0.0.1&#x27;</span><span class="comment"># gethostname()</span></span><br><span class="line">PORT = <span class="number">6789</span></span><br><span class="line">serverSocket.bind((HOST,PORT)) <span class="comment"># 绑定主机，端口到套接字</span></span><br><span class="line">serverSocket.listen(<span class="number">5</span>) <span class="comment"># 开始TCP监听，最大连接数至少为1</span></span><br><span class="line"><span class="comment">#Fill in end </span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:     </span><br><span class="line">    <span class="comment">#Establish the connection    </span></span><br><span class="line">    <span class="built_in">print</span> (<span class="string">&#x27;Ready to serve...&#x27;</span>)  <span class="comment"># 修改python2的语法   </span></span><br><span class="line">    connectionSocket, addr = serverSocket.accept()  <span class="comment"># 被动接收TCP客户端连接</span></span><br><span class="line">    <span class="keyword">try</span>:         </span><br><span class="line">        message =  connectionSocket.recv(<span class="number">1024</span>) <span class="comment"># 接收 客户发送的TCP报文数据</span></span><br><span class="line">        filename = message.split()[<span class="number">1</span>]                          </span><br><span class="line">        f = <span class="built_in">open</span>(filename[<span class="number">1</span>:])</span><br><span class="line">        outputdata = f.read()</span><br><span class="line">        f.close()</span><br><span class="line">        <span class="comment">#Fill in start  #Fill in end</span></span><br><span class="line">        <span class="comment">#Send one HTTP header line into socket         </span></span><br><span class="line">        header = <span class="string">&#x27;HTTP/1.1 200 OK\r\n\r\n&#x27;</span></span><br><span class="line">        connectionSocket.send(header.encode())</span><br><span class="line"></span><br><span class="line">        <span class="comment">#Send the content of the requested file to the client</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(outputdata)):</span><br><span class="line">            connectionSocket.send(outputdata[i].encode())</span><br><span class="line">        connectionSocket.close()</span><br><span class="line">    <span class="keyword">except</span> IOError:</span><br><span class="line">        <span class="comment">#Send response message for file not found</span></span><br><span class="line">        <span class="comment">#Fill in start</span></span><br><span class="line">        header = <span class="string">&#x27;HTTP/1.1 404 Not Found\r\n\r\n&#x27;</span></span><br><span class="line">        connectionSocket.send(header.encode())</span><br><span class="line">        <span class="comment">#Fill in end</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#Close client socket</span></span><br><span class="line">        <span class="comment">#Fill in start</span></span><br><span class="line">        connectionSocket.close()</span><br><span class="line">        <span class="comment">#Fill in end             </span></span><br><span class="line">    serverSocket.close()</span><br></pre></td></tr></table></figure>
+<p><code>web_server.py</code>程序如上，在同一目录下创建<code>helloworld.html</code>：</p>
+<p>内容为：<code>&lt;head&gt;Hello world!&lt;/head&gt;</code></p>
+<p>在浏览器中输入地址访问：<code>http://127.0.0.1:6789/helloworld.html</code></p>
+<p>成功看到html内容。</p>
+<p>这里的浏览器就作为了TCP的客户端，主动发起TCP连接，<code>web_server.py</code>被动接收连接，并发送一个简单的HTTP响应，只有一个状态码，然后发送html文件。</p>
+<p>若地址不正确，服务器将抛出异常，发送HTTP 404 状态码作为响应。</p>
+<h2 id="作业2：UDP-ping-程序"><a href="#作业2：UDP-ping-程序" class="headerlink" title="作业2：UDP ping 程序"></a>作业2：UDP ping 程序</h2><p>作业文档<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A2-UDPping%E7%A8%8B%E5%BA%8F/%E4%BD%9C%E4%B8%9A2-UDPping%E7%A8%8B%E5%BA%8F-%E7%BF%BB%E8%AF%91.md">中文翻译</a>地址。<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A2-UDPping%E7%A8%8B%E5%BA%8F/%E4%BD%9C%E4%B8%9A2-UDPping%E7%A8%8B%E5%BA%8F-%E8%A7%A3%E7%AD%94.md">答案</a>地址。</p>
+<p>您需要实现以下客户端程序。</p>
+<p>客户端向服务器发送10次ping。因为UDP是不可靠的协议，所以从客户端发送到服务器的数据包可能在网络中丢失。因此，客户端不能无限期地等待ping消息的回复。客户等待服务器回答的时间至多为一秒，如果在一秒内没有收到回复，您的客户端程序应该假定数据包在网络传输期间丢失。</p>
+<p>具体来说，您的客户端程序应该</p>
+<ol>
+<li>使用UDP发送ping消息（注意：不同于TCP，您不需要首先建立连接，因为UDP是无连接协议。）</li>
+<li>从服务器输出响应消息</li>
+<li>如果从服务器受到响应，则计算并输出每个数据包的往返时延（RTT）（以秒为单位），</li>
+<li>否则输出“请求超时”</li>
+</ol>
+<blockquote>
+<p>客户端消息格式： Ping sequence_number time</p>
+<p>其中<em>sequence_number</em>从1开始，一直到10，共10条消息，而<em>time</em>则是客户端发送消息时的时间。</p>
+</blockquote>
+<p>给定<code>UDPPingerServer.py</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UDPPingerServer.py</span></span><br><span class="line"><span class="comment"># We will need the following module to generate randomized lost packets import random</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a UDP socket</span></span><br><span class="line"><span class="comment"># Notice the use of SOCK_DGRAM for UDP packets</span></span><br><span class="line">serverSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"><span class="comment"># Assign IP address and port number to socket</span></span><br><span class="line">serverSocket.bind((<span class="string">&#x27;&#x27;</span>, <span class="number">12000</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	<span class="comment"># Generate random number in the range of 0 to 10</span></span><br><span class="line">	rand = random.randint(<span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line">	<span class="comment"># Receive the client packet along with the address it is coming from</span></span><br><span class="line">	message, address = serverSocket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">	<span class="comment"># Capitalize the message from the client</span></span><br><span class="line">	message = message.upper()</span><br><span class="line">	<span class="comment"># If rand is less is than 4, we consider the packet lost and do not respond</span></span><br><span class="line">	<span class="keyword">if</span> rand &lt; <span class="number">4</span>:</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	<span class="comment"># Otherwise, the server responds</span></span><br><span class="line">	serverSocket.sendto(message, address)</span><br></pre></td></tr></table></figure>
+<p>客户端代码，<code>UDPPinger.py</code>：</p>
+<p>其中每次在发送前从系统提取一次时间，接收到服务器返回的消息后 ，再提取一次时间，两次相减，即可得到每个消息的往返时延（RTT）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UDPPinger.py</span></span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">clientSocket = socket(AF_INET,SOCK_DGRAM) <span class="comment"># 建立UDP连接</span></span><br><span class="line">clientSocket.settimeout(<span class="number">1</span>) <span class="comment"># 设置socket超时值1秒</span></span><br><span class="line">HOST = <span class="string">&#x27;127.0.0.1&#x27;</span></span><br><span class="line">PORT = <span class="number">12000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">	sendTime = time.time()</span><br><span class="line">	message = (<span class="string">&#x27;Ping %d %s&#x27;</span> % (i + <span class="number">1</span>, sendTime)).encode()</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		clientSocket.sendto(message,(HOST,PORT)) <span class="comment"># 将信息发送到服务器</span></span><br><span class="line">		modifiedMessage, serverAddress = clientSocket.recvfrom(<span class="number">1024</span>)  <span class="comment"># 从服务器接收信息，同时也能得到服务器地址</span></span><br><span class="line">		rtt = time.time() - sendTime</span><br><span class="line">		print(<span class="string">&#x27;Sequence %d : Request from %s , RTT = %.3f&#x27;</span> % (i+<span class="number">1</span>,HOST,rtt))</span><br><span class="line">	<span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">		print(<span class="string">&#x27;Sequence %d : Request from %s time out!&#x27;</span> % (i+<span class="number">1</span>,HOST))</span><br><span class="line">clientSocket.close()</span><br></pre></td></tr></table></figure>
+<p>测试结果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Sequence 1 : Request from 127.0.0.1 time out!</span><br><span class="line">Sequence 2 : Request from 127.0.0.1 time out!</span><br><span class="line">Sequence 3 : Request from 127.0.0.1 time out!</span><br><span class="line">Sequence 4 : Request from 127.0.0.1 time out!</span><br><span class="line">Sequence 5 : Request from 127.0.0.1 , RTT = 0.000 s</span><br><span class="line">Sequence 6 : Request from 127.0.0.1 , RTT = 0.000 s</span><br><span class="line">Sequence 7 : Request from 127.0.0.1 time out!</span><br><span class="line">Sequence 8 : Request from 127.0.0.1 , RTT = 0.000 s</span><br><span class="line">Sequence 9 : Request from 127.0.0.1 , RTT = 0.000 s</span><br><span class="line">Sequence 10 : Request from 127.0.0.1 , RTT = 0.000 s</span><br></pre></td></tr></table></figure>
+<h2 id="作业3：邮件客户端"><a href="#作业3：邮件客户端" class="headerlink" title="作业3：邮件客户端"></a>作业3：邮件客户端</h2><p>作业文档<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A3-%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/%E4%BD%9C%E4%B8%9A3-%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF-%E7%BF%BB%E8%AF%91.md">中文翻译</a>地址。<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A3-%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF/%E4%BD%9C%E4%B8%9A3-%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF-%E8%A7%A3%E7%AD%94.md">答案</a>地址。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line">msg = <span class="string">&quot;\r\n I love computer networks!&quot;</span></span><br><span class="line">endmsg = <span class="string">&quot;\r\n.\r\n&quot;</span></span><br><span class="line"><span class="comment"># Choose a mail server (e.g. Google mail server) and call it mailserver </span></span><br><span class="line">mailserver = <span class="comment">#Fill in start   #Fill in end</span></span><br><span class="line"><span class="comment"># Create socket called clientSocket and establish a TCP connection with mailserver</span></span><br><span class="line"><span class="comment">#Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Fill in end</span></span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span> recv</span><br><span class="line"><span class="keyword">if</span> recv[:<span class="number">3</span>] != <span class="string">&#x27;220&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;220 reply not received from server.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send HELO command and print server response.</span></span><br><span class="line">heloCommand = <span class="string">&#x27;HELO Alice\r\n&#x27;</span></span><br><span class="line">clientSocket.send(heloCommand)</span><br><span class="line">recv1 = clientSocket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span> recv1</span><br><span class="line"><span class="keyword">if</span> recv1[:<span class="number">3</span>] != <span class="string">&#x27;250&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;250 reply not received from server.&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send MAIL FROM command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send RCPT TO command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send DATA command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send message data.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Message ends with a single period.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send QUIT command and get server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fill in end</span></span><br></pre></td></tr></table></figure>
+<p>本文将实现一个SMTP客户端，使用163邮箱作为发件人，向指定的QQ邮箱发送一封邮件。</p>
+<p><img src="/posts/212069b/image-20211005151424676.png" alt="image-20211005151424676"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">msg = <span class="string">&quot;\r\n I love computer networks!&quot;</span> <span class="comment"># 邮件内容</span></span><br><span class="line">endmsg = <span class="string">&quot;\r\n.\r\n&quot;</span></span><br><span class="line"><span class="comment"># Choose a mail server (e.g. Google mail server) and call it mailserver</span></span><br><span class="line">mailserver = <span class="string">&#x27;smtp.163.com&#x27;</span></span><br><span class="line"></span><br><span class="line">subject = <span class="string">&quot;I love computer networks!&quot;</span> <span class="comment"># 邮件标题</span></span><br><span class="line">contenttype = <span class="string">&quot;text/plain&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sender and reciever</span></span><br><span class="line">fromaddress = <span class="string">&quot;xxx@163.com&quot;</span></span><br><span class="line">toaddress = <span class="string">&quot;xxx@qq.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Auth information (Encode with base64) base64加密处理用户名和密码</span></span><br><span class="line">username = base64.b64encode(<span class="string">&quot;xxx@163.com&quot;</span>.encode()) + <span class="string">b&#x27;\r\n&#x27;</span></span><br><span class="line">password = base64.b64encode(<span class="string">&quot;xxx&quot;</span>.encode()) + <span class="string">b&#x27;\r\n&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create socket called clientSocket and establish a TCP connection with mailserver</span></span><br><span class="line">clientSocket = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">clientSocket.connect((mailserver, <span class="number">25</span>))</span><br><span class="line"></span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> recv[:<span class="number">3</span>] != <span class="string">&#x27;220&#x27;</span>:</span><br><span class="line">	print(<span class="string">&#x27;220 reply not received from server.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Send HELO command and print server response.</span></span><br><span class="line">heloCommand = <span class="string">&#x27;HELO Alice\r\n&#x27;</span></span><br><span class="line">clientSocket.send(heloCommand.encode())</span><br><span class="line">recv1 = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv1)</span><br><span class="line"><span class="keyword">if</span> recv1[:<span class="number">3</span>] != <span class="string">&#x27;250&#x27;</span>:</span><br><span class="line">	print(<span class="string">&#x27;250 reply not received from server.&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登陆邮箱过程</span></span><br><span class="line">clientSocket.sendall(<span class="string">&#x27;AUTH LOGIN\r\n&#x27;</span>.encode())</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;334&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;334 reply not received from server&#x27;</span>)</span><br><span class="line"></span><br><span class="line">clientSocket.sendall(username)</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;334&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;334 reply not received from server&#x27;</span>)</span><br><span class="line"></span><br><span class="line">clientSocket.sendall(password)</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;235&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;235 reply not received from server&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Send MAIL FROM command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">clientSocket.sendall((<span class="string">&#x27;MAIL FROM: &lt;&#x27;</span> + fromaddress + <span class="string">&#x27;&gt;\r\n&#x27;</span>).encode())</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;250&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;250 reply not received from server&#x27;</span>)</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send RCPT TO command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">clientSocket.sendall((<span class="string">&#x27;RCPT TO: &lt;&#x27;</span> + toaddress + <span class="string">&#x27;&gt;\r\n&#x27;</span>).encode())</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;250&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;250 reply not received from server&#x27;</span>)</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send DATA command and print server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">clientSocket.send(<span class="string">&#x27;DATA\r\n&#x27;</span>.encode())</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;354&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;354 reply not received from server&#x27;</span>)</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send message data.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">message = <span class="string">&#x27;from:&#x27;</span> + fromaddress + <span class="string">&#x27;\r\n&#x27;</span></span><br><span class="line">message += <span class="string">&#x27;to:&#x27;</span> + toaddress + <span class="string">&#x27;\r\n&#x27;</span></span><br><span class="line">message += <span class="string">&#x27;subject:&#x27;</span> + subject + <span class="string">&#x27;\r\n&#x27;</span></span><br><span class="line">message += <span class="string">&#x27;Content-Type:&#x27;</span> + contenttype + <span class="string">&#x27;\t\n&#x27;</span></span><br><span class="line">message += <span class="string">&#x27;\r\n&#x27;</span> + msg</span><br><span class="line">clientSocket.sendall(message.encode())</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Message ends with a single period.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">clientSocket.sendall(endmsg.encode())</span><br><span class="line">recv = clientSocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">print(recv)</span><br><span class="line"><span class="keyword">if</span> (recv[:<span class="number">3</span>] != <span class="string">&#x27;250&#x27;</span>):</span><br><span class="line">	print(<span class="string">&#x27;250 reply not received from server&#x27;</span>)</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Send QUIT command and get server response.</span></span><br><span class="line"><span class="comment"># Fill in start</span></span><br><span class="line">clientSocket.sendall(<span class="string">&#x27;QUIT\r\n&#x27;</span>.encode())</span><br><span class="line"><span class="comment"># Fill in end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Close connection</span></span><br><span class="line">clientSocket.close()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>有些邮箱默认关闭SMTP服务，比如本文使用的163邮箱。需要在设置中打开SMTP服务。另外，163邮箱在打开SMTP服务后，会设置一个授权码，在程序使用这个授权码作为密码登录，而不是平时使用的密码。</li>
+<li>代码中带有xxx的内容的是需要自行设置的内容，包含：发件人邮箱，收件人邮箱，登录邮箱的用户名和密码。</li>
+</ul>
+<p>测试结果：</p>
+<p>程序返回输出，邮箱也收到相应邮件。<img src="/posts/212069b/image-20211005151506183.png" alt="image-20211005151506183"></p>
+<h2 id="作业4：多线程Web代理服务器"><a href="#作业4：多线程Web代理服务器" class="headerlink" title="作业4：多线程Web代理服务器"></a>作业4：多线程Web代理服务器</h2><p>作业文档<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A4-%E5%A4%9A%E7%BA%BF%E7%A8%8BWeb%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BD%9C%E4%B8%9A4-%E5%A4%9A%E7%BA%BF%E7%A8%8BWeb%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-%E7%BF%BB%E8%AF%91.md">中文翻译</a>地址。<a target="_blank" rel="noopener" href="https://github.com/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES/blob/master/SocketProgrammingAssignment/%E4%BD%9C%E4%B8%9A4-%E5%A4%9A%E7%BA%BF%E7%A8%8BWeb%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8/%E4%BD%9C%E4%B8%9A4-%E5%A4%9A%E7%BA%BF%E7%A8%8BWeb%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-%E8%A7%A3%E7%AD%94.md">答案</a>地址。</p>
+<p>您的任务是开发一个能够缓存网页的小型Web代理服务器。这是一个很简单的代理服务器，它只能理解简单的GET请求，但能够处理各种对象 —— 不仅仅是HTML页面，还包括图片。</p>
+<p>通常，当客户端发出一个请求时，请求将被直接发送到Web服务器。然后Web服务器处理该请求并将响应消息发送客户端。为了提高性能，我们在客户端和Web服务器之间建立一个代理服务器。现在，客户端发送的请求消息和Web服务器返回的响应消息都要经过代理服务器。换句话说，客户端通过代理服务器请求对象。代理服务器将客户端的请求转发到Web服务器。然后，Web服务器将生成响应消息并将其传递给代理服务器，代理服务器又将其发送给客户端。</p>
+<p>需要您填写代码的地方标有<code>#Fill in start</code>和<code>#Fill in end</code>。 每个地方都需要填写至少一行代码。</p>
+<p>代理服务器的Python代码框架：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) &lt;= <span class="number">1</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&#x27;Usage : &quot;python ProxyServer.py server_ip&quot;\n[server_ip : It is the IP Address Of Proxy Server&#x27;</span></span><br><span class="line">	sys.exit(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># Create a server socket, bind it to a port and start listening</span></span><br><span class="line">tcpSerSock = socket(AF_INET, SOCK_STREAM)</span><br><span class="line"><span class="comment"># Fill in start.</span></span><br><span class="line"><span class="comment"># Fill in end.</span></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	<span class="comment"># Strat receiving data from the client</span></span><br><span class="line">	<span class="built_in">print</span> <span class="string">&#x27;Ready to serve...&#x27;</span></span><br><span class="line">	tcpCliSock, addr = tcpSerSock.accept()</span><br><span class="line">	<span class="built_in">print</span> <span class="string">&#x27;Received a connection from:&#x27;</span>, addr</span><br><span class="line">	message = <span class="comment"># Fill in start. # Fill in end.</span></span><br><span class="line">	<span class="built_in">print</span> message</span><br><span class="line">	<span class="comment"># Extract the filename from the given message</span></span><br><span class="line">	<span class="built_in">print</span> message.split()[<span class="number">1</span>]</span><br><span class="line">	filename = message.split()[<span class="number">1</span>].partition(<span class="string">&quot;/&quot;</span>)[<span class="number">2</span>]</span><br><span class="line">	<span class="built_in">print</span> filename</span><br><span class="line">	fileExist = <span class="string">&quot;false&quot;</span></span><br><span class="line">	filetouse = <span class="string">&quot;/&quot;</span> + filename</span><br><span class="line">	<span class="built_in">print</span> filetouse</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		<span class="comment"># Check wether the file exist in the cache</span></span><br><span class="line">		f = <span class="built_in">open</span>(filetouse[<span class="number">1</span>:], <span class="string">&quot;r&quot;</span>)</span><br><span class="line">		outputdata = f.readlines()</span><br><span class="line">		fileExist = <span class="string">&quot;true&quot;</span></span><br><span class="line">		<span class="comment"># ProxyServer finds a cache hit and generates a response message</span></span><br><span class="line">		tcpCliSock.send(<span class="string">&quot;HTTP/1.0 200 OK\r\n&quot;</span>)</span><br><span class="line">		tcpCliSock.send(<span class="string">&quot;Content-Type:text/html\r\n&quot;</span>)</span><br><span class="line">		<span class="comment"># Fill in start.</span></span><br><span class="line">		<span class="comment"># Fill in end.</span></span><br><span class="line">			<span class="built_in">print</span> <span class="string">&#x27;Read from cache&#x27;</span></span><br><span class="line">	<span class="comment"># Error handling for file not found in cache</span></span><br><span class="line">	<span class="keyword">except</span> IOError:</span><br><span class="line">		<span class="keyword">if</span> fileExist == <span class="string">&quot;false&quot;</span>:</span><br><span class="line">			<span class="comment"># Create a socket on the proxyserver</span></span><br><span class="line">			c = <span class="comment"># Fill in start. # Fill in end.</span></span><br><span class="line">			hostn = filename.replace(<span class="string">&quot;www.&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="number">1</span>) </span><br><span class="line">			<span class="built_in">print</span> hostn</span><br><span class="line">			<span class="keyword">try</span>:</span><br><span class="line">				<span class="comment"># Connect to the socket to port 80</span></span><br><span class="line">				<span class="comment"># Fill in start.</span></span><br><span class="line">				<span class="comment"># Fill in end.</span></span><br><span class="line">				<span class="comment"># Create a temporary file on this socket and ask port 80</span></span><br><span class="line">				<span class="keyword">for</span> the file requested by the client</span><br><span class="line">				fileobj = c.makefile(<span class="string">&#x27;r&#x27;</span>, <span class="number">0</span>)</span><br><span class="line">				fileobj.write(<span class="string">&quot;GET &quot;</span>+<span class="string">&quot;http://&quot;</span> + filename + <span class="string">&quot; HTTP/1.0\n\n&quot;</span>)</span><br><span class="line">				<span class="comment"># Read the response into buffer</span></span><br><span class="line">				<span class="comment"># Fill in start.</span></span><br><span class="line">				<span class="comment"># Fill in end.</span></span><br><span class="line">				<span class="comment"># Create a new file in the cache for the requested file.</span></span><br><span class="line">				<span class="comment"># Also send the response in the buffer to client socket and the corresponding file in the cache</span></span><br><span class="line">				tmpFile = <span class="built_in">open</span>(<span class="string">&quot;./&quot;</span> + filename,<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">				<span class="comment"># Fill in start.</span></span><br><span class="line">				<span class="comment"># Fill in end.</span></span><br><span class="line">			<span class="keyword">except</span>:</span><br><span class="line">				<span class="built_in">print</span> <span class="string">&quot;Illegal request&quot;</span></span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="comment"># HTTP response message for file not found</span></span><br><span class="line">			<span class="comment"># Fill in start.</span></span><br><span class="line">			<span class="comment"># Fill in end.</span></span><br><span class="line">	<span class="comment"># Close the client and the server sockets</span></span><br><span class="line">	tcpCliSock.close()</span><br><span class="line"><span class="comment"># Fill in start.</span></span><br><span class="line"><span class="comment"># Fill in end.</span></span><br></pre></td></tr></table></figure>
+<p>按照官方文档的代码骨架，代理程序接收用户的GET请求，若请求的内容发已存在于代理服务器，则直接返回内容，若不存在，则转发该请求到目标服务器，接收目标服务器的响应，并将响应内容存储为文件，作为缓存，已备之后同样的请求。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为代理服务器 创建一个TCP套接字、绑定端口号、设置服务器最大连接客户机数量为3(因为是多线程Web服务器)</span></span><br><span class="line">tcpSerSock = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">tcpSerSock.bind((<span class="string">&#x27;&#x27;</span>,<span class="number">1234</span>))</span><br><span class="line">tcpSerSock.listen(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">	<span class="comment"># 准备从客户机接收响应消息</span></span><br><span class="line">	<span class="built_in">print</span> (<span class="string">&#x27;准备从客户机接收响应消息...&#x27;</span>)</span><br><span class="line">	tcpCliSock, addr = tcpSerSock.accept()</span><br><span class="line">	<span class="built_in">print</span> (<span class="string">&#x27;接收到一个连接，来自：&#x27;</span>, addr)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 获取客户机发送过来的消息</span></span><br><span class="line">	message = tcpCliSock.recv(<span class="number">4096</span>).decode()</span><br><span class="line">	<span class="built_in">print</span> (<span class="string">&#x27;客户机发送过来的消息：&#x27;</span>,message)</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 从消息从提取出文件名</span></span><br><span class="line">	filename = message.split()[<span class="number">1</span>].partition(<span class="string">&quot;//&quot;</span>)[<span class="number">2</span>].replace(<span class="string">&#x27;/&#x27;</span>,<span class="string">&#x27;_&#x27;</span>)</span><br><span class="line">	<span class="built_in">print</span> (<span class="string">&#x27;文件名：&#x27;</span>,filename)</span><br><span class="line">	fileExist = <span class="string">&quot;false&quot;</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		<span class="comment"># 检查要访问的文件是否在此Web代理服务器中</span></span><br><span class="line">		<span class="built_in">print</span> (<span class="string">&#x27;开始检查代理服务器中是否存在文件：&#x27;</span>,filename)</span><br><span class="line">		f = <span class="built_in">open</span>(filename, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">		outputdata = f.readlines()</span><br><span class="line">		fileExist = <span class="string">&quot;true&quot;</span></span><br><span class="line">		<span class="built_in">print</span> (<span class="string">&#x27;文件存在在代理服务器中&#x27;</span>)</span><br><span class="line">		<span class="comment"># 文件存在在代理服务器中，返回响应消息(请求的web网页)给客户机</span></span><br><span class="line">		<span class="comment">#tcpCliSock.send(&quot;HTTP/1.0 200 OK\r\n&quot;)</span></span><br><span class="line">		<span class="comment">#tcpCliSock.send(&quot;Content-Type:text/html\r\n&quot;)</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(outputdata)):</span><br><span class="line">				tcpCliSock.send(outputdata[i].encode())	</span><br><span class="line">		<span class="built_in">print</span> (<span class="string">&#x27;Read from cache&#x27;</span>)</span><br><span class="line">			</span><br><span class="line">	<span class="comment"># 文件不在代理服务器当中，代理服务器就会向远端服务器请求消息，保存好了再返回给客户机</span></span><br><span class="line">	<span class="keyword">except</span> IOError:</span><br><span class="line">		<span class="keyword">if</span> fileExist == <span class="string">&quot;false&quot;</span>:</span><br><span class="line">			<span class="built_in">print</span> (<span class="string">&#x27;文件不在代理服务器当中，开始向远端服务器请求网页&#x27;</span>)</span><br><span class="line">			<span class="comment"># 在代理服务器中创建一个TCP套接字</span></span><br><span class="line">			c = socket(AF_INET,SOCK_STREAM)</span><br><span class="line">			</span><br><span class="line">			hostn = message.split()[<span class="number">1</span>].partition(<span class="string">&quot;//&quot;</span>)[<span class="number">2</span>].partition(<span class="string">&quot;/&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">			<span class="built_in">print</span> (<span class="string">&#x27;Host Name: &#x27;</span>,hostn)</span><br><span class="line">			<span class="keyword">try</span>:</span><br><span class="line">				<span class="comment"># TCP套接字c 连接到远端服务器80端口</span></span><br><span class="line">				c.connect((hostn,<span class="number">80</span>))</span><br><span class="line">				<span class="built_in">print</span> (<span class="string">&#x27;套接字连接到主机的80号端口&#x27;</span>)</span><br><span class="line">				</span><br><span class="line">				<span class="comment"># 在套接字上创建一个临时的文件，而且要向80端口(远端服务器)请求信息</span></span><br><span class="line">				<span class="comment">#for the file requested by the client</span></span><br><span class="line">				<span class="comment">#fileobj = c.makefile(&#x27;r&#x27;, 0)</span></span><br><span class="line">				<span class="comment">#fileobj.write(&quot;GET &quot;+&quot;http://&quot; + filename + &quot; HTTP/1.0\n\n&quot;)</span></span><br><span class="line">				</span><br><span class="line">				<span class="comment"># 代理服务器 读取 从远端服务器从响应的消息</span></span><br><span class="line">				c.sendall(message.encode())</span><br><span class="line">				buff = c.recv(<span class="number">4096</span>)</span><br><span class="line">				tcpCliSock.sendall(buff)</span><br><span class="line">				</span><br><span class="line">				<span class="comment"># 在代理服务器中 创建一个新的文件 用于存放请求过来的消息</span></span><br><span class="line">				<span class="comment"># 将代理服务器中的响应 发送到客户端套接字，并将相应的文件发送到缓存中</span></span><br><span class="line">				tmpFile = <span class="built_in">open</span>(<span class="string">&quot;./&quot;</span> + filename,<span class="string">&quot;w&quot;</span>)</span><br><span class="line">				tmpFile.writelines(buff.decode().replace(<span class="string">&#x27;\r\n&#x27;</span>,<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">				tmpFile.close();</span><br><span class="line">				</span><br><span class="line">			<span class="keyword">except</span>:</span><br><span class="line">				<span class="built_in">print</span> (<span class="string">&quot;代理服务器向远端服务器请求网页失败&quot;</span>)</span><br><span class="line">		<span class="keyword">else</span>:</span><br><span class="line">			<span class="comment"># 如果客户机请求的消息在远端服务器也找不到，就说明请求不到了</span></span><br><span class="line">			<span class="built_in">print</span> (<span class="string">&#x27;文件存在，但是还是出现了 IOError异常&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 关闭客户机 和 代理服务器的TCP套接字</span></span><br><span class="line">	<span class="built_in">print</span> (<span class="string">&#x27;关闭套接字：tcpCliSock&#x27;</span>)</span><br><span class="line">	tcpCliSock.close();</span><br><span class="line"><span class="comment"># 关闭代理服务器 和 服务器的TCP套接字</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;关闭套接字：tcpSerSock&#x27;</span>)</span><br><span class="line">tcpSerSock.close();</span><br></pre></td></tr></table></figure>
+<p>测试参考： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41708792/article/details/102134906。">https://blog.csdn.net/qq_41708792/article/details/102134906。</a></p>
+<p>测试网站：<a target="_blank" rel="noopener" href="http://gaia.cs.umass.edu/wireshark-labs/INTRO-wireshark-file1.html">http://gaia.cs.umass.edu/wireshark-labs/INTRO-wireshark-file1.html</a></p>
+<p><img src="/posts/212069b/image-20211005163007655.png" alt="image-20211005163007655"></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/212069b.html" title="《计算机网络--自顶向下方法》第二章：套接字编程作业">https://www.grantdrew.top/posts/212069b.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/42a741d0.html" rel="prev" title="Java Web入门笔记（四）">
+      <i class="fa fa-chevron-left"></i> Java Web入门笔记（四）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/84303800.html" rel="next" title="Linux基础课笔记（十二）">
+      Linux基础课笔记（十二） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A1%EF%BC%9AWeb%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">作业1：Web服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A2%EF%BC%9AUDP-ping-%E7%A8%8B%E5%BA%8F"><span class="nav-text">作业2：UDP ping 程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A3%EF%BC%9A%E9%82%AE%E4%BB%B6%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">作业3：邮件客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A4%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8BWeb%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">作业4：多线程Web代理服务器</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:31</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

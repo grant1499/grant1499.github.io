@@ -24,7 +24,7 @@
 <meta property="og:description" content="例题2：852. spfa判断负环（模板题）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-18T03:26:18.000Z">
-<meta property="article:modified_time" content="2021-08-20T03:08:16.481Z">
+<meta property="article:modified_time" content="2021-10-21T11:16:04.062Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Floyd">
 <meta property="article:tag" content="SPFA">
@@ -124,7 +124,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-20 11:08:16" itemprop="dateModified" datetime="2021-08-20T11:08:16+08:00">2021-08-20</time>
+                <time title="修改时间：2021-10-21 19:16:04" itemprop="dateModified" datetime="2021-10-21T19:16:04+08:00">2021-10-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +308,7 @@
 <p><strong>五种最短路的简单文字总结：</strong></p>
 <p>Dijkstra-朴素 O(n^2)<br>初始化距离数组, <code>dist[1] = 0, dist[i] = inf;</code><br>for n次循环 每次循环确定一个min加入S集合中，n次之后就得出所有的最短距离<br>将不在S中dist_min的点-&gt;t<br>t-&gt;S加入最短路集合<br>用t更新到其他点的距离</p>
 <p>Dijkstra-堆优化 O(mlogn)<br>利用邻接表，优先队列<br>在<code>priority_queue&lt;PII,vector&lt;PII&gt;,greater&lt;PII&gt;&gt; heap;</code>中将返回堆顶<br>利用堆顶来更新其他点，并加入堆中类似宽搜</p>
-<p>Bellman_ford O(nm)<br>注意串联反应需要备份, <code>struct Edge&#123;int a,b,c&#125; Edge[M];</code><br>初始化dist, 松弛 ~dist[x.b] = min(dist[x.b], backup[x.a]+x.w);~<br>松弛k次，每次访问m条边</p>
+<p>Bellman_ford O(nm)<br>注意串联反应需要备份, <code>struct Edge&#123;int a,b,c&#125; Edge[M];</code><br>初始化dist, 松弛 <code>dist[x.b] = min(dist[x.b], backup[x.a]+x.w);</code><br>松弛k次，每次访问m条边</p>
 <p>Spfa O(n)∼O(nm)<br>利用队列优化仅加入修改过的地方<br>for k次<br>for 所有边利用宽搜模型去优化bellman_ford算法<br>更新队列中当前点的所有出边</p>
 <p>Floyd O(n^3)<br>初始化d<br>k, i, j 去更新d</p>
 
@@ -474,7 +474,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,7 +487,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -536,13 +536,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

@@ -24,7 +24,7 @@
 <meta property="og:description" content="六：时空复杂度分析参考课堂笔记： https:&#x2F;&#x2F;www.acwing.com&#x2F;file_system&#x2F;file&#x2F;content&#x2F;whole&#x2F;index&#x2F;content&#x2F;1120024&#x2F;。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-15T06:13:54.000Z">
-<meta property="article:modified_time" content="2021-09-17T07:11:08.132Z">
+<meta property="article:modified_time" content="2021-09-18T14:54:47.204Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-17 15:11:08" itemprop="dateModified" datetime="2021-09-17T15:11:08+08:00">2021-09-17</time>
+                <time title="修改时间：2021-09-18 22:54:47" itemprop="dateModified" datetime="2021-09-18T22:54:47+08:00">2021-09-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,7 +311,7 @@
 <h1 id="七：数学知识"><a href="#七：数学知识" class="headerlink" title="七：数学知识"></a>七：数学知识</h1><p>数论基础： <a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/basic/。">https://oi-wiki.org/math/number-theory/basic/。</a></p>
 <p>数论参考系列文章： <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/dFBbbTB8Fz2_n3YeMIj7nw。">https://mp.weixin.qq.com/s/dFBbbTB8Fz2_n3YeMIj7nw。</a></p>
 <p>蓝桥杯（三十）中介绍过数论的部分知识。</p>
-<p>参考书籍： 《算法竞赛进阶指南》。</p>
+<p><strong>参考书籍： 《算法竞赛进阶指南》。</strong></p>
 <h2 id="7-1：质数"><a href="#7-1：质数" class="headerlink" title="7.1：质数"></a>7.1：质数</h2><p>质数，也可以称为素数（过时的叫法）。</p>
 <p>质数和合数是针对所有大于 1 的 “自然数” 来定义的（所有小于等于1的数都不是质数）。</p>
 <p>质数的判定方法——试除法。</p>
@@ -347,7 +347,7 @@
 <p>说明：分解质因数的实际时间复杂度要比判定质数要快。当$n = 2^k$时，它只有一个质因数2，最快时间复杂度是$O(log n)$。平均时间复杂度介于两者之间。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= x / i;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (x % i == <span class="number">0</span>)&#123;<span class="comment">// i一定是质数</span></span><br><span class="line">            <span class="keyword">int</span> s = <span class="number">0</span>;<span class="comment">// 将x中的所有i除尽，同时求i的指数s</span></span><br><span class="line">            <span class="keyword">while</span> (x % i == <span class="number">0</span>) x /= i,s ++;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; s &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&quot; 1\n&quot;</span>;<span class="comment">// 处理剩下的&gt;sqrt(n)的质因数</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">while</span> (n -- )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">        divide(a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为什么循环中满足<code>x % i == 0</code>的<code>i</code>一定都是质数呢？（后面的筛法也有类似的东西）</p>
-<p>因为经过<code>while</code>处理<code>x</code>，合数都会被除去。假设存在一个<code>i</code>是合数且<code>x % i == 0</code>，根据算术基本定理，它可以分解质因数：$i = p_1^{a_1}<em>p_2^{a_2}</em>…*p_k^{a_k}$，显然有$p_1 &lt; i$，所以for循环会先遍历$p_1$，然后在while循环中将会除去<code>x</code>中的所有因子$p_1$，同理会去除<code>x</code>的其他质数因子，则<code>x</code>的因子中不包含<code>[2,i-1]</code>中的数，也就是说<code>x</code>和<code>i</code>不再有公共因子，那么如果<code>x % i == 0</code>，<code>i</code>就一定是一个质数，得证。</p>
+<p>因为经过<code>while</code>处理<code>x</code>，合数都会被除去。假设存在一个<code>i</code>是合数且<code>x % i == 0</code>，根据算术基本定理，它可以分解质因数：$i = p_1^{a_1}\star p_2^{a_2}*…\star p_k^{a_k}$，显然有$p_1 &lt; i$，所以for循环会先遍历$p_1$，然后在while循环中将会除去<code>x</code>中的所有因子$p_1$，同理会去除<code>x</code>的其他质数因子，则<code>x</code>的因子中不包含<code>[2,i-1]</code>中的数，也就是说<code>x</code>和<code>i</code>不再有公共因子，那么如果<code>x % i == 0</code>，<code>i</code>就一定是一个质数，得证。</p>
 <p>证明参考： <a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/pollard-rho/。">https://oi-wiki.org/math/number-theory/pollard-rho/。</a></p>
 
     </div>
@@ -511,7 +511,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -524,7 +524,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -573,13 +573,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/f48f4654/image-20210724175013829.png">
 <meta property="article:published_time" content="2021-07-24T09:23:21.000Z">
-<meta property="article:modified_time" content="2021-09-09T11:29:30.087Z">
+<meta property="article:modified_time" content="2021-09-22T13:38:51.900Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="二分">
 <meta property="article:tag" content="高精度">
@@ -126,7 +126,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-09 19:29:30" itemprop="dateModified" datetime="2021-09-09T19:29:30+08:00">2021-09-09</time>
+                <time title="修改时间：2021-09-22 21:38:51" itemprop="dateModified" datetime="2021-09-22T21:38:51+08:00">2021-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,7 +308,7 @@
 <p><strong>例题：acwing.7890. 数的三次方根（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">给定一个浮点数 n，求它的三次方根。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共一行，包含一个浮点数 n。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，包含一个浮点数，表示问题的解。</span><br><span class="line">注意，结果保留 <span class="number">6</span> 位小数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">−<span class="number">10000</span>≤n≤<span class="number">10000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1000.00</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">10.000000</span></span><br></pre></td></tr></table></figure>
 <p>y总代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;n);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">-100</span>,r = <span class="number">100</span>;<span class="comment">// 算平方根左边界取0，立方根左边界取-100</span></span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1e-8</span>)&#123;<span class="comment">// 经验值，比要求的1e-6多开2位</span></span><br><span class="line">        <span class="keyword">double</span> mid = (l+r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (mid*mid*mid &gt;= n) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf&quot;</span>,l);<span class="comment">// 默认输出6位小数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>,&amp;n);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">double</span> l = <span class="number">-100</span>,r = <span class="number">100</span>;<span class="comment">// 算平方根左边界取0，立方根左边界取-100</span></span><br><span class="line">    <span class="comment">// 注意：1e-8这里换成int就TLE了！！！必须定义为double</span></span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1e-8</span>)&#123;<span class="comment">// 经验值，比要求的1e-6多开2位</span></span><br><span class="line">        <span class="keyword">double</span> mid = (l+r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (mid*mid*mid &gt;= n) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf&quot;</span>,l);<span class="comment">// 默认输出6位小数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="1-4：高精度"><a href="#1-4：高精度" class="headerlink" title="1.4：高精度"></a>1.4：高精度</h2><p>有时候遇到数据非常大，超过long long的上限时，需要高精度。</p>
 <p>只有C++才需要高精度，python自带，Java有BigDecimal。</p>
 <p>高精度面试不常考，笔试中偶尔出现。</p>
@@ -495,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -508,7 +508,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +557,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

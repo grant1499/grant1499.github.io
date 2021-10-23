@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/913e0d32/image-20210504173012750.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/913e0d32/image-20210504173513323.png">
 <meta property="article:published_time" content="2021-05-04T08:56:01.000Z">
-<meta property="article:modified_time" content="2021-09-05T14:24:33.538Z">
+<meta property="article:modified_time" content="2021-09-22T03:27:31.904Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-05 22:24:33" itemprop="dateModified" datetime="2021-09-05T22:24:33+08:00">2021-09-05</time>
+                <time title="修改时间：2021-09-22 11:27:31" itemprop="dateModified" datetime="2021-09-22T11:27:31+08:00">2021-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,14 +259,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>927</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -279,7 +279,7 @@
 
       
         <h2 id="1-创建数据库表"><a href="#1-创建数据库表" class="headerlink" title="1.创建数据库表"></a>1.创建数据库表</h2><span id="more"></span>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 注意：表的名称和字段尽量用``包起来</span></span><br><span class="line"><span class="comment">-- 字符串使用单引号括起来！（双引号也行）</span></span><br><span class="line"><span class="comment">-- 所有语句后面加,最后一个不用</span></span><br><span class="line"><span class="comment">-- primary key，主键一般一张表一个</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `student` (</span><br><span class="line">`id` <span class="type">INT</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">`name` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;匿名&#x27;</span> COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">`pwd` <span class="type">VARCHAR</span>(<span class="number">15</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;12345&#x27;</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">`gender` <span class="type">VARCHAR</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;女&#x27;</span> COMMENT <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">`birthday` DATETIME <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;出生日期&#x27;</span>,</span><br><span class="line">`address` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;家庭住址&#x27;</span>,</span><br><span class="line">`email` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY(`id`)</span><br><span class="line">)ENGINE <span class="operator">=</span> INNODB <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 注意：表的名称和字段尽量用``包起来</span></span><br><span class="line"><span class="comment">-- 字符串使用单引号括起来！ &#x27;xxx&#x27;（双引号也行）</span></span><br><span class="line"><span class="comment">-- 所有语句后面加,最后一个不用</span></span><br><span class="line"><span class="comment">-- primary key，主键一般一张表一个</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `student` (</span><br><span class="line">`id` <span class="type">INT</span>(<span class="number">4</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;学号&#x27;</span>,</span><br><span class="line">`name` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;匿名&#x27;</span> COMMENT <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line">`pwd` <span class="type">VARCHAR</span>(<span class="number">15</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;12345&#x27;</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">`gender` <span class="type">VARCHAR</span>(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;女&#x27;</span> COMMENT <span class="string">&#x27;性别&#x27;</span>,</span><br><span class="line">`birthday` DATETIME <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;出生日期&#x27;</span>,</span><br><span class="line">`address` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;家庭住址&#x27;</span>,</span><br><span class="line">`email` <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY(`id`)</span><br><span class="line">)ENGINE <span class="operator">=</span> INNODB <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8</span><br></pre></td></tr></table></figure>
 <h2 id="2-三个常用命令"><a href="#2-三个常用命令" class="headerlink" title="2.三个常用命令"></a>2.三个常用命令</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查看数据库和表的创建语句</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> DATABASE school</span><br><span class="line"><span class="comment">-- CREATE DATABASE `school` /*!40100 DEFAULT CHARACTER SET utf8 */</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `student`</span><br><span class="line"><span class="comment">-- CREATE TABLE IF NOT EXISTS `student`(XXX)XXX</span></span><br><span class="line"><span class="keyword">DESC</span> student</span><br><span class="line"><span class="comment">-- 查看表的结构</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/913e0d32/image-20210504173551477.png" alt="image-20210504173551477"></p>
 <h2 id="3-数据表的类型"><a href="#3-数据表的类型" class="headerlink" title="3.数据表的类型"></a>3.数据表的类型</h2><p>关于数据库引擎：（了解）</p>
@@ -287,12 +287,109 @@
 <p>早些年使用MYISAM。</p>
 <p>两者的区别：</p>
 <p><img src="/posts/913e0d32/image-20210504173012750.png" alt="image-20210504173012750"></p>
+<p>补充：INNODB 5.6.4后支持了全文索引。</p>
 <p>所有数据库文件都存在data目录下，一个文件夹对应一个数据库。</p>
 <p>数据库本质还是用文件存储。</p>
 <p><img src="/posts/913e0d32/image-20210504173513323.png" alt="image-20210504173513323"></p>
-<p>了解。</p>
+<p>了解内容。</p>
 <p>charset设置数据库表的字符集编码。</p>
 <p>不设置的话，默认的不支持中文。</p>
+<p>修改编码：</p>
+<ol>
+<li>创建数据库的时候就加上<code>charset=utf8</code></li>
+<li>在my.ini配置默认编码 <code>character-set-server=utf8</code></li>
+</ol>
+<h2 id="4-修改和删除表和表字段"><a href="#4-修改和删除表和表字段" class="headerlink" title="4.修改和删除表和表字段"></a>4.修改和删除表和表字段</h2><p>修改表和表字段：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 修改表名</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher RENAME <span class="keyword">AS</span> teacher1;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 增加字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher <span class="keyword">ADD</span> age <span class="type">INT</span>(<span class="number">11</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改表的字段 1 修改约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher MODIFY age <span class="type">VARCHAR</span>(<span class="number">11</span>); <span class="comment">-- 修改字段约束</span></span><br><span class="line"><span class="comment">-- 修改表的字段 2 重命名</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher CHANGE age age1 <span class="type">INT</span>(<span class="number">1</span>); <span class="comment">-- 字段重命名</span></span><br><span class="line">！！ 注意两者的区别</span><br></pre></td></tr></table></figure>
+<p>修改之后在sqlyog左侧栏刷新一下，看到效果。</p>
+<p>删除表和表字段：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 删除表的一个字段</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> teacher <span class="keyword">DROP</span> age1;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除表</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> teacher ;</span><br></pre></td></tr></table></figure>
+<p>所有的创建和删除尽量加上IF判断、以免报错。</p>
+<p>总结：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">修改表名 :<span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 旧表名 RENAME <span class="keyword">AS</span> 新表名</span><br><span class="line">添加字段 : <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">ADD</span>字段名 列属性[属性]</span><br><span class="line">修改字段 :</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 MODIFY 字段名 列类型[属性] <span class="comment">-- 修改字段约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 CHANGE 旧字段名 新字段名 列属性[属性] <span class="comment">-- 字段重命名</span></span><br><span class="line">删除字段 :  <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 表名 <span class="keyword">DROP</span> 字段名</span><br></pre></td></tr></table></figure>
+<h2 id="5-MySQL的数据管理"><a href="#5-MySQL的数据管理" class="headerlink" title="5.MySQL的数据管理"></a>5.MySQL的数据管理</h2><h3 id="5-1-外键"><a href="#5-1-外键" class="headerlink" title="5.1 外键"></a>5.1 外键</h3><p>物理外键、了解即可。</p>
+<p>创建方式一：创建表的时候增加约束 ，麻烦。</p>
+<p>删除有外键关系的表：必须先删除引用别人的表，再删除被引用的表。</p>
+<p>创建外键方式二 : 创建表的时候没有外键关系。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建外键方式二 : 创建子表完毕后,修改子表添加外键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `student`</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> `FK_gradeid` <span class="keyword">FOREIGN</span> KEY (`gradeid`) <span class="keyword">REFERENCES</span> `grade` (`gradeid`);</span><br></pre></td></tr></table></figure>
+<p>以上操作都是物理外键，数据库级别的外键，避免数据库过多造成困恼。</p>
+<p>不建议使用。</p>
+<p><strong>最佳实践</strong></p>
+<ol>
+<li>数据库就是单纯的表，只存数据，行（数据），列（字段）</li>
+<li>想使用多张表的数据，想使用外键，（程序级别实现）</li>
+</ol>
+<p>阿里Java规范：强制不得使用外键与级联，一切外键概念必须在应用层解决。</p>
+<h3 id="5-2-DML：数据库操作语言（全部记住）"><a href="#5-2-DML：数据库操作语言（全部记住）" class="headerlink" title="5.2 DML：数据库操作语言（全部记住）"></a>5.2 DML：数据库操作语言（全部记住）</h3><p>数据库的意义：数据的存储和管理。</p>
+<p>DML：增删改查必须都记住。</p>
+<ul>
+<li>insert</li>
+<li>update</li>
+<li>delete</li>
+</ul>
+<h3 id="5-3-添加"><a href="#5-3-添加" class="headerlink" title="5.3 添加"></a>5.3 添加</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(字段名<span class="number">1</span>,字段名<span class="number">2</span>,字段名<span class="number">3</span>,...) <span class="comment">-- 插入多个字段，也可以是单个字段</span></span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;值1&#x27;</span>,<span class="string">&#x27;值2&#x27;</span>,<span class="string">&#x27;值3&#x27;</span>,...)</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(字段名<span class="number">1</span>,字段名<span class="number">2</span>,字段名<span class="number">3</span>,...) <span class="comment">-- 插入多个行</span></span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;值1&#x27;</span>,<span class="string">&#x27;值2&#x27;</span>,<span class="string">&#x27;值3&#x27;</span>,...),(<span class="string">&#x27;值1&#x27;</span>,<span class="string">&#x27;值2&#x27;</span>,<span class="string">&#x27;值3&#x27;</span>,...),(<span class="string">&#x27;值1&#x27;</span>,<span class="string">&#x27;值2&#x27;</span>,<span class="string">&#x27;值3&#x27;</span>,...),(...)</span><br></pre></td></tr></table></figure>
+<p>由于主键自增，往往省略主键的添加。</p>
+<p>一般写插入语句，数据与字段一定要一一对应。</p>
+<p>字段是可以省略的（一个都不写），但是后面的所有值一定要一一对应，不能少 。不建议这样写。</p>
+<p>插入多行：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `grade`(`gradename`) <span class="keyword">values</span></span><br><span class="line">(<span class="string">&#x27;xxx1&#x27;</span>),</span><br><span class="line">(<span class="string">&#x27;xxx2&#x27;</span>);</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student(`name`,`gender`,`birthday`,`email`)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">&#x27;tom&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;2001-01-23&#x27;</span>,<span class="string">&#x27;1224@163.com&#x27;</span>),</span><br><span class="line">(<span class="string">&#x27;Lee&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;2002-07-16&#x27;</span>,<span class="string">&#x27;3253@163.com&#x27;</span>),</span><br><span class="line">(<span class="string">&#x27;Jack&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;2001-05-28&#x27;</span>,<span class="string">&#x27;4352@163.com&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="5-4-修改"><a href="#5-4-修改" class="headerlink" title="5.4 修改"></a>5.4 修改</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名 <span class="keyword">SET</span> column_name<span class="operator">=</span><span class="keyword">value</span> [,column_name2<span class="operator">=</span>value2,...] [<span class="keyword">WHERE</span> <span class="keyword">condition</span>];</span><br><span class="line"><span class="comment">-- 修改年级信息</span></span><br><span class="line">UPDATE grade <span class="keyword">SET</span> gradename <span class="operator">=</span> <span class="string">&#x27;高中&#x27;</span> <span class="keyword">WHERE</span> gradeid <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 修改多个属性，用逗号隔开</span></span><br><span class="line">UPDATE `student` <span class="keyword">SET</span> `name`<span class="operator">=</span><span class="string">&#x27;陈&#x27;</span>, `email`<span class="operator">=</span><span class="string">&#x27;chen@163.com&#x27;</span> <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p><code>value</code>可以是一个值（常量），也可以是一个变量（比如时间等）。</p>
+<p>如果不加上<code>WHERE</code>子句，会默认修改所有行的相应内容。（最好不要这样做）</p>
+<p>如果把所有行的内容都修改了，建议 删库跑路~</p>
+<p>条件：where子句 运算符</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作符</th>
+<th>含义</th>
+<th>范围</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>等于</td>
+<td></td>
+<td>等于执行sql</td>
+</tr>
+<tr>
+<td>&lt;&gt;或!=</td>
+<td>不等于</td>
+<td></td>
+<td>不等于执行sql</td>
+</tr>
+<tr>
+<td>&gt; &gt;= &lt; &lt;=</td>
+<td>大于大于等于小于小于等于</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>between … and …</td>
+<td>在某个范围内</td>
+<td>[2,5]</td>
+<td></td>
+</tr>
+<tr>
+<td>and</td>
+<td>我和你&amp;&amp;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>or</td>
+<td>我或你\</td>
+<td>\</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>MySQL完整运算符： <a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-operator.html。">https://www.runoob.com/mysql/mysql-operator.html。</a></p>
 
     </div>
 
@@ -439,7 +536,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8"><span class="nav-text">1.创建数据库表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%89%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">2.三个常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.数据表的类型</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8"><span class="nav-text">1.创建数据库表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%89%E4%B8%AA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">2.三个常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-text">3.数据表的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%BF%AE%E6%94%B9%E5%92%8C%E5%88%A0%E9%99%A4%E8%A1%A8%E5%92%8C%E8%A1%A8%E5%AD%97%E6%AE%B5"><span class="nav-text">4.修改和删除表和表字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-MySQL%E7%9A%84%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-text">5.MySQL的数据管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E5%A4%96%E9%94%AE"><span class="nav-text">5.1 外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-DML%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E8%AF%AD%E8%A8%80%EF%BC%88%E5%85%A8%E9%83%A8%E8%AE%B0%E4%BD%8F%EF%BC%89"><span class="nav-text">5.2 DML：数据库操作语言（全部记住）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E6%B7%BB%E5%8A%A0"><span class="nav-text">5.3 添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E4%BF%AE%E6%94%B9"><span class="nav-text">5.4 修改</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,7 +552,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -468,7 +565,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -517,13 +614,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>
@@ -655,59 +752,6 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

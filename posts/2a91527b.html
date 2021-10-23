@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://www.grantdrew.top/posts/2a91527b/image-20210810172259614.png">
 <meta property="og:image" content="https://www.grantdrew.top/posts/2a91527b/image-20210810174051237.png">
 <meta property="article:published_time" content="2021-08-10T02:04:23.000Z">
-<meta property="article:modified_time" content="2021-09-16T02:49:26.318Z">
+<meta property="article:modified_time" content="2021-09-22T09:44:20.763Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="并查集">
 <meta property="article:tag" content="堆">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-16 10:49:26" itemprop="dateModified" datetime="2021-09-16T10:49:26+08:00">2021-09-16</time>
+                <time title="修改时间：2021-09-22 17:44:20" itemprop="dateModified" datetime="2021-09-22T17:44:20+08:00">2021-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.9k</span>
+              <span>6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -330,11 +330,11 @@
 <p>编号从1开始，则编号为x的左孩子为2x，右孩子为2x+1，父节点为：$\lfloor x/2 \rfloor$。</p>
 <p><strong>如何手写一个堆?</strong></p>
 <ol>
-<li>揷入一个数 $\quad$ heap [++​size ]=x ;​ up(size);</li>
-<li>求集合当中的最小值 $\quad$ heap[1];</li>
-<li>删除最小值 $\quad$ heap [1]= heap[size]; szie - - ; down(1) ;</li>
-<li>删除任意一个元素 $\quad$ heap [k]= heap[size]; size - - ; down(k); up(k); </li>
-<li>修改任意一个元素 $\quad$ heap [k]=x ; down(k) ; up(k);</li>
+<li>揷入一个数 $\quad$ <code>heap [++​size ]=x ;​ up(size);</code></li>
+<li>求集合当中的最小值 $\quad$ <code>heap[1];</code></li>
+<li>删除最小值 $\quad$ <code>heap [1]= heap[size]; szie - - ; down(1) ;</code></li>
+<li>删除任意一个元素 $\quad$ <code>heap [k]= heap[size]; size - - ; down(k); up(k);</code> </li>
+<li>修改任意一个元素 $\quad$ <code>heap [k]=x ; down(k) ; up(k);</code></li>
 <li>注意：up，down处理的都是下标，不是元素值。</li>
 </ol>
 <p><strong>如何将一个一维数组建堆？</strong></p>
@@ -357,8 +357,9 @@
 <p>可以证明，删除并向下调整后，没有其他结点不满足堆性质。</p>
 <p>这样做也就是使得当前节点调整后满足堆性质。</p>
 <p>时间复杂度：O(logn)。</p>
+<p>注意：<code>down(u)</code>的前提是u的孩子的下面一层及以下层都已经调整好了，现在需要调整的是u以及它的两个孩子，如果u与它的最小孩子发生交换，则u换到最小孩子的位置，需要<code>down(t)</code>调整。</p>
 <p>向上调整类似。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> h[N],Size;<span class="comment">// h[N]存储堆中的值,Size存放堆的元素个数</span></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;<span class="comment">// n个节点的堆最多约logn层，递归消耗不会很大</span></span><br><span class="line">    <span class="keyword">int</span> t = u;<span class="comment">// t的元素值为当前节点与它的左右孩子三者的最小值</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span>*u &lt;= Size &amp;&amp; h[<span class="number">2</span>*u] &lt; h[t]) t = <span class="number">2</span>*u;<span class="comment">// 左孩子存在且左孩子元素值小则更新t为左孩子</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span>*u+<span class="number">1</span> &lt;= Size &amp;&amp; h[<span class="number">2</span>*u+<span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span>*u+<span class="number">1</span>;<span class="comment">// 右孩子同理</span></span><br><span class="line">    <span class="keyword">if</span> (u != t)&#123;<span class="comment">// 如果当前节点的元素值不是三者最小值</span></span><br><span class="line">        swap(h[u],h[t]);<span class="comment">// 交换u和t的元素值</span></span><br><span class="line">        down(t);<span class="comment">// 重复down过程直到底层</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;<span class="comment">// up操作只需要和父节点比较</span></span><br><span class="line">    <span class="keyword">while</span> (u / <span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>] &gt; h[u])&#123;<span class="comment">// 父节点存在且当前节点元素值比父节点小</span></span><br><span class="line">        swap(h[u],h[u/<span class="number">2</span>]);</span><br><span class="line">        u /= <span class="number">2</span>;<span class="comment">// 重复过程直到堆顶</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;h[i]);</span><br><span class="line">    Size = n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n &gt;&gt; <span class="number">1</span>;i ; i--) down(i);<span class="comment">// O(n)建堆</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,h[<span class="number">1</span>]);<span class="comment">// 输出堆顶（最小值）</span></span><br><span class="line">        h[<span class="number">1</span>] = h[Size];<span class="comment">// 删除堆顶（用最后一个数覆盖第一个数） 并且长度 减1</span></span><br><span class="line">        Size --;<span class="comment">// 可以合并为h[1] = h[Size--]</span></span><br><span class="line">        down(<span class="number">1</span>);<span class="comment">// 让覆盖好的数往下面走</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> h[N],Size;<span class="comment">// h[N]存储堆中的值,Size存放堆的元素个数</span></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;<span class="comment">// n个节点的堆最多约logn层，递归消耗不会很大</span></span><br><span class="line">    <span class="keyword">int</span> t = u;<span class="comment">// t的元素值为当前节点与它的左右孩子三者的最小值，标记最小值</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span>*u &lt;= Size &amp;&amp; h[<span class="number">2</span>*u] &lt; h[t]) t = <span class="number">2</span>*u;<span class="comment">// 左孩子存在且左孩子元素值小则更新t为左孩子</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span>*u+<span class="number">1</span> &lt;= Size &amp;&amp; h[<span class="number">2</span>*u+<span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span>*u+<span class="number">1</span>;<span class="comment">// 右孩子同理</span></span><br><span class="line">    <span class="keyword">if</span> (u != t)&#123;<span class="comment">// 如果当前节点的元素值不是三者最小值</span></span><br><span class="line">        swap(h[u],h[t]);<span class="comment">// 交换u和t的元素值</span></span><br><span class="line">        down(t);<span class="comment">// 重复down过程直到底层</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;<span class="comment">// up操作只需要和父节点比较</span></span><br><span class="line">    <span class="keyword">while</span> (u / <span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>] &gt; h[u])&#123;<span class="comment">// 父节点存在且当前节点元素值比父节点小</span></span><br><span class="line">        swap(h[u],h[u/<span class="number">2</span>]);</span><br><span class="line">        u /= <span class="number">2</span>;<span class="comment">// 重复过程直到堆顶</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;h[i]);</span><br><span class="line">    Size = n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n &gt;&gt; <span class="number">1</span>;i ; i--) down(i);<span class="comment">// O(n)建堆</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,h[<span class="number">1</span>]);<span class="comment">// 输出堆顶（最小值）</span></span><br><span class="line">        h[<span class="number">1</span>] = h[Size];<span class="comment">// 删除堆顶（用最后一个数覆盖第一个数） 并且长度 减1</span></span><br><span class="line">        Size --;<span class="comment">// 可以合并为h[1] = h[Size--]</span></span><br><span class="line">        down(<span class="number">1</span>);<span class="comment">// 让覆盖好的数往下面走</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>拓展，循环版本的down函数：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = u;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">2</span> * u &lt;= cnt &amp;&amp; h[<span class="number">2</span> * u] &lt; h[t]) t = <span class="number">2</span> * u;</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= cnt &amp;&amp; h[<span class="number">2</span> * u + <span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (u != t)</span><br><span class="line">        &#123;</span><br><span class="line">            swap(h[u], h[t]);</span><br><span class="line">            u = t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>递归版本的up函数：</p>
@@ -526,7 +527,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,7 +540,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -588,13 +589,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>

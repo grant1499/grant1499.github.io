@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.grantdrew.top/posts/8a5e7334/image-20210823111058609.png">
 <meta property="article:published_time" content="2021-08-22T08:37:31.000Z">
-<meta property="article:modified_time" content="2021-09-03T10:40:22.149Z">
+<meta property="article:modified_time" content="2021-09-24T04:43:46.798Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">140</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">242</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-03 18:40:22" itemprop="dateModified" datetime="2021-09-03T18:40:22+08:00">2021-09-03</time>
+                <time title="修改时间：2021-09-24 12:43:46" itemprop="dateModified" datetime="2021-09-24T12:43:46+08:00">2021-09-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +257,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8k</span>
+              <span>8.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -291,6 +291,7 @@
 <p>server绝大多数都是部署在Linux上，所以需要先学好Linux，Linux基础课就是整个工程课系列的基础。</p>
 <p>学习资料 ：<strong>菜鸟教程</strong>，黑马程序员Linux笔记，尚硅谷Linux课程资料，<strong>韩顺平Linux课程</strong>。</p>
 <p>参考博客： <a target="_blank" rel="noopener" href="https://www.junmajinlong.com/linux/index/。">https://www.junmajinlong.com/linux/index/。</a></p>
+<p>《趣谈Linux操作系统》 ： <a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/87111。">https://time.geekbang.org/column/article/87111。</a></p>
 <h1 id="3：lesson1"><a href="#3：lesson1" class="headerlink" title="3：lesson1"></a>3：lesson1</h1><h2 id="3-1：课程概论"><a href="#3-1：课程概论" class="headerlink" title="3.1：课程概论"></a>3.1：课程概论</h2><p>Linux的常见发行版本：Ubuntu，CentOS等等。</p>
 <p>terminal其实就相当于主机的一个屏幕。同时打开两个终端也就是打开了2个屏幕，它们共享一台主机，在其中一个终端使用命令也会影响另一个终端。</p>
 <p>我们可以通过ssh将终端连接到自己的或者公司的服务器，本地都不需要Linux环境，只需要一个万能屏幕就行，操作服务器可以通过终端来操作，很方便。</p>
@@ -364,7 +365,7 @@
 <li>参数-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ./a/b/c -p # 在当前目录下创建一连串目录a/b/c</span><br></pre></td></tr></table></figure>
-<h3 id="history-查看历史命令"><a href="#history-查看历史命令" class="headerlink" title="history (查看历史命令)"></a>history (查看历史命令)</h3><p>history命令用于显示用户以前执行过的历史命令，并且能对历史命令进行追加和删除等操作。</p>
+<h3 id="history-查看历史命令，很有用！"><a href="#history-查看历史命令，很有用！" class="headerlink" title="history (查看历史命令，很有用！)"></a>history (查看历史命令，很有用！)</h3><p>history命令用于显示用户以前执行过的历史命令，并且能对历史命令进行追加和删除等操作。</p>
 <h3 id="rm-移除文件或目录"><a href="#rm-移除文件或目录" class="headerlink" title="rm (移除文件或目录)"></a>rm (移除文件或目录)</h3><p>remove，谨慎使用删除命令。删除后找不回来，不走回收站！</p>
 <p>选项与参数：</p>
 <ul>
@@ -535,7 +536,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9AVM%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-text">1：VM虚拟机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9Aacwing%E5%AD%A6%E4%B9%A0"><span class="nav-text">2：acwing学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%EF%BC%9Alesson1"><span class="nav-text">3：lesson1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1%EF%BC%9A%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%AE%BA"><span class="nav-text">3.1：课程概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2%EF%BC%9A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="nav-text">3.2：文件系统结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3%EF%BC%9A%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">3.3：文件管理常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95-%EF%BC%9Alist"><span class="nav-text">ls (列出目录)：list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%89%8D%E6%89%80%E5%9C%A8%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-text">pwd (显示目前所在的目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95"><span class="nav-text">cd (切换目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="nav-text">cp (复制文件或目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9B%AE%E5%BD%95"><span class="nav-text">mkdir (创建新目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4"><span class="nav-text">history (查看历史命令)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="nav-text">rm (移除文件或目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="nav-text">touch (创建文件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%EF%BC%8C%E6%88%96%E4%BF%AE%E6%94%B9%E5%90%8D%E7%A7%B0"><span class="nav-text">mv (移动文件与目录，或修改名称)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4%EF%BC%9ALinux%E8%AE%B2%E4%B9%89"><span class="nav-text">3.4：Linux讲义</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9AVM%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-text">1：VM虚拟机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9Aacwing%E5%AD%A6%E4%B9%A0"><span class="nav-text">2：acwing学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%EF%BC%9Alesson1"><span class="nav-text">3：lesson1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1%EF%BC%9A%E8%AF%BE%E7%A8%8B%E6%A6%82%E8%AE%BA"><span class="nav-text">3.1：课程概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2%EF%BC%9A%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="nav-text">3.2：文件系统结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3%EF%BC%9A%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">3.3：文件管理常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-%E5%88%97%E5%87%BA%E7%9B%AE%E5%BD%95-%EF%BC%9Alist"><span class="nav-text">ls (列出目录)：list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-%E6%98%BE%E7%A4%BA%E7%9B%AE%E5%89%8D%E6%89%80%E5%9C%A8%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="nav-text">pwd (显示目前所在的目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95"><span class="nav-text">cd (切换目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="nav-text">cp (复制文件或目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9B%AE%E5%BD%95"><span class="nav-text">mkdir (创建新目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history-%E6%9F%A5%E7%9C%8B%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%BE%88%E6%9C%89%E7%94%A8%EF%BC%81"><span class="nav-text">history (查看历史命令，很有用！)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm-%E7%A7%BB%E9%99%A4%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="nav-text">rm (移除文件或目录)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch-%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="nav-text">touch (创建文件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv-%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%EF%BC%8C%E6%88%96%E4%BF%AE%E6%94%B9%E5%90%8D%E7%A7%B0"><span class="nav-text">mv (移动文件与目录，或修改名称)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-text">cat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4%EF%BC%9ALinux%E8%AE%B2%E4%B9%89"><span class="nav-text">3.4：Linux讲义</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -551,7 +552,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">242</span>
+          <span class="site-state-item-count">303</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -564,7 +565,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">140</span>
+        <span class="site-state-item-count">149</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -613,13 +614,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">969k</span>
+    <span title="站点总字数">1.3m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">14:41</span>
+    <span title="站点阅读时长">19:31</span>
 </div>
 
 <span id="sitetime"></span>
