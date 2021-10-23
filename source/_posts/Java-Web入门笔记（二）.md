@@ -43,7 +43,7 @@ date: 2021-09-25 23:06:52
 
 http简单教程： https://www.runoob.com/http/http-tutorial.html。
 
-> 这块内容**《图解HTTP》**讲得很详细。
+> 这块内容**《图解HTTP》**讲得很详细。也可以看一下英文基础[文档](https://developer.mozilla.org/en-US/docs/Web/HTTP)，特别棒。
 
 - 文本：html，字符串，…
 - 超文本：图片，音乐，视频，定位，地图.……
@@ -85,7 +85,7 @@ Connection:keep-alive
     - get：请求能够携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，**不安全，但高效**；
     - post:请求能够携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，**安全，但不高效**。
 
-消息头：
+首部字段：
 
 ```http
 Accept：告诉浏览器，它所支持的数据类型

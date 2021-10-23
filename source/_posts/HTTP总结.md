@@ -88,7 +88,7 @@ date: 2021-09-29 12:16:42
 - 一个空行用来分隔首部和内容主体 Body
 - 最后是请求的内容主体
 
-```
+```http
 GET http://www.example.com/ HTTP/1.1
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding: gzip, deflate
@@ -111,7 +111,7 @@ param1=1&param2=2
 - 一个空行分隔首部和内容主体
 - 最后是响应的内容主体
 
-```
+```http
 HTTP/1.1 200 OK
 Age: 529651
 Cache-Control: max-age=604800
@@ -136,7 +136,6 @@ X-Cache: HIT
 	// 省略... 
 </body>
 </html>
-
 ```
 
 ### URL

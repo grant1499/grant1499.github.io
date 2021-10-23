@@ -2,6 +2,7 @@
 title: Linux基础课笔记（十一）
 tags:
   - Linux
+  - Thrift
 categories:
   - Linux
 mathjax: false

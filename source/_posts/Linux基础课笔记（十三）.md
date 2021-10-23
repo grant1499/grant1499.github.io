@@ -1,12 +1,14 @@
 ---
 title: Linux基础课笔记（十三）
-date: 2021-10-10 09:50:30
 tags:
   - Linux
+  - shell
 categories:
   - Linux
 mathjax: false
 copyright: true
+abbrlink: c92e9b52
+date: 2021-10-10 09:50:30
 ---
 
 # 1：lesson7

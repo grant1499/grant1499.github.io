@@ -2,6 +2,7 @@
 title: Linux基础课笔记（三）
 tags:
   - Linux
+  - shell
 categories:
   - Linux
 mathjax: true

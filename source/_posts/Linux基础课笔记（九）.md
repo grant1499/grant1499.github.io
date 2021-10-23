@@ -2,6 +2,7 @@
 title: Linux基础课笔记（九）
 tags:
   - Linux
+  - Git
 categories:
   - Linux
 mathjax: true

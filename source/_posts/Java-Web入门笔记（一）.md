@@ -28,6 +28,8 @@ Java Web教程2：https://caochenlei.blog.csdn.net/article/details/108544801。
 
 全面的Java开发知识栈： https://blog.csdn.net/qq_38490457/article/details/108281646。
 
+非常棒的WEb Docs网站： https://developer.mozilla.org/en-US/。（英文，包含http等各种基础文档）
+
 web开发：
 
 web，网页的意思，www.baidu.com。

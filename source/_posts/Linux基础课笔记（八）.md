@@ -2,6 +2,7 @@
 title: Linux基础课笔记（八）
 tags:
   - Linux
+  - SSH
 categories:
   - Linux
 mathjax: true

@@ -52,6 +52,8 @@ MySQL官方中文文档： https://dev.mysql.com/doc/。
 
 数据库系统概论学习： https://caochenlei.blog.csdn.net/article/details/110132192。
 
+SQL知识体系（面向就业，全面）： https://www.pdai.tech/md/db/sql-lan/sql-lan.html。
+
 sql练习网站： http://xuesql.cn/。
 
 牛客网sql题目： https://www.nowcoder.com/ta/sql。

@@ -59,6 +59,8 @@ mysql驱动5.1.47： https://mvnrepository.com/artifact/mysql/mysql-connector-ja
 - 新建jdbc工程
 - 将下载的jar包复制到 （lib）下，没有lib目录自行创建
 - 在lib目录右键，添加到项目的库，add as library
+- idea导入mysql驱动教程： https://www.cnblogs.com/dadian/p/11936056.html
+- 如果出现异常，尝试用idea下载驱动导入
 
 2.SQL yog创建测试数据库。
 

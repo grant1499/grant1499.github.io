@@ -153,7 +153,7 @@ https://www.grantdrew.top/和http://www.grantdrew.top/都能访问当前站点�
 
 tips：绑定域名后访问量将清零！
 
-注意：执行`hexo d -g`时coding的用户名时你的邮箱或者手机号，输入密码时光标不会动。
+注意：执行`hexo d -g`时coding的用户名是你的邮箱或者手机号，输入密码时光标不会动。
 
 ![image-20210506145942386](hexo相关问题汇总/image-20210506145942386.png)
 

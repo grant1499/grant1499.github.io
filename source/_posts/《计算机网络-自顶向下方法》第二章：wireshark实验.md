@@ -1,12 +1,13 @@
 ---
 title: 《计算机网络--自顶向下方法》第二章：wireshark实验
-date: 2021-10-12 09:15:54
 tags:
   - 计算机网络
 categories:
   - - 计算机网络
 mathjax: false
 copyright: true
+abbrlink: e3b4ead
+date: 2021-10-12 09:15:54
 ---
 
 # 第二章：Wireshark实验

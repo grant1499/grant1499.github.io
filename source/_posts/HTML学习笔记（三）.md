@@ -95,9 +95,8 @@ post方式：比较安全，传输大文件，可以在F12看到密码等信息
 <!--密码框：input type="password"-->
     <p>密码：<input type="password" name="pwd"></p>
 <!--提交和重置-->
-        <input type="submit">
-        <input type="reset">
-    </p>
+    <input type="submit">
+    <input type="reset">
 </form>
 </body>
 </html>

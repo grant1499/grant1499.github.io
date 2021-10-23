@@ -56,7 +56,7 @@ Java Servlet 是运行在 **Web 服务器或应用服务器**上的**程序**，
 
 开发一个servlet程序的两个步骤：
 
-- 编写一个类，实现Serlet接口；
+- 编写一个类，实现Servlet接口；
 - 把开发好的java类部署到web服务器中。
 
 构建一个空白的Maven项目，把src目录删除，以后在这个项目中创建模块，这个空白工程就是Maven的主工程。
@@ -74,7 +74,7 @@ Java Servlet 是运行在 **Web 服务器或应用服务器**上的**程序**，
 </dependencies>
 ```
 
-在项目下新建模块：外面的项目是空白项目，里面的模块选择Maven web。![image-20211004161430692](Java-Web入门笔记（三）/image-20211004161430692.png)
+在项目下新建模块：**外面的项目是空白项目，里面的模块选择Maven web**。![image-20211004161430692](Java-Web入门笔记（三）/image-20211004161430692.png)
 
 关于Maven父子工程的理解：
 
@@ -124,7 +124,7 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter(); // 响应流
-        writer.print("hello,servlet!");
+        writer.print("<h1>hello,servlet!</h1>"); // 访问xxx/hello看到h1标题
     }
 
     @Override
@@ -252,4 +252,3 @@ Web服务器在与客户端交互时Servlet的工作过程是:
 代码理解：
 
 ![image-20211004191156807](Java-Web入门笔记（三）/image-20211004191156807.png)
-

@@ -4,6 +4,7 @@ abbrlink: ba489fec
 date: 2021-08-22 16:38:04
 tags:
   - Linux
+  - Vim
 categories:
   - Linux
 mathjax: true
