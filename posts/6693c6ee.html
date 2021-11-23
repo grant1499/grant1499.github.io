@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="7.2：约数约数也称为因数。 例题：869. 试除法求约数（模板题）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/6693c6ee/image-20210916224705808.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/6693c6ee/image-20210916223846581.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/6693c6ee/image-20210918160412116.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957548.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957699.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957775.png">
 <meta property="article:published_time" content="2021-09-16T09:48:40.000Z">
-<meta property="article:modified_time" content="2021-09-18T09:43:31.826Z">
+<meta property="article:modified_time" content="2021-10-23T11:57:34.081Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/6693c6ee/image-20210916224705808.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957548.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/6693c6ee.html">
 
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-18 17:43:31" itemprop="dateModified" datetime="2021-09-18T17:43:31+08:00">2021-09-18</time>
+                <time title="修改时间：2021-10-23 19:57:34" itemprop="dateModified" datetime="2021-10-23T19:57:34+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,12 +291,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">get_divisors</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= x / i; i ++ )&#123; <span class="comment">// 约数从1开始枚举</span></span><br><span class="line">        <span class="keyword">if</span> (x % i == <span class="number">0</span>)&#123;</span><br><span class="line">            res.push_back(i);</span><br><span class="line">            <span class="keyword">if</span> (i != x / i) res.push_back(x / i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(res.begin(),res.end());</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,x;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">while</span> (n -- )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">auto</span> res = get_divisors(x);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> &amp;it:res) <span class="built_in">cout</span> &lt;&lt; it &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>数论题中很重要的一点就是计算时间复杂度。</p>
 <p>本题时间复杂度是$O(n*\sqrt a)$。</p>
-<p><img src="/posts/6693c6ee/image-20210916224705808.png" alt="image-20210916224705808"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957548.png" alt="image-20210916224705808"></p>
 <p><strong>例题：870. 约数个数（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">给定 n 个正整数 ai，请你输出这些数的乘积的约数个数，答案对 <span class="number">10</span>^<span class="number">9</span>+<span class="number">7</span> 取模。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n。</span><br><span class="line">接下来 n 行，每行包含一个整数 ai。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示所给正整数的乘积的约数个数，答案需对 <span class="number">10</span>^<span class="number">9</span>+<span class="number">7</span> 取模。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">100</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">2</span>×<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
 <p>参考： 《算法竞赛进阶指南》。</p>
 <p>约数个数计算公式（算术基本定理推论）：</p>
-<p><img src="/posts/6693c6ee/image-20210916223846581.png" alt="image-20210916223846581"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957699.png" alt="image-20210916223846581"></p>
 <p>根据唯一分解定理，每个约数由它的因式分解式唯一确定，</p>
 <p>所以约数个数就是：$b_1,b_2,…,b_m$每个指数选择的个数（有范围限定）的组合的个数。（乘法原理）</p>
 <p>代码：</p>
@@ -308,7 +308,7 @@
 <p>所以平均来看一个数n的约数个数大概是$log n$。</p>
 <p><strong>例题：871. 约数之和（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">给定 n 个正整数 ai，请你输出这些数的乘积的约数之和，答案对 <span class="number">10</span>^<span class="number">9</span>+<span class="number">7</span> 取模。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n。</span><br><span class="line">接下来 n 行，每行包含一个整数 ai。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示所给正整数的乘积的约数之和，答案需对 <span class="number">10</span>^<span class="number">9</span>+<span class="number">7</span> 取模。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">100</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">2</span>×<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">252</span></span><br></pre></td></tr></table></figure>
-<p><img src="/posts/6693c6ee/image-20210918160412116.png" alt="image-20210918160412116"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957775.png" alt="image-20210918160412116"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; hash;</span><br><span class="line">    <span class="keyword">while</span> (n -- )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= x/i; i ++ )&#123;</span><br><span class="line">            <span class="keyword">while</span> (x % i == <span class="number">0</span>)&#123;</span><br><span class="line">                x /= i,hash[i]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="number">1</span>) hash[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    LL res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> prime : hash)&#123;</span><br><span class="line">        LL t = <span class="number">1</span>,a = prime.first,b = prime.second;</span><br><span class="line">        <span class="keyword">while</span> (b--) t = (t*a + <span class="number">1</span>) % MOD;</span><br><span class="line">        res = (res * t) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -472,7 +472,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,7 +485,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -540,7 +540,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

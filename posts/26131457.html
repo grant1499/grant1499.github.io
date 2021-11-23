@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="5.5 删除">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/26131457/image-20210921133922076.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137069.png">
 <meta property="article:published_time" content="2021-09-21T03:00:23.000Z">
-<meta property="article:modified_time" content="2021-09-27T13:07:01.999Z">
+<meta property="article:modified_time" content="2021-10-23T13:37:46.773Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/26131457/image-20210921133922076.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137069.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/26131457.html">
 
@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-27 21:07:01" itemprop="dateModified" datetime="2021-09-27T21:07:01+08:00">2021-09-27</time>
+                <time title="修改时间：2021-10-23 21:37:46" itemprop="dateModified" datetime="2021-10-23T21:37:46+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
 <h3 id="6-2-where条件子句"><a href="#6-2-where条件子句" class="headerlink" title="6.2 where条件子句"></a>6.2 <code>where</code>条件子句</h3><p>作用：检索数据中<code>符合条件</code>的值。</p>
 <p><code>where</code>子句在一条语句中只能用一次，多个过滤条件用<code>and</code>连接。</p>
 <p><strong>逻辑运算符：</strong></p>
-<p><img src="/posts/26131457/image-20210921133922076.png" alt="image-20210921133922076"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137069.png" alt="image-20210921133922076"></p>
 <p>尽量使用英文字母（如<code>AND</code>之类的），有语法高亮。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-- 查询一个区间内的学生成绩</span><br><span class="line">-- 方式1，速度更快</span><br><span class="line">SELECT &#96;studentno&#96; AS &#96;学号&#96;,&#96;studentresult&#96; AS &#96;成绩&#96; FROM &#96;result&#96;</span><br><span class="line">WHERE &#96;studentresult&#96; BETWEEN 70 AND 100;</span><br><span class="line">-- 方式2</span><br><span class="line">SELECT &#96;studentno&#96; AS &#96;学号&#96;,&#96;studentresult&#96; AS &#96;成绩&#96; FROM &#96;result&#96;</span><br><span class="line">WHERE &#96;studentresult&#96; &gt;&#x3D; 70 AND &#96;studentresult&#96; &lt;&#x3D; 100;</span><br><span class="line"></span><br><span class="line">-- 查询成绩不等于70的学生成绩</span><br><span class="line">-- 方式1</span><br><span class="line">SELECT &#96;studentno&#96; AS &#96;学号&#96;,&#96;studentresult&#96; AS &#96;成绩&#96; FROM &#96;result&#96;</span><br><span class="line">WHERE &#96;studentresult&#96; !&#x3D; 70;</span><br><span class="line">-- 方式2</span><br><span class="line">SELECT &#96;studentno&#96; AS &#96;学号&#96;,&#96;studentresult&#96; AS &#96;成绩&#96; FROM &#96;result&#96;</span><br><span class="line">WHERE NOT &#96;studentresult&#96; &#x3D; 70;</span><br></pre></td></tr></table></figure>
 <p><strong>模糊查询（重点）：</strong></p>
@@ -526,7 +526,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,7 +539,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -594,7 +594,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

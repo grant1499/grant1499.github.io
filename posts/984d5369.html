@@ -23,21 +23,21 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="3.字单元">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926170323996.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926193302939.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926194947767.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926195014456.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926200300261.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926201134944.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926203015660.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926203913032.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926210519063.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832561.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832580.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832598.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832622.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832647.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832669.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832696.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832719.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832742.png">
 <meta property="article:published_time" content="2021-09-26T07:57:28.000Z">
-<meta property="article:modified_time" content="2021-09-27T13:07:02.010Z">
+<meta property="article:modified_time" content="2021-10-23T10:33:28.466Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/984d5369/image-20210926170323996.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832561.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/984d5369.html">
 
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -143,7 +143,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-27 21:07:02" itemprop="dateModified" datetime="2021-09-27T21:07:02+08:00">2021-09-27</time>
+                <time title="修改时间：2021-10-23 18:33:28" itemprop="dateModified" datetime="2021-10-23T18:33:28+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,25 +286,25 @@
       
         <h3 id="3-字单元"><a href="#3-字单元" class="headerlink" title="3.字单元"></a>3.字单元</h3><span id="more"></span>
 <p>注意区别字和字节：</p>
-<p><img src="/posts/984d5369/image-20210926170323996.png" alt="image-20210926170323996"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832561.png" alt="image-20210926170323996"></p>
 <h3 id="4-DS-和-address"><a href="#4-DS-和-address" class="headerlink" title="4.DS 和 [address]"></a>4.DS 和 [address]</h3><p>DS寄存器：通常用来存放要访问数据的段地址。</p>
 <p>[address]表示一个偏移地址为address的内存单元，段地址默认放在ds中。</p>
 <p>通过<strong>数据段段地址</strong>和<strong>偏移地址</strong>即可定位内存单元。(CPU会根据这两个地址信息自动定位)</p>
 <p>8086CPU不支持直接将数据送入段寄存器，必须借助通用寄存器（AX，BX等）将数据送到段寄存器DS。<strong>（数据—&gt;通用寄存器—&gt;段寄存器）</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov bx, 1000H ;8086CPU不支持将数据直接送入段寄存器的操作</span><br><span class="line">mov ds, bx ;ds存放数据段地址</span><br><span class="line">mov [0], al ;将al数据（1字节）存到1000H段的0偏移地址处，即10000H:0</span><br><span class="line"></span><br><span class="line">mov ax, [2] ;将数据段偏移地址2处的一个字（8086为2字节）存放到ax寄存器</span><br><span class="line">add cx, [4] ;将偏移地址4处的一个字数据加上cx寄存器数据放到cx寄存器</span><br><span class="line">sub dx, [6] ;dx寄存器数据减去数据段偏移地址6处的字数据存到dx</span><br></pre></td></tr></table></figure>
-<h3 id="5-字的传送"><a href="#5-字的传送" class="headerlink" title="5.字的传送"></a>5.字的传送</h3><p><img src="/posts/984d5369/image-20210926193302939.png" alt="image-20210926193302939"></p>
+<h3 id="5-字的传送"><a href="#5-字的传送" class="headerlink" title="5.字的传送"></a>5.字的传送</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832580.png" alt="image-20210926193302939"></p>
 <p>可以通过16位寄存器传送一个字（1字  = 2字节）。</p>
 <p>注意：<code>mov ax,[0]</code>，送的是<strong>字数据</strong>，所以将<code>ds:1</code>到<code>ds:0</code>的一整个字送入16位寄存器<code>ax</code>。</p>
 <p>小练习：</p>
-<p><img src="/posts/984d5369/image-20210926194947767.png" alt="image-20210926194947767"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832598.png" alt="image-20210926194947767"></p>
 <p>这些命令都在实验（一）中用过。</p>
 <p>使用debug的<code>e</code>命令以十六进制形式改写内存内容。</p>
 <p><code>e 1000:0 23 11 22 66</code></p>
 <p>然后输入对应指令，一条一条执行，验证结果。</p>
-<p><img src="/posts/984d5369/image-20210926195014456.png" alt="image-20210926195014456"></p>
-<h2 id="0x07：mov、add、sub-指令"><a href="#0x07：mov、add、sub-指令" class="headerlink" title="0x07：mov、add、sub 指令"></a>0x07：mov、add、sub 指令</h2><p><img src="/posts/984d5369/image-20210926200300261.png" alt="image-20210926200300261"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832622.png" alt="image-20210926195014456"></p>
+<h2 id="0x07：mov、add、sub-指令"><a href="#0x07：mov、add、sub-指令" class="headerlink" title="0x07：mov、add、sub 指令"></a>0x07：mov、add、sub 指令</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832647.png" alt="image-20210926200300261"></p>
 <p>实际上，经过debug验证，<code>mov 寄存器，段寄存器</code>，<code>mov 段寄存器，[内存单元]</code>这样的<code>mov</code>指令也是存在的。</p>
-<p><img src="/posts/984d5369/image-20210926201134944.png" alt="image-20210926201134944"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832669.png" alt="image-20210926201134944"></p>
 <h2 id="0x08：栈"><a href="#0x08：栈" class="headerlink" title="0x08：栈"></a>0x08：栈</h2><p>补充：一个汇编学习软件（文档）： <code>F:\下载\Compressed\emu8086\汇编金手指\huibianjsz</code>。</p>
 <p>栈的特点：FIFO。</p>
 <p>和数据结构中的栈类似，稍有区别。</p>
@@ -313,19 +313,19 @@
 <p>8086CPU中，入栈时，栈顶从高地址向低地址方向增长。</p>
 <p><code>push ax</code>表示将寄存器ax中的数据送入栈中，由两步完成。</p>
 <p><strong>注意：栈的操作以字为单位！！！</strong></p>
-<p><img src="/posts/984d5369/image-20210926203015660.png" alt="image-20210926203015660"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832696.png" alt="image-20210926203015660"></p>
 <p><code>pop ax</code>表示从栈顶取出数据送入ax，由以下两步完成。</p>
 <ol>
 <li>将SS:SP指向的内存单元处的数据送入ax中；</li>
 <li>SP=SP+2，SS:SP指向当前栈顶下面的单元，以当前栈顶下面的单元为新的栈顶。</li>
 </ol>
 <p>push和pop每次移动一个字。（1字 = 2字节）</p>
-<p><img src="/posts/984d5369/image-20210926203913032.png" alt="image-20210926203913032"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832719.png" alt="image-20210926203913032"></p>
 <p>栈顶越界的问题：上溢或下溢。</p>
 <p>8086并不能处理这个问题，需要程序员自己注意。</p>
 <p>小练习：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1000H </span><br><span class="line">mov ss, ax </span><br><span class="line">mov sp, 0010H    ;初始化栈顶</span><br><span class="line">mov ax, 001AH</span><br><span class="line">mov bx, 001BH </span><br><span class="line">push ax </span><br><span class="line">push bx    ;ax、bx入栈</span><br><span class="line"></span><br><span class="line">sub ax, ax   ;将ax清零，也可以用mov ax，0，</span><br><span class="line">             ;sub ax，ax的机器码为2个字节，</span><br><span class="line">             ;mov ax，0的机器码为3个字节。</span><br><span class="line">sub bx, bx </span><br><span class="line">pop bx  ;从栈中恢复ax、bx原来的数据</span><br><span class="line">pop ax  ;</span><br></pre></td></tr></table></figure>
-<h2 id="0x09：第一个汇编程序"><a href="#0x09：第一个汇编程序" class="headerlink" title="0x09：第一个汇编程序"></a>0x09：第一个汇编程序</h2><p><img src="/posts/984d5369/image-20210926210519063.png" alt="image-20210926210519063"></p>
+<h2 id="0x09：第一个汇编程序"><a href="#0x09：第一个汇编程序" class="headerlink" title="0x09：第一个汇编程序"></a>0x09：第一个汇编程序</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231832742.png" alt="image-20210926210519063"></p>
 <p>使用汇编语言编译程序（MASM.EXE）对源程序编译，产生目标文件；</p>
 <p>再用连接程序（LINK.EXE）对目标文件进行连接，生成可在操作系统中直接运行的可执行文件。</p>
 <p>可执行文件包含程序和数据，一些描述信息。</p>
@@ -497,7 +497,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -510,7 +510,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,7 +565,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

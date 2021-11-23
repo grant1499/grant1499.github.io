@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="三：搜索与图论第三章：搜索与图论模板整理， https:&#x2F;&#x2F;www.acwing.com&#x2F;blog&#x2F;content&#x2F;405&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/8f2ac1d3/19_860e00c489-1_597ec77c49-8-queens.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/8f2ac1d3/image-20210816165319014.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000086.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000114.png">
 <meta property="article:published_time" content="2021-08-15T01:12:14.000Z">
-<meta property="article:modified_time" content="2021-08-22T08:17:31.961Z">
+<meta property="article:modified_time" content="2021-10-23T12:00:41.912Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/8f2ac1d3/19_860e00c489-1_597ec77c49-8-queens.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000086.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/8f2ac1d3.html">
 
@@ -126,7 +126,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +136,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-22 16:17:31" itemprop="dateModified" datetime="2021-08-22T16:17:31+08:00">2021-08-22</time>
+                <time title="修改时间：2021-10-23 20:00:41" itemprop="dateModified" datetime="2021-10-23T20:00:41+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,14 +315,14 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定一个整数 n，将数字 <span class="number">1</span>∼n 排成一排，将会有很多种排列方法。</span><br><span class="line">现在，请你按照字典序将所有的排列方法输出。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共一行，包含一个整数 n。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">按字典序输出所有排列方案，每个方案占一行。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">7</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> st[N];<span class="comment">// 存放递归树每一层选择的数字</span></span><br><span class="line"><span class="keyword">bool</span> used[N];<span class="comment">// 判重，看数字i是否被用过</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (u &gt; n)&#123;<span class="comment">// 递归边界</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">cout</span> &lt;&lt; st[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!used[i])&#123;<span class="comment">// 数字i没有被用过，才可以选择</span></span><br><span class="line">            st[u] = i;<span class="comment">// 选择数字i</span></span><br><span class="line">            used[i] = <span class="literal">true</span>;<span class="comment">// 记录数字i被用过</span></span><br><span class="line">            dfs(u + <span class="number">1</span>);<span class="comment">// 递归下一层</span></span><br><span class="line">            </span><br><span class="line">            st[u] = <span class="number">0</span>;<span class="comment">// 恢复现场</span></span><br><span class="line">            used[i] = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>例题2：843. n-皇后问题（模板题）</strong></p>
-<p><img src="/posts/8f2ac1d3/19_860e00c489-1_597ec77c49-8-queens.png" alt="1_597ec77c49-8-queens.png"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000086.png" alt="1_597ec77c49-8-queens.png"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">n−皇后问题是指将 n 个皇后放在 n×n 的国际象棋棋盘上，使得皇后不能相互攻击到，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</span><br><span class="line">现在给定整数 n，请你输出所有的满足条件的棋子摆法。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共一行，包含整数 n。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">每个解决方案占 n 行，每行输出一个长度为 n 的字符串，用来表示完整的棋盘状态。</span><br><span class="line">其中 . 表示某一个位置的方格状态为空，Q 表示某一个位置的方格上摆着皇后。</span><br><span class="line">每个方案输出完成后，输出一个空行。</span><br><span class="line">注意：行末不能有多余空格。</span><br><span class="line">输出方案的顺序任意，只要不重复且没有遗漏即可。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line">.Q..</span><br><span class="line">...Q</span><br><span class="line">Q...</span><br><span class="line">..Q.</span><br><span class="line"></span><br><span class="line">..Q.</span><br><span class="line">Q...</span><br><span class="line">...Q</span><br><span class="line">.Q..</span><br></pre></td></tr></table></figure>
 <p>n-皇后问题也是一个经典的DFS问题。</p>
 <p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/2820/。">https://www.acwing.com/solution/content/2820/。</a></p>
 <p>算法1：DFS按每行枚举。递归实现排列型枚举。</p>
 <p>通过题目知道，每行每列必须放1个皇后，这样才能保证不会被攻击。</p>
 <p>和数字全排列一样，只需要枚举<strong>列数的全排列</strong>就行，然后再判断对角线、反对角线上是否只有1个皇后，若斜线上存在冲突则剪枝处理。</p>
-<p><img src="/posts/8f2ac1d3/image-20210816165319014.png" alt="image-20210816165319014"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000114.png" alt="image-20210816165319014"></p>
 <p>蓝色线表示第1,2,3条反对角线，绿色线表示第1,2,3条对角线。</p>
 <p>dfs的时候，u表示行数，i表示列数，都从0开始！</p>
 <p>棋盘上所有点都映射为坐标：(u,i)，范围(0,0)到(n-1,n-1)。</p>
@@ -498,7 +498,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,7 +511,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -566,7 +566,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

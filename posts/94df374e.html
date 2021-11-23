@@ -23,22 +23,22 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="7 acwing.1247. 后缀表达式第十届蓝桥杯省赛C++B组,第十届蓝桥杯省赛JAVAB组">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/94df374e/image-20210604204148978.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/94df374e/image-20210604223536465.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/94df374e/image-20210604231058940.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/94df374e/image-20210606155931370.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/94df374e/image-20210606180534745.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902563.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902601.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902619.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902646.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902665.png">
 <meta property="article:published_time" content="2021-06-03T02:37:03.000Z">
-<meta property="article:modified_time" content="2021-08-14T09:48:18.311Z">
+<meta property="article:modified_time" content="2021-10-23T11:02:40.866Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="贪心">
 <meta property="article:tag" content="双指针">
 <meta property="article:tag" content="前缀和">
+<meta property="article:tag" content="树">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
-<meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/94df374e/image-20210604204148978.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902563.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/94df374e.html">
 
@@ -134,7 +134,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -144,7 +144,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-14 17:48:18" itemprop="dateModified" datetime="2021-08-14T17:48:18+08:00">2021-08-14</time>
+                <time title="修改时间：2021-10-23 19:02:40" itemprop="dateModified" datetime="2021-10-23T19:02:40+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,12 +294,12 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">给定 N 个加号、M 个减号以及 N+M+<span class="number">1</span> 个整数 A1,A2,⋅⋅⋅,AN+M+<span class="number">1</span>，小明想知道在所有由这 N 个加号、M 个减号以及 N+M+<span class="number">1</span> 个整数凑出的合法的后缀表达式中，结果最大的是哪一个？</span><br><span class="line">请你输出这个最大的结果。</span><br><span class="line">例如使用 <span class="number">123</span>+−，则 “<span class="number">23</span>+<span class="number">1</span>−” 这个后缀表达式结果是 <span class="number">4</span>，是最大的。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 N 和 M。</span><br><span class="line"></span><br><span class="line">第二行包含 N+M+<span class="number">1</span> 个整数 A1,A2,⋅⋅⋅,AN+M+<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，代表答案。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤N,M≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">−<span class="number">10</span>^<span class="number">9</span>≤Ai≤<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>后缀表达式又称为逆波兰式。可以用栈来模拟（严奶奶的数据结构），而栈又和树的结构很像，也可以看成树。</p>
-<p><img src="/posts/94df374e/image-20210604204148978.png" alt="image-20210604204148978"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902563.png" alt="image-20210604204148978"></p>
 <p>树的前、中和后序遍历分别对应前、中和后缀表达式。</p>
 <p>我们要将逆波兰式转化成熟悉的中缀表达式。</p>
 <p>题目的一个坑：给定M(M&gt;0)个逆波兰式的减号，转化成中缀表达式后减号不一定是M个了。</p>
 <p>举个例子：</p>
-<p><img src="/posts/94df374e/image-20210604223536465.png" alt="image-20210604223536465"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902601.png" alt="image-20210604223536465"></p>
 <p>上图中的M=5个减号，转化成中缀表达式之后只剩下一个减号了。</p>
 <p>同理，给定N个逆波兰式的加号，通过把加号放在括号里面，就能变成减号，所以<strong>实际上能构造出1~M+N个</strong></p>
 <p><strong>减号</strong>。这一步就是分析的关键所在。</p>
@@ -313,13 +313,13 @@
 <h4 id="8-acwing-1248-灵能传输"><a href="#8-acwing-1248-灵能传输" class="headerlink" title="8 acwing.1248. 灵能传输"></a>8 acwing.1248. 灵能传输</h4><p>第十届蓝桥杯省赛C++B/研究生组,第十届蓝桥杯省赛JAVAB组</p>
 <p>最后一题，比较麻烦，有难度。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">在游戏《星际争霸 II》中，高阶圣堂武士作为星灵的重要 AOE 单位，在游戏的中后期发挥着重要的作用，其技能”灵能风暴“可以消耗大量的灵能对一片区域内的敌军造成毁灭性的伤害。</span><br><span class="line">经常用于对抗人类的生化部队和虫族的刺蛇飞龙等低血量单位。</span><br><span class="line">你控制着 n 名高阶圣堂武士，方便起见标为 <span class="number">1</span>,<span class="number">2</span>,⋅⋅⋅,n。</span><br><span class="line">每名高阶圣堂武士需要一定的灵能来战斗，每个人有一个灵能值 ai 表示其拥有的灵能的多少（ai 非负表示这名高阶圣堂武士比在最佳状态下多余了 ai 点灵能，ai 为负则表示这名高阶圣堂武士还需要 −ai 点灵能才能到达最佳战斗状态）。</span><br><span class="line"></span><br><span class="line">现在系统赋予了你的高阶圣堂武士一个能力，传递灵能，每次你可以选择一个 i∈[<span class="number">2</span>,n−<span class="number">1</span>]，若 ai≥<span class="number">0</span> 则其两旁的高阶圣堂武士，也就是 i−<span class="number">1</span>、i+<span class="number">1</span> 这两名高阶圣堂武士会从 i 这名高阶圣堂武士这里各抽取 ai 点灵能；若 ai&lt;<span class="number">0</span> 则其两旁的高阶圣堂武士，也就是 i−<span class="number">1</span>,i+<span class="number">1</span> 这两名高阶圣堂武士会给 i 这名高阶圣堂武士 −ai 点灵能。</span><br><span class="line"></span><br><span class="line">形式化来讲就是 ai−<span class="number">1</span>+=ai,ai+<span class="number">1</span>+=ai,ai−=<span class="number">2</span>ai。</span><br><span class="line"></span><br><span class="line">灵能是非常高效的作战工具，同时也非常危险且不稳定，一位高阶圣堂武士拥有的灵能过多或者过少都不好，定义一组高阶圣堂武士的不稳定度为 max(i from <span class="number">1</span> to n)|ai|，请你通过不限次数的传递灵能操作使得你控制的这一组高阶圣堂武士的不稳定度最小。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">本题包含多组询问。输入的第一行包含一个正整数 T 表示询问组数。</span><br><span class="line">接下来依次输入每一组询问。</span><br><span class="line">每组询问的第一行包含一个正整数 n，表示高阶圣堂武士的数量。</span><br><span class="line">接下来一行包含 n 个数 a1,a2,⋅⋅⋅,an。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出 T 行。</span><br><span class="line">每行一个整数依次表示每组询问的答案。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤T≤<span class="number">3</span>,<span class="number">3</span>≤n≤<span class="number">300000</span>,|ai|≤<span class="number">10</span>^<span class="number">9</span>,</span><br><span class="line">每个评测用例的限制如下：</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/94df374e/image-20210604231058940.png" alt="image-20210604231058940"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902619.png" alt="image-20210604231058940"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">输入样例<span class="number">1</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span> <span class="number">-2</span> <span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">输出样例<span class="number">1</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">输入样例<span class="number">2</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">-1</span> <span class="number">-2</span> <span class="number">-3</span> <span class="number">7</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">-8</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">-1</span> <span class="number">-1</span> <span class="number">6</span> <span class="number">-1</span> <span class="number">-1</span></span><br><span class="line">输出样例<span class="number">2</span>：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">样例解释</span><br><span class="line">样例一</span><br><span class="line">对于第一组询问：</span><br><span class="line">对 <span class="number">2</span> 号高阶圣堂武士进行传输操作后 a1=<span class="number">3</span>，a2=<span class="number">2</span>，a3=<span class="number">1</span>。答案为 <span class="number">3</span>。</span><br><span class="line">对于第二组询问：</span><br><span class="line">这一组高阶圣堂武士拥有的灵能都正好可以让他们达到最佳战斗状态。</span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>由题意可知，对于中间的圣堂武士来说，无论是吸收还是给出灵能给两边的武士，都可以统一处理：</p>
 <p>ai−1+=ai,ai+1+=ai,ai−=2ai。</p>
 <p>难点1：想到<strong>前缀和</strong>的做法。</p>
-<p><img src="/posts/94df374e/image-20210606155931370.png" alt="image-20210606155931370"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902646.png" alt="image-20210606155931370"></p>
 <p>构造前缀和序列，我们每次操作a[i]（i = 2,3,…,n-1）时，相当于交换S[i-1]和S[i]的值，这个性质很重要。</p>
 <p>因为<code>a[i] == S[i] - S[i-1]</code>，所以有：<code>max&#123;|a[i]|&#125; == max&#123;|S[i] - S[i-1]|&#125;</code>.</p>
 <p>难点2：如何求最小不稳定度，贪心策略。</p>
@@ -328,7 +328,7 @@
 <p>然而S[0]和S[n]是不能参与交换的！</p>
 <p>我们用数轴来思考会简单很多。前缀和数组S[N]的每个元素分布在一个数轴上，我们需要从S[0]跳到S[n]，每</p>
 <p>个点都必须经过且只经过一次。<strong>那所求的最小不稳定度也就是跳步的最短距离。</strong></p>
-<p><img src="/posts/94df374e/image-20210606180534745.png" alt="image-20210606180534745"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231902665.png" alt="image-20210606180534745"></p>
 <p>由上图可知，<strong>最优的贪心策略</strong>必然是：S[0]—&gt;最小值—&gt;最大值—&gt;S[n]。（难点，双指针实现）</p>
 <p>必须间隔一个点跳一步，因为每个点只能经过一次。</p>
 <p>时间复杂度：O(n*logn)</p>
@@ -384,9 +384,9 @@
               <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"><i class="fa fa-tag"></i> 贪心</a>
               <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag"><i class="fa fa-tag"></i> 双指针</a>
               <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag"><i class="fa fa-tag"></i> 前缀和</a>
+              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
               <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
               <a href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 竞赛</a>
-              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
           </div>
 
         
@@ -501,7 +501,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -514,7 +514,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,7 +569,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

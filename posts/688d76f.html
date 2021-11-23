@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.第二讲 线性表1.0数据结构课本相关代码实现参考博客： https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kangjianwei101&#x2F;p&#x2F;5221816.html。 非常全面！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考研算法辅导课笔记（二）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/688d76f.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="1.第二讲 线性表1.0数据结构课本相关代码实现参考博客： https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kangjianwei101&#x2F;p&#x2F;5221816.html。 非常全面！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062246366.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111081719957.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082001463.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082021587.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082029858.png">
+<meta property="article:published_time" content="2021-11-23T07:17:07.000Z">
+<meta property="article:modified_time" content="2021-11-23T07:38:33.106Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="链表">
+<meta property="article:tag" content="指针">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/688d76f.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>考研算法辅导课笔记（二） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/688d76f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          考研算法辅导课笔记（二）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-23 15:17:07 / 修改时间：15:38:33" itemprop="dateCreated datePublished" datetime="2021-11-23T15:17:07+08:00">2021-11-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%80%83%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">考研</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/688d76f.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/688d76f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-第二讲-线性表"><a href="#1-第二讲-线性表" class="headerlink" title="1.第二讲 线性表"></a>1.第二讲 线性表</h1><h2 id="1-0数据结构课本相关代码实现"><a href="#1-0数据结构课本相关代码实现" class="headerlink" title="1.0数据结构课本相关代码实现"></a>1.0数据结构课本相关代码实现</h2><p>参考博客： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/kangjianwei101/p/5221816.html。">https://www.cnblogs.com/kangjianwei101/p/5221816.html。</a></p>
+<p>非常全面！</p>
+<span id="more"></span>
+<h2 id="1-1线性表"><a href="#1-1线性表" class="headerlink" title="1.1线性表"></a>1.1线性表</h2><ol>
+<li>将具有线性关系的数据存储到计算机中所使用的存储结构称为线性表。</li>
+<li>对于线性表中的数据来说，位于当前数据之前的数据统称为“前趋元素”，前边紧挨着的数据称为“直接前趋”；同样，后边的数据统称为“后继元素”，后边紧挨着的数据称为“直接后继”。</li>
+<li>线性表的分类<br> (1) 数据元素<strong>在内存中集中存储</strong>，采用顺序表示结构，简称“<strong>顺序存储</strong>”；<pre><code> 例如：数组
+</code></pre> (2) 数据元素<strong>在内存中分散存储</strong>，采用链式表示结构，简称“<strong>链式存储</strong>”。<pre><code> 例如：单链表、双链表、循环单（双）链表
+</code></pre></li>
+<li>不同实现方式的时间复杂度（不要硬背结论、要从实现方式入手分情况讨论，下述为特定情况下的时间复杂度）<br> (1) 数组：随机索引O(1)、插入O(n)、删除O(n)<br> (2) 单链表：查找某一元素O(n)、插入O(1)、删除O(n)，删除当前节点需要找到它的前驱<br> (3) 双链表：查找某一元素O(n)、插入O(1)、删除O(1)</li>
+</ol>
+<p>简单回顾一下单链表：（不要背代码！！！理解记忆！！！）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    Node* next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Node构造函数，next初始化为NULL</span></span><br><span class="line">    Node():next(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">    Node(<span class="keyword">int</span> _val):val(_val),next(<span class="literal">NULL</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Node* head)</span></span>&#123; <span class="comment">// 遍历打印单链表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = head-&gt;next; p;)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="literal">NULL</span>)  <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot; --&gt; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">headInsert</span><span class="params">(Node* head,Node* tail,<span class="keyword">int</span> n)</span></span>&#123; <span class="comment">// 头插法</span></span><br><span class="line">    <span class="keyword">auto</span> node = <span class="keyword">new</span> Node(n);</span><br><span class="line"></span><br><span class="line">    node-&gt;next = head-&gt;next;</span><br><span class="line">    head-&gt;next = node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tailInsert</span><span class="params">(Node* tail,<span class="keyword">int</span> n)</span></span>&#123; <span class="comment">// 尾插法</span></span><br><span class="line">    <span class="keyword">auto</span> node = <span class="keyword">new</span> Node(n);</span><br><span class="line">    </span><br><span class="line">    tail-&gt;next-&gt;next = node;</span><br><span class="line">    tail-&gt;next = node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(Node* head,<span class="keyword">int</span> n)</span></span>&#123; <span class="comment">// 删除单链表中第n个位置的元素，head指向的是第1个位置</span></span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)&#123;</span><br><span class="line">        flag = <span class="literal">true</span>;</span><br><span class="line">        head-&gt;next = head-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    n --;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = head-&gt;next; p; n --)&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>)&#123;</span><br><span class="line">            p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span> flag;</span><br><span class="line">        &#125;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> head = <span class="keyword">new</span> Node();</span><br><span class="line">    <span class="keyword">auto</span> node = <span class="keyword">new</span> Node(<span class="number">1</span>);</span><br><span class="line">    head-&gt;next = node; <span class="comment">// 头指针</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> tail = <span class="keyword">new</span> Node();</span><br><span class="line">    tail-&gt;next = node; <span class="comment">// 尾指针</span></span><br><span class="line">    </span><br><span class="line">    headInsert(head,tail,<span class="number">2</span>);</span><br><span class="line">    print(head);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    tailInsert(tail,<span class="number">3</span>);</span><br><span class="line">    print(head);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    headInsert(head,tail,<span class="number">4</span>);</span><br><span class="line">    print(head);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    tailInsert(tail,<span class="number">5</span>);</span><br><span class="line">    print(head);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span> (ListDelete(head,<span class="number">1</span>))&#123;</span><br><span class="line">        print(head);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ListDelete(head,<span class="number">5</span>))&#123;</span><br><span class="line">        print(head);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; head-&gt;next-&gt;val &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; tail-&gt;next-&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>简单回顾一下双链表：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    Node *prev,*next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Node构造函数，next初始化为NULL</span></span><br><span class="line">    Node():prev(<span class="literal">NULL</span>),next(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">    Node(<span class="keyword">int</span> _val):val(_val),prev(<span class="literal">NULL</span>),next(<span class="literal">NULL</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Node* head,Node* tail)</span></span>&#123; <span class="comment">// 遍历打印单链表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = head-&gt;next; p;)&#123;</span><br><span class="line">        <span class="keyword">if</span> (p != tail) <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (p != tail &amp;&amp; p != <span class="literal">NULL</span>)  <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot; --&gt; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Node *head = <span class="keyword">new</span> Node(),*tail = <span class="keyword">new</span> Node();</span><br><span class="line">    head-&gt;next = tail,tail-&gt;prev = head; <span class="comment">// 定义左右哨兵</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 头插法</span></span><br><span class="line">    <span class="keyword">auto</span> a = <span class="keyword">new</span> Node(<span class="number">1</span>);</span><br><span class="line">    a-&gt;next = head-&gt;next,a-&gt;prev = head;</span><br><span class="line">    head-&gt;next-&gt;prev = a,head-&gt;next = a;</span><br><span class="line">    print(head,tail);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> b = <span class="keyword">new</span> Node(<span class="number">2</span>);</span><br><span class="line">    b-&gt;next = head-&gt;next,b-&gt;prev = head;</span><br><span class="line">    head-&gt;next-&gt;prev = b,head-&gt;next = b;</span><br><span class="line">    print(head,tail);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除b结点</span></span><br><span class="line">    b-&gt;prev-&gt;next = b-&gt;next;</span><br><span class="line">    b-&gt;next-&gt;prev = b-&gt;prev;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>理解了做题就很容易。</p>
+<h3 id="三道大题"><a href="#三道大题" class="headerlink" title="三道大题"></a>三道大题</h3><p>链表题最好先在纸上画图，然后对照着实现每一步操作的代码。</p>
+<h4 id="2012-42："><a href="#2012-42：" class="headerlink" title="2012-42："></a>2012-42：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png" alt="image-20211106223757652"></p>
+<h4 id="66-两个链表的第一个公共结点"><a href="#66-两个链表的第一个公共结点" class="headerlink" title="66. 两个链表的第一个公共结点"></a>66. 两个链表的第一个公共结点</h4><p>输入两个链表，找出它们的第一个公共结点。</p>
+<p>当不存在公共节点时，返回空节点。</p>
+<p>样例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">给出两个链表如下所示：</span><br><span class="line">A：        a1 → a2</span><br><span class="line">                   ↘</span><br><span class="line">                     c1 → c2 → c3</span><br><span class="line">                   ↗            </span><br><span class="line">B:     b1 → b2 → b3</span><br><span class="line"></span><br><span class="line">输出第一个公共节点c1</span><br></pre></td></tr></table></figure>
+<p>在《C++竞赛语法总结（七）》中提到过本题。</p>
+<p>这里细致讲解一下，采用双指针算法。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062246366.png" alt="image-20211106224656313"></p>
+<p>定义两个指针分别叫做headA和headB。</p>
+<p>headA从链表A的头出发，走过的路径是<code>a--&gt;c--&gt;b</code>；</p>
+<p>headB从链表B的头出发，走过的路径是<code>b--&gt;c--&gt;a</code>。</p>
+<p>两个指针走过的总路线长度是一样的，所以它们必定会相遇。</p>
+<p>当<code>a == b</code>时，两个指针每次一起向前移动一位，所以一定在交点相遇；</p>
+<p>当<code>a != b</code>时，不妨设<code>a &gt; b</code>，那么<code>a+c &gt; b+c</code>，所以在headB开始走a路段之前它们都不会相遇，两条路径的终点都是交点，也就是说在交点之前都不会相遇，<strong>最终的相遇点就是交点</strong>。</p>
+<p>如果两个链表不相交，那么两个指针就会分别走到对方链表的末尾结束。</p>
+<p>以上论证了双指针算法的正确性。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">findFirstCommonNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *p = headA,*q = headB;</span><br><span class="line">        <span class="keyword">while</span> (p != q)&#123; <span class="comment">// 直到两个指针相遇或者同时走到NULL返回结果</span></span><br><span class="line">            p = p ? p-&gt;next : headB; <span class="comment">// 如果指针走到链表尾，就从另一个链表头开始走</span></span><br><span class="line">            q = q ? q-&gt;next : headA;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="2015-41："><a href="#2015-41：" class="headerlink" title="2015-41："></a>2015-41：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111081719957.png" alt="image-20211108171942865"></p>
+<p>核心问题就是如何判断一个数的绝对值是否出现过。</p>
+<p>我首先想到的是哈希表，但答案要求没有这么高，开一个<code>bool[n]</code>数组就行。</p>
+<p>可以给单链表设置一个头节点（如图），从头节点开始遍历链表，判断是否需要删除下一个节点。这是由单链表的特性所决定的，只有知道上一个节点才可以删除当前节点。</p>
+<h4 id="3756-筛选链表"><a href="#3756-筛选链表" class="headerlink" title="3756. 筛选链表"></a>3756. 筛选链表</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">一个单链表中有 m 个结点，每个结点上的元素的绝对值不超过 n。</span><br><span class="line">现在，对于链表中元素的绝对值相等的结点，仅保留第一次出现的结点而删除其余绝对值相等的结点。</span><br><span class="line"></span><br><span class="line">请输出筛选后的新链表。</span><br><span class="line">例如，单链表 <span class="number">21</span> -&gt; <span class="number">-15</span> -&gt; <span class="number">-15</span> -&gt; <span class="number">-7</span> -&gt; <span class="number">15</span>，在进行筛选和删除后，变为 <span class="number">21</span> -&gt; <span class="number">-15</span> -&gt; <span class="number">-7</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line">输入：<span class="number">21</span>-&gt;<span class="number">-15</span>-&gt;<span class="number">-15</span>-&gt;<span class="number">-7</span>-&gt;<span class="number">15</span></span><br><span class="line">输出：<span class="number">21</span>-&gt;<span class="number">-15</span>-&gt;<span class="number">-7</span></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p> 遍历链表的时候，用一个数组标记是否已经出现过该元素。出现就在对应的位置true，否则false。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:   <span class="comment">// 注意：本题的头节点存放了信息！</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">filterList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> st[<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">// 全部初始化为0，避免随机值</span></span><br><span class="line">        st[<span class="built_in">abs</span>(head-&gt;val)] = <span class="literal">true</span>; <span class="comment">// 头节点存放的值是第一个</span></span><br><span class="line">        <span class="comment">// p指针遍历，判断它的下一个节点是否要删除</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head;p-&gt;next;)&#123; <span class="comment">// p指针从头节点开始遍历，直到倒数第2个节点</span></span><br><span class="line">            <span class="keyword">int</span> x = <span class="built_in">abs</span>(p-&gt;next-&gt;val);</span><br><span class="line">            <span class="keyword">if</span> (st[x])&#123; <span class="comment">// 如果绝对值重复，就需要删除下一个节点，直到没有重复p再往前走</span></span><br><span class="line">                <span class="keyword">auto</span> q = p-&gt;next;</span><br><span class="line">                p-&gt;next = q-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> q; <span class="comment">// 释放内存</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                st[x] = <span class="literal">true</span>; <span class="comment">// 绝对值不重复，p往前走</span></span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>引入真正头节点（不存储信息）的题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/57458/。">https://www.acwing.com/solution/content/57458/。</a></p>
+<p>类似的做法还可以参考《C++竞赛语法总结（七）》的删除链表中重复元素。</p>
+<h4 id="2019-41："><a href="#2019-41：" class="headerlink" title="2019-41："></a>2019-41：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082001463.png" alt="image-20211108200149383"></p>
+<h4 id="3757-重排链表（中等难度）"><a href="#3757-重排链表（中等难度）" class="headerlink" title="3757. 重排链表（中等难度）"></a>3757. 重排链表（中等难度）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">一个包含 n 个元素的线性链表 L=(a1,a2,…,an−<span class="number">2</span>,an−<span class="number">1</span>,an)。</span><br><span class="line"></span><br><span class="line">现在要对其中的结点进行重新排序，得到一个新链表 L′=(a1,an,a2,an−<span class="number">1</span>,a3,an−<span class="number">2</span>…)</span><br><span class="line">样例<span class="number">1</span>：</span><br><span class="line">输入：<span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span></span><br><span class="line"></span><br><span class="line">输出：<span class="number">1</span>-&gt;<span class="number">4</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span></span><br><span class="line">样例<span class="number">2</span>：</span><br><span class="line">输入：<span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span></span><br><span class="line"></span><br><span class="line">输出：<span class="number">1</span>-&gt;<span class="number">5</span>-&gt;<span class="number">2</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p>交替重排链表，是反转链表和合并链表的结合版。</p>
+<p>反转链表参考《C++竞赛语法总结（六）》的反转链表。</p>
+<p>注意题目要求空间复杂度为O(1)，不能开辟新的链表只能操作原链表。</p>
+<p>第一步，将链表分成两部分。左半部分的元素个数是$\lceil \frac n 2 \rceil$,右半部分的元素个数是$n- \lceil \frac n 2 \rceil$。</p>
+<p>为什么是上取整？按照新链表的排列顺序，如果是奇数个元素，最后一个元素会从左边取。</p>
+<p>图示：找到两边的边界点，分别记为a，b。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082021587.png" alt="image-20211108202106520"></p>
+<p>操作完两部分链表后：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082029858.png" alt="image-20211108202956788"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rearrangedList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head; p; p = p-&gt;next) n ++; <span class="comment">// 求链表的节点个数n</span></span><br><span class="line">        <span class="keyword">int</span> left = (n+<span class="number">1</span>) &gt;&gt; <span class="number">1</span>; <span class="comment">// (n+1)/2上取整</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> a = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; left - <span class="number">1</span>;i ++) a = a-&gt;next;</span><br><span class="line">        <span class="keyword">auto</span> b = a-&gt;next,c = b-&gt;next;</span><br><span class="line">        </span><br><span class="line">        a-&gt;next = b-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span> (c)&#123; <span class="comment">// 反转右边的链表</span></span><br><span class="line">            <span class="keyword">auto</span> t = c-&gt;next;</span><br><span class="line">            c-&gt;next = b;</span><br><span class="line">            b = c,c = t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 交替合并链表</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head,q = b;q;)&#123; <span class="comment">// 左边数量 &gt;= 右边数量</span></span><br><span class="line">            <span class="keyword">auto</span> t1 = p-&gt;next,t2 = q-&gt;next;</span><br><span class="line">            p-&gt;next = q;</span><br><span class="line">            q-&gt;next = t1;</span><br><span class="line">            </span><br><span class="line">            p = t1;</span><br><span class="line">            q = t2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意：真正理解链表结构体的赋值（<code>a = b</code>）的原理：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qianggea11/article/details/90695101。">https://blog.csdn.net/qianggea11/article/details/90695101。</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/688d76f.html" title="考研算法辅导课笔记（二）">https://www.grantdrew.top/posts/688d76f.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 链表</a>
+              <a href="/tags/%E6%8C%87%E9%92%88/" rel="tag"><i class="fa fa-tag"></i> 指针</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/a30d7a90.html" rel="prev" title="考研算法之结构体指针">
+      <i class="fa fa-chevron-left"></i> 考研算法之结构体指针
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/4b96743d.html" rel="next" title="考研算法辅导课笔记（三）">
+      考研算法辅导课笔记（三） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AC%AC%E4%BA%8C%E8%AE%B2-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">1.第二讲 线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-0%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%BE%E6%9C%AC%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-text">1.0数据结构课本相关代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">1.1线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E9%81%93%E5%A4%A7%E9%A2%98"><span class="nav-text">三道大题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2012-42%EF%BC%9A"><span class="nav-text">2012-42：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#66-%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9"><span class="nav-text">66. 两个链表的第一个公共结点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2015-41%EF%BC%9A"><span class="nav-text">2015-41：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3756-%E7%AD%9B%E9%80%89%E9%93%BE%E8%A1%A8"><span class="nav-text">3756. 筛选链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2019-41%EF%BC%9A"><span class="nav-text">2019-41：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3757-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8%EF%BC%88%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="nav-text">3757. 重排链表（中等难度）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20:08</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

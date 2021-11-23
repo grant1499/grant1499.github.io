@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.类的结构：代码块（初始化块） 代码块的作用：用来初始化类、对象的信息 分类：静态代码块 VS 非静态代码块 代码块要是使用修饰符，只能使用static">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502102003114.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502102122061.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502105438764.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502150445942.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502151051302.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502160622844.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119907.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119409.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119794.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119288.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119489.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119251.png">
 <meta property="article:published_time" content="2021-05-02T01:59:12.000Z">
-<meta property="article:modified_time" content="2021-05-05T06:27:33.454Z">
+<meta property="article:modified_time" content="2021-10-23T13:19:44.182Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/a2f332aa/image-20210502102003114.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119907.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/a2f332aa.html">
 
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 14:27:33" itemprop="dateModified" datetime="2021-05-05T14:27:33+08:00">2021-05-05</time>
+                <time title="修改时间：2021-10-23 21:19:44" itemprop="dateModified" datetime="2021-10-23T21:19:44+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -311,14 +311,14 @@
 <li>如果一个类中定义了多个非静态代码块，则按照声明的先后顺序执行</li>
 <li>非静态代码块内可以调用静态的属性、静态的方法，或非静态的属性、非静态的方法</li>
 </ul>
-<p><img src="/posts/a2f332aa/image-20210502102003114.png" alt="image-20210502102003114"></p>
-<p><img src="/posts/a2f332aa/image-20210502102122061.png" alt="image-20210502102122061"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119907.png" alt="image-20210502102003114"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119409.png" alt="image-20210502102122061"></p>
 <p><strong>总结：由父及子，静态先行。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">成员变量赋值顺序</span><br><span class="line"> * ①默认初始化</span><br><span class="line"> * ②显式初始化/⑤在代码块中赋值，看先后顺序</span><br><span class="line"> * ③构造器中初始化</span><br><span class="line"> * ④有了对象以后，可以通过<span class="string">&quot;对象.属性&quot;</span>或<span class="string">&quot;对象.方法&quot;</span>的方式，进行赋值</span><br><span class="line"> * </span><br><span class="line"> * </span><br><span class="line"> * 执行的先后顺序：① - ② / ⑤ - ③ - ④</span><br></pre></td></tr></table></figure>
-<h2 id="2-抽象类的应用：模板方法设计模式"><a href="#2-抽象类的应用：模板方法设计模式" class="headerlink" title="2.抽象类的应用：模板方法设计模式"></a>2.抽象类的应用：模板方法设计模式</h2><p><img src="/posts/a2f332aa/image-20210502105438764.png" alt="image-20210502105438764"></p>
+<h2 id="2-抽象类的应用：模板方法设计模式"><a href="#2-抽象类的应用：模板方法设计模式" class="headerlink" title="2.抽象类的应用：模板方法设计模式"></a>2.抽象类的应用：模板方法设计模式</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119794.png" alt="image-20210502105438764"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TemplateTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SubTemplate t = <span class="keyword">new</span> SubTemplate();</span><br><span class="line">        t.spendTime();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模板方法设计模式的一个应用案例</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Template</span></span>&#123;</span><br><span class="line">    <span class="comment">// 计算某段代码执行时间</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">spendTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        code(); <span class="comment">// 不确定部分</span></span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">&quot;花费的时间是：&quot;</span>+(end-start));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">code</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubTemplate</span> <span class="keyword">extends</span> <span class="title">Template</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">code</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= <span class="number">1000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">boolean</span> isFlag = <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>;j &lt;= Math.sqrt(i);j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (i % j == <span class="number">0</span>)&#123;</span><br><span class="line">                    isFlag = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isFlag)&#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-时间日期API"><a href="#3-时间日期API" class="headerlink" title="3.时间日期API"></a>3.时间日期API</h2><p><img src="/posts/a2f332aa/image-20210502150445942.png" alt="image-20210502150445942"></p>
-<p><img src="/posts/a2f332aa/image-20210502151051302.png" alt="image-20210502151051302"></p>
+<h2 id="3-时间日期API"><a href="#3-时间日期API" class="headerlink" title="3.时间日期API"></a>3.时间日期API</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119288.png" alt="image-20210502150445942"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119489.png" alt="image-20210502151051302"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JunitTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// JDK8之前的日期和时间API</span></span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();</span><br><span class="line">        <span class="comment">//返回1970年XXX到现在的时间差，时间戳形式</span></span><br><span class="line">        System.out.println(start);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//构造器1：Date()，对应当前时间的Date对象</span></span><br><span class="line">        Date date1 = <span class="keyword">new</span> Date();</span><br><span class="line">        System.out.println(date1.toString());</span><br><span class="line">        System.out.println(date1.getTime());<span class="comment">// 返回毫秒数,时间戳</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//构造器2：Date(long Date)</span></span><br><span class="line">        Date date2 = <span class="keyword">new</span> Date(<span class="number">1619941526721L</span>);<span class="comment">//记得加L</span></span><br><span class="line">        System.out.println(date2.toString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建java.sql.Date对象，它是java.util.Date的子类</span></span><br><span class="line">        java.sql.Date date3 = <span class="keyword">new</span> java.sql.Date(<span class="number">1619941526721L</span>);</span><br><span class="line">        System.out.println(date3.toString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//将java.util.Date对象转换为java.sql.Date对象</span></span><br><span class="line">        <span class="comment">//1.</span></span><br><span class="line">        Date date4 = <span class="keyword">new</span> java.sql.Date(<span class="number">1619941526721L</span>);</span><br><span class="line">        java.sql.Date date5 = (java.sql.Date) date4;</span><br><span class="line">        <span class="comment">//2.</span></span><br><span class="line">        Date date6 = <span class="keyword">new</span> Date();</span><br><span class="line">        java.sql.Date date7 = <span class="keyword">new</span> java.sql.Date(date6.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="4-java-text-SimpleDataFormat类"><a href="#4-java-text-SimpleDataFormat类" class="headerlink" title="4.java.text.SimpleDataFormat类"></a>4.java.text.SimpleDataFormat类</h2><p>SimpleDateFormat对日期Date类的格式化和解析</p>
 <ul>
@@ -331,7 +331,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SimpleDateFormat sdf1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line"><span class="comment">//格式化</span></span><br><span class="line">String format1 = sdf1.format(date);</span><br><span class="line">System.out.println(format1);<span class="comment">//2019-02-18 11:48:27</span></span><br><span class="line"><span class="comment">//解析:要求字符串必须是符合SimpleDateFormat识别的格式(通过构造器参数体现),</span></span><br><span class="line"><span class="comment">//否则，抛异常</span></span><br><span class="line">Date date2 = sdf1.parse(<span class="string">&quot;2020-02-18 11:48:27&quot;</span>);</span><br><span class="line">System.out.println(date2);</span><br></pre></td></tr></table></figure>
 <h2 id="5-Calendar类：日历类、抽象类"><a href="#5-Calendar类：日历类、抽象类" class="headerlink" title="5.Calendar类：日历类、抽象类"></a>5.Calendar类：日历类、抽象类</h2><p>它是抽象类，所以不能实例化。</p>
-<p><img src="/posts/a2f332aa/image-20210502160622844.png" alt="image-20210502160622844"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119251.png" alt="image-20210502160622844"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCalendar</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//实例化</span></span><br><span class="line">        <span class="comment">//1.创建子类GregorianCalendar的对象</span></span><br><span class="line">        <span class="comment">//2.调用其静态方法getInstance()，方便记忆</span></span><br><span class="line">        Calendar calendar = Calendar.getInstance();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//常用方法</span></span><br><span class="line">        <span class="comment">//get方法获取常用的属性信息</span></span><br><span class="line">        <span class="keyword">int</span> days = calendar.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(days);</span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_WEEK));</span><br><span class="line">        <span class="comment">//set修改信息</span></span><br><span class="line">        calendar.set(Calendar.DAY_OF_MONTH,<span class="number">19</span>);</span><br><span class="line">        <span class="keyword">int</span> day = calendar.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(day);</span><br><span class="line">        <span class="comment">//add追加信息</span></span><br><span class="line">        calendar.add(Calendar.DAY_OF_MONTH,<span class="number">2</span>);</span><br><span class="line">        day = calendar.get(Calendar.DAY_OF_MONTH);</span><br><span class="line">        System.out.println(day);</span><br><span class="line">        <span class="comment">//getTime():日历类---&gt;Date</span></span><br><span class="line">        Date date = calendar.getTime();</span><br><span class="line">        System.out.println(date);</span><br><span class="line">        <span class="comment">//setTime():Date---&gt;日历类</span></span><br><span class="line">        Date date1 = <span class="keyword">new</span> Date();</span><br><span class="line">        calendar.setTime(date1);</span><br><span class="line">        System.out.println(calendar.get(Calendar.DAY_OF_MONTH));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -495,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -508,7 +508,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -563,7 +563,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

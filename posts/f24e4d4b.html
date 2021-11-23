@@ -23,16 +23,16 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="实验12">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/f24e4d4b/image-20210929184004491.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/f24e4d4b/image-20210929184514478.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/f24e4d4b/image-20210929185610911.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/f24e4d4b/image-20210929203049687.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842339.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842370.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842396.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842422.png">
 <meta property="article:published_time" content="2021-09-29T06:49:23.000Z">
-<meta property="article:modified_time" content="2021-09-30T02:51:34.222Z">
+<meta property="article:modified_time" content="2021-10-23T10:42:19.787Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/f24e4d4b/image-20210929184004491.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842339.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/f24e4d4b.html">
 
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-30 10:51:34" itemprop="dateModified" datetime="2021-09-30T10:51:34+08:00">2021-09-30</time>
+                <time title="修改时间：2021-10-23 18:42:19" itemprop="dateModified" datetime="2021-10-23T18:42:19+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,16 +289,16 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1000h </span><br><span class="line">mov bh, 1</span><br><span class="line">div bh ;除法溢出错误</span><br></pre></td></tr></table></figure>
 <p>当CPU执行<code>div bh</code>时，产生0号中断信息，从而引发中断过程，CPU执行0号中断处理程序。</p>
 <p>本次实验将自己实现0号中断程序的功能，在屏幕中间显示“overflow!”，然后返回DOS。</p>
-<p><img src="/posts/f24e4d4b/image-20210929184004491.png" alt="image-20210929184004491"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842339.png" alt="image-20210929184004491"></p>
 <p>1、0000:0200至0000:02FF的256个字节的空间所对应的中断向量表项都是空的，可以将中断处理程序do0传送到内存0000:0200处。</p>
 <p>2、中断处理程序do0放到<code>0000:0200</code>,再将其地址登记在中断向量表对应表项</p>
 <ul>
 <li>0号表项的地址<code>0:0</code>。<code>0:0</code>字单元存放偏移地址，<code>0:2</code>字单元存放段地址</li>
 <li>将do0的段地址0存放在<code>0000:0002</code>字单元中，将偏移地址200H存放在<code>0000:0000</code>字单元</li>
 </ul>
-<p><img src="/posts/f24e4d4b/image-20210929184514478.png" alt="image-20210929184514478"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842370.png" alt="image-20210929184514478"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">    start:  ;do0 安装程序</span><br><span class="line">            ;设置中断向量表</span><br><span class="line">            mov ax,4c00h</span><br><span class="line">            int 21h</span><br><span class="line">    do0:    ;在屏幕上显示字符串“overflow!”</span><br><span class="line">            mov ax,4c00h</span><br><span class="line">            int 21h</span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/f24e4d4b/image-20210929185610911.png" alt="image-20210929185610911"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842396.png" alt="image-20210929185610911"></p>
 <p>先来看如何安装do0？</p>
 <p>显然串传送指令（movsb）很适合一段连续空间的复制操作。</p>
 <p>安装程序如下：</p>
@@ -312,7 +312,7 @@
 <p>完整程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">    start:  ;do0 安装程序</span><br><span class="line">            mov ax,0</span><br><span class="line">            mov es,ax</span><br><span class="line">            mov di,200h ;设置es:di指向目标地址</span><br><span class="line">            mov ax,cs</span><br><span class="line">            mov ds,ax  ;设置ds:si指向源地址</span><br><span class="line">            mov si,offset do0 ;offset 拿到do0的偏移地址，do0是它的段地址</span><br><span class="line">            mov cx,offset do0end - offset do0 ;设置cx为do0的长度，中间的&quot;-&quot;是编译器识别的减号</span><br><span class="line">            cld</span><br><span class="line">            rep movsb</span><br><span class="line">            ;设置中断向量表</span><br><span class="line">            ;将do0的入口地址0:200写入中断向量表的0号表项中</span><br><span class="line">            ;0号表项，0:0字单元存放偏移地址，0:2字单元存放段地址</span><br><span class="line">            mov ax,0</span><br><span class="line">            mov es,ax</span><br><span class="line">            mov word ptr es:[0*4],200h</span><br><span class="line">            mov word ptr es:[0*4+2],0</span><br><span class="line"></span><br><span class="line">            mov ax,1000h		;测试中断程序的样例</span><br><span class="line">            mov bx,0			;故意写成溢出的样例，检测中断例程是否正确运行</span><br><span class="line">            mov bl,1</span><br><span class="line">            div bl</span><br><span class="line"></span><br><span class="line">            mov ax,4c00h</span><br><span class="line">            int 21h</span><br><span class="line">    do0:    ;在屏幕上显示字符串“overflow!”</span><br><span class="line">            jmp short do0start ;段内短转移</span><br><span class="line">            db &quot;divide error!&quot; ;程序加载时开辟一块空间存放字符串，否则一直放在内存中可能被覆盖</span><br><span class="line">    do0start:  ;将字符串从db定义的位置复制到“屏幕”上</span><br><span class="line">            mov ax,0b800h</span><br><span class="line">            mov es,ax   ;设置es:di指向目标地址，显存空间位置</span><br><span class="line">            mov ax,cs   ;不要写成mov ax,do0，这里的do0不会运行，只作为数据，此时的段地址没用</span><br><span class="line">            mov ds,ax</span><br><span class="line">            mov si,202h ;设置ds:si指向源地址，字符串位置，字符串段地址和do0一样，偏移地址从200h开始，jmp short xxx占2字节</span><br><span class="line">            mov di,12*160+35*2 ;运算表达式会由编译器在编译时计算出来</span><br><span class="line"></span><br><span class="line">            mov cx,13</span><br><span class="line">            mov ah,00000100b ;将白色的提示信息变成红色</span><br><span class="line">            s:	mov al, ds:[si]</span><br><span class="line">            mov es:[di], ax</span><br><span class="line">            inc si</span><br><span class="line">            add di, 2</span><br><span class="line">            loop s</span><br><span class="line"></span><br><span class="line">            mov ax,4c00h</span><br><span class="line">            int 21h</span><br><span class="line">    do0end: nop</span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 <p>测试结果：</p>
-<p><img src="/posts/f24e4d4b/image-20210929203049687.png" alt="image-20210929203049687"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231842422.png" alt="image-20210929203049687"></p>
 <p>汇编语言实验系列正式完结。</p>
 
     </div>
@@ -476,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,7 +489,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -544,7 +544,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

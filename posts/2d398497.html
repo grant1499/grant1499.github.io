@@ -24,7 +24,7 @@
 <meta property="og:description" content="1.实现重定向（重要）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-14T03:33:43.000Z">
-<meta property="article:modified_time" content="2021-10-14T13:53:54.709Z">
+<meta property="article:modified_time" content="2021-11-07T12:36:26.054Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-14 11:33:43 / 修改时间：21:53:54" itemprop="dateCreated datePublished" datetime="2021-10-14T11:33:43+08:00">2021-10-14</time>
+              <time title="创建时间：2021-10-14 11:33:43" itemprop="dateCreated datePublished" datetime="2021-10-14T11:33:43+08:00">2021-10-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-07 20:36:26" itemprop="dateModified" datetime="2021-11-07T20:36:26+08:00">2021-11-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -285,7 +291,7 @@
 <p>新建<code>RequestTest.java</code>来处理登录请求：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestTest</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;进入表单提交请求...&quot;</span>);</span><br><span class="line">        <span class="comment">// 处理登录请求</span></span><br><span class="line">        String username = req.getParameter(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        String pwd = req.getParameter(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(username + <span class="string">&quot;:&quot;</span> + pwd); <span class="comment">// 控制台输出用户名和密码</span></span><br><span class="line">        resp.sendRedirect(<span class="string">&quot;/servlet_02_war/success.jsp&quot;</span>); <span class="comment">// 重定向404注意修改路径</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="获取参数请求转发"><a href="#获取参数请求转发" class="headerlink" title="获取参数请求转发"></a>获取参数请求转发</h3><p>在<code>webapp</code>目录下修改<code>index.jsp</code>文件作为登录页面：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Login Page&lt;/title&gt;</span><br><span class="line">    &lt;h1&gt;登录&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div style=<span class="string">&quot;text-align: center&quot;</span>&gt;</span><br><span class="line">        &lt;form action=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/login&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">            &lt;p&gt;用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;密码：&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;爱好：</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;sleep&quot;</span> name=<span class="string">&quot;hobby&quot;</span> checked&gt;睡觉</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;basketball&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;篮球</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;soccer&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;足球</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;art&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;艺术</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">            &lt;input type=<span class="string">&quot;submit&quot;</span>&gt;</span><br><span class="line">            &lt;input type=<span class="string">&quot;reset&quot;</span>&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Login Page&lt;/title&gt;</span><br><span class="line">    &lt;h1&gt;登录&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div style=<span class="string">&quot;text-align: center&quot;</span>&gt;</span><br><span class="line">        &lt;form action=<span class="string">&quot;$&#123;pageContext.request.contextPath&#125;/login&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">            &lt;% 这里的/login就是下面的处理登录程序ServletDemo_03映射到的路径 %&gt;</span><br><span class="line">            &lt;p&gt;用户名：&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;密码：&lt;input type=&quot;password&quot; name=&quot;pwd&quot;&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;爱好：</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;sleep&quot;</span> name=<span class="string">&quot;hobby&quot;</span> checked&gt;睡觉</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;basketball&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;篮球</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;soccer&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;足球</span><br><span class="line">                &lt;input type=<span class="string">&quot;checkbox&quot;</span> value=<span class="string">&quot;art&quot;</span> name=<span class="string">&quot;hobby&quot;</span>&gt;艺术</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">            &lt;input type=<span class="string">&quot;submit&quot;</span>&gt;</span><br><span class="line">            &lt;input type=<span class="string">&quot;reset&quot;</span>&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>新建<code>ServletDemo_03.java</code>来处理登录请求：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletDemo_03</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        String username = req.getParameter(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        String pwd = req.getParameter(<span class="string">&quot;pwd&quot;</span>);</span><br><span class="line">        String[] hobbies = req.getParameterValues(<span class="string">&quot;hobby&quot;</span>);<span class="comment">// 处理多选框</span></span><br><span class="line">        System.out.println(<span class="string">&quot;====================&quot;</span>);</span><br><span class="line">        System.out.println(username);</span><br><span class="line">        System.out.println(pwd);</span><br><span class="line">        System.out.println(Arrays.toString(hobbies));</span><br><span class="line">        <span class="comment">// 将请求转发，跳转到登录成功后的页面，注意：请求转发不需要加项目路径，因为这是站内转发，重定向才要加</span></span><br><span class="line">        req.getRequestDispatcher(<span class="string">&quot;/success.jsp&quot;</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="3-Cookie与Session概述"><a href="#3-Cookie与Session概述" class="headerlink" title="3.Cookie与Session概述"></a>3.Cookie与Session概述</h2><p>参考教程： <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1328768897515553。">https://www.liaoxuefeng.com/wiki/1252599548343744/1328768897515553。</a></p>
@@ -464,7 +470,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -477,7 +483,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -532,7 +538,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

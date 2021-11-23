@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.万类之祖：Object类所有的类，都间接或者直接的继承自Object 类。 数组属于引用类型，也是继承自Object 类。 Object 类没有成员变量，只有一些成员方法。 注意：hashCode和equals方法基本面试必考！！！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/2969f165/image-20210404113052887.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/2969f165/image-20210404125900225.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/2969f165/image-20210404131222019.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106328.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106946.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106489.png">
 <meta property="article:published_time" content="2021-04-04T02:20:22.000Z">
-<meta property="article:modified_time" content="2021-05-05T06:26:32.426Z">
+<meta property="article:modified_time" content="2021-10-23T13:07:04.373Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/2969f165/image-20210404113052887.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106328.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/2969f165.html">
 
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-05 14:26:32" itemprop="dateModified" datetime="2021-05-05T14:26:32+08:00">2021-05-05</time>
+                <time title="修改时间：2021-10-23 21:07:04" itemprop="dateModified" datetime="2021-10-23T21:07:04+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,15 +305,15 @@
 <p><strong>以后直接自动生成就行。</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> MerchandiseV2)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        MerchandiseV2 that = (MerchandiseV2) o;</span><br><span class="line">        <span class="comment">// 判断成员变量等是否相等</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getCount() == that.getCount() &amp;&amp;</span><br><span class="line">                Double.compare(that.getSoldPrice(), getSoldPrice()) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">                Double.compare(that.getPurchasePrice(), getPurchasePrice()) == <span class="number">0</span> &amp;&amp;</span><br><span class="line">                getName().equals(that.getName()) &amp;&amp;</span><br><span class="line">                getId().equals(that.getId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(getName(), getId(), getCount(), getSoldPrice(), getPurchasePrice());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>用“==”不能判断两个对象是否相等，只能判断两个引用是否指向同一个对象。</p>
-<p><img src="/posts/2969f165/image-20210404113052887.png" alt="image-20210404113052887"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106328.png" alt="image-20210404113052887"></p>
 <h2 id="2-判断String类是否相等"><a href="#2-判断String类是否相等" class="headerlink" title="2.判断String类是否相等"></a>2.判断String类是否相等</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s1 = <span class="string">&quot;aaabbb&quot;</span>;</span><br><span class="line"></span><br><span class="line">        String s2 = <span class="string">&quot;aaa&quot;</span> + <span class="string">&quot;bbb&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// &gt;&gt; TODO 说好的每次创建一个新的String对象呢？</span></span><br><span class="line">        System.out.println(<span class="string">&quot;s1和s2用==判断结果：&quot;</span>+(s1 == s2));</span><br><span class="line">		<span class="comment">// 是因为Java对String的优化，发现有一样的String，就直接返回</span></span><br><span class="line">        System.out.println(<span class="string">&quot;s1和s2用 equals 判断结果：&quot;</span>+(s1.equals(s2)));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// &gt;&gt; TODO 打乱Java对String的的优化，再试试看</span></span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入s1&quot;</span>);</span><br><span class="line">        s1 = scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;请输入s2&quot;</span>);</span><br><span class="line">        s2 = scanner.nextLine();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;s1和s2用==判断结果：&quot;</span>+(s1 == s2));</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;s1和s2用 equals 判断结果：&quot;</span>+(s1.equals(s2)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*s1和s2用==判断结果：true</span></span><br><span class="line"><span class="comment">s1和s2用 equals 判断结果：true</span></span><br><span class="line"><span class="comment">请输入s1</span></span><br><span class="line"><span class="comment">acsde</span></span><br><span class="line"><span class="comment">请输入s2</span></span><br><span class="line"><span class="comment">acsde</span></span><br><span class="line"><span class="comment">s1和s2用==判断结果：false</span></span><br><span class="line"><span class="comment">s1和s2用 equals 判断结果：true*/</span></span><br></pre></td></tr></table></figure>
 <h2 id="3-Class类"><a href="#3-Class类" class="headerlink" title="3.Class类"></a>3.Class类</h2><p>Class类是代表类的类。</p>
 <p>每个Class类的实例，都代表了一个类。</p>
 <p><code>getName()</code> 来产生完整（带包名）的类名，使用 <code>getSimpleName()</code> 产生不带包名的类名。</p>
 <h2 id="4-JUnit单元测试"><a href="#4-JUnit单元测试" class="headerlink" title="4.JUnit单元测试"></a>4.JUnit单元测试</h2><p>先讲讲什么是单元测试？</p>
 <p>IDEA为Java类创建JUnit单元测试。</p>
-<p><img src="/posts/2969f165/image-20210404125900225.png" alt="image-20210404125900225"></p>
-<p><img src="/posts/2969f165/image-20210404131222019.png" alt="image-20210404131222019"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106946.png" alt="image-20210404125900225"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106489.png" alt="image-20210404131222019"></p>
 <p>此时的Java类要求：① 此类是public的  ②此类提供公共的无参的构造器</p>
 <ul>
 <li><p>此类中声明单元测试方法。</p>
@@ -492,7 +492,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -505,7 +505,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -560,7 +560,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

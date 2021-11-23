@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.File类File类的一个对象，代表一个文件或一个文件目录(俗称：文件夹) File类声明在java.io包下 File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法，并未涉及到写入或 读取文件内容的操作。如果需要读取或写入文件内容，必须使用IO流来完成。 后续File类的对象常会作为参数传递到流的构造器中，指明读取或写入的”终点”。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210613125356257.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210613133535194.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210613134128610.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210725074959543.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210725075010681.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115183.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115214.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115240.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115271.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115296.png">
 <meta property="article:published_time" content="2021-06-12T11:04:19.000Z">
-<meta property="article:modified_time" content="2021-10-14T02:46:03.987Z">
+<meta property="article:modified_time" content="2021-10-23T13:15:49.015Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="IO流">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/b0469d44/image-20210613125356257.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115183.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/b0469d44.html">
 
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-14 10:46:03" itemprop="dateModified" datetime="2021-10-14T10:46:03+08:00">2021-10-14</time>
+                <time title="修改时间：2021-10-23 21:15:49" itemprop="dateModified" datetime="2021-10-23T21:15:49+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">windows和DOS系统默认使用“\”来表示</span><br><span class="line"><span class="comment">// D:\xxx\Java01_基础    在java中就需要加上\\，或者/也行</span></span><br><span class="line"></span><br><span class="line">UNIX和URL使用“/”来表示</span><br><span class="line"><span class="comment">// home/cyb</span></span><br></pre></td></tr></table></figure>
 <p>例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 方式1：</span></span><br><span class="line">    <span class="comment">// 相对路径, 相对于当前module</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);<span class="comment">// hello.txt</span></span><br><span class="line">    <span class="comment">// 绝对路径</span></span><br><span class="line">    File file1 = <span class="keyword">new</span> File(<span class="string">&quot;D:/xxx/xxx/hello.txt&quot;</span>);<span class="comment">// D:\xxx\xxx\hello.txt</span></span><br><span class="line">    System.out.println(file);</span><br><span class="line">    System.out.println(file1);</span><br><span class="line">    <span class="comment">// 方式2：</span></span><br><span class="line">    File file2 = <span class="keyword">new</span> File(<span class="string">&quot;D:/Java&quot;</span>,<span class="string">&quot;Java基础&quot;</span>);</span><br><span class="line">    System.out.println(file2);<span class="comment">// D:\Java\Java基础</span></span><br><span class="line">    <span class="comment">// 方式3：</span></span><br><span class="line">    File file3 = <span class="keyword">new</span> File(file2,<span class="string">&quot;hi.txt&quot;</span>);</span><br><span class="line">    System.out.println(file3);<span class="comment">// D:\Java\Java基础\hi.txt</span></span><br><span class="line">    <span class="comment">// 以上的file对象只是内存层面的，在硬盘中实际并不存在</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/b0469d44/image-20210613125356257.png" alt="image-20210613125356257"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115183.png" alt="image-20210613125356257"></p>
 <h3 id="File类的常用方法"><a href="#File类的常用方法" class="headerlink" title="File类的常用方法"></a>File类的常用方法</h3><p>File类的获取功能</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getAbsolutePath</span><span class="params">()</span>：获取绝对路径</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPath</span><span class="params">()</span> ：获取路径</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> ：获取名称</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getParent</span><span class="params">()</span>：获取上层文件目录路径。若无，返回<span class="keyword">null</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span> ：获取文件长度（即：字节数）。不能获取目录的长度。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span> ：获取最后一次的修改时间，毫秒值</span></span><br><span class="line"><span class="function">如下的两个方法适用于文件目录</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String[] <span class="title">list</span><span class="params">()</span> ：获取指定目录下的所有文件或者文件目录的名称数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span> ：获取指定目录下的所有文件或者文件目录的File数组</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;D:\\Hexo\\blog&quot;</span>);</span><br><span class="line">    System.out.println(file.getPath());</span><br><span class="line">    String[] list = file.list();</span><br><span class="line">    <span class="keyword">for</span> (String s: list)&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">    File[] files = file.listFiles();</span><br><span class="line">    <span class="keyword">for</span> (File f:files)&#123;</span><br><span class="line">        System.out.println(f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*D:\Hexo\blog</span></span><br><span class="line"><span class="comment">.deploy_git</span></span><br><span class="line"><span class="comment">.git</span></span><br><span class="line"><span class="comment">.gitignore</span></span><br><span class="line"><span class="comment">db.json</span></span><br><span class="line"><span class="comment">xxx省略</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.deploy_git</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.git</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\.gitignore</span></span><br><span class="line"><span class="comment">D:\Hexo\blog\db.json</span></span><br><span class="line"><span class="comment">xxx*/</span></span><br></pre></td></tr></table></figure>
@@ -349,7 +349,7 @@
 <li>流的角色：节点流、处理流</li>
 </ol>
 <p><strong>流的体系结构</strong></p>
-<p><img src="/posts/b0469d44/image-20210613133535194.png" alt="image-20210613133535194"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115214.png" alt="image-20210613133535194"></p>
 <p><strong>说明：红框对应的是IO流中的4个抽象基类。</strong></p>
 <p>蓝框的流需要大家重点关注。<strong>看到流的名字要明确它属于哪两种分类。</strong></p>
 <ul>
@@ -363,7 +363,7 @@
 </li>
 </ul>
 <p>关于节点流（文件流）和处理流：</p>
-<p><img src="/posts/b0469d44/image-20210613134128610.png" alt="image-20210613134128610"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115240.png" alt="image-20210613134128610"></p>
 <p><strong>重点说明的几个流：</strong></p>
 <p>抽象基类         节点流（或文件流）                               缓冲流（处理流的一种）</p>
 <ul>
@@ -374,8 +374,8 @@
 </ul>
 <p>InputStream &amp; Reader</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">InputStream 和 Reader 是所有输入流的基类</span><br><span class="line">InputStream</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(byte[] b)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(byte[] b, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function">Reader</span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span> [] c)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">char</span> [] c, <span class="keyword">int</span> off, <span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 程序中打开的文件 IO 资源不属于内存里的资源，垃圾回收机制无法回收该资</span></span></span><br><span class="line">源，所以应该显式关闭文件 IO 资源</span><br><span class="line"></span><br><span class="line"><span class="comment">// FileInputStream 从文件系统中的某个文件中获得输入字节。FileInputStream</span></span><br><span class="line">用于读取非文本数据之类的原始字节流。要读取字符流，需要使用 FileReader</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/b0469d44/image-20210725074959543.png" alt="image-20210725074959543"></p>
-<p><img src="/posts/b0469d44/image-20210725075010681.png" alt="image-20210725075010681"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115271.png" alt="image-20210725074959543"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115296.png" alt="image-20210725075010681"></p>
 
     </div>
 
@@ -539,7 +539,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -552,7 +552,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -607,7 +607,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

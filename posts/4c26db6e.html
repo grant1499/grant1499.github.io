@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="4.9：树形DP例题：285. 没有上司的舞会（模板题）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4c26db6e/image-20210912134702802.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4c26db6e/image-20210912143723946.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231947238.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231947767.png">
 <meta property="article:published_time" content="2021-09-11T15:01:41.000Z">
-<meta property="article:modified_time" content="2021-09-17T07:11:08.154Z">
+<meta property="article:modified_time" content="2021-10-23T11:47:57.154Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="记忆化搜索">
 <meta property="article:tag" content="树形DP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/4c26db6e/image-20210912134702802.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231947238.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/4c26db6e.html">
 
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-17 15:11:08" itemprop="dateModified" datetime="2021-09-17T15:11:08+08:00">2021-09-17</time>
+                <time title="修改时间：2021-10-23 19:47:57" itemprop="dateModified" datetime="2021-10-23T19:47:57+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -313,10 +313,10 @@
 <p>能用DP做的前提：图必须是拓扑图，不能存在环。</p>
 <p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/10201/。">https://www.acwing.com/solution/content/10201/。</a></p>
 <p>本来是一个dfs的过程，遍历所有的位置，找到从当前位置往下走的最大路径，再取最大值，可是这样做会有很多重复的位置被重新计算过，因此可以利用空间换时间的思想，把遍历过的位置往下走的路径的最大值进行记录，这就是记忆化搜索。</p>
-<p><img src="/posts/4c26db6e/image-20210912134702802.png" alt="image-20210912134702802"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231947238.png" alt="image-20210912134702802"></p>
 <p><strong>注意：</strong><code>f[][]</code>二维数组初始化的时候最好统一赋值为-1，如果不进行初始化直接用0判断，此题可以，可是如果遇到一些记忆化搜索的问题要求方案数的时候，初始化是0可能会导致个别情况计算出来的恰好结果是0时，却被认为未遍历过，因此统一赋值为-1就没错了。</p>
 <p>这是个典型的空间换时间的例子。</p>
-<p><img src="/posts/4c26db6e/image-20210912143723946.png" alt="image-20210912143723946"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231947767.png" alt="image-20210912143723946"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>;</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"><span class="keyword">int</span> h[N][N];</span><br><span class="line"><span class="keyword">int</span> r,c;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,dy[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (f[i][j] != <span class="number">-1</span>) <span class="keyword">return</span> f[i][j];<span class="comment">// 已经计算过答案，直接返回</span></span><br><span class="line"></span><br><span class="line">    f[i][j] = <span class="number">1</span>; <span class="comment">// (i,j)这个点可以走，长度至少是1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">0</span>;t &lt; <span class="number">4</span>;t ++)&#123;<span class="comment">// 枚举四个方向</span></span><br><span class="line">        <span class="keyword">int</span> a = i + dx[t],b = j + dy[t];</span><br><span class="line">        <span class="comment">// 判断方向是否在场内且高度合理</span></span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">1</span> &amp;&amp; a &lt;= r &amp;&amp; b &gt;= <span class="number">1</span> &amp;&amp; b &lt;= c &amp;&amp; h[a][b] &lt; h[i][j])</span><br><span class="line">            f[i][j] = max(f[i][j],dp(a,b) + <span class="number">1</span>);<span class="comment">// 注意这里是递归，和一般dp方程有区别</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[i][j];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; r &gt;&gt; c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= r;i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= c;j ++) <span class="built_in">cin</span> &gt;&gt; h[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">-1</span>,<span class="keyword">sizeof</span> f);<span class="comment">// 初始化为-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= r;i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= c;j ++)</span><br><span class="line">            res = max(res,dp(i,j));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -481,7 +481,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -494,7 +494,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -549,7 +549,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="100里程碑！！！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/37f8c544/image-20210428224908874.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/37f8c544/image-20210428230845430.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/37f8c544/image-20210429081035194.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903413.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903449.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903470.png">
 <meta property="article:published_time" content="2021-04-28T14:47:36.000Z">
-<meta property="article:modified_time" content="2021-05-12T13:30:17.189Z">
+<meta property="article:modified_time" content="2021-10-23T11:03:25.311Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="前缀和">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/37f8c544/image-20210428224908874.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903413.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/37f8c544.html">
 
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-12 21:30:17" itemprop="dateModified" datetime="2021-05-12T21:30:17+08:00">2021-05-12</time>
+                <time title="修改时间：2021-10-23 19:03:25" itemprop="dateModified" datetime="2021-10-23T19:03:25+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,12 +286,12 @@
 
       
         <p><strong>100里程碑！！！</strong></p>
-<p><img src="/posts/37f8c544/image-20210428224908874.png" alt="image-20210428224908874"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903413.png" alt="image-20210428224908874"></p>
 <span id="more"></span>
 <h4 id="2-4-acwing-1230-K倍区间（蓝桥杯第八届B组）"><a href="#2-4-acwing-1230-K倍区间（蓝桥杯第八届B组）" class="headerlink" title="2.4 acwing.1230. K倍区间（蓝桥杯第八届B组）"></a>2.4 acwing.1230. K倍区间（蓝桥杯第八届B组）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">给定一个长度为 N 的数列，A1,A2,…AN，如果其中一段连续的子序列 Ai,Ai+<span class="number">1</span>,…Aj 之和是 K 的倍数，我们就称这个区间 [i,j] 是 K 倍区间。</span><br><span class="line">你能求出数列中总共有多少个 K 倍区间吗？</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 N 和 K。</span><br><span class="line">以下 N 行每行包含一个整数 Ai。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，代表 K 倍区间的数目。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,K≤<span class="number">100000</span>,</span><br><span class="line"><span class="number">1</span>≤Ai≤<span class="number">100000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>在比赛时，未必能一下就想到最优的解法，可以先从简单的暴力做法写起，拿到一部分分数，不要放弃。</p>
-<p><img src="/posts/37f8c544/image-20210428230845430.png" alt="image-20210428230845430"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903449.png" alt="image-20210428230845430"></p>
 <p>对于第三重循环计算一段区间的总和，可以用前缀和简化。</p>
 <p>我们发现可以存余数来判断是否满足要求，则可以优化成O(n)。</p>
 <p>先开一个数组cnt[i]来存余数是i的数有多少个，用空间换时间。</p>
@@ -304,7 +304,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL; <span class="comment">// 可能爆int</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line">LL s[N],cnt[N];</span><br><span class="line"><span class="keyword">int</span> n,k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;s[i]);</span><br><span class="line">        s[i] += s[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    LL res = <span class="number">0</span>;</span><br><span class="line">    cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        res += cnt[s[i]%k];</span><br><span class="line">        cnt[s[i]%k]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>补充：有关段错误的调试方法，使用exit(0)进行二分判断出错位置。</p>
 <p>对于类似的没有输出信息的错误都可以采用这种二分找错的方法。</p>
-<p><img src="/posts/37f8c544/image-20210429081035194.png" alt="image-20210429081035194"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231903470.png" alt="image-20210429081035194"></p>
 <h2 id="三-数学与简单DP"><a href="#三-数学与简单DP" class="headerlink" title="三 数学与简单DP"></a>三 数学与简单DP</h2><h3 id="1-数学问题"><a href="#1-数学问题" class="headerlink" title="1.数学问题"></a>1.数学问题</h3><p>关于数学问题，OIwiki是个好东西！</p>
 <h4 id="1-1-acwing-1205-买不到的数目（第四届A组）"><a href="#1-1-acwing-1205-买不到的数目（第四届A组）" class="headerlink" title="1.1 acwing.1205. 买不到的数目（第四届A组）"></a>1.1 acwing.1205. 买不到的数目（第四届A组）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">小明开了一家糖果店。</span><br><span class="line">他别出心裁：把水果糖包成<span class="number">4</span>颗一包和<span class="number">7</span>颗一包的两种。</span><br><span class="line">糖果不能拆包卖。</span><br><span class="line">小朋友来买糖的时候，他就用这两种包装来组合。</span><br><span class="line">当然有些糖果数目是无法组合出来的，比如要买 <span class="number">10</span> 颗糖。</span><br><span class="line">你可以用计算机测试一下，在这种包装情况下，最大不能买到的数量是<span class="number">17</span>。</span><br><span class="line"></span><br><span class="line">大于<span class="number">17</span>的任何数字都可以用<span class="number">4</span>和<span class="number">7</span>组合出来。</span><br><span class="line">本题的要求就是在已知两个包装的数量时，求最大不能组合出的数字。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">两个正整数 n,m，表示每种包装中糖的颗数。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">一个正整数，表示最大不能买到的糖数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">2</span>≤n,m≤<span class="number">1000</span>，</span><br><span class="line">保证数据一定有解。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">7</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">17</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
@@ -495,7 +495,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -508,7 +508,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -563,7 +563,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

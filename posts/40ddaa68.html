@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="0x19：[bx+idata] 处理数组">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210927212338335.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210928102822347.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210928102914058.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210928103134897.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210928111119420.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819009.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819043.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819073.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819094.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819123.png">
 <meta property="article:published_time" content="2021-09-27T12:59:08.000Z">
-<meta property="article:modified_time" content="2021-09-28T03:17:51.609Z">
+<meta property="article:modified_time" content="2021-10-23T10:19:22.486Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/40ddaa68/image-20210927212338335.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819009.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/40ddaa68.html">
 
@@ -129,7 +129,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -139,7 +139,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-28 11:17:51" itemprop="dateModified" datetime="2021-09-28T11:17:51+08:00">2021-09-28</time>
+                <time title="修改时间：2021-10-23 18:19:22" itemprop="dateModified" datetime="2021-10-23T18:19:22+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,7 +287,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax, [200+bx]</span><br><span class="line">mov ax, 200[bx]</span><br><span class="line">mov ax, [bx].200</span><br></pre></td></tr></table></figure>
 <p>利用数组改进大小写转换程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">	db &#39;BaSiC&#39;;转为大写</span><br><span class="line">	db &#39;MinIx&#39;;转为小写</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment</span><br><span class="line">start:  mov ax,datasg</span><br><span class="line">        mov ds,ax</span><br><span class="line"></span><br><span class="line">        mov cx,5</span><br><span class="line">        mov bx,0</span><br><span class="line">s:      mov al,0[bx]</span><br><span class="line">        and al,11011111b ;&#39;BaSiC&#39;;转为大写</span><br><span class="line">        mov 0[bx],al</span><br><span class="line"></span><br><span class="line">        mov al,5[bx]</span><br><span class="line">        or al,00100000b ;&#39;MinIx&#39;;转为小写</span><br><span class="line">        mov 5[bx],al</span><br><span class="line">        inc bx</span><br><span class="line">        loop s</span><br><span class="line"></span><br><span class="line">        mov ax,4c00h</span><br><span class="line">        int 21h</span><br><span class="line"></span><br><span class="line">codesg ends</span><br><span class="line"></span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/40ddaa68/image-20210927212338335.png" alt="image-20210927212338335"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819009.png" alt="image-20210927212338335"></p>
 <h2 id="0x20：SI-和-DI-寄存器"><a href="#0x20：SI-和-DI-寄存器" class="headerlink" title="0x20：SI 和 DI 寄存器"></a>0x20：SI 和 DI 寄存器</h2><p>si和di是8086CPU中和bx功能相近的寄存器，<strong>si和di不能够分成两个8位寄存器来使用</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">assume cs: codesg, ds: datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">	db &#39;welcome to masm!&#39;;用si和di实现将字符串‘welcome to masm！&quot;复制到它后面的数据区中。</span><br><span class="line">	db &#39;................&#39;</span><br><span class="line">datasg ends</span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	start:	mov ax, datasg </span><br><span class="line">			mov ds, ax </span><br><span class="line">			mov si, 0</span><br><span class="line">			</span><br><span class="line">			mov cx, 8 ;只需要复制8次，si是16位寄存器，一次复制2字节</span><br><span class="line">	s:		mov ax, 0[si] ;[0 + si]</span><br><span class="line">			mov 16[si], ax ;[16 + si] 使用[bx +idata]方式代替di，使程序更简洁</span><br><span class="line">			add si, 2 ; si只能作为16位寄存器</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">codesg ends </span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 <p><strong>[bx + si] 和 [bx + di]</strong></p>
@@ -305,18 +305,18 @@
 <li><code>[bx+si]</code>用两个变量表示地址；</li>
 <li><code>[bx+si+idata]</code>用两个变量和一个常量表示地址。</li>
 </ul>
-<p><img src="/posts/40ddaa68/image-20210928102822347.png" alt="image-20210928102822347"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819043.png" alt="image-20210928102822347"></p>
 <p>由于每个单词都是 16 个字节，所以利用二重循环来处理。</p>
-<p><img src="/posts/40ddaa68/image-20210928102914058.png" alt="image-20210928102914058"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819073.png" alt="image-20210928102914058"></p>
 <p>实际上，这个程序是有问题的。</p>
 <p>因为我们进行二重循环时，只有 cx 一个1循环计数器，当进行内层循环时，会覆盖外层循环次数。</p>
 <p>第一次改进：</p>
-<p><img src="/posts/40ddaa68/image-20210928103134897.png" alt="image-20210928103134897"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819094.png" alt="image-20210928103134897"></p>
 <p>我们利用 dx 寄存器来暂存外层循环时 cx 的值，当内层循环结束时，再从 dx 中恢复 cx 的值。</p>
 <p>但是寄存器的数量有限，当程序复杂时，寄存器数量将不够用。</p>
 <p>第二次改进：利用栈来暂存数据！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">;将datasg段中每个单词改为大写字母</span><br><span class="line">assume cs:codesg,ds:datasg,ss:stacksg </span><br><span class="line"></span><br><span class="line">datasg segment</span><br><span class="line">	db &#39;ibm            &#39; ;16</span><br><span class="line">	db &#39;dec            &#39; </span><br><span class="line">	db &#39;dos            &#39;</span><br><span class="line">	db &#39;vax            &#39;  ;看成二维数组</span><br><span class="line">datasg ends </span><br><span class="line"></span><br><span class="line">stacksg segment ;定义一个段，用来做栈段，容量为16个字节</span><br><span class="line">	dw 0, 0, 0, 0, 0, 0, 0, 0</span><br><span class="line">stacksg ends </span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	start:	mov ax, stacksg </span><br><span class="line">			mov ss, ax</span><br><span class="line">			mov sp, 16 </span><br><span class="line">			mov ax, datasg </span><br><span class="line">			mov ds, ax </span><br><span class="line">			mov bx, 0 ;初始ds:bx</span><br><span class="line">			</span><br><span class="line">			;cx为默认循环计数器，二重循环只有一个计数器，所以外层循环先保存cx值，再恢复，我们采用栈保存</span><br><span class="line">			mov cx, 4</span><br><span class="line">	s0:		push cx	;将外层循环的cx值入栈</span><br><span class="line">			mov si, 0</span><br><span class="line">			mov cx, 3	;cx设置为内层循环的次数</span><br><span class="line">	s:		mov al, [bx+si]</span><br><span class="line">			and al, 11011111b ;每个字符转为大写字母</span><br><span class="line">			mov [bx+si], al </span><br><span class="line">			inc si</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			add bx, 16 ;下一行</span><br><span class="line">			pop cx	;恢复cx值</span><br><span class="line">			loop s0 ;外层循环的loop指令将cx中的计数值减1</span><br><span class="line">			</span><br><span class="line">			mov ax，4c00H </span><br><span class="line">			int 21H </span><br><span class="line">codesg ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-<h2 id="0x22：寄存器小结"><a href="#0x22：寄存器小结" class="headerlink" title="0x22：寄存器小结"></a>0x22：寄存器小结</h2><p><img src="/posts/40ddaa68/image-20210928111119420.png" alt="image-20210928111119420"></p>
+<h2 id="0x22：寄存器小结"><a href="#0x22：寄存器小结" class="headerlink" title="0x22：寄存器小结"></a>0x22：寄存器小结</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231819123.png" alt="image-20210928111119420"></p>
 <h3 id="bx、si、di和bp"><a href="#bx、si、di和bp" class="headerlink" title="bx、si、di和bp"></a>bx、si、di和bp</h3><p>在8086CPU中，只有这4个寄存器可以用在“[…]”中来进行内存单元的寻址。</p>
 <p>在[ ]中，这4个寄存器可以单个出现，或只能以4种组合出现：<code>bx和si、bx和di</code>、<code>bp和si、bp和di</code>。</p>
 <p>只要在[……]中使用寄存器bp，而指令中没有显性地给出段地址, 段地址就默认在ss中。</p>
@@ -483,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,7 +496,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -551,7 +551,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

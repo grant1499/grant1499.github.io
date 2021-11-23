@@ -23,20 +23,20 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="2.2 acwing.796.子矩阵的和（二维模板题）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428170329381.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428170757661.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428172127766.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210610181541537.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428183858344.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428214224102.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850678.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850717.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850737.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850763.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850784.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850804.png">
 <meta property="article:published_time" content="2021-04-26T14:00:21.000Z">
-<meta property="article:modified_time" content="2021-06-16T13:48:42.746Z">
+<meta property="article:modified_time" content="2021-10-23T10:50:20.898Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="前缀和">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/4d35e41b/image-20210428170329381.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850678.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/4d35e41b.html">
 
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-16 21:48:42" itemprop="dateModified" datetime="2021-06-16T21:48:42+08:00">2021-06-16</time>
+                <time title="修改时间：2021-10-23 18:50:20" itemprop="dateModified" datetime="2021-10-23T18:50:20+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -292,10 +292,10 @@
 <p>思路：</p>
 <p>前缀和矩阵每个格子的数就是从原矩阵(1,1)到当前格子构成矩阵的和。</p>
 <p>二维前缀和和一维一样，<strong>有一个起始点</strong>，然后再计算前缀和序列。</p>
-<p><img src="/posts/4d35e41b/image-20210428170329381.png" alt="image-20210428170329381"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850678.png" alt="image-20210428170329381"></p>
 <p>那么如何计算前缀和矩阵呢？</p>
 <p>我们采用<strong>容斥原理</strong>的思想。</p>
-<p><img src="/posts/4d35e41b/image-20210428170757661.png" alt="image-20210428170757661"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850717.png" alt="image-20210428170757661"></p>
 <p>计算(1,1)到(2,3)的矩阵和：</p>
 <p>先计算1,7,3,6，再计算1,7,2，最后加上最后格子的2。</p>
 <p>所以黄色格子算了1次，蓝色格子算了2次。</p>
@@ -303,7 +303,7 @@
 <p>正如一维一样，二维前缀和也能得到一个类似递推的公式。</p>
 <p>这样计算的话是线性时间复杂度，而通过循环将非常费时间。</p>
 <p>接下来怎么根据前缀和矩阵计算子矩阵的和呢？</p>
-<p><img src="/posts/4d35e41b/image-20210428172127766.png" alt="image-20210428172127766"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850737.png" alt="image-20210428172127766"></p>
 <p>计算(1,1)到(2,3)的矩阵和：</p>
 <p>原理和上面类似，先减去左边一列，再减去上面一行，最后加上左上角被多减去的部分。</p>
 <p>直接给出公式：$S_{x_2,y_2}-S_{x_2,y_1-1}-S_{x_1-1,y_2}+S_{x_1-1,y_1-1}$</p>
@@ -312,15 +312,15 @@
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N][N],s[N][N];</span><br><span class="line"><span class="keyword">int</span> n,m,q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;n,&amp;m,&amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i][j]);</span><br><span class="line">            <span class="comment">// 求前缀和矩阵</span></span><br><span class="line">            s[i][j] = s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>]+a[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x1,y1,x2,y2;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>,&amp;x1,&amp;y1,&amp;x2,&amp;y2);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,s[x2][y2]-s[x2][y1<span class="number">-1</span>]-s[x1<span class="number">-1</span>][y2]+s[x1<span class="number">-1</span>][y1<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>前缀和知识总结：</p>
-<p><img src="/posts/4d35e41b/image-20210610181541537.png" alt="image-20210610181541537"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850763.png" alt="image-20210610181541537"></p>
 <h4 id="2-3-acwing-99-激光炸弹（进阶指南）"><a href="#2-3-acwing-99-激光炸弹（进阶指南）" class="headerlink" title="2.3 acwing.99. 激光炸弹（进阶指南）"></a>2.3 acwing.99. 激光炸弹（进阶指南）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">地图上有 N 个目标，用整数 Xi,Yi 表示目标在地图上的位置，每个目标都有一个价值 Wi。</span><br><span class="line">注意：不同目标可能在同一位置。</span><br><span class="line">现在有一种新型的激光炸弹，可以摧毁一个包含 R×R 个位置的正方形内的所有目标。</span><br><span class="line">激光炸弹的投放是通过卫星定位的，但其有一个缺点，就是其爆炸范围，即那个正方形的边必须和 x，y 轴平行。</span><br><span class="line">求一颗炸弹最多能炸掉地图上总价值为多少的目标。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入正整数 N 和 R，分别代表地图上的目标数目和正方形的边长，数据用空格隔开。</span><br><span class="line">接下来 N 行，每行输入一组数据，每组数据包括三个整数 Xi,Yi,Wi，分别代表目标的 x 坐标，y 坐标和价值，数据用空格隔开。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个正整数，代表一颗炸弹最多能炸掉地图上目标的总价值数目。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤R≤<span class="number">10</span>^<span class="number">9</span></span><br><span class="line"><span class="number">0</span>&lt;N≤<span class="number">10000</span>,</span><br><span class="line"><span class="number">0</span>≤Xi,Yi≤<span class="number">5000</span></span><br><span class="line"><span class="number">0</span>≤Wi≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>按照题意，就是求边长为R的正方形的覆盖的最大值。<strong>本质上就是二维前缀和的应用。</strong></p>
 <p>参考大佬题解1：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/10116/">https://www.acwing.com/solution/content/10116/</a></p>
 <p>参考大佬题解2：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/31983/">https://www.acwing.com/solution/content/31983/</a></p>
-<p><img src="/posts/4d35e41b/image-20210428183858344.png" alt="image-20210428183858344"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850784.png" alt="image-20210428183858344"></p>
 <p><strong>注意子矩阵和的公式</strong>，套用上一题的公式时，3-R+1与公式里的x1-1,y1-1抵消了一个1，所以变成x-R,y-R了。</p>
-<p><img src="/posts/4d35e41b/image-20210428214224102.png" alt="image-20210428214224102"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231850804.png" alt="image-20210428214224102"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// y总题解</span></span><br><span class="line"><span class="comment">// 目标坐标从0到5000，移动到1到5001</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5010</span>;</span><br><span class="line"><span class="keyword">int</span> s[N][N];</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt,R;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;cnt,&amp;R);</span><br><span class="line">    R = min(<span class="number">5001</span>,R);</span><br><span class="line">    n = m = R;</span><br><span class="line">    <span class="keyword">while</span> (cnt--)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y,w;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;x,&amp;y,&amp;w);</span><br><span class="line">        <span class="comment">// 坐标+1，防止越界问题</span></span><br><span class="line">        x++,y++;</span><br><span class="line">        <span class="comment">// 枚举的上限是最大坐标和R的最大值</span></span><br><span class="line">        n = max(n,x),m = max(m,y);</span><br><span class="line">        <span class="comment">// 这里必须是+=，因为目标可能重复</span></span><br><span class="line">        s[x][y] += w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 预处理前缀和</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</span><br><span class="line">            s[i][j] += s[i<span class="number">-1</span>][j]+s[i][j<span class="number">-1</span>]-s[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 必须保证n,m &gt;= R，才能保证至少循环一次</span></span><br><span class="line">    <span class="comment">// 枚举所有边长是R的矩形，枚举(i, j)为右下角</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = R;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = R;j &lt;= m;j++)&#123;</span><br><span class="line">            res = max(res,s[i][j]-s[i-R][j]-s[i][j-R]+s[i-R][j-R]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>注意卡空间，题目上限是168MB，开两个<code>s[5000][5000]</code>大概是200MB，所以只开一个数组。</p>
 <p>因为同用一个数组，所以求前缀和矩阵的公式里<code>+a[i][j]</code>变成了<code>+s[i][j]</code>。</p>
@@ -489,7 +489,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -502,7 +502,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,7 +557,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>

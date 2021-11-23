@@ -23,20 +23,20 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="2.线段树线段树（segment tree）是一种以二叉树为基础的数据结构，可以用于进行高效的范围最大（小）值查询、范围和查询等。 原理比树状数组要简单，但是代码更复杂。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607133844216.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607145648848.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607150248115.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607160405433.png">
-<meta property="og:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607160429723.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859864.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859909.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859931.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859955.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859977.png">
 <meta property="article:published_time" content="2021-06-06T11:05:32.000Z">
-<meta property="article:modified_time" content="2021-07-05T14:16:52.576Z">
+<meta property="article:modified_time" content="2021-10-23T10:59:26.640Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta property="article:tag" content="树状数组">
 <meta property="article:tag" content="线段树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.grantdrew.top/posts/9e4fb9d0/image-20210607133844216.png">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859864.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/9e4fb9d0.html">
 
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">149</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">303</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-05 22:16:52" itemprop="dateModified" datetime="2021-07-05T22:16:52+08:00">2021-07-05</time>
+                <time title="修改时间：2021-10-23 18:59:26" itemprop="dateModified" datetime="2021-10-23T18:59:26+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,18 +300,18 @@
 <p>3、线段树的每个叶节点都代表一个长度为1的元区间[x,x]。</p>
 <p>4、对于每个内部节点[l,r]，它的左子结点是[l,mid]，右子节点是[mid+1,r]，其中mid=(l+r)/2（向下取整）。</p>
 <p>以结点node的性质为sum为例，构建线段树：</p>
-<p><img src="/posts/9e4fb9d0/image-20210607133844216.png" alt="image-20210607133844216"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859864.png" alt="image-20210607133844216"></p>
 <p>在声明空间时，一般以查询区间长度的<strong>4倍</strong>来申请存储空间较为“安全”。（结点总数&lt;=4*叶子结点数）</p>
 <p>操作1：单点修改，更新指定值的叶子结点，同时更新它的所有祖先结点。O(logn).</p>
 <p>操作2：区间查询，对于给定区间，不断二分递归，直到子区间将给定区间完全包含，再合并。O(logn).</p>
 <p>对于<strong>区间修改</strong>操作，需要用到<strong>懒惰标记</strong>（lazy tag），会使得线段树的难度陡增，这里就不讨论。</p>
 <p>四个核心函数：</p>
-<p><img src="/posts/9e4fb9d0/image-20210607145648848.png" alt="image-20210607145648848"></p>
-<p><img src="/posts/9e4fb9d0/image-20210607150248115.png" alt="image-20210607150248115"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859909.png" alt="image-20210607145648848"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859931.png" alt="image-20210607150248115"></p>
 <p>图解修改操作：</p>
-<p><img src="/posts/9e4fb9d0/image-20210607160405433.png" alt="image-20210607160405433"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859955.png" alt="image-20210607160405433"></p>
 <p>图解查询操作：</p>
-<p><img src="/posts/9e4fb9d0/image-20210607160429723.png" alt="image-20210607160429723"></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231859977.png" alt="image-20210607160429723"></p>
 <h4 id="2-1-acwing-1264-动态求连续区间和"><a href="#2-1-acwing-1264-动态求连续区间和" class="headerlink" title="2.1 acwing.1264. 动态求连续区间和"></a>2.1 acwing.1264. 动态求连续区间和</h4><p>上一讲树状数组的模板题。</p>
 <p>线段树写法。比树状数组稍慢一点。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span><span class="comment">// 线段树结点</span></span><br><span class="line">    <span class="keyword">int</span> l,r;<span class="comment">// 左孩子和右孩子</span></span><br><span class="line">    <span class="keyword">int</span> sum;<span class="comment">// 结点性质为求和</span></span><br><span class="line">&#125;tr[N*<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> w[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;<span class="comment">// 用子结点更新当前结点的sum，上传操作，把信息往上传递</span></span><br><span class="line">    tr[u].sum = tr[u &lt;&lt; <span class="number">1</span>].sum + tr[u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>].sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l == r) tr[u] = &#123;l,r,w[r]&#125;;<span class="comment">// 叶子结点</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        tr[u] = &#123;l,r&#125;;<span class="comment">// 初始化左右端点</span></span><br><span class="line">        <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;<span class="comment">// 递归左孩子和右孩子</span></span><br><span class="line">        build(u &lt;&lt; <span class="number">1</span>,l,mid),build(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">        pushup(u);<span class="comment">// 更新当前结点的sum</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 给定查询区间完全包含线段树结点的区间，可以直接计算</span></span><br><span class="line">    <span class="keyword">if</span> (l &lt;= tr[u].l &amp;&amp; r &gt;= tr[u].r) <span class="keyword">return</span> tr[u].sum;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 否则二分处理</span></span><br><span class="line">    <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= mid) sum += query(u &lt;&lt; <span class="number">1</span>,l,r);<span class="comment">// 说明与左孩子有交集</span></span><br><span class="line">    <span class="keyword">if</span> (r &gt; mid) sum += query(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>,l,r);<span class="comment">// 即r&gt;=mid+1，说明与右孩子有交集</span></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> x,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tr[u].l == tr[u].r) tr[u].sum += v;<span class="comment">// 叶子结点，目标位置</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = tr[u].l + tr[u].r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (x &lt;= mid) modify(u &lt;&lt; <span class="number">1</span>,x,v);</span><br><span class="line">        <span class="keyword">else</span> modify(u &lt;&lt; <span class="number">1</span> | <span class="number">1</span>,x,v);</span><br><span class="line">        pushup(u);<span class="comment">// 回溯时更新当前结点的sum</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;w[i]);</span><br><span class="line">    build(<span class="number">1</span>,<span class="number">1</span>,n);<span class="comment">// 初始化线段树，下标从1开始</span></span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="keyword">int</span> k,a,b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;k,&amp;a,&amp;b);</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,query(<span class="number">1</span>,a,b));</span><br><span class="line">        <span class="keyword">else</span> modify(<span class="number">1</span>,a,b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -498,7 +498,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">310</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,7 +511,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">149</span>
+        <span class="site-state-item-count">151</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -566,7 +566,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:31</span>
+    <span title="站点阅读时长">20:08</span>
 </div>
 
 <span id="sitetime"></span>
