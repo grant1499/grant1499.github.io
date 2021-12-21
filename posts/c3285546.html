@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957435.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231957442.png">
 <meta property="article:published_time" content="2021-09-14T08:19:59.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:57:51.329Z">
+<meta property="article:modified_time" content="2021-12-03T14:48:54.645Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="贪心">
 <meta property="article:tag" content="区间问题">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:57:51" itemprop="dateModified" datetime="2021-10-23T19:57:51+08:00">2021-10-23</time>
+                <time title="修改时间：2021-12-03 22:48:54" itemprop="dateModified" datetime="2021-12-03T22:48:54+08:00">2021-12-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,7 +294,7 @@
 <p>图解哈夫曼树及编码： <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42060232/article/details/107762926。">https://blog.csdn.net/weixin_42060232/article/details/107762926。</a></p>
 <p>哈夫曼树介绍： <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3398.html。">http://c.biancheng.net/view/3398.html。</a></p>
 <p><strong>例题：148. 合并果子（模板题）</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</span><br><span class="line">达达决定把所有的果子合成一堆。</span><br><span class="line">每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</span><br><span class="line"></span><br><span class="line">可以看出，所有的果子经过 n−<span class="number">1</span> 次合并之后，就只剩下一堆了。</span><br><span class="line">达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。</span><br><span class="line">因为还要花大力气把这些果子搬回家，所以达达在合并果子时要尽可能地节省体力。</span><br><span class="line"></span><br><span class="line">假定每个果子重量都为 <span class="number">1</span>，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。</span><br><span class="line">    </span><br><span class="line">例如有 <span class="number">3</span> 种果子，数目依次为 <span class="number">1</span>，<span class="number">2</span>，<span class="number">9</span>。</span><br><span class="line">可以先将 <span class="number">1</span>、<span class="number">2</span> 堆合并，新堆数目为 <span class="number">3</span>，耗费体力为 <span class="number">3</span>。</span><br><span class="line">接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 <span class="number">12</span>，耗费体力为 <span class="number">12</span>。</span><br><span class="line">所以达达总共耗费体力=<span class="number">3</span>+<span class="number">12</span>=<span class="number">15</span>。</span><br><span class="line">可以证明 <span class="number">15</span> 为最小的体力耗费值。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入包括两行，第一行是一个整数 n，表示果子的种类数。</span><br><span class="line">第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</span><br><span class="line">输入数据保证这个值小于 <span class="number">231</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">10000</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">20000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">9</span> </span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">在一个果园里，达达已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。</span><br><span class="line">达达决定把所有的果子合成一堆。</span><br><span class="line">每一次合并，达达可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。</span><br><span class="line"></span><br><span class="line">可以看出，所有的果子经过 n−<span class="number">1</span> 次合并之后，就只剩下一堆了。</span><br><span class="line">达达在合并果子时总共消耗的体力等于每次合并所耗体力之和。</span><br><span class="line">因为还要花大力气把这些果子搬回家，所以达达在合并果子时要尽可能地节省体力。</span><br><span class="line"></span><br><span class="line">假定每个果子重量都为 <span class="number">1</span>，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使达达耗费的体力最少，并输出这个最小的体力耗费值。</span><br><span class="line">    </span><br><span class="line">例如有 <span class="number">3</span> 种果子，数目依次为 <span class="number">1</span>，<span class="number">2</span>，<span class="number">9</span>。</span><br><span class="line">可以先将 <span class="number">1</span>、<span class="number">2</span> 堆合并，新堆数目为 <span class="number">3</span>，耗费体力为 <span class="number">3</span>。</span><br><span class="line">接着，将新堆与原先的第三堆合并，又得到新的堆，数目为 <span class="number">12</span>，耗费体力为 <span class="number">12</span>。</span><br><span class="line">所以达达总共耗费体力=<span class="number">3</span>+<span class="number">12</span>=<span class="number">15</span>。</span><br><span class="line">可以证明 <span class="number">15</span> 为最小的体力耗费值。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入包括两行，第一行是一个整数 n，表示果子的种类数。</span><br><span class="line">第二行包含 n 个整数，用空格分隔，第 i 个整数 ai 是第 i 种果子的数目。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出包括一行，这一行只包含一个整数，也就是最小的体力耗费值。</span><br><span class="line">输入数据保证这个值小于 <span class="number">2</span>^<span class="number">31</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">10000</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">20000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">9</span> </span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">15</span></span><br></pre></td></tr></table></figure>
 <p>本题和区间DP中的石子合并非常像，石子合并中要求只能合并相邻石堆，本题没有限制，石堆规模是300，比较小，本题数据规模大。</p>
 <p>要注意区别：合并相邻石堆的性质决定了大的区间可以由小的区间状态转移而来，所以是区间DP；合并任意两个果子堆，使得消耗体力（WPL）最小，应该是哈夫曼树。</p>
 <p>算法：哈夫曼树。</p>
@@ -308,7 +308,7 @@
 <p>通过反证法很容易得出：上一层节点的权值肯定大于等于下一层节点的权值，否则它们可以交换位置减少体力消耗。</p>
 <p>对于权值最小的两个点：深度一定是最大的，且<strong>可以互为兄弟</strong>。</p>
 <p>哈夫曼树的构成并不唯一，在同一层次的两个叶子节点可以交换顺序，但是WPL是唯一的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;<span class="comment">// 小根堆</span></span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; heap;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        heap.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// n个堆合并n-1次</span></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i ++ )&#123;</span><br><span class="line">        <span class="keyword">int</span> a = heap.top();heap.pop();</span><br><span class="line">        <span class="keyword">int</span> b = heap.top();heap.pop();</span><br><span class="line">        res += a + b;</span><br><span class="line">        heap.push(a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;<span class="comment">// 小根堆</span></span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; heap;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        heap.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// n个堆合并n-1次</span></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i ++ )&#123;</span><br><span class="line">        <span class="keyword">int</span> a = heap.top();heap.pop();</span><br><span class="line">        <span class="keyword">int</span> b = heap.top();heap.pop();</span><br><span class="line">        res += a + b;</span><br><span class="line">        heap.push(a+b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -473,7 +473,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -486,7 +486,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -535,13 +535,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>

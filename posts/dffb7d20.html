@@ -16,12 +16,12 @@
     var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.BigInteger类和BigDecimal类">
+  <meta name="description" content="1.BigInteger类和BigDecimal类如果我们使用的整数范围超过了long型怎么办？这个时候，就只能用软件来模拟一个大整数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java入门笔记（十三）">
 <meta property="og:url" content="https://www.grantdrew.top/posts/dffb7d20.html">
 <meta property="og:site_name" content="grant&#39;s Blog">
-<meta property="og:description" content="1.BigInteger类和BigDecimal类">
+<meta property="og:description" content="1.BigInteger类和BigDecimal类如果我们使用的整数范围超过了long型怎么办？这个时候，就只能用软件来模拟一个大整数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115676.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115380.png">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232117651.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232117006.png">
 <meta property="article:published_time" content="2021-05-02T13:06:29.000Z">
-<meta property="article:modified_time" content="2021-10-23T13:17:33.154Z">
+<meta property="article:modified_time" content="2021-12-07T15:07:54.405Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta property="article:tag" content="注解">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -152,7 +152,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 21:17:33" itemprop="dateModified" datetime="2021-10-23T21:17:33+08:00">2021-10-23</time>
+                <time title="修改时间：2021-12-07 23:07:54" itemprop="dateModified" datetime="2021-12-07T23:07:54+08:00">2021-12-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,14 +274,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -293,8 +293,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-BigInteger类和BigDecimal类"><a href="#1-BigInteger类和BigDecimal类" class="headerlink" title="1.BigInteger类和BigDecimal类"></a>1.BigInteger类和BigDecimal类</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115676.png" alt="image-20210502211408301"></p>
+        <h2 id="1-BigInteger类和BigDecimal类"><a href="#1-BigInteger类和BigDecimal类" class="headerlink" title="1.BigInteger类和BigDecimal类"></a>1.BigInteger类和BigDecimal类</h2><p>如果我们使用的整数范围超过了<code>long</code>型怎么办？这个时候，就只能用软件来模拟一个大整数。</p>
 <span id="more"></span>
+<p><code>java.math.BigInteger</code>就是用来表示任意大小的整数。<code>BigInteger</code>内部用一个<code>int[]</code>数组来模拟一个非常大的整数：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115676.png" alt="image-20210502211408301"></p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115380.png" alt="image-20210502211423255"></p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115027.png" alt="image-20210502211432078"></p>
 <h2 id="2-枚举类的使用"><a href="#2-枚举类的使用" class="headerlink" title="2.枚举类的使用"></a>2.枚举类的使用</h2><p>JDK1.5之前自定义枚举类了解就行。</p>
@@ -309,7 +311,11 @@
 </ul>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232116781.png" alt="image-20210503090139873"></p>
 <p>看看就行。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//enum关键字定义枚举类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season summer = Season.SUMMER;</span><br><span class="line">        System.out.println(summer);<span class="comment">//SUMMER，无需重写toString</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>),<span class="comment">//默认为private final</span></span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>),</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>),</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>);</span><br><span class="line">    <span class="comment">//声明Season对象的四有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用<code>enum</code>定义的枚举类是一种引用类型。前面我们讲到，引用类型比较，要使用<code>equals()</code>方法，如果使用<code>==</code>比较，它比较的是两个引用类型的变量是否是同一个对象。因此，引用类型比较，要始终使用<code>equals()</code>方法，但<code>enum</code>类型可以例外。</p>
+<p>这是因为<code>enum</code>类型的每个常量在JVM中只有一个唯一实例，所以可以直接用<code>==</code>比较。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//enum关键字定义枚举类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeasonTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season summer = Season.SUMMER;</span><br><span class="line">        System.out.println(summer);<span class="comment">//SUMMER，无需重写toString</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义的枚举类默认继承于java.lang.Enum类</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//提供当前枚举类的对象，之间用&quot;,&quot;隔开，&quot;;&quot;结束</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>),<span class="comment">//默认为private final</span></span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>),</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>),</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>);</span><br><span class="line">    <span class="comment">//声明Season对象的私有属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">    <span class="comment">//私有化类的构造器，并给属性赋值</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//其他诉求，获取对象属性</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>枚举类可以应用在<code>switch</code>语句中。因为枚举类天生具有类型信息和有限个枚举常量，所以比<code>int</code>、<code>String</code>类型更适合用在<code>switch</code>语句中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Weekday day = Weekday.SUN;</span><br><span class="line">        <span class="keyword">switch</span>(day) &#123;</span><br><span class="line">        <span class="keyword">case</span> MON:</span><br><span class="line">        <span class="keyword">case</span> TUE:</span><br><span class="line">        <span class="keyword">case</span> WED:</span><br><span class="line">        <span class="keyword">case</span> THU:</span><br><span class="line">        <span class="keyword">case</span> FRI:</span><br><span class="line">            System.out.println(<span class="string">&quot;Today is &quot;</span> + day + <span class="string">&quot;. Work at office!&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> SAT:</span><br><span class="line">        <span class="keyword">case</span> SUN:</span><br><span class="line">            System.out.println(<span class="string">&quot;Today is &quot;</span> + day + <span class="string">&quot;. Work at home!&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;cannot process &quot;</span> + day);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Weekday</span> </span>&#123;</span><br><span class="line">    SUN, MON, TUE, WED, THU, FRI, SAT; <span class="comment">// 对应0~6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232116549.png" alt="image-20210503091556341"></p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232116133.png" alt="image-20210503091617899"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Season[] values = Season.values();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; values.length;i++)&#123;</span><br><span class="line">        System.out.println(values[i].toString());</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;____________________________&quot;</span>);</span><br><span class="line">    <span class="comment">//valueOf(String objname)，返回枚举类中对象名是objname的对象</span></span><br><span class="line">    Season winter = Season.valueOf(<span class="string">&quot;WINTER&quot;</span>);</span><br><span class="line">    System.out.println(winter);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*SPRING</span></span><br><span class="line"><span class="comment">SUMMER</span></span><br><span class="line"><span class="comment">AUTUMN</span></span><br><span class="line"><span class="comment">WINTER</span></span><br><span class="line"><span class="comment">____________________________</span></span><br><span class="line"><span class="comment">WINTER*/</span></span><br></pre></td></tr></table></figure>
@@ -497,7 +503,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -510,7 +516,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -559,13 +565,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>

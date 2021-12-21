@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000179.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000209.png">
 <meta property="article:published_time" content="2021-08-13T03:40:12.000Z">
-<meta property="article:modified_time" content="2021-10-23T12:00:17.746Z">
+<meta property="article:modified_time" content="2021-12-16T13:19:37.904Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="哈希表">
 <meta property="article:tag" content="字符串哈希">
@@ -127,7 +127,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 20:00:17" itemprop="dateModified" datetime="2021-10-23T20:00:17+08:00">2021-10-23</time>
+                <time title="修改时间：2021-12-16 21:19:37" itemprop="dateModified" datetime="2021-12-16T21:19:37+08:00">2021-12-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -296,6 +296,7 @@
 <h2 id="2-10：字符串哈希"><a href="#2-10：字符串哈希" class="headerlink" title="2.10：字符串哈希"></a>2.10：字符串哈希</h2><p>有很多字符串的问题可以用字符串哈希来做，不一定要用KMP算法。两者时间复杂度一样。</p>
 <p>介绍一下<strong>字符串前缀哈希法</strong>。用于快速判断两字符串是否相等。</p>
 <p>把字符串变成一个p进制数字（哈希值），实现不同的字符串映射到不同的数字。</p>
+<p>详细解释参考：《算法进阶指南》P67页。</p>
 <p><strong>例题：841. 字符串哈希（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个长度为 n 的字符串，再给定 m 个询问，每个询问包含四个整数 l1,r1,l2,r2，请你判断 [l1,r1] 和 [l2,r2] 这两个区间所包含的字符串子串是否完全相同。</span><br><span class="line"></span><br><span class="line">字符串中只包含大小写英文字母和数字。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n 和 m，表示字符串长度和询问次数。</span><br><span class="line">第二行包含一个长度为 n 的字符串，字符串中只包含大小写英文字母和数字。</span><br><span class="line">接下来 m 行，每行包含四个整数 l1,r1,l2,r2，表示一次询问所涉及的两个区间。</span><br><span class="line">注意，字符串的位置从 <span class="number">1</span> 开始编号。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">对于每个询问输出一个结果，如果两个字符串子串完全相同则输出 Yes，否则输出 No。</span><br><span class="line">每个结果占一行。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">8</span> <span class="number">3</span></span><br><span class="line">aabbaabb</span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">6</span> <span class="number">8</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
 <p>对于一个字符串，如何计算它的哈希值？</p>
@@ -307,19 +308,25 @@
 <ol>
 <li>任意字符不可以映射成0，否则会出现不同的字符串都映射成0的情况，比如A,AA,AAA皆为0。</li>
 <li>冲突问题：通过<strong>巧妙设置P (131 或 13331) , Q (2^64)的值</strong>，一般可以理解为不产生冲突。这是P，Q的经验值。</li>
+<li>如果以上的P的经验值确实在特殊数据下产生了冲突，可以考虑多取几个P进行多组hash运算，当多组运算结果相同时才认为两字符串相等。</li>
 </ol>
-<p><code>unsigned long long</code>的范围是0~2^64-1，可以表示成0~Q-1，Q=2^64，对于ULL溢出的数就相当于对Q取模，就可以省略取模的步骤。</p>
+<p><code>unsigned long long</code>的范围是0~2^64-1，可以表示成<code>0~Q-1</code>，<code>Q=2^64</code>，对于ULL溢出的数就相当于对Q取模，就可以省略取模的步骤。</p>
 <p>题目问的是<strong>比较不同区间的子串是否相同，就转化为对应的哈希值是否相同</strong>。</p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232000209.png" alt="image-20210814165911371"></p>
+<p>特别规定：<code>h[0] = 1</code>。</p>
 <p>求一个字符串的哈希值就相当于求前缀和，求一个字符串的子串哈希值就相当于求部分和。</p>
 <p>前缀和计算公式：字符串数组下标从1开始！</p>
 <p>前缀和公式 <code>h[i]=h[i-1]×P+s[i] ，i∈[1,n]</code>，其中 h为前缀和数组，s为字符串数组。</p>
 <p>区间和公式 <code>h[l,r]=h[r]−h[l−1]×P^(r−l+1)</code>。<strong>重点！！！</strong></p>
 <p><strong>区间和公式的理解:</strong> ABCDE 与 ABC 的前三个字符值是一样，只差两位，乘上P的二次方把 ABC 变为 ABC00，再用 ABCDE - ABC00 得到 DE 的哈希值。</p>
 <p>很多时候，字符串哈希比KMP更好做题。</p>
-<p>代码。</p>
+<p>时间复杂度分析：预处理前缀和：O(n)，查询：O(1)。</p>
+<p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ULL;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+ <span class="number">5</span>,P = <span class="number">131</span>;</span><br><span class="line"><span class="keyword">char</span> str[N];</span><br><span class="line">ULL h[N],p[N];<span class="comment">// h数组是哈希的前缀和数组，p[i]表示P^i，处理乘幂</span></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">get</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;<span class="comment">// 区间和计算公式</span></span><br><span class="line">    <span class="keyword">return</span> h[r] - h[l<span class="number">-1</span>]*p[r-l+<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; (str+<span class="number">1</span>);<span class="comment">// 字符串数组下标从1开始</span></span><br><span class="line">    </span><br><span class="line">    p[<span class="number">0</span>] = <span class="number">1</span>;<span class="comment">// P^0 = 1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;<span class="comment">// 预处理乘幂和前缀和</span></span><br><span class="line">        p[i] = p[i<span class="number">-1</span>] * P;</span><br><span class="line">        h[i] = h[i<span class="number">-1</span>] * P + str[i];<span class="comment">// 前缀和计算公式</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> l1,r1,l2,r2;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;<span class="comment">// 子串与哈希值一一对应</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (get(l1,r1) == get(l2,r2) ? <span class="string">&quot;Yes&quot;</span> : <span class="string">&quot;No&quot;</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>时间复杂度：O(n+m)。</p>
+<p>补充一个字符串下标从0开始的写法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ULL unsigned long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> P = <span class="number">131</span>,N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> h[N],p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> h[y] - h[x<span class="number">-1</span>]*p[y-x+<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;<span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; str;</span><br><span class="line">    </span><br><span class="line">    p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        p[i] = p[i<span class="number">-1</span>]*P;</span><br><span class="line">        h[i] = h[i<span class="number">-1</span>]*P + str[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> l1,r1,l2,r2;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; l1 &gt;&gt; r1 &gt;&gt; l2 &gt;&gt; r2;</span><br><span class="line">        <span class="comment">// 相当于把输入的字符串移动了一位，这里输入参数还是一样的</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; (get(l1,r1) == get(l2,r2) ? <span class="string">&quot;Yes\n&quot;</span> : <span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>两种方式本质是一样的，都是将字符串首字母<code>A</code>存储到<code>h[1]</code>，只是读入位置的区别。</p>
 
     </div>
 
@@ -483,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,7 +503,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -545,13 +552,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>

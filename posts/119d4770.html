@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110281510734.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110281659204.png">
 <meta property="article:published_time" content="2021-10-15T14:02:19.000Z">
-<meta property="article:modified_time" content="2021-10-28T11:12:24.270Z">
+<meta property="article:modified_time" content="2021-12-14T08:18:09.664Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Docker">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-28 19:12:24" itemprop="dateModified" datetime="2021-10-28T19:12:24+08:00">2021-10-28</time>
+                <time title="修改时间：2021-12-14 16:18:09" itemprop="dateModified" datetime="2021-12-14T16:18:09+08:00">2021-12-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,14 +263,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
+              <span>6.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -363,6 +363,14 @@
 <p>tips：如果apt-get下载软件速度较慢，可以参考<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">清华大学开源软件镜像站</a>中的内容，修改软件源。</p>
 <p>最后，可以参考4. ssh——ssh登录配置docker容器的别名和免密登录。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 回到AC terminal</span></span><br><span class="line">vim ~/.ssh/config</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加如下内容：</span></span><br><span class="line">HOST dockerserver</span><br><span class="line">	HostName xxx.xx.xx.xxx</span><br><span class="line">	User acs</span><br><span class="line">	Port 20000</span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后设置ssh免密登录</span></span><br><span class="line">ssh-copy-id dockerserver</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入acs密码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 尝试登录容器的acs用户，成功！</span></span><br><span class="line">ssh dockerserver</span><br><span class="line"><span class="meta">#</span><span class="bash"> 效果等价于下面的命令</span></span><br><span class="line">ssh acs@116.62.200.147 -p 20000</span><br></pre></td></tr></table></figure>
+<h1 id="3：Bug复盘"><a href="#3：Bug复盘" class="headerlink" title="3：Bug复盘"></a>3：Bug复盘</h1><p>本地Git输入<code>git push</code>后出现如下报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">To github.com:grant1499/smbms_java_web.git</span><br><span class="line"> ! [rejected]        master -&gt; master (non-fast-forward)</span><br><span class="line">error: failed to push some refs to <span class="string">&#x27;github.com:grant1499/smbms_java_web.git&#x27;</span></span><br><span class="line">hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">hint: its remote counterpart. Integrate the remote changes (e.g.</span><br><span class="line">hint: <span class="string">&#x27;git pull ...&#x27;</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">&#x27;Note about fast-forwards&#x27;</span> <span class="keyword">in</span> <span class="string">&#x27;git push --help&#x27;</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
+<p>首先尝试<code>git pull</code>：</p>
+<p>这句话是说将远程中进行的相关修改保存下来。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br><span class="line">error: Pulling is not possible because you have unmerged files.</span><br><span class="line">hint: Fix them up <span class="keyword">in</span> the work tree, and <span class="keyword">then</span> use <span class="string">&#x27;git add/rm &lt;file&gt;&#x27;</span></span><br><span class="line">hint: as appropriate to mark resolution and make a commit.</span><br><span class="line">fatal: Exiting because of an unresolved conflict.</span><br></pre></td></tr></table></figure>
+<p>如果出现如上报错，再处理：</p>
+<p>解决上述问题后就可保证远程仓库的更新会被同步到本地而本地仓库的修改也不会被覆盖  然后就是add,commit,push命令将本地的修改上传到远程仓库中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">&#x27;提交本地代码并且获取最新代码&#x27;</span></span><br><span class="line">$ git pull origin master</span><br><span class="line">From github.com:grant1499/smbms_java_web</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line">Already up to date.</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -510,7 +518,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9Alesson8"><span class="nav-text">1：lesson8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">云服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A"><span class="nav-text">作业</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9Alesson9"><span class="nav-text">2：lesson9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E6%9E%B6%E6%9E%84"><span class="nav-text">Docker架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E6%B7%BB%E5%8A%A0%E5%88%B0docker%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-text">将当前用户添加到docker用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%EF%BC%88images%EF%BC%89"><span class="nav-text">镜像（images）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8-container"><span class="nav-text">容器(container)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-text">实战</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EF%BC%9Alesson8"><span class="nav-text">1：lesson8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">云服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%9C%E4%B8%9A"><span class="nav-text">作业</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EF%BC%9Alesson9"><span class="nav-text">2：lesson9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker"><span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E6%9E%B6%E6%9E%84"><span class="nav-text">Docker架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E6%B7%BB%E5%8A%A0%E5%88%B0docker%E7%94%A8%E6%88%B7%E7%BB%84"><span class="nav-text">将当前用户添加到docker用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%EF%BC%88images%EF%BC%89"><span class="nav-text">镜像（images）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8-container"><span class="nav-text">容器(container)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-text">实战</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%EF%BC%9ABug%E5%A4%8D%E7%9B%98"><span class="nav-text">3：Bug复盘</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -526,7 +534,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -539,7 +547,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -588,13 +596,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>

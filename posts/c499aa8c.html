@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232004128.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232004163.png">
 <meta property="article:published_time" content="2021-07-24T01:48:34.000Z">
-<meta property="article:modified_time" content="2021-10-23T12:04:29.668Z">
+<meta property="article:modified_time" content="2021-11-28T13:19:40.422Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="快排">
 <meta property="article:tag" content="归并">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 20:04:29" itemprop="dateModified" datetime="2021-10-23T20:04:29+08:00">2021-10-23</time>
+                <time title="修改时间：2021-11-28 21:19:40" itemprop="dateModified" datetime="2021-11-28T21:19:40+08:00">2021-11-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,14 +306,14 @@
 <p>平均时间复杂度：O(n*logn)。双指针扫描区间[0,n-1]耗时O(n)，递归处理耗时O(logn)。</p>
 <p>最坏时间复杂度：O(n^2)。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;<span class="comment">// 递归终止，注意：不能写成l == r</span></span><br><span class="line">    <span class="keyword">int</span> i = l - <span class="number">1</span>,j = r + <span class="number">1</span>,x = q[l+r&gt;&gt;<span class="number">1</span>];<span class="comment">// 注意两指针都取到边界之外</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i ++;<span class="keyword">while</span> (q[i] &lt; x);</span><br><span class="line">        <span class="keyword">do</span> j --;<span class="keyword">while</span> (q[j] &gt; x);</span><br><span class="line">        <span class="comment">// 不用do-while等价的做法</span></span><br><span class="line">        <span class="comment">// while (q[++ i] &lt; x);while (q[--j] &gt; x);</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; j) swap(q[i],q[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// while循环结束后，q[l..j] &lt;= x,q[j+1..r] &gt;= x</span></span><br><span class="line">    quick_sort(q,l,j),quick_sort(q,j+<span class="number">1</span>,r);<span class="comment">// 注意：这个模板必须以j为划分点，不能取i</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;q[i]);</span><br><span class="line">    quick_sort(q,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,q[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>算法正确性证明参考：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/16777/">https://www.acwing.com/solution/content/16777/</a></p>
-<p>参考题解：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/2089/">https://www.acwing.com/solution/content/2089/</a></p>
+<p>算法正确性证明参考： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/16777/">https://www.acwing.com/solution/content/16777/</a></p>
+<p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/2089/">https://www.acwing.com/solution/content/2089/</a></p>
 <p>注意：分界点x取左右边界会被卡掉，所以这里取中点。</p>
 <p>补充一个从大到小的快排模板：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;<span class="comment">// 递归终止</span></span><br><span class="line">    <span class="keyword">int</span> i = l - <span class="number">1</span>,j = r + <span class="number">1</span>,x = q[l+r&gt;&gt;<span class="number">1</span>];<span class="comment">// 注意两指针都取到边界之外</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i ++;<span class="keyword">while</span> (q[i] &gt; x);</span><br><span class="line">        <span class="keyword">do</span> j --;<span class="keyword">while</span> (q[j] &lt; x);<span class="comment">// 只是把这两行的大小交换一下</span></span><br><span class="line">        <span class="keyword">if</span> (i &lt; j) swap(q[i],q[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// while循环结束后，q[l..j] &lt;= x,q[j+1..r] &gt;= x</span></span><br><span class="line">    quick_sort(q,l,j),quick_sort(q,j+<span class="number">1</span>,r);<span class="comment">// 注意：这个模板必须以j为划分点，不能取i</span></span><br><span class="line">    <span class="comment">// 如果要以i为划分点划分子问题，参考上面的正确性证明,递归划分为[l,i-1]和[i,r]</span></span><br><span class="line">    <span class="comment">// 分界点x取q[l+r+1&gt;&gt;1]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>找一组特殊样例：<code>2 ,1 2</code>。</p>
-<p>当以j为划分点划分子问题时，分界点x一定不能取到右边界（否则会递归陷入死循环），而l+r&gt;&gt;1是一定不会取到的（下取整），所以正确；</p>
-<p>当以i为划分点划分子问题时，分界点x一定不能取到左边界，而改成l+r+1&gt;&gt;1是一定不会取到的（上取整），所以正确。</p>
+<p>当以j为划分点划分子问题时，分界点x一定不能取到右边界（否则会递归陷入死循环），而<code>l+r&gt;&gt;1</code>是一定不会取到的（下取整），所以正确；</p>
+<p>当以i为划分点划分子问题时，分界点x一定不能取到左边界，而改成<code>l+r+1&gt;&gt;1</code>是一定不会取到的（上取整），所以正确。</p>
 <p>手动模拟一下，就很清楚了。</p>
 <p>快排模板一定要背过，边界问题处理很麻烦。（y总NB！！！）</p>
 <h2 id="1-2：归并排序"><a href="#1-2：归并排序" class="headerlink" title="1.2：归并排序"></a>1.2：归并排序</h2><p>在蓝桥杯系列（十五）已经讲解过，这里再介绍一次。</p>
@@ -327,7 +327,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">给定你一个长度为 n 的整数数列。</span><br><span class="line">请你用归并排序对这个数列按照从小到大进行排序。</span><br><span class="line">并将排好序的数列按顺序输出。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入共两行，第一行包含整数 n。</span><br><span class="line">第二行包含 n 个整数（所有整数均在 <span class="number">1</span>∼<span class="number">10</span>^<span class="number">9</span> 范围内），表示整个数列。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出共一行，包含 n 个整数，表示排好序的数列。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">100000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>y总代码：</p>
 <p>时间复杂度：O(n*logn)。双指针扫描左右区间耗时O(n)，递归处理耗时O(logn)。</p>
-<p>快排递归划分的期望是O(logn)，而归并递归划分一定是O(logn)。</p>
+<p><strong>快排递归划分的期望是O(logn)，而归并递归划分一定是O(logn)。</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000010</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> q[N],tmp[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> q[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    merge_sort(q,l,mid),merge_sort(q,mid+<span class="number">1</span>,r);<span class="comment">// 以下标中点划分递归</span></span><br><span class="line">    <span class="comment">// 对两个有序数组进行排序，需要临时数组tmp</span></span><br><span class="line">    <span class="keyword">int</span> k = <span class="number">0</span>,i = l,j = mid+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">        <span class="keyword">if</span> (q[i] &lt;= q[j]) tmp[k++] = q[i++];</span><br><span class="line">        <span class="keyword">else</span> tmp[k++] = q[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid) tmp[k++] = q[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= r) tmp[k++] = q[j++];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = l,j = <span class="number">0</span>;i &lt;= r;i++,j++) q[i] = tmp[j];<span class="comment">// 将tmp拷贝回q</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;q[i]);</span><br><span class="line">    </span><br><span class="line">    merge_sort(q,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,q[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>排序算法时间复杂度图：</p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232004163.png" alt="1.png"></p>
@@ -494,7 +494,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -507,7 +507,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -556,13 +556,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>

@@ -24,8 +24,17 @@
 <meta property="og:description" content="1.第四讲 树的基本概念、二叉树、树和森林1.1树的基本概念408中所有树都是无向有根树。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111222154607.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292218802.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111232255516.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282052091.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282053082.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292205911.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292234927.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292237558.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292249334.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301433815.png">
 <meta property="article:published_time" content="2021-11-23T07:17:29.000Z">
-<meta property="article:modified_time" content="2021-11-23T07:38:12.270Z">
+<meta property="article:modified_time" content="2021-11-30T07:40:48.613Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="树">
@@ -126,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">151</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -136,7 +145,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">310</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -215,10 +224,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-11-23 15:17:29 / 修改时间：15:38:12" itemprop="dateCreated datePublished" datetime="2021-11-23T15:17:29+08:00">2021-11-23</time>
+              <time title="创建时间：2021-11-23 15:17:29" itemprop="dateCreated datePublished" datetime="2021-11-23T15:17:29+08:00">2021-11-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-30 15:40:48" itemprop="dateModified" datetime="2021-11-30T15:40:48+08:00">2021-11-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -260,14 +275,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -303,15 +318,15 @@
 <p>b. 性质：</p>
 <ul>
 <li>[1] 在非空二叉树中，第i层上至多有2^(i-1) 个结点。（i &gt;= 1）</li>
-<li>[2] 深度为k的二叉树至多有2^k - 1个结点（1 推 2）</li>
+<li>[2] <strong>深度为k的二叉树至多有2^k - 1个结点</strong>（1 推 2）</li>
 <li><strong>[3] 对任何一棵二叉树，若其叶子结点数为n0，度为2的结点数为n2，则n0 = n2 + 1。</strong></li>
-<li>[4] n个结点的完全二叉树深度为：log2(n)向下取整 + 1，$\lfloor log_2(n) \rfloor + 1$</li>
+<li>[4] <strong>n个结点的完全二叉树深度为</strong>：log2(n)向下取整 + 1，$\lfloor log_2(n) \rfloor + 1$</li>
 <li>[5] 二叉树的堆式存储: 节点编号x的父亲：$\lfloor x/2 \rfloor$，左儿子：2x，右儿子：2x+1（节点编号从1开始，从上至下，从左至右）</li>
 </ul>
 <p>c. 两种特殊的二叉树</p>
 <ul>
 <li>[1] <strong>满二叉树</strong>：一颗深度为k且有2^k-1个结点的二叉树</li>
-<li>[2] 如果深度为k,有n个结点的二叉树，当且仅当其每个结点都与深度为k的满二叉树中编号从1到n的结点一一对应，该二叉树称为<strong>完全二叉树</strong></li>
+<li>[2] 如果深度为k,有n个结点的二叉树，当且仅当其每个结点都与深度为k的满二叉树中编号从1到n的结点一一对应，该二叉树称为<strong>完全二叉树</strong>，<strong>完全二叉树的度为1的节点个数为0或1.</strong></li>
 </ul>
 <p>(2) 二叉树的顺序存储结构和链式存储结构</p>
 <p>(3) 二叉树的遍历</p>
@@ -319,19 +334,18 @@
 <p>b. 中序遍历</p>
 <p>c. 后序遍历</p>
 <p>d. 根据前序 + 中序重建二叉树（AcWing 18)</p>
-<p>(4) 线索二叉树的基本概念和构造</p>
-<p>对二叉树节点的指针域做如下规定：</p>
-<p>a. 若节点有左孩子，则Lchild指向左孩子，否则指向直接前驱；右孩子同理；</p>
-<p>b. 增加两个标志域，Ltag表示指向的是子节点还是前驱；Rtag同理</p>
-<p>c. 指向前驱和后继的指针叫做线索。按照某种次序遍历，加上线索的二叉树称之为线索二叉树</p>
 <hr>
 <p>证明性质[3]：</p>
 <p>设树的点数为n。</p>
 <p>点数方程：$n = n_0 + n_1 + n_2$，边数方程：$n-1 = 0<em>n_0 + 1</em>n_1 + 2*n_2$。</p>
 <p>联立后得证。</p>
+<p>深度为k（从1开始算）的完全二叉树的有n个节点，则：$2^{k-1} &lt;= n &lt;= 2^k - 1.$</p>
+<p>易证：当前k-1层节点满了，第k层只有一个节点时取下界；当前k-1层节点满了，第k层节点也满了取上界。</p>
+<p>由这个性质也能推出上面的[4]。</p>
 <p><strong>二叉树的存储结构：</strong></p>
 <p>分为顺序存储和链式存储。（见王道P124，P125）</p>
 <p>顺序存储和堆的存储方式一样，节点编号从1开始，从上至下，从左至右。</p>
+<p><strong>顺序存储到哪里结束？与一棵完全二叉树对应。</strong>（真题考察过）</p>
 <p>链式存储用二叉链表实现。</p>
 <p><strong>二叉树的遍历：</strong></p>
 <p>有先序、中序和后序三种遍历方式，分别是根左右，左根右，左右根。</p>
@@ -340,6 +354,10 @@
 <p>前序+<strong>中序</strong> 或者 后序+<strong>中序</strong>可以唯一确定。</p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111222154607.png" alt="image-20211122215402530"></p>
 <p>前序可以确定根的编号，中序可以确定左右子树的大小，然后就确定了左右子树的前序和中序序列。</p>
+<p>前序+后序无法唯一确定一棵二叉树：</p>
+<p>若前序有根和左右子树，可以唯一确定；</p>
+<p>若前序只有根和一棵子树，则无法唯一确定。（因为无法知道仅有的这棵子树是左子树还是右子树）</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292218802.png" alt="image-20211129221840737"></p>
 <h3 id="18-重建二叉树"><a href="#18-重建二叉树" class="headerlink" title="18. 重建二叉树"></a>18. 重建二叉树</h3><p>输入一棵二叉树前序遍历和中序遍历的结果，请重建该二叉树。</p>
 <p><strong>注意</strong>:</p>
 <ul>
@@ -348,6 +366,97 @@
 </ul>
 <p><strong>样例</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">给定：</span><br><span class="line">前序遍历是：[<span class="number">3</span>, <span class="number">9</span>, <span class="number">20</span>, <span class="number">15</span>, <span class="number">7</span>]</span><br><span class="line">中序遍历是：[<span class="number">9</span>, <span class="number">3</span>, <span class="number">15</span>, <span class="number">20</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line">返回：[<span class="number">3</span>, <span class="number">9</span>, <span class="number">20</span>, null, null, <span class="number">15</span>, <span class="number">7</span>, null, null, null, null]</span><br><span class="line">返回的二叉树如下所示：</span><br><span class="line">    <span class="number">3</span></span><br><span class="line">   / \</span><br><span class="line">  <span class="number">9</span>  <span class="number">20</span></span><br><span class="line">    /  \</span><br><span class="line">   <span class="number">15</span>   <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p>思路：</p>
+<p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/706">y总官方题解</a>。</p>
+<p>前序遍历确定根是谁，中序遍历确定根的位置。</p>
+<p>然后递归创建出二叉树。</p>
+<p>时间复杂度分析：</p>
+<p>初始时用哈希表存储每个节点的值到中序遍历下标（0到n-1）的映射，这样我们在递归到每个节点时，在中序遍历中查找根节点位置的操作，只需要 O(1) 的时间。此时，创建每个节点需要的时间是 O(1)，所以总时间复杂度是 O(n)。</p>
+<p>图解：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111232255516.png" alt="image-20211123225503455"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pos;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preorder,inorder; <span class="comment">// 可以创建两个vector，也可以将_preorder传引用到build</span></span><br><span class="line">    </span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123; <span class="comment">// 分别对应前序、中序的左右边界下标</span></span><br><span class="line">        <span class="comment">// 当左右边界下标相等时表示序列含有1个元素</span></span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 当左 &lt; 右时表示子树为空</span></span><br><span class="line">        <span class="keyword">auto</span> root = <span class="keyword">new</span> TreeNode(preorder[a]);</span><br><span class="line">        <span class="keyword">int</span> k = pos[preorder[a]]; <span class="comment">// 前序的第一个就是根，查找根在中序的下标</span></span><br><span class="line">        <span class="comment">// 递归创建二叉树</span></span><br><span class="line">        root-&gt;left = build(a + <span class="number">1</span>, k - <span class="number">1</span> - x + a + <span class="number">1</span>, x, k - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = build(k - <span class="number">1</span> - x + a + <span class="number">2</span>, b, k + <span class="number">1</span>, y);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; _preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; _inorder)</span> </span>&#123;</span><br><span class="line">        preorder = _preorder,inorder = _inorder;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = preorder.size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">            pos[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> build(<span class="number">0</span>, n - <span class="number">1</span>, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不用哈希表的版本： 笔试写法</span></span><br><span class="line"><span class="comment">// 将19行替换为下面的代码，31~33行删掉，时间复杂度为：O(n^2)</span></span><br><span class="line"><span class="keyword">int</span> k = <span class="number">-1</span>; <span class="comment">// 前序的第一个就是根，查找根在中序的下标</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = x;i &lt;= y;i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span> (inorder[i] == root-&gt;val)</span><br><span class="line">        k = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3线索二叉树"><a href="#1-3线索二叉树" class="headerlink" title="1.3线索二叉树"></a>1.3线索二叉树</h2><p>(4) 线索二叉树的基本概念和构造</p>
+<p>对二叉树节点的指针域做如下规定：</p>
+<p>a. 若节点有左孩子，则Lchild指向左孩子，否则指向直接前驱；右孩子同理；</p>
+<p>b. 增加两个标志域，Ltag表示指向的是子节点还是前驱；Rtag同理</p>
+<p>c. 指向前驱和后继的指针叫做线索。按照某种次序遍历，加上线索的二叉树称之为线索二叉树</p>
+<hr>
+<p>引入线索二叉树是为了加快找到节点的前驱和后继的速度。</p>
+<p>线索二叉树通过线索链表实现，其中指向前驱和后继的指针称为线索。</p>
+<p>根据遍历序列，可以将线索二叉树分为中序、先序、后序线索二叉树。</p>
+<p>具体定义规则如果不理解请参考王道教材P136.</p>
+<h2 id="1-4树、森林"><a href="#1-4树、森林" class="headerlink" title="1.4树、森林"></a>1.4树、森林</h2><p>(1) 树的存储结构<br>    a. 只存父节点<br>    b. 邻接表存储所有子节点<br>    c. 左儿子右兄弟</p>
+<p>(2) 森林F与二叉树T的转换<br>    a. 原树中叶子节点数 = 转换后的树中有右儿子的节点数 + 1<br>    b. F的前序遍历就是T的前序遍历<br>    c. F的后序遍历就是T的中序遍历</p>
+<p>(3) 树和森林的遍历<br>    a. 前序遍历<br>    b. 后序遍历</p>
+<hr>
+<p>树常用的三种存储方式：双亲表示法，孩子表示法，孩子兄弟表示法。</p>
+<p><strong>1.双亲表示法。</strong></p>
+<p><strong>双亲表示法是顺序存储方式。</strong></p>
+<p>存储方式和并查集很像。</p>
+<p><strong>树中每个节点用结构体数组顺序存储，结构体包括：数据域，父节点的下标。</strong></p>
+<blockquote>
+<p>关于树和二叉树的顺序存储方式的区别：</p>
+<ul>
+<li><p>二叉树属于树，所以二叉树可以用树的顺序存储；</p>
+</li>
+<li><p>由于不确定分叉大小，树不能用二叉树的顺序存储。</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>2.孩子表示法。</strong></p>
+<p>其实就是树的邻接表存储，当作图来存。</p>
+<p><strong>3.孩子兄弟表示法。（笔试常考）</strong></p>
+<p>又称二叉树表示法。（左孩子右兄弟）</p>
+<p>本质上就是一个邻接表。</p>
+<p>这种存储方式最大的优点就是方便实现树（森林）转换为二叉树的操作。</p>
+<p>每个节点包含三部分内容：</p>
+<ol>
+<li>节点值；</li>
+<li>指向第一个孩子的指针；</li>
+<li>指向下一个兄弟的指针。</li>
+</ol>
+<p>具体定义规则如果不理解请参考王道教材P161,162.</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282052091.png" alt="image-20211128205126385"></p>
+<hr>
+<p>树的遍历：</p>
+<p>只有三种方式：前序和后序遍历，还有层次遍历。</p>
+<p>树没有中序遍历。</p>
+<hr>
+<p>森林F与二叉树T的转换：</p>
+<blockquote>
+<p>森林与二叉树转换的性质：原树中叶子节点数 = 转换后的树中有右儿子的节点数 + 1</p>
+</blockquote>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282053082.png" alt="image-20211128205346009"></p>
+<p>两条转化规则：</p>
+<ul>
+<li>F的前序遍历就是T的前序遍历</li>
+<li>F的后序遍历就是T的中序遍历</li>
+</ul>
+<p>F的后序遍历也可以称为中序遍历，原因看王道教材P164.</p>
+<p>拿上图的森林与二叉树举例：</p>
+<p>森林的前序遍历和二叉树的前序遍历都是：<code>ABDCEFGHIJKLM</code>。</p>
+<p>森林的后序遍历和二叉树的中序序遍历是一样的。</p>
+<p>树的遍历方式是递归定义的，下图可以验证这条性质。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292205911.png" alt="image-20211129220509836"></p>
+<h3 id="2011-6"><a href="#2011-6" class="headerlink" title="2011-6"></a>2011-6</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292234927.png" alt="image-20211129223429881"></p>
+<p>解：</p>
+<p>选择题，采用“特殊值“法，构造一棵特殊的树。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292237558.png" alt="image-20211129223704494"></p>
+<h3 id="2014-5"><a href="#2014-5" class="headerlink" title="2014-5"></a>2014-5</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292249334.png" alt="image-20211129224920283"></p>
+<p>森林中叶节点，也就是没有孩子的节点，对应二叉树的是没有左孩子的节点（因为左孩子右兄弟）。</p>
+<h3 id="2014-41"><a href="#2014-41" class="headerlink" title="2014-41"></a>2014-41</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301433815.png" alt="image-20211130143311751"></p>
+<h3 id="accwing-3766-二叉树的带权路径长度"><a href="#accwing-3766-二叉树的带权路径长度" class="headerlink" title="accwing.3766. 二叉树的带权路径长度"></a>accwing.3766. 二叉树的带权路径长度</h3><p>二叉树的带权路径长度(WPL)是二叉树中所有叶结点的带权路径长度之和，也就是每个叶结点的深度与权值之积的总和。</p>
+<p>给定一棵二叉树 T，请你计算并输出它的 WPL。</p>
+<p>注意，根节点的深度为 0。</p>
+<p><strong>样例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：二叉树[8, 12, 2, null, null, 6, 4, null, null, null, null]如下图所示：</span><br><span class="line">    8</span><br><span class="line">   &#x2F; \</span><br><span class="line">  12  2</span><br><span class="line">     &#x2F; \</span><br><span class="line">    6   4</span><br><span class="line"></span><br><span class="line">输出：32</span><br></pre></td></tr></table></figure>
+<p><strong>数据范围</strong></p>
+<p>二叉树结点数量不超过 1000。</p>
+<p>每个结点的权值均为不超过 100 的非负整数。</p>
+<hr>
+<p>带权路径的解释：每个节点的带权路径长度 = 叶节点权值 * 叶节点到根的路径长度。</p>
+<p>做法：简单的dfs遍历树。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* root,<span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;left &amp;&amp; !root-&gt;right) <span class="keyword">return</span> root-&gt;val * depth;</span><br><span class="line">        <span class="keyword">return</span> dfs(root-&gt;left,depth + <span class="number">1</span>) + dfs(root-&gt;right,depth + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pathSum</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dfs(root,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -408,7 +517,10 @@
     <a href="/posts/fcbb6d58.html" rel="prev" title="考研算法辅导课笔记（四）">
       <i class="fa fa-chevron-left"></i> 考研算法辅导课笔记（四）
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/f62be3c6.html" rel="next" title="考研算法辅导课笔记（六）">
+      考研算法辅导课笔记（六） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -492,7 +604,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AC%AC%E5%9B%9B%E8%AE%B2-%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97"><span class="nav-text">1.第四讲 树的基本概念、二叉树、树和森林</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.1树的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">1.2二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">18. 重建二叉树</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%AC%AC%E5%9B%9B%E8%AE%B2-%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81%E4%BA%8C%E5%8F%89%E6%A0%91%E3%80%81%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97"><span class="nav-text">1.第四讲 树的基本概念、二叉树、树和森林</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.1树的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">1.2二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#18-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">18. 重建二叉树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">1.3线索二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4%E6%A0%91%E3%80%81%E6%A3%AE%E6%9E%97"><span class="nav-text">1.4树、森林</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2011-6"><span class="nav-text">2011-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2014-5"><span class="nav-text">2014-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2014-41"><span class="nav-text">2014-41</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accwing-3766-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B8%A6%E6%9D%83%E8%B7%AF%E5%BE%84%E9%95%BF%E5%BA%A6"><span class="nav-text">accwing.3766. 二叉树的带权路径长度</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -508,7 +620,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">310</span>
+          <span class="site-state-item-count">316</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -521,7 +633,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">151</span>
+        <span class="site-state-item-count">154</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -570,13 +682,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.5m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:08</span>
+    <span title="站点阅读时长">21:59</span>
 </div>
 
 <span id="sitetime"></span>
