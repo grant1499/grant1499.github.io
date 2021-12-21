@@ -197,7 +197,7 @@ static final double PI = 3.14;
 
 大部分同C++。
 
-![image-20210226144639115](Java入门笔记（二）/image-20210226144639115.png)
+![image-20210226144639115](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232104472.png)
 
 ```java
 long a = 121415531646L;
@@ -228,9 +228,13 @@ System.out.println(a+b+"");// 30
 
 右键新建Package，将class文件拖入Package，方便程序管理，相当于文件夹的作用。
 
-![image-20210226145141548](Java入门笔记（二）/image-20210226145141548.png)
+Java定义了一种名字空间，称之为包：`package`。一个类总是属于某个包，类名（比如`Person`）只是一个简写，真正的完整类名是`包名.类名`。
 
-![image-20210226152120269](Java入门笔记（二）/image-20210226152120269.png)
+要特别注意：包没有父子关系。`java.util`和`java.util.zip`是不同的包，两者没有任何继承关系。
+
+![image-20210226145141548](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232104503.png)
+
+![image-20210226152120269](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232104528.png)
 
 ```java
 // demo
@@ -241,7 +245,7 @@ import com.kunag.base.*; // 导入该包中的所有类
 
 ## 10.JavaDoc生成文档
 
-![image-20210226153609818](Java入门笔记（二）/image-20210226153609818.png)
+![image-20210226153609818](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232104552.png)
 
 ```java
 package Java_01;

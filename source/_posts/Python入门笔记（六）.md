@@ -79,7 +79,7 @@ y:[6, 7, 8, 8]
 
 input()遇到空行、回车即停止，即使没接收到有效输入。
 
-![image-20210317205917723](Python入门笔记（六）/image-20210317205917723.png)
+![image-20210317205917723](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232139602.png)
 
 ```python
 data = input()  # 课程名 考分

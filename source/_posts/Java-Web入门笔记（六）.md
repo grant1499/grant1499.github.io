@@ -58,7 +58,7 @@ public class CookieDemo extends HttpServlet {
 }
 ```
 
-![image-20211014175026180](Java-Web入门笔记（六）/image-20211014175026180.png)
+![image-20211014175026180](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052971.png)
 
 查看HTTP的请求和响应报文，可以发现有Cookie字段。
 
@@ -123,7 +123,7 @@ public class SessionTest extends HttpServlet {
 
 测试结果：
 
-![image-20211014203320347](Java-Web入门笔记（六）/image-20211014203320347.png)
+![image-20211014203320347](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052010.png)
 
 注销Session：
 
@@ -146,7 +146,7 @@ session.invalidate(); // 然后会自动生成一个新的ID
 
 ## 2.JSP原理剖析
 
-![image-20211014210004313](Java-Web入门笔记（六）/image-20211014210004313.png)
+![image-20211014210004313](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052034.png)
 
 我们可以使用JSP，它和Servlet一样用于开发动态Web。
 
@@ -206,5 +206,5 @@ HttpServletResponse response                      //响应
 
 JSP本质上就是一个Servlet，将一些相关对象实例化了，所以可以内嵌Java代码。
 
-![image-20211014220837936](Java-Web入门笔记（六）/image-20211014220837936.png)
+![image-20211014220837936](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052063.png)
 

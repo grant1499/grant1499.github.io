@@ -150,7 +150,7 @@ mouseup()(jQuery)
 </html>
 ```
 
-![image-20210920114950081](JavaScript学习笔记（八）/image-20210920114950081.png)
+![image-20210920114950081](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232126934.png)
 
 ## 5.jQuery操作DOM元素
 

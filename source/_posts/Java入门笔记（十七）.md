@@ -75,7 +75,7 @@ public void test1(){
 }
 ```
 
-![image-20210613125356257](Java入门笔记（十七）/image-20210613125356257.png)
+![image-20210613125356257](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115183.png)
 
 ### File类的常用方法
 
@@ -214,7 +214,7 @@ public void test4() throws IOException {
 
 **流的体系结构**
 
-![image-20210613133535194](Java入门笔记（十七）/image-20210613133535194.png)
+![image-20210613133535194](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115214.png)
 
 **说明：红框对应的是IO流中的4个抽象基类。**
 
@@ -229,7 +229,7 @@ public void test4() throws IOException {
 
 关于节点流（文件流）和处理流：
 
-![image-20210613134128610](Java入门笔记（十七）/image-20210613134128610.png)
+![image-20210613134128610](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115240.png)
 
 **重点说明的几个流：**
 
@@ -259,6 +259,6 @@ Reader
 用于读取非文本数据之类的原始字节流。要读取字符流，需要使用 FileReader
 ```
 
-![image-20210725074959543](Java入门笔记（十七）/image-20210725074959543.png)
+![image-20210725074959543](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115271.png)
 
-![image-20210725075010681](Java入门笔记（十七）/image-20210725075010681.png)
+![image-20210725075010681](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232115296.png)

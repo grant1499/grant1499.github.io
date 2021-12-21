@@ -21,23 +21,23 @@ date: 2021-06-12 19:19:24
 
 线程（thread）
 
-![image-20210612193035124](Java多线程详解笔记（一）/image-20210612193035124.png)
+![image-20210612193035124](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103605.png)
 
 进程（process）
 
-![image-20210612212103470](Java多线程详解笔记（一）/image-20210612212103470.png)
+![image-20210612212103470](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103735.png)
 
 程序、进程和线程的区别：
 
-![image-20210612212228192](Java多线程详解笔记（一）/image-20210612212228192.png)
+![image-20210612212228192](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103308.png)
 
 通常在一个进程中可以包含若干个线程，一个进程至少有一个线程。线程数CPU调度和执行的单位。
 
-![image-20210612212444861](Java多线程详解笔记（一）/image-20210612212444861.png)
+![image-20210612212444861](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103010.png)
 
 核心概念：
 
-![image-20210612212658925](Java多线程详解笔记（一）/image-20210612212658925.png)
+![image-20210612212658925](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103568.png)
 
 一个Java应用程序Java.exe，至少有三个线程，main()主线程，gc()垃圾回收线程，异常处理线程。当然发生异常时，会影响主线程。
 
@@ -111,9 +111,9 @@ new Thread(){
 }.start();
 ```
 
-![image-20210726113402721](Java多线程详解笔记（一）/image-20210726113402721.png)
+![image-20210726113402721](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103348.png)
 
-![image-20210726114809437](Java多线程详解笔记（一）/image-20210726114809437.png)
+![image-20210726114809437](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103960.png)
 
 ```Java
 class helloThread extends Thread{

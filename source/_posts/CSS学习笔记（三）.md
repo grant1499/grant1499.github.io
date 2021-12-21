@@ -105,7 +105,7 @@ span标签：用span套起来重点要突出的字。（约定俗成）
 
 颜色、对齐方式、首行缩进、行高、下划线。
 
-![image-20210527170235077](CSS学习笔记（三）/image-20210527170235077.png)
+![image-20210527170235077](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033371.png)
 
 加粗的是重点。
 
@@ -215,11 +215,11 @@ span标签：用span套起来重点要突出的字。（约定俗成）
 
 效果图：
 
-![image-20210527174927700](CSS学习笔记（三）/image-20210527174927700.png)
+![image-20210527174927700](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033580.png)
 
 ## 8.列表样式练习
 
-![image-20210824121451083](CSS学习笔记（三）/image-20210824121451083.png)
+![image-20210824121451083](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033421.png)
 
 ## 9.背景
 
@@ -265,17 +265,17 @@ span标签：用span套起来重点要突出的字。（约定俗成）
 
 效果：
 
-![image-20210824123723895](CSS学习笔记（三）/image-20210824123723895.png)
+![image-20210824123723895](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033830.png)
 
 完善列表的练习。
 
-![image-20210824123351381](CSS学习笔记（三）/image-20210824123351381.png)
+![image-20210824123351381](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033746.png)
 
 渐变背景css样式网站：https://www.grabient.com/。
 
 ## 10.盒子模型
 
-![image-20210824124221305](CSS学习笔记（三）/image-20210824124221305.png)
+![image-20210824124221305](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232033164.png)
 
 不同部分的说明：
 

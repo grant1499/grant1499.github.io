@@ -45,7 +45,7 @@ date: 2021-05-10 14:57:37
 
 ## 2.表单的初级验证
 
-![image-20210510151322788](HTML学习笔记（四）/image-20210510151322788.png)
+![image-20210510151322788](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232046196.png)
 
 ```html
 palceholder用在输入框中，提示信息

@@ -14,7 +14,7 @@ date: 2021-04-03 16:13:08
 
 <!--more-->
 
-![image-20210403163004447](Java入门笔记（八）/image-20210403163004447.png)
+![image-20210403163004447](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103133.png)
 
 ```java
 public class LearnSystem {
@@ -94,9 +94,9 @@ public static void main(String[] args) {
     }
 ```
 
-![image-20210502145658876](Java入门笔记（八）/image-20210502145658876.png)
+![image-20210502145658876](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103151.png)
 
-![image-20210502145722353](Java入门笔记（八）/image-20210502145722353.png)
+![image-20210502145722353](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103170.png)
 
 ```Java
 //常用方法
@@ -146,7 +146,7 @@ protected 可见性= default + 对子类可见
 
 final意为最终的。不可变！！不需要再扩充功能了，已经够用了。
 
-![image-20210404091023201](Java入门笔记（八）/image-20210404091023201.png)
+![image-20210404091023201](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232103190.png)
 
 我们常用的String类就是用final修饰的，不能被随意修改。
 

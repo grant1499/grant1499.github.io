@@ -51,7 +51,7 @@ window.screen 对象包含有关用户屏幕的信息。可以省略前面的win
 
 window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
 
-![image-20210830091329489](JavaScript学习笔记（六）/image-20210830091329489.png)
+![image-20210830091329489](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232126241.png)
 
 ### document（DOM）
 

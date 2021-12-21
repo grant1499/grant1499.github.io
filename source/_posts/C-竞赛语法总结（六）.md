@@ -234,7 +234,7 @@ int main()
 
 如图：
 
-![image-20210208135341530](C-竞赛语法总结（六）/image-20210208135341530.png)
+![image-20210208135341530](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010768.png)
 
 ```C++
 #include <iostream>
@@ -285,7 +285,7 @@ after:
 
 链表的头结点（head）：**大部分情况下指的是第一个结点的地址。而不是它的值**。记牢！
 
-![image-20210208143505731](C-竞赛语法总结（六）/image-20210208143505731.png)
+![image-20210208143505731](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010785.png)
 
 ## 5.acwing.21.斐波那契数列
 
@@ -512,11 +512,6 @@ public:
 输出:5->4->3->2->1->NULL
 ```
 
-作者：yxc
-        链接：https://www.acwing.com/solution/content/743/
-        来源：AcWing
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-
 **算法1：(链表操作，迭代) O(n)**
 
 迭代也就是循环的意思。
@@ -546,7 +541,7 @@ public:
         return p;
     }
 };
-// solution 1
+// solution 2
 class Solution {
     public:
         ListNode* reverseList(ListNode* head) {
@@ -570,11 +565,11 @@ class Solution {
 - 空间复杂度分析：总共递归 n 层，系统栈的空间复杂度是 O(n)，所以总共需要额外 O(n) 的空间。
 - 时间复杂度分析：链表中每个节点只被遍历一次，所以时间复杂度是 O(n)。
 
-![来自一位xjj的javascript讲解](C-竞赛语法总结（六）/image-20210213200327031.png)
+![来自一位xjj的javascript讲解](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010802.png)
 
 
 
-![image-20210213201614715](C-竞赛语法总结（六）/image-20210213201614715.png)
+![image-20210213201614715](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010823.png)
 
 ​                                                      **head是每一层函数的返回值res。**
 

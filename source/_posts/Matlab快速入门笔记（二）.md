@@ -17,13 +17,13 @@ date: 2021-03-07 21:56:46
 
 <!--more-->
 
-![image-20210410224045532](Matlab快速入门笔记（二）/image-20210410224045532.png)
+![image-20210410224045532](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232135606.png)
 
-![image-20210410224307814](Matlab快速入门笔记（二）/image-20210410224307814.png)
+![image-20210410224307814](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232135984.png)
 
 triu用于生成矩阵A的上三角部分的矩阵（其余部分为0），用法基本同tril。
 
-![image-20210410225034024](Matlab快速入门笔记（二）/image-20210410225034024.png)
+![image-20210410225034024](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232135839.png)
 
 ```matlab
 function X = Jacobi(A,b,k)
@@ -40,7 +40,7 @@ while i<k
 end
 ```
 
-![image-20210410231824380](Matlab快速入门笔记（二）/image-20210410231824380.png)
+![image-20210410231824380](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232135014.png)
 
 注意：
 

@@ -20,7 +20,7 @@ date: 2021-05-10 20:58:29
 
 <!--more-->
 
-![image-20210510210715099](CSS学习笔记（二）/image-20210510210715099.png)
+![image-20210510210715099](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232032267.png)
 
 1. 后代选择器：在某个元素的后面   祖父  父亲 儿子  孙子
 
@@ -171,11 +171,11 @@ date: 2021-05-10 20:58:29
 </html>
 ```
 
-![image-20210517142007383](CSS学习笔记（二）/image-20210517142007383.png)
+![image-20210517142007383](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232032303.png)
 
 再把h1注释掉，试试：
 
-![image-20210517142047182](CSS学习笔记（二）/image-20210517142047182.png)
+![image-20210517142047182](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232032338.png)
 
 #### 4.2.3属性选择器（常用）
 

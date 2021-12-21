@@ -34,11 +34,11 @@ date: 2021-02-23 23:12:43
 
 9.小写希腊字母：
 
-![image-20210310195229711](Latex常用语法总结/image-20210310195229711.png)
+![image-20210310195229711](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232127919.png)
 
 10.大写希腊字母：
 
-![image-20210310195310812](Latex常用语法总结/image-20210310195310812.png)
+![image-20210310195310812](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232127648.png)
 
 11.打出关于x的偏微分：$\partial/\partial x$,`$\partial/\partial x$`，补充一点：\partial可以简写为\part
 
@@ -84,7 +84,7 @@ $\displaystyle\prod_{i = 1}^{n}x_i$
 
 15.极限：
 
-还记得高数里极限的符号吗![皱眉](Latex常用语法总结/1684731-20191002102657884-1615601426.png)。在latex中的极限表示，也直接使用`\lim`这个我们时常看到的符号。当然极限通常都是带下标的，所以更多的是使用`lim_{}`的形式。
+还记得高数里极限的符号吗![皱眉](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232127965.png)。在latex中的极限表示，也直接使用`\lim`这个我们时常看到的符号。当然极限通常都是带下标的，所以更多的是使用`lim_{}`的形式。
 
 ```latex
 <!--来看看两个重要极限-->

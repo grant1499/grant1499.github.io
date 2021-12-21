@@ -502,7 +502,7 @@ int main()
 
 先画出递归搜索树：（枚举n=5的所有情况）
 
-![image-20210207141503611](C-竞赛语法总结（五）/image-20210207141503611.png)
+![image-20210207141503611](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232013280.png)
 
 ```C++
 #include <iostream>
@@ -567,7 +567,7 @@ int main()
 
 首先画出**深度遍历搜索树**！！！用到深度遍历的思想。
 
-![image-20210207183231960](C-竞赛语法总结（五）/image-20210207183231960.png)
+![image-20210207183231960](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232013299.png)
 
 ```C++
 // y总题解

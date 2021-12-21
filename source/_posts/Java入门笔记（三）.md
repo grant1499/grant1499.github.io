@@ -22,7 +22,7 @@ java.util.Scanner 是 Java5 的新特征，我们可以通过 Scanner 类来获�
 
 <!--more-->
 
-![image-20210226155906265](Java入门笔记（三）/image-20210226155906265.png)
+![image-20210226155906265](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109824.png)
 
 ```java
 import java.util.Scanner;
@@ -56,7 +56,7 @@ public static void main(String[] args){
 output:  hello world*/ hello之前的空格会接收
 ```
 
-![image-20210226173438395](Java入门笔记（三）/image-20210226173438395.png)
+![image-20210226173438395](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109134.png)
 
 ```java
 // 例子
@@ -96,11 +96,11 @@ public class Demo{
 }
 ```
 
-![image-20210226180441511](Java入门笔记（三）/image-20210226180441511.png)
+![image-20210226180441511](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109509.png)
 
 ### switch选择分支
 
-![image-20210226180716484](Java入门笔记（三）/image-20210226180716484.png)
+![image-20210226180716484](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109167.png)
 
 ```java
 public class Demo{
@@ -128,9 +128,9 @@ public class Demo{
 
 关于goto，它是java的保留字，但是并没有得到正式使用。
 
-![image-20210226184655016](Java入门笔记（三）/image-20210226184655016.png)
+![image-20210226184655016](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109493.png)
 
-![image-20210226185120597](Java入门笔记（三）/image-20210226185120597.png)
+![image-20210226185120597](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109865.png)
 
 ```java
 public class Demo{
@@ -146,7 +146,7 @@ public class Demo{
 
 ## 4.Java中的方法
 
-![image-20210226190359631](Java入门笔记（三）/image-20210226190359631.png)
+![image-20210226190359631](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109936.png)
 
 ```java
 public class Demo{
@@ -160,15 +160,15 @@ public class Demo{
 }
 ```
 
-![image-20210226191028284](Java入门笔记（三）/image-20210226191028284.png)
+![image-20210226191028284](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109563.png)
 
-![image-20210226191746005](Java入门笔记（三）/image-20210226191746005.png)
+![image-20210226191746005](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109638.png)
 
 记住：**Java中的方法都是值传递**。**其实 Java 只存在一种传参的方式，就是用实参给形参赋值。**
 
 ## 5.方法的重载（非常重要）
 
-![image-20210226195152023](Java入门笔记（三）/image-20210226195152023.png)
+![image-20210226195152023](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109582.png)
 
 方法重载基本类似C++中的函数重载。
 
@@ -192,7 +192,7 @@ public class Demo{
 //必须参数类型不同，名字相同也不行
 ```
 
-![image-20210403104515242](Java入门笔记（三）/image-20210403104515242.png)
+![image-20210403104515242](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109099.png)
 
 重载的特殊之处在于：如果参数满足自动类型转换的方法有好几个，重载规则是选择最近的调用。
 
@@ -202,11 +202,11 @@ public class Demo{
 
 ### 6.1通过命令行传参
 
-![image-20210226195848316](Java入门笔记（三）/image-20210226195848316.png)
+![image-20210226195848316](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109449.png)
 
 上图中`String args[]`意思同`String[] args`，前者是类C的写法，后者是Java写法。
 
-![image-20210226200420492](Java入门笔记（三）/image-20210226200420492.png)
+![image-20210226200420492](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109416.png)
 
 注意：要通过java命令运行放在package中的class文件，必须回退到包的路径（此处是src目录）。
 
@@ -214,9 +214,9 @@ public class Demo{
 
 ### 6.2通过IDEA传参
 
-![image-20210403162513517](Java入门笔记（三）/image-20210403162513517.png)
+![image-20210403162513517](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109508.png)
 
-![image-20210403162656746](Java入门笔记（三）/image-20210403162656746.png)
+![image-20210403162656746](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232109720.png)
 
 
 
@@ -231,7 +231,7 @@ qw sd df
 
 ## 7.可变参数（不定项参数）
 
-![image-20210226200859067](Java入门笔记（三）/image-20210226200859067.png)
+![image-20210226200859067](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108442.png)
 
 ```java
 public class Demo{
@@ -249,7 +249,7 @@ public class Demo{
 
 数组是引用数据类型。数组的长度是固定的，一旦创建就不能修改。
 
-![image-20210226202658385](Java入门笔记（三）/image-20210226202658385.png)
+![image-20210226202658385](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108742.png)
 
 ```java
 public class Demo{
@@ -269,7 +269,7 @@ public class Demo{
 }
 ```
 
-![image-20210226204957419](Java入门笔记（三）/image-20210226204957419.png)
+![image-20210226204957419](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108902.png)
 
 ```java
 public class Demo{
@@ -283,7 +283,7 @@ public class Demo{
 }
 ```
 
-![image-20210226205614686](Java入门笔记（三）/image-20210226205614686.png)
+![image-20210226205614686](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108245.png)
 
 ```java
 public class Demo{
@@ -322,7 +322,7 @@ public class Demo{
 
 ## 9.内存分析
 
-![image-20210226204256773](Java入门笔记（三）/image-20210226204256773.png)
+![image-20210226204256773](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108120.png)
 
 数组的内存机制：
 
@@ -330,11 +330,11 @@ public class Demo{
 
 2.创建数组array，在堆中开辟空间。(**数组对象本身是在堆中的**)
 
-![image-20210226204804592](Java入门笔记（三）/image-20210226204804592.png)
+![image-20210226204804592](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108555.png)
 
 ## 10.Arrays类
 
-![image-20210227113849263](Java入门笔记（三）/image-20210227113849263.png)
+![image-20210227113849263](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108751.png)
 
 ```java
 import java.util.Arrays;

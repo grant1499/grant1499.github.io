@@ -15,7 +15,7 @@ date: 2021-03-06 12:52:46
 
 <!--more-->
 
-![image-20210306125425820](Java入门笔记（六）/image-20210306125425820.png)
+![image-20210306125425820](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106787.png)
 
 ```java
 //小例子
@@ -33,23 +33,54 @@ public class A {
 //Exception in thread "main" java.lang.StackOverflowError 栈溢出
 ```
 
-![image-20210306130118928](Java入门笔记（六）/image-20210306130118928.png)
+![image-20210306130118928](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107530.png)
 
-![image-20210306130155892](Java入门笔记（六）/image-20210306130155892.png)
+![image-20210306130155892](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107082.png)
 
 ### 错误（Error）与异常（Exception）
 
-![image-20210306130317211](Java入门笔记（六）/image-20210306130317211.png)
+![image-20210306130317211](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107429.png)
 
-![image-20210306130400193](Java入门笔记（六）/image-20210306130400193.png)
+![image-20210306130400193](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107360.png)
 
 Exception可以分成运行时异常和非运行时异常。
+
+从继承关系可知：`Throwable`是异常体系的根，它继承自`Object`。`Throwable`有两个体系：`Error`和`Exception`，`Error`表示严重的错误，程序对此一般无能为力，例如：
+
+- `OutOfMemoryError`：内存耗尽
+- `NoClassDefFoundError`：无法加载某个Class
+- `StackOverflowError`：栈溢出
+
+而`Exception`则是运行时的错误，它可以被捕获并处理。
+
+某些异常是应用程序逻辑处理的一部分，应该捕获并处理。例如：
+
+- `NumberFormatException`：数值类型的格式错误
+- `FileNotFoundException`：未找到文件
+- `SocketException`：读取网络失败
+
+还有一些异常是程序逻辑编写不对造成的，应该修复程序本身。例如：
+
+- `NullPointerException`：对某个`null`的对象调用方法或字段
+- `IndexOutOfBoundsException`：数组索引越界
+
+`Exception`又分为两大类：
+
+1. `RuntimeException`以及它的子类；
+2. 非`RuntimeException`（包括`IOException`、`ReflectiveOperationException`等等）
+
+Java规定：
+
+- 必须捕获的异常，包括`Exception`及其子类，但不包括`RuntimeException`及其子类，这种类型的异常称为Checked Exception。
+- 不需要捕获的异常，包括`Error`及其子类，`RuntimeException`及其子类。
 
 以上理论只作为了解内容，重点是如何处理异常。
 
 ### 异常处理（抛出与捕获）
 
-![image-20210306130827800](Java入门笔记（六）/image-20210306130827800.png)
+![image-20210306130827800](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107259.png)
+
+所有异常都可以调用`printStackTrace()`方法打印异常栈，这是一个简单有用的快速打印异常的方法。
 
 ```java
 public class Test {
@@ -92,7 +123,7 @@ public class Test {
 }
 ```
 
-try-catch...-catch结构：一般把较大的异常放在后面。
+`try-catch...-catch`结构：一般把较大的异常放在后面。
 
 假设要捕获多个异常，必须从小到大，否则会报错！
 
@@ -124,7 +155,7 @@ public class Test {
 
 IDEA异常处理快捷键：
 
-![image-20210306132935760](Java入门笔记（六）/image-20210306132935760.png)
+![image-20210306132935760](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107505.png)
 
 ```java
 public class Test {
@@ -145,7 +176,9 @@ public class Test {
 }
 ```
 
-![image-20210306135620960](Java入门笔记（六）/image-20210306135620960.png)
+![image-20210306135620960](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107715.png)
+
+**`throws`声明这个方法可能会抛出异常，`throw`语句是实际的抛出异常的语句。**
 
 **异常处理的一般经验**：捕获那些你知道如何处理的异常，继续传播（抛出）那些不知道如何处理的异常。
 
@@ -153,7 +186,7 @@ public class Test {
 
 大部分情况下，我们不需要自定义异常。
 
-![image-20210306135807062](Java入门笔记（六）/image-20210306135807062.png)
+![image-20210306135807062](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107917.png)
 
 ```java
 //自定义的异常类
@@ -195,6 +228,6 @@ public class Test {
 }
 ```
 
-![image-20210306143205863](Java入门笔记（六）/image-20210306143205863.png)
+![image-20210306143205863](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232107084.png)
 
 IDEA代码出现波浪线（一些异常等），按住Alt + Enter进行处理。

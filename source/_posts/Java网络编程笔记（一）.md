@@ -17,7 +17,7 @@ date: 2021-07-30 08:41:14
 
 <!--more-->
 
-![image-20210731213349104](Java网络编程笔记（一）/image-20210731213349104.png)
+![image-20210731213349104](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125897.png)
 
 **实现网络通信需要解决的两个问题**
 
@@ -34,7 +34,7 @@ date: 2021-07-30 08:41:14
 
 网络通信协议有2套参考模型，其中OSI参考模型过于理想化，未能在因特网上进行广泛推广，TCP/IP参考模型是事实上的国际标准。
 
-![image-20210731214817680](Java网络编程笔记（一）/image-20210731214817680.png)
+![image-20210731214817680](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125364.png)
 
 ### 通信要素一：IP和端口号
 
@@ -104,7 +104,7 @@ System.out.println(inet1.getHostAddress());
 
 ### 通信要素二：网络通信协议
 
-![image-20210731223111621](Java网络编程笔记（一）/image-20210731223111621.png)
+![image-20210731223111621](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125206.png)
 
 传输层协议中有两个非常重要的协议：
 
@@ -114,13 +114,13 @@ System.out.println(inet1.getHostAddress());
 
 这两个协议都是传输层的协议，但有所不同。
 
-![image-20210801125424296](Java网络编程笔记（一）/image-20210801125424296.png)
+![image-20210801125424296](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125344.png)
 
 TCP的三次握手和四次挥手
 
-![image-20210801125823383](Java网络编程笔记（一）/image-20210801125823383.png)
+![image-20210801125823383](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125780.png)
 
-![image-20210801125836160](Java网络编程笔记（一）/image-20210801125836160.png)
+![image-20210801125836160](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125375.png)
 
 TCP类似生活中打电话，UDP类似生活中发短信。
 
@@ -419,4 +419,4 @@ public void server() throws IOException {
 
 总结：
 
-![image-20210801214156325](Java网络编程笔记（一）/image-20210801214156325.png)
+![image-20210801214156325](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232125858.png)

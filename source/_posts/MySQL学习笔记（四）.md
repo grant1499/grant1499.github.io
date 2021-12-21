@@ -222,7 +222,7 @@ FROM table_name [as table_alias]
 
 **逻辑运算符：**
 
-![image-20210921133922076](MySQL学习笔记（四）/image-20210921133922076.png)
+![image-20210921133922076](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137069.png)
 
 尽量使用英文字母（如`AND`之类的），有语法高亮。
 

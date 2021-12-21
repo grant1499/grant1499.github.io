@@ -12,7 +12,7 @@ date: 2021-02-24 07:03:50
 
 ## 1.头文件的防卫式声明
 
-![image-20210201104338919](C-入门笔记（一）/image-20210201104338919.png)
+![image-20210201104338919](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031979.png)
 
 写头文件时，非常建议按这种格式写防卫式声明。
 
@@ -44,7 +44,7 @@ date: 2021-02-24 07:03:50
 
 - long long
 
-  ![image-20210202171246995](C-入门笔记（一）/image-20210202171246995.png)
+  ![image-20210202171246995](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031354.png)
 
 **注意：**不同系统会有所差异，一字节为 8 位。
 
@@ -73,10 +73,10 @@ bool ： 1个字节 ： 取值范围（false和true，小写）
 
 **注意：**C++中有字符串常量，但是基本类型中却没有字符串变量。
 
-![image-20210202172025668](C-入门笔记（一）/image-20210202172025668.png)
+![image-20210202172025668](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030326.png)
 
 
-![image-20210202172115612](C-入门笔记（一）/image-20210202172115612.png)
+![image-20210202172115612](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030907.png)
 
 ## 3.类型别名
 
@@ -113,7 +113,7 @@ Area a = 10.10; // Area相当于double
 
 不限定作用域枚举类型。
 
-![image-20210203121020706](C-入门笔记（一）/image-20210203121020706.png)
+![image-20210203121020706](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030985.png)
 
 枚举类型(enumeration)是C++中的一种派生数据类型，它是由用户定义的若干枚举常量的集合。
 
@@ -185,13 +185,13 @@ The game was cancelled
 
 当变量类型名称太长时，可以使用auto进行简化。
 
-![image-20210203124857742](C-入门笔记（一）/image-20210203124857742.png)
+![image-20210203124857742](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030292.png)
 
-![image-20210203125001245](C-入门笔记（一）/image-20210203125001245.png)
+![image-20210203125001245](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030472.png)
 
 ## 6.const修饰变量称为符号常量
 
-![image-20210202173012524](C-入门笔记（一）/image-20210202173012524.png)
+![image-20210202173012524](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030776.png)
 
 ## 7.sizeof运算符与位运算
 
@@ -236,13 +236,13 @@ _______________________________
 ~3: 1111 1100
 ```
 
-![image-20210203113233625](C-入门笔记（一）/image-20210203113233625.png)
+![image-20210203113233625](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030265.png)
 
-![image-20210203113607711](C-入门笔记（一）/image-20210203113607711.png)
+![image-20210203113607711](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030342.png)
 
-![image-20210203114610229](C-入门笔记（一）/image-20210203114610229.png)
+![image-20210203114610229](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030628.png)
 
-![image-20210203114904249](C-入门笔记（一）/image-20210203114904249.png)
+![image-20210203114904249](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232030125.png)
 
 
 **移位运算：**
@@ -257,26 +257,26 @@ _______________________________
 
 不需要背，需要时查阅即可。
 
-![image-20210203115510900](C-入门笔记（一）/image-20210203115510900.png)
+![image-20210203115510900](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029714.png)
 
 ## 9.类型转换
 
-![image-20210203115727659](C-入门笔记（一）/image-20210203115727659.png)
+![image-20210203115727659](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029852.png)
 
-![image-20210203115801913](C-入门笔记（一）/image-20210203115801913.png)
+![image-20210203115801913](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029940.png)
 
-![image-20210203115952100](C-入门笔记（一）/image-20210203115952100.png)
+![image-20210203115952100](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029684.png)
 
 
 **注意**：`(int)a`和`int(a)`这两种方法都是等价的。
 
-![image-20210203120004165](C-入门笔记（一）/image-20210203120004165.png)
+![image-20210203120004165](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029287.png)
 
 ## 10.I/O流
 
 我们很少用到这种格式控制，可以用printf来代替格式化输出。
 
-![image-20210203120254795](C-入门笔记（一）/image-20210203120254795.png)
+![image-20210203120254795](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029262.png)
 
 ## 11.引用类型
 
@@ -291,11 +291,11 @@ _______________________________
 - 声明一个引用时，必须同时对它进行初始化，使它指向一个已存在的对象；
 - 一旦一个引用被初始化，就不能再指向其他对象。
 
-![image-20210203140838883](C-入门笔记（一）/image-20210203140838883.png)
+![image-20210203140838883](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029889.png)
 
 ## *12.含有可变参数的函数
 
-![image-20210203142030769](C-入门笔记（一）/image-20210203142030769.png)
+![image-20210203142030769](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029277.png)
 
-![image-20210203142053872](C-入门笔记（一）/image-20210203142053872.png)
+![image-20210203142053872](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029612.png)
 

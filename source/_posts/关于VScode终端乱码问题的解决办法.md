@@ -48,7 +48,7 @@ terminal.integrated.fontFamily:"Courier New"(字体修改为 "Courier New").
 
 当然了，如果你能通过修改右下方的GBK或者UTF-8可以解决的话就没必要选择上面的两种方法：
 
-![img](关于VScode终端乱码问题的解决办法/2020080614045655.png)
+![img](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816651.png)
 
 发现如果改成UTF-8的话，通过Run Code运行的话是正常的，但是到了F5调试，弹出的黑框是乱码的，如果改成GBK，那么F5调试是正常的，Run Code是乱码，反正二者不可兼得，大家自己选择。总结下来就是，Run Code运行改成UTF-8，F5调试运行改成GBK，当然这个不是绝对的，还要看一看"terminal.integrated.shellArgs.windows"修改的是什么，如果"terminal.integrated.shellArgs.windows"没有填，好像改成GBK就行了。
 

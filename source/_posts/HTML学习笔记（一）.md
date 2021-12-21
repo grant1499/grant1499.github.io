@@ -22,7 +22,7 @@ date: 2021-05-04 19:16:00
 
 web前端英语教程推荐：https://www.bilibili.com/video/BV17b41137yx?p=2&share_source=copy_web
 
-![image-20210504193312259](HTML学习笔记（一）/image-20210504193312259.png)
+![image-20210504193312259](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232048642.png)
 
 ```html
 <!-- 第一个网页-->
@@ -51,7 +51,7 @@ hello,world!
 
 一个网页必不可少的三个标签就是：html、head和body标签。
 
-![image-20210504200453609](HTML学习笔记（一）/image-20210504200453609.png)
+![image-20210504200453609](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232048688.png)
 
 ```html
 <!DOCTYPE html>
@@ -98,7 +98,7 @@ hello,world!
 </html>
 ```
 
-![image-20210504201252485](HTML学习笔记（一）/image-20210504201252485.png)
+![image-20210504201252485](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232048713.png)
 
 ### 图像标签
 
@@ -124,7 +124,7 @@ src和alt必填
 
 ### 链接标签
 
-![image-20210504202647535](HTML学习笔记（一）/image-20210504202647535.png)
+![image-20210504202647535](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232048736.png)
 
 ```html
 <!DOCTYPE html>

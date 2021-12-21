@@ -14,13 +14,29 @@ date: 2021-04-04 13:04:00
 
 <!--more-->
 
-![image-20210404124237876](Java入门笔记（十）/image-20210404124237876.png)
+![image-20210404124237876](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232110249.png)
 
-![image-20210404132608185](Java入门笔记（十）/image-20210404132608185.png)
+![image-20210404132608185](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232110284.png)
+
+所有的包装类型都是不变类。我们查看`Integer`的源码可知，它的核心代码如下：
+
+```java
+public final class Integer {
+    private final int value;
+}
+```
+
+因此，一旦创建了`Integer`对象，该对象就是不变的。
+
+对两个`Integer`实例进行比较要特别注意：绝对不能用`==`比较，因为`Integer`是引用类型，必须使用`equals()`比较。
 
 包装类的重点就在于基本数据类型、包装类和String类之间的转换。
 
 **重点记住：自动装/拆箱，parseXXX()/valueOf()。**
+
+注意：自动装箱和自动拆箱只发生在编译阶段，目的是为了少写代码。
+
+装箱和拆箱会影响代码的执行效率，因为编译后的`class`代码是严格区分基本类型和引用类型的。
 
 ```java
 // 基本数据类型-->包装类：调用包装类的构造器
@@ -157,7 +173,7 @@ public class InterviewTest {
 }
 ```
 
-补充知识：搞懂Java集合类，参照文章https://mp.weixin.qq.com/s/8EeWLdK7UZt81sGpQZvh9A，更多内容看公众号。
+补充知识：搞懂Java集合类，参照[文章](https://mp.weixin.qq.com/s/8EeWLdK7UZt81sGpQZvh9A)，更多内容看公众号。
 
 ## 2.单例（Singleton）设计模式
 
@@ -240,4 +256,4 @@ class Order{
 
 目前的懒汉式写法坏处：线程不安全。—>到多线程内容时，再修改
 
-![image-20210502094523609](Java入门笔记（十）/image-20210502094523609.png)
+![image-20210502094523609](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232110311.png)

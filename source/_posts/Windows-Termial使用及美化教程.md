@@ -20,7 +20,7 @@ date: 2021-04-26 22:02:50
 
 首先添加git bash到Windows Terminal：
 
-![image-20210426220918332](Windows-Termial使用及美化教程/image-20210426220918332.png)
+![image-20210426220918332](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232143377.png)
 
 在命令行选择Git\bin\bash.exe路径。
 
@@ -32,11 +32,11 @@ date: 2021-04-26 22:02:50
 
 配置文件的大致布局如下所示，对于我们美化来说，只需要关注 `profiles` 和 `schemes` 两块即可。
 
-![img](Windows-Termial使用及美化教程/20200530155138893.png)
+![img](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232144739.png)
 
 让我们先牛刀小试下，调整下终端的字体和字体大小。因为我想对所有终端都应用这个配置。所以我写在了 `defaults` 中，如下图所示即可。
 
-![img](Windows-Termial使用及美化教程/2020053015560247.png)
+![img](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232144336.png)
 
 ## 把windows terminal添加到右键菜单
 
@@ -46,6 +46,6 @@ date: 2021-04-26 22:02:50
 
 ## 最终效果
 
-![image-20210426221738253](Windows-Termial使用及美化教程/image-20210426221738253.png)
+![image-20210426221738253](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232144437.png)
 
-![image-20210426221823207](Windows-Termial使用及美化教程/image-20210426221823207.png)
+![image-20210426221823207](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232144854.png)

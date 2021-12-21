@@ -23,6 +23,8 @@ Set 判断两个对象是否相同不是使用 == 运算符，而是 根据 equa
 
 <!--more-->
 
+`Set`实际上相当于只存储key、不存储value的`Map`。我们经常用`Set`用于去除重复元素。
+
 Set 接口的实现类常用的有： **HashSet、LinkedHashSet和TreeSet** 。
 
 ```Java
@@ -34,9 +36,9 @@ Set 接口的实现类常用的有： **HashSet、LinkedHashSet和TreeSet** 。
 *              |----TreeSet：可以照添加对象的指定属性，进行排序。
 ```
 
-HashSet最常用。
+HashSet最常用。实际上，`HashSet`仅仅是对`HashMap`的一个简单封装。
 
-![image-20210612100053823](Java入门笔记（十五）/image-20210612100053823.png)
+![image-20210612100053823](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118626.png)
 
 以HashSet为例说明：
 
@@ -77,7 +79,7 @@ equals()
 
 *    重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。
 
-![image-20210612101425782](Java入门笔记（十五）/image-20210612101425782.png)
+![image-20210612101425782](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118304.png)
 
 LinkedHashSet在添加数据的同时，每个数据还维护了2个引用，记录此数据的前一个数据和后一个数据。
 
@@ -180,7 +182,7 @@ public void test6(){
 
 ## 2.Collection子接口之三：Map接口
 
-![image-20210612111933894](Java入门笔记（十五）/image-20210612111933894.png)
+![image-20210612111933894](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118572.png)
 
 Map常用实现类的结构：
 
@@ -209,7 +211,13 @@ Map常用实现类的结构：
 >Map中的entry:无序的、不可重复的，使用Set存储所的entry
 ```
 
-![image-20210612112947789](Java入门笔记（十五）/image-20210612112947789.png)
+ **始终牢记：Map中不存在重复的key，因为放入相同的key，只会把原有的key-value对应的value给替换掉。**
+
+ **遍历Map时，不可假设输出的key是有序的！**
+
+我们已经知道，`HashMap`是一种以空间换时间的映射表，它的实现原理决定了内部的Key是无序的，即遍历`HashMap`的Key时，其顺序是不可预测的（但每个Key都会遍历一次且仅遍历一次）。
+
+![image-20210612112947789](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118544.png)
 
 HashMap和HashSet一样是无序的。
 
@@ -228,7 +236,7 @@ HashMap与LinkedHashMap的关系与HashSet与LinkedHashSet的关系类似，后�
 * 遍历：keySet() / values() / entrySet()
 ```
 
-![image-20210612113337366](Java入门笔记（十五）/image-20210612113337366.png)
+![image-20210612113337366](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118722.png)
 
 ```Java
 Map map = new HashMap();
@@ -310,13 +318,15 @@ HashMap在jdk8中相较于jdk7在底层实现方面的不同:
 
 LinkedHashMap的底层原理作为了解内容。
 
-![image-20210612130347106](Java入门笔记（十五）/image-20210612130347106.png)
+![image-20210612130347106](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118121.png)
 
 **TreeMap:**
 
-![image-20210612143329084](Java入门笔记（十五）/image-20210612143329084.png)
+![image-20210612143329084](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232118651.png)
 
 TreeMap用到的还是比HashMap少。
+
+使用`TreeMap`时，放入的Key必须实现`Comparable`接口。`String`、`Integer`这些类已经实现了`Comparable`接口，因此可以直接作为Key使用。作为Value的对象则没有任何要求。
 
 ```Java
 // 向TreeMap中添加key-value，要求key必须是用一个类创建的对象
@@ -338,7 +348,7 @@ for (Object o:set){
 }
 
 // 定制排序
-TreeMap treeMap = new TreeMap(new Comparator() {
+TreeMap treeMap = new TreeMap(new Comparator() { // 匿名内部类写法
     @Override
     public int compare(Object o1, Object o2) {
         if (o1 instanceof Person && o2 instanceof Person){
@@ -368,11 +378,11 @@ while (iterator.hasNext()){
 
 ## 3.Collections工具类
 
-常用方法：均为static方法
+常用方法：均为`static`方法
 
 ```Java
 reverse(List)：反转 List 中元素的顺序
-shuffle(List)：对 List 集合元素进行随机排序
+shuffle(List)：对 List 集合元素进行随机排序，洗牌算法
 sort(List)：根据元素的自然顺序对指定 List 集合元素升序排序
 sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序
 swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换，i、j为下标索引
@@ -397,12 +407,12 @@ List dest = Arrays.asList(new Object[list.size()]);// 标准写法
 Collections.copy(dest,list);
 ```
 
-Collections 类中提供了多个 synchronizedXxx () 方法，该方法可使将指定集合包装成线程同步的集合，从而
+Collections 类中提供了多个 `synchronizedXxx ()` 方法，该方法可使将指定集合包装成线程同步的集合，从而
 
 可以解决多线程并发访问集合时的线程安全问题。
 
 说明：ArrayList和HashMap都是线程不安全的，如果程序要求线程安全，我们可以将ArrayList、HashMap
 
-转换为线程的。使用synchronizedList(List list） 和 synchronizedMap(Map map）。
+转换为线程的。使用`synchronizedList(List list)` 和 `synchronizedMap(Map map)`。
 
 `List list1 = Collections.synchronizedList(list)`，返回的list1是线程安全的。

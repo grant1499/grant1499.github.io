@@ -145,7 +145,7 @@ if (...) xxx; xxx;
 
 ## 3.acwing727.菱形
 
-![image-20201230171526383](C-竞赛语法总结（二）/image-20201230171526383-1610606143859.png)
+![image-20201230171526383](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010486.png)
 
 ```c++
 #include <cstdio>
@@ -206,7 +206,7 @@ if (fabs(sqrt(3) * sqrt(3) - 3) < eps) puts("相等");
 
 注意一下：
 
-![image-20201230191009315](C-竞赛语法总结（二）/image-20201230191009315.png)
+![image-20201230191009315](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010903.png)
 
 ```C++
 // 将数组全部初始化为0的写法
@@ -250,7 +250,7 @@ while (k--)
 for (int i = 0;i < n;i++) cout << a[i] << ' ';
 ```
 
-![image-20201230194748915](C-竞赛语法总结（二）/image-20201230194748915.png)
+![image-20201230194748915](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010370.png)
 
 ```c++
 // 更巧妙的做法，只有一重循环
@@ -327,7 +327,7 @@ int main()
 
 ##  8.acwing749.数组的上方区域
 
-![image-20201230222858583](C-竞赛语法总结（二）/image-20201230222858583.png)
+![image-20201230222858583](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232010316.png)
 
 ```c++
 #include <iostream>
@@ -349,9 +349,9 @@ int main()
 
 ## 9.acwing753.平方矩阵 I
 
-![image-20201230225943900](C-竞赛语法总结（二）/image-20201230225943900.png)
+![image-20201230225943900](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232009908.png)
 
-![image-20201230230029361](C-竞赛语法总结（二）/image-20201230230029361.png)
+![image-20201230230029361](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232009197.png)
 
 ```c++
 // 这题不会做，困难
@@ -384,7 +384,7 @@ int main()
 
 ## 10.acwing756.蛇形矩阵
 
-![image-20201231183222306](C-竞赛语法总结（二）/image-20201231183222306.png)![image-20210101111311064](C-竞赛语法总结（二）/image-20210101111311064.png)
+![image-20201231183222306](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232009498.png)![image-20210101111311064](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232009125.png)
 
 
 

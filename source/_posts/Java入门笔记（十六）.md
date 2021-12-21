@@ -17,7 +17,7 @@ date: 2021-06-12 09:16:23
 
 从 JDK 1 5 以后 Java 引入了 参数化类型 Parameterized type 的概念允许我们在创建集合时再指定集合元素
 
-的类型 正如： List<String> 这表明该 List 只能保存字符串类型的对象 。
+的类型 正如： `List<String>` 这表明该 List 只能保存字符串类型的对象 。
 
 <!--more-->
 
@@ -132,7 +132,7 @@ public class Order<T> {
 //        }
 
     }
-    //如下的个方法都不是泛型方法
+    //如下的两个方法都不是泛型方法
     public T getOrderT(){
         return orderT;
     }
@@ -163,6 +163,8 @@ class subOrder extends Order<Integer> {
 ![image-20210612171745520](Java入门笔记（十六）/image-20210612171745520.png)
 
 ## 3.泛型在继承方面的体现
+
+注意泛型的继承关系：可以把`ArrayList<Integer>`向上转型为`List<Integer>`（`T`不能变！），但不能把`ArrayList<Integer>`向上转型为`ArrayList<Number>`（`T`不能变成父类）。
 
 虽然类A是类B的父类，但是G<A> 和G<B>二者不具备子父类关系，二者是并列关系
 
@@ -294,3 +296,75 @@ public void test6(){
 }
 ```
 
+## 5.类型擦除
+
+详见《Java核心技术卷一》P333。
+
+下面内容参考自[廖雪峰java教程](https://www.liaoxuefeng.com/wiki/1252599548343744/1265104600263968)。
+
+泛型是一种类似”模板代码“的技术，不同语言的泛型实现方式不一定相同。
+
+Java语言的泛型实现方式是擦拭法（Type Erasure）。
+
+所谓擦拭法是指，虚拟机对泛型其实一无所知，所有的工作都是编译器做的。
+
+例如，我们编写了一个泛型类`Pair<T>`，这是编译器看到的代码：
+
+```java
+public class Pair<T> {
+    private T first;
+    private T last;
+    public Pair(T first, T last) {
+        this.first = first;
+        this.last = last;
+    }
+    public T getFirst() {
+        return first;
+    }
+    public T getLast() {
+        return last;
+    }
+}
+```
+
+而虚拟机根本不知道泛型。这是虚拟机执行的代码：
+
+```java
+public class Pair {
+    private Object first;
+    private Object last;
+    public Pair(Object first, Object last) {
+        this.first = first;
+        this.last = last;
+    }
+    public Object getFirst() {
+        return first;
+    }
+    public Object getLast() {
+        return last;
+    }
+}
+```
+
+因此，Java使用擦拭法实现泛型，导致了：
+
+- 编译器把类型`<T>`视为`Object`；
+- 编译器根据`<T>`实现安全的强制转型。
+
+使用泛型的时候，我们编写的代码也是编译器看到的代码：
+
+```java
+Pair<String> p = new Pair<>("Hello", "world");
+String first = p.getFirst();
+String last = p.getLast();
+```
+
+而虚拟机执行的代码并没有泛型：
+
+```java
+Pair p = new Pair("Hello", "world");
+String first = (String) p.getFirst();
+String last = (String) p.getLast();
+```
+
+所以，Java的泛型是由编译器在编译时实行的，编译器内部永远把所有类型`T`视为`Object`处理，但是，在需要转型的时候，编译器会根据`T`的类型自动为我们实行安全地强制转型。

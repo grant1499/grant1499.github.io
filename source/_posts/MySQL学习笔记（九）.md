@@ -33,7 +33,7 @@ Java操作数据库。
 
 对于开发人员来说，只要掌握JDBC接口的操作即可。
 
-![image-20210925095434814](MySQL学习笔记（九）/image-20210925095434814.png)
+![image-20210925095434814](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232136877.png)
 
 IDEA如何彻底删除一个project： https://blog.csdn.net/daponi/article/details/95328834。
 
@@ -47,7 +47,7 @@ mysql驱动5.1.47： https://mvnrepository.com/artifact/mysql/mysql-connector-ja
 
 要用到的东西：
 
-两个类：java.sql和javax.sql；
+两个类：`java.sql`和`javax.sql`；
 
 还需要导入一个数据库驱动包。
 
@@ -171,7 +171,7 @@ resultSet.absolute(i);//移动到第i行
 
 在`src`目录下新建`db.properties`文件，将驱动操作解耦合。
 
-Properties 继承于 Hashtable。表示一个持久的属性集.属性列表中每个键及其对应值都是一个字符串。
+Properties 继承于 Hashtable。表示一个持久的属性集，属性列表中每个键及其对应值都是一个字符串。
 
 加载Properties配置文件的两种方式在Java入门笔记（二十）讲解过。
 
@@ -181,6 +181,7 @@ driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://localhost:3306/jdbcstudy?useSSL=false&useUnicode=true&characterEncoding=utf8
 username=root
 password=xxx
+    
 // 工具类
 package com.jdbc.java.demo.utils;
 import java.io.InputStream;
@@ -292,3 +293,48 @@ DELETE FROM users WHERE id = 4;
 ```
 
 增删改都用：`executeUpdate`方法，查使用：`executeQuery`方法。
+
+### 1.5 预编译SQL示例
+
+```java
+public class TestJDBC2 {
+    public static void main(String[] args) throws Exception {
+        //配置信息
+        //useUnicode=true&characterEncoding=utf-8 解决中文乱码
+        String url="jdbc:mysql://localhost:3306/jdbc?useUnicode=true&characterEncoding=utf-8";
+        String username = "root";
+        String password = "123456";
+
+        //1.加载驱动
+        Class.forName("com.mysql.jdbc.Driver");
+        //2.连接数据库,代表数据库
+        Connection connection = DriverManager.getConnection(url, username, password);
+
+        //3.编写SQL
+        String sql = "insert into  users(id, name, password, email, birthday) values (?,?,?,?,?);";
+
+        //4.预编译SQL
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setInt(1,2);//给第一个占位符？ 的值赋值为1；
+        preparedStatement.setString(2,"狂神说Java");//给第二个占位符？ 的值赋值为狂神说Java；
+        preparedStatement.setString(3,"123456");//给第三个占位符？ 的值赋值为123456；
+        preparedStatement.setString(4,"24736743@qq.com");//给第四个占位符？ 的值赋值为1；
+        preparedStatement.setDate(5,new Date(new java.util.Date().getTime()));//给第五个占位符？ 的值赋值为new Date(new java.util.Date().getTime())；
+
+        //5.执行SQL
+        int i = preparedStatement.executeUpdate();
+
+        if (i>0){
+            System.out.println("插入成功!");
+        }
+
+        //6.关闭连接，释放资源（一定要做） 先开后关
+        preparedStatement.close();
+        connection.close();
+    }
+}
+```
+
+
+

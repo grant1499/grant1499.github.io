@@ -27,15 +27,15 @@ date: 2021-04-15 13:04:30
 
 <!--more-->
 
-![image-20210415131524794](C-入门笔记（九）/image-20210415131524794.png)
+![image-20210415131524794](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018203.png)
 
 ### 1.2抽象类
 
 类似Java中抽象方法与抽象类的区别，只是在基类中说明，具体实现交给派生类。
 
-![image-20210415131904033](C-入门笔记（九）/image-20210415131904033.png)
+![image-20210415131904033](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018132.png)
 
-![image-20210415131917288](C-入门笔记（九）/image-20210415131917288.png)
+![image-20210415131917288](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018293.png)
 
 ### 1.3应用抽象类建立栈与队列
 

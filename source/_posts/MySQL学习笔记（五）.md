@@ -22,7 +22,7 @@ date: 2021-09-21 13:12:10
 
 SQL JOINS：七种join（联结）方式。
 
-![image-20210921150037470](MySQL学习笔记（五）/image-20210921150037470.png)
+![image-20210921150037470](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137813.png)
 
 内连接的语法格式如下：
 
@@ -128,11 +128,11 @@ INSERT INTO `SCHool`.`category` (`categoryid`, `pid`, `categoryname`) VALUES ('7
 
 子类的`pid`对应父类的`categoryid`，确定每个子类属于哪个父类。
 
-![image-20210922100625454](MySQL学习笔记（五）/image-20210922100625454.png)
+![image-20210922100625454](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137073.png)
 
 整理父类和子类的关系可以得到下图：
 
-![image-20210922100823667](MySQL学习笔记（五）/image-20210922100823667.png)
+![image-20210922100823667](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137146.png)
 
 下面用`mysql`语句来查询父类和子类的关系：
 

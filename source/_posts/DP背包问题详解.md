@@ -27,7 +27,7 @@ OI-wiki背包问题简单总结：https://oi-wiki.org/dp/knapsack/
 
 <!--more-->
 
-![image-20210519192928293](DP背包问题详解/image-20210519192928293.png)
+![image-20210519192928293](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037240.png)
 
 ## 1.01背包问题
 
@@ -75,7 +75,7 @@ OI-wiki背包问题简单总结：https://oi-wiki.org/dp/knapsack/
 
 y氏DP分析法：
 
-![image-20210519202245762](DP背包问题详解/image-20210519202245762.png)
+![image-20210519202245762](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037260.png)
 
 三重循环（朴素）做法：数据加强后TLE，重在理解写法
 
@@ -112,7 +112,7 @@ int main(){
 
 减少一重循环。
 
-![image-20210520175203903](DP背包问题详解/image-20210520175203903.png)
+![image-20210520175203903](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037278.png)
 
 对比01背包问题的状态转移方程是：`f[i][j] = max(f[i-1][j],f[i-1][j-v[i]]+w[i])`
 
@@ -288,7 +288,7 @@ int main(){
 
 那么需要优化解题思路了，我们是否可以尝试类似完全背包的二重优化呢？
 
-![image-20210520205800390](DP背包问题详解/image-20210520205800390.png)
+![image-20210520205800390](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037303.png)
 
 由上图的两个式子，我们发现并不能推导出一个递推式。
 
@@ -324,7 +324,7 @@ int main(){
 
 如果`s > 2^(k+1) - 1`，显然有`c < 2^(k+1)`。
 
-![image-20210520215137628](DP背包问题详解/image-20210520215137628.png)
+![image-20210520215137628](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037333.png)
 
 由1,2,4,8,...,2^k可以组合出0到2^(k+1) -1，
 
@@ -451,7 +451,7 @@ int main(){
 
 相当于在01背包问题中多加了一个维度。
 
-![image-20210521090754467](DP背包问题详解/image-20210521090754467.png)
+![image-20210521090754467](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037370.png)
 
 二维朴素做法：01背包问题其实可以看成是每一组只有1件物品的分组背包问题。
 

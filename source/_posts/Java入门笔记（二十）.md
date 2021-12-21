@@ -15,11 +15,11 @@ copyright: true
 
 <!--more-->
 
-![image-20210727172953297](Java入门笔记（二十）/image-20210727172953297.png)
+![image-20210727172953297](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105855.png)
 
 红色要求重点掌握，其他作为了解内容。
 
-![image-20210727173601290](Java入门笔记（二十）/image-20210727173601290.png)
+![image-20210727173601290](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105206.png)
 
 反射示例。
 
@@ -131,13 +131,48 @@ public class ReflectionTest {
 
 ## 3.Class类
 
-Class类定义在java.lang.Class之下。
+除了`int`等基本类型外，Java的其他类型全部都是`class`（包括`interface`）。例如：
+
+- `String`
+- `Object`
+- `Runnable`
+- `Exception`
+- ...
+
+仔细思考，我们可以得出结论：`class`（包括`interface`）的本质是数据类型（`Type`）。无继承关系的数据类型无法赋值：
+
+```java
+Number n = new Double(123.456); // OK
+String s = new Double(123.456); // compile error!
+```
+
+而`class`是由JVM在执行过程中动态加载的。JVM在第一次读取到一种`class`类型时，将其加载进内存。
+
+每加载一种`class`，JVM就为其创建一个`Class`类型的实例，并关联起来。注意：这里的`Class`类型是一个名叫`Class`的`class`。它长这样：
+
+```java
+public final class Class { // 注意区分大小写！前面的class关键字是小写，后面的Class类名是大写
+    private Class() {}
+}
+```
+
+以`String`类为例，当JVM加载`String`类时，它首先读取`String.class`文件到内存，然后，为`String`类创建一个`Class`实例并关联起来：
+
+`Class cls = new Class(String);`
+
+这个`Class`实例是JVM内部创建的，如果我们查看JDK源码，可以发现`Class`类的构造方法是`private`，只有JVM能创建`Class`实例，我们自己的Java程序是无法创建`Class`实例的。
+
+所以，JVM持有的每个`Class`实例都指向一个数据类型（`class`或`interface`）：
+
+![image-20211208224410611](https://gitee.com/grant1499/blog-pic/raw/master/img/202112082244669.png)
+
+Class类定义在`java.lang.Class`之下。
 
 类的加载过程：程序经过javac命令编译后生成一个或多个字节码(.class)文件，接着用java命令对某个字节码文件解释执行。
 
 解释执行的过程相当于将某个字节码文件加载到内存中，此过程称为类的加载。
 
-加载到内存中的类称为运行时类，作为Class类的一个实例。
+**加载到内存中的类称为运行时类，作为Class类的一个实例。**
 
 **Class的实例就对应着一个运行时类！**
 
@@ -178,23 +213,36 @@ public void test3() throws ClassNotFoundException {
 
 方式3用的比较多。
 
+**因为`Class`实例在JVM中是唯一的**，所以，上述方法获取的`Class`实例是同一个实例。可以用`==`比较两个`Class`实例：
+
+```java
+Class cls1 = String.class;
+
+String s = "Hello";
+Class cls2 = s.getClass();
+
+boolean sameClass = cls1 == cls2; // true
+```
+
+
+
 Class实例可以是哪些结构？
 
-![image-20210730121121036](Java入门笔记（二十）/image-20210730121121036.png)
+![image-20210730121121036](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105109.png)
 
-![image-20210730121243893](Java入门笔记（二十）/image-20210730121243893.png)
+![image-20210730121243893](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105248.png)
 
 ## 5.类的加载与ClassLoader的理解
 
 了解内容。
 
-![image-20210730121854721](Java入门笔记（二十）/image-20210730121854721.png)
+![image-20210730121854721](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105419.png)
 
 类加/装载器的作用：
 
-![image-20210730122635446](Java入门笔记（二十）/image-20210730122635446.png)
+![image-20210730122635446](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105598.png)
 
-![image-20210730122814235](Java入门笔记（二十）/image-20210730122814235.png)
+![image-20210730122814235](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105022.png)
 
 例子演示。
 
@@ -236,7 +284,7 @@ Person p = obj.newInstance();// newInstance创建对应的运行时类的对象
 
 说明：
 
-newInstance():调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。
+`newInstance()`:调用此方法，创建对应的运行时类的对象。内部调用了运行时类的空参的构造器。
 
 要想此方法正常的创建运行时 在javabean中要求提供一个public的空参构造器。原因：
 
@@ -267,7 +315,7 @@ public void test1(){
     }
     System.out.println();
 
-    //getDeclaredFields():获取当前运行时类中声明的所属性。（不包含父类中声明的属性
+    //getDeclaredFields():获取当前运行时类中声明的所有属性。不包含父类中声明的属性
     Field[] declaredFields = clazz.getDeclaredFields();
     for(Field f : declaredFields){
         System.out.println(f);
@@ -289,7 +337,7 @@ public void test1(){
         System.out.println(m);
     }
     System.out.println();
-    //getDeclaredMethods():获取当前运行时类中声明的所方法。（不包含父类中声明的方法
+    //getDeclaredMethods():获取当前运行时类中声明的所方法。不包含父类中声明的方法
     Method[] declaredMethods = clazz.getDeclaredMethods();
     for(Method m : declaredMethods){
         System.out.println(m);
@@ -407,3 +455,48 @@ public void test7(){
 }
 ```
 
+## 8.class的动态加载
+
+JVM在执行Java程序的时候，并不是一次性把所有用到的class全部加载到内存，而是第一次需要用到class时才加载。例如：
+
+```java
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        if (args.length > 0) {
+            create(args[0]);
+        }
+    }
+
+    static void create(String name) {
+        Person p = new Person(name);
+    }
+}
+```
+
+当执行`Main.java`时，由于用到了`Main`，因此，JVM首先会把`Main.class`加载到内存。然而，并不会加载`Person.class`，除非程序执行到`create()`方法，JVM发现需要加载`Person`类时，才会首次加载`Person.class`。如果没有执行`create()`方法，那么`Person.class`根本就不会被加载。
+
+这就是JVM动态加载`class`的特性。
+
+动态加载`class`的特性对于Java程序非常重要。利用JVM动态加载`class`的特性，我们才能在运行期根据条件加载不同的实现类。例如，Commons Logging总是优先使用Log4j，只有当Log4j不存在时，才使用JDK的logging。利用JVM动态加载特性，大致的实现代码如下：
+
+```java
+// Commons Logging优先使用Log4j:
+LogFactory factory = null;
+if (isClassPresent("org.apache.logging.log4j.Logger")) {
+    factory = createLog4j();
+} else {
+    factory = createJdkLog();
+}
+
+boolean isClassPresent(String name) {
+    try {
+        Class.forName(name);
+        return true;
+    } catch (Exception e) {
+        return false;
+    }
+}
+```
+
+这就是为什么我们只需要把Log4j的jar包放到classpath中，Commons Logging就会自动使用Log4j的原因。

@@ -144,7 +144,7 @@ class RunoobTest {
 
 用“==”不能判断两个对象是否相等，只能判断两个引用是否指向同一个对象。
 
-![image-20210404113052887](Java入门笔记（九）/image-20210404113052887.png)
+![image-20210404113052887](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106328.png)
 
 
 
@@ -200,9 +200,9 @@ Class类是代表类的类。
 
 IDEA为Java类创建JUnit单元测试。
 
-![image-20210404125900225](Java入门笔记（九）/image-20210404125900225.png)
+![image-20210404125900225](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106946.png)
 
-![image-20210404131222019](Java入门笔记（九）/image-20210404131222019.png)
+![image-20210404131222019](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232106489.png)
 
 此时的Java类要求：① 此类是public的  ②此类提供公共的无参的构造器
  * 此类中声明单元测试方法。

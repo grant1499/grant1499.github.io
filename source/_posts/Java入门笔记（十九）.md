@@ -143,7 +143,7 @@ OutputStreamWriter：将一个字符的输出流转换为字节的输出流
 
 说白了。看下图，就是为了使用字符流处理字节流
 
-![image-20210725104835755](Java入门笔记（十九）/image-20210725104835755.png)
+![image-20210725104835755](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232112604.png)
 
 ```Java
 // InputStreamReader的解码示例
@@ -349,4 +349,4 @@ Externalizable
 
 补充：ObjectOutputStream和ObjectInputStream不能序列化static和transient修饰的成员变量
 
-![image-20210726095040084](Java入门笔记（十九）/image-20210726095040084.png)
+![image-20210726095040084](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232112634.png)

@@ -14,7 +14,9 @@ date: 2021-04-03 11:43:13
 
 <!--more-->
 
-![image-20210403114450929](Java入门笔记（七）/image-20210403114450929.png)
+参考博客： https://www.cnblogs.com/starhu/p/5143983.html。（总结全面！）
+
+![image-20210403114450929](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108403.png)
 
 - 非公共的类，不能在包外被使用。
 
@@ -39,6 +41,8 @@ public static MerchandiseV2 createMerchandise(String name, String id, int count,
 | Protected | 可以 | 可以 | 可以 |      |
 | 默认（default） | 可以 | 可以 |      |      |
 | private | 可以 | | | |
+
+**注意，上述四种访问权限，只有默认访问权限和public能够用来修饰类。修饰类的变量和方法四种权限都可以。（本处所说的类针对的是外部类，不包括内部类）**
 
 ## 2.Math类
 
@@ -100,20 +104,22 @@ public class Application {
 
 ## 3.重新认识String类
 
-String 对象最重要的特点：**不可变（immutable）**不可变不可变，重要的事情说三遍。String 用来存储字符的数据是private 的，而且不提供任何修改内容的方法，**所以String 对象一旦生成，其内容就是完全不可能被修改的。**
+String 对象最重要的特点：**不可变（immutable）**不可变不可变，重要的事情说三遍。String 用来存储字符的数据是private的，而且不提供任何修改内容的方法，**所以String 对象一旦生成，其内容就是完全不可能被修改的。**
+
+这种不可变性是通过内部的`private final char[]`字段，以及没有任何修改`char[]`的方法实现的。
 
 String是一个final类，不可变。
 
-String 对象的字符内容是存储在一个字符数组 value[] 中 的。
+String 对象的字符内容是存储在一个字符数组 value 中的。
 
-![image-20210502134230914](Java入门笔记（七）/image-20210502134230914.png)
+![image-20210502134230914](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108410.png)
 
-![image-20210502134630605](Java入门笔记（七）/image-20210502134630605.png)
+![image-20210502134630605](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108607.png)
 
-![image-20210502134822887](Java入门笔记（七）/image-20210502134822887.png)
+![image-20210502134822887](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108782.png)
 
 `String s = new String("abc");`方式创建对象，在内存中创建了几个对象？
-**两个**:一个是堆空间中new结构，另一个是char[]对应的常量池中的数据："abc"
+**两个**:一个是堆空间中new结构，另一个是char[]对应的常量池中的数据：`"abc"`
 
 ```java
 public class LearnString {
@@ -148,7 +154,7 @@ public class LearnString {
 
 `substring(int beginIndex，int endIndex)` 形式：左闭右开
 
-此方法中的 `beginIndex` 表示截取的起始索引，截取的字符串中包括起始索引对应的字符；endIndex 表示结束索引，截取的字符串中不包括结束索引对应的字符，如果不指定 `endIndex`，则表示截取到目标字符串末尾。
+此方法中的 `beginIndex` 表示截取的起始索引，截取的字符串中包括起始索引对应的字符；`endIndex` 表示结束索引，截取的字符串中不包括结束索引对应的字符，如果不指定 `endIndex`，则表示截取到目标字符串末尾。
 
 ```java
 public class LearnString2 {
@@ -212,25 +218,42 @@ public class LearnString2 {
 
 **equals方法：**
 
-equals() 方法用于将字符串与指定的对象比较。
+`equals()` 方法用于将字符串与指定的对象比较。
 
-String 类中重写了 equals() 方法用于比较两个字符串的内容是否相等。
+String 类中重写了 `equals()` 方法用于比较两个字符串的内容是否相等。
 
 如果给定对象与字符串相等，则返回 true；否则返回 false。
 
-注意：String 中 **==** 比较引用地址是否相同，**equals()** 比较字符串的内容是否相同。
+**注意：String 中 == 比较引用地址是否相同，equals() 比较字符串的内容是否相同。**
 
-用==进行比较时，符号两边的数据类型必须兼容，可自动转换的基本数据类型除外，否则编译 出错。
+用==进行比较时，符号两边的数据类型必须兼容，可自动转换的基本数据类型除外，否则编译出错。
 
-equalsIgnoreCase() 方法用于将字符串与指定的对象比较，不考虑大小写。
+`equalsIgnoreCase()` 方法用于将字符串与指定的对象比较，不考虑大小写。
 
-contains() 方法用于判断字符串中是否包含指定的字符或字符串。
+`contains()` 方法用于判断字符串中是否包含指定的字符或字符串。
 
-trim() 方法用于删除字符串的头尾空白符。
+`trim()` 方法用于删除字符串的头尾空白符。
+
+**String类的类型转换：**在入门笔记（十）中的包装类中有详细讲解
+
+要把任意基本类型或引用类型转换为字符串，可以使用静态方法`valueOf()`。这是一个重载方法，编译器会根据参数自动选择合适的方法：
+
+```java
+String.valueOf(123); // "123"
+String.valueOf(45.67); // "45.67"
+String.valueOf(true); // "true"
+String.valueOf(new Object()); // 类似java.lang.Object@636be97c
+```
 
 ## 4.String类与char[]、byte[]之间的转换
 
-![image-20210502142039420](Java入门笔记（七）/image-20210502142039420.png)
+![image-20210502142039420](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108903.png)
+
+如果修改了`char[]`数组，`String`并不会改变：
+
+这是因为通过`new String(char[])`创建新的`String`实例时，它并不会直接引用传入的`char[]`数组，而是会复制一份，所以，修改外部的`char[]`数组不会影响`String`实例内部的`char[]`数组，因为这是两个不同的数组。
+
+从`String`的不变性设计可以看出，如果传入的对象有可能改变，我们需要复制而不是直接引用。
 
 ```Java
 public class StringTest {
@@ -248,7 +271,7 @@ public class StringTest {
 }
 ```
 
-![image-20210502142755814](Java入门笔记（七）/image-20210502142755814.png)
+![image-20210502142755814](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232108177.png)
 
 ```Java
 public class StringTest {

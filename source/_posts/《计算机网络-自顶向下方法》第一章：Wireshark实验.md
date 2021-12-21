@@ -44,7 +44,7 @@ Wireshark抓包详细教程： https://www.cnblogs.com/mq0036/p/11187138.html。
 
 在主 Wireshark 窗口顶部的分组显示过滤器窗口中，键入 “http”（不含引号，且小写 - Wireshark中的所有协议名称均为小写）。然后就只会看到HTTP消息。
 
-![image-20210919150722493](《计算机网络-自顶向下方法》第一章：Wireshark实验/image-20210919150722493.png)
+![image-20210919150722493](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231742462.png)
 
 找到从您的计算机发送到 gaia.cs.umass.edu HTTP 服务器的 HTTP GET 消息。（在 Wireshark 分组列表窗口中查找 HTTP GET 消息，其后的 gaia.cs.umass.edu URL 中显示 “GET”）。
 
@@ -69,11 +69,11 @@ Wireshark抓包详细教程： https://www.cnblogs.com/mq0036/p/11187138.html。
 
 2.选择http过滤消息，然后视图-->时间显示格式-->日期和时间，
 
-![image-20210919151905054](《计算机网络-自顶向下方法》第一章：Wireshark实验/image-20210919151905054.png)
+![image-20210919151905054](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231742482.png)
 
 计算一下时间差：
 
-![image-20210919152011247](《计算机网络-自顶向下方法》第一章：Wireshark实验/image-20210919152011247.png)
+![image-20210919152011247](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231742498.png)
 
 3.观察上面http过滤的图，发现：
 

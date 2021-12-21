@@ -139,6 +139,7 @@ public class RequestTest extends HttpServlet {
 
     <div style="text-align: center">
         <form action="${pageContext.request.contextPath}/login" method="post">
+            <% 这里的/login就是下面的处理登录程序ServletDemo_03映射到的路径 %>
             <p>用户名：<input type="text" name="username"></p>
             <p>密码：<input type="password" name="pwd"></p>
             <p>爱好：

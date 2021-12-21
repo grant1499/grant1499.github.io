@@ -178,11 +178,11 @@ ORM ：对象关系映射
 
 新建数据库：
 
-![image-20211017195605637](Java-Web入门笔记（八）/image-20211017195605637.png)
+![image-20211017195605637](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232049690.png)
 
 新建表：
 
-![image-20211017200023761](Java-Web入门笔记（八）/image-20211017200023761.png)
+![image-20211017200023761](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232049728.png)
 
 创建JavaBean项目，新建`People`类：这就是一个JavaBean。
 
@@ -292,7 +292,7 @@ MVC教程： https://www.liaoxuefeng.com/wiki/1252599548343744/1266264917931808�
 
 什么是MVC： Model view Controller 模型、视图、控制器
 
-![image-20211017211937055](Java-Web入门笔记（八）/image-20211017211937055.png)
+![image-20211017211937055](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232049753.png)
 
 Model
 

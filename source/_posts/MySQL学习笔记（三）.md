@@ -43,7 +43,7 @@ DESC student
 -- 查看表的结构
 ```
 
-![image-20210504173551477](MySQL学习笔记（三）/image-20210504173551477.png)
+![image-20210504173551477](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232136384.png)
 
 ## 3.数据表的类型
 
@@ -55,7 +55,7 @@ DESC student
 
 两者的区别：
 
-![image-20210504173012750](MySQL学习笔记（三）/image-20210504173012750.png)
+![image-20210504173012750](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232136414.png)
 
 补充：INNODB 5.6.4后支持了全文索引。
 
@@ -63,7 +63,7 @@ DESC student
 
 数据库本质还是用文件存储。
 
-![image-20210504173513323](MySQL学习笔记（三）/image-20210504173513323.png)
+![image-20210504173513323](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232136445.png)
 
 了解内容。
 

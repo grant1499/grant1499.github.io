@@ -32,9 +32,9 @@ date: 2021-05-02 16:29:45
 
 <!--more-->
 
-![image-20210502163607157](Java入门笔记（十二）/image-20210502163607157.png)
+![image-20210502163607157](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111707.png)
 
-![image-20210502164631141](Java入门笔记（十二）/image-20210502164631141.png)
+![image-20210502164631141](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111812.png)
 
 ```Java
 public void APITest() {
@@ -65,11 +65,11 @@ public void APITest() {
     }
 ```
 
-![image-20210502193652086](Java入门笔记（十二）/image-20210502193652086.png)
+![image-20210502193652086](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111362.png)
 
 Instant类，时间戳。
 
-![image-20210502193732034](Java入门笔记（十二）/image-20210502193732034.png)
+![image-20210502193732034](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111636.png)
 
 ```Java
 public void APITest() {
@@ -90,7 +90,7 @@ public void APITest() {
     }
 ```
 
-![image-20210502195424494](Java入门笔记（十二）/image-20210502195424494.png)
+![image-20210502195424494](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111952.png)
 
 ## 2.Java比较器（重要）
 
@@ -102,7 +102,7 @@ Java 实现对象排序的方式有两种：
 
 - 定制排序： java.util.Comparator
 
-![image-20210502201039171](Java入门笔记（十二）/image-20210502201039171.png)
+![image-20210502201039171](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111117.png)
 
 重写compareTo()方法的**一般规则**如上图蓝色字体。
 
@@ -185,7 +185,7 @@ public class CompareTest {
 [Goods{name='xiaomi', price=19}, Goods{name='lenovo', price=25}, Goods{name='dell', price=35}, Goods{name='apple', price=199}]*/
 ```
 
-![image-20210502204316839](Java入门笔记（十二）/image-20210502204316839.png)
+![image-20210502204316839](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232111527.png)
 
 接上面例子：
 

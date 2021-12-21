@@ -362,7 +362,7 @@ Tom 爱吃鱼
 '''
 ```
 
-![005_方法中的self](Python进阶笔记（一）/005_方法中的self.png)
+![005_方法中的self](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138831.png)
 
 
 - 在 **类的外部**，通过 `变量名.` 访问对象的 **属性和方法**

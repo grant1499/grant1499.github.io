@@ -109,7 +109,7 @@ int main()
 
 - 转换构造函数被explicit修饰时只能进行显示转换。
 
-  ![image-20210415111019594](C-入门笔记（七）/image-20210415111019594.png)
+  ![image-20210415111019594](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232019342.png)
 
 explicit在下面两种情况下有效：
 

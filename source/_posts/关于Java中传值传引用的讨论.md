@@ -28,7 +28,7 @@ date: 2021-09-14 12:27:05
 
 - 传值调用（值传递）
     - 在传值调用中，实际参数先被求值，然后其值通过复制，被传递给被调函数的形式参数。因为形式参数拿到的只是一个”局部拷贝”，所以如果在被调函数中改变了形式参数的值，并不会改变实际参数的值。
-- 传引用调用（应用传递）
+- 传引用调用（引用传递）
     - 在传引用调用中，传递给函数的是它的实际参数的隐式引用而不是实参的拷贝。因为传递的是引用，所以，如果在被调函数中改变了形式参数的值，改变对于调用者来说是可见的。
 - 传共享对象调用（共享对象传递）
     - 传共享对象调用中，先获取到实际参数的地址，然后将其复制，并把该地址的拷贝传递给被调函数的形式参数。因为参数的地址都指向同一个对象，所以我们称也之为”传共享对象”，所以，如果在被调函数中改变了形式参数的值，调用者是可以看到这种变化的。
@@ -43,7 +43,7 @@ date: 2021-09-14 12:27:05
 
 **传值调用是指在调用函数时将实际参数`复制`一份传递到函数中，传引用调用是指在调用函数时将实际参数的引用`直接`传递到函数中。**
 
-![pass-by-reference-vs-pass-by-value-animation](关于Java中传值传引用的讨论/pass-by-reference-vs-pass-by-value-animation.gif)
+![pass-by-reference-vs-pass-by-value-animation](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816456.gif)
 
 所以，两者的最主要区别就是是直接传递的，还是传递的是一个副本。
 
@@ -87,7 +87,7 @@ print in pass , user is User{name='hollischuang', gender='Male'}
 print in main , user is User{name='hollischuang', gender='Male'}
 ```
 
-![pass2](关于Java中传值传引用的讨论/pass21.png)
+![pass2](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816493.png)
 
 你复制了一把你家里的钥匙给到你的朋友，他拿到钥匙以后，并没有在这把钥匙上做任何改动，而是通过钥匙打开了你家里的房门，进到屋里，把你家的电视给砸了。
 
@@ -114,7 +114,7 @@ print in main , user is User{name='Hollis', gender='Male'}
 
 再看一下整个过程中发生了什么：
 
-![pass1](关于Java中传值传引用的讨论/pass1.png)
+![pass1](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816523.png)
 
 这个过程，就好像你复制了一把钥匙给到你的朋友，你的朋友拿到你给他的钥匙之后，找个锁匠把他修改了一下，他手里的那把钥匙变成了开他家锁的钥匙。这时候，他打开自己家，就算是把房子点了，对你手里的钥匙，和你家的房子来说都是没有任何影响的。
 

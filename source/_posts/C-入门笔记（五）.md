@@ -16,21 +16,21 @@ date: 2021-03-26 19:56:25
 
 ### 1.1常引用
 
-![image-20210326195826852](C-入门笔记（五）/image-20210326195826852.png)
+![image-20210326195826852](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027206.png)
 
 如果用常引用作为形参，便不会修改实参。
 
 ### 1.2常对象
 
-![image-20210326203559729](C-入门笔记（五）/image-20210326203559729.png)
+![image-20210326203559729](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027524.png)
 
-![image-20210326203730026](C-入门笔记（五）/image-20210326203730026.png)
+![image-20210326203730026](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027730.png)
 
 ### 1.3常对象成员
 
 #### 1.3.1常数据成员
 
-![image-20210326203907290](C-入门笔记（五）/image-20210326203907290.png)
+![image-20210326203907290](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027444.png)
 
 如果在一个类中声明了常数据成员，那么构造函数就只能通过成员初始化列表对该数据成员进行初始化，而其他任何函数都不能对该成员赋值。
 
@@ -40,21 +40,21 @@ date: 2021-03-26 19:56:25
 
 
 
-![image-20210326204233223](C-入门笔记（五）/image-20210326204233223.png)
+![image-20210326204233223](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027153.png)
 
 常成员函数的一个例子：库函数sort的重载cmp函数应该写出常成员函数。
 
-![image-20210326204455146](C-入门笔记（五）/image-20210326204455146.png)
+![image-20210326204455146](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027863.png)
 
 常成员函数不能更新对象的数据成员，也不能调用该类中的普通成员函数，这就保证它就一定不会更新数据成员的值。
 
-![image-20210518090614849](C-入门笔记（五）/image-20210518090614849.png)
+![image-20210518090614849](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027678.png)
 
-![image-20210326204642137](C-入门笔记（五）/image-20210326204642137.png)
+![image-20210326204642137](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027518.png)
 
 ## 2派生类与继承
 
-![image-20210326220105829](C-入门笔记（五）/image-20210326220105829.png)
+![image-20210326220105829](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028014.png)
 
 **示例**
 
@@ -91,7 +91,7 @@ Employee类（派生类，子类）继承了Person类（基类，父类），pub
 
 如果不显式地给出继承方式，则默认为私有方式继承。
 
-![image-20210326205705011](C-入门笔记（五）/image-20210326205705011.png)
+![image-20210326205705011](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232027895.png)
 
 
 
@@ -103,7 +103,7 @@ Employee类（派生类，子类）继承了Person类（基类，父类），pub
 - 另一方面对基类的成员进行重定义，在派生类中声明一个与基类成员同名的成员，这时会覆盖基类的成员。
 
 ### **2.1基类成员在派生类中的访问属性** 
-![image-20210326212627017](C-入门笔记（五）/image-20210326212627017.png)
+![image-20210326212627017](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028948.png)
 
 ### **2.2派生类对基类成员的访问规则**
 
@@ -114,15 +114,15 @@ Employee类（派生类，子类）继承了Person类（基类，父类），pub
 
 #### 2.2.1私有继承的访问规则
 
-![image-20210326214408609](C-入门笔记（五）/image-20210326214408609.png)
+![image-20210326214408609](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028786.png)
 
 #### 2.2.2公有继承的访问规则
 
-![image-20210326214426371](C-入门笔记（五）/image-20210326214426371.png)
+![image-20210326214426371](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028523.png)
 
 #### 2.2.3保护继承的访问规则
 
-![image-20210326214439701](C-入门笔记（五）/image-20210326214439701.png)
+![image-20210326214439701](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028358.png)
 
 ### 2.3派生类构造和析构函数
 
@@ -130,14 +130,14 @@ Employee类（派生类，子类）继承了Person类（基类，父类），pub
 
 销毁对象：先执行派生类的析构函数，再执行基类的析构函数。
 
-![image-20210326214829763](C-入门笔记（五）/image-20210326214829763.png)
+![image-20210326214829763](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232028791.png)
 
-![image-20210326214944702](C-入门笔记（五）/image-20210326214944702.png)
+![image-20210326214944702](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029565.png)
 
 ### 3多重继承
 
-![image-20210326215234476](C-入门笔记（五）/image-20210326215234476.png)
+![image-20210326215234476](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029046.png)
 
 **多重继承的构造函数**
 
-![image-20210326215339284](C-入门笔记（五）/image-20210326215339284.png)
+![image-20210326215339284](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232029640.png)

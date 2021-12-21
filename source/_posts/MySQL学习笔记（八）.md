@@ -23,7 +23,7 @@ date: 2021-09-24 09:46:37
 
 拓展内容： 索引的数据结构
 
-MySQL索引背后的数据结构与算法原理： https://blog.csdn.net/wufuhuai/article/details/79631466。
+[MySQL索引背后的数据结构与算法原理](http://blog.codinglabs.org/articles/theory-of-mysql-index.html)。
 
 ```mysql
 -- 我们可以在创建上述索引的时候，为其指定索引类型，分两类

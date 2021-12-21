@@ -18,9 +18,11 @@ date: 2021-10-04 13:13:04
 
 看清楚，不要选成了Tomcat EE server。
 
-配置Tomcat选择local：![image-20211004143557614](Java-Web入门笔记（三）/image-20211004143557614.png)
+配置Tomcat选择local：![image-20211004143557614](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053687.png)
 
-成功运行Tomcat：![image-20211004145020838](Java-Web入门笔记（三）/image-20211004145020838.png)
+成功运行Tomcat：
+
+![image-20211023205802506](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058770.png)
 
 浏览器会显示默认的index.jsp中的hello,world!
 
@@ -40,7 +42,7 @@ date: 2021-10-04 13:13:04
 
 搜索需要的jar包，看看哪个版本用的人多。
 
-![image-20211004153213932](Java-Web入门笔记（三）/image-20211004153213932.png)![image-20211004153349467](Java-Web入门笔记（三）/image-20211004153349467.png)
+![image-20211004153213932](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053426.png)![image-20211004153349467](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053896.png)
 
 放在`<dependencies></dependencies>`之间。
 
@@ -74,7 +76,7 @@ Java Servlet 是运行在 **Web 服务器或应用服务器**上的**程序**，
 </dependencies>
 ```
 
-在项目下新建模块：**外面的项目是空白项目，里面的模块选择Maven web**。![image-20211004161430692](Java-Web入门笔记（三）/image-20211004161430692.png)
+在项目下新建模块：**外面的项目是空白项目，里面的模块选择Maven web**。![image-20211004161430692](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053942.png)
 
 关于Maven父子工程的理解：
 
@@ -148,19 +150,19 @@ public class HelloServlet extends HttpServlet {
 在web.xml的<web-app>标签中添加下面内容：
 
 ```xml
- <!--注册Servlet-->
-  <servlet>
+<!--注册Servlet-->
+<servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>top.grantdrew.HelloServlet</servlet-class>
-  </servlet>
-  <!--Servlet的请求路径-->
-  <servlet-mapping>
+</servlet>
+<!--Servlet的请求路径-->
+<servlet-mapping>
     <servlet-name>hello</servlet-name>
     <url-pattern>/hello</url-pattern> //  注意hello前面的/
-  </servlet-mapping>
+</servlet-mapping>
 ```
 
-![image-20211004165355052](Java-Web入门笔记（三）/image-20211004165355052.png)
+![image-20211004165355052](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053839.png)
 
 **mapping映射问题：**
 
@@ -229,7 +231,7 @@ hello/sajdlkajda.qinjiang
 
 配置好项目发布的路径。
 
-启动Tomcat测试：这个`/servlet_01_war`是在Tomcat配置中设置的，可以修改名字。![image-20211004185308595](Java-Web入门笔记（三）/image-20211004185308595.png)
+启动Tomcat测试：这个`/servlet_01_war`是在Tomcat配置中设置的，可以修改名字。![image-20211004185308595](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053649.png)
 
 ## 4.Servlet运行原理
 
@@ -247,8 +249,8 @@ Web服务器在与客户端交互时Servlet的工作过程是:
 
 整体理解：
 
-![image-20211004191056332](Java-Web入门笔记（三）/image-20211004191056332.png)
+![image-20211004191056332](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053004.png)
 
 代码理解：
 
-![image-20211004191156807](Java-Web入门笔记（三）/image-20211004191156807.png)
+![image-20211004191156807](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232053443.png)

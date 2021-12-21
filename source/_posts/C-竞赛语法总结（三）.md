@@ -58,7 +58,7 @@ int main()
 
 可以使用字符串来初始化字符数组，但此时要注意，每个字符串结尾会暗含一个’\0’字符，因此字符数组的长度至少要比字符串的长度多1！
 
-![image-20210101141628559](C-竞赛语法总结（三）/image-20210101141628559.png)
+![image-20210101141628559](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232012633.png)
 
 这里第二、三种初始化方式是等价的。
 
@@ -233,7 +233,7 @@ cout << len << endl;
 
 ## 5.acwing772.只出现一次的字符
 
-![image-20210101155001628](C-竞赛语法总结（三）/image-20210101155001628.png)
+![image-20210101155001628](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232012897.png)
 
 ```c++
 #include <iostream>
@@ -261,7 +261,7 @@ int main()
 
 ## 6.acwing763.循环相克令
 
-![image-20210101170937824](C-竞赛语法总结（三）/image-20210101170937824.png)
+![image-20210101170937824](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232012902.png)
 
 ```c++
 // 原解法，太过低效，直接暴力枚举

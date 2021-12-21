@@ -55,9 +55,9 @@ date: 2021-10-14 21:52:53
 
 jsp热部署：idea热部署（更新jsp代码不用重编译Tomcat）。
 
-![image-20211015154402907](Java-Web入门笔记（七）/image-20211015154402907.png)
+![image-20211015154402907](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052754.png)
 
-![image-20211015154323535](Java-Web入门笔记（七）/image-20211015154323535.png)
+![image-20211015154323535](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232052798.png)
 
 ### JSP表达式
 

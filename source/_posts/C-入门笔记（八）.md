@@ -64,25 +64,25 @@ int main() {
 
 **通过对象名和点运算调用是静态联编，只有通过基类指针的方式才是运行多态。**
 
-![image-20210415115503800](C-入门笔记（八）/image-20210415115503800.png)
+![image-20210415115503800](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014889.png)
 
 注意：上图不是虚函数，下图才是，两个对比来看。
 
-![image-20210415115608054](C-入门笔记（八）/image-20210415115608054.png)
+![image-20210415115608054](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014961.png)
 
 对比上面两张图，一个定义虚函数，一个没有，很容易就理解虚函数的作用。
 
 下图也是，左边定义了虚函数，右边没有定义。
 
-![image-20210415115650383](C-入门笔记（八）/image-20210415115650383.png)
+![image-20210415115650383](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014372.png)
 
-![image-20210415115658294](C-入门笔记（八）/image-20210415115658294.png)
+![image-20210415115658294](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014731.png)
 
-![image-20210415115705660](C-入门笔记（八）/image-20210415115705660.png)
+![image-20210415115705660](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014992.png)
 
 ## 2.虚析构函数
 
-![image-20210415124307380](C-入门笔记（八）/image-20210415124307380.png)
+![image-20210415124307380](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014075.png)
 
 注意上图第二个例子，delete时只调用B的析构函数。
 
@@ -137,7 +137,7 @@ int main(){
 }
 ```
 
-![image-20210415125758286](C-入门笔记（八）/image-20210415125758286.png)
+![image-20210415125758286](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014907.png)
 
 ```C++
 #include <iostream>
@@ -166,16 +166,16 @@ int main(){
 }
 ```
 
-![image-20210415130027582](C-入门笔记（八）/image-20210415130027582.png)
+![image-20210415130027582](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014647.png)
 
 ## 3.虚函数与重载函数的关系
 
-![image-20210415130603412](C-入门笔记（八）/image-20210415130603412.png)
+![image-20210415130603412](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232014225.png)
 
-![image-20210415130624719](C-入门笔记（八）/image-20210415130624719.png)
+![image-20210415130624719](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232015254.png)
 
 ## 4.虚函数与多重继承
 
-![image-20210415130918576](C-入门笔记（八）/image-20210415130918576.png)
+![image-20210415130918576](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232016788.png)
 
-![image-20210415131012252](C-入门笔记（八）/image-20210415131012252.png)
+![image-20210415131012252](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232015427.png)

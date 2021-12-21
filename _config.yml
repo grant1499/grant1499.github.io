@@ -154,7 +154,7 @@ deploy:
   type: git
   repo: 
     github: https://github.com/grant1499/grant1499.github.io.git
-    coding: https://e.coding.net/grant1499/grant1499/grant1499.git
+    # coding: https://e.coding.net/grant1499/grant1499/grant1499.git
   branch: master  
 
 # 归档页的分页设置

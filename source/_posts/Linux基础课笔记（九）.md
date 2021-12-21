@@ -179,7 +179,7 @@ On branch master
 nothing to commit, working tree clean
 ```
 
-![image-20210917093619626](Linux基础课笔记（九）/image-20210917093619626.png)
+![image-20210917093619626](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232128492.png)
 
 **Git删除文件命令：**
 

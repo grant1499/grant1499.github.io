@@ -180,4 +180,4 @@ class Pupil extends Student{
 
 原型链参考文章： https://www.jianshu.com/p/be7c95714586。
 
-![image-20210829141743641](JavaScript学习笔记（五）/image-20210829141743641.png)
+![image-20210829141743641](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232127222.png)

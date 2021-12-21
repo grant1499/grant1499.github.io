@@ -22,11 +22,11 @@ date: 2021-04-18 12:16:18
 
 配置MinGW时可能会出现如下警告。
 
-![image-20210418122025803](CLion配置使用教程/image-20210418122025803.png)
+![image-20210418122025803](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031182.png)
 
 我们点击More，可以看到类似下图的错误：
 
-![image-20210418122124086](CLion配置使用教程/image-20210418122124086.png)
+![image-20210418122124086](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031437.png)
 
 解决方案请参照[这里](https://zhuanlan.zhihu.com/p/43680621)
 
@@ -34,7 +34,7 @@ date: 2021-04-18 12:16:18
 
 参照这篇[文章](https://www.pianshen.com/article/33861131114/)，我花了大半天时间才找到这个非常有效的解决方案，我们根据提示，在D盘下新建一个CLion文件夹（或者你找别的路径也行），对照下图修改这四个部分。
 
-![image-20210418122720065](CLion配置使用教程/image-20210418122720065.png)
+![image-20210418122720065](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031527.png)
 
 然后打开CLion，新建工程，点击 help – edit custom vm options
 
@@ -46,11 +46,11 @@ date: 2021-04-18 12:16:18
 
 再按照下图改回MinGW默认的就不会报错了。
 
-![image-20210418123300435](CLion配置使用教程/image-20210418123300435.png)
+![image-20210418123300435](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031690.png)
 
 最后就可以放心的使用CLion了！
 
-![image-20210418123416782](CLion配置使用教程/image-20210418123416782.png)
+![image-20210418123416782](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031705.png)
 
 **补充关于CLion的多文件编译：**
 
@@ -64,7 +64,7 @@ CLion默认一个项目之下只能有一个带main函数的源文件。
 
 官网插件下载链接：https://plugins.jetbrains.com/
 
-![image-20210419133730396](CLion配置使用教程/image-20210419133730396.png)
+![image-20210419133730396](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031214.png)
 
 安装插件之后就可以编写代码了。
 
@@ -72,12 +72,12 @@ CLion默认一个项目之下只能有一个带main函数的源文件。
 
 分别在cpp文件下单击右键：
 
-![image-20210419133920525](CLion配置使用教程/image-20210419133920525.png)
+![image-20210419133920525](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031931.png)
 
 这时会发现CMakeList文件中多了一行代码add_executable(main main.cpp)。（其实可以不用插件手动添加）
 
 要运行单个文件，只要选择对应的文件即可，然后点击'Run'按钮。
 
-![image-20210419134154418](CLion配置使用教程/image-20210419134154418.png)
+![image-20210419134154418](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232031627.png)
 
 现在你已经成功掌握了CLion的基本用法了！

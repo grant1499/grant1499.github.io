@@ -49,7 +49,7 @@ public class Demo{
 
 ### 1.2稀疏数组
 
-![image-20210227121053148](Java入门笔记（四）/image-20210227121053148.png)
+![image-20210227121053148](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120662.png)
 
 ```java
 public class Demo{
@@ -117,9 +117,9 @@ public class Demo{
 
 **Java的核心思想就是OOP。**
 
-<img src="Java入门笔记（四）/image-20210227142737516.png" alt="image-20210227142737516" style="zoom:67%;" />
+<img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120173.png" alt="image-20210227142737516" style="zoom:67%;" />
 
-<img src="Java入门笔记（四）/image-20210227142935926.png" alt="image-20210227142935926" style="zoom:67%;" />
+<img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120792.png" alt="image-20210227142935926" style="zoom:67%;" />
 
 ## 3.静态方法与非静态方法
 
@@ -127,11 +127,11 @@ public class Demo{
 
 Demo1：new一个对象来调用非静态方法（随对象创建进行加载）。
 
-![image-20210227144507848](Java入门笔记（四）/image-20210227144507848.png)
+![image-20210227144507848](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120813.png)
 
 Demo2：用类名来调用静态方法（随类进行加载）。
 
-![image-20210227150226347](Java入门笔记（四）/image-20210227150226347.png)
+![image-20210227150226347](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120617.png)
 
 ```java
 public class Demo3{
@@ -215,13 +215,13 @@ class Person{
 
 ## 5.类与对象的创建
 
-![image-20210227152818697](Java入门笔记（四）/image-20210227152818697.png)
+![image-20210227152818697](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120215.png)
 
 养成习惯，专门在一个主程序中写main方法，用于测试。在别的类中不要加上main方法。
 
-![image-20210227153327859](Java入门笔记（四）/image-20210227153327859.png)
+![image-20210227153327859](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120831.png)
 
-![image-20210227155204438](Java入门笔记（四）/image-20210227155204438.png)
+![image-20210227155204438](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120247.png)
 
 ```java
 // Student.java
@@ -323,7 +323,7 @@ public class Application {
 
 ## 7.创建对象内存分析
 
-![image-20210305150045041](Java入门笔记（四）/image-20210305150045041.png)
+![image-20210305150045041](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120600.png)
 
 ## 8.小结类与对象
 
@@ -352,7 +352,7 @@ public class Application {
 
 ## 9.OOP三大特性之封装
 
-![image-20210305151408746](Java入门笔记（四）/image-20210305151408746.png)
+![image-20210305151408746](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232120388.png)
 
 1.提高程序的安全性，保护数据
 
@@ -412,7 +412,7 @@ public class Demo{
 
 ## 10.OOP三大特性之继承
 
-![image-20210305160318864](Java入门笔记（四）/image-20210305160318864.png)
+![image-20210305160318864](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232119073.png)
 
 - 在Java中，所有的类都默认直接或者间接继承Object类
 - Java中类只有单继承，没有多继承！一个儿子只能有一个爸爸，而一个爸爸可以有多个儿子

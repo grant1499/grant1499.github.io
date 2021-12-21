@@ -137,7 +137,7 @@ while (not n.isdigit()) or int(n) != 553: # n是字符串，需要先转换！�
 
 ### 2.4 小例题2
 
-![image-20210204162557662](Python入门笔记（五）/image-20210204162557662.png)
+![image-20210204162557662](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232140233.png)
 
 ```python
 # solution 1
@@ -305,13 +305,13 @@ f.close()
 
 ## 8.错题3
 
-![image-20210222184011849](Python入门笔记（五）/image-20210222184011849.png)
+![image-20210222184011849](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232140021.png)
 
 当`fo.write()`完成后，指针指向文件末尾，此时`fo.read()`无法读取到内容。
 
 ## 9.练习2
 
-![image-20210306230603132](Python入门笔记（五）/image-20210306230603132.png)
+![image-20210306230603132](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232140779.png)
 ```python
 f = open("vacations.csv","r")
 ls = f.readlines()

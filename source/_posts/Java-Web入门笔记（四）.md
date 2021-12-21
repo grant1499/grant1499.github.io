@@ -20,7 +20,7 @@ date: 2021-10-04 19:45:18
 
 配置Tomcat时，每次只配置一个模块的war包，节省加载时间。
 
-![image-20211013162713701](Java-Web入门笔记（四）/image-20211013162713701.png)
+![image-20211013162713701](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232057330.png)
 
 ## 2.ServletContext接口
 
@@ -99,7 +99,7 @@ public class GetServlet extends HttpServlet {
 
 测试结果：
 
-![image-20211013171829556](Java-Web入门笔记（四）/image-20211013171829556.png)
+![image-20211013171829556](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058044.png)
 
 ### 获取初始化参数
 
@@ -143,7 +143,7 @@ public class ServletDemo04 extends HttpServlet {
 
 转发不改变浏览器地址栏，重定向改变浏览器地址栏。
 
-![image-20211013182446968](Java-Web入门笔记（四）/image-20211013182446968.png)
+![image-20211013182446968](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058631.png)
 
 ### 读取Web工程中的资源文件Properties
 
@@ -151,13 +151,13 @@ public class ServletDemo04 extends HttpServlet {
 - 清空target后，重新生成，db.properties在WEB-INF/classes路径下
 - 可以发现java目录和resources目录下的内容都被打包到了同一个路径下：classes，我们俗称这个路径为classpath
 
-![image-20211013185019066](Java-Web入门笔记（四）/image-20211013185019066.png)
+![image-20211013185019066](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058296.png)
 
 ---
 
 1.如何清空target打包目录？
 
-![image-20211013193947257](Java-Web入门笔记（四）/image-20211013193947257.png)
+![image-20211013193947257](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058863.png)
 
 2.当你把db.properties放在java目录下时，由于Maven的标准结构**约定大于配置**，可能出现资源导出失败的问题：
 
@@ -271,7 +271,7 @@ public class FileServlet extends HttpServlet {
 
 查看HTTP响应报文的首部字段：
 
-![image-20211014101910978](Java-Web入门笔记（四）/image-20211014101910978.png)
+![image-20211014101910978](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232058931.png)
 
 **实现验证码功能：**
 
@@ -325,4 +325,4 @@ public class ServletDemo_02 extends HttpServlet {
 
 测试：浏览器3秒刷新验证码。
 
-![image-20211014113011678](Java-Web入门笔记（四）/image-20211014113011678.png)
+![image-20211014113011678](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232059784.png)

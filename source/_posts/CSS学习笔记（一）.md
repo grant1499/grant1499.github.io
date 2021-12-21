@@ -60,7 +60,7 @@ CSS1.0 -->
 
 以后尽量都保持这样的练习格式：
 
-![image-20210510193319750](CSS学习笔记（一）/image-20210510193319750.png)
+![image-20210510193319750](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037857.png)
 
 ```html
 <!--index.html-->

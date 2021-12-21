@@ -172,7 +172,7 @@ print(fun(2,3))# 5
 
 ## 5.做题总结
 
-![image-20210119221538951](Python入门笔记（三）/image-20210119221538951.png)
+![image-20210119221538951](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232139708.png)
 
 
 如何读取类似用空格分隔的两个字符串：
@@ -215,9 +215,9 @@ open函数语法：`<变量名> = open(<文件路径及文件名>, <打开模式
 | ‘t’          | 文本文件模式，默认值                                        |
 | ‘+’          | 与r/w/x/a一同使用，在原功能基础上增加同时读写功能           |
 
-![image-20210222182101934](Python入门笔记（三）/image-20210222182101934.png)
+![image-20210222182101934](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232139832.png)
 
-![image-20210222183442871](Python入门笔记（三）/image-20210222183442871.png)
+![image-20210222183442871](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232139235.png)
 
 ```python
 f = open("abc.txt","r")# 这里的txt是相对路径（与py文件同一级）
@@ -361,7 +361,7 @@ f.close()
 
 ​      北京;上海;天津;重庆 
 
-![image-20210120134702444](Python入门笔记（三）/image-20210120134702444.png)
+![image-20210120134702444](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232139265.png)
 
 ```python
 ##s = "北京,重庆,武汉,广东"  # 注意用英文逗号！！！

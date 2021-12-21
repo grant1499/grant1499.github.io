@@ -64,7 +64,7 @@ sql练习网站： http://xuesql.cn/。
 
 打开cmd命令行，输入`mysql -u root -p`，然后输入密码，进入mysql。
 
-![image-20210503122112663](MySQL学习笔记（一）/image-20210503122112663.png)
+![image-20210503122112663](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138371.png)
 
 然后是安装SQLyog，建议看我的另一篇[文章](https://grant1499.github.io/2021/04/27/%E4%BD%BF%E7%94%A8SQL%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B7%A5%E5%85%B7/)。
 
@@ -72,15 +72,15 @@ sql练习网站： http://xuesql.cn/。
 
 在`root@localhost`处右键创建数据库，然后填入名称，选择字符集、排序规则，**注意不要选错**。
 
-![image-20210503123218934](MySQL学习笔记（一）/image-20210503123218934.png)
+![image-20210503123218934](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138673.png)
 
 右键-->创建表。
 
-![image-20210503123942013](MySQL学习笔记（一）/image-20210503123942013.png)
+![image-20210503123942013](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138343.png)
 
 填入信息。
 
-![image-20210503124527839](MySQL学习笔记（一）/image-20210503124527839.png)
+![image-20210503124527839](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138552.png)
 
 查看表：
 
@@ -88,7 +88,7 @@ sql练习网站： http://xuesql.cn/。
 
 尝试添加删除数据：
 
-![image-20210503125105714](MySQL学习笔记（一）/image-20210503125105714.png)
+![image-20210503125105714](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138175.png)
 
 ## 3.连接数据库
 
@@ -142,7 +142,7 @@ SQL的多行注释
 
 对于SQLyog的操作：选中语句单行执行
 
-![image-20210503134031081](MySQL学习笔记（一）/image-20210503134031081.png)
+![image-20210503134031081](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232138592.png)
 
 ## 4.数据库的四种语言
 

@@ -51,21 +51,21 @@ https://blog.csdn.net/qq_41793001/article/details/103151182
 
 有关备份问题：
 
-![image-20210321201128176](hexo相关问题汇总/image-20210321201128176.png)
+![image-20210321201128176](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232041773.png)
 
 解决方案：https://cloud.tencent.com/developer/article/1572090
 
 文章中提到的`.ssh`文件夹一般位于C:\Users\你的用户名\xxx。
 
-![image-20210321201346184](hexo相关问题汇总/image-20210321201346184.png)
+![image-20210321201346184](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232041351.png)
 
 如果出现下图的情况，一般就成功了：
 
-![image-20210321201521647](hexo相关问题汇总/image-20210321201521647.png)
+![image-20210321201521647](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232041047.png)
 
 这时我们再检查github上的hexo仓库，会发现用于备份的backup分支已经成功备份。
 
-![image-20210321201725486](hexo相关问题汇总/image-20210321201725486.png)
+![image-20210321201725486](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232042650.png)
 
 ## 8.hexo博客使用[Valine](https://valine.js.org/)添加评论系统：
 
@@ -155,7 +155,7 @@ tips：绑定域名后访问量将清零！
 
 注意：执行`hexo d -g`时coding的用户名是你的邮箱或者手机号，输入密码时光标不会动。
 
-![image-20210506145942386](hexo相关问题汇总/image-20210506145942386.png)
+![image-20210506145942386](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232042383.png)
 
 ## 15.配置域名后评论区出现code403
 
@@ -183,7 +183,7 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
 <embed src="/file/LeetCodeGuide.pdf" width="100%" height="750" type="application/pdf">
 ```
 
-![image-20210506135934554](hexo相关问题汇总/image-20210506135934554.png)
+![image-20210506135934554](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232042255.png)
 
 经测试发现如果设置width="105%"会刚好贴到文章右边框，再宽就不合适了。
 
@@ -231,7 +231,7 @@ https://blog.csdn.net/qq_43827595/article/details/104574959
 
 有时候可能会出现渲染出错，导致侧边栏出现堆html代码，只要`hexo c && hexo g`，再重新`hexo s`就行了。
 
-![image-20210506145254977](hexo相关问题汇总/image-20210506145254977.png)
+![image-20210506145254977](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232042843.png)
 
 直接在网易云中分享歌曲或歌单，选择复制链接就能看到id。
 

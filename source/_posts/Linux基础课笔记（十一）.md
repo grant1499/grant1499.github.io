@@ -41,7 +41,7 @@ Thrift非常有用，AcWing的saber和评测等等功能都是由Thrift实现的
 
 游戏匹配的微服务框架：
 
-![image-20211001084413991](Linux基础课笔记（十一）/image-20211001084413991.png)
+![image-20211001084413991](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232129912.png)
 
 Thrift应用于不同节点的进程之间的调用。这其实是一个RPC模型（框架）。
 
@@ -52,6 +52,8 @@ RPC最主要的作用就是用于服务调用。
 ## 1.2：Thrift实操
 
 本地新建一个仓库用于Thrift学习。
+
+完整项目讲解参考： https://git.acwing.com/fashen/thrift_learning。
 
 ```shell
 acs@5b4f3438bdf2:~$ mkdir thrift_lesson
@@ -70,7 +72,7 @@ acs@5b4f3438bdf2:~/thrift_lesson$ git remote add origin
 acs@5b4f3438bdf2:~/thrift_lesson$ git push -u origin master
 ```
 
-![image-20211001085820483](Linux基础课笔记（十一）/image-20211001085820483.png)
+![image-20211001085820483](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232129916.png)
 
 学习任务：实现“游戏”节点和“匹配系统”节点。
 
@@ -231,15 +233,15 @@ acs@5b4f3438bdf2:~/thrift_lesson/game/src/match-client$ rm match/Match-remote
 
 先运行服务端：`./main`，然后运行服务端：`python3 client.py`。
 
-![image-20211001113750170](Linux基础课笔记（十一）/image-20211001113750170.png)
+![image-20211001113750170](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232129224.png)
 
 改进`client.py`后的测试：
 
-![image-20211001160735297](Linux基础课笔记（十一）/image-20211001160735297.png)
+![image-20211001160735297](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232129695.png)
 
 一个Bug复盘：
 
-![image-20211001160827640](Linux基础课笔记（十一）/image-20211001160827640.png)
+![image-20211001160827640](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232129086.png)
 
 执行`./main`报错，9090已经占用。
 
@@ -257,15 +259,15 @@ acs@5b4f3438bdf2:~/thrift_lesson/game/src/match-client$ rm match/Match-remote
 
 通过**PV操作互斥信号量**来解决生产者消费者问题。（看看王道视频）
 
-![image-20211002103515989](Linux基础课笔记（十一）/image-20211002103515989.png)
+![image-20211023213238739](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232132921.png)
 
-![image-20211002104002433](Linux基础课笔记（十一）/image-20211002104002433.png)
+![image-20211002104002433](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232130539.png)
 
-![image-20211002104208317](Linux基础课笔记（十一）/image-20211002104208317.png)
+![image-20211002104208317](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232130594.png)
 
 C++多线程笔记： https://github.com/downdemo/Cpp-Concurrency-in-Action-2ed。
 
-![image-20211001163021725](Linux基础课笔记（十一）/image-20211001163021725.png)
+![image-20211001163021725](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232132074.png)
 
 改进`main.cpp`：
 
@@ -279,7 +281,7 @@ C++多线程笔记： https://github.com/downdemo/Cpp-Concurrency-in-Action-2ed�
 
 链接重定向文件报错，提示未定义引用。
 
-![image-20211002135819071](Linux基础课笔记（十一）/image-20211002135819071.png)
+![image-20211002135819071](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232133087.png)
 
 通过`ls`命令查看当前目录内容，发现`src/match_system`下的cpp源文件未编译（之前删除了），
 
@@ -287,7 +289,7 @@ C++多线程笔记： https://github.com/downdemo/Cpp-Concurrency-in-Action-2ed�
 
 测试`match-server version2.0`，成功！
 
-![image-20211002140308568](Linux基础课笔记（十一）/image-20211002140308568.png)
+![image-20211002140308568](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232133931.png)
 
 ---
 
@@ -334,7 +336,7 @@ acs@5b4f3438bdf2:~/thrift_lesson/match_system/src/save_client$ rm Save_server.sk
 
 测试一下：
 
-![image-20211002185857274](Linux基础课笔记（十一）/image-20211002185857274.png)
+![image-20211002185857274](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232133713.png)
 
 匹配成功，数据保存成功！
 
@@ -358,4 +360,4 @@ acs@5b4f3438bdf2:~/thrift_lesson/match_system/src/save_client$ rm Save_server.sk
 
 再次测试5.0，成功！
 
-![image-20211003104113602](Linux基础课笔记（十一）/image-20211003104113602.png)
+![image-20211003104113602](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232133214.png)

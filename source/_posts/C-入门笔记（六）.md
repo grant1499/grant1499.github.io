@@ -17,7 +17,7 @@ date: 2021-03-26 22:01:32
 
 <!--more-->
 
-![image-20210404174942521](C-入门笔记（六）/image-20210404174942521.png)
+![image-20210404174942521](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018609.png)
 
 ```c++
 #include <iostream>
@@ -79,7 +79,7 @@ int main(){
 
 在替代之后，派生类对象就可以作为基类对象使用，但只能使用从基类继承的成员。
 
-![image-20210404190957863](C-入门笔记（六）/image-20210404190957863.png)
+![image-20210404190957863](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018693.png)
 
 ## 3.多态性
 
@@ -87,9 +87,9 @@ int main(){
 
 C++里的多态包括了静态多态和动态多态。
 
-![image-20210404191316120](C-入门笔记（六）/image-20210404191316120.png)
+![image-20210404191316120](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018587.png)
 
-![image-20210404191332961](C-入门笔记（六）/image-20210404191332961.png)
+![image-20210404191332961](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232018557.png)
 
 ### 3.2运算符重载（重要）
 
@@ -149,11 +149,11 @@ Box3 = Box1 + Box2;
 
 补充：
 
-![image-20210412125715522](C-入门笔记（六）/image-20210412125715522.png)
+![image-20210412125715522](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232019971.png)
 
-![image-20210412125814210](C-入门笔记（六）/image-20210412125814210.png)
+![image-20210412125814210](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232019804.png)
 
-![image-20210412125906936](C-入门笔记（六）/image-20210412125906936.png)
+![image-20210412125906936](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232019942.png)
 
 #### 对于++和- -的重载
 
@@ -190,4 +190,4 @@ Time operator++( int )
 }
 ```
 
-![image-20210518092650383](C-入门笔记（六）/image-20210518092650383.png)
+![image-20210518092650383](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232019560.png)

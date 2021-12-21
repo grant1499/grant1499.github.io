@@ -14,7 +14,7 @@ date: 2021-02-24 07:04:32
 
 本教程推荐配合大佬[笔记](https://www.cnblogs.com/vccyb/tag/%E5%8C%85%E5%AD%90%E5%AD%A6%E7%B3%BB%E5%88%97/)食用！
 
-B站视频倍速播放：F12-->console-->输入：document.querySelector('video').playbackRate = 2.5，控制倍速。
+B站视频倍速播放：F12-->console-->输入：`document.querySelector('video').playbackRate = 2.5`，控制倍速。
 
 随着Java的发展，SUN给Java又分出了三个不同版本：
 
@@ -23,6 +23,12 @@ B站视频倍速播放：F12-->console-->输入：document.querySelector('video'
 - Java ME：Micro Edition
 
 <!--more-->
+
+推荐教程：[廖雪峰Java教程](https://www.liaoxuefeng.com/wiki/1252599548343744)
+
+[java知识点总结（面经）](https://www.cyc2018.xyz/Java/)
+
+[java基础知识总结](https://snailclimb.gitee.io/javaguide/#/docs/java/basis/java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93)
 
 ```
 ┌───────────────────────────┐
@@ -155,7 +161,7 @@ public class HelloWorld {
 
   首字符之后可以是英文字母、$_或者数字`的任意组合。
 
-  ![image-20210210101349712](Java入门笔记（一）/image-20210210101349712.png)
+  ![image-20210210101349712](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122048.png)
 
   
 
@@ -189,7 +195,7 @@ public class Variable{
 
 ##### 8.1 主要分类
 
-![image-20210210102225703](Java入门笔记（一）/image-20210210102225703.png)
+![image-20210210102225703](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122079.png)
 
 八大基本数据类型
 
@@ -271,7 +277,7 @@ F:\Java_VScode>java Calculation
 
 在VScode通过右键code-Runner编译时发现这样做还是乱码。
 
-![image-20210723082254496](Java入门笔记（一）/image-20210723082254496.png)
+![image-20210723082254496](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122110.png)
 
 需要修改powershell的编码格式为UTF-8，才能保证格式统一。
 

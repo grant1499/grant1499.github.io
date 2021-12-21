@@ -17,13 +17,13 @@ date: 2021-04-28 13:40:29
 
 <!--more-->
 
-![image-20210428134441249](C-入门笔记（十二）/image-20210428134441249.png)
+![image-20210428134441249](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232022807.png)
 
-![image-20210428134501051](C-入门笔记（十二）/image-20210428134501051.png)
+![image-20210428134501051](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232022685.png)
 
-![image-20210428134708619](C-入门笔记（十二）/image-20210428134708619.png)
+![image-20210428134708619](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232022898.png)
 
-![image-20210428134723588](C-入门笔记（十二）/image-20210428134723588.png)
+![image-20210428134723588](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232022986.png)
 
 ## 2.预定义的操纵符输入输出格式控制
 
@@ -31,19 +31,19 @@ date: 2021-04-28 13:40:29
 
 有关C++输入输出的完整内容可以参考[菜鸟教程](https://www.runoob.com/cplusplus/cpp-basic-input-output.html)。
 
-![image-20210428140029182](C-入门笔记（十二）/image-20210428140029182.png)
+![image-20210428140029182](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023650.png)
 
-![image-20210428140136067](C-入门笔记（十二）/image-20210428140136067.png)
+![image-20210428140136067](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023741.png)
 
-![image-20210428140208904](C-入门笔记（十二）/image-20210428140208904.png)
+![image-20210428140208904](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023555.png)
 
-![image-20210428140236225](C-入门笔记（十二）/image-20210428140236225.png)
+![image-20210428140236225](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023531.png)
 
 ## 3.自定义操纵符输入输出格式控制
 
-![image-20210428135006688](C-入门笔记（十二）/image-20210428135006688.png)
+![image-20210428135006688](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023340.png)
 
-![image-20210428135030374](C-入门笔记（十二）/image-20210428135030374.png)
+![image-20210428135030374](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023942.png)
 
 ```C++
 // 输入流操纵符函数
@@ -69,7 +69,7 @@ hex:23ae-----dec:9134*/
 
 注意：
 
-**重载输入输出运算符不能是所操作类的成员函数，但可以是该类的友元函数或普通函数。**![image-20210428141954272](C-入门笔记（十二）/image-20210428141954272.png)
+**重载输入输出运算符不能是所操作类的成员函数，但可以是该类的友元函数或普通函数。**![image-20210428141954272](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023710.png)
 
 ```C++
 // 重载插入运算符
@@ -96,7 +96,7 @@ int main(){
 }
 ```
 
-![image-20210428142554403](C-入门笔记（十二）/image-20210428142554403.png)
+![image-20210428142554403](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023411.png)
 
 ```C++
 // // 重载插入与提取运算符
@@ -139,21 +139,21 @@ int main(){
 
 文件的两种形式：
 
-![image-20210428143750640](C-入门笔记（十二）/image-20210428143750640.png)
+![image-20210428143750640](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023685.png)
 
 为什么文本形式会多一个字节？
 
 因为要做一些转码处理，换行转为回车换行。
 
-![image-20210428144315193](C-入门笔记（十二）/image-20210428144315193.png)
+![image-20210428144315193](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023469.png)
 
-![image-20210428144339078](C-入门笔记（十二）/image-20210428144339078.png)
+![image-20210428144339078](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024637.png)
 
-![image-20210428144432437](C-入门笔记（十二）/image-20210428144432437.png)
+![image-20210428144432437](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232023257.png)
 
-![image-20210428144447690](C-入门笔记（十二）/image-20210428144447690.png)
+![image-20210428144447690](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024060.png)
 
-![image-20210428144508143](C-入门笔记（十二）/image-20210428144508143.png)
+![image-20210428144508143](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024599.png)
 
 文件的关闭：`out.close();`
 
@@ -193,15 +193,15 @@ int main(){
 
 也就是namespace。
 
-![image-20210428150001654](C-入门笔记（十二）/image-20210428150001654.png)
+![image-20210428150001654](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024466.png)
 
-![image-20210428150013044](C-入门笔记（十二）/image-20210428150013044.png)
+![image-20210428150013044](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024888.png)
 
-![image-20210428150026666](C-入门笔记（十二）/image-20210428150026666.png)
+![image-20210428150026666](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024596.png)
 
-![image-20210428150050936](C-入门笔记（十二）/image-20210428150050936.png)
+![image-20210428150050936](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024823.png)
 
-![image-20210428150114048](C-入门笔记（十二）/image-20210428150114048.png)
+![image-20210428150114048](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232024124.png)
 
 ## 7.补充
 

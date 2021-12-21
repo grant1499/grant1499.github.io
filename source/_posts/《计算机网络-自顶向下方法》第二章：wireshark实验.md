@@ -36,7 +36,7 @@ date: 2021-10-12 09:15:54
 
 示例网站： http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html。
 
-![image-20211012093431166](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012093431166.png)
+![image-20211012093431166](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740922.png)
 
 查看HTTP协议响应报文：点击第二条信息
 
@@ -46,7 +46,7 @@ date: 2021-10-12 09:15:54
 
 查看浏览器能接收的语言：中文和英文。
 
-![image-20211012094549046](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012094549046.png)
+![image-20211012094549046](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740942.png)
 
 查看双方的IP地址，上次实验已经做了。
 
@@ -54,7 +54,7 @@ date: 2021-10-12 09:15:54
 
 服务器的html文件上最后一次修改的时间？
 
-![image-20211012095416605](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012095416605.png)
+![image-20211012095416605](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740958.png)
 
 不要奇怪为什么是刚刚修改的。
 
@@ -64,7 +64,7 @@ date: 2021-10-12 09:15:54
 
 128字节。
 
-![image-20211012095803627](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012095803627.png)
+![image-20211012095803627](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740976.png)
 
 ---
 
@@ -76,7 +76,7 @@ date: 2021-10-12 09:15:54
 
 访问一次网站之后再刷新一次，一共有4条HTTP报文。
 
-![image-20211012101212017](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012101212017.png)
+![image-20211012101212017](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740017.png)
 
 检查第一个从您浏览器到服务器的HTTP GET请求的内容。您在HTTP GET中看到了“IF-MODIFIED-SINCE”行吗？
 
@@ -88,7 +88,7 @@ date: 2021-10-12 09:15:54
 
 第二次请求时浏览器会发送“IF-MODIFIED-SINCE:”，服务器发现文件未修改，返回304状态码，调用本地cache返回文件。
 
-![image-20211012101343858](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012101343858.png)
+![image-20211012101343858](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740049.png)
 
 针对第二个HTTP GET，从服务器响应的HTTP状态码和短语是什么？服务器是否仍然返回文件的内容？请解释。
 
@@ -96,9 +96,9 @@ date: 2021-10-12 09:15:54
 
 对比第一、二次响应报文：
 
-![image-20211012102022331](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012102022331.png)
+![image-20211012102022331](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740080.png)
 
-![image-20211012102053422](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012102053422.png)
+![image-20211012102053422](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740111.png)
 
 ---
 
@@ -108,7 +108,7 @@ date: 2021-10-12 09:15:54
 
 示例网站：  http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file3.html。
 
-![image-20211012102514038](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012102514038.png)
+![image-20211012102514038](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740139.png)
 
 1. 您的浏览器发送多少HTTP GET请求消息？哪个数据包包含了美国权利法案的消息？
 2. 哪个数据包包含响应HTTP GET请求的状态码和短语？
@@ -125,7 +125,7 @@ date: 2021-10-12 09:15:54
 
 4.4个TCP段。
 
-![image-20211012105412250](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012105412250.png)
+![image-20211012105412250](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740166.png)
 
 ---
 
@@ -137,7 +137,7 @@ date: 2021-10-12 09:15:54
 
 示例网站： http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file4.html。
 
-![image-20211012110152872](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012110152872.png)
+![image-20211012110152872](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740197.png)
 
 1. 您的浏览器发送了几个HTTP GET请求消息？ 这些GET请求发送到哪个IP地址？
 2. 浏览器从两个网站串行还是并行下载了两张图片？请说明。
@@ -167,6 +167,6 @@ date: 2021-10-12 09:15:54
 
 2.Authorization: 
 
-![image-20211012113251070](《计算机网络-自顶向下方法》第二章：wireshark实验/image-20211012113251070.png)
+![image-20211012113251070](https://gitee.com/grant1499/blog-pic/raw/master/img/202110231740225.png)
 
 可以发现GET请求将用户名和密码通过base64编码处理了，这里可以借助wireshark直接查看其对应的ASCII码，也就是我们输入的内容。这个简单加密并不安全，很容易解码。

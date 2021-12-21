@@ -11,6 +11,8 @@ abbrlink: 13c1c43f
 date: 2021-03-05 17:15:15
 ---
 
+
+
 ## 1.方法重写（覆盖）（非常重要）
 
 又被称为方法覆盖，override
@@ -86,7 +88,7 @@ A=>test()*/
 
 > **重写的关键字只能是public，不能是static或者private，子类继承父类才有重写**
 
-重写：（IDEA快捷键：Alt + Insert：override）
+重写：（IDEA快捷键：`Alt + Insert：override`）
 
 - 需要有继承关系，子类重写父类的方法！
 - 方法名必须相同
@@ -108,7 +110,7 @@ A=>test()*/
 
 ## 2.多态（重要）
 
-![image-20210305195037264](Java入门笔记（五）/image-20210305195037264.png)
+![image-20210305195037264](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121487.png)
 
 多态注意事项：
 
@@ -117,6 +119,7 @@ A=>test()*/
 3. 存在条件：继承关系，方法需要重写，**父类引用指向子类对象！**
 4. 一个Person类既可以引用Person类型的对象，也可以引用Person类的任何一个子类的对象
 5. **可以调用哪些方法，取决于引用类型是什么，具体调用哪个方法，取决于对象所属的类是什么**
+6. 当使用多态方式调用方法时，首先检查父类中是否有该方法，如果没有，则编译错误；如果有，再去调用子类的同名方法
 
 ```java
 // 对于同一方法run有不同的行为
@@ -159,9 +162,13 @@ public class Application {
 
 总结：无论一个方法是使用哪个引用被调用的，"它都是在实际的对象上执行的"。执行的任何一个方法，都是这个对象所属的类的方法。如果没有，就去父类找，再没有，就去父类的父类找，依次寻找，直到找到。那么自然的，即使是在继承自父类的代码里，去调用一个方法，也是先从子类开始，一层层继承关系的找。这也是Java选择单继承的重要原因之一。在多继承的情况下，如果使用不当，多态可能会非常复杂，以至于使用的代价超过其带来的好处。
 
-在这里我再总结一下这三个模式。
+**在这里我再总结一下这三个模式。**
 
 1）父类引用指向子类对象，**可以调用只在父类中的方法**（继承） 2）父类引用指向子类对象，**可以调用子类覆盖了父类的方法**（覆盖，多态） 3）父类引用指向子类对象，在1）和2）这两种情况下。如果这个方法的代码中又调用了别的方法，那么还是会遵循这个规则。举个例子，如果父类中有m1，m2两个方法。子类覆盖了m2方法。那么如果调用m1，则m1中调用的m2会是子类中定义的m2。
+
+- **如何体现动态多态的“动态”二字？**
+
+![image-20211207161337856](https://gitee.com/grant1499/blog-pic/raw/master/img/202112071613933.png)
 
 ## 3.instanceof和类型转换
 
@@ -187,9 +194,9 @@ public class Application {
 }
 ```
 
-`System.out.println(x instanceof Y);`能不能编译（无关对错）通过取决于x指向的类型是不是与Y有继承·关系。
+`System.out.println(x instanceof Y);`能不能编译（无关对错）通过取决于x指向的类型是不是与Y有继承关系。
 
-如果引用时null，肯定返回false。
+如果引用是null，肯定返回false。
 
 **“is-a”规则**
 
@@ -240,7 +247,7 @@ public class Application {
 
 静态方法里面只能调用静态的东西，而main函数也是静态的。
 
-![image-20210502090403539](Java入门笔记（五）/image-20210502090403539.png)
+![image-20210502090403539](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121961.png)
 
 ```java
 public class Person {
@@ -280,7 +287,7 @@ public class Test {
 
 ## 5.抽象类（不是重点)
 
-![image-20210305220537625](Java入门笔记（五）/image-20210305220537625.png)
+![image-20210305220537625](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121240.png)
 
 ```java
 // abstract 抽象类
@@ -310,41 +317,57 @@ public class A extends Action {
 
 ## 6.接口（重要）
 
-Java通过接口来实现C++中多继承的效果，一个类可以实现多个接口。接口与接口之前可以多继承。
+Java通过接口来实现C++中多继承的效果，一个类可以实现多个接口。接口与接口之间可以多继承。
 
-接口是一种特殊的抽象类，它的所有方法都是抽象方法，里面全部由**全局常量**和公共的抽象方法组成。
+接口是一种特殊的抽象类，它的所有方法都是抽象方法（除了default方法），里面全部由**全局常量**和公共的抽象方法组成。
 
 接口中的所有属性都会自动声明为`final static`。没有变量，都是常量。
 
 接口和类是两个并列的结构。
 
-![image-20210305222342257](Java入门笔记（五）/image-20210305222342257.png)
+![image-20210305222342257](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121911.png)
 
-![image-20210502111638626](Java入门笔记（五）/image-20210502111638626.png)
+![image-20210502111638626](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121414.png)
+
+抽象类与接口的区别：
+
+|            | abstract class       | interface                   |
+| :--------- | :------------------- | --------------------------- |
+| 继承       | 只能extends一个class | 可以implements多个interface |
+| 字段       | 可以定义实例字段     | 不能定义实例字段            |
+| 抽象方法   | 可以定义抽象方法     | 可以定义抽象方法            |
+| 非抽象方法 | 可以定义非抽象方法   | 可以定义default方法         |
+
+实现类可以不必覆写`default`方法。`default`方法的目的是，当我们需要给接口新增一个方法时，会涉及到修改全部子类。如果新增的是`default`方法，那么子类就不必全部修改，只需要在需要覆写的地方去覆写新增方法。
 
 ```java
-//interface修饰接口，接口都需要实现类
-public interface UserService {
-    //接口中的所有定义其实都是抽象的，默认为public abstract
-    void run(String name);// public abstract void run(String name);
-
-}
-public interface TimeService {
-    void timer();
-}
 // 类可以通过implements实现接口
 // 实现接口的类，需要重写接口中的所有方法
 // 利用接口实现多继承
-public class UserServiceImpl implements UserService,TimeService{
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Student("Xiao Ming");
+        p.run();
+    }
+}
+//interface修饰接口，接口都需要实现类
+interface Person {
+    // 接口中的所有定义其实都是抽象的（除了default方法），默认为public abstract
+    String getName();// public abstract String getName();
+    default void run() {
+        System.out.println(getName() + " run");
+    }
+}
 
-    @Override
-    public void run(String name) {
+class Student implements Person {
+    private String name;
 
+    public Student(String name) {
+        this.name = name;
     }
 
-    @Override
-    public void timer() {
-
+    public String getName() {
+        return this.name;
     }
 }
 ```
@@ -363,16 +386,18 @@ public class UserServiceImpl implements UserService,TimeService{
 
 ## 7.N种内部类
 
-![image-20210306112110052](Java入门笔记（五）/image-20210306112110052.png)
+![image-20210306112110052](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121480.png)
+
+小例子1：局部内部类。
 
 ```java
-public class Outer {
+class Outer {
     private int id = 10;
     public void out(){
         System.out.println("这是外部类的方法");
     }
-	// 内部类
-    public class Inner{
+	// 成员内部类
+    class Inner{
         public void in(){
             System.out.println("这是内部类的方法");
         }
@@ -387,36 +412,19 @@ public class Application {
         Outer outer = new Outer();
         // 通过外部类来实例化内部类
         Outer.Inner inner = outer.new Inner();
-        inner.in();//这是内部类的方法
+        inner.in();//这是成员内部类的方法
         inner.getID();//10
     }
 }
 ```
 
-```java
-public class Outer {
+上述定义的`Outer`是一个普通类，而`Inner`是一个Inner Class，它与普通类有个最大的不同，就是Inner Class的实例不能单独存在，必须依附于一个Outer Class的实例。
 
-}
-//一个java类中可以有多个class类，但是只能有一个public class
-class D{
+这是因为Inner Class除了有一个`this`指向它自己，还隐含地持有一个Outer Class实例，可以用`Outer.this`访问这个实例。所以，实例化一个Inner Class不能脱离Outer实例。
 
-}
-```
+Inner Class和普通Class相比，除了能引用Outer实例外，还有一个额外的“特权”，就是可以修改Outer Class的`private`字段，因为Inner Class的作用域在Outer Class内部，所以能访问Outer Class的`private`字段和方法。
 
-以下小例子只作为扩展眼界，不必深究。
-
-小例子1：
-
-```java
-public class Outer {
-    //局部内部类
-	public void method(){
-        class Inner{
-            
-        }
-    }
-}
-```
+观察Java编译器编译后的`.class`文件可以发现，`Outer`类被编译为`Outer.class`，而`Inner`类被编译为`Outer$Inner.class`。
 
 小例子2：
 
@@ -434,17 +442,49 @@ class Apple{
 }
 ```
 
-```Java
-public class Outer {
-    // 成员内部类
-        class D{
+小例子3：匿名内部类。
 
+![image-20211207222748811](https://gitee.com/grant1499/blog-pic/raw/master/img/202112072227885.png)
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Outer outer = new Outer("Nested");
+        outer.asyncHello();
+    }
+}
+
+class Outer {
+    private String name;
+
+    Outer(String name) {
+        this.name = name;
+    }
+
+    void asyncHello() {
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Hello, " + Outer.this.name);
+            }
+        };
+        new Thread(r).start();
     }
 }
 ```
 
+观察`asyncHello()`方法，我们在方法内部实例化了一个`Runnable`。`Runnable`本身是接口，接口是不能实例化的，所以这里实际上是定义了一个实现了`Runnable`接口的匿名类，并且通过`new`实例化该匿名类，然后转型为`Runnable`。在定义匿名类的时候就必须实例化它，定义匿名类的写法如下：
+
+```java
+Runnable r = new Runnable() {
+    // 实现必要的抽象方法...
+};
+```
+
+匿名类可以继承自接口，也可以继承自一个普通类。
+
 ## 8.属性访问修饰符
 
-![image-20210403100049939](Java入门笔记（五）/image-20210403100049939.png)
+![image-20210403100049939](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121730.png)
 
-![image-20210403100119985](Java入门笔记（五）/image-20210403100119985.png)
+![image-20210403100119985](https://gitee.com/grant1499/blog-pic/raw/master/img/202110232121264.png)
