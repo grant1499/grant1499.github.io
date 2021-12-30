@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082021587.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082029858.png">
 <meta property="article:published_time" content="2021-11-23T07:17:07.000Z">
-<meta property="article:modified_time" content="2021-12-17T13:32:01.939Z">
+<meta property="article:modified_time" content="2021-12-23T05:51:01.107Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="链表">
 <meta property="article:tag" content="指针">
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -141,7 +141,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-17 21:32:01" itemprop="dateModified" datetime="2021-12-17T21:32:01+08:00">2021-12-17</time>
+                <time title="修改时间：2021-12-23 13:51:01" itemprop="dateModified" datetime="2021-12-23T13:51:01+08:00">2021-12-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -308,6 +308,9 @@
 <p>简单回顾一下双链表：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    Node *prev,*next;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Node构造函数，next初始化为NULL</span></span><br><span class="line">    Node():prev(<span class="literal">NULL</span>),next(<span class="literal">NULL</span>) &#123;&#125;</span><br><span class="line">    Node(<span class="keyword">int</span> _val):val(_val),prev(<span class="literal">NULL</span>),next(<span class="literal">NULL</span>)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Node* head,Node* tail)</span></span>&#123; <span class="comment">// 遍历打印单链表</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p = head-&gt;next; p;)&#123;</span><br><span class="line">        <span class="keyword">if</span> (p != tail) <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (p != tail &amp;&amp; p != <span class="literal">NULL</span>)  <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot; --&gt; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Node *head = <span class="keyword">new</span> Node(),*tail = <span class="keyword">new</span> Node();</span><br><span class="line">    head-&gt;next = tail,tail-&gt;prev = head; <span class="comment">// 定义左右哨兵</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 头插法</span></span><br><span class="line">    <span class="keyword">auto</span> a = <span class="keyword">new</span> Node(<span class="number">1</span>);</span><br><span class="line">    a-&gt;next = head-&gt;next,a-&gt;prev = head;</span><br><span class="line">    head-&gt;next-&gt;prev = a,head-&gt;next = a;</span><br><span class="line">    print(head,tail);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> b = <span class="keyword">new</span> Node(<span class="number">2</span>);</span><br><span class="line">    b-&gt;next = head-&gt;next,b-&gt;prev = head;</span><br><span class="line">    head-&gt;next-&gt;prev = b,head-&gt;next = b;</span><br><span class="line">    print(head,tail);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除b结点</span></span><br><span class="line">    b-&gt;prev-&gt;next = b-&gt;next;</span><br><span class="line">    b-&gt;next-&gt;prev = b-&gt;prev;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>理解了做题就很容易。</p>
+<blockquote>
+<p>注：<strong>408中的单、双链表的定义最好参考王道的图</strong>，不会有像上面代码中左、右哨兵的写法。</p>
+</blockquote>
 <h3 id="三道大题"><a href="#三道大题" class="headerlink" title="三道大题"></a>三道大题</h3><p>链表题最好先在纸上画图，然后对照着实现每一步操作的代码。</p>
 <h4 id="2012-42："><a href="#2012-42：" class="headerlink" title="2012-42："></a>2012-42：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png" alt="image-20211106223757652"></p>
 <h4 id="66-两个链表的第一个公共结点"><a href="#66-两个链表的第一个公共结点" class="headerlink" title="66. 两个链表的第一个公共结点"></a>66. 两个链表的第一个公共结点</h4><p>输入两个链表，找出它们的第一个公共结点。</p>
@@ -512,7 +515,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">316</span>
+          <span class="site-state-item-count">321</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -525,7 +528,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-count">156</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -580,7 +583,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">21:59</span>
+    <span title="站点阅读时长">22:25</span>
 </div>
 
 <span id="sitetime"></span>

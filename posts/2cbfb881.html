@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最短路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考研算法辅导课笔记（十）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/2cbfb881.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="最短路">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112211650298.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112211714241.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222149426.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222150891.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222153226.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222154422.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222209972.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232228051.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232236643.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232256829.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232258700.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232259271.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232321444.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232333354.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232336559.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232341459.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232351453.png">
+<meta property="article:published_time" content="2021-12-21T08:47:54.000Z">
+<meta property="article:modified_time" content="2021-12-27T12:14:48.242Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="Prim">
+<meta property="article:tag" content="Kruskal">
+<meta property="article:tag" content="Floyd">
+<meta property="article:tag" content="Dijkstra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112211650298.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/2cbfb881.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>考研算法辅导课笔记（十） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/2cbfb881.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          考研算法辅导课笔记（十）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-21 16:47:54" itemprop="dateCreated datePublished" datetime="2021-12-21T16:47:54+08:00">2021-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-12-27 20:14:48" itemprop="dateModified" datetime="2021-12-27T20:14:48+08:00">2021-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%80%83%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">考研</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2cbfb881.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2cbfb881.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h2><span id="more"></span>
+<p>最短路一般分为单源最短路和多源汇最短路。</p>
+<p>源点也就是起点，汇点也就是终点。</p>
+<p>最短路问题的<strong>考察重点</strong>在于<strong>如何将问题抽象建图</strong>，而不在算法的正确性。（说白了多背模板）</p>
+<p>最短路问题不考虑有向图和无向图的区别，因为无向图就是一种特殊的有向图。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112211650298.png" alt="image-20210817181058333"></p>
+<p>其中n表示点数，m表示边数。</p>
+<p>稠密图(m~n^2同一级别)用朴素版的Dijkstra算法，稀疏图(m~n同一级别)用堆优化版的Dijkstra算法。</p>
+<blockquote>
+<p><strong>注：在考研408数据结构中，不考察单源最短路中的存在负权边的两种算法！</strong></p>
+</blockquote>
+<h2 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h2><p>它和prim算法很像，也分为朴素版和堆优化版两个版本。</p>
+<p>用来求有权图的单源最短路径的算法，基于贪心思想。</p>
+<p>这种算法只适用于<strong>非负权图</strong>，但是时间复杂度非常优秀。</p>
+<h3 id="acwing-849-Dijkstra求最短路-I"><a href="#acwing-849-Dijkstra求最短路-I" class="headerlink" title="acwing.849. Dijkstra求最短路 I"></a>acwing.849. Dijkstra求最短路 I</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的有向图，图中可能存在重边和自环，所有边权均为正值。</span><br><span class="line">请你求出 <span class="number">1</span> 号点到 n 号点的最短距离，如果无法从 <span class="number">1</span> 号点走到 n 号点，则输出 −<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n 和 m。</span><br><span class="line">接下来 m 行每行包含三个整数 x,y,z，表示存在一条从点 x 到点 y 的有向边，边长为 z。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示 <span class="number">1</span> 号点到 n 号点的最短距离。</span><br><span class="line">如果路径不存在，则输出 −<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">500</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">图中涉及边长均不超过<span class="number">10000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>题解参考算法基础课笔记（十八）。</p>
+<p>一篇非常全面的<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/4973/">题解</a>。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112211714241.png" alt="image-20210818080156147"></p>
+<p><strong>存储方式</strong>：朴素版Dijkstra 算法适用于稠密图，而稠密图一般用邻接矩阵来存储。</p>
+<p>时间复杂度：O(n^2+m)。</p>
+<p>写法和prim算法非常相似。可以对比一下，两个算法的差别基本只有对<code>dist[N]</code>数组的更新方式的区别。</p>
+<p>要注意的一点就是dijkstra输出的答案不需要累加，<code>d[N]</code>维护的就是<strong>起点到每个点的最短距离</strong>。</p>
+<p>注意一下方向，这是有向图。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">505</span>,INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> g[N][N],di[N];</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dijkstra</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(di,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> di);</span><br><span class="line">    </span><br><span class="line">    di[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> t = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)</span><br><span class="line">            <span class="keyword">if</span> (!st[j] &amp;&amp; (t == <span class="number">-1</span> || di[t] &gt; di[j]))</span><br><span class="line">                t = j;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (di[t] == INF) <span class="keyword">return</span> INF;</span><br><span class="line">        st[t] = <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++) <span class="comment">// 集合里每加入一个点，就进行一轮边松弛</span></span><br><span class="line">            di[j] = min(di[j],di[t] + g[t][j]); <span class="comment">// 注意g[t][j]顺序不能反！</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> di[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(g,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> g);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        g[a][b] = min(g[a][b],c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> t = dijkstra();</span><br><span class="line">    <span class="keyword">if</span> (t == INF) <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; t;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Floyd-算法"><a href="#Floyd-算法" class="headerlink" title="Floyd 算法"></a>Floyd 算法</h2><p>是用来求任意两个结点之间的最短路的，利用DP思想。</p>
+<p>复杂度比较高，但是常数小，容易实现，也可以处理负权边。效率比执行 n次 Dijkstra 算法要好。</p>
+<p><code>f[k,i,j]</code>代表（k的取值范围是从1到n），在考虑了从1到k的节点作为中间经过的节点时，从i到j的所有路径的最小值。</p>
+<p>形式化说明如下：</p>
+<p>​    <code>f[k][i][j]</code>可以从两种情况转移而来：<br>​    【1】从<code>f[k−1][i][j]</code>转移而来，表示i到j的最短路径不经过k这个节点<br>​    【2】从<code>f[k−1][i][k]+f[k−1][k][j]</code>转移而来，表示i到j的最短路径经过k这个节点</p>
+<p>那么<code>f[k,i,j] = min(f[k-1,i,j], f[k-1,k,i] + f[k-1,k,j])</code>。</p>
+<p>因此在计算第k层的<code>f[i,j]</code>的时候必须先将第k - 1层的所有状态计算出来，所以需要把k放在最外层。</p>
+<p>可以把k这一维度去掉，降低空间复杂度，<code>f[i,j] = min(f[i,j], f[i,k] + f[k,j])</code>。</p>
+<h3 id="acwing-854-Floyd求最短路"><a href="#acwing-854-Floyd求最短路" class="headerlink" title="acwing.854. Floyd求最短路"></a>acwing.854. Floyd求最短路</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的有向图，图中可能存在重边和自环，边权可能为负数。</span><br><span class="line">再给定 k 个询问，每个询问包含两个整数 x 和 y，表示查询从点 x 到点 y 的最短距离，如果路径不存在，则输出 impossible。</span><br><span class="line">数据保证图中不存在负权回路。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n,m,k。</span><br><span class="line">接下来 m 行，每行包含三个整数 x,y,z，表示存在一条从点 x 到点 y 的有向边，边长为 z。</span><br><span class="line">接下来 k 行，每行包含两个整数 x,y，表示询问点 x 到点 y 的最短距离。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 k 行，每行输出一个整数，表示询问的结果，若询问两点间不存在路径，则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">200</span>,</span><br><span class="line"><span class="number">1</span>≤k≤n^<span class="number">2</span></span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">20000</span>,</span><br><span class="line">图中涉及边长绝对值均不超过 <span class="number">10000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line">impossible</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>题解参考算法基础课笔记（二十）。</p>
+<p>一篇DP原理解析的<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/20441/">题解</a>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">205</span>,INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> d[N][N];</span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">floyd</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>;k &lt;= n;k ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++) <span class="comment">// 三维DP，状态转移方程</span></span><br><span class="line">                d[i][j] = min(d[i][j],d[i][k]+d[k][j]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) d[i][i] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        d[a][b] = min(d[a][b],c);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    floyd();</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="keyword">while</span> (k--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="keyword">if</span> (d[x][y] &gt; INF / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; d[x][y] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Floyd和BF算法类似，会遍历所有的边，因此不管是不是和源点连通的边它都会得到更新，因此就算不存在x到y的最短路，距离INF会发生改变，但不至于超过一半，所以用INF/2来判断。</p>
+<h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><blockquote>
+<p>简单示例参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/fu_jian_ping/article/details/88962697">博客</a>；详细内容（废话）参考王道P234；代码实现与算法讲解参考算法笔记P417。</p>
+</blockquote>
+<p>补充概念：</p>
+<p><u>有向无环图简称为DAG图。用DAG图表示的工程网络称之为AOV网。</u></p>
+<p><u>带权DAG图表示的工程网络称之为AOE网。AOE也就是一个拓扑图。</u></p>
+<p><u>AOE网的边有权值，AOV网的边无权值。</u></p>
+<p>关键路径是AOE网中的概念。</p>
+<p><strong>事件是点，活动是边！</strong></p>
+<p>在AOE网中，所有活动都完成才能到达终点，因此完成整个工程所必须花费的时间（即最短工期）应该为源点到终点的最大路径长度。具有最大路径长度的路径称为<strong>关键路径。</strong>关键路径上的活动称为<strong>关键活动。</strong></p>
+<p><strong>关键路径并不唯一！</strong></p>
+<ul>
+<li><p>ETV(Earliest Time Of Vertex)：事件最早发生时间，就是顶点的最早发生时间；</p>
+<p>  <strong>事件k的ETV指的是从源点到顶点k的最长路径长度。</strong>源点的ETV等于0。</p>
+</li>
+<li><p>LTV(Latest Time Of Vertex)：事件最晚发生时间，就是每个顶点对应的事件最晚需要开始的时间；</p>
+<p>  <strong>事件k的LTV指的是汇点的LTV与从顶点k到汇点的最长路径长度之差。</strong>汇点的LTV等于汇点的ETV。</p>
+</li>
+<li><p>ETE(Earliest Time Of Edge)：活动的最早开工时间，就是边的最早发生时间，就是<strong>边起点的最早发生时间</strong>；</p>
+</li>
+<li><p>LTE(Lastest Time of Edge)：活动的最晚发生时间，就是<strong>边终点的最晚发生时间与该活动时间之差</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>一句话总结：求出上述概念的结果的本质都是求最长路径长度！</strong></p>
+</blockquote>
+<p>拓扑图求最长路可以用DP来做。</p>
+<h2 id="真题讲解"><a href="#真题讲解" class="headerlink" title="真题讲解"></a>真题讲解</h2><h3 id="2011-41"><a href="#2011-41" class="headerlink" title="2011-41"></a>2011-41</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222149426.png" alt="image-20211222214902350"></p>
+<p><strong>注意给出的是上三角，不包括对角线（408的图不考虑自环）。</strong></p>
+<p>答案：太简单，没什么好解释的。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222150891.png" alt="image-20211222215032825"></p>
+<h3 id="2012-7"><a href="#2012-7" class="headerlink" title="2012-7"></a>2012-7</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222153226.png" alt="image-20211222215349145"></p>
+<p>解答：</p>
+<p>关键是掌握<code>dijkstra</code>算法的流程，每次将一个点加入<code>st</code>集合，找到离源点最近的点<code>t</code>，然后用<code>t</code>更新距离，将<code>t</code>加入<code>st</code>集合。所以依次求出最短路的点离源点的距离一定是递增的。</p>
+<p>算出每个点到点a的最短距离，从小到大排序。</p>
+<p>答案选C。</p>
+<h3 id="2012-8"><a href="#2012-8" class="headerlink" title="2012-8"></a>2012-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222154422.png" alt="image-20211222215441352"></p>
+<p>1肯定是对的，最小生成树代价就是最小的，也就是唯一的。</p>
+<p>2不一定，权值最小的边可能有多条。</p>
+<p>3错，最小生成树不唯一。</p>
+<p>4错。</p>
+<p>答案选A。</p>
+<h3 id="2013-9"><a href="#2013-9" class="headerlink" title="2013-9"></a>2013-9</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112222209972.png" alt="image-20211222220936900"></p>
+<p><strong>注意读题：将选项中的所有边进度同时加快，而不是分别加快哪条边的进度。</strong></p>
+<p>解法一：</p>
+<p>先求出整个工程工期，然后分别将每个选项涉及到的边的权值降到0，看看对工程工期的影响。</p>
+<p>答案选C。砍掉f和d可以缩短工期。</p>
+<p>解法二：</p>
+<p>求出全部关键路径为<code>bfh, bdeh, bdcg</code>。只有三条关键路径上的活动时间同时减少才能缩短工期。</p>
+<p>答案选C。f和d包含在三条关键路径中。</p>
+<h3 id="2015-6"><a href="#2015-6" class="headerlink" title="2015-6"></a>2015-6</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232228051.png" alt="image-20211223222828975"></p>
+<p>记住两种算法的核心思路：</p>
+<p><strong>Prim算法：点贪心，按集合外一点到集合的最小距离加点；</strong></p>
+<p><strong>Kruskal算法：边贪心，按图中的最小边加边。</strong></p>
+<p>答案选C。</p>
+<h3 id="2015-42"><a href="#2015-42" class="headerlink" title="2015-42"></a>2015-42</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232236643.png" alt="image-20211223223634574"></p>
+<p><strong>结论：设图G的邻接矩阵为A，则<code>A^n[i][j]</code>表示从i到j的长度为n的路径的数目。</strong></p>
+<p>运用DP的思维解释一下：</p>
+<p><code>A^n[i][j]</code>可以记为<code>f[i,j,n]</code>，表示从i走到j长度为2的走法的数量。</p>
+<p>为什么？</p>
+<p><code>A^n[i][j] = sigma&#123;A^(n-1)[i][k] * A[k][j]&#125;, 0 &lt;= k &lt; n</code>；</p>
+<p><code>f[i,j,n] = sigma&#123;f[i,k,n-1] * f[k,j,1]&#125;, 0 &lt;=k &lt; n</code>。</p>
+<p>上面两个式子是等价的。</p>
+<p>然后解释一下上面第二个DP转移式的意义：</p>
+<p>从i走n步到j的方案可以通过从i走n-1步到k（0 &lt;=k &lt; n）然后从k走一步到j的方案转移而来。</p>
+<p>根据最后一步的走法进行划分，最后一步可以由k（0 &lt;=k &lt; n）走到j。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232256829.png" alt="image-20211223225610725"></p>
+<p>答案如下：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232258700.png" alt="image-20211223225825612"></p>
+<h3 id="2016-8"><a href="#2016-8" class="headerlink" title="2016-8"></a>2016-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232259271.png" alt="image-20211223225906216"></p>
+<p>记住Dijkstra算法的核心思路：</p>
+<p><strong>它和Prim算法原理类似，都是点贪心，只不过区别是Dijkstra按源点到集合外一点的最小距离加点。</strong></p>
+<p>加点的顺序一定是按源点到各点最小距离递增排序的。</p>
+<p>答案选B。</p>
+<h3 id="2017-42"><a href="#2017-42" class="headerlink" title="2017-42"></a>2017-42</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232321444.png" alt="image-20211223232103366"></p>
+<p>（1）Prim算法：点贪心，A-&gt;D-&gt;E-&gt;C-&gt;B。</p>
+<p>（2）每次加点时都只有唯一的一条边，所以MST是唯一的。</p>
+<p>（3）给出一个充分不必要条件即可，当图的任意两条边的权值都不等时MST是唯一的。</p>
+<h3 id="2018-42"><a href="#2018-42" class="headerlink" title="2018-42"></a>2018-42</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232333354.png" alt="image-20211223233337253"></p>
+<p>参考答案如下：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232336559.png" alt="image-20211223233640472"></p>
+<h3 id="2019-5"><a href="#2019-5" class="headerlink" title="2019-5"></a>2019-5</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232341459.png" alt="image-20211223234129395"></p>
+<p>求事件、活动的最早、晚开始时间列表做法参考王道教材P235。</p>
+<p>活动d的最早开始时间对应点2的最早开始时间，也就是1到2的最长路径长度，是12。</p>
+<p>活动d的最晚开始时间就是点4的最晚开始时间减去d=7，也就是21-7 = 14。</p>
+<p>答案选C。</p>
+<h3 id="2020-8"><a href="#2020-8" class="headerlink" title="2020-8"></a>2020-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112232351453.png" alt="image-20211223235140394"></p>
+<p>答案选B，基础概念。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/2cbfb881.html" title="考研算法辅导课笔记（十）">https://www.grantdrew.top/posts/2cbfb881.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Prim/" rel="tag"><i class="fa fa-tag"></i> Prim</a>
+              <a href="/tags/Kruskal/" rel="tag"><i class="fa fa-tag"></i> Kruskal</a>
+              <a href="/tags/Floyd/" rel="tag"><i class="fa fa-tag"></i> Floyd</a>
+              <a href="/tags/Dijkstra/" rel="tag"><i class="fa fa-tag"></i> Dijkstra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/a98d9d45.html" rel="prev" title="考研算法辅导课笔记（九）">
+      <i class="fa fa-chevron-left"></i> 考研算法辅导课笔记（九）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/92a39409.html" rel="next" title="Java Web入门笔记（十）">
+      Java Web入门笔记（十） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="nav-text">最短路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dijkstra%E7%AE%97%E6%B3%95"><span class="nav-text">Dijkstra算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#acwing-849-Dijkstra%E6%B1%82%E6%9C%80%E7%9F%AD%E8%B7%AF-I"><span class="nav-text">acwing.849. Dijkstra求最短路 I</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Floyd-%E7%AE%97%E6%B3%95"><span class="nav-text">Floyd 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#acwing-854-Floyd%E6%B1%82%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="nav-text">acwing.854. Floyd求最短路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84"><span class="nav-text">关键路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%9F%E9%A2%98%E8%AE%B2%E8%A7%A3"><span class="nav-text">真题讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2011-41"><span class="nav-text">2011-41</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2012-7"><span class="nav-text">2012-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2012-8"><span class="nav-text">2012-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2013-9"><span class="nav-text">2013-9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2015-6"><span class="nav-text">2015-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2015-42"><span class="nav-text">2015-42</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2016-8"><span class="nav-text">2016-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2017-42"><span class="nav-text">2017-42</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2018-42"><span class="nav-text">2018-42</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2019-5"><span class="nav-text">2019-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2020-8"><span class="nav-text">2020-8</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">321</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">156</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:25</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

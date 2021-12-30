@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231958799.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231958827.png">
 <meta property="article:published_time" content="2021-08-18T03:26:05.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:58:47.878Z">
+<meta property="article:modified_time" content="2021-12-27T13:10:44.734Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="SPFA">
 <meta property="article:tag" content="Bellman-Ford">
@@ -128,7 +128,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">154</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -138,7 +138,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">316</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:58:47" itemprop="dateModified" datetime="2021-10-23T19:58:47+08:00">2021-10-23</time>
+                <time title="修改时间：2021-12-27 21:10:44" itemprop="dateModified" datetime="2021-12-27T21:10:44+08:00">2021-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -293,7 +293,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的有向图，图中可能存在重边和自环， 边权可能为负数。</span><br><span class="line">请你求出从 <span class="number">1</span> 号点到 n 号点的最多经过 k 条边的最短距离，如果无法从 <span class="number">1</span> 号点走到 n 号点，输出 impossible。</span><br><span class="line">注意：图中可能存在负权回路。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数 n,m,k。</span><br><span class="line">接下来 m 行，每行包含三个整数 x,y,z，表示存在一条从点 x 到点 y 的有向边，边长为 z。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示从 <span class="number">1</span> 号点到 n 号点的最多经过 k 条边的最短距离。</span><br><span class="line">如果不存在满足条件的路径，则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,k≤<span class="number">500</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">10000</span>,</span><br><span class="line">任意边长的绝对值不超过 <span class="number">10000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/6320/。">https://www.acwing.com/solution/content/6320/。</a></p>
 <p>Bellman-Ford 算法效率较低，<strong>代码难度较小</strong>。它比dijkstra算法更具普遍性，因为它对边没有要求，可以处理负权边，判断是否存在负权回路，缺点是<strong>时间复杂度高</strong>。</p>
-<p>其原理为连续进行松弛，在每次松弛时把每条边都更新一下，若在 n-1 次松弛后还能更新，则说明图中有负环，因此无法得出结果，否则就完成。</p>
+<p>其原理为连续进行边松弛，在每次松弛时把每条边都更新一下，若在 n-1 次松弛后还能更新，则说明图中有负环，因此无法得出结果，否则就完成。</p>
 <ul>
 <li><p>什么是松弛呢？</p>
 </li>
@@ -301,18 +301,20 @@
 </li>
 </ul>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231958799.png" alt="image-20210818134934725"></p>
-<p>若最外层循环k次，那么dist数组表示从1号点开始不超过k条边走到各个1点的距离。</p>
+<p><strong>若最外层循环k次，那么dist数组表示从1号点开始不超过k条边走到各个1点的距离。</strong></p>
 <p>参考资料： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/72185593。">https://zhuanlan.zhihu.com/p/72185593。</a></p>
 <p>其主要思想：对所有的边进行n-1轮松弛操作，因为在一个含有n个顶点的图中，任意两点之间的最短路径最多包含n-1边。换句话说，第1轮在对所有的边进行松弛后，得到的是源点最多经过一条边到达其他顶点的最短距离；第2轮在对所有的边进行松弛后，得到的是源点最多经过两条边到达其他顶点的最短距离；第3轮在对所有的边进行松弛后，得到的是源点最多经过一条边到达其他顶点的最短距离……</p>
+<p><strong>可以发现，bellman - ford算法每轮边松弛操作更新dist数组类似BFS每次以起点为中心向外拓展距离+1的一圈点。</strong></p>
+<p>也就是说，若最外层循环k次，那么dist数组表示从1号点开始不超过k条边走到各个1点的距离。</p>
 <p>若最外层循环到第n次，还有可以松弛的点，说明存在负环，因为含有n个点的图的最短路至多有n-1条边。</p>
 <p>bellman - ford算法的伪代码实现：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> n次</span><br><span class="line"><span class="keyword">for</span> 所有边 a,b,w (松弛操作)</span><br><span class="line">dist[b] = min(dist[b],back[a] + w)</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> n次</span><br><span class="line">	<span class="keyword">for</span> 所有边 a,b,w (松弛操作)</span><br><span class="line">		dist[b] = min(dist[b],back[a] + w)</span><br></pre></td></tr></table></figure>
 <p>注意：back[] 数组是上一次迭代后 dist[] 数组的备份，由于是每个点同时向外出发，因此需要对 dist[] 数组进行备份，若不进行备份会因此发生串联效应，影响到下一个点。发生串联不能保证使用边数&lt;=k。</p>
 <p>也就类似数值分析中的雅可比迭代法（可能记错了，差不多意思），一轮迭代完所有方程，再进行下一轮的迭代。</p>
 <p>如果不限制边数就不需要备份数组。</p>
 <p>时间复杂度：O(n*m)。</p>
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231958827.png" alt="image-20210818145816760"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">510</span>,M = <span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> d[N],backup[N];</span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a,b,w;<span class="comment">// 结构体存储有向边</span></span><br><span class="line">&#125;edge[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bellman_ford</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">    d[<span class="number">1</span>] = <span class="number">0</span>;<span class="comment">// dist数组初始化</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i ++ )&#123;<span class="comment">// 限制最短路边数不超过k</span></span><br><span class="line">        <span class="built_in">memcpy</span>(backup,d,<span class="keyword">sizeof</span> d);<span class="comment">// 执行一轮松弛操作之前先备份dist数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i ++)&#123;<span class="comment">// 对每条边都进行一次边松弛</span></span><br><span class="line">            <span class="keyword">int</span> a = edge[i].a,b = edge[i].b,w = edge[i].w;</span><br><span class="line">            d[b] = min(d[b],backup[a] + w);<span class="comment">// 边松弛</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        edge[i].a = a,edge[i].b = b,edge[i].w = c;<span class="comment">// 等价于edge[i] = &#123;a,b,c&#125;;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> t = bellman_ford();<span class="comment">// 题目限制边权绝对值不超过10000</span></span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="number">0x3f3f3f3f</span> / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">510</span>,M = <span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> d[N],backup[N];</span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a,b,w;<span class="comment">// 结构体存储有向边</span></span><br><span class="line">&#125;edge[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bellman_ford</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(d,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> d);</span><br><span class="line">    d[<span class="number">1</span>] = <span class="number">0</span>;<span class="comment">// dist数组初始化</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i ++ )&#123;<span class="comment">// 限制最短路边数不超过k</span></span><br><span class="line">        <span class="built_in">memcpy</span>(backup,d,<span class="keyword">sizeof</span> d);<span class="comment">// 执行一轮松弛操作之前先备份dist数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)&#123;<span class="comment">// 对每条边都进行一次边松弛</span></span><br><span class="line">            <span class="keyword">int</span> a = edge[j].a,b = edge[j].b,w = edge[j].w;</span><br><span class="line">            d[b] = min(d[b],backup[a] + w);<span class="comment">// 边松弛</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> d[n];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,c;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        edge[i].a = a,edge[i].b = b,edge[i].w = c;<span class="comment">// 等价于edge[i] = &#123;a,b,c&#125;;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> t = bellman_ford();<span class="comment">// 题目限制边权绝对值不超过10000</span></span><br><span class="line">    <span class="keyword">if</span> (t &gt; <span class="number">0x3f3f3f3f</span> / <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在下面代码中，是否能到达n号点的判断中需要进行<code>if(dist[n] &gt; INF/2)</code>判断，而并非是<code>if(dist[n] == INF)</code>判断，原因是INF是一个确定的值，并非真正的无穷大，会随着其他数值而受到影响，在上图的示例中就有变成INF-2的情况，所以dist[n]大于某个与INF相同数量级的数即可。</p>
 <h3 id="3-6-4：SPFA-算法"><a href="#3-6-4：SPFA-算法" class="headerlink" title="3.6.4：SPFA 算法"></a>3.6.4：SPFA 算法</h3><p>SPFA 算法（Shortest Path Faster Algorithm）是 Bellman-Ford算法 的队列优化算法的别称。</p>
 <p>BF能处理边数限制的负权图，而SPFA不能处理边数限制。</p>
@@ -335,7 +337,7 @@
 <p>st数组的作用：判断当前的点是否已经加入到队列当中了；已经加入队列的结点就不需要反复的把该点加入到队列中了，就算此次还是会更新到源点的距离，那只用更新一下数值而不用加入到队列当中。</p>
 <p>也可以数组模拟队列，但是要写循环队列（节点会重复入队，数组容量有限），可以这样写，<code>if (head == N) head = 0;if (tail == N) tail = 0;</code>分别在出队入队时加上，保证队列循环。</p>
 <p> Dijkstra算法和spfa算法中st数组的一个不同：前者一旦标记为true之后，就不在再变化；后者出队后，还可以重新入队。</p>
-<p>Bellman_ford算法里最后return-1的判断条件写的是<code>dist[n]&gt;0x3f3f3f3f/2;</code>而spfa算法写的是<code>dist[n]==0x3f3f3f3f;</code>其原因在于Bellman_ford算法会遍历所有的边，因此不管是不是和源点连通的边它都会得到更新；但是SPFA算法不一样，它相当于采用了BFS，因此遍历到的结点都是与源点连通的，因此如果你要求的n和源点不连通，它不会得到更新，还是保持的0x3f3f3f3f。</p>
+<p>Bellman_ford算法里最后return的判断条件写的是<code>dist[n]&gt;0x3f3f3f3f/2;</code>而spfa算法写的是<code>dist[n]==0x3f3f3f3f;</code>其原因在于Bellman_ford算法会遍历所有的边，因此不管是不是和源点连通的边它都会得到更新；但是SPFA算法不一样，它相当于采用了BFS，因此遍历到的结点都是与源点连通的，因此如果你要求的n和源点不连通，它不会得到更新，还是保持的0x3f3f3f3f。</p>
 <p>Bellman_ford算法可以存在负权回路，是因为其循环的次数是有限制的因此最终不会发生死循环；但是SPFA算法不可以，由于用了队列来存储，只要发生了更新就会不断的入队，<strong>因此假如有负权回路请你不要用SPFA否则会死循环。</strong></p>
 <p>补充：三种最短路算法的区别，<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/21057/。">https://www.acwing.com/solution/content/21057/。</a></p>
 
@@ -501,7 +503,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">316</span>
+          <span class="site-state-item-count">321</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -514,7 +516,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-count">156</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,7 +571,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">21:59</span>
+    <span title="站点阅读时长">22:25</span>
 </div>
 
 <span id="sitetime"></span>
