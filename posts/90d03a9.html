@@ -24,7 +24,7 @@
 <meta property="og:description" content="如果我们想要知道小于等于n有多少个质数呢？ 需要质数筛法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-16T05:03:04.000Z">
-<meta property="article:modified_time" content="2021-09-19T01:50:50.227Z">
+<meta property="article:modified_time" content="2022-01-01T09:09:52.448Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
@@ -123,7 +123,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -133,7 +133,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-19 09:50:50" itemprop="dateModified" datetime="2021-09-19T09:50:50+08:00">2021-09-19</time>
+                <time title="修改时间：2022-01-01 17:09:52" itemprop="dateModified" datetime="2022-01-01T17:09:52+08:00">2022-01-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -302,6 +302,7 @@
 <p>内层循环计算次数，$n/2 + n/3 + n/5… + n/[prime]$，时间复杂度为：$O(n*log log n)$。</p>
 <p><strong>3.线性筛法：也称为欧拉筛法。</strong></p>
 <p>蓝桥杯（三十）中有介绍过欧拉筛法，这里重复一遍。</p>
+<p>都叫线性筛了，时间复杂度当然是优秀的O(n)。</p>
 <p>参考文章： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/124068032。">https://zhuanlan.zhihu.com/p/124068032。</a></p>
 <p>埃氏筛法仍有优化空间，朴素筛法中将一个合数重复多次标记的问题埃氏筛也没有解决。</p>
 <p>比如：2和3都是质数，它们都会将合数12标记。</p>
@@ -320,7 +321,7 @@
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_primes</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!st[i]) primes[cnt++]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;primes[j]&lt;=n/i;j++)&#123;<span class="comment">// primes[j]*i&lt;=n,把大于n的合数都筛了没意义</span></span><br><span class="line">            st[primes[j]*i]=<span class="literal">true</span>;<span class="comment">//用最小质因子去筛合数</span></span><br><span class="line">            <span class="comment">//1)当i%primes[j]!=0时,说明此时遍历到的primes[j]不是i的质因子，那么只可能是此时的primes[j]&lt;i的最小质因子,所以primes[j]*i的最小质因子就是primes[j];</span></span><br><span class="line">            <span class="comment">/*2)当有i%primes[j]==0时,说明i的最小质因子是primes[j],因此primes[j]*i的最小质因子也就应该是prime[j]，之后接着用st[primes[j+1]*i]=true去筛合数时，就不是用最小质因子去更新了,因为i有最小质因子primes[j]&lt;primes[j+1],此时的primes[j+1]不是primes[j+1]*i的最小质因子，此时就应该break*/</span></span><br><span class="line">            <span class="comment">// ！！！关键步骤：退出循环，避免之后重复进行筛选，保证只被最小质因子筛掉</span></span><br><span class="line">            <span class="keyword">if</span>(i%primes[j]==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为什么要break？</p>
-<p>避免<code>i*primes[j+1]</code>被提前筛掉，满足if条件，<code>i*primes[j+1]</code>的最小质因子就是<code>primes[j]</code>，如果不推出它就会被<code>primes[j+1]</code>筛掉，会重复。</p>
+<p>避免<code>i*primes[j+1]</code>被提前筛掉，满足if条件，<code>i*primes[j+1]</code>的最小质因子就是<code>primes[j]</code>，如果不退出它就会被<code>primes[j+1]</code>筛掉，会重复。</p>
 <p>比如12有两种分解方式：<code>4*3</code>和<code>6*2</code>，在<code>4 % 2 == 0</code>的时候就知道了4的最小质因子是2，所以<code>4*3</code>的最小质因子也是2，必须退出，直到<code>6*2</code>用最小质因子2筛掉它。</p>
 <p><code>primes[j]*i</code>取决于两者，看<code>primes[j]</code>和<code>i</code>谁的最小质因子更小，代码注释中已经解释了2种情况。</p>
 <p>欧拉筛法可以顺便求出<code>primes[j]*i</code>的最小质因子<code>primes[j]</code>。</p>
@@ -332,6 +333,11 @@
 <p>筛质数一般用线性筛法就行，埃氏筛法不怎么用但是思想还是很有用。</p>
 <p><strong>例题：868. 筛质数（模板题）</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">给定一个正整数 n，请你求出 1∼n 中质数的个数。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共一行，包含整数 n。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，包含一个整数，表示 1∼n 中质数的个数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">1≤n≤10^6</span><br><span class="line">输入样例：</span><br><span class="line">8</span><br><span class="line">输出样例：</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<p>算法1：朴素筛法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">6</span>;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!st[i]) cnt ++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>*i;j &lt;= n;j += i) st[j] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>算法2：埃氏筛法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!st[i])&#123; </span><br><span class="line">            cnt ++; <span class="comment">// 对朴素筛法的改进，只通过质数筛掉合数，避免重复筛选</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>*i;j &lt;= n;j += i)</span><br><span class="line">                st[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>算法3：线性筛法。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"><span class="keyword">int</span> primes[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (! st[i]) primes[cnt ++] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; primes[j] &lt;= n/i; j ++ )&#123;</span><br><span class="line">            st[primes[j]*i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % primes[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -494,7 +500,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">321</span>
+          <span class="site-state-item-count">331</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -507,7 +513,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">156</span>
+        <span class="site-state-item-count">163</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -545,8 +551,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -562,7 +568,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">22:25</span>
+    <span title="站点阅读时长">23:17</span>
 </div>
 
 <span id="sitetime"></span>

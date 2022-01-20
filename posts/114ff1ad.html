@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="2021-12021年408真题地址： https:&#x2F;&#x2F;www.doc88.com&#x2F;p-66216037546804.html?r&#x3D;1。  答案选D。 B选项操作错在没有考虑循环链表只有一个结点的情况，此时p &#x3D;&#x3D; q，需要更新尾指针。 2021-2 答案选D。 栈和队列的结合，手动模拟就行。 2021-3 二维数组按行优先存储，设数组的行大小为L个单位，A[0][0]和A[3][3]中间间隔3L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考研算法辅导课笔记（十八）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/114ff1ad.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="2021-12021年408真题地址： https:&#x2F;&#x2F;www.doc88.com&#x2F;p-66216037546804.html?r&#x3D;1。  答案选D。 B选项操作错在没有考虑循环链表只有一个结点的情况，此时p &#x3D;&#x3D; q，需要更新尾指针。 2021-2 答案选D。 栈和队列的结合，手动模拟就行。 2021-3 二维数组按行优先存储，设数组的行大小为L个单位，A[0][0]和A[3][3]中间间隔3L">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131237522.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242649.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242837.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242367.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142227226.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131243187.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244187.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142240601.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244952.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244698.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244834.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142258338.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131245018.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131245758.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182021124.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182041955.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182038482.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182054673.png">
+<meta property="article:published_time" content="2022-01-13T04:25:00.000Z">
+<meta property="article:modified_time" content="2022-01-20T06:22:46.151Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="链表">
+<meta property="article:tag" content="排序">
+<meta property="article:tag" content="并查集">
+<meta property="article:tag" content="队列">
+<meta property="article:tag" content="堆">
+<meta property="article:tag" content="二叉树">
+<meta property="article:tag" content="欧拉路径">
+<meta property="article:tag" content="红黑树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131237522.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/114ff1ad.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>考研算法辅导课笔记（十八） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/114ff1ad.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          考研算法辅导课笔记（十八）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-13 12:25:00" itemprop="dateCreated datePublished" datetime="2022-01-13T12:25:00+08:00">2022-01-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-20 14:22:46" itemprop="dateModified" datetime="2022-01-20T14:22:46+08:00">2022-01-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%80%83%E7%A0%94/" itemprop="url" rel="index"><span itemprop="name">考研</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/114ff1ad.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/114ff1ad.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="2021-1"><a href="#2021-1" class="headerlink" title="2021-1"></a>2021-1</h3><p>2021年408真题地址： <a target="_blank" rel="noopener" href="https://www.doc88.com/p-66216037546804.html?r=1。">https://www.doc88.com/p-66216037546804.html?r=1。</a></p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131237522.png" alt="image-20220113123731458"></p>
+<p>答案选D。</p>
+<p>B选项操作错在没有考虑循环链表只有一个结点的情况，此时<code>p == q</code>，需要更新尾指针。</p>
+<h3 id="2021-2"><a href="#2021-2" class="headerlink" title="2021-2"></a>2021-2</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242649.png" alt="image-20220113124225606"></p>
+<p>答案选D。</p>
+<p>栈和队列的结合，手动模拟就行。</p>
+<h3 id="2021-3"><a href="#2021-3" class="headerlink" title="2021-3"></a>2021-3</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242837.png" alt="image-20220113124242800"></p>
+<p>二维数组按行优先存储，设数组的行大小为L个单位，<code>A[0][0]</code>和<code>A[3][3]</code>中间间隔3L+2个单位。由于存储地址取的是单位的左端，所以<code>3L+2+1 = 220 - 110</code>，解得<code>L = 39</code>。</p>
+<p><code>A[3][3]</code>和<code>A[5][5]</code>中间间隔2L+1个单位。由于存储地址取的是单位的左端，所以<code>2L+1+1 = x - 220</code>，解得<code>x = 300</code>。</p>
+<p>答案选B。</p>
+<h3 id="2021-4"><a href="#2021-4" class="headerlink" title="2021-4"></a>2021-4</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131242367.png" alt="image-20220113124252329"></p>
+<p>回顾森林F与二叉树T的转换。</p>
+<p>也就是左孩子右兄弟表示法。</p>
+<p>根据前序和中序遍历构造二叉树。</p>
+<p>答案选C。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142227226.png" alt="image-20220114222709164"></p>
+<h3 id="2021-5"><a href="#2021-5" class="headerlink" title="2021-5"></a>2021-5</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131243187.png" alt="image-20220113124310150"></p>
+<p>WPL可以按照定义计算，也可以计算所有非叶节点的权值之和。</p>
+<p>答案选B。</p>
+<h3 id="2021-6"><a href="#2021-6" class="headerlink" title="2021-6"></a>2021-6</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244187.png" alt="image-20220113124417146"></p>
+<p>考察AVL的插入操作。（不改变中序序列）</p>
+<p>每次考虑最小不平衡子树进行旋转操作，可能要进行多次旋转。</p>
+<p>对应从20到23的这条路径，需要进行RL旋转。</p>
+<p>答案选D。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142240601.png" alt="image-20220114224026537"></p>
+<h3 id="2021-7"><a href="#2021-7" class="headerlink" title="2021-7"></a>2021-7</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244952.png" alt="image-20220113124429913"></p>
+<p>答案选A。</p>
+<p>每一步入度为0的节点都只有一个。</p>
+<h3 id="2021-8"><a href="#2021-8" class="headerlink" title="2021-8"></a>2021-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244698.png" alt="image-20220113124442642"></p>
+<p>Dijkstra算法，每一轮边松弛操作会将一个除起点外的其他点加入集合，并用它更新dist数组。</p>
+<p>求出第二条最短路径，也就是执行了两轮边松弛操作，找到了两个点，3号和5号。此时dist[2]应该等于21。</p>
+<p>答案选C。</p>
+<h3 id="2021-9"><a href="#2021-9" class="headerlink" title="2021-9"></a>2021-9</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131244834.png" alt="image-20220113124453788"></p>
+<p>3阶B树，每个节点最多有2个关键字，3个孩子。非根节点至少有ceil(m/2)-1个关键字。</p>
+<p>注意<strong>4个关键字的分配方式有多种</strong>，选择总节点个数最多的方式。</p>
+<p>根节点的关键字也有两种情况。</p>
+<p>答案选A。（容易做错）</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201142258338.png" alt="image-20220114225801261"></p>
+<h3 id="2021-10"><a href="#2021-10" class="headerlink" title="2021-10"></a>2021-10</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131245018.png" alt="image-20220113124504974"></p>
+<p>手动模拟基数排序。</p>
+<p>答案选C。按照低位优先排序，从个位开始排序。</p>
+<h3 id="2021-11"><a href="#2021-11" class="headerlink" title="2021-11"></a>2021-11</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201131245758.png" alt="image-20220113124513721"></p>
+<p>模拟大根堆的插入操作。（前面堆排序中没有涉及）</p>
+<p><strong>每次往大根堆中插入一个元素，加到堆底，执行一次<code>up</code>操作。</strong></p>
+<p>答案选B。</p>
+<h3 id="2021-41"><a href="#2021-41" class="headerlink" title="2021-41"></a>2021-41</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182021124.png" alt="image-20220118202151039"></p>
+<p>图论新知识点：<strong>欧拉路径</strong>。</p>
+<p>概念补充与拓展知识：</p>
+<p>如果图G中的一个路径包括每个边恰好一次，则该路径称为欧拉路径(Euler path)。</p>
+<p>如果一个回路是欧拉路径，则称为欧拉回路(Euler circuit)。</p>
+<p>具有欧拉回路的图称为欧拉图（简称E图）。具有欧拉路径但不具有欧拉回路的图称为半欧拉图。</p>
+<p>欧拉回路是数学家欧拉在研究著名的德国哥尼斯堡(Koenigsberg)七桥问题时发现的。</p>
+<p><strong>无向图存在欧拉回路的充要条件</strong></p>
+<p>一个无向图存在欧拉回路，当且仅当该图所有顶点度数都为偶数,且该图是连通图。</p>
+<p><strong>有向图存在欧拉回路的充要条件</strong></p>
+<p>一个有向图存在欧拉回路，所有顶点的入度等于出度且该图是连通图。</p>
+<hr>
+<p>一个无向连通图存在欧拉路径的充要条件是度数为奇数的点的个数为0或2。（题干中也有）</p>
+<p>核心思路就是求度数为奇数的点的个数。</p>
+<p>参考答案：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182041955.png" alt="image-20220118204109823"></p>
+<p>2021-42</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182038482.png" alt="image-20220118203846398"></p>
+<p>（1）排序算法执行完后，b数组中的内容就是从小到大排好序的a数组<code>-10,...,25,25</code>。</p>
+<p>（2）<code>n*(n-1)/2</code>次。</p>
+<p>（3）不是稳定的。加一个等号就行。</p>
+<p>参考答案：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201182054673.png" alt="image-20220118205419579"></p>
+<blockquote>
+<p>2021的两道算法题都是送分题。</p>
+</blockquote>
+<h1 id="第十三讲-红黑树和并查集"><a href="#第十三讲-红黑树和并查集" class="headerlink" title="第十三讲  红黑树和并查集"></a>第十三讲  红黑树和并查集</h1><ol>
+<li>红黑树<br> 1.1 定义<pre><code> (1) 结点是红色或黑色。
+ (2) 根结点是黑色。
+ (3) 所有叶子都是黑色。（叶子是NIL结点）
+ (4) 每个红色结点的两个子结点都是黑色。（从每个叶子到根的所有路径上不能有两个连续的红色结点）
+ (5) 从任一节结点其每个叶子的所有路径都包含相同数目的黑色结点。
+</code></pre> 1.2 性质<pre><code> 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。
+</code></pre> 1.3 平衡操作<pre><code> 1.3.1 插入
+     1.3.1.1 被插入的节点是根节点。
+         直接把此节点涂为黑色。
+     1.3.1.2 被插入的节点的父节点是黑色。
+         什么也不需要做。
+     1.3.1.3 被插入的节点的父节点是红色。
+         [1] 当前节点的祖父节点的另一个子节点（叔叔节点）也是红色。
+             (1) 将“父节点”设为黑色。
+             (2) 将“叔叔节点”设为黑色。
+             (3) 将“祖父节点”设为“红色”。
+             (4) 将“祖父节点”设为“当前节点”(红色节点)；即，之后继续对“当前节点”进行操作。
+         [2] 叔叔节点是黑色，且当前节点是其父节点的右孩子
+             (1) 将“父节点”作为“新的当前节点”。
+             (2) 以“新的当前节点”为支点进行左旋。
+         [3] 叔叔节点是黑色，且当前节点是其父节点的左孩子
+             (1) 将“父节点”设为“黑色”。
+             (2) 将“祖父节点”设为“红色”。
+             (3) 以“祖父节点”为支点进行右旋。
+ 1.3.2 删除
+     1.3.2.1 x指向一个&quot;红+黑&quot;节点。
+         将x设为一个&quot;黑&quot;节点即可。
+     1.3.2.2 x指向根。
+         将x设为一个&quot;黑&quot;节点即可。
+     1.3.2.3 
+         [1] x的兄弟节点是红色。
+             (1) 将x的兄弟节点设为“黑色”。
+             (2) 将x的父节点设为“红色”。
+             (3) 对x的父节点进行左旋。
+             (4) 左旋后，重新设置x的兄弟节点。
+         [2] x的兄弟节点是黑色，x的兄弟节点的两个孩子都是黑色。
+             (1) 将x的兄弟节点设为“红色”。
+             (2) 设置“x的父节点”为“新的x节点”。
+         [3] x的兄弟节点是黑色；x的兄弟节点的左孩子是红色，右孩子是黑色的。
+             (1) 将x兄弟节点的左孩子设为“黑色”。
+             (2) 将x兄弟节点设为“红色”。
+             (3) 对x的兄弟节点进行右旋。
+             (4) 右旋后，重新设置x的兄弟节点。
+         [4] x的兄弟节点是黑色；x的兄弟节点的右孩子是红色的，x的兄弟节点的左孩子任意颜色。
+             (1) 将x父节点颜色 赋值给 x的兄弟节点。
+             (2) 将x父节点设为“黑色”。
+             (3) 将x兄弟节点的右子节设为“黑色”。
+             (4) 对x的父节点进行左旋。
+</code></pre></li>
+<li>并查集<br> 2.1 定义<pre><code> 用森林维护集合关系，支持合并、查询等操作。
+</code></pre> 2.2 优化<pre><code> (1) 路径压缩
+ (2) 按秩合并
+</code></pre></li>
+</ol>
+<hr>
+<p>红黑树代码很长很复杂，以大题形式考察可能性不大。</p>
+<p>并查集比较简单。</p>
+<p>红黑树知识这里就跳过了。（不考408嘿嘿，要考408的同学看看y总视频）</p>
+<p>并查集知识参考《并查集详解》以及《算法基础课笔记（十一）》。</p>
+<hr>
+<p>模板链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/404/">https://www.acwing.com/blog/content/404/</a></p>
+<p>并查集 —— 模板题:AcWing 836. 合并集合, AcWing 837. 连通块中点的数量</p>
+<p>(1)朴素并查集：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> p[N]; <span class="comment">//存储每个点的祖宗节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回x的祖宗节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">// 路径压缩</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[x] != x) p[x] = find(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化，假定节点编号是1~n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) p[i] = i;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并a和b所在的两个集合：</span></span><br><span class="line">p[find(a)] = find(b);  <span class="comment">// 不要写成p[a] = b;</span></span><br></pre></td></tr></table></figure>
+<p>(2)维护size的并查集：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> p[N], size[N];</span><br><span class="line"><span class="comment">//p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回x的祖宗节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[x] != x) p[x] = find(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化，假定节点编号是1~n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">&#123;</span><br><span class="line">    p[i] = i;</span><br><span class="line">    size[i] = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并a和b所在的两个集合：</span></span><br><span class="line">a = find(a),b = find(b);<span class="comment">// 必须用变量存一下find，否则下面会改变find导致bug</span></span><br><span class="line"><span class="keyword">if</span> (find(a) != find(b))&#123;<span class="comment">// a,b祖宗不同才需要合并，否则已经合并了</span></span><br><span class="line">    p[a] = b;</span><br><span class="line">    Size[b] += Size[a];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3)维护到祖宗节点距离的并查集：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> p[N], d[N];</span><br><span class="line"><span class="comment">//p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回x的祖宗节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[x] != x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u = find(p[x]);</span><br><span class="line">        d[x] += d[p[x]];</span><br><span class="line">        p[x] = u;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化，假定节点编号是1~n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">&#123;</span><br><span class="line">    p[i] = i;</span><br><span class="line">    d[i] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 合并a和b所在的两个集合：</span></span><br><span class="line">p[find(a)] = find(b);</span><br><span class="line">d[find(a)] = distance; <span class="comment">// 根据具体问题，初始化find(a)的偏移量</span></span><br></pre></td></tr></table></figure>
+<p>并查集的两种优化：路径压缩和按秩合并。</p>
+<p>最坏情况时间复杂度为：O(m*logn)。n是集合大小，m是查询次数。</p>
+<p>在很大范围内并查集的单次查询耗时近似为O(1)。</p>
+<p>启发式合并（按秩合并）：</p>
+<p>如果我们将一棵点数与深度都较小的集合树连接到一棵更大的集合树下，显然相比于另一种连接方案，接下来执行查找操作的用时更小（也会带来更优的最坏时间复杂度）。</p>
+<p>当然，我们不总能遇到恰好如上所述的集合————点数与深度都更小。鉴于点数与深度这两个特征都很容易维护，我们常常从中择一，作为估价函数。</p>
+<p>按秩合并对于路径压缩后的并查集提升不会太明显。</p>
+<h3 id="acwing-836-合并集合"><a href="#acwing-836-合并集合" class="headerlink" title="acwing.836. 合并集合"></a>acwing.836. 合并集合</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">一共有 n 个数，编号是 <span class="number">1</span>∼n，最开始每个数各自在一个集合中。</span><br><span class="line">现在要进行 m 个操作，操作共有两种：</span><br><span class="line">M a b，将编号为 a 和 b 的两个数所在的集合合并，如果两个数已经在同一个集合中，则忽略这个操作；</span><br><span class="line">Q a b，询问编号为 a 和 b 的两个数是否在同一个集合中；</span><br><span class="line">    </span><br><span class="line">输入格式</span><br><span class="line">第一行输入整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含一个操作指令，指令为 M a b 或 Q a b 中的一种。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">对于每个询问指令 Q a b，都要输出一个结果，如果 a 和 b 在同一集合内，则输出 Yes，否则输出 No。</span><br><span class="line">每个结果占一行。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line">M <span class="number">1</span> <span class="number">2</span></span><br><span class="line">M <span class="number">3</span> <span class="number">4</span></span><br><span class="line">Q <span class="number">1</span> <span class="number">2</span></span><br><span class="line">Q <span class="number">1</span> <span class="number">3</span></span><br><span class="line">Q <span class="number">3</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<p>代码：（路径压缩+按秩合并版本）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> p[N],r[N],n,m; <span class="comment">// p是并查集数组，r维护树根的树高</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123; <span class="comment">// 路径压缩的查询</span></span><br><span class="line">    <span class="keyword">if</span> (p[x] != x) p[x] = find(p[x]);</span><br><span class="line">    <span class="keyword">return</span> p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123; <span class="comment">// 按秩合并两个集合</span></span><br><span class="line">    a = find(a),b = find(b);</span><br><span class="line">    <span class="keyword">if</span> (a == b) <span class="keyword">return</span>; <span class="comment">// 同一集合不用合并</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (r[a] &gt; r[b]) p[b] = a; <span class="comment">// 矮树插入高树，不影响高树高度</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        p[a] = b;</span><br><span class="line">        <span class="keyword">if</span> (r[a] == r[b]) r[b] ++; <span class="comment">// 两树同高，树根高度++</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) p[i] = i; <span class="comment">// 初始化并查集</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> op;<span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span> (m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; op &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="string">&#x27;M&#x27;</span>) merge(a,b);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; (find(a) == find(b) ? <span class="string">&quot;Yes\n&quot;</span> : <span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>数据结构的笔试部分就到这里结束。</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/114ff1ad.html" title="考研算法辅导课笔记（十八）">https://www.grantdrew.top/posts/114ff1ad.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 链表</a>
+              <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
+              <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag"><i class="fa fa-tag"></i> 并查集</a>
+              <a href="/tags/%E9%98%9F%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 队列</a>
+              <a href="/tags/%E5%A0%86/" rel="tag"><i class="fa fa-tag"></i> 堆</a>
+              <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
+              <a href="/tags/%E6%AC%A7%E6%8B%89%E8%B7%AF%E5%BE%84/" rel="tag"><i class="fa fa-tag"></i> 欧拉路径</a>
+              <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 红黑树</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/e624d9ee.html" rel="prev" title="考研算法辅导课笔记（十七）">
+      <i class="fa fa-chevron-left"></i> 考研算法辅导课笔记（十七）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/cf8619fa.html" rel="next" title="2022寒假每日一题笔记（三）">
+      2022寒假每日一题笔记（三） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-1"><span class="nav-text">2021-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-2"><span class="nav-text">2021-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-3"><span class="nav-text">2021-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-4"><span class="nav-text">2021-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-5"><span class="nav-text">2021-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-6"><span class="nav-text">2021-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-7"><span class="nav-text">2021-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-8"><span class="nav-text">2021-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-9"><span class="nav-text">2021-9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-10"><span class="nav-text">2021-10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-11"><span class="nav-text">2021-11</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-41"><span class="nav-text">2021-41</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E8%AE%B2-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%92%8C%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-text">第十三讲  红黑树和并查集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#acwing-836-%E5%90%88%E5%B9%B6%E9%9B%86%E5%90%88"><span class="nav-text">acwing.836. 合并集合</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">23:17</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

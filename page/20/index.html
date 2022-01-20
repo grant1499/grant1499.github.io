@@ -120,7 +120,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -130,7 +130,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/b5ebe1a8.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/6eec8d79.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -200,7 +200,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/b5ebe1a8.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（十七）</a>
+            <a href="/posts/6eec8d79.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（二二）</a>
         </h2>
 
         <div class="post-meta">
@@ -210,14 +210,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-23 20:45:07" itemprop="dateCreated datePublished" datetime="2021-05-23T20:45:07+08:00">2021-05-23</time>
+              <time title="创建时间：2021-05-29 11:35:46" itemprop="dateCreated datePublished" datetime="2021-05-29T11:35:46+08:00">2021-05-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:24:55" itemprop="dateModified" datetime="2021-10-23T19:24:55+08:00">2021-10-23</time>
+                <time title="修改时间：2021-10-23 18:55:29" itemprop="dateModified" datetime="2021-10-23T18:55:29+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,8 +242,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/b5ebe1a8.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/b5ebe1a8.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/6eec8d79.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/6eec8d79.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -253,14 +253,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.3k</span>
+              <span>4.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -272,10 +272,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="4-4-acwing-1241-外卖店优先级"><a href="#4-4-acwing-1241-外卖店优先级" class="headerlink" title="4.4 acwing.1241. 外卖店优先级"></a>4.4 acwing.1241. 外卖店优先级</h4><p>第十届蓝桥杯省赛C++A/C组,第十届蓝桥杯省赛JAVAA/B/C组</p>
+          <h2 id="六-贪心"><a href="#六-贪心" class="headerlink" title="六 贪心"></a>六 贪心</h2><p>贪心问题<strong>没有普遍统一的模板</strong>，跳跃性很强，结论证明往往很难。</p>
+<p>做法：1.找以往做过的相似的题目 2.不会的只能靠猜了</p>
+<p>贪心是求解一类最优化问题的方法，考虑当前状态下<strong>局部最优</strong>的策略，来使<strong>全局</strong>结果达到<strong>最优</strong>。</p>
+<p>贪心的证明往往比贪心更难。</p>
+<p>代码随想录：<a target="_blank" rel="noopener" href="https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.md">贪心专题文章</a>，题目数量多，总结全面。LeetCode101贪心算法专题。</p>
+<p>要证明贪心策略的正确性常会用到反证法，找一找是否有反例，还有一种就是数学归纳法。</p>
+<p>做题时没必要非得证明出来，能AC就能成功。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/b5ebe1a8.html#more" rel="contents">
+              <a class="btn" href="/posts/6eec8d79.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -299,7 +305,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/141c4cb6.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/5efa61a1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -313,7 +319,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/141c4cb6.html" class="post-title-link" itemprop="url">DP背包问题详解</a>
+            <a href="/posts/5efa61a1.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（二一）</a>
         </h2>
 
         <div class="post-meta">
@@ -323,14 +329,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-19 19:20:40" itemprop="dateCreated datePublished" datetime="2021-05-19T19:20:40+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-29 11:35:34" itemprop="dateCreated datePublished" datetime="2021-05-29T11:35:34+08:00">2021-05-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 20:37:49" itemprop="dateModified" datetime="2021-10-23T20:37:49+08:00">2021-10-23</time>
+                <time title="修改时间：2021-12-17 20:24:05" itemprop="dateModified" datetime="2021-12-17T20:24:05+08:00">2021-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -355,8 +361,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/141c4cb6.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/141c4cb6.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/5efa61a1.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/5efa61a1.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -366,14 +372,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7.2k</span>
+              <span>5.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -385,14 +391,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h1><p>所有背包问题的视频讲解参照：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av33930433/">y总2018年视频</a></p>
-<p>主要背包问题模板整理：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/228/">https://www.acwing.com/blog/content/228/</a></p>
-<p>八类背包问题笔记整理：<a target="_blank" rel="noopener" href="https://valen.blog.csdn.net/article/details/87878853">点这里</a></p>
-<p>OI-wiki背包问题简单总结：<a target="_blank" rel="noopener" href="https://oi-wiki.org/dp/knapsack/">https://oi-wiki.org/dp/knapsack/</a></p>
-<p>本文仅介绍主要的四个背包问题，不会全部介绍背包九讲。</p>
+          <h4 id="4-4-acwing-1207-大臣的旅费"><a href="#4-4-acwing-1207-大臣的旅费" class="headerlink" title="4.4 acwing.1207. 大臣的旅费"></a>4.4 acwing.1207. 大臣的旅费</h4><p>第四届蓝桥杯省赛C++A组,第四届蓝桥杯省赛JAVAA组</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/141c4cb6.html#more" rel="contents">
+              <a class="btn" href="/posts/5efa61a1.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -416,7 +418,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/5e34e759.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/64dec9b3.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -430,7 +432,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/5e34e759.html" class="post-title-link" itemprop="url">大话设计模式</a>
+            <a href="/posts/64dec9b3.html" class="post-title-link" itemprop="url">Programming Challenges</a>
         </h2>
 
         <div class="post-meta">
@@ -440,14 +442,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-17 20:25:18" itemprop="dateCreated datePublished" datetime="2021-05-17T20:25:18+08:00">2021-05-17</time>
+              <time title="创建时间：2021-05-28 20:08:55" itemprop="dateCreated datePublished" datetime="2021-05-28T20:08:55+08:00">2021-05-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-06 20:30:04" itemprop="dateModified" datetime="2021-06-06T20:30:04+08:00">2021-06-06</time>
+                <time title="修改时间：2021-06-06 20:32:41" itemprop="dateModified" datetime="2021-06-06T20:32:41+08:00">2021-06-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -468,8 +470,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/5e34e759.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/5e34e759.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/64dec9b3.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/64dec9b3.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -501,7 +503,7 @@
           这里有东西被加密了，需要输入密码查看哦。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/5e34e759.html#more" rel="contents">
+              <a class="btn" href="/posts/64dec9b3.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -525,7 +527,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/e442970.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/996993ce.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -539,7 +541,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/e442970.html" class="post-title-link" itemprop="url">Linux基础总结</a>
+            <a href="/posts/996993ce.html" class="post-title-link" itemprop="url">深入浅出计算机组成原理（十）</a>
         </h2>
 
         <div class="post-meta">
@@ -549,14 +551,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-17 19:30:50" itemprop="dateCreated datePublished" datetime="2021-05-17T19:30:50+08:00">2021-05-17</time>
+              <time title="创建时间：2021-05-27 19:27:29" itemprop="dateCreated datePublished" datetime="2021-05-27T19:27:29+08:00">2021-05-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-09-29 12:20:53" itemprop="dateModified" datetime="2021-09-29T12:20:53+08:00">2021-09-29</time>
+                <time title="修改时间：2021-10-23 19:39:00" itemprop="dateModified" datetime="2021-10-23T19:39:00+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -564,7 +566,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">计算机组成原理</span></a>
                 </span>
             </span>
 
@@ -577,8 +579,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/e442970.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/e442970.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/996993ce.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/996993ce.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -588,14 +590,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>17k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>15 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -607,10 +609,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>转载自：<a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes#coffee-java">https://github.com/CyC2018/CS-Notes#coffee-java</a></p>
+          这里有东西被加密了，需要输入密码查看哦。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/e442970.html#more" rel="contents">
+              <a class="btn" href="/posts/996993ce.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -634,7 +636,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/7009b76e.html">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/1c5bb60a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -648,110 +650,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/7009b76e.html" class="post-title-link" itemprop="url">SQL语法总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-05-17 19:30:00 / 修改时间：19:35:25" itemprop="dateCreated datePublished" datetime="2021-05-17T19:30:00+08:00">2021-05-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/7009b76e.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/7009b76e.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SQL-语法"><a href="#SQL-语法" class="headerlink" title="SQL 语法"></a>SQL 语法</h1><p>转载自：<a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes#coffee-java">https://github.com/CyC2018/CS-Notes#coffee-java</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/7009b76e.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/651b324b.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/651b324b.html" class="post-title-link" itemprop="url">Java核心基础总结</a>
+            <a href="/posts/1c5bb60a.html" class="post-title-link" itemprop="url">深入浅出计算机组成原理（九）</a>
         </h2>
 
         <div class="post-meta">
@@ -761,14 +660,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-05-17 19:27:26" itemprop="dateCreated datePublished" datetime="2021-05-17T19:27:26+08:00">2021-05-17</time>
+              <time title="创建时间：2021-05-27 19:27:19" itemprop="dateCreated datePublished" datetime="2021-05-27T19:27:19+08:00">2021-05-27</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-11 17:41:10" itemprop="dateModified" datetime="2021-06-11T17:41:10+08:00">2021-06-11</time>
+                <time title="修改时间：2021-10-23 19:38:16" itemprop="dateModified" datetime="2021-10-23T19:38:16+08:00">2021-10-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -776,7 +675,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">计算机组成原理</span></a>
                 </span>
             </span>
 
@@ -789,457 +688,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/posts/651b324b.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/651b324b.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>26k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>23 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Java-核心基础总结"><a href="#Java-核心基础总结" class="headerlink" title="Java 核心基础总结"></a>Java 核心基础总结</h1><p>转载自：<a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes#coffee-java">https://github.com/CyC2018/CS-Notes#coffee-java</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/651b324b.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/fc6d0cd1.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/fc6d0cd1.html" class="post-title-link" itemprop="url">CSS学习笔记（三）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-17 14:51:58" itemprop="dateCreated datePublished" datetime="2021-05-17T14:51:58+08:00">2021-05-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 20:35:11" itemprop="dateModified" datetime="2021-10-23T20:35:11+08:00">2021-10-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/fc6d0cd1.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/fc6d0cd1.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="5-CSS字体样式"><a href="#5-CSS字体样式" class="headerlink" title="5.CSS字体样式"></a>5.CSS字体样式</h2><p>span标签：用span套起来重点要突出的字。（约定俗成）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/fc6d0cd1.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/67eb9637.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/67eb9637.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（十六）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-15 22:48:52" itemprop="dateCreated datePublished" datetime="2021-05-15T22:48:52+08:00">2021-05-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:24:27" itemprop="dateModified" datetime="2021-10-23T19:24:27+08:00">2021-10-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/67eb9637.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/67eb9637.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7.5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="4-习题"><a href="#4-习题" class="headerlink" title="4.习题"></a>4.习题</h3><h4 id="4-1-acwing-1219-移动距离"><a href="#4-1-acwing-1219-移动距离" class="headerlink" title="4.1 acwing.1219. 移动距离"></a>4.1 acwing.1219. 移动距离</h4><p>第六届蓝桥杯省赛C++B组,第六届蓝桥杯省赛JAVAA/C组</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/67eb9637.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/d43df4eb.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/d43df4eb.html" class="post-title-link" itemprop="url">Java常用算法刷题模板</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-13 21:34:22" itemprop="dateCreated datePublished" datetime="2021-05-13T21:34:22+08:00">2021-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-10 10:59:02" itemprop="dateModified" datetime="2021-06-10T10:59:02+08:00">2021-06-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/d43df4eb.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/d43df4eb.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Java常用算法刷题模板"><a href="#Java常用算法刷题模板" class="headerlink" title="Java常用算法刷题模板"></a>Java常用算法刷题模板</h2><p>参考1：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/11158dbc7bde">https://www.jianshu.com/p/11158dbc7bde</a></p>
-<p>参考2：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/593/">https://www.acwing.com/blog/content/593/</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/d43df4eb.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/2e5ddee.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="grant">
-      <meta itemprop="description" content="Tough times never last, but tough people do.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="grant's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/2e5ddee.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（十五）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-05-13 11:07:42" itemprop="dateCreated datePublished" datetime="2021-05-13T11:07:42+08:00">2021-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:29:04" itemprop="dateModified" datetime="2021-10-23T19:29:04+08:00">2021-10-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/posts/2e5ddee.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/posts/2e5ddee.html" itemprop="commentCount"></span>
+    <a title="valine" href="/posts/1c5bb60a.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/1c5bb60a.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1268,10 +718,572 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="2-模拟"><a href="#2-模拟" class="headerlink" title="2.模拟"></a>2.模拟</h3><h4 id="2-1-acwing-1204-错误票据"><a href="#2-1-acwing-1204-错误票据" class="headerlink" title="2.1 acwing.1204. 错误票据"></a>2.1 acwing.1204. 错误票据</h4><p>第四届蓝桥杯省赛C++A/B组,第四届蓝桥杯省赛JAVAA/B组</p>
+          这里有东西被加密了，需要输入密码查看哦。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/2e5ddee.html#more" rel="contents">
+              <a class="btn" href="/posts/1c5bb60a.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/44dbe297.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/44dbe297.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（二十）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-27 15:43:02" itemprop="dateCreated datePublished" datetime="2021-05-27T15:43:02+08:00">2021-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-23 19:02:18" itemprop="dateModified" datetime="2021-10-23T19:02:18+08:00">2021-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/44dbe297.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/44dbe297.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="4-习题"><a href="#4-习题" class="headerlink" title="4.习题"></a>4.习题</h3><h4 id="4-1-acwing-1240-完全二叉树的权值"><a href="#4-1-acwing-1240-完全二叉树的权值" class="headerlink" title="4.1 acwing.1240. 完全二叉树的权值"></a>4.1 acwing.1240. 完全二叉树的权值</h4><p>第十届蓝桥杯省赛C++A/B组,第十届蓝桥杯省赛JAVAA组</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/44dbe297.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/384de8b4.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/384de8b4.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（十九）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-27 09:35:23" itemprop="dateCreated datePublished" datetime="2021-05-27T09:35:23+08:00">2021-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-23 19:23:55" itemprop="dateModified" datetime="2021-10-23T19:23:55+08:00">2021-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/384de8b4.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/384de8b4.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="2-2-acwing-1113-红与黑（信息学奥赛一本通）"><a href="#2-2-acwing-1113-红与黑（信息学奥赛一本通）" class="headerlink" title="2.2 acwing.1113. 红与黑（信息学奥赛一本通）"></a>2.2 acwing.1113. 红与黑（信息学奥赛一本通）</h4>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/384de8b4.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/4280c9eb.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/4280c9eb.html" class="post-title-link" itemprop="url">蓝桥杯学习总结（十八）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-26 14:40:26" itemprop="dateCreated datePublished" datetime="2021-05-26T14:40:26+08:00">2021-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-23 19:19:56" itemprop="dateModified" datetime="2021-10-23T19:19:56+08:00">2021-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/4280c9eb.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/4280c9eb.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="五-双指针、BFS与图论"><a href="#五-双指针、BFS与图论" class="headerlink" title="五 双指针、BFS与图论"></a>五 双指针、BFS与图论</h2><p>暂时先跳过树状数组与线段树了。（在基础的算法中好像用不太多，比较高级）</p>
+<h3 id="1-双指针算法"><a href="#1-双指针算法" class="headerlink" title="1.双指针算法"></a>1.双指针算法</h3><p>双指针思想可以参考：<a href="https://www.grantdrew.top/posts/2aed1d1d.html">这篇文章</a>。</p>
+<p>语法课也简单介绍过第一类双指针算法。 </p>
+<h4 id="1-1-acwing-1238-日志统计"><a href="#1-1-acwing-1238-日志统计" class="headerlink" title="1.1 acwing.1238. 日志统计"></a>1.1 acwing.1238. 日志统计</h4><p>第九届蓝桥杯省赛C++B组,第九届蓝桥杯省赛JAVAB组</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/4280c9eb.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/900c9142.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/900c9142.html" class="post-title-link" itemprop="url">R语言编程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-24 15:48:12" itemprop="dateCreated datePublished" datetime="2021-05-24T15:48:12+08:00">2021-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-06 20:31:23" itemprop="dateModified" datetime="2021-06-06T20:31:23+08:00">2021-06-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%B9%A6%E7%B1%8D/" itemprop="url" rel="index"><span itemprop="name">书籍</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/900c9142.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/900c9142.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          这里有东西被加密了，需要输入密码查看哦。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/900c9142.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/fd673177.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/fd673177.html" class="post-title-link" itemprop="url">R语言学习笔记（一）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-24 15:43:46" itemprop="dateCreated datePublished" datetime="2021-05-24T15:43:46+08:00">2021-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-23 21:42:28" itemprop="dateModified" datetime="2021-10-23T21:42:28+08:00">2021-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/fd673177.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/fd673177.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-R语言资源推荐"><a href="#1-R语言资源推荐" class="headerlink" title="1.R语言资源推荐"></a>1.R语言资源推荐</h2><p>推荐入门书籍：<a href="https://www.grantdrew.top/posts/900c9142.html">R语言编程</a></p>
+<p>推荐入门学习网站：<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/r/r_overview.html，其实菜鸟教程也有">https://www.w3cschool.cn/r/r_overview.html，其实菜鸟教程也有</a></p>
+<p>推荐入门视频教程：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x411X7C6?p=7&amp;share_source=copy_web">https://www.bilibili.com/video/BV19x411X7C6?p=7&amp;share_source=copy_web</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/fd673177.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1294,7 +1306,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/19/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/34/">34</a><a class="extend next" rel="next" href="/page/21/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1386,7 +1398,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">321</span>
+          <span class="site-state-item-count">331</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1399,7 +1411,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">156</span>
+        <span class="site-state-item-count">163</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1437,8 +1449,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1454,7 +1466,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">22:25</span>
+    <span title="站点阅读时长">23:17</span>
 </div>
 
 <span id="sitetime"></span>

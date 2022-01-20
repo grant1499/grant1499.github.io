@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037333.png">
 <meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037370.png">
 <meta property="article:published_time" content="2021-05-19T11:20:40.000Z">
-<meta property="article:modified_time" content="2021-10-23T12:37:49.303Z">
+<meta property="article:modified_time" content="2022-01-10T08:06:06.897Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="算法基础">
 <meta property="article:tag" content="DP">
@@ -132,7 +132,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">156</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -142,7 +142,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">321</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 20:37:49" itemprop="dateModified" datetime="2021-10-23T20:37:49+08:00">2021-10-23</time>
+                <time title="修改时间：2022-01-10 16:06:06" itemprop="dateModified" datetime="2022-01-10T16:06:06+08:00">2022-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
 <p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232037240.png" alt="image-20210519192928293"></p>
 <h2 id="1-01背包问题"><a href="#1-01背包问题" class="headerlink" title="1.01背包问题"></a>1.01背包问题</h2><p>特点：每件物品最多只能用一次。</p>
 <p>蓝桥杯系列文章已有相关题解。</p>
-<p>请参考这篇文章：<a href="https://www.grantdrew.top/posts/a75e4e46.html">https://www.grantdrew.top/posts/a75e4e46.html</a></p>
+<p>请参考这篇文章：<a target="_blank" rel="noopener" href="https://grant1499.github.io/posts/a75e4e46.html">https://grant1499.github.io/posts/a75e4e46.html</a></p>
 <h2 id="2-完全背包问题"><a href="#2-完全背包问题" class="headerlink" title="2.完全背包问题"></a>2.完全背包问题</h2><p>特点：每件物品有无限个。</p>
 <h3 id="acwing-3-完全背包问题"><a href="#acwing-3-完全背包问题" class="headerlink" title="acwing.3.完全背包问题"></a>acwing.3.完全背包问题</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">有 N 种物品和一个容量是 V 的背包，每种物品都有无限件可用。</span><br><span class="line">第 i 种物品的体积是 vi，价值是 wi。</span><br><span class="line">求解将哪些物品装入背包，可使这些物品的总体积不超过背包容量，且总价值最大。</span><br><span class="line">输出最大价值。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行两个整数，N，V，用空格隔开，分别表示物品种数和背包容积。</span><br><span class="line">接下来有 N 行，每行两个整数 vi,wi，用空格隔开，分别表示第 i 种物品的体积和价值。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示最大价值。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>&lt;N,V≤<span class="number">1000</span></span><br><span class="line"><span class="number">0</span>&lt;vi,wi≤<span class="number">1000</span></span><br><span class="line">输入样例</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
@@ -356,7 +356,7 @@
 <p>最后再来判断两个区间是不是能完整地拼凑出区间[0,s]。</p>
 <p>如果<code>c &gt; 2^(k+1)</code>，则区间存在缝隙，又上面得到<code>c &lt; 2^(k+1)</code>，所以区间[0,s]必然能完整拼凑。</p>
 <p>时间复杂度为：<code>O(n*v*logs)</code>。</p>
-<p>s件物品可以拆分成logs个小组求解01背包问题。</p>
+<p>s件物品可以拆分成log s个小组求解01背包问题。</p>
 <p>总之，每一小组有选和不选两种情况，这里有点像蓝桥杯”费解的开关”问题。</p>
 <p>二进制优化思维就是：现在给出一堆苹果和10个箱子，选出n个苹果。将这一堆苹果分别按照</p>
 <p>1,2,4,8,16,…..512分到10个箱子里，那么由于任何一个数字x ∈[1,1024]</p>
@@ -364,7 +364,7 @@
 <p><strong>一句话概括：将较大的物品数量上限S，通过二进制拆分，重新分配成log S的数量上限。</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// N的上限是n*logS == 1000*log2000</span></span><br><span class="line"><span class="comment">// M表示背包物品总体积不超过2010</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">12000</span>,M = <span class="number">2010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> v[N],w[N];</span><br><span class="line"><span class="keyword">int</span> dp[M];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 重新按二进制分组</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a,b,s;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; s;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt;= s)&#123;</span><br><span class="line">            cnt++;<span class="comment">//组别先增加，下标从1开始</span></span><br><span class="line">            v[cnt] = a*k;<span class="comment">//整体体积</span></span><br><span class="line">            w[cnt] = b*k;<span class="comment">// 整体价值</span></span><br><span class="line">            s -= k;</span><br><span class="line">            k *= <span class="number">2</span>;<span class="comment">// k = 1,2,4,8,...</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 处理最后的剩余一组</span></span><br><span class="line">        <span class="keyword">if</span> (s &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            cnt ++;</span><br><span class="line">            v[cnt] = a*s;</span><br><span class="line">            w[cnt] = b*s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n = cnt;<span class="comment">//枚举次数由个数变成重新划分的组别数</span></span><br><span class="line">	<span class="comment">// 求解优化后的01背包问题</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = m;j &gt;= v[i];j--)</span><br><span class="line">            dp[j] = max(dp[j],dp[j-v[i]] + w[i]);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>建议选一组数据手动模拟一下，会对二进制优化过程更清楚。</p>
-<p>比如初始s=10，进入while循环，s,10-1=9，k=2；第二次，s=9-2=7，k=4；第三次，s=7-4=3，k=8；退出循</p>
+<p>比如初始s=10，进入while循环，s=10-1=9，k=2；第二次，s=9-2=7，k=4；第三次，s=7-4=3，k=8；退出循</p>
 <p>环，s有剩余，最后一组是3。</p>
 <blockquote>
 <p>其实，多重背包问题还可以用单调队列进一步优化。</p>
@@ -548,7 +548,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">321</span>
+          <span class="site-state-item-count">331</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -561,7 +561,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">156</span>
+        <span class="site-state-item-count">163</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -599,8 +599,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -616,7 +616,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">22:25</span>
+    <span title="站点阅读时长">23:17</span>
 </div>
 
 <span id="sitetime"></span>

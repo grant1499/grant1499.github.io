@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第一周2022.1.3—2058. 笨拙的手指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022寒假每日一题笔记（一）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/b28e5670.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="第一周2022.1.3—2058. 笨拙的手指">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201032053280.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201051656853.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201072053918.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201072110185.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081604474.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081624476.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081625796.png">
+<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081734118.png">
+<meta property="article:published_time" content="2022-01-02T14:28:37.000Z">
+<meta property="article:modified_time" content="2022-01-19T12:56:59.296Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="差分">
+<meta property="article:tag" content="二分">
+<meta property="article:tag" content="进制转换">
+<meta property="article:tag" content="双端队列广搜">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201032053280.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/b28e5670.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2022寒假每日一题笔记（一） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/b28e5670.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022寒假每日一题笔记（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-02 22:28:37" itemprop="dateCreated datePublished" datetime="2022-01-02T22:28:37+08:00">2022-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-19 20:56:59" itemprop="dateModified" datetime="2022-01-19T20:56:59+08:00">2022-01-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/b28e5670.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/b28e5670.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>12k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>10 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第一周"><a href="#第一周" class="headerlink" title="第一周"></a>第一周</h1><h2 id="2022-1-3—2058-笨拙的手指"><a href="#2022-1-3—2058-笨拙的手指" class="headerlink" title="2022.1.3—2058. 笨拙的手指"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2060/">2022.1.3—2058. 笨拙的手指</a></h2><span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">奶牛贝茜正在学习如何在不同进制之间转换数字。</span><br><span class="line">但是她总是犯错误，因为她无法轻易的用两个前蹄握住笔。</span><br><span class="line">每当贝茜将数字转换为一个新的进制并写下结果时，她总是将其中的某一位数字写错。</span><br><span class="line">例如，如果她将数字 <span class="number">14</span> 转换为二进制数，那么正确的结果应为 <span class="number">1110</span>，但她可能会写下 <span class="number">0110</span> 或 <span class="number">1111</span>。</span><br><span class="line">贝茜不会额外添加或删除数字，但是可能会由于写错数字的原因，写下包含前导 <span class="number">0</span> 的数字。</span><br><span class="line">给定贝茜将数字 N 转换为二进制数字以及三进制数字的结果，请确定 N 的正确初始值（十进制表示）。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含 N 的二进制表示，其中一位是错误的。</span><br><span class="line">第二行包含 N 的三进制表示，其中一位是错误的。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出正确的 N 的值。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">N 一定不超过 <span class="number">10</span>^<span class="number">9</span>，且存在唯一解。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1010</span></span><br><span class="line"><span class="number">212</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">14</span></span><br><span class="line">样例解释</span><br><span class="line"><span class="number">14</span> 在二进制下的正确表示为 <span class="number">1110</span>，在三进制下的正确表示为 <span class="number">112</span>。</span><br></pre></td></tr></table></figure>
+<p>大概思路是枚举二进制和三进制的错误位，然后拼出一个十进制结果。</p>
+<p>假设a表示 N 的错一位二进制表示，b表示 N 的错一位三进制表示。</p>
+<p>在数据范围内的二进制数的位数大概是30位，所以和a错一位的二进制数也就30个左右。爆搜这些数然后转十进制，计算量大概30*30 = 900，然后和三进制类似的计算结果比较，两个转换后的十进制数相等就找到了答案。</p>
+<p>转换后的数可以用哈希表来存储，发现重复数就找到了答案。</p>
+<p>显然满足时间限制。</p>
+<hr>
+<p>新知识点：其他进制转十进制的秦九韶算法。</p>
+<p><strong>秦九韶算法</strong>，秦九韶提出的一种多项式简化算法。</p>
+<p>一般地，一元n次多项式的求值需要经过(n+1)*n/2次乘法和n次加法，而秦九韶算法只需要n次乘法和n次加法，降低了时间复杂度。（ O(n^2) —&gt; O(n) ）</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201032053280.png" alt="img"></p>
+<p>其他进制转十进制的过程，也就是按权展开，其实是求一个多项式的值，利用秦九韶算法提高效率。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="built_in">string</span> s,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 秦九韶算法：b进制转换为十进制</span></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;c : s) <span class="comment">// s[0]存的是二进制数的高位</span></span><br><span class="line">        res = res*b + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> a,b;</span><br><span class="line">    <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; <span class="built_in">set</span>; <span class="comment">// 哈希表</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;c : a)&#123; <span class="comment">// 取引用修改c的值</span></span><br><span class="line">        c ^= <span class="number">1</span>; <span class="comment">// &#x27;0&#x27;的ASCII码是48，异或之后就是49，也就是&#x27;1&#x27;</span></span><br><span class="line">        <span class="built_in">set</span>.insert(get(a,<span class="number">2</span>));</span><br><span class="line">        c ^= <span class="number">1</span>; <span class="comment">// 恢复状态</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;c : b)&#123;</span><br><span class="line">        <span class="keyword">char</span> t = c;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>;i ++)&#123; <span class="comment">// 三进制每一位有0,1,2三种情况</span></span><br><span class="line">            <span class="keyword">if</span> (i + <span class="string">&#x27;0&#x27;</span> != t)&#123;</span><br><span class="line">                c = i + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                <span class="keyword">int</span> x = get(b,<span class="number">3</span>);</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">set</span>.count(x))&#123; <span class="comment">// 重复出现的就是答案</span></span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; x;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        c = t; <span class="comment">// 恢复状态</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-4—2041-干草堆"><a href="#2022-1-4—2041-干草堆" class="headerlink" title="2022.1.4—2041. 干草堆"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2043/">2022.1.4—2041. 干草堆</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">贝茜对她最近在农场周围造成的一切恶作剧感到抱歉，她同意帮助农夫约翰把一批新到的干草捆堆起来。</span><br><span class="line">开始时，共有 N 个空干草堆，编号 <span class="number">1</span>∼N。</span><br><span class="line">约翰给贝茜下达了 K 个指令，每条指令的格式为 A B，这意味着贝茜要在 A..B 范围内的每个干草堆的顶部添加一个新的干草捆。</span><br><span class="line">例如，如果贝茜收到指令 <span class="number">10</span> <span class="number">13</span>，则她应在干草堆 <span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span> 中各添加一个干草捆。</span><br><span class="line">在贝茜完成了所有指令后，约翰想知道 N 个干草堆的中值高度——也就是说，如果干草堆按照高度从小到大排列，位于中间的干草堆的高度。</span><br><span class="line">方便起见，N 一定是奇数，所以中间堆是唯一的。</span><br><span class="line">请帮助贝茜确定约翰问题的答案。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含 N 和 K。</span><br><span class="line">接下来 K 行，每行包含两个整数 A,B，用来描述一个指令。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出完成所有指令后，N 个干草堆的中值高度。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">10</span>^<span class="number">6</span>,</span><br><span class="line"><span class="number">1</span>≤K≤<span class="number">25000</span>,</span><br><span class="line"><span class="number">1</span>≤A≤B≤N</span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">7</span> <span class="number">4</span></span><br><span class="line"><span class="number">5</span> <span class="number">5</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">6</span></span><br><span class="line"><span class="number">3</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br><span class="line">样例解释</span><br><span class="line">贝茜完成所有指令后，各堆高度为 <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">0</span>。</span><br><span class="line">将各高度从小到大排序后，得到 <span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>，位于中间的是 <span class="number">1</span>。</span><br></pre></td></tr></table></figure>
+<p>算法思路：差分再排序。</p>
+<p>排序可以直接sort，也可以利用nth_element（库函数，原理是快排求第k个数，参考基础课）。</p>
+<p>快排求第k个数，acwing.786.第k个数，时间复杂度：O(n)，每次查找数据减少一半。</p>
+<p>本题挺水的，是基础课的练习题，复习一下差分数组和快排。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span>+<span class="number">5</span>; <span class="comment">// 数据量 &gt;= 1e6 建议scanf</span></span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123; <span class="comment">// 一维差分</span></span><br><span class="line">    h[l] += <span class="number">1</span>;</span><br><span class="line">    h[r+<span class="number">1</span>] -= <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span> (k--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(a,b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        h[i] += h[i<span class="number">-1</span>]; <span class="comment">// 求前缀和得到真正的数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    sort(h+<span class="number">1</span>,h+n+<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// nth_element(h+1,h+(n+1)/2,h+n+1); 库函数，</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; h[(n+<span class="number">1</span>)/<span class="number">2</span>]; <span class="comment">// 求中位数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-5—2060-奶牛选美"><a href="#2022-1-5—2060-奶牛选美" class="headerlink" title="2022.1.5—2060. 奶牛选美"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2062/">2022.1.5—2060. 奶牛选美</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">听说最近两斑点的奶牛最受欢迎，约翰立即购进了一批两斑点牛。</span><br><span class="line">不幸的是，时尚潮流往往变化很快，当前最受欢迎的牛变成了一斑点牛。</span><br><span class="line">约翰希望通过给每头奶牛涂色，使得它们身上的两个斑点能够合为一个斑点，让它们能够更加时尚。</span><br><span class="line">牛皮可用一个 N×M 的字符矩阵来表示，如下所示：</span><br><span class="line">................</span><br><span class="line">..XXXX....XXX...</span><br><span class="line">...XXXX....XX...</span><br><span class="line">.XXXX......XXX..</span><br><span class="line">........XXXXX...</span><br><span class="line">.........XXX....</span><br><span class="line">其中，X 表示斑点部分。</span><br><span class="line">如果两个 X 在垂直或水平方向上相邻（对角相邻不算在内），则它们属于同一个斑点，由此看出上图中恰好有两个斑点。</span><br><span class="line"></span><br><span class="line">约翰牛群里所有的牛都有两个斑点。</span><br><span class="line">约翰希望通过使用油漆给奶牛尽可能少的区域内涂色，将两个斑点合为一个。</span><br><span class="line">在上面的例子中，他只需要给三个 . 区域内涂色即可（新涂色区域用 ∗ 表示）：</span><br><span class="line">................</span><br><span class="line">..XXXX....XXX...</span><br><span class="line">...XXXX*...XX...</span><br><span class="line">.XXXX..**..XXX..</span><br><span class="line">........XXXXX...</span><br><span class="line">.........XXX....</span><br><span class="line">请帮助约翰确定，为了使两个斑点合为一个，他需要涂色区域的最少数量。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 N 和 M。</span><br><span class="line">接下来 N 行，每行包含一个长度为 M 的由 X 和 . 构成的字符串，用来表示描述牛皮图案的字符矩阵。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出需要涂色区域的最少数量。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N,M≤<span class="number">50</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">6</span> <span class="number">16</span></span><br><span class="line">................</span><br><span class="line">..XXXX....XXX...</span><br><span class="line">...XXXX....XX...</span><br><span class="line">.XXXX......XXX..</span><br><span class="line">........XXXXX...</span><br><span class="line">.........XXX....</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>没有思路。</p>
+<p>题目解读：用最少的字符连通两个连通块。</p>
+<p>复习一下搜索连通块的算法：Flood Fill算法。（用BFS或DFS实现，BFS可以求最短路，DFS不行）</p>
+<p>参考蓝桥杯学习总结（十九）中的红与黑。</p>
+<p>本题需要存连通块中所有点的坐标，算是对蓝桥杯题型的补充。</p>
+<p>y总讲解：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201051656853.png" alt="image-20220105165358764"></p>
+<p>对于两个连通块中的任意两点，不能直接套用公式求两点的最少连通字符数量，因为路径上可能存在障碍。</p>
+<p>一个有障碍的路径肯定不是最优解，最优解的两点一定满足公式。</p>
+<p>时间复杂度：O(n*m)，n，m分别是两个连通块中点的数量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">char</span> g[N][N];</span><br><span class="line"><span class="built_in">vector</span>&lt;PII&gt; points[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;,dy[] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="built_in">vector</span>&lt;PII&gt; &amp;p)</span></span>&#123;</span><br><span class="line">    g[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    p.push_back(&#123;x,y&#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x+dx[i],b = y+dy[i];</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span> &amp;&amp; a &lt; n &amp;&amp; b &gt;= <span class="number">0</span> &amp;&amp; b &lt; m &amp;&amp; g[a][b] == <span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">            dfs(a,b,p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; g[i];</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>,k = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j ++)</span><br><span class="line">            <span class="keyword">if</span> (g[i][j] == <span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">                dfs(i,j,points[k++]);</span><br><span class="line">                </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1e9</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;a : points[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;b : points[<span class="number">1</span>])</span><br><span class="line">            res = min(res,<span class="built_in">abs</span>(a.fi-b.fi)+<span class="built_in">abs</span>(a.se-b.se) - <span class="number">1</span>); <span class="comment">// 距离记得-1</span></span><br><span class="line">            </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-6—2019-拖拉机"><a href="#2022-1-6—2019-拖拉机" class="headerlink" title="2022.1.6—2019. 拖拉机"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2021/">2022.1.6—2019. 拖拉机</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">干了一整天的活，农夫约翰完全忘记了他把拖拉机落在田地中央了。</span><br><span class="line">他的奶牛非常调皮，决定对约翰来场恶作剧。</span><br><span class="line">她们在田地的不同地方放了 N 捆干草，这样一来，约翰想要开走拖拉机就必须先移除一些干草捆。</span><br><span class="line">拖拉机的位置以及 N 捆干草的位置都是二维平面上的整数坐标点。</span><br><span class="line">拖拉机的初始位置上没有干草捆。</span><br><span class="line">当约翰驾驶拖拉机时，他只能沿平行于坐标轴的方向（北，南，东和西）移动拖拉机，并且拖拉机必须每次移动整数距离。</span><br><span class="line">例如，驾驶拖拉机先向北移动 <span class="number">2</span> 单位长度，然后向东移动 <span class="number">3</span> 单位长度。</span><br><span class="line">拖拉机无法移动到干草捆占据的位置。</span><br><span class="line">请帮助约翰确定他需要移除的干草捆的最小数量，以便他能够将拖拉机开到二维平面的原点。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含三个整数：N 以及拖拉机的初始位置 (x,y)。</span><br><span class="line">接下来 N 行，每行包含一个干草捆的位置坐标 (x,y)。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出约翰需要移除的干草捆的最小数量。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">50000</span>,</span><br><span class="line"><span class="number">1</span>≤x,y≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">7</span> <span class="number">6</span> <span class="number">3</span></span><br><span class="line"><span class="number">6</span> <span class="number">2</span></span><br><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span></span><br><span class="line"><span class="number">5</span> <span class="number">4</span></span><br><span class="line"><span class="number">6</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>本题难度增加。</p>
+<p>图论问题：首先将具体问题建图。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201072053918.png" alt="image-20220107205358819"></p>
+<p>将问题提炼出来，就是求起点到终点的最短路，边权分为0和1两种。</p>
+<p>BFS只能求解边权都相同的最短路。</p>
+<p>求解本问题需要用到提高课的<strong>双端队列广搜</strong>。</p>
+<p>双端队列BFS，本质上是简化版本的堆优化Dijkstra算法（忘了就复习一下），用双端队列替换其中的堆。</p>
+<p>双端队列注意点：</p>
+<p>1.边权为0放队首 为1放队尾</p>
+<p>2.只有被更新的点才有资格放入队列（因为不被更新说明已经放入进去了，已经被更新过了，且这次不需要更新）</p>
+<p>3.第一次出列的是最短点 会有冗余（多次被更新） 但是此题不需要处理 只需要(0,0)一出列就返回即可</p>
+<p>双端BFS具有两段性，双端队列中的点最多分为两段，两段中的点到原点的距离相差1。</p>
+<p>用数学归纳法证明如下：n是指队列长度（点的个数）</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201072110185.png" alt="image-20220107211009109"></p>
+<p>当双端队列只有一段时，结论易证。</p>
+<p>地图的大小有限制，1≤x,y≤1000，注意搜索的路径可以在地图外面，容易发现最多只要走地图外一圈。</p>
+<p>和堆优化Dijkstra类似，需要在出队时判重，不要入队判重！判重是为了保证运行效率。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> dist[N][N];</span><br><span class="line"><span class="keyword">bool</span> st[N][N],g[N][N];</span><br><span class="line"><span class="keyword">int</span> n,x,y;</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;,dy[] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> sx,<span class="keyword">int</span> sy)</span></span>&#123; <span class="comment">// 双端队列广搜</span></span><br><span class="line">    <span class="built_in">deque</span>&lt;PII&gt; q;</span><br><span class="line">    q.push_back(&#123;sx,sy&#125;);</span><br><span class="line">    <span class="built_in">memset</span>(dist,<span class="number">0x3f</span>,<span class="keyword">sizeof</span> dist);</span><br><span class="line">    dist[sx][sy] = <span class="number">0</span>; <span class="comment">// 搜索一条从sx,sy走到0,0的带权最短路</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (q.size())&#123;</span><br><span class="line">        <span class="keyword">auto</span> t = q.front();</span><br><span class="line">        q.pop_front();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> x = t.fi,y = t.se;</span><br><span class="line">        <span class="keyword">if</span> (st[x][y]) <span class="keyword">continue</span>; <span class="comment">// 出队判重优化</span></span><br><span class="line">        st[x][y] = <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!x &amp;&amp; !y) <span class="keyword">break</span>; <span class="comment">// 0,0第一次出现的时候是最短路</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i ++)&#123;</span><br><span class="line">            <span class="keyword">int</span> a = x+dx[i],b = y+dy[i];</span><br><span class="line">            <span class="keyword">if</span> (a &gt;= <span class="number">0</span> &amp;&amp; a &lt;= <span class="number">1001</span> &amp;&amp; b &gt;= <span class="number">0</span> &amp;&amp; b &lt;= <span class="number">1001</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> w = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (g[a][b]) w = <span class="number">1</span>; <span class="comment">// 有干草堆则边权为1，否则为0</span></span><br><span class="line">                <span class="keyword">if</span> (dist[a][b] &gt; dist[x][y] + w)&#123;</span><br><span class="line">                    dist[a][b] = dist[x][y] + w;</span><br><span class="line">                    <span class="keyword">if</span> (!w) q.push_front(&#123;a,b&#125;); <span class="comment">// w为0加入队头</span></span><br><span class="line">                    <span class="keyword">else</span> q.push_back(&#123;a,b&#125;); <span class="comment">// 否则加入队尾</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dist[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        g[a][b] = <span class="literal">true</span>; <span class="comment">// 有干草堆则为true</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; bfs(x,y) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SPFA也能做，参考：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/81838/。">https://www.acwing.com/solution/content/81838/。</a></p>
+<p>其他最短路算法应该也能处理。</p>
+<h2 id="2022-1-7—2014-岛"><a href="#2022-1-7—2014-岛" class="headerlink" title="2022.1.7—2014. 岛"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2016/">2022.1.7—2014. 岛</a></h2><p>每当下雨时，农夫约翰的田地总是被洪水淹没。</p>
+<p>由于田地不是完全水平的，所以一些地方充满水后，留下了许多被水隔开的“岛”。</p>
+<p>约翰的田地被描述为由 N 个连续高度值 H1,…,HN 指定的一维场景。</p>
+<p>假设该场景被无限高的围墙包围着，请考虑暴雨期间发生的情况：</p>
+<p>最低处首先被水覆盖，形成一些不连贯的岛，随着水位的不断上升，这些岛最终都会被覆盖。</p>
+<p>一旦水位等于一块田地的高度，那块田地就被认为位于水下。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081604474.png" alt="fig_islands.png"></p>
+<p>上图显示了一个示例：在左图中，我们只加入了刚好超过 11 单位的水，此时剩下 44 个岛（最大岛屿剩余数量），而在右图中，我们共加入了 77 单位的水，此时仅剩下 22 个岛。</p>
+<p>请计算，暴风雨期间我们能在某个时间点看到的最大岛屿数量。</p>
+<p>水会一直上升到所有田地都在水下。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行包含整数 N。</p>
+<p>接下来 N 行，每行包含一个整数表示 Hi。</p>
+<p><strong>输出格式</strong></p>
+<p>输出暴风雨期间我们能在某个时间点看到的最大岛屿数量。</p>
+<p><strong>数据范围</strong></p>
+<p>1≤N≤10^5,</p>
+<p>1≤Hi≤10^9</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入样例：</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>题目不太能读懂。</p>
+<p>思路：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081624476.png" alt="image-20220108162459395"></p>
+<p>但是存在一些特殊情况需要考虑，如果是下图这种情况，中间有连续一段相等高度的田，只考虑最右边三块田就是错误的。</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081625796.png" alt="image-20220108162535736"></p>
+<p>解决方案：将中间连续一段相等高度的田合并为一块田，使用<code>unique</code>函数去重。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="keyword">int</span> n,h[N];</span><br><span class="line">PII q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">cin</span> &gt;&gt; h[i];</span><br><span class="line">    </span><br><span class="line">    n = unique(h+<span class="number">1</span>,h+n+<span class="number">1</span>) - (h+<span class="number">1</span>); <span class="comment">// 去重，除去相邻的高度相等的一段田</span></span><br><span class="line">    h[n+<span class="number">1</span>] = <span class="number">0</span>; <span class="comment">// 也默认了h[0] = 0，这两个高度在判断时都会用到</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) q[i] = &#123;h[i],i&#125;;</span><br><span class="line">    sort(q+<span class="number">1</span>,q+n+<span class="number">1</span>); <span class="comment">// 对高度排序</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>,cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> y = q[i].se;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (h[y<span class="number">-1</span>] &gt; h[y] &amp;&amp; h[y+<span class="number">1</span>] &gt; h[y]) cnt ++; <span class="comment">// 两边高中间低</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (h[y<span class="number">-1</span>] &lt; h[y] &amp;&amp; h[y+<span class="number">1</span>] &lt; h[y]) cnt --; <span class="comment">// 中间高两边低</span></span><br><span class="line">        <span class="comment">// 两个非连续的高度相等的田需要同时更新res</span></span><br><span class="line">        <span class="keyword">if</span> (q[i].fi != q[i+<span class="number">1</span>].fi) res = max(res,cnt);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有细节需要考虑：如果有两个非连续的高度相等（都是h）的田，当考虑水面上升到h时，不能只考虑第一块田然后计算cnt并更新res，必须同时考虑两块田然后计算cnt，直到计算两次cnt后才更新res。</p>
+<p>考虑一组数据：<code>7 ,2,1,2,1,2,1,2</code>， 答案是4。</p>
+<h2 id="2022-1-8—2005-马蹄铁"><a href="#2022-1-8—2005-马蹄铁" class="headerlink" title="2022.1.8—2005. 马蹄铁"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2007/">2022.1.8—2005. 马蹄铁</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">尽管奶牛贝茜发现每个平衡括号字符串都很美观，但她特别喜欢被她称为“完全”平衡的括号字符串----一个由 ( 构成的字符串后接一个长度相同的 ) 构成的字符串。</span><br><span class="line">例如：</span><br><span class="line">(((())))</span><br><span class="line">有一天，当贝茜穿过牛棚时，她发现地面上有一个 N×N 的马蹄铁矩阵。每个马蹄铁的方向都看上去像 ( 或 )。</span><br><span class="line">从矩阵的左上角开始，贝茜希望四处走动以拾起马蹄铁，使得她捡起的马蹄铁按顺序构成的括号字符串是完全平衡的。</span><br><span class="line">请计算她能得到的最长完全平衡括号字符串的长度。</span><br><span class="line">每一步中，贝茜可以沿上下左右四个方向移动。</span><br><span class="line">她只能移动到包含马蹄铁的方格区域内，当她进入该区域时就会拿起那里的马蹄铁，并无法再次回到该位置（因为该位置没有马蹄铁了）。</span><br><span class="line">她首先拿起的是左上角的马蹄铁。</span><br><span class="line">由于她拿起的马蹄铁要形成一个完全平衡的字符串，因此她可能无法将所有马蹄铁都拿起来。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，每行包含一个长度为 N 的括号字符串，用来表示括号矩阵。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出她能得到的最长完全平衡括号字符串的长度。</span><br><span class="line">如果无法得到完全平衡括号字符串（例如，左上角马蹄铁形如 )），则输出 <span class="number">0</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">2</span>≤N≤<span class="number">5</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">(())</span><br><span class="line">()((</span><br><span class="line">(()(</span><br><span class="line">))))</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">8</span></span><br><span class="line">样例解释</span><br><span class="line">贝茜的移动步骤如下：</span><br><span class="line"><span class="number">1</span>())</span><br><span class="line"><span class="number">2</span>)((</span><br><span class="line"><span class="number">345</span>(</span><br><span class="line"><span class="number">876</span>)</span><br></pre></td></tr></table></figure>
+<p>画出DFS搜索状态机：</p>
+<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201081734118.png" alt="image-20220108173418918"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,ans;</span><br><span class="line"><span class="keyword">bool</span> st[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="keyword">char</span> g[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span> dx[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;,dy[] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    st[x][y] = <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (l == r)&#123;</span><br><span class="line">        ans = max(ans,l+r);</span><br><span class="line">        st[x][y] = <span class="literal">false</span>; <span class="comment">// 回溯前先将st复原</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = x + dx[i],b = y + dy[i];</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">0</span> &amp;&amp; a &lt; n &amp;&amp; b &gt;= <span class="number">0</span> &amp;&amp; b &lt; n &amp;&amp; !st[a][b])&#123;</span><br><span class="line">            <span class="keyword">if</span> (g[x][y] ==<span class="string">&#x27;)&#x27;</span> &amp;&amp; g[a][b] == <span class="string">&#x27;(&#x27;</span>) <span class="keyword">continue</span>; <span class="comment">// 排除不合法搜索状态</span></span><br><span class="line">            <span class="keyword">if</span> (g[a][b] == <span class="string">&#x27;(&#x27;</span>) dfs(a,b,l+<span class="number">1</span>,r);</span><br><span class="line">            <span class="keyword">else</span> dfs(a,b,l,r+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    st[x][y] = <span class="literal">false</span>; <span class="comment">// 回溯前先将st复原</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j ++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; g[i][j];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (g[<span class="number">0</span>][<span class="number">0</span>] == <span class="string">&#x27;(&#x27;</span>) dfs(<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-9—1996-打乱字母"><a href="#2022-1-9—1996-打乱字母" class="headerlink" title="2022.1.9—1996. 打乱字母"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1998/">2022.1.9—1996. 打乱字母</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰将按字典序排列的 N 头奶牛的名字列表贴在了牛棚的门上。</span><br><span class="line">每个奶牛的名字都由一个长度介于 <span class="number">1</span> 到 <span class="number">20</span> 之间的由小写字母构成的唯一字符串表示。</span><br><span class="line">麻烦制造者贝茜将列表中的奶牛名字重新排序打乱了列表。</span><br><span class="line">此外，她还对每头奶牛的名字中的字母顺序进行了重新排列（也可能保持不变）。</span><br><span class="line">给定修改过后的列表，请帮助约翰确定列表中的每个名字可能出现在原始列表中的最低和最高位置。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，按照修改过后列表的顺序，给出了修改过后的奶牛的名字。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 N 行，第 i 行输出给定的第 i 个字符串在原始列表中可能的最低和最高位置。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">50000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">essieb</span><br><span class="line">a</span><br><span class="line">xzy</span><br><span class="line">elsie</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">4</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span></span><br><span class="line">样例解释</span><br><span class="line">无论如何，字符串 “a” 必然出现在原始列表中第一个，类似的，字符串 “xzy” 必然出现在原始列表中的最后一个。</span><br><span class="line">而字符串 “essieb” 和 “elsie” 都有可能位于原始列表的第 <span class="number">2</span> 位或第 <span class="number">3</span> 位，这取决于它们的原始字母顺序。</span><br><span class="line">例如，”bessie” 和 “elsie” 分别位于 <span class="number">2</span>,<span class="number">3</span> 位，”sisbee” 和 “ilees” 分别位于 <span class="number">3</span>,<span class="number">2</span> 位。</span><br></pre></td></tr></table></figure>
+<p>思路：</p>
+<p>求出每个字符串的最小字典序字母和最大字典序字母。</p>
+<p>然后求字符串 x 的最低位置和最高位置。</p>
+<p>最低位置就是 x 取最小字母，其他字符串都取最大字母的排名；</p>
+<p>最高位置就是 x 取最大字母，其他字符串都取最小字母的排名。</p>
+<p>时间复杂度估算：根据题目数据范围，应当控制在O(n*log n)左右。</p>
+<p>为什么想到二分？</p>
+<p>计算最低位置和最高位置，如果每次生成一个序列再排序就很麻烦而且必定超时。</p>
+<p>我们发现每次计算时只需要变动一个数就行。</p>
+<p>所以这样处理：</p>
+<p>全部字符串取最大字母排序，然后删掉x的最大字母，二分查找 x 的最小字母，这样计算最低位置。</p>
+<p>其实 x 的最大字母可以不用删掉，因为它一定不会影响 x 的最小字母的排名。</p>
+<p>计算最高位置同理。但是这里必须删掉 x 的最小字母。</p>
+<p>本题还用到了对于字符串string的排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50005</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">string</span> a[N],_max[N],_min[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a[i]; <span class="comment">// a[]是原始字符串序列</span></span><br><span class="line">        _max[i] = _min[i] = a[i]; <span class="comment">// _max[]和_min[]是按字典序大到小、小到大的字符串序列</span></span><br><span class="line">        </span><br><span class="line">        sort(_max[i].begin(),_max[i].end(),greater&lt;&gt;());</span><br><span class="line">        sort(_min[i].begin(),_min[i].end());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    sort(_max + <span class="number">1</span>,_max + n + <span class="number">1</span>); <span class="comment">// 取最大字母从小到大排序</span></span><br><span class="line">    sort(_min + <span class="number">1</span>,_min + n + <span class="number">1</span>); <span class="comment">// 取最小字母从小到大排序</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        sort(a[i].begin(),a[i].end()); <span class="comment">// 取a[i]最小字母</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">1</span>,r = n;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r)&#123; <span class="comment">// 二分查找a[i]最小字母出现的下界</span></span><br><span class="line">            <span class="keyword">int</span> mid = l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (_max[mid] &lt; a[i]) l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">        </span><br><span class="line">        reverse(a[i].begin(),a[i].end()); <span class="comment">// 取a[i]最小字母，这里reverse比sort更快</span></span><br><span class="line">        l = <span class="number">1</span>,r = n;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r)&#123; <span class="comment">// 二分查找a[i]最大字母出现的上界</span></span><br><span class="line">            <span class="keyword">int</span> mid = l+r+<span class="number">1</span>&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (_min[mid] &gt; a[i]) r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> l = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; l &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/b28e5670.html" title="2022寒假每日一题笔记（一）">https://www.grantdrew.top/posts/b28e5670.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
+              <a href="/tags/%E5%B7%AE%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 差分</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 二分</a>
+              <a href="/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" rel="tag"><i class="fa fa-tag"></i> 进制转换</a>
+              <a href="/tags/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97%E5%B9%BF%E6%90%9C/" rel="tag"><i class="fa fa-tag"></i> 双端队列广搜</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/3eb420ef.html" rel="prev" title="考研算法辅导课笔记（十四）">
+      <i class="fa fa-chevron-left"></i> 考研算法辅导课笔记（十四）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/8298baa8.html" rel="next" title="2022寒假每日一题笔记（二）">
+      2022寒假每日一题笔记（二） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%91%A8"><span class="nav-text">第一周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-3%E2%80%942058-%E7%AC%A8%E6%8B%99%E7%9A%84%E6%89%8B%E6%8C%87"><span class="nav-text">2022.1.3—2058. 笨拙的手指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-4%E2%80%942041-%E5%B9%B2%E8%8D%89%E5%A0%86"><span class="nav-text">2022.1.4—2041. 干草堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-5%E2%80%942060-%E5%A5%B6%E7%89%9B%E9%80%89%E7%BE%8E"><span class="nav-text">2022.1.5—2060. 奶牛选美</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-6%E2%80%942019-%E6%8B%96%E6%8B%89%E6%9C%BA"><span class="nav-text">2022.1.6—2019. 拖拉机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-7%E2%80%942014-%E5%B2%9B"><span class="nav-text">2022.1.7—2014. 岛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-8%E2%80%942005-%E9%A9%AC%E8%B9%84%E9%93%81"><span class="nav-text">2022.1.8—2005. 马蹄铁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-9%E2%80%941996-%E6%89%93%E4%B9%B1%E5%AD%97%E6%AF%8D"><span class="nav-text">2022.1.9—1996. 打乱字母</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">23:17</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>
