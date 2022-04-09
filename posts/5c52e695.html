@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="2.3 acwing.1078. 旅游规划（蓝桥压轴级别）《信息学奥赛一本通》">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911948.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911965.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911983.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911948.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911965.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911983.png">
 <meta property="article:published_time" content="2021-06-26T07:05:58.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:11:27.952Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.031Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="树形DP">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta property="article:tag" content="矩阵快速幂">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911948.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911948.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/5c52e695.html">
 
@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:11:27" itemprop="dateModified" datetime="2021-10-23T19:11:27+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -298,13 +298,13 @@
 <p>求出以每个结点为最高点的直径，取max就得到树的直径ans了。</p>
 <p>直径求法的正确性证明如下：</p>
 <p>参考题解：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/8986/">https://www.acwing.com/solution/content/8986/</a></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911948.png" alt="image-20210628231123899"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911948.png" alt="image-20210628231123899"></p>
 <p>那么问题来了，如何判断一个结点i是否在一条直径上呢？</p>
 <p>从结点i出发走到树的尽头一共有三条可能的最长路径：1.往下走，最大长度d1(i)和次大长度d2(i)，上面已经求出；2.通过父结点j往上走，最大值用数组up[j]记录；3.通过父结点j往（下）子结点走，又分为2种情况，当<code>d1(j)</code>经过结点i时，结点i通过父结点j走到尽头的最长路径就是<code>up[i] = max(up[j]+1,d2(j)+1)</code>，当<code>d1(j)</code>不经过结点i时，那么这个最长路径就是<code>up[i] = max(up[j]+1,d1(j)+1)</code>。（对照下图）</p>
 <p>最后，如果对d1(i),d2(i)以及up[i]中的三个取最大的两个，加起来记为人，如果<code>r = ans</code>，那么经过结点i的最大路径=树的直径，说明结点i在一条直径上。</p>
 <p>求树的直径的过程是自下而上的，因为父结点往下走的长度取决于子结点往下走的长度；判断一个结点是否在一条直径上的过程是自上而下的，因为求子结点往上走的长度取决于父结点往上走的长度。</p>
 <p>两次dfs都是O(n)的，所以<strong>时间复杂度是O(n)</strong>。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911965.png" alt="image-20210628231846921"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911965.png" alt="image-20210628231846921"></p>
 <p>注意：交叉路口下标从0开始。</p>
 <p>还是用数组模拟邻接表。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200010</span>,M = <span class="number">2</span>*N;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,maxd;<span class="comment">// 树的直径maxd</span></span><br><span class="line"><span class="keyword">int</span> h[N],e[M],ne[M],idx;</span><br><span class="line"><span class="keyword">int</span> d1[N],d2[N],p[N],up[N];<span class="comment">// d1、d2分别存结点u往下走的最大、次大长度</span></span><br><span class="line"><span class="comment">//p存下结点u往下最大路走的子结点，up存下结点u往上走的最长路径</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	e[idx] = b,ne[idx] = h[a],h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_d</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> father)</span></span>&#123;<span class="comment">// dfs求每个结点最大、次大长度</span></span><br><span class="line">    <span class="comment">// 第二个参数记录父节点，防止往回走</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; ~i;i = ne[i])&#123;<span class="comment">// ~i等价于i != -1</span></span><br><span class="line">		<span class="comment">// -1:原码，1,001，补码，1,111，补码全为1，取反就是0,000</span></span><br><span class="line">		<span class="keyword">int</span> j = e[i];</span><br><span class="line">		<span class="keyword">if</span> (j != father)&#123;</span><br><span class="line">			dfs_d(j,u);<span class="comment">// 递归子结点</span></span><br><span class="line">			<span class="keyword">int</span> distance = d1[j] + <span class="number">1</span>;<span class="comment">// 结点u经过子结点j往下走的路径distance</span></span><br><span class="line">			<span class="keyword">if</span> (distance &gt; d1[u])&#123;<span class="comment">// 更新最大值和次大值</span></span><br><span class="line">				d2[u] = d1[u],d1[u] = distance;</span><br><span class="line">				p[u] = j;<span class="comment">// 记录最大路径经过的子结点j</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (distance &gt; d2[u]) d2[u] = distance;<span class="comment">// 更新次大值</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	maxd = max(maxd,d1[u] + d2[u]);<span class="comment">// 求树的直径</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs_u</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> father)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; ~i;i = ne[i])&#123;</span><br><span class="line">		<span class="keyword">int</span> j = e[i];</span><br><span class="line">		<span class="keyword">if</span> (j != father)&#123;<span class="comment">// 判断结点j是否经过直径</span></span><br><span class="line">			up[j] = up[u] + <span class="number">1</span>;<span class="comment">// 记录通过父结点u往上走的长度up[j]</span></span><br><span class="line">			<span class="keyword">if</span> (p[u] == j) up[j] = max(up[j],d2[u] + <span class="number">1</span>);<span class="comment">// 父结点的d1路径过子结点j</span></span><br><span class="line">			<span class="keyword">else</span> up[j] = max(up[j],d1[u] + <span class="number">1</span>);<span class="comment">// 不经过则用d2路径求max </span></span><br><span class="line">			dfs_u(j,u);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="keyword">sizeof</span> h);<span class="comment">// 记得h数组置-1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n<span class="number">-1</span>;i++)&#123;<span class="comment">// n个顶点，n-1条边</span></span><br><span class="line">    	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    	add(a,b),add(b,a);<span class="comment">// 构建邻接表</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dfs_d(<span class="number">0</span>,<span class="number">-1</span>);<span class="comment">// 先递归再计算，自下而上的过程</span></span><br><span class="line">    dfs_u(<span class="number">0</span>,<span class="number">-1</span>);<span class="comment">// 先计算再递归，自上而下的过程</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">    	<span class="keyword">int</span> d[<span class="number">3</span>] = &#123;d1[i],d2[i],up[i]&#125;;<span class="comment">// 排序求三者最大的两个</span></span><br><span class="line">    	 sort(d,d+<span class="number">3</span>);</span><br><span class="line">    	 <span class="keyword">if</span> (d[<span class="number">1</span>] + d[<span class="number">2</span>] == maxd) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -328,7 +328,7 @@
 <hr>
 <p>代码：<br>参考1：y总快速幂模板<br>参考2：<a href="https://www.grantdrew.top/posts/50ce0ed6.html">快速幂算法</a><br>参考3：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/8881/">https://www.acwing.com/solution/content/8881/</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 快速幂模板,二进制迭代写法</span></span><br><span class="line"><span class="comment">// 通过二进制将乘法转化成加法来处理，效率高</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qmi</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> k, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span> % p, t = m;</span><br><span class="line">    <span class="keyword">while</span> (k)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (k&amp;<span class="number">1</span>) res = res * t % p;</span><br><span class="line">        t = t * t % p;</span><br><span class="line">        k &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231911983.png" alt="image-20210701205328763"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231911983.png" alt="image-20210701205328763"></p>
 <p>因为快速幂的时间复杂度是$O(logn)$，而第二个mul函数的for循环次数为$3^3$,所以本题的时间复杂度为$O(3^3*logn)$。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AC代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> c[],<span class="keyword">int</span> a[],<span class="keyword">int</span> b[][N])</span></span>&#123;<span class="comment">// 计算F1 = F1 * a</span></span><br><span class="line">    <span class="keyword">int</span> temp[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++)</span><br><span class="line">            temp[i] = (temp[i] + (LL)a[j]*b[j][i]) % m;</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">memcpy</span>(c,temp,<span class="keyword">sizeof</span> temp);<span class="comment">// 注意：sizeof后面不能写c，是指针的大小</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> c[][N],<span class="keyword">int</span> a[][N],<span class="keyword">int</span> b[][N])</span></span>&#123;<span class="comment">// 计算a = a * a</span></span><br><span class="line">    <span class="keyword">int</span> temp[N][N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N;j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>;k &lt; N;k++)</span><br><span class="line">                temp[i][j] = (temp[i][j] + (LL)a[i][k]*b[k][j]) % m;</span><br><span class="line">    <span class="built_in">memcpy</span>(c,temp,<span class="keyword">sizeof</span> temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 计算初始向量F_1</span></span><br><span class="line">    <span class="keyword">int</span> F1[<span class="number">3</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> a[N][N] = &#123;<span class="comment">// 快速幂矩阵a</span></span><br><span class="line">      &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,</span><br><span class="line">      &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,</span><br><span class="line">      &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    n--;<span class="comment">// 矩阵快速幂求F_n</span></span><br><span class="line">    <span class="keyword">while</span> (n)&#123;<span class="comment">// n&amp;1，偶数返回1，否则返回0</span></span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>) mul(F1,F1,a);<span class="comment">// F1 = F1 * a</span></span><br><span class="line">        mul(a,a,a);<span class="comment">// a = a * a</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,F1[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
@@ -495,20 +495,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +557,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -598,7 +598,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

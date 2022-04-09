@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="五：贪心贪心问题也没有代码模板。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956555.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956589.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956618.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956645.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956670.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956555.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956589.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956618.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956645.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956670.png">
 <meta property="article:published_time" content="2021-09-12T06:46:31.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:56:47.918Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="贪心">
 <meta property="article:tag" content="区间问题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956555.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956555.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/d909d670.html">
 
@@ -130,17 +130,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:56:47" itemprop="dateModified" datetime="2021-10-23T19:56:47+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,9 +302,9 @@
 <li>从前往后依次枚举每个区间：<br> 2.1. 如果当前区间包含最后一个（上一个）选择的点，则直接跳过；<br> 2.2. 如果当前区间不包含最后一个选择的点，则在当前区间的右端点的位置选一个新的点；</li>
 </ol>
 <p>图示：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956555.png" alt="image-20210914124429096"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956555.png" alt="image-20210914124429096"></p>
 <p>贪心证明：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956589.png" alt="image-20210603172632900"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956589.png" alt="image-20210603172632900"></p>
 <p>代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span>  <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+ <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Range</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> l,r;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Range &amp;R) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> r &lt; R.r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;range[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        range[i] = &#123;a,b&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(range,range + n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>,edge = <span class="number">-0x3f3f3f3f</span>;<span class="comment">// edge表示每次区间选择的点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (range[i].l &gt; edge)&#123; <span class="comment">// 如果上一次选择的点edge下标在当前区间内</span></span><br><span class="line">            res ++;</span><br><span class="line">            edge = range[i].r;<span class="comment">// 则选择右端点作为新的edge</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>其实按左端点排序也可以。用结构体需要重载<code>&lt;</code>排序，也可以用<code>pair</code>排序。</p>
@@ -335,9 +335,9 @@
 <p>根据题目要求，端点相交不能放在一组，也就是说，当一个活动的结束时间刚好等于另一活动的开始时间时，必须得开2间教室才行。上面说了，两个相等的端点，<code>l</code>一定会排在<code>r</code>的前面。所以先判断<code>l</code>是否为奇数，开1间教室，计算最大教室数，然后判断<code>r</code>是否为奇数，关1间教室，计算最大教室数。所以同时开的最大教室数就是2。</p>
 <p>如果能区间端点能重合的话，端点标记的奇数偶数反一下就行了。</p>
 <p>算法2：区间贪心。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956618.png" alt="image-20210914141932428"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956645.png" alt="image-20210914161845630"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231956670.png" alt="image-20210914161904729"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956618.png" alt="image-20210914141932428"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956645.png" alt="image-20210914161845630"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231956670.png" alt="image-20210914161904729"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; range[N];<span class="comment">// 存放区间，默认按第一维排序</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> l,r;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;l,&amp;r);</span><br><span class="line">        range[i] = &#123;l,r&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(range,range+n);<span class="comment">// 按左端点排序</span></span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; heap;<span class="comment">// 定义小根堆</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;<span class="comment">// 处理每一个区间</span></span><br><span class="line">        <span class="keyword">if</span> (heap.empty() || range[i].first &lt;= heap.top()) <span class="comment">// 堆空或者当前区间与堆顶相交</span></span><br><span class="line">            heap.push(range[i].second);<span class="comment">// 则开新的小组</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            heap.pop();<span class="comment">// 否则更新堆顶所在小组</span></span><br><span class="line">            heap.push(range[i].second);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,heap.size());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -502,20 +502,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -564,13 +564,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -605,7 +605,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

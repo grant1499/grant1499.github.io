@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第四周2022.1.22—1875. 贝茜的报复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022寒假每日一题笔记（四）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/78ab009f.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="第四周2022.1.22—1875. 贝茜的报复">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-23T14:26:10.000Z">
+<meta property="article:modified_time" content="2022-02-09T14:47:34.542Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="枚举">
+<meta property="article:tag" content="DFS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/78ab009f.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2022寒假每日一题笔记（四） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/78ab009f.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022寒假每日一题笔记（四）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-23 22:26:10" itemprop="dateCreated datePublished" datetime="2022-01-23T22:26:10+08:00">2022-01-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-02-09 22:47:34" itemprop="dateModified" datetime="2022-02-09T22:47:34+08:00">2022-02-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/78ab009f.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/78ab009f.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h1><h2 id="2022-1-22—1875-贝茜的报复"><a href="#2022-1-22—1875-贝茜的报复" class="headerlink" title="2022.1.22—1875. 贝茜的报复"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1877/">2022.1.22—1875. 贝茜的报复</a></h2><span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰和奶牛贝茜喜欢在业余时间互相出数学题。</span><br><span class="line">约翰给贝茜出了一道相当难的问题，导致她没能解决。</span><br><span class="line">现在，她希望通过给约翰出一道有挑战性的难题来报复他。</span><br><span class="line">贝茜给了约翰一个表达式 (B+E+S+S+I+E)(G+O+E+S)(M+O+O)，其中包含七个变量 B,E,S,I,G,O,M（O 是变量，不是零）。</span><br><span class="line">对于每个变量，她给约翰一个列表，表中包含该变量可采用的最多 <span class="number">20</span> 个整数值。</span><br><span class="line">她要求约翰计算，共有多少种给变量赋值的方法可以使得表达式的计算结果偶数。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含一个整数 N。</span><br><span class="line">接下来 N 行，每行包含一个变量和该变量的一个可能值。</span><br><span class="line">每个变量至少出现 <span class="number">1</span> 次，最多出现 <span class="number">20</span> 次。</span><br><span class="line">同一变量不会重复列出同一可能值。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出可以使得表达式的计算结果是偶数的给变量赋值的方法总数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">7</span>≤N≤<span class="number">140</span>,</span><br><span class="line">所有变量的可能取值范围 [−<span class="number">300</span>,<span class="number">300</span>]</span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">10</span></span><br><span class="line">B <span class="number">2</span></span><br><span class="line">E <span class="number">5</span></span><br><span class="line">S <span class="number">7</span></span><br><span class="line">I <span class="number">10</span></span><br><span class="line">O <span class="number">16</span></span><br><span class="line">M <span class="number">19</span></span><br><span class="line">B <span class="number">3</span></span><br><span class="line">G <span class="number">1</span></span><br><span class="line">I <span class="number">9</span></span><br><span class="line">M <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br><span class="line">样例解释</span><br><span class="line">共有 <span class="number">6</span> 种可能的赋值方式：</span><br><span class="line"></span><br><span class="line">(B,E,S,I,G,O,M) = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">19</span>) -&gt; <span class="number">53</span>,<span class="number">244</span></span><br><span class="line">                = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">2</span> ) -&gt; <span class="number">35</span>,<span class="number">496</span></span><br><span class="line">                = (<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>,  <span class="number">1</span>, <span class="number">16</span>, <span class="number">2</span> ) -&gt; <span class="number">34</span>,<span class="number">510</span></span><br><span class="line">                = (<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">2</span> ) -&gt; <span class="number">36</span>,<span class="number">482</span></span><br><span class="line">                = (<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>,  <span class="number">1</span>, <span class="number">16</span>, <span class="number">19</span>) -&gt; <span class="number">53</span>,<span class="number">244</span></span><br><span class="line">                = (<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>,  <span class="number">1</span>, <span class="number">16</span>, <span class="number">2</span> ) -&gt; <span class="number">35</span>,<span class="number">496</span></span><br><span class="line">注意，(<span class="number">2</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">19</span>) 和 (<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">16</span>, <span class="number">19</span>)，虽然计算结果相同，但是赋值方式不同，所以要分别计数。</span><br></pre></td></tr></table></figure>
+<p>答案就是求整个式子mod 2的结果，整体mod 2同余于先mod 2再相加相乘，所以计算量为2^7。</p>
+<p>可以爆搜枚举。（有DFS和二进制两种方法）</p>
+<p>y总这里采用二进制写法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; cnt[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">char</span> c;<span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; x;</span><br><span class="line">        cnt[<span class="built_in">abs</span>(x) % <span class="number">2</span>][c] ++; <span class="comment">// 特别注意负余数！记录每个变量值的奇偶数的数量</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="built_in">string</span> str = <span class="string">&quot;BESIGOM&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">1</span> &lt;&lt; <span class="number">7</span>;i ++)&#123; <span class="comment">// 0~2^7表示7个变量取奇偶数的所有情况</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">7</span>;j ++) <span class="comment">// </span></span><br><span class="line">            v[str[j]] = i &gt;&gt; j &amp; <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// E + E 在mod 2中相当于0</span></span><br><span class="line">        <span class="keyword">if</span> ((v[<span class="string">&#x27;B&#x27;</span>] + v[<span class="string">&#x27;I&#x27;</span>]) * (v[<span class="string">&#x27;G&#x27;</span>] + v[<span class="string">&#x27;O&#x27;</span>] + v[<span class="string">&#x27;E&#x27;</span>] + v[<span class="string">&#x27;S&#x27;</span>]) * (v[<span class="string">&#x27;M&#x27;</span>]) % <span class="number">2</span>== <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">1</span>; <span class="comment">// 找到一种可行的奇偶组合，计算对应变量奇偶数的数量</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">7</span>;j ++)&#123;</span><br><span class="line">                sum *= cnt[i &gt;&gt; j &amp; <span class="number">1</span>][str[j]];</span><br><span class="line">            &#125;</span><br><span class="line">            res += sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>仿写的DFS写法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;BESIGOM&quot;</span>;</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; cnt[<span class="number">2</span>];</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> s)</span></span>&#123; <span class="comment">// dfs枚举状态</span></span><br><span class="line">    <span class="keyword">if</span> (u == <span class="number">8</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">7</span>;i ++)</span><br><span class="line">            v[str[i]] = s &gt;&gt; i &amp; <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ((v[<span class="string">&#x27;B&#x27;</span>]+v[<span class="string">&#x27;I&#x27;</span>])*(v[<span class="string">&#x27;G&#x27;</span>]+v[<span class="string">&#x27;O&#x27;</span>]+v[<span class="string">&#x27;E&#x27;</span>]+v[<span class="string">&#x27;S&#x27;</span>])*(v[<span class="string">&#x27;M&#x27;</span>]) % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">7</span>;i ++)&#123;</span><br><span class="line">                sum *= cnt[s &gt;&gt; i &amp; <span class="number">1</span>][str[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            res += sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    s += <span class="number">0</span> &lt;&lt; (u<span class="number">-1</span>); <span class="comment">// 每个变量有0和1两种状态</span></span><br><span class="line">    dfs(u + <span class="number">1</span>,s);</span><br><span class="line">    </span><br><span class="line">    s += <span class="number">1</span> &lt;&lt; (u<span class="number">-1</span>);</span><br><span class="line">    dfs(u + <span class="number">1</span>,s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> c;<span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; x;</span><br><span class="line">        cnt[<span class="built_in">abs</span>(x) % <span class="number">2</span>][c] ++; <span class="comment">// 特别注意负余数！记录每个变量值的奇偶数的数量</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    dfs(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-23—1855-愤怒的奶牛"><a href="#2022-1-23—1855-愤怒的奶牛" class="headerlink" title="2022.1.23—1855. 愤怒的奶牛"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1857/">2022.1.23—1855. 愤怒的奶牛</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">奶牛贝茜设计了一款她认为必火的游戏：愤怒的奶牛。</span><br><span class="line">游戏设定（她坚信这是她的原创）是玩家用一个弹弓将一头奶牛射向一个数轴，数轴的不同位置上分布着一些干草捆。</span><br><span class="line">奶牛以足够的力量砸向某个干草捆，并使得该干草捆发生爆炸，爆炸可能会不断引起连锁反应，导致更多的干草捆发生爆炸。</span><br><span class="line">目标是用一头奶牛引起的连锁反应引爆尽可能多的干草捆。</span><br><span class="line">共有 N 个干草捆位于数轴中的不同整数位置，其坐标依次为 x1,x2,…,xN。</span><br><span class="line">如果将奶牛射向位于位置 x 的干草捆，则该干草捆发生爆炸，爆炸半径为 <span class="number">1</span>，爆炸将吞噬 <span class="number">1</span> 单位距离内的所有干草捆。</span><br><span class="line">然后这些干草捆（全部同时）发生爆炸，每个干草捆的爆炸半径为 <span class="number">2</span>。</span><br><span class="line">二次爆炸中吞噬的所有尚未爆炸的干草捆也（全部同时）发生爆炸，爆炸半径为 <span class="number">3</span>。</span><br><span class="line">也就是说，在 t 时刻爆炸的干草捆的爆炸半径为 t，其爆炸波及的干草捆在 t+<span class="number">1</span> 时刻也会爆炸，爆炸半径为 t+<span class="number">1</span>，以此类推。</span><br><span class="line">请确定，通过合理选择奶牛射向的干草捆，能够引爆的干草捆最大数量。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line"></span><br><span class="line">接下来 N 行包含 x1,…,xN。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出能够引爆的干草捆的最大数量。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span>,</span><br><span class="line"><span class="number">0</span>≤xi≤<span class="number">10</span>^<span class="number">9</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line">样例解释</span><br><span class="line">将奶牛射向位于位置 <span class="number">5</span> 的干草捆，产生半径为 <span class="number">1</span> 的爆炸。</span><br><span class="line">爆炸吞噬位置 <span class="number">4</span> 和 <span class="number">6</span> 处的干草捆，引发半径为 <span class="number">2</span> 的二次爆炸。</span><br><span class="line">二次爆炸吞噬位置 <span class="number">3</span> 和 <span class="number">8</span> 处的干草捆，引发半径为 <span class="number">3</span> 的三次爆炸。</span><br><span class="line">位置 <span class="number">13</span> 的干草捆无法被引爆。</span><br></pre></td></tr></table></figure>
+<p>又不会。本题比较考验读题能力。</p>
+<p>可以发现爆炸的一个性质：爆炸范围是连续的一段区间。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>,INF = <span class="number">2e9</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    q[<span class="number">0</span>] = -INF,q[n + <span class="number">1</span>] = INF; <span class="comment">// 设置两个左右哨兵</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">    sort(q + <span class="number">1</span>,q + n + <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">1</span>,r = <span class="number">1</span>,a = i,b = i; <span class="comment">// l,r表示爆炸的波数，也就是爆炸半径</span></span><br><span class="line">        <span class="comment">// a,b表示最左，右侧爆炸块的下标</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (q[a] - q[a<span class="number">-1</span>] &lt;= l)&#123; <span class="comment">// 求第l波爆炸最左侧爆炸块的下标</span></span><br><span class="line">            <span class="keyword">int</span> k = a<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span> (q[a] - q[k<span class="number">-1</span>] &lt;= l) k --; <span class="comment">// 直到第l波爆炸不能再向左扩展</span></span><br><span class="line">            a = k; </span><br><span class="line">            l ++; <span class="comment">// 第l波爆炸结束</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (q[b+<span class="number">1</span>] - q[b] &lt;= r)&#123;</span><br><span class="line">            <span class="keyword">int</span> k = b+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (q[k+<span class="number">1</span>] - q[b] &lt;= r) k ++;</span><br><span class="line">            b = k;</span><br><span class="line">            r ++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        res = max(res,b-a+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-24—1843-圆形牛棚"><a href="#2022-1-24—1843-圆形牛棚" class="headerlink" title="2022.1.24—1843. 圆形牛棚"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1845/">2022.1.24—1843. 圆形牛棚</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">作为当代建筑的爱好者，农夫约翰建造了一个完美圆环形状的新牛棚。</span><br><span class="line">牛棚内部有 n 个房间，围成一个环形，按顺时针编号为 <span class="number">1</span>∼n。</span><br><span class="line">每个房间都既有通向相邻两个房间的门，也有通向牛棚外部的门。</span><br><span class="line">约翰想让第 i 个房间内恰好有 ri 头牛。</span><br><span class="line">为了让奶牛们有序的进入牛棚，他计划打开一个外门，让牛从该门进入。</span><br><span class="line">然后，每头牛顺时针穿过房间，直到到达合适的房间为止。</span><br><span class="line">约翰希望通过合理选择打开的门，使得所有奶牛的行走距离之和尽可能小（这里只考虑每头牛进入牛棚以后的行走距离）。</span><br><span class="line">请确定他的奶牛需要行走的最小总距离。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n。</span><br><span class="line">接下来 n 行，包含 r1,…,rn。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出所有奶牛需要行走的最小总距离。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">3</span>≤n≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤ri≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">48</span></span><br><span class="line">样例解释</span><br><span class="line">最佳方案是让奶牛们从第二个房间进入。</span><br></pre></td></tr></table></figure>
+<p>本题比较简单。</p>
+<p>我们遍历所有的 n 个牛棚，以每个牛棚位置为开门位置，分别求出所有奶牛到达位置的总距离，并取所有情况最小值，即为结果。</p>
+<p>对于每个起始位置 i，根据题意，该牛棚的奶牛移动距离为 0，其右侧第 j 个牛棚（也即编号为第 (i+j)%n 个牛棚）奶牛移动距离为 j，以此类推。只需要一次遍历即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">r</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) <span class="built_in">cin</span> &gt;&gt; r[i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ret = INT_MAX; <span class="comment">// 记录结果最小值，所以初始值设为超级大</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        <span class="comment">// 从第 i 个门进入</span></span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; n; ++j) &#123;</span><br><span class="line">            cur += j * r[(i + j) % n];</span><br><span class="line">        &#125;</span><br><span class="line">        ret = min(ret, cur);</span><br><span class="line">    &#125; </span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ret &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我的代码，比较啰嗦。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> q[N],s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">        s[i] = q[i] + s[i<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>,t = s[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i, k = <span class="number">1</span>;k == <span class="number">1</span> || j != i;j ++,k ++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (j == n+<span class="number">1</span>) j = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (k != <span class="number">1</span> &amp;&amp; i == j) <span class="keyword">break</span>;</span><br><span class="line">            t -= q[j];</span><br><span class="line">            cnt += t;</span><br><span class="line">        &#125;</span><br><span class="line">        res = min(res,cnt);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-25—1826-农田缩减"><a href="#2022-1-25—1826-农田缩减" class="headerlink" title="2022.1.25—1826. 农田缩减"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1828/">2022.1.25—1826. 农田缩减</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰的 N 头奶牛分布在其二维农场的不同位置。</span><br><span class="line">约翰想用一个长方形的围栏把所有的奶牛围起来，围栏的边需要平行于 x 轴和 y 轴。</span><br><span class="line">在能够包含所有奶牛的情况下（处于围栏边界的奶牛也算包含在内），约翰希望围栏围起的面积尽可能小。</span><br><span class="line">不幸的是，由于上个季度的牛奶产量很低，约翰的预算十分紧张。</span><br><span class="line">因此，他希望建立一个更小的围栏，甚至为了实现这一目标，他愿意卖掉农场中的一头奶牛。</span><br><span class="line">请帮助约翰计算，卖掉牛群中的一头奶牛以后，他可以用围栏围起来的最小面积（为剩下的奶牛建造尽可能小的围栏）。</span><br><span class="line">对于这个问题，请将奶牛视为点，将围栏视为四个线段的集合。</span><br><span class="line">注意，答案可以是零，例如，所有剩余的奶牛最终都站在同一条垂直或水平线上。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，每行包含两个整数 x,y，表示一头牛所在的位置坐标为 (x,y)。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出卖掉牛群中的一头奶牛以后，约翰可以用围栏围起来的最小面积。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">3</span>≤N≤<span class="number">50000</span>,</span><br><span class="line"><span class="number">1</span>≤x,y≤<span class="number">40000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">17</span> <span class="number">25</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+<p>思路：影响围栏面积的就是横坐标和纵坐标的最大、最小值。</p>
+<p>该卖掉那哪头牛呢？枚举四条边界上的牛。</p>
+<p>然后求删掉这头牛之后的四个方向的最值就行。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50005</span>;</span><br><span class="line"><span class="keyword">int</span> n,x[N],y[N],a[N],b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">        a[i] = x[i],b[i] = y[i];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    sort(a,a + n),sort(b,b + n); <span class="comment">// 分别排序横纵坐标</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">2e9</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123; <span class="comment">// 枚举删掉x[i],y[i]坐标奶牛的情况</span></span><br><span class="line">        <span class="keyword">int</span> x1,x2,y1,y2;</span><br><span class="line">        </span><br><span class="line">        x1 = x[i] == a[<span class="number">0</span>] ? a[<span class="number">1</span>] : a[<span class="number">0</span>]; <span class="comment">// 如果枚举的是边界点就删掉然后取次最值</span></span><br><span class="line">        x2 = x[i] == a[n<span class="number">-1</span>] ? a[n<span class="number">-2</span>] : a[n<span class="number">-1</span>];</span><br><span class="line">        y1 = y[i] == b[<span class="number">0</span>] ? b[<span class="number">1</span>] : b[<span class="number">0</span>];</span><br><span class="line">        y2 = y[i] == b[n<span class="number">-1</span>] ? b[n<span class="number">-2</span>] : b[n<span class="number">-1</span>];</span><br><span class="line">        res = min(res,(x2-x1)*(y2-y1));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-26—1813-方块游戏"><a href="#2022-1-26—1813-方块游戏" class="headerlink" title="2022.1.26—1813. 方块游戏"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1815/">2022.1.26—1813. 方块游戏</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰试图通过给奶牛一套通常用于学龄前儿童的 N 个拼写板来教他的奶牛阅读。</span><br><span class="line">每个拼写板的每一侧都有一个单词和一个图画。</span><br><span class="line">例如，一侧可能有单词 cat 和一只小猫，另一侧可能有单词 dog 和一只小狗。</span><br><span class="line">因此，当所有拼写板放置到地面上时，会显示一组 N 个单词。</span><br><span class="line">通过翻转其中一部分板子，就可以得到另一组 N 个单词。</span><br><span class="line">为了帮助奶牛练习单词拼写，约翰想要制作一些木块，在每个木块上都印上一个字母，使得奶牛可以使用这些木块拼出看到的单词。</span><br><span class="line">为了使得无论哪一组 N 个单词朝上显示，奶牛都能将其全部拼出，就需要印有各种字母的木块都足够的多。</span><br><span class="line">例如，如果 N=<span class="number">3</span> 且单词 box,cat,car 朝上显示，则奶牛至少需要一个 b 块，一个 o 块，一个 x 块，两个 c 块，两个 a 块，一个 t 块和一个 r 块。</span><br><span class="line">请帮助约翰确定，印有每种字母的木块至少需要提供多少块，才能使得不管每个板子的哪一侧朝上显示，奶牛都可以拼出所有 N 个可见的单词。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，每行包含两个单词，这两个单词分别位于一块木板的两侧，每个单词都是长度不超过 <span class="number">10</span> 的小写字母构成的字符串。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 <span class="number">26</span> 行。</span><br><span class="line">第一行输出印有字母 a 的木块所需的块数。</span><br><span class="line">第二行输出印有字母 b 的木块所需的块数，以此类推。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">fox box</span><br><span class="line">dog cat</span><br><span class="line">car bus</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line">样例解释</span><br><span class="line">在此样例中，共有 N=<span class="number">3</span> 块拼写板，共有 <span class="number">8</span> 种单词组合：</span><br><span class="line">fox dog car</span><br><span class="line">fox dog bus</span><br><span class="line">fox cat car</span><br><span class="line">fox cat bus</span><br><span class="line">box dog car</span><br><span class="line">box dog bus</span><br><span class="line">box cat car</span><br><span class="line">box cat bus</span><br></pre></td></tr></table></figure>
+<p>简单题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">2</span>][<span class="number">27</span>],ans[<span class="number">27</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">string</span> str1,str2;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span> cnt);</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; str1 &gt;&gt; str2;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> c:str1) cnt[<span class="number">0</span>][c-<span class="string">&#x27;a&#x27;</span>] ++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> c:str2) cnt[<span class="number">1</span>][c-<span class="string">&#x27;a&#x27;</span>] ++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">26</span>;i ++)&#123;</span><br><span class="line">            <span class="keyword">int</span> x = max(cnt[<span class="number">0</span>][i],cnt[<span class="number">1</span>][i]); <span class="comment">// 累加每张卡正反面中每个字母出现的最多次数</span></span><br><span class="line">            ans[i] = ans[i] + x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">26</span>;i ++) <span class="built_in">cout</span> &lt;&lt; ans[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2022-1-27—1801-蹄子剪刀布"><a href="#2022-1-27—1801-蹄子剪刀布" class="headerlink" title="2022.1.27—1801. 蹄子剪刀布"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1803/">2022.1.27—1801. 蹄子剪刀布</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">你可能听说过“石头剪刀布”的游戏。</span><br><span class="line">这个游戏在牛当中同样流行，它们称之为“蹄子剪刀布”。</span><br><span class="line">游戏的规则非常简单，两头牛相互对抗，数到三之后各出一个表示蹄子，剪刀或布的手势。</span><br><span class="line">蹄子赢剪刀，剪刀赢布，布赢蹄子。</span><br><span class="line">例如，第一头牛出“蹄子”手势，第二头牛出“布”手势，则第二头牛获胜。</span><br><span class="line">如果两头牛出相同的手势，则算平局。</span><br><span class="line">农夫约翰的两头奶牛正在进行 N 轮“蹄子剪刀布”对抗，他看的十分入迷。</span><br><span class="line">不幸的是，虽然他可以看到奶牛正在做出三种不同类型的手势，但他却无法分辨出哪一个代表“蹄子”，哪一个代表“布”以及哪一个代表“剪刀”。</span><br><span class="line">不知道这三种手势的具体含义的情况下，农夫约翰给这三种手势分配了编号 <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>。</span><br><span class="line">手势 <span class="number">1</span> 可能代表“蹄子”，可能代表“剪刀”，也可能代表“布”，反正他傻傻分不清楚。</span><br><span class="line">给出两头奶牛在 N 场比赛中所做出的具体手势对应的编号，请你判断第一头奶牛最多可能赢多少盘对抗。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，每行包含两个整数（<span class="number">1</span> 或 <span class="number">2</span> 或 <span class="number">3</span>），表示两头奶牛在一轮对抗中所出的手势对应的编号。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出第一头奶牛可能获胜的最大场次数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span></span><br><span class="line">样例解释</span><br><span class="line">此样例的一种解决方案是，<span class="number">1</span> 表示剪刀，<span class="number">2</span> 表示蹄子，<span class="number">3</span> 表示布。</span><br><span class="line">这样，第一头奶牛可以赢得 (<span class="number">1</span>,<span class="number">3</span>) 和 (<span class="number">3</span>,<span class="number">2</span>) 两场比赛。</span><br></pre></td></tr></table></figure>
+<p>简单题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">c1</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123; <span class="comment">// 总共只有两种胜负关系：1--&gt;2--&gt;3--&gt;1,还有反过来</span></span><br><span class="line">    <span class="keyword">if</span> ((x+<span class="number">1</span>) % <span class="number">3</span> == y) <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 将它们减1得到0,1,2，利用取模</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">c2</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == (y+<span class="number">1</span>) % <span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x,y,t1 = <span class="number">0</span>,t2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        x --,y --;</span><br><span class="line">        t1 += c1(x,y);</span><br><span class="line">        t2 += c2(x,y);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max(t1,t2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/78ab009f.html" title="2022寒假每日一题笔记（四）">https://www.grantdrew.top/posts/78ab009f.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9E%9A%E4%B8%BE/" rel="tag"><i class="fa fa-tag"></i> 枚举</a>
+              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/6b82d0f2.html" rel="prev" title="考研算法辅导课笔记（十九）">
+      <i class="fa fa-chevron-left"></i> 考研算法辅导课笔记（十九）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/1735c5d8.html" rel="next" title="2022寒假每日一题笔记（五）">
+      2022寒假每日一题笔记（五） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%91%A8"><span class="nav-text">第四周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-22%E2%80%941875-%E8%B4%9D%E8%8C%9C%E7%9A%84%E6%8A%A5%E5%A4%8D"><span class="nav-text">2022.1.22—1875. 贝茜的报复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-23%E2%80%941855-%E6%84%A4%E6%80%92%E7%9A%84%E5%A5%B6%E7%89%9B"><span class="nav-text">2022.1.23—1855. 愤怒的奶牛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-24%E2%80%941843-%E5%9C%86%E5%BD%A2%E7%89%9B%E6%A3%9A"><span class="nav-text">2022.1.24—1843. 圆形牛棚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-25%E2%80%941826-%E5%86%9C%E7%94%B0%E7%BC%A9%E5%87%8F"><span class="nav-text">2022.1.25—1826. 农田缩减</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-26%E2%80%941813-%E6%96%B9%E5%9D%97%E6%B8%B8%E6%88%8F"><span class="nav-text">2022.1.26—1813. 方块游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2022-1-27%E2%80%941801-%E8%B9%84%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83"><span class="nav-text">2022.1.27—1801. 蹄子剪刀布</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">171</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.6m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24:56</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

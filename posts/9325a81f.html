@@ -23,23 +23,23 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.第四讲 树的基本概念、二叉树、树和森林1.1树的基本概念408中所有树都是无向有根树。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111222154607.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292218802.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111232255516.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282052091.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282053082.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292205911.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292234927.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292237558.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292249334.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301433815.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111222154607.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292218802.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111232255516.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111282052091.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111282053082.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292205911.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292234927.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292237558.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292249334.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301433815.png">
 <meta property="article:published_time" content="2021-11-23T07:17:29.000Z">
-<meta property="article:modified_time" content="2021-11-30T07:40:48.613Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111222154607.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111222154607.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/9325a81f.html">
 
@@ -135,17 +135,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-30 15:40:48" itemprop="dateModified" datetime="2021-11-30T15:40:48+08:00">2021-11-30</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,12 +352,12 @@
 <p>还有一种层次遍历方式。</p>
 <p><strong>由遍历序列构造一棵二叉树：</strong></p>
 <p>前序+<strong>中序</strong> 或者 后序+<strong>中序</strong>可以唯一确定。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111222154607.png" alt="image-20211122215402530"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111222154607.png" alt="image-20211122215402530"></p>
 <p>前序可以确定根的编号，中序可以确定左右子树的大小，然后就确定了左右子树的前序和中序序列。</p>
 <p>前序+后序无法唯一确定一棵二叉树：</p>
 <p>若前序有根和左右子树，可以唯一确定；</p>
 <p>若前序只有根和一棵子树，则无法唯一确定。（因为无法知道仅有的这棵子树是左子树还是右子树）</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292218802.png" alt="image-20211129221840737"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292218802.png" alt="image-20211129221840737"></p>
 <h3 id="18-重建二叉树"><a href="#18-重建二叉树" class="headerlink" title="18. 重建二叉树"></a>18. 重建二叉树</h3><p>输入一棵二叉树前序遍历和中序遍历的结果，请重建该二叉树。</p>
 <p><strong>注意</strong>:</p>
 <ul>
@@ -373,7 +373,7 @@
 <p>时间复杂度分析：</p>
 <p>初始时用哈希表存储每个节点的值到中序遍历下标（0到n-1）的映射，这样我们在递归到每个节点时，在中序遍历中查找根节点位置的操作，只需要 O(1) 的时间。此时，创建每个节点需要的时间是 O(1)，所以总时间复杂度是 O(n)。</p>
 <p>图解：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111232255516.png" alt="image-20211123225503455"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111232255516.png" alt="image-20211123225503455"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; pos;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; preorder,inorder; <span class="comment">// 可以创建两个vector，也可以将_preorder传引用到build</span></span><br><span class="line">    </span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123; <span class="comment">// 分别对应前序、中序的左右边界下标</span></span><br><span class="line">        <span class="comment">// 当左右边界下标相等时表示序列含有1个元素</span></span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 当左 &lt; 右时表示子树为空</span></span><br><span class="line">        <span class="keyword">auto</span> root = <span class="keyword">new</span> TreeNode(preorder[a]);</span><br><span class="line">        <span class="keyword">int</span> k = pos[preorder[a]]; <span class="comment">// 前序的第一个就是根，查找根在中序的下标</span></span><br><span class="line">        <span class="comment">// 递归创建二叉树</span></span><br><span class="line">        root-&gt;left = build(a + <span class="number">1</span>, k - <span class="number">1</span> - x + a + <span class="number">1</span>, x, k - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = build(k - <span class="number">1</span> - x + a + <span class="number">2</span>, b, k + <span class="number">1</span>, y);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; _preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; _inorder)</span> </span>&#123;</span><br><span class="line">        preorder = _preorder,inorder = _inorder;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = preorder.size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">            pos[inorder[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> build(<span class="number">0</span>, n - <span class="number">1</span>, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不用哈希表的版本： 笔试写法</span></span><br><span class="line"><span class="comment">// 将19行替换为下面的代码，31~33行删掉，时间复杂度为：O(n^2)</span></span><br><span class="line"><span class="keyword">int</span> k = <span class="number">-1</span>; <span class="comment">// 前序的第一个就是根，查找根在中序的下标</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = x;i &lt;= y;i ++)&#123;</span><br><span class="line">    <span class="keyword">if</span> (inorder[i] == root-&gt;val)</span><br><span class="line">        k = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="1-3线索二叉树"><a href="#1-3线索二叉树" class="headerlink" title="1.3线索二叉树"></a>1.3线索二叉树</h2><p>(4) 线索二叉树的基本概念和构造</p>
 <p>对二叉树节点的指针域做如下规定：</p>
@@ -416,7 +416,7 @@
 <li>指向下一个兄弟的指针。</li>
 </ol>
 <p>具体定义规则如果不理解请参考王道教材P161,162.</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282052091.png" alt="image-20211128205126385"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111282052091.png" alt="image-20211128205126385"></p>
 <hr>
 <p>树的遍历：</p>
 <p>只有三种方式：前序和后序遍历，还有层次遍历。</p>
@@ -426,7 +426,7 @@
 <blockquote>
 <p>森林与二叉树转换的性质：原树中叶子节点数 = 转换后的树中有右儿子的节点数 + 1</p>
 </blockquote>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111282053082.png" alt="image-20211128205346009"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111282053082.png" alt="image-20211128205346009"></p>
 <p>两条转化规则：</p>
 <ul>
 <li>F的前序遍历就是T的前序遍历</li>
@@ -437,14 +437,14 @@
 <p>森林的前序遍历和二叉树的前序遍历都是：<code>ABDCEFGHIJKLM</code>。</p>
 <p>森林的后序遍历和二叉树的中序序遍历是一样的。</p>
 <p>树的遍历方式是递归定义的，下图可以验证这条性质。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292205911.png" alt="image-20211129220509836"></p>
-<h3 id="2011-6"><a href="#2011-6" class="headerlink" title="2011-6"></a>2011-6</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292234927.png" alt="image-20211129223429881"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292205911.png" alt="image-20211129220509836"></p>
+<h3 id="2011-6"><a href="#2011-6" class="headerlink" title="2011-6"></a>2011-6</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292234927.png" alt="image-20211129223429881"></p>
 <p>解：</p>
 <p>选择题，采用“特殊值“法，构造一棵特殊的树。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292237558.png" alt="image-20211129223704494"></p>
-<h3 id="2014-5"><a href="#2014-5" class="headerlink" title="2014-5"></a>2014-5</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111292249334.png" alt="image-20211129224920283"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292237558.png" alt="image-20211129223704494"></p>
+<h3 id="2014-5"><a href="#2014-5" class="headerlink" title="2014-5"></a>2014-5</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111292249334.png" alt="image-20211129224920283"></p>
 <p>森林中叶节点，也就是没有孩子的节点，对应二叉树的是没有左孩子的节点（因为左孩子右兄弟）。</p>
-<h3 id="2014-41"><a href="#2014-41" class="headerlink" title="2014-41"></a>2014-41</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301433815.png" alt="image-20211130143311751"></p>
+<h3 id="2014-41"><a href="#2014-41" class="headerlink" title="2014-41"></a>2014-41</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301433815.png" alt="image-20211130143311751"></p>
 <h3 id="accwing-3766-二叉树的带权路径长度"><a href="#accwing-3766-二叉树的带权路径长度" class="headerlink" title="accwing.3766. 二叉树的带权路径长度"></a>accwing.3766. 二叉树的带权路径长度</h3><p>二叉树的带权路径长度(WPL)是二叉树中所有叶结点的带权路径长度之和，也就是每个叶结点的深度与权值之积的总和。</p>
 <p>给定一棵二叉树 T，请你计算并输出它的 WPL。</p>
 <p>注意，根节点的深度为 0。</p>
@@ -620,20 +620,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -682,13 +682,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -723,7 +723,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

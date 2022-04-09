@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="3 acwing.1213. 斐波那契第五届蓝桥杯省赛C++A组,第五届蓝桥杯省赛JAVAA组">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231907631.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231907313.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231908296.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231908043.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231909139.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910693.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910749.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910575.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910110.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231907631.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231907313.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231908296.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231908043.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231909139.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910693.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910749.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910575.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910110.png">
 <meta property="article:published_time" content="2021-07-01T12:55:06.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:10:56.555Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.031Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
@@ -41,7 +41,7 @@
 <meta property="article:tag" content="龟速乘">
 <meta property="article:tag" content="组合数">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231907631.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231907631.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/d1f4ef89.html">
 
@@ -137,17 +137,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:10:56" itemprop="dateModified" datetime="2021-10-23T19:10:56+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,12 +303,12 @@
 <p>题目涉及到斐波那契求前n项和，可以参考 acwing.1303. 斐波那契前 n 项和。（矩阵快速幂）</p>
 <p>前n项和Sn和第m项f(m)都可能会非常大，先考虑Sn % f(m)有没有公式表示，因为它不可能直接存下来，再考虑它mod p，p相比前面的就小得多。</p>
 <p>之前介绍了矩阵快速幂求解前n项和，这里直接推导<strong>数学公式</strong>计算。（斐波那契前 n 项和公式）</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231907631.png" alt="image-20210705132018482"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231907631.png" alt="image-20210705132018482"></p>
 <p>所以：<strong>Sn = f(n+2) - 1</strong>。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231907313.png" alt="image-20210706115427262"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231908296.png" alt="image-20210706115509499"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231908043.png" alt="image-20210706115530101"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231909139.png" alt="image-20210706111228721"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231907313.png" alt="image-20210706115427262"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231908296.png" alt="image-20210706115509499"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231908043.png" alt="image-20210706115530101"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231909139.png" alt="image-20210706111228721"></p>
 <p>矩阵快速幂求Fibonacci数列第n项就不再介绍了，具体参见蓝桥杯（三七）。</p>
 <p>注意到数据范围是10^18，大概是2^60，计算a=a*a时用到两个10^18相乘就是10^36，超过long long的范围，所以需要高精度或者龟速乘来处理。</p>
 <p><strong>龟速乘</strong>（慢工出细活，时间换精度），原理类似快速幂，将乘法转化成加法来处理爆long long的问题，相应的时间也会从O(1)变成O(logn)。</p>
@@ -323,12 +323,12 @@
 <p>代码量和注释量都非常大！<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line">LL n,m,p;</span><br><span class="line"><span class="function">LL <span class="title">qmul</span><span class="params">(LL a,LL b)</span></span>&#123;<span class="comment">// 龟速乘计算(a*b) % p</span></span><br><span class="line">    LL res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (b)&#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = (res + a) % p;<span class="comment">// b(2)的末位是1</span></span><br><span class="line">        a = (a + a) % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;<span class="comment">// b(2)向右移动一位</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mul</span><span class="params">(LL c[][<span class="number">2</span>],LL a[][<span class="number">2</span>],LL b[][<span class="number">2</span>])</span></span>&#123;<span class="comment">// 可以省略第1维，后面不能省略</span></span><br><span class="line">    LL temp[<span class="number">2</span>][<span class="number">2</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">2</span>;i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">2</span>;j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>;k &lt; <span class="number">2</span>;k++)</span><br><span class="line">                temp[i][j] = (temp[i][j] + qmul(a[i][k],b[k][j])) % p;<span class="comment">// 龟速乘替代普通乘</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">memcpy</span>(c,temp,<span class="keyword">sizeof</span> temp);<span class="comment">// sizeof c是错误的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">F</span><span class="params">(LL n)</span></span>&#123;<span class="comment">// Fn = F1*a^(n-1)</span></span><br><span class="line">    <span class="keyword">if</span> (!n) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">// 特判n=0的情况，否则陷入死循环</span></span><br><span class="line">    </span><br><span class="line">    LL f[<span class="number">2</span>][<span class="number">2</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>&#125;;<span class="comment">// 初始矩阵F1 = [1 1;0 0]，第1行是f(1),f(2)</span></span><br><span class="line">    LL a[<span class="number">2</span>][<span class="number">2</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;<span class="comment">// 等价于&#123;&#123;0,1&#125;,&#123;1,1&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(LL k = n<span class="number">-1</span>; k ;k &gt;&gt;= <span class="number">1</span>)&#123;<span class="comment">// 等价于n--;while(n)&#123;...k &gt;&gt;= 1&#125;</span></span><br><span class="line">        <span class="keyword">if</span> (k &amp; <span class="number">1</span>) mul(f,f,a);</span><br><span class="line">        mul(a,a,a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">H</span><span class="params">(LL m,LL k)</span></span>&#123;<span class="comment">// 计算(f(m-1)*f(k) - 1)  (mod f(m))，利用Fibonacci两数相乘结论</span></span><br><span class="line">    <span class="comment">// 参考最后一种情况</span></span><br><span class="line">    <span class="keyword">if</span> (k % <span class="number">2</span>)<span class="comment">// k是奇数，结果是f(m-k)-1  (mod f(m))，m = k不可能出现，不用特判</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> F(m-k) - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">// k是偶数，结果是f(m)-f(m-k)-1，f(m)=f(m-k)可能成立，需要特判</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span> || (m == <span class="number">2</span> &amp;&amp; k == <span class="number">1</span>)) <span class="keyword">return</span> F(m) - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> F(m) - F(m-k) - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">G</span><span class="params">(LL n,LL m)</span></span>&#123;<span class="comment">// 计算(f(n)-1) mod f(m) = (f(n) mod f(m) - 1) mod f(m)</span></span><br><span class="line">    <span class="comment">// 根据n/m，n%m，n/(2m)三个数进行分类讨论，注意是下取整，结果可能出现负数需要特判</span></span><br><span class="line">    <span class="keyword">if</span> (m % <span class="number">2</span> == <span class="number">0</span>)<span class="comment">// m是偶数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n / m % <span class="number">2</span> == <span class="number">0</span>)<span class="comment">// 且n/m是偶数，结果是f(n mod m)-1  (mod f(m))</span></span><br><span class="line">        &#123;   <span class="comment">// 特判n整除m的情况,设n = k*m,利用情况1所归纳出的公式可知f(k*m)=f((k-1)*m)*f(m-1)=...=f(m)*xxx</span></span><br><span class="line">            <span class="comment">// 所以此时f(n) mod f(m) = 0</span></span><br><span class="line">            <span class="keyword">if</span> (n % m == <span class="number">0</span>) <span class="keyword">return</span> F(m)<span class="number">-1</span>;<span class="comment">// F(n % m) = 0，但取模结果为正，所以加上F(m)</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> F(n % m) - <span class="number">1</span>;             </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">// 且n/m是奇数，结果是f(m-1)*f(n mod m)  (mod(f(m))</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> H(m,n % m);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">// m是奇数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n / m % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; n / m / <span class="number">2</span> % <span class="number">2</span> == <span class="number">0</span>)<span class="comment">// 且n/m和n/(2m)都是偶数，结果是f(n mod m)-1  (mod f(m))</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (n % m == <span class="number">0</span>) <span class="keyword">return</span> F(m)<span class="number">-1</span>;<span class="comment">// F(n % m) = 0，但取模结果为正，所以加上F(m)</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> F(n % m) - <span class="number">1</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n / m % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; n / m / <span class="number">2</span> % <span class="number">2</span>)<span class="comment">// 且n/m是偶数，n/(2m)是奇数，结果是f(m)-f(n mod m)-1  (mod f(m))</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 特判f(m) = f(n mod m)的情况，只可能是f(1) = f(2)</span></span><br><span class="line">            <span class="keyword">if</span> (n % m == <span class="number">1</span> &amp;&amp; m == <span class="number">2</span>) <span class="keyword">return</span> F(m)<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> F(m) - F(n % m) - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n / m % <span class="number">2</span> &amp;&amp; n / m / <span class="number">2</span> % <span class="number">2</span> == <span class="number">0</span>)<span class="comment">// 且n/m是奇数，n/(2m)是偶数，结果是f(m-1)*f(n mod m)-1  (mod(f(m))</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> H(m,n % m);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span><span class="comment">// 且n/m是奇数，n/(2m)是奇数，结果是f(m)-[f(m-1]*f(n mod m)  (mod(f(m))]-1  (mod(f(m))</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 当n mod m 是奇数时，套用结论，f(m-1)*f(n mod m) = f(m- n mod m)</span></span><br><span class="line">            <span class="keyword">if</span> (n % m % <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 特判f(m) = f(m- n mod m)的情况，只可能是f(1) = f(2)</span></span><br><span class="line">                <span class="keyword">if</span> (m == <span class="number">2</span> &amp;&amp; m - n % m == <span class="number">1</span>) <span class="keyword">return</span> F(m) - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">return</span> F(m) - F(m - n % m) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span><span class="comment">// 当n mod m 是偶数时，套用结论，f(m-1)*f(n mod m) = f(m) - f(m- n mod m)</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 结果是f(m - n mod m)-1  (mod(f(m))，f(m - n mod m)不可能=0，不用特判</span></span><br><span class="line">                <span class="keyword">return</span> F(m - n % m) - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld%lld&quot;</span>,&amp;n,&amp;m,&amp;p) != EOF)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,(G(n+<span class="number">2</span>,m) % p + p) % p);<span class="comment">// 最终输出的答案应该是：(f(n+2)-1) mod f(m) mod p</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>注意： &gt;&gt; 1 和/ 2不总是等价的，比如-1 &gt;&gt; 1 = -1, -1 / 2  = 0。如果不在F(n)中加入n=0的特判，就会陷入死循环！</p>
 <h4 id="4-acwing-1206-剪格子"><a href="#4-acwing-1206-剪格子" class="headerlink" title="4 acwing.1206. 剪格子"></a>4 acwing.1206. 剪格子</h4><p>第四届蓝桥杯省赛C++A/C组,第四届蓝桥杯省赛JAVAA/C组</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910693.png" alt="image-20210706181114316"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910693.png" alt="image-20210706181114316"></p>
 <p>我们沿着图中的红色线剪开，得到<strong>两个部分</strong>，每个部分的数字和都是 60。</p>
 <p>本题的要求就是请你编程判定：对给定的 m×n 的格子中的整数，是否可以分割为<strong>两个连通的部分</strong>，使得这两个区域的数字和相等。</p>
 <p>如果存在多种解答，请输出包含左上角格子的那个区域包含的格子的最小数目。</p>
 <p>如果无法分割，则输出 0。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910749.png" alt="image-20210706181154353"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910749.png" alt="image-20210706181154353"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 m,n,表示表格的宽度和高度。</span><br><span class="line">接下来是 n 行，每行 m 个正整数，用空格分开。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">在所有解中，包含左上角的分割区可能包含的最小的格子数目。</span><br><span class="line">如果无法分割，则输出 <span class="number">0</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m&lt;<span class="number">10</span>,</span><br><span class="line">格子内的数均在<span class="number">1</span>到<span class="number">10000</span>之间。</span><br><span class="line"></span><br><span class="line">输入样例<span class="number">1</span>：</span><br><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line"><span class="number">10</span> <span class="number">1</span> <span class="number">52</span></span><br><span class="line"><span class="number">20</span> <span class="number">30</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">输出样例<span class="number">1</span>：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">输入样例<span class="number">2</span>：</span><br><span class="line"><span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">30</span> <span class="number">80</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">100</span></span><br><span class="line">输出样例<span class="number">2</span>：</span><br><span class="line"><span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>坑：n和m是反过来的，n行在后面。</p>
@@ -345,7 +345,7 @@
 <p>且看y总的“锯齿状”搜索！</p>
 <p>未完待更。</p>
 <h4 id="5-acwing-523-组合数问题"><a href="#5-acwing-523-组合数问题" class="headerlink" title="5 acwing.523. 组合数问题"></a>5 acwing.523. 组合数问题</h4><p>NOIP2016提高组</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910575.png" alt="image-20210706222159450"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910575.png" alt="image-20210706222159450"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入格式</span><br><span class="line">第一行有两个整数 t, k ，其中 t 代表该测试点总共有多少组测试数据，k 的意义见问题描述。</span><br><span class="line">接下来 t 行每行两个整数 n, m，其中 n, m 的意义见问题描述。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共 t 行，每行一个整数代表所有的 <span class="number">0</span> ≤ i ≤ n, <span class="number">0</span> ≤ j ≤ min(i, m) 有多少对 (i, j) 满足 Cji 是 k 的倍数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n,m≤<span class="number">2000</span>,<span class="number">2</span>≤k≤<span class="number">21</span>,<span class="number">1</span>≤t≤<span class="number">10</span>^<span class="number">4</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>思路：</p>
 <p>前置知识：（排列组合忘完了）</p>
@@ -368,7 +368,7 @@ n \\
 m
 \end{array}\right) \text { 。 }</script><p>参考题解：<a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/3157/">https://www.acwing.com/solution/content/3157/</a></p>
 <p>根据题意，划定的组合数的i、j的范围限制在蓝色阴影梯形。我们不妨将区域扩展为n*m的整个矩形，在对角线之上的${C}_{i}^{j}$是不合法的，设为0；对于蓝色阴影梯形，如果$C_i^j\ \%\ k = 0$，设为1，否则设为0。所以整个矩形上的每个点都有一个值，0或1。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231910110.png" alt="image-20210707171919463"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231910110.png" alt="image-20210707171919463"></p>
 <p>我们再通过二维前缀和来预处理这个矩形区域，计算1的个数，也就是答案。</p>
 <p>接下来的问题是如何计算组合数？</p>
 <ol>
@@ -546,20 +546,20 @@ m
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -608,13 +608,13 @@ m
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -649,7 +649,7 @@ m
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第六周T1—1726. 挤奶顺序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022寒假每日一题笔记（六）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/723b8e01.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="第六周T1—1726. 挤奶顺序">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202202122224170.png">
+<meta property="article:published_time" content="2022-02-09T12:40:53.000Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="差分">
+<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="Floyd">
+<meta property="article:tag" content="二分">
+<meta property="article:tag" content="字符串哈希">
+<meta property="article:tag" content="图论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202202122224170.png">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/723b8e01.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2022寒假每日一题笔记（六） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/723b8e01.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022寒假每日一题笔记（六）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-09 20:40:53" itemprop="dateCreated datePublished" datetime="2022-02-09T20:40:53+08:00">2022-02-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/723b8e01.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/723b8e01.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>9.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第六周"><a href="#第六周" class="headerlink" title="第六周"></a>第六周</h1><h2 id="T1—1726-挤奶顺序"><a href="#T1—1726-挤奶顺序" class="headerlink" title="T1—1726. 挤奶顺序"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1728/">T1—1726. 挤奶顺序</a></h2><span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Farmer John 有 N 头奶牛，编号为 <span class="number">1</span>…N。</span><br><span class="line">他每天都要给他的奶牛们挤奶。</span><br><span class="line">奶牛的社会结构非常复杂，其结构有两个关键特性。</span><br><span class="line">首先，有 M 头奶牛的地位等级分明，按照地位越高越早挤奶的规则，这些奶牛的相对挤奶顺序是固定的。</span><br><span class="line">此外，有 K 头奶牛的具体挤奶顺序也是固定的，比如，奶牛 <span class="number">4</span> 必须在所有奶牛中的第二位挤奶。</span><br><span class="line">幸运的是，Farmer John 总是能够以一种满足所有这些情况的顺序给他的奶牛们挤奶。</span><br><span class="line">不幸的是，奶牛 <span class="number">1</span> 最近生病了，所以 Farmer John 想要尽早给这头奶牛挤奶，使得她可以回到牛棚休息。</span><br><span class="line">请帮助 Farmer John 求出奶牛 <span class="number">1</span> 可以在挤奶顺序中出现的最早位置。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含 N，M，K，表示 Farmer John 有 N 头奶牛，其中 M 头形成了社会阶层，K 头需要在挤奶顺序中处于一个特定的位置。</span><br><span class="line">下一行包含 M 个不同的整数 mi。在这一行出现的奶牛必须以与她们在这行出现的顺序相同的顺序进行挤奶。</span><br><span class="line">下面 K 行，每行包含两个整数 ci 和 pi，表示奶牛 ci 一定要在第 pi 位进行挤奶。</span><br><span class="line">输入数据保证：在这些限制之下，Farmer John 能够建立一个符合要求的挤奶顺序。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出奶牛 <span class="number">1</span> 可以在挤奶顺序中出现的最早位置。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">2</span>≤N≤<span class="number">100</span>,</span><br><span class="line"><span class="number">1</span>≤M,K&lt;N,</span><br><span class="line"><span class="number">1</span>≤mi,ci,pi≤N</span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">6</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">5</span> <span class="number">3</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">样例解释</span><br><span class="line">在这个例子中，Farmer John 有六头奶牛，其中奶牛 <span class="number">1</span> 生病了。</span><br><span class="line">他的挤奶顺序应该为奶牛 <span class="number">4</span> 在奶牛 <span class="number">5</span> 之前，奶牛 <span class="number">5</span> 在奶牛 <span class="number">6</span> 之前。</span><br><span class="line">此外，Farmer John 必须要第一个给奶牛 <span class="number">3</span> 挤奶，第三个给奶牛 <span class="number">5</span> 挤奶。</span><br><span class="line">FJ必须第一个给奶牛 <span class="number">3</span> 挤奶，由于奶牛 <span class="number">4</span> 必须要在奶牛 <span class="number">5</span> 之前，奶牛 <span class="number">4</span> 一定是第二个挤奶的，然后奶牛 <span class="number">5</span> 第三个。</span><br><span class="line">于是，奶牛 <span class="number">1</span> 最早在挤奶顺序中出现的位置是第四个。</span><br></pre></td></tr></table></figure>
+<p>太难不会。</p>
+<p>按三种情况进行分类讨论，模拟处理。</p>
+<ol>
+<li>存在c_i = 1，直接输出答案；</li>
+<li>存在m_i = 1，从1开始逆序找到离1最近的固定位置的牛，然后从这头牛开始对相对顺序不变的这些牛（直到1号牛）紧挨着放置；</li>
+<li>不满足前两种情况，以固定位置的牛为划分点将序列分成若干段，在每一段中考虑从后往前放置相对顺序不变的牛，若有空位就放置1号牛，若没有则考虑下一段，直到1号牛找到位置。</li>
+</ol>
+<p>本题从思路转化到代码其实有一定难度。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> p[N],q[N]; <span class="comment">// p[a] = b表示a号牛的最终位置是b</span></span><br><span class="line"><span class="keyword">bool</span> st[N]; <span class="comment">// st[a] = true表示最终位置a被用过</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,k;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">        <span class="keyword">if</span> (q[i] == <span class="number">1</span>) flag = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= k;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a == <span class="number">1</span>)&#123; <span class="comment">// 情况1,1号牛有固定位置</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; b;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        p[a] = b;</span><br><span class="line">        st[b] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (flag)&#123; <span class="comment">// 情况2,1号牛有相对位置，j表示可用的排序位置</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>,j = <span class="number">1</span>;i &lt;= m;i ++)&#123; <span class="comment">// 当1号牛有相对顺序时，这m头牛尽可能往前排</span></span><br><span class="line">            <span class="keyword">while</span> (st[j]) j ++;</span><br><span class="line">            <span class="keyword">if</span> (p[q[i]]) j = p[q[i]]; <span class="comment">// q[i]奶牛有固定位置，在两个固定位置之间排序</span></span><br><span class="line">            <span class="keyword">else</span>&#123; <span class="comment">// q[i]奶牛没有固定位置，从前往后占据j位置</span></span><br><span class="line">                <span class="keyword">if</span> (q[i] == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; j;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                st[j] = <span class="literal">true</span>;j ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123; <span class="comment">// 情况3,不满足前两种情况</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = m,j = n; i; i --)&#123; <span class="comment">// 对于每一段区间，在其中的有序位置按从后往前放置</span></span><br><span class="line">            <span class="keyword">while</span> (st[j]) j --;</span><br><span class="line">            <span class="keyword">if</span> (p[q[i]]) j = p[q[i]];</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                st[j] = <span class="literal">true</span>;j --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123; <span class="comment">// 找到1号牛的最靠前位置</span></span><br><span class="line">            <span class="keyword">if</span> (!st[i])&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T2—1715-桶列表"><a href="#T2—1715-桶列表" class="headerlink" title="T2—1715. 桶列表"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1717/">T2—1715. 桶列表</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Farmer John 正在考虑改变他给奶牛分配牛奶桶的方式。</span><br><span class="line">他希望使用尽量少的牛奶桶，请帮助他！</span><br><span class="line">Farmer John 有 N 头奶牛，编号为 <span class="number">1</span>…N。</span><br><span class="line">第 i 头奶牛需要从时刻 si 到时刻 ti 之间挤奶，并且挤奶过程中需要用到 bi 个桶。</span><br><span class="line">多头奶牛可能在同一时刻都在挤奶；每个桶在每个时刻只能供一头奶牛使用。</span><br><span class="line">也就是说，第 i 头奶牛在时刻 si 到时刻 ti 之间挤奶时，如果用到了某个桶，则该桶在这段时间不能被其他奶牛使用。</span><br><span class="line">当然，这个桶在这段时间之外可以被其他奶牛所使用。</span><br><span class="line">为了简化他的工作，FJ 保证在任一时刻，至多只有一头奶牛开始或是结束挤奶（也就是说，所有的 si 和 ti 各不相同）。</span><br><span class="line">FJ 有一个储藏室，里面有编号为 <span class="number">1</span>、<span class="number">2</span>、<span class="number">3</span>、…… 的桶。</span><br><span class="line">在他的挤奶策略中，当某一头奶牛（比如说，奶牛 i）开始挤奶（在时刻 si），FJ 就跑到储藏室取出编号最小的 bi 个桶分配给第 i 头奶牛用来挤奶。</span><br><span class="line">请求出 FJ 需要在储藏室中存放多少个桶才能使得他能够顺利地给所有奶牛挤奶。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入的第一行包含 N。</span><br><span class="line">以下 N 行，每行描述了一头奶牛，包含三个空格分隔的数 si,ti,bi。</span><br><span class="line">其中 si 和 ti 均为 <span class="number">1</span>…<span class="number">1000</span> 之间的整数，bi 为 <span class="number">1</span>…<span class="number">10</span> 之间的整数。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，为 FJ 需要的桶的数量。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="number">10</span> <span class="number">1</span></span><br><span class="line"><span class="number">8</span> <span class="number">13</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">6</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line">样例解释</span><br><span class="line">在这个例子中，FJ 需要 <span class="number">4</span> 个桶：他用桶 <span class="number">1</span> 和桶 <span class="number">2</span> 来给奶牛 <span class="number">3</span> 挤奶（从时刻 <span class="number">2</span> 开始）。</span><br><span class="line">他用桶 <span class="number">3</span> 给奶牛 <span class="number">1</span> 挤奶（从时刻 <span class="number">4</span> 开始）。</span><br><span class="line">当奶牛 <span class="number">2</span> 在时刻 <span class="number">8</span> 开始挤奶时，桶 <span class="number">1</span> 和桶 <span class="number">2</span> 可以再次利用，然而桶 <span class="number">3</span> 不可以，所以他会使用桶 <span class="number">1</span>、桶 <span class="number">2</span> 和桶 <span class="number">4</span>。</span><br></pre></td></tr></table></figure>
+<p>简单的差分题，直接秒了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b,c;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">        q[a] += c,q[b+<span class="number">1</span>] -= c;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; N;i ++)&#123;</span><br><span class="line">        q[i] += q[i<span class="number">-1</span>];</span><br><span class="line">        ans = max(ans,q[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T3—1696-困牛排序"><a href="#T3—1696-困牛排序" class="headerlink" title="T3—1696. 困牛排序"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1698/">T3—1696. 困牛排序</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Farmer John 正在尝试将他的 N 头奶牛，方便起见编号为 <span class="number">1</span>…N，在她们前往牧草地吃早餐之前排好顺序。</span><br><span class="line">当前，这些奶牛以 p1,p2,p3,…,pN 的顺序排成一行，Farmer John 站在奶牛 p1 前面。</span><br><span class="line">他想要重新排列这些奶牛，使得她们的顺序变为 <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,…,N，奶牛 <span class="number">1</span> 在 Farmer John 旁边。</span><br><span class="line">今天奶牛们有些困倦，所以任何时刻都只有直接面向 Farmer John 的奶牛会注意听 Farmer John 的指令。</span><br><span class="line">每一次他可以命令这头奶牛沿着队伍向后移动 k 步，k 可以是范围 <span class="number">1</span>…N−<span class="number">1</span> 中的任意数。</span><br><span class="line">她经过的 k 头奶牛会向前移动，腾出空间使得她能够插入到队伍中这些奶牛之后的位置。</span><br><span class="line">例如，假设 N=<span class="number">4</span>，奶牛们开始时是这样的顺序：</span><br><span class="line">FJ: <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span></span><br><span class="line">唯一注意 FJ 指令的奶牛是奶牛 <span class="number">4</span>。</span><br><span class="line">当他命令她向队伍后移动 <span class="number">2</span> 步之后，队伍的顺序会变成：</span><br><span class="line">FJ: <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">1</span></span><br><span class="line">现在唯一注意 FJ 指令的奶牛是奶牛 <span class="number">3</span>，所以第二次他可以给奶牛 <span class="number">3</span> 下命令，如此进行直到奶牛们排好了顺序。</span><br><span class="line">Farmer John 急欲完成排序，这样他就可以回到他的农舍里享用他自己的早餐了。</span><br><span class="line">请帮助他求出将奶牛们排好顺序所需要的最小操作次数。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入的第一行包含 N。</span><br><span class="line">第二行包含 N 个空格分隔的整数，p1,p2,p3,…,pN，表示奶牛们的起始顺序。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，为 Farmer John 采用最佳策略可以将这 N 头奶牛排好顺序所需要的操作次数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>不会。</p>
+<p>思维题。</p>
+<p>由题意可知，每次均处理第一头牛，最后将其排序为1234n；</p>
+<p>因为往后插是随意的，所以我们肯定能使其达到目的位置；</p>
+<p>我们可以知道，只要后面的数小于前者，则所有前面的牛均要进行插入操作；</p>
+<p>所有我们只要寻找从后面来看第几个要小于前者即可。</p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202202122224170.png" alt="image-20220212222444042"></p>
+<blockquote>
+<p>可以证明最小操作数 = i，从后往前看，要处理第一个逆序对，只有把前面的所有数都进行插入排序。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) <span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n<span class="number">-1</span>;i &gt;= <span class="number">1</span>;i --)&#123;</span><br><span class="line">        <span class="keyword">if</span> (q[i] &gt; q[i+<span class="number">1</span>])&#123; <span class="comment">// 从后往前找到第一个逆序对</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果不存在逆序对，说明数组有序，不需要操作</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T4—1684-大型植被恢复"><a href="#T4—1684-大型植被恢复" class="headerlink" title="T4—1684. 大型植被恢复"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1686/">T4—1684. 大型植被恢复</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">长时间的干旱使得 Farmer John 的 N 块草地上牧草匮乏。</span><br><span class="line">随着雨季即将到来，现在应当是重新种植的时候了。</span><br><span class="line">在 Farmer John 的储物棚里有四个桶，每个桶里装着一种不同的草种。</span><br><span class="line">他想要在每块草地上播种其中一种草。</span><br><span class="line">作为一名奶农，Farmer John 想要确保他的每头奶牛都能得到丰富的食谱。</span><br><span class="line">他的 M 头奶牛每一头都有两块喜爱的草地，他想要确保这两块草地种植不同种类的草，从而每头奶牛都可以选择两种草。</span><br><span class="line">已知每块草地最多被 <span class="number">3</span> 头奶牛喜爱。</span><br><span class="line">请帮助 Farmer John 选择每块草地所种的草的种类，使得所有奶牛的营养需求都得到满足。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入的第一行包含 N 和 M。</span><br><span class="line">以下 M 行，每行包含两个范围为 <span class="number">1</span>…N 的整数，为 Farmer John 的一头奶牛喜欢的两块草地。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个 N 位数，每一位均为 <span class="number">1</span>…<span class="number">4</span> 之一，表示每一块草地上所种的草的种类。</span><br><span class="line">第一位对应草地 <span class="number">1</span> 的草的种类，第二位对应草地 <span class="number">2</span>，以此类推。</span><br><span class="line">如果有多种可行的解，只需输出所有解中最小的 N 位数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">2</span>≤N≤<span class="number">100</span>,</span><br><span class="line"><span class="number">1</span>≤M≤<span class="number">150</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">5</span> <span class="number">6</span></span><br><span class="line"><span class="number">4</span> <span class="number">1</span></span><br><span class="line"><span class="number">4</span> <span class="number">2</span></span><br><span class="line"><span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">12133</span></span><br></pre></td></tr></table></figure>
+<p>没有思路。</p>
+<p>建图，将每头奶牛喜爱的两块草地连起来作为一条无向边，两个端点的草的种类是不一样的。</p>
+<p>求所有解中最小的N位数，只要从小到大枚举就行，从1号草地开始枚举，然后考虑与它相连的端点的草的种类。</p>
+<p>由于每块草地最多被 3 头奶牛喜爱，所以每块草地一定至少有一种可选的草的种类，所以这样爆搜枚举一定能找到满足条件的解，不需要从不可行状态中回溯。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> e[<span class="number">3</span>*N],ne[<span class="number">3</span>*N],h[N],idx; <span class="comment">// 每个顶点最多连三条边</span></span><br><span class="line"><span class="keyword">bool</span> st[N][<span class="number">5</span>]; <span class="comment">// st[i][j] = true表示第i块草地j类草不能用</span></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b,ne[idx] = h[a],h[a] = idx ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="keyword">sizeof</span> h);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(a,b),add(b,a); <span class="comment">// 建立双向边</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123; <span class="comment">// 这种枚举方式最先找到的一定是符合条件的最优解</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= <span class="number">4</span>;j ++)&#123; <span class="comment">// 先枚举点，再枚举草地种类</span></span><br><span class="line">            <span class="keyword">if</span> (!st[i][j])&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; j; <span class="comment">// 第i块草地种植j类草</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> u = h[i]; ~u;u = ne[u])&#123; <span class="comment">// 与它相连的草地不能种同样的草</span></span><br><span class="line">                    st[e[u]][j] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>; <span class="comment">// 每块草地确定一种草就退出</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T5—1471-牛奶工厂"><a href="#T5—1471-牛奶工厂" class="headerlink" title="T5—1471. 牛奶工厂"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1473/">T5—1471. 牛奶工厂</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">牛奶生意正红红火火！</span><br><span class="line">农夫约翰的牛奶加工厂内有 N 个加工站，编号为 <span class="number">1</span>…N，以及 N−<span class="number">1</span> 条通道，每条连接某两个加工站。（通道建设很昂贵，所以约翰选择使用了最小数量的通道，使得从每个加工站出发都可以到达所有其他加工站）。</span><br><span class="line">为了创新和提升效率，约翰在每条通道上安装了传送带。</span><br><span class="line">不幸的是，当他意识到传送带是单向的已经太晚了，现在每条通道只能沿着一个方向通行了！</span><br><span class="line">所以现在的情况不再是从每个加工站出发都能够到达其他加工站了。</span><br><span class="line">然而，约翰认为事情可能还不算完全失败，只要至少还存在一个加工站 i 满足从其他每个加工站出发都可以到达加工站 i。</span><br><span class="line">注意从其他任意一个加工站 j 前往加工站 i 可能会经过 i 和 j 之间的一些中间站点。</span><br><span class="line">请帮助约翰求出是否存在这样的加工站 i。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入的第一行包含一个整数 N，为加工站的数量。</span><br><span class="line">以下 N−<span class="number">1</span>行每行包含两个空格分隔的整数 ai 和 bi，满足 <span class="number">1</span>≤ai,bi≤N 以及 ai≠bi。</span><br><span class="line">这表示有一条从加工站 ai 向加工站 bi 移动的传送带，仅允许沿从 ai 到 bi 的方向移动。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">如果存在加工站 i 满足可以从任意其他加工站出发都可以到达加工站 i，输出最小的满足条件的 i。</span><br><span class="line">否则，输出 −<span class="number">1</span>。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>题解一：DFS遍历图，简单题，无脑爆搜。</p>
+<p>时间复杂度：O(n^2)。代码稍长。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> h[N],e[N],ne[N],idx;</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    e[idx] = b,ne[idx] = h[a],h[a] = idx ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">    st[u] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; ~i; i = ne[i])&#123;</span><br><span class="line">        dfs(e[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="keyword">sizeof</span> h);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n<span class="number">-1</span>;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        add(b,a); <span class="comment">// 反向建边，问题转化为从i能到达其他所有点</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="keyword">sizeof</span> st);</span><br><span class="line">        dfs(i);</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (!st[i])&#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (flag)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>题解二：Floyd传递闭包判断连通性。</p>
+<p>时间复杂度：O(n^3)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> g[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++) g[i][i] = <span class="number">1</span>; <span class="comment">// 注意处理连向自己的边</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        g[a][b] = <span class="number">1</span>; <span class="comment">// g[a][b] = 1表示a能走到b，0表示不能走到</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>;k &lt;= n;k ++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)</span><br><span class="line">                <span class="keyword">if</span> (g[i][k] &amp;&amp; g[k][j])</span><br><span class="line">                    g[i][j] = <span class="number">1</span>;</span><br><span class="line">                    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j ++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (!g[j][i])&#123;</span><br><span class="line">                flag = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>题解三：数学证明推导结论。</p>
+<p>时间复杂度：O(n)。</p>
+<p>n个点n-1条边且连通的图一定是一棵树。（定理）</p>
+<p>结论1：如果有解，解一定是唯一的，否则不满足边数，反证法。</p>
+<p>结论2：有解等价于唯一的出度为0的点，反证法。首先可以证明有解推出有唯一的出度为0的点，反之也成立。</p>
+<p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/90754/。">https://www.acwing.com/solution/content/90754/。</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> d[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - <span class="number">1</span>;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        d[a] ++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>,id;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (!d[i])&#123;</span><br><span class="line">            cnt ++;</span><br><span class="line">            id = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; id; <span class="comment">// 有解等价于存在唯一的出度为0的点</span></span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T6—1460-我在哪？"><a href="#T6—1460-我在哪？" class="headerlink" title="T6—1460. 我在哪？"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1462/">T6—1460. 我在哪？</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰出门沿着马路散步，但是他现在发现自己可能迷路了！</span><br><span class="line">沿路有一排共 N 个农场。</span><br><span class="line">不幸的是农场并没有编号，这使得约翰难以分辨他在这条路上所处的位置。</span><br><span class="line">然而，每个农场都沿路设有一个彩色的邮箱，所以约翰希望能够通过查看最近的几个邮箱的颜色来唯一确定他所在的位置。</span><br><span class="line">每个邮箱的颜色用 A..Z 之间的一个字母来指定，所以沿着道路的 N 个邮箱的序列可以用一个长为 N 的由字母 A..Z 组成的字符串来表示。</span><br><span class="line">某些邮箱可能会有相同的颜色。</span><br><span class="line">约翰想要知道最小的 K 的值，使得他查看任意连续 K 个邮箱序列，他都可以唯一确定这一序列在道路上的位置。</span><br><span class="line">例如，假设沿路的邮箱序列为 ABCDABC 。</span><br><span class="line">约翰不能令 K=<span class="number">3</span>，因为如果他看到了 ABC，则沿路有两个这一连续颜色序列可能所在的位置。</span><br><span class="line">最小可行的 K 的值为 K=<span class="number">4</span>，因为如果他查看任意连续 <span class="number">4</span> 个邮箱，那么可得到的连续颜色序列可以唯一确定他在道路上的位置。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">输入的第一行包含 N，第二行包含一个由 N 个字符组成的字符串，每个字符均在 A..Z 之内。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一行，包含一个整数，为可以解决农夫约翰的问题的最小 K 值。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">7</span></span><br><span class="line">ABCDABC</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p>不会。</p>
+<p>求最小的K值，首先考虑二分。</p>
+<p>题目满足二段性，可以二分处理。</p>
+<p>接下来的问题是如何判断两字符串是否相等？可以用字符串哈希，预处理需要O(n)，查询O(1)。</p>
+<p>手写字符串哈希代码较长，适合数据量大的情况，这里直接用STL哈希表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_set&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> mid)</span></span>&#123;</span><br><span class="line">    <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; hash;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i + mid - <span class="number">1</span> &lt; str.size();i ++)&#123;</span><br><span class="line">        <span class="built_in">string</span> s = str.substr(i,mid);</span><br><span class="line">        <span class="keyword">if</span> (hash.count(s)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        hash.insert(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; str;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">1</span>,r = n;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (check(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; l;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/723b8e01.html" title="2022寒假每日一题笔记（六）">https://www.grantdrew.top/posts/723b8e01.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%AE%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 差分</a>
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+              <a href="/tags/Floyd/" rel="tag"><i class="fa fa-tag"></i> Floyd</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"><i class="fa fa-tag"></i> 二分</a>
+              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/" rel="tag"><i class="fa fa-tag"></i> 字符串哈希</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 图论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/fc2b8506.html" rel="prev" title="吴恩达机器学习入门笔记（二）">
+      <i class="fa fa-chevron-left"></i> 吴恩达机器学习入门笔记（二）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/a03bf99e.html" rel="next" title="2022寒假每日一题笔记（七）">
+      2022寒假每日一题笔记（七） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E5%91%A8"><span class="nav-text">第六周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1%E2%80%941726-%E6%8C%A4%E5%A5%B6%E9%A1%BA%E5%BA%8F"><span class="nav-text">T1—1726. 挤奶顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2%E2%80%941715-%E6%A1%B6%E5%88%97%E8%A1%A8"><span class="nav-text">T2—1715. 桶列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3%E2%80%941696-%E5%9B%B0%E7%89%9B%E6%8E%92%E5%BA%8F"><span class="nav-text">T3—1696. 困牛排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T4%E2%80%941684-%E5%A4%A7%E5%9E%8B%E6%A4%8D%E8%A2%AB%E6%81%A2%E5%A4%8D"><span class="nav-text">T4—1684. 大型植被恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T5%E2%80%941471-%E7%89%9B%E5%A5%B6%E5%B7%A5%E5%8E%82"><span class="nav-text">T5—1471. 牛奶工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T6%E2%80%941460-%E6%88%91%E5%9C%A8%E5%93%AA%EF%BC%9F"><span class="nav-text">T6—1460. 我在哪？</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">171</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.6m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24:56</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

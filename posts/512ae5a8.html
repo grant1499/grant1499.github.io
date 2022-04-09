@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="Quick Sort（快速排序）算法原理详见： https:&#x2F;&#x2F;grant1499.github.io&#x2F;posts&#x2F;7ff5bb67.html。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201111652374.gif">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121004580.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121030689.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201122136406.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121115085.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201111652374.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121004580.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121030689.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201122136406.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121115085.gif">
 <meta property="article:published_time" content="2022-01-11T08:46:34.000Z">
-<meta property="article:modified_time" content="2022-01-12T14:08:47.743Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201111652374.gif">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201111652374.gif">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/512ae5a8.html">
 
@@ -129,17 +129,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-12 22:08:47" itemprop="dateModified" datetime="2022-01-12T22:08:47+08:00">2022-01-12</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,12 +296,12 @@
 <li>将比基准小的数交换到前面，比基准大的数交换到后面</li>
 <li>对左右区间重复第二步，直到各区间只有一个数</li>
 </ol>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201111652374.gif" alt="图片"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121004580.png" alt="image-20210724101609079"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201111652374.gif" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121004580.png" alt="image-20210724101609079"></p>
 <p><strong>代码实现：</strong></p>
 <p>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/787/。">https://www.acwing.com/problem/content/description/787/。</a></p>
 <p>注意这里的代码和笔试代码有不同的地方，注意区别。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121030689.png" alt="image-20220112103040574"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121030689.png" alt="image-20220112103040574"></p>
 <p>按照王道的代码，每轮排序后会将基准元素放到其最终位置上。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AC，样例通过：13/13</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N],n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>; <span class="comment">// 递归退出边界</span></span><br><span class="line">    <span class="keyword">int</span> i = l<span class="number">-1</span>,j = r+<span class="number">1</span>,x = a[l+r&gt;&gt;<span class="number">1</span>]; <span class="comment">// 基准点x取为中间点</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)&#123;</span><br><span class="line">        <span class="keyword">while</span> (a[++i] &lt; x); <span class="comment">// 指针i从左往右找到&gt;= x的位置</span></span><br><span class="line">        <span class="keyword">while</span> (a[--j] &gt; x); <span class="comment">// 指针j从右往左找到&lt;= x的位置</span></span><br><span class="line">        <span class="keyword">if</span> (i  &lt; j) swap(a[i],a[j]); <span class="comment">// 交换位置</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    quick_sort(a,l,j),quick_sort(a,j+<span class="number">1</span>,r); <span class="comment">// 递归处理</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    quick_sort(a,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>效率分析：</strong></p>
@@ -319,7 +319,7 @@
 <h3 id="acwing-1451-单链表快速排序"><a href="#acwing-1451-单链表快速排序" class="headerlink" title="*acwing.1451. 单链表快速排序"></a>*acwing.1451. 单链表快速排序</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">给定一个单链表，请使用快速排序算法对其排序。</span><br><span class="line">要求：期望平均时间复杂度为 O(nlogn)，期望额外空间复杂度为 O(logn)。</span><br><span class="line">思考题： 如果只能改变链表结构，不能修改每个节点的val值该如何做呢？</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">链表中的所有数大小均在 <span class="keyword">int</span> 范围内，链表长度在 [<span class="number">0</span>,<span class="number">10000</span>]。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line">[<span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>]</span><br><span class="line">输出样例：</span><br><span class="line">[<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
 <p>链表快排其实比数组快排更好些，数组快排边界处理比较麻烦。</p>
 <p>思路：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201122136406.png" alt="image-20220112213637333"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201122136406.png" alt="image-20220112213637333"></p>
 <p>将整个链表划分为left，mid，right三个子链表后，再递归处理left和right链表。</p>
 <p>然后把left，mid，right子链表从左到右拼接起来。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">get_tail</span><span class="params">(ListNode* head)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (head-&gt;next) head = head-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">ListNode* <span class="title">quickSortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head; <span class="comment">// 递归边界</span></span><br><span class="line">        <span class="comment">// 定义三个子链表的虚拟头节点，以及三个尾指针，方便尾插</span></span><br><span class="line">        <span class="keyword">auto</span> left = <span class="keyword">new</span> ListNode(<span class="number">-1</span>),mid = <span class="keyword">new</span> ListNode(<span class="number">-1</span>),right = <span class="keyword">new</span> ListNode(<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">auto</span> ltail = left,mtail = mid,rtail = right;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> val = head-&gt;val; <span class="comment">// 以第一个节点val为基准</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head; p; p = p-&gt;next)&#123;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;val &lt; val) ltail = ltail-&gt;next = p;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt;val == val) mtail = mtail-&gt;next = p;</span><br><span class="line">            <span class="keyword">if</span> (p-&gt; val &gt; val) rtail = rtail-&gt;next = p;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ltail-&gt;next = mtail-&gt;next = rtail-&gt;next = <span class="literal">NULL</span>; <span class="comment">// 记得子链表尾部指向NULL</span></span><br><span class="line">        <span class="comment">// 递归left和right链表，left-&gt;next才有数据</span></span><br><span class="line">        left-&gt;next = quickSortList(left-&gt;next); </span><br><span class="line">        right-&gt;next = quickSortList(right-&gt;next);</span><br><span class="line">        <span class="comment">// 拼接三个子链表</span></span><br><span class="line">        get_tail(left)-&gt;next = mid-&gt;next; <span class="comment">// 用left的尾部接上mid的数据部分</span></span><br><span class="line">        <span class="comment">// mid链表可能不存在，所以还要用到left的尾部</span></span><br><span class="line">        get_tail(left)-&gt;next = right-&gt;next;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> p = left-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> left; <span class="comment">// 释放虚拟头节点</span></span><br><span class="line">        <span class="keyword">delete</span> mid;</span><br><span class="line">        <span class="keyword">delete</span> right;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -356,7 +356,7 @@
 </li>
 <li>将两个排序好的子序列合并成一个最终的排序序列。</li>
 </ol>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201121115085.gif" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201121115085.gif" alt="图片"></p>
 <p><strong>代码实现：</strong></p>
 <p>题目链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/787/。">https://www.acwing.com/problem/content/description/787/。</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AC，样例通过：13/13</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N],temp[N],n; <span class="comment">// 归并需要一个临时数组</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> i = l,j = mid + <span class="number">1</span>,k = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    merge_sort(a,i,mid),merge_sort(a,j,r); <span class="comment">// 先递归再归并</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &lt;= a[j]) temp[k++] = a[i++]; <span class="comment">// 取 &lt;= 保证稳定性</span></span><br><span class="line">        <span class="keyword">else</span> temp[k++] = a[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid) temp[k++] = a[i++];</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= r) temp[k++] = a[j++];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>,j = l;j &lt;= r;i ++,j ++) a[j] = temp[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    </span><br><span class="line">    merge_sort(a,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -534,20 +534,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -596,13 +596,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -637,7 +637,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

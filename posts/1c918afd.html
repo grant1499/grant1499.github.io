@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="本专题练习参考《算法训练营—入门篇》的STL应用题单。 附上vjudge练习地址： https:&#x2F;&#x2F;vjudge.csgrandeur.cn。 补充C语言网STL专题题单： https:&#x2F;&#x2F;www.dotcpp.com&#x2F;oj&#x2F;train&#x2F;1012&#x2F;。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL应用专题练习（一）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/1c918afd.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="本专题练习参考《算法训练营—入门篇》的STL应用题单。 附上vjudge练习地址： https:&#x2F;&#x2F;vjudge.csgrandeur.cn。 补充C语言网STL专题题单： https:&#x2F;&#x2F;www.dotcpp.com&#x2F;oj&#x2F;train&#x2F;1012&#x2F;。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-05T12:52:44.000Z">
+<meta property="article:modified_time" content="2022-03-29T10:07:37.704Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="STL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/1c918afd.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>STL应用专题练习（一） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/1c918afd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STL应用专题练习（一）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-05 20:52:44" itemprop="dateCreated datePublished" datetime="2022-02-05T20:52:44+08:00">2022-02-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-03-29 18:07:37" itemprop="dateModified" datetime="2022-03-29T18:07:37+08:00">2022-03-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/1c918afd.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/1c918afd.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本专题练习参考《算法训练营—入门篇》的STL应用题单。</p>
+<p>附上vjudge练习地址： <a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn。">https://vjudge.csgrandeur.cn。</a></p>
+<p>补充C语言网STL专题题单： <a target="_blank" rel="noopener" href="https://www.dotcpp.com/oj/train/1012/。">https://www.dotcpp.com/oj/train/1012/。</a></p>
+<span id="more"></span>
+<h2 id="T1—-POJ1731"><a href="#T1—-POJ1731" class="headerlink" title="T1—-POJ1731"></a><a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/problem/POJ-1731">T1—-POJ1731</a></h2><p>考察STL：next_permutation()（全排列函数）。</p>
+<p>参考《C++竞赛语法总结（九）》。</p>
+<blockquote>
+<p>注：原题是全英文，这里机翻成中文，为保证题意理解的准确性请参考原题链接。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">商店经理按标签的字母顺序对各种商品进行了排序。所有具有以相同字母开头的标签的种类都存储在带有该字母标签的同一仓库（即同一建筑物中）。白天，商店经理接收并预订要从商店交付的货物订单。每个订单只需要一种商品。商店经理按照预订的顺序处理请求。</span><br><span class="line"></span><br><span class="line">您事先知道今天必须由商店经理处理的所有订单，但您不知道他们的预订订单。计算仓库访问的所有可能方式，以便商店经理在白天逐个解决所有需求。</span><br><span class="line"></span><br><span class="line">输入</span><br><span class="line">输入包含一行，其中包含所请求货物的所有标签（按随机顺序）。每种商品都由其标签的起始字母表示。仅使用英文字母表中的小写字母。订单数量不超过 <span class="number">200</span>。</span><br><span class="line"></span><br><span class="line">输出</span><br><span class="line">输出将包含商店经理可以访问其仓库的所有可能的订单。每个仓库都由一个英文字母的小字母表示 - 货物标签的起始字母。仓库的每个订购仅在单独的行上在输出文件中写入一次，并且包含排序的所有行都必须按字母顺序排序（请参阅示例）。任何输出都不会超过 <span class="number">2</span> MB。</span><br></pre></td></tr></table></figure>
+<p>将当前排列更改为 <strong>全排列中的下一个排列</strong>。如果当前排列已经是 <strong>全排列中的最后一个排列</strong>（元素完全从大到小排列），函数返回 <code>false</code> 并将排列更改为 <strong>全排列中的第一个排列</strong>（元素完全从小到大排列）；否则，函数返回 <code>true</code>。<code>next_permutation(v.begin(), v.end())</code> 或 <code>next_permutation(v + begin, v + end)</code>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">next_permutation()将按字母表顺序生成给定序列的下一个较大的排列,直到整个序列为降序为止。</span></span><br><span class="line"><span class="comment">prev_permutation()与之相反,是生成给定序列的上一个较小的排列。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">    </span><br><span class="line">    sort(str.begin(),str.end());</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">// 从最小的字母序开始输出</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (next_permutation(str.begin(),str.end()))&#123; <span class="comment">// 得到的是下一个全排列</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; str.size();i ++) <span class="built_in">cout</span> &lt;&lt; str[i];</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T2—-POJ2418"><a href="#T2—-POJ2418" class="headerlink" title="T2—-POJ2418"></a><a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/problem/POJ-2418">T2—-POJ2418</a></h2><blockquote>
+<p>注：原题是全英文，这里机翻成中文，为保证题意理解的准确性请参考原题链接。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">硬木是植物学上的树木群，具有宽阔的叶子，产生果实或坚果，通常在冬季进入休眠状态。</span><br><span class="line">美国的温带气候产生了数百种硬木物种的森林 - 具有某些生物特征的树木。虽然橡树，枫树和樱桃树都是硬木树的类型，例如，它们是不同的物种。所有硬木物种加起来占美国树木的<span class="number">40</span>%。</span><br><span class="line"></span><br><span class="line">另一方面，软木或针叶树，来自拉丁语，意思是<span class="string">&quot;锥体轴承&quot;</span>，有针。广泛使用的美国软木包括雪松，冷杉，铁杉，松树，红杉，云杉和柏树。在家中，软木主要用作结构木材，如<span class="number">2</span>x4s和<span class="number">2</span>x6s，具有一些有限的装饰应用。</span><br><span class="line"></span><br><span class="line">自然资源部利用卫星成像技术，编制了某一天每棵树的清单。您将计算由每个物种表示的树群的总分数。</span><br><span class="line">    </span><br><span class="line">输入</span><br><span class="line">您的程序的输入包括卫星观测到的每棵树的物种列表;每行一棵树。没有物种名称超过<span class="number">30</span>个字符。不超过<span class="number">10</span>，<span class="number">000</span>种，不超过<span class="number">1</span>，<span class="number">000</span>，<span class="number">000</span>棵树。</span><br><span class="line"></span><br><span class="line">输出</span><br><span class="line">按字母顺序将种群中表示的每个物种的名称，后跟其所代表的种群百分比打印到小数点后 <span class="number">4</span> 位。</span><br></pre></td></tr></table></figure>
+<p>数据量很大，注意输入。</p>
+<p>考察STL：map。</p>
+<p>参考《C++竞赛语法总结（八）》。</p>
+<p>在使用 map 容器存储多个键值对时，该容器会自动根据各键值对的键的大小，按照既定的规则进行排序。</p>
+<p>默认情况下，map 容器选用<code>std::less&lt;T&gt;</code>排序规则（其中 T 表示键的数据类型），其会根据键的大小对所有键值对做升序排序。也可以自定义排序。</p>
+<p><strong>map:</strong></p>
+<p>优势：<br>1.有序性，这是map结构最大的优点，其元素的有序性在很多应用中都会简化很多的操作<br>2.红黑树，内部实现一个红黑书使得map的很多操作在logn的时间复杂度下就可以实现，因此效率非常的高</p>
+<p>劣势：<br>空间占用率高，因为map内部实现了红黑树，虽然提高了运行效率，但是因为每一个节点都需要额外保存父节点、孩子节点和红/黑性质，使得每一个节点都占用大量的空间</p>
+<p><strong>unordered_map:</strong></p>
+<p>优势：<br>因为内部实现了哈希表，因此其查找速度非常的快</p>
+<p>劣势：<br>哈希表的建立比较耗费时间</p>
+<p><strong>对于有顺序要求的问题，使用map；</strong></p>
+<p><strong>对于查找问题，使用unordered_map。</strong></p>
+<hr>
+<p><strong>注意：不能使用scanf读取string类型变量！！！</strong></p>
+<p>这是语法内容了，忘记了复习一下。</p>
+<p>对于string变量，输入只能用getline，输出只能用cout。</p>
+<p>还有迭代器的使用不要忘了，类似指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (getline(<span class="built_in">cin</span>,str))&#123; <span class="comment">// getline的使用</span></span><br><span class="line">        m[str] ++;</span><br><span class="line">        cnt ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 复习map的遍历，map自动按字典序排列key</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator it = m.begin();it != m.end();it ++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; it-&gt;first &lt;&lt; <span class="string">&#x27; &#x27;</span>; <span class="comment">// 迭代器使用类似指针，对于string，只能用cout输出</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.4f\n&quot;</span>,<span class="number">100.0</span>*it-&gt;second/cnt);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T3—-HDU1412"><a href="#T3—-HDU1412" class="headerlink" title="T3—-HDU1412"></a><a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/problem/HDU-1412">T3—-HDU1412</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">给你两个集合，要求&#123;A&#125; + &#123;B&#125;.</span><br><span class="line">注:同一个集合中不会有两个相同的元素.</span><br><span class="line"></span><br><span class="line">每组输入数据分为三行,第一行有两个数字n,m(<span class="number">0</span>&lt;n,m&lt;=<span class="number">10000</span>),分别表示集合A和集合B的元素个数.后两行分别表示集合A和集合B.每个元素为不超出<span class="keyword">int</span>范围的整数,每个元素之间有一个空格隔开.</span><br><span class="line">    </span><br><span class="line">针对每组数据输出一行数据,表示合并后的集合,要求从小到大输出,每个元素之间有一个空格隔开.</span><br></pre></td></tr></table></figure>
+<p>考察STL：set。</p>
+<p>参考《C++竞赛语法总结（八）》。</p>
+<p> <strong>set与unordered相比：</strong></p>
+<p>　　1、set比unordered_set使用更少的内存来存储相同数量的元素。</p>
+<p>　　2、对于少量的元素，在set中查找可能比在unordered_set中查找更快。</p>
+<p>　　3、尽管许多操作在unordered_set的平均情况下更快，但通常需要保证set在最坏情况下有更好的复杂度(例如insert)。</p>
+<p>　　4、如果您想按顺序访问元素，那么set对元素进行排序的功能是很有用的。</p>
+<p>　　5、您可以用&lt;、&lt;=、&gt;和&gt;=从字典顺序上比较不同的set集。unordered_set集则不支持这些操作。</p>
+<p><strong>一般来说，在如下情况，适合使用set：</strong></p>
+<p>　　1、我们需要有序的数据(不同元素)。</p>
+<p>　　2、我们必须打印/访问数据(按排序顺序)。</p>
+<p>　　3、我们需要知道元素的前任/继承者。</p>
+<p><strong>一般来说，在如下情况，适合使用unordered_set：</strong></p>
+<p>　　1、我们需要保留一组元素，不需要排序。</p>
+<p>　　2、我们需要单元素访问，即不需要遍历。</p>
+<p>　　3、仅仅只是插入、删除、查找的话。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;n,&amp;m))&#123;</span><br><span class="line">        <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">            s.insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; m;i ++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">            s.insert(x);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = s.begin();it != s.end();it ++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (it != s.begin()) <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,*it); <span class="comment">// 注意迭代器的使用</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T4—-POJ2388"><a href="#T4—-POJ2388" class="headerlink" title="T4—-POJ2388"></a><a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/problem/POJ-2388">T4—-POJ2388</a></h2><blockquote>
+<p>注：原题是全英文，这里机翻成中文，为保证题意理解的准确性请参考原题链接。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FJ正在调查他的牛群，以找到最普通的奶牛。他想知道这头<span class="string">&quot;中位数&quot;</span>奶牛的产奶量是多少：一半的奶牛的奶量与中位数一样多或更多;一半给予同样多或更少。</span><br><span class="line"></span><br><span class="line">给定奇数头奶牛N（<span class="number">1</span> &lt;= N&lt;<span class="number">10</span>，<span class="number">000</span>）及其牛奶产量（<span class="number">1.</span><span class="number">.1</span>，<span class="number">000</span>，<span class="number">000</span>），找到给予的牛奶中位数，使得至少一半的奶牛提供相同量或更多的牛奶，至少一半的奶牛提供相同或更少的牛奶。</span><br><span class="line"> </span><br><span class="line">输入：</span><br><span class="line">* 第 <span class="number">1</span> 行：单个整数 N</span><br><span class="line"></span><br><span class="line">* 第 <span class="number">2</span> 行..N+<span class="number">1</span>：每行包含一个整数，该整数是一头奶牛的产奶量。</span><br><span class="line">    </span><br><span class="line">输出：</span><br><span class="line">* 第 <span class="number">1</span> 行：单个整数，即牛奶输出的中位数。</span><br></pre></td></tr></table></figure>
+<p>考察STL：nth_element。</p>
+<p>参考《寒假每日一题入门题（一）》。</p>
+<p>快速选择函数nth_element(数组初位置，寻找元素，数组末位置)（STL）</p>
+<p>C++的STL库中的nth_element()方法，默认是求区间<strong>第k小</strong>的（划重点）。</p>
+<p>举个栗子求第3小，对于 a[9]={4,7,6,9,1,8,2,3,5};</p>
+<p>nth_element(a,a+2,a+9)，<strong>将下标为2，也就是第3个数放在正确的位置，求的是第3小的数a[2]</strong>。（下标从零开始）</p>
+<p><strong>nth_element(a,a+k,a+n)，函数只是把下标为k的元素放在了正确位置，对其它元素并没有排序，当然k左边元素都小于等于它，右边元素都大于等于它，所以可以利用这个函数快速定位某个元素</strong>。</p>
+<p>那求第k大时呢？我们可以转化成求第n-k+1小，此时下标应该是n - k。</p>
+<p><strong>nth_element(a,a+n-k,a+n)，将下标为n-k，也就是第n-k+1个数放在正确的位置，求的是第k大的数a[n-k]。</strong></p>
+<p><strong>时间复杂度</strong>：$O(n)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e4</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; q[i];</span><br><span class="line">    </span><br><span class="line">    nth_element(q,q + (n &gt;&gt; <span class="number">1</span>),q + n);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; q[n &gt;&gt; <span class="number">1</span>]; <span class="comment">// 求第 n/2 小的数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T5—-POJ1256"><a href="#T5—-POJ1256" class="headerlink" title="T5—-POJ1256"></a><a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/problem/POJ-1256">T5—-POJ1256</a></h2><blockquote>
+<p>注：原题是全英文，这里机翻成中文，为保证题意理解的准确性请参考原题链接。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">你要编写一个程序，该程序必须从一组给定的字母中生成所有可能的单词。</span><br><span class="line">示例：给定单词<span class="string">&quot;abc&quot;</span>，您的程序应该 - 通过探索三个字母的所有不同组合 - 输出单词<span class="string">&quot;abc&quot;</span>，<span class="string">&quot;acb&quot;</span>，<span class="string">&quot;bac&quot;</span>，<span class="string">&quot;bca&quot;</span>，<span class="string">&quot;cab&quot;</span>和<span class="string">&quot;cba&quot;</span>。</span><br><span class="line">在从输入文件中获取的单词中，某些字母可能会多次出现。对于给定的单词，程序不应多次生成同一单词，并且这些单词应按字母升序输出。</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">输入由几个单词组成。第一行包含一个数字，给出了要遵循的单词数。以下每行包含一个单词。单词由从A到Z的大写或小写字母组成，大写和小写字母应被视为不同。每个单词的长度小于 <span class="number">13</span>。</span><br><span class="line">    </span><br><span class="line">输出：</span><br><span class="line">对于输入中的每个单词，输出应包含可以使用给定单词的字母生成的所有不同单词。从同一输入词生成的单词应按字母升序输出。大写字母位于相应的小写字母之前。</span><br><span class="line">    </span><br><span class="line">提示：</span><br><span class="line">大写字母位于相应的小写字母之前。</span><br><span class="line">所以正确的字母顺序是<span class="string">&quot;A&#x27;&lt;&quot;</span>&lt;<span class="string">&quot;B&quot;</span>&lt;&lt;......&lt;<span class="string">&#x27;Z&#x27;</span>&lt;<span class="string">&#x27;z&#x27;</span>。</span><br></pre></td></tr></table></figure>
+<p>考察STL：next_permutation()（全排列函数）。</p>
+<p>参考《C++竞赛语法总结（九）》。</p>
+<p>参考博客： <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43488547/article/details/100032724">next_permutation的多种题型介绍</a>（很全面！）</p>
+<p>next_permutation()除了传入begin和end之外，也可以再传一个cmp函数进去。规则类似于sort()，<strong>cmp函数与重载小于号作用相同</strong>。</p>
+<p>库函数 <strong>int tolower(int c)</strong> 把给定的字母转换为小写字母。返回值是一个可被隐式转换为 char 类型的 int 值。</p>
+<p>相应地有库函数 <strong>int toupper(int c)</strong>。 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a,<span class="keyword">char</span> b)</span></span>&#123; <span class="comment">// 自定义排序规则</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">tolower</span>(a) != <span class="built_in">tolower</span>(b))&#123; <span class="comment">// tolower给定的字母转换为小写字母</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">tolower</span>(a) &lt; <span class="built_in">tolower</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> a &lt; b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">        sort(str.begin(),str.end(),cmp);</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">while</span> (next_permutation(str.begin(),str.end(),cmp))&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; str &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 用char数组的处理方式</span></span><br><span class="line"><span class="comment">// sort(ch,ch+strlen(ch),cmp);</span></span><br><span class="line"><span class="comment">// next_permutation(ch,ch+strlen(ch),cmp)</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/1c918afd.html" title="STL应用专题练习（一）">https://www.grantdrew.top/posts/1c918afd.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/STL/" rel="tag"><i class="fa fa-tag"></i> STL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/fcd2a882.html" rel="prev" title="LeetCode链表专题练习">
+      <i class="fa fa-chevron-left"></i> LeetCode链表专题练习
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/cc3d69de.html" rel="next" title="吴恩达机器学习入门笔记（一）">
+      吴恩达机器学习入门笔记（一） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1%E2%80%94-POJ1731"><span class="nav-text">T1—-POJ1731</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2%E2%80%94-POJ2418"><span class="nav-text">T2—-POJ2418</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3%E2%80%94-HDU1412"><span class="nav-text">T3—-HDU1412</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T4%E2%80%94-POJ2388"><span class="nav-text">T4—-POJ2388</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T5%E2%80%94-POJ1256"><span class="nav-text">T5—-POJ1256</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">171</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.6m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24:56</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

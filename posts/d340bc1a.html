@@ -23,25 +23,25 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="真题讲解2012-41">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061640353.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061644741.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061647289.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061654812.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061714191.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061724601.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112071430985.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112071438696.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112172053994.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061640353.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061644741.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061647289.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061654812.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061714191.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061724601.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112071430985.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112071438696.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112172053994.png">
 <meta property="article:published_time" content="2021-12-03T12:48:48.000Z">
-<meta property="article:modified_time" content="2021-12-24T05:54:26.111Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
-<meta property="article:tag" content="DFS">
 <meta property="article:tag" content="BFS">
+<meta property="article:tag" content="DFS">
 <meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="哈夫曼树">
 <meta property="article:tag" content="图">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061640353.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061640353.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/d340bc1a.html">
 
@@ -137,17 +137,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -234,7 +234,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-24 13:54:26" itemprop="dateModified" datetime="2021-12-24T13:54:26+08:00">2021-12-24</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,28 +297,28 @@
 
       
         <h2 id="真题讲解"><a href="#真题讲解" class="headerlink" title="真题讲解"></a>真题讲解</h2><h3 id="2012-41"><a href="#2012-41" class="headerlink" title="2012-41"></a>2012-41</h3><span id="more"></span>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061640353.png" alt="image-20211206164047298"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061640353.png" alt="image-20211206164047298"></p>
 <blockquote>
 <p>结论：将两个分别含有n，m个元素的有序表合并成一个有序表，其最多的比较次数（最坏情况下）是：n+m-1。</p>
 </blockquote>
 <p>最坏情况下，也就是两个有序表交替合并，例如：1,3,5和2,4，一共有n+m个元素，共需要比较n+m-1次。</p>
 <p>合并策略：<strong>考察哈夫曼树，就像合并果子一样。</strong></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061644741.png" alt="image-20211206164439683"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061644741.png" alt="image-20211206164439683"></p>
 <p>最坏情况下的比较次数，也就是合并代价再减去5次，答案是：825。</p>
 <p>参考答案：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061647289.png" alt="image-20211206164747194"></p>
-<h3 id="2013-4"><a href="#2013-4" class="headerlink" title="2013-4"></a>2013-4</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061654812.png" alt="image-20211206165437765"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061647289.png" alt="image-20211206164747194"></p>
+<h3 id="2013-4"><a href="#2013-4" class="headerlink" title="2013-4"></a>2013-4</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061654812.png" alt="image-20211206165437765"></p>
 <p>构造三叉的哈夫曼树，补上<code>(n-1) % (k-1) = 5 % 2 = 1</code>个 0 节点。</p>
 <p>计算WPL = 46。</p>
-<h3 id="2015-3"><a href="#2015-3" class="headerlink" title="2015-3"></a>2015-3</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061714191.png" alt="image-20211206171439148"></p>
+<h3 id="2015-3"><a href="#2015-3" class="headerlink" title="2015-3"></a>2015-3</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061714191.png" alt="image-20211206171439148"></p>
 <p>解答：</p>
 <p>直接根据选项的路径尝试构造哈夫曼树，看看是否合理。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112061724601.png" alt="image-20211206172443539"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112061724601.png" alt="image-20211206172443539"></p>
 <p>上图中是反着推的，由路径找到一棵合理的哈夫曼树。</p>
 <p>正着推的话，并不能确定节点的个数，比如D中权值为10的节点有两个，正着推如果只给1个权值为10的节点是推不出哈夫曼树的。</p>
-<h3 id="2020-42"><a href="#2020-42" class="headerlink" title="2020-42"></a>2020-42</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112071430985.png" alt="image-20211207143047930"></p>
+<h3 id="2020-42"><a href="#2020-42" class="headerlink" title="2020-42"></a>2020-42</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112071430985.png" alt="image-20211207143047930"></p>
 <p>解答：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112071438696.png" alt="image-20211207143813635"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112071438696.png" alt="image-20211207143813635"></p>
 <h1 id="第七讲-图的基本概念、存储、遍历、拓扑排序"><a href="#第七讲-图的基本概念、存储、遍历、拓扑排序" class="headerlink" title="第七讲 图的基本概念、存储、遍历、拓扑排序"></a>第七讲 图的基本概念、存储、遍历、拓扑排序</h1><ol>
 <li>图的基本概念<br> (1) 有向图、无向图<br> (2) 度数（出度、入度）<br> (3) <strong>简单图：不存在顶点到其自身的边（自环），且同一条边不重复出现（重边）</strong><br> (4) 路径、环、简单路径<br> (5) <strong>无向完全图</strong>：任意两个顶点之间都存在边，有n个顶点的无向完全图有 n × (n - 1) / 2条边<br> (6) <strong>有向完全图</strong>：任意两个顶点之间都存在方向互为相反的两条弧，有n个顶点的无向完全图有 n × (n - 1) 条弧<br> (7) <strong>稀疏图&amp;稠密图</strong>：有很少条边或弧的图称为稀疏图，反之称为稠密图，相对的概念。</li>
 <li>图的存储及基本操作<br> (1) <strong>邻接矩阵</strong>：<strong>适用于稠密图</strong>，可存有向图、无向图。常用。空间复杂度：O(n^2)。<strong>无法存重边</strong>。<br> (2) <strong>邻接表</strong>：<strong>适用于稀疏图</strong>，可存有向图、无向图。常用。空间复杂度：O(n + m)。<strong>可存重边</strong>。<br> (3) 邻接多重表，适用于稀疏图，可存无向图。不常用。空间复杂度：O(n + m)。可存重边。<br> (4) 十字链表，适用于稀疏图，可存有向图、无向图。不常用。空间复杂度：O(n + m)。无法存重边<br> (5) 三元组表，适用于稀疏图，可存有向图，无向图。常用于Bellman-Ford算法、Kruskal算法。空间复杂度：O(m)。可存重边。</li>
@@ -350,7 +350,7 @@
 <p>笔试还是以“理论”为主，知道上机不这么写就行。</p>
 <p><strong>十字链表是邻接矩阵的优化。</strong></p>
 <p>十字链表就是矩阵压缩。（参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/bible_reader/article/details/71214096">博客</a>）</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112172053994.png" alt="image-20211217205330631"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112172053994.png" alt="image-20211217205330631"></p>
 <p>很形象的名字，从左往右拉一条链表（对应正向的路径），再从上往下拉一条链表（对应反向的路径）。</p>
 <p>三元组表存边的起点，终点还有边权。（可以看成是对邻接矩阵的空间优化）</p>
 <hr>
@@ -436,8 +436,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
               <a href="/tags/BFS/" rel="tag"><i class="fa fa-tag"></i> BFS</a>
+              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
               <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
               <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 哈夫曼树</a>
               <a href="/tags/%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 图</a>
@@ -555,20 +555,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -617,13 +617,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -658,7 +658,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

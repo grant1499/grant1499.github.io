@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="3.7：最小生成树参考资料： https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;mst&#x2F;#_2。（有图示） 我们定义无向连通图的 最小生成树（Minimum Spanning Tree，MST）为边权和最小的生成树。 给定一个无向图，在图中选择若干条边把图的所有节点连起来，要求边长之和最小。在图论中，叫做求最小生成树。 注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949363.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949390.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949414.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949363.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949390.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949414.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949447.png">
 <meta property="article:published_time" content="2021-08-18T23:01:25.000Z">
-<meta property="article:modified_time" content="2021-12-23T15:16:10.616Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.031Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Prim">
 <meta property="article:tag" content="Kruskal">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949363.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949363.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/d3357d9c.html">
 
@@ -129,17 +129,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-23 23:16:10" itemprop="dateModified" datetime="2021-12-23T23:16:10+08:00">2021-12-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,7 +289,7 @@
 <p>给定一个无向图，在图中选择若干条边把图的所有节点连起来，要求边长之和最小。在图论中，叫做求最小生成树。</p>
 <p>注意：只有连通图才有生成树，而对于非连通图，只存在生成森林。</p>
 <span id="more"></span>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949363.png" alt="image-20210819080953979"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949363.png" alt="image-20210819080953979"></p>
 <p>对于最小生成树，稠密图常用朴素版Prim算法，稀疏图常用Kruskal算法，堆优化Prim用的较少。</p>
 <p>最小生成树的两种算法都能处理负权和负环。最小生成树中不应该有自环。</p>
 <p>不存在最小生成树的情况：点不连通。</p>
@@ -302,11 +302,11 @@
 <p><strong>例题：858. Prim算法求最小生成树（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。</span><br><span class="line">求最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line">给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合，E 表示图中边的集合，n=|V|，m=|E|。</span><br><span class="line">由 V 中的全部 n 个顶点和 E 中 n−<span class="number">1</span> 条边构成的无向连通子图被称为 G 的一棵生成树，其中边的权值之和最小的生成树被称为无向图 G 的最小生成树。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含三个整数 u,v,w，表示点 u 和点 v 之间存在一条权值为 w 的边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，若存在最小生成树，则输出一个整数，表示最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">500</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">图中涉及边的边权的绝对值均不超过 <span class="number">10000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>每次将离连通部分的最近的点和点对应的边加入的连通部分，连通部分逐渐扩大，最后将整个图连通起来，并且边长之和最小。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949390.png" alt="image-20210819172537080"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949390.png" alt="image-20210819172537080"></p>
 <p>定义点到集合的距离：当集合外一点有多条边连向集合内的点，取权值最小的边作为点到集合的距离。</p>
 <p>若集合外一点没有边连向集合内的点，则定义点到集合的距离为INF。</p>
 <p>这里的集合也就是最小生成树的连通块，迭代n次，每次迭代将一个点将入到集合中。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949414.png" alt="image-20210819173006284"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949414.png" alt="image-20210819173006284"></p>
 <p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/38312/。">https://www.acwing.com/solution/content/38312/。</a></p>
 <p><strong>dist数组存的是点到集合的距离，和Dijkstra不一样，Dijkstra是更新从起始点到当前点的距离。</strong></p>
 <p>时间复杂度：O(n^2)。</p>
@@ -317,7 +317,7 @@
 <p>前置知识：并查集，图的存储。</p>
 <p>Kruskal 算法的时间瓶颈就是第一步的边权排序O(m*logm)。（快排的常数比较小）</p>
 <p>关于并查集的部分可以参照<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/839/">连通块中点的数量</a>这道题。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231949447.png" alt="image-20210821083745142"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231949447.png" alt="image-20210821083745142"></p>
 <p><strong>例题：859. Kruskal算法求最小生成树（模板题）</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。</span><br><span class="line">求最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line">给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合，E 表示图中边的集合，n=|V|，m=|E|。</span><br><span class="line">由 V 中的全部 n 个顶点和 E 中 n−<span class="number">1</span> 条边构成的无向连通子图被称为 G 的一棵生成树，其中边的权值之和最小的生成树被称为无向图 G 的最小生成树。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 n 和 m。</span><br><span class="line">接下来 m 行，每行包含三个整数 u,v,w，表示点 u 和点 v 之间存在一条权值为 w 的边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，若存在最小生成树，则输出一个整数，表示最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line"><span class="number">1</span>≤m≤<span class="number">2</span>∗<span class="number">10</span>^<span class="number">5</span>,</span><br><span class="line">图中涉及边的边权的绝对值均不超过 <span class="number">1000</span>。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span> <span class="number">4</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IOS \</span></span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>); \</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>); \</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">2e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p[a] != a) p[a] = find(p[a]);</span><br><span class="line">    <span class="keyword">return</span> p[a];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a,b,w;<span class="comment">// 需要对边排序，用结构体存储</span></span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt; (<span class="keyword">const</span> Edge&amp; W) <span class="keyword">const</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> w &lt; W.w;<span class="comment">// 重载小于号</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;edge[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kruskal</span><span class="params">()</span></span>&#123;</span><br><span class="line">    sort(edge + <span class="number">1</span>,edge + m + <span class="number">1</span>);<span class="comment">// 数组从下标为1开始存边，注意sort参数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) p[i] = i;<span class="comment">// 初始化并查集</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>,cnt = <span class="number">0</span>;<span class="comment">// res存放最小生成树的边权之和，cnt存放最小生成树的边数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="keyword">int</span> a = edge[i].a,b = edge[i].b,w = edge[i].w;</span><br><span class="line">        a = find(a),b = find(b);</span><br><span class="line">        <span class="keyword">if</span> (a != b)&#123;</span><br><span class="line">            p[a] = b;</span><br><span class="line">            res += w;</span><br><span class="line">            cnt ++;</span><br><span class="line">        &#125;<span class="comment">// n个点一共n-1条边</span></span><br><span class="line">        <span class="keyword">if</span> (cnt == n<span class="number">-1</span>) <span class="keyword">break</span>;<span class="comment">// 处理完提前退出</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt &lt; n<span class="number">-1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;impossible\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">int</span> u,v,w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i ++ )&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        edge[i] = &#123;u,v,w&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    kruskal();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -486,20 +486,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -548,13 +548,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -589,7 +589,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

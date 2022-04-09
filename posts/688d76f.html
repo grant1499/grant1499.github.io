@@ -23,19 +23,19 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.第二讲 线性表1.0数据结构课本相关代码实现参考博客： https:&#x2F;&#x2F;www.cnblogs.com&#x2F;kangjianwei101&#x2F;p&#x2F;5221816.html。 非常全面！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062246366.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111081719957.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082001463.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082021587.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082029858.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111062237747.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111062246366.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111081719957.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082001463.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082021587.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082029858.png">
 <meta property="article:published_time" content="2021-11-23T07:17:07.000Z">
-<meta property="article:modified_time" content="2021-12-23T05:51:01.107Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="链表">
 <meta property="article:tag" content="指针">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111062237747.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/688d76f.html">
 
@@ -131,17 +131,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-23 13:51:01" itemprop="dateModified" datetime="2021-12-23T13:51:01+08:00">2021-12-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,14 +312,14 @@
 <p>注：<strong>408中的单、双链表的定义最好参考王道的图</strong>，不会有像上面代码中左、右哨兵的写法。</p>
 </blockquote>
 <h3 id="三道大题"><a href="#三道大题" class="headerlink" title="三道大题"></a>三道大题</h3><p>链表题最好先在纸上画图，然后对照着实现每一步操作的代码。</p>
-<h4 id="2012-42："><a href="#2012-42：" class="headerlink" title="2012-42："></a>2012-42：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062237747.png" alt="image-20211106223757652"></p>
+<h4 id="2012-42："><a href="#2012-42：" class="headerlink" title="2012-42："></a>2012-42：</h4><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111062237747.png" alt="image-20211106223757652"></p>
 <h4 id="66-两个链表的第一个公共结点"><a href="#66-两个链表的第一个公共结点" class="headerlink" title="66. 两个链表的第一个公共结点"></a>66. 两个链表的第一个公共结点</h4><p>输入两个链表，找出它们的第一个公共结点。</p>
 <p>当不存在公共节点时，返回空节点。</p>
 <p>样例</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">给出两个链表如下所示：</span><br><span class="line">A：        a1 → a2</span><br><span class="line">                   ↘</span><br><span class="line">                     c1 → c2 → c3</span><br><span class="line">                   ↗            </span><br><span class="line">B:     b1 → b2 → b3</span><br><span class="line"></span><br><span class="line">输出第一个公共节点c1</span><br></pre></td></tr></table></figure>
 <p>在《C++竞赛语法总结（七）》中提到过本题。</p>
 <p>这里细致讲解一下，采用双指针算法。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111062246366.png" alt="image-20211106224656313"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111062246366.png" alt="image-20211106224656313"></p>
 <p>定义两个指针分别叫做headA和headB。</p>
 <p>headA从链表A的头出发，走过的路径是<code>a--&gt;c--&gt;b</code>；</p>
 <p>headB从链表B的头出发，走过的路径是<code>b--&gt;c--&gt;a</code>。</p>
@@ -329,7 +329,7 @@
 <p>如果两个链表不相交，那么两个指针就会分别走到对方链表的末尾结束。</p>
 <p>以上论证了双指针算法的正确性。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">findFirstCommonNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *p = headA,*q = headB;</span><br><span class="line">        <span class="keyword">while</span> (p != q)&#123; <span class="comment">// 直到两个指针相遇或者同时走到NULL返回结果</span></span><br><span class="line">            p = p ? p-&gt;next : headB; <span class="comment">// 如果指针走到链表尾，就从另一个链表头开始走</span></span><br><span class="line">            q = q ? q-&gt;next : headA;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="2015-41："><a href="#2015-41：" class="headerlink" title="2015-41："></a>2015-41：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111081719957.png" alt="image-20211108171942865"></p>
+<h4 id="2015-41："><a href="#2015-41：" class="headerlink" title="2015-41："></a>2015-41：</h4><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111081719957.png" alt="image-20211108171942865"></p>
 <p>核心问题就是如何判断一个数的绝对值是否出现过。</p>
 <p>我首先想到的是哈希表，但答案要求没有这么高，开一个<code>bool[n]</code>数组就行。</p>
 <p>可以给单链表设置一个头节点（如图），从头节点开始遍历链表，判断是否需要删除<strong>下一个节点</strong>。这是由单链表的特性所决定的，只有知道上一个节点才可以删除当前节点。</p>
@@ -338,7 +338,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:   <span class="comment">// 注意：本题的head实际是首节点，也就是说它存了值</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">filterList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> st[<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">// 全部初始化为0，避免随机值</span></span><br><span class="line">        st[<span class="built_in">abs</span>(head-&gt;val)] = <span class="literal">true</span>; <span class="comment">// 首节点存放的值是第一个</span></span><br><span class="line">        <span class="comment">// p指针遍历，判断它的下一个节点是否要删除</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head;p-&gt;next;)&#123; <span class="comment">// p指针从首节点开始遍历，直到倒数第2个节点</span></span><br><span class="line">            <span class="keyword">int</span> x = <span class="built_in">abs</span>(p-&gt;next-&gt;val);</span><br><span class="line">            <span class="keyword">if</span> (st[x])&#123; <span class="comment">// 如果绝对值重复，就需要删除下一个节点，直到没有重复p再往前走</span></span><br><span class="line">                <span class="keyword">auto</span> q = p-&gt;next;</span><br><span class="line">                p-&gt;next = q-&gt;next;</span><br><span class="line">                <span class="keyword">delete</span> q; <span class="comment">// 释放内存</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                st[x] = <span class="literal">true</span>; <span class="comment">// 绝对值不重复，p往前走</span></span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>引入真正头节点（不存储信息）的题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/57458/。">https://www.acwing.com/solution/content/57458/。</a></p>
 <p>类似的做法还可以参考《C++竞赛语法总结（七）》的删除链表中重复元素。</p>
-<h4 id="2019-41："><a href="#2019-41：" class="headerlink" title="2019-41："></a>2019-41：</h4><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082001463.png" alt="image-20211108200149383"></p>
+<h4 id="2019-41："><a href="#2019-41：" class="headerlink" title="2019-41："></a>2019-41：</h4><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082001463.png" alt="image-20211108200149383"></p>
 <h4 id="3757-重排链表（中等难度）"><a href="#3757-重排链表（中等难度）" class="headerlink" title="3757. 重排链表（中等难度）"></a>3757. 重排链表（中等难度）</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">一个包含 n 个元素的线性链表 L=(a1,a2,…,an−<span class="number">2</span>,an−<span class="number">1</span>,an)。</span><br><span class="line"></span><br><span class="line">现在要对其中的结点进行重新排序，得到一个新链表 L′=(a1,an,a2,an−<span class="number">1</span>,a3,an−<span class="number">2</span>…)</span><br><span class="line">样例<span class="number">1</span>：</span><br><span class="line">输入：<span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span></span><br><span class="line"></span><br><span class="line">输出：<span class="number">1</span>-&gt;<span class="number">4</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span></span><br><span class="line">样例<span class="number">2</span>：</span><br><span class="line">输入：<span class="number">1</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span>-&gt;<span class="number">4</span>-&gt;<span class="number">5</span></span><br><span class="line"></span><br><span class="line">输出：<span class="number">1</span>-&gt;<span class="number">5</span>-&gt;<span class="number">2</span>-&gt;<span class="number">4</span>-&gt;<span class="number">3</span></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">1000</span>,</span><br><span class="line"><span class="number">1</span>≤ai≤<span class="number">10000</span></span><br></pre></td></tr></table></figure>
 <p>交替重排链表，是反转链表和合并链表的结合版。</p>
 <p>反转链表参考《C++竞赛语法总结（六）》的反转链表。</p>
@@ -346,9 +346,9 @@
 <p>第一步，将链表分成两部分。左半部分的元素个数是$\lceil \frac n 2 \rceil$,右半部分的元素个数是$n- \lceil \frac n 2 \rceil$。</p>
 <p>为什么是上取整？按照新链表的排列顺序，如果是奇数个元素，最后一个元素会从左边取。</p>
 <p>图示：找到两边的边界点，分别记为a，b。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082021587.png" alt="image-20211108202106520"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082021587.png" alt="image-20211108202106520"></p>
 <p>操作完两部分链表后：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111082029858.png" alt="image-20211108202956788"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111082029858.png" alt="image-20211108202956788"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rearrangedList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head-&gt;next) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head; p; p = p-&gt;next) n ++; <span class="comment">// 求链表的节点个数n</span></span><br><span class="line">        <span class="keyword">int</span> left = (n+<span class="number">1</span>) &gt;&gt; <span class="number">1</span>; <span class="comment">// (n+1)/2 等于 n/2上取整</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> a = head; <span class="comment">// 左边有left个元素需要移动left-1次</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; left - <span class="number">1</span>;i ++) a = a-&gt;next;</span><br><span class="line">        <span class="keyword">auto</span> b = a-&gt;next,c = b-&gt;next;</span><br><span class="line">        </span><br><span class="line">        a-&gt;next = b-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">while</span> (c)&#123; <span class="comment">// 反转右边的链表</span></span><br><span class="line">            <span class="keyword">auto</span> t = c-&gt;next;</span><br><span class="line">            c-&gt;next = b;</span><br><span class="line">            b = c,c = t;</span><br><span class="line">        &#125; <span class="comment">// 反转完后：b指向右边的头，c指向NULL</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 交替合并链表</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> p = head,q = b;q;)&#123; <span class="comment">// 左边数量 &gt;= 右边数量</span></span><br><span class="line">            <span class="keyword">auto</span> t1 = p-&gt;next,t2 = q-&gt;next;</span><br><span class="line">            p-&gt;next = q;</span><br><span class="line">            q-&gt;next = t1;</span><br><span class="line">            </span><br><span class="line">            p = t1;</span><br><span class="line">            q = t2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>注意：真正理解链表结构体的赋值（<code>a = b</code>）的原理：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qianggea11/article/details/90695101。">https://blog.csdn.net/qianggea11/article/details/90695101。</a></p>
@@ -515,20 +515,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -577,13 +577,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -618,7 +618,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

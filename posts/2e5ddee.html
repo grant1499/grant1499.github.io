@@ -23,16 +23,16 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="2.模拟2.1 acwing.1204. 错误票据第四届蓝桥杯省赛C++A&#x2F;B组,第四届蓝桥杯省赛JAVAA&#x2F;B组">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231929488.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231929488.png">
 <meta property="article:published_time" content="2021-05-13T03:07:42.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:29:04.533Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.032Z">
 <meta property="article:author" content="grant">
+<meta property="article:tag" content="模拟">
 <meta property="article:tag" content="排序">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
-<meta property="article:tag" content="模拟">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231929488.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231929488.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/2e5ddee.html">
 
@@ -128,17 +128,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:29:04" itemprop="dateModified" datetime="2021-10-23T19:29:04+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -289,7 +289,7 @@
 <p>思路：</p>
 <p>这题关键在于输入的处理问题。</p>
 <p>两种解法，时间差不多。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231929488.png" alt="image-20210515203853514"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231929488.png" alt="image-20210515203853514"></p>
 <p>断号：应该是<code>m = a[i]-1</code>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 题解1，y总代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt;</span><br><span class="line">    <span class="built_in">string</span> line;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; cnt;</span><br><span class="line">    getline(<span class="built_in">cin</span>,line);</span><br><span class="line">    <span class="keyword">while</span> (cnt --)&#123;</span><br><span class="line">        getline(<span class="built_in">cin</span>,line);</span><br><span class="line">        <span class="function"><span class="built_in">stringstream</span> <span class="title">ssin</span><span class="params">(line)</span></span>;</span><br><span class="line">        <span class="keyword">while</span> (ssin &gt;&gt; a[n]) n++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    <span class="keyword">int</span> res1,res2;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i<span class="number">-1</span>]) res2 = a[i]; <span class="comment">// 重号</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a[i] == a[i<span class="number">-1</span>] + <span class="number">2</span>) res1 = a[i]<span class="number">-1</span>; <span class="comment">// 断号</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; res2 &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">------------</span><br><span class="line"><span class="comment">// 题解2</span></span><br><span class="line"><span class="comment">// 找出最大和最小的数，同时再用一个数组记录每个数字的个数，最后遍历一遍即可</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">10010</span>,M=<span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cnt[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> line,i=<span class="number">0</span>,Min=<span class="number">100001</span>,Max=<span class="number">0</span>,a;</span><br><span class="line">    <span class="keyword">int</span> n,m; <span class="comment">//m表示断号ID，n表示重号ID</span></span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;line;</span><br><span class="line">    <span class="keyword">while</span>(line--)&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a)&#123;</span><br><span class="line">            cnt[a]++;</span><br><span class="line">            Max=max(Max,a);</span><br><span class="line">            Min=min(Min,a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=Min;j&lt;Max;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(cnt[j]==<span class="number">0</span>) m=j;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(cnt[j]==<span class="number">2</span>) n=j;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;m&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;n&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2-2-acwing-466-回文日期"><a href="#2-2-acwing-466-回文日期" class="headerlink" title="2.2 acwing.466. 回文日期"></a>2.2 acwing.466. 回文日期</h4><p>NOIP2016普及组</p>
@@ -364,10 +364,10 @@
       <footer class="post-footer">
           
           <div class="post-tags">
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
               <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
               <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
               <a href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag"><i class="fa fa-tag"></i> 竞赛</a>
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
           </div>
 
         
@@ -482,20 +482,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -544,13 +544,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -585,7 +585,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

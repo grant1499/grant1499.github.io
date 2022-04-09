@@ -23,22 +23,22 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="0x10：源程序">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833549.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833568.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833585.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833602.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833627.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833649.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833674.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833705.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833740.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833769.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833549.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833568.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833585.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833602.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833627.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833649.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833674.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833705.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833740.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833769.png">
 <meta property="article:published_time" content="2021-09-26T13:19:48.000Z">
-<meta property="article:modified_time" content="2021-10-23T10:33:56.350Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833549.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833549.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/f7d3962e.html">
 
@@ -134,17 +134,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 18:33:56" itemprop="dateModified" datetime="2021-10-23T18:33:56+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,45 +288,45 @@
         <h2 id="0x10：源程序"><a href="#0x10：源程序" class="headerlink" title="0x10：源程序"></a>0x10：源程序</h2><span id="more"></span>
 <p>标号：就是xxx segment和xxx ends定义的段中的xxx，它就是段名，最终将处理为一个段的段地址。</p>
 <p>程序返回：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833549.png" alt="image-20210926213138434"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833549.png" alt="image-20210926213138434"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 4c00H </span><br><span class="line">int 21H ;这两条指令实现程序的返回</span><br></pre></td></tr></table></figure>
 <p>在第一个程序中的这两条指令实现程序返回。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833568.png" alt="image-20210926213506968"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833568.png" alt="image-20210926213506968"></p>
 <p>程序的编译、连接和执行：</p>
 <p>编写一个<code>test.asm</code>文件，</p>
 <p>编译：<code>masm test.asm</code>，连接：<code>link test.obj</code>，执行：<code>test.exe</code>。</p>
 <p>简化编译、连接过程：在每条编译、连接命令之后加上分号。</p>
 <h2 id="0x11：程序执行过程跟踪"><a href="#0x11：程序执行过程跟踪" class="headerlink" title="0x11：程序执行过程跟踪"></a>0x11：程序执行过程跟踪</h2><p>通过debug工具来跟踪 test.exe 程序的执行过程：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833585.png" alt="image-20210927094226522"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833585.png" alt="image-20210927094226522"></p>
 <p>发现 CS:IP 指向程序的入口，CX 寄存器存放程序的长度，也就是机器码（汇编指令转成机器码）的长度。</p>
 <p>为什么DS的内容比CS少10H？</p>
 <p>这涉及到DOS系统中 .EXE 文件中的程序的加载过程：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833602.png" alt="image-20210927130840428"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833602.png" alt="image-20210927130840428"></p>
 <p>程序加载后，ds 存放程序所在内存的段地址，也就是PSP的段地址。</p>
 <p>由于PSP占据了10H的内存，所以程序的物理地址是 [ds]+10H:0，这个段地址就是 cs 的内容。</p>
 <p>用<code>u</code>命令可以将机器指令都翻译成汇编指令。</p>
 <p>然后用<code>t</code>命令单步执行。<strong>注意到<code>int 21</code>时，要用<code>p</code>命令执行！</strong></p>
 <p>用<code>q</code>命令退出debug。</p>
 <h2 id="0x12：-bx-和loop-指令"><a href="#0x12：-bx-和loop-指令" class="headerlink" title="0x12：[bx] 和loop 指令"></a>0x12：[bx] 和loop 指令</h2><p><code>[bx]</code> 的含义：[bx]（和[0]类似）同样表示一个内存单元，它的<strong>偏移地址在bx中，段地址默认在ds中</strong>。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833627.png" alt="image-20210927141409691"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833627.png" alt="image-20210927141409691"></p>
 <p><code>loop</code>指令的格式是：loop 标号，CPU执行loop指令的时候，要进行两步操作，</p>
 <ol>
 <li>(cx) = (cx) - 1；   <strong>cx 存放loop循环的循环次数</strong></li>
 <li>判断 cx 中的值，不为零则转至标号处执行程序，如果为零则向下执行。</li>
 </ol>
 <p>定义一个描述性的符号：“()”，它用来表示一个寄存器或一个内存单元的内容。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833649.png" alt="image-20210927141626563"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833649.png" alt="image-20210927141626563"></p>
 <p>约定用符号 idata 表示一个常量，如：<code>mov ax,[idata]</code>表示将 ds:idata 处的数据送入 ax寄存器。</p>
 <p>计算2^12：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">	mov ax, 2</span><br><span class="line">	</span><br><span class="line">	mov cx, 11 ;循环次数</span><br><span class="line">s:  add ax, ax </span><br><span class="line">	loop s     ;在汇编语言中，标号代表一个地址，标号s实际上标识了一个地址，</span><br><span class="line">               ;这个地址处有一条指令：add ax，ax。</span><br><span class="line">               ;执行loop s时，首先要将（cx）减1，然后若（cx）不为0，则向前</span><br><span class="line">               ;转至s处执行add ax，ax。所以，可以利用cx来控制add ax，ax的执行次数。</span><br><span class="line">	</span><br><span class="line">	mov ax,4c00h </span><br><span class="line">	int 21h </span><br><span class="line">code ends </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833674.png" alt="image-20210927142403465"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833674.png" alt="image-20210927142403465"></p>
 <p>debug的<code>g</code>命令，如<code>g 0016</code>，将从 cs:ip 位置执行指令到 cs:0016 位置。</p>
 <p>不用一步步单步执行了。</p>
-<h2 id="0x13：debug-和汇编编译器-masm-对指令的不同处理"><a href="#0x13：debug-和汇编编译器-masm-对指令的不同处理" class="headerlink" title="0x13：debug 和汇编编译器 masm 对指令的不同处理"></a>0x13：debug 和汇编编译器 masm 对指令的不同处理</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833705.png" alt="image-20210927142941345"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833740.png" alt="image-20210927143043918"></p>
+<h2 id="0x13：debug-和汇编编译器-masm-对指令的不同处理"><a href="#0x13：debug-和汇编编译器-masm-对指令的不同处理" class="headerlink" title="0x13：debug 和汇编编译器 masm 对指令的不同处理"></a>0x13：debug 和汇编编译器 masm 对指令的不同处理</h2><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833705.png" alt="image-20210927142941345"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833740.png" alt="image-20210927143043918"></p>
 <h2 id="0x14：-bx-和loop-指令的联合应用"><a href="#0x14：-bx-和loop-指令的联合应用" class="headerlink" title="0x14：[bx] 和loop 指令的联合应用"></a>0x14：[bx] 和loop 指令的联合应用</h2><p>计算 ffff:0~ffff:b 单元中数据的和，结果存储在 dx 中。</p>
 <p>注意：每个单元中存放的是8位数据，而 dx 是一个16位寄存器，需要将 ah 置零，将 al 放8位数据，二者拼起来就是一个16位数据。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231833769.png" alt="image-20210927150848122"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231833769.png" alt="image-20210927150848122"></p>
 <p>解释：<code>inc bx</code>就是将 bx 中的内容自增1。</p>
 <h2 id="0x15：段前缀"><a href="#0x15：段前缀" class="headerlink" title="0x15：段前缀"></a>0x15：段前缀</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mov ax, ds:[bx]</span><br><span class="line">mov ax, cs:[bx]</span><br><span class="line">mov ax, ss:[bx]</span><br><span class="line">mov ax, es:[bx] ; 只有bx寄存器能作为偏移地址</span><br><span class="line">mov ax, ss:[0]</span><br><span class="line">mov ax, cs:[0]</span><br></pre></td></tr></table></figure>
 <p>这些出现在访问内存单元的指令中，用于显式地指明内存单元的段地址的“ds:”，“cs:”，“ss:”，“es:”，在汇编语言中称为段前缀。</p>
@@ -494,20 +494,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -556,13 +556,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -597,7 +597,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

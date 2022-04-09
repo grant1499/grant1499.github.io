@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="0x16：包含多个段的程序1.在代码段中使用数据">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818179.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818215.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818244.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818179.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818215.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818244.png">
 <meta property="article:published_time" content="2021-09-27T07:21:36.000Z">
-<meta property="article:modified_time" content="2021-10-23T10:18:59.010Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="汇编">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818179.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818179.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/92ddddf7.html">
 
@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 18:18:59" itemprop="dateModified" datetime="2021-10-23T18:18:59+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,7 +280,7 @@
       
         <h2 id="0x16：包含多个段的程序"><a href="#0x16：包含多个段的程序" class="headerlink" title="0x16：包含多个段的程序"></a>0x16：包含多个段的程序</h2><h3 id="1-在代码段中使用数据"><a href="#1-在代码段中使用数据" class="headerlink" title="1.在代码段中使用数据"></a>1.在代码段中使用数据</h3><span id="more"></span>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">;计算 8 个数据的和存到 ax 寄存器</span><br><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line"></span><br><span class="line">	dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;define word 定义8个字形数据</span><br><span class="line"></span><br><span class="line">	start:	mov bx, 0  ;标号start</span><br><span class="line">			mov ax, 0  </span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:		add ax, cs:[bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">code ends</span><br><span class="line">end start    ;end除了通知编译器程序结束外，还可以通知编译器程序的入口在什么地方</span><br><span class="line">	     ;用end指令指明了程序的入口在标号start处，也就是说，“mov bx，0”是程序的第一条指令。</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818179.png" alt="image-20210927160031097"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818179.png" alt="image-20210927160031097"></p>
 <p>如果把上面程序的start和end后面的start去掉，然后debug会发现 cs:ip 的前 16 个字节并不是我们想看到的“第一条”指令：<code>mov bx, 0</code>。</p>
 <p>是因为前16个字节被<code>dw</code>定义的8个字占用了，这样需要修改 ip 的内容使其从 0010 开始执行。（这样直接运行会出问题，找不到入口地址，需要用debug修改 ip 内容）</p>
 <p>如果加上start就会发现 cs:ip 会直接从 cs:0010 开始。（不需要手动修改）</p>
@@ -289,10 +289,10 @@
 <h3 id="3-将数据、代码、栈放入不同的段"><a href="#3-将数据、代码、栈放入不同的段" class="headerlink" title="3.将数据、代码、栈放入不同的段"></a>3.将数据、代码、栈放入不同的段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;0-15单元</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">stack segment </span><br><span class="line">	dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ;0-31单元</span><br><span class="line">stack ends </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">	start:	mov ax, stack;将名称为“stack”的段的段地址送入ax</span><br><span class="line">			mov ss, ax</span><br><span class="line">			mov sp, 20h  ;设置栈顶ss:sp指向stack:20。 20h &#x3D; 32d</span><br><span class="line">			</span><br><span class="line">			mov ax, data ;将名称为“data”的段的段地址送入ax</span><br><span class="line">			mov ds, ax   ;ds指向data段</span><br><span class="line">			</span><br><span class="line">			mov bx, 0    ;ds:bx指向data段中的第一个单元</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:	    push [bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s       ;以上将data段中的0~15单元中的8个字型数据依次入栈</span><br><span class="line">			</span><br><span class="line">			mov bx, 0</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s0:		pop [bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s0      ;以上依次出栈8个字型数据到data段的0~15单元中</span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line">;“end start”说明了程序的入口，这个入口将被写入可执行文件的描述信息，</span><br><span class="line">;可执行文件中的程序被加载入内存后，CPU的CS:IP被设置指向这个入口，从而开始执行程序中的第一条指令</span><br></pre></td></tr></table></figure>
 <p>定义数据段和栈段就与代码段一样使用<code>assume</code>关键字。</p>
 <p>定义中的段号就代表了段地址，如stack表示栈段的段地址。</p>
-<h2 id="0x17：and-和-or-指令"><a href="#0x17：and-和-or-指令" class="headerlink" title="0x17：and 和 or 指令"></a>0x17：and 和 or 指令</h2><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818215.png" alt="image-20210927203721976"></p>
+<h2 id="0x17：and-和-or-指令"><a href="#0x17：and-和-or-指令" class="headerlink" title="0x17：and 和 or 指令"></a>0x17：and 和 or 指令</h2><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818215.png" alt="image-20210927203721976"></p>
 <h2 id="0x18：关于-ASCII-码"><a href="#0x18：关于-ASCII-码" class="headerlink" title="0x18：关于 ASCII 码"></a>0x18：关于 ASCII 码</h2><p><strong>以字符形式给出的数据：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	db &#39;unIx&#39;   ;相当于“db 75H，6EH，49H，58H”</span><br><span class="line">	db &#39;foRK&#39;</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:	mov al, &#39;a&#39;  ;相当于“mov al, 61H”，“a”的ASCI码为61H；</span><br><span class="line">		mov b1, &#39;b&#39;</span><br><span class="line">		</span><br><span class="line">		mov ax, 4c00h </span><br><span class="line">		int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231818244.png" alt="image-20210927205409500"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231818244.png" alt="image-20210927205409500"></p>
 <p>大小写转换：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">	db &#39;BaSiC&#39;</span><br><span class="line">	db &#39;iNfOrMaTion&#39;</span><br><span class="line">datasg end</span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	start:	mov ax, datasg </span><br><span class="line">			mov ds, ax	;设置ds 指向 datasg段</span><br><span class="line">		</span><br><span class="line">			mov bx, 0	;设置（bx）&#x3D;0，ds:bx指向’BaSic’的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 5     	 ;设置循环次数5，因为’Basic&#39;有5个字母</span><br><span class="line">	s:		mov al, [bx]     ;将ASCII码从ds:bx所指向的单元中取出</span><br><span class="line">			and al, 11011111B;将al中的ASCII码的第5位置为0，变为大写字母</span><br><span class="line">			mov [bx], al	 ;将转变后的ASCII码写回原单元</span><br><span class="line">			inc bx		     ;（bx）加1，ds:bx指向下一个字母</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov bx, 5	;设置（bx）&#x3D;5，ds:bx指向，iNfOrMaTion&#39;的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 11	;设置循环次数11，因为‘iNfOrMaTion&#39;有11个字母</span><br><span class="line">	s0:		mov al, [bx]</span><br><span class="line">			or al, 00100000B;将a1中的ASCII码的第5位置为1，变为小写字母</span><br><span class="line">			mov [bx], al </span><br><span class="line">			inc bx</span><br><span class="line">			loop s0</span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">codesg ends</span><br></pre></td></tr></table></figure>
 
@@ -457,20 +457,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -519,13 +519,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -560,7 +560,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

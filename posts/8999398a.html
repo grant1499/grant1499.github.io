@@ -23,26 +23,26 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="字符串模式匹配（KMP）KMP匹配算法的介绍参考算法基础课笔记（九）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112312205887.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011252956.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011256509.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011301533.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011306668.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011307376.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011313806.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011315398.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011321070.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011322146.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011323448.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011352546.gif">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011349014.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112312205887.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011252956.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011256509.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011301533.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011306668.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011307376.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011313806.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011315398.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011321070.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011322146.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011323448.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011352546.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011349014.png">
 <meta property="article:published_time" content="2021-12-31T11:52:06.000Z">
-<meta property="article:modified_time" content="2022-01-13T04:04:55.664Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="排序">
 <meta property="article:tag" content="KMP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112312205887.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112312205887.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/8999398a.html">
 
@@ -138,17 +138,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -235,7 +235,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-13 12:04:55" itemprop="dateModified" datetime="2022-01-13T12:04:55+08:00">2022-01-13</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@
 <p>在字符串中查找子串：Knuth-Morris-Pratt 算法。KMP是比较难学的算法。</p>
 <p>给定非空字符串s和p，其长度分别为n和m，为了便于讨论，将s称为主串（长文本），p称为模式串。</p>
 <p>图解KMP算法：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112312205887.png" alt="image-20210809072537893"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112312205887.png" alt="image-20210809072537893"></p>
 <h3 id="acwing-831-KMP字符串"><a href="#acwing-831-KMP字符串" class="headerlink" title="acwing.831. KMP字符串"></a>acwing.831. KMP字符串</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">给定一个模式串 S，以及一个模板串 P，所有字符串中只包含大小写英文字母以及阿拉伯数字。</span><br><span class="line">模板串 P 在模式串 S 中多次作为子串出现。</span><br><span class="line">求出模板串 P 在模式串 S 中所有出现的位置的起始下标。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行输入整数 N，表示字符串 P 的长度。</span><br><span class="line">第二行输入字符串 P。</span><br><span class="line">第三行输入整数 M，表示字符串 S 的长度。</span><br><span class="line">第四行输入字符串 S。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共一行，输出所有出现位置的起始下标（下标从 <span class="number">0</span> 开始计数），整数之间用空格隔开。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">10</span>^<span class="number">5</span></span><br><span class="line"><span class="number">1</span>≤M≤<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">aba</span><br><span class="line"><span class="number">5</span></span><br><span class="line">ababa</span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">0</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Px411z7Yo">原理讲解</a>，<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hW411a7ys">代码讲解</a>。</p>
 <p>原理解析很清楚，有代码，非常棒！</p>
@@ -310,27 +310,27 @@
 <p>注意：笔试要求计算KMP的比较次数时不要参考本题代码，代码中比较次数会更多，和手算不一致。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> ne[N];</span><br><span class="line"><span class="keyword">char</span> p[N],s[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; p + <span class="number">1</span>; <span class="comment">// 模板串，下标从1开始</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; s + <span class="number">1</span>; <span class="comment">// 模式串，下标从1开始</span></span><br><span class="line">    <span class="comment">// 求模板串的prefix table，即前缀数组ne，模板串自己和自己匹配</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>,j = <span class="number">0</span>;i &lt;= n;i ++)&#123; <span class="comment">// 默认ne[1] = 0，每轮循环求出ne[i]</span></span><br><span class="line">        <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j+<span class="number">1</span>]) j = ne[j]; <span class="comment">// i与j+1的位置比较</span></span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j+<span class="number">1</span>]) j ++;</span><br><span class="line">        ne[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// KMP匹配过程</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>,j = <span class="number">0</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="keyword">while</span> (j &amp;&amp; s[i] != p[j+<span class="number">1</span>]) j = ne[j]; <span class="comment">// 失配则指针j回到ne[j]位置</span></span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j+<span class="number">1</span>]) j ++;</span><br><span class="line">        <span class="keyword">if</span> (j == n)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i - n &lt;&lt; <span class="string">&#x27; &#x27;</span>; <span class="comment">// 题目定义下标从0开始，处理一下</span></span><br><span class="line">            j = ne[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>王道和教材中的KMP优化写法实际中几乎不会这样写，不需要掌握。</p>
-<h2 id="真题讲解"><a href="#真题讲解" class="headerlink" title="真题讲解"></a>真题讲解</h2><h3 id="2011-9"><a href="#2011-9" class="headerlink" title="2011-9"></a>2011-9</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011252956.png" alt="image-20220101125229909"></p>
+<h2 id="真题讲解"><a href="#真题讲解" class="headerlink" title="真题讲解"></a>真题讲解</h2><h3 id="2011-9"><a href="#2011-9" class="headerlink" title="2011-9"></a>2011-9</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011252956.png" alt="image-20220101125229909"></p>
 <p>哈希表的存储效率指的是空间效率，也就是负载因子；查找效率指的是时间效率，也就是时间复杂度。</p>
 <p>答案选B，因为三中“避免”二字太过绝对。（有点扯，笔试八股就这样）</p>
-<h3 id="2014-8"><a href="#2014-8" class="headerlink" title="2014-8"></a>2014-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011256509.png" alt="image-20220101125639473"></p>
+<h3 id="2014-8"><a href="#2014-8" class="headerlink" title="2014-8"></a>2014-8</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011256509.png" alt="image-20220101125639473"></p>
 <p>哈希表的存储效率指的就是装填因子，就是存储的元素个数与哈希表大小之比，不受堆积现象影响。</p>
 <p>答案选D。</p>
-<h3 id="2015-8"><a href="#2015-8" class="headerlink" title="2015-8"></a>2015-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011301533.png" alt="image-20220101130113497"></p>
+<h3 id="2015-8"><a href="#2015-8" class="headerlink" title="2015-8"></a>2015-8</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011301533.png" alt="image-20220101130113497"></p>
 <p>手动模拟KMP匹配过程，<strong>注意串的下标从0开始！！！</strong></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011306668.png" alt="image-20220101130611616"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011306668.png" alt="image-20220101130611616"></p>
 <p>i = 5，j = 2。答案选C。</p>
-<h3 id="2018-9"><a href="#2018-9" class="headerlink" title="2018-9"></a>2018-9</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011307376.png" alt="image-20220101130745340"></p>
+<h3 id="2018-9"><a href="#2018-9" class="headerlink" title="2018-9"></a>2018-9</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011307376.png" alt="image-20220101130745340"></p>
 <p>手动模拟闭散列方法（开放寻址法）。</p>
 <p>每个关键字至少查找一次。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011313806.png" alt="image-20220101131353750"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011313806.png" alt="image-20220101131353750"></p>
 <p>答案选D。</p>
-<h3 id="2019-8"><a href="#2019-8" class="headerlink" title="2019-8"></a>2019-8</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011315398.png" alt="image-20220101131502360"></p>
+<h3 id="2019-8"><a href="#2019-8" class="headerlink" title="2019-8"></a>2019-8</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011315398.png" alt="image-20220101131502360"></p>
 <p>本题考察<strong>哈希表的查找失败的平均长度</strong>。注意一下。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011321070.png" alt="image-20220101132121019"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011321070.png" alt="image-20220101132121019"></p>
 <p>答案选C。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011322146.png" alt="image-20220101132243072"></p>
-<h3 id="2019-9"><a href="#2019-9" class="headerlink" title="2019-9"></a>2019-9</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011323448.png" alt="image-20220101132321412"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011322146.png" alt="image-20220101132243072"></p>
+<h3 id="2019-9"><a href="#2019-9" class="headerlink" title="2019-9"></a>2019-9</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011323448.png" alt="image-20220101132321412"></p>
 <p>补充一个y总改进的求KMP单个字符的比较次数的程序：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span>+<span class="number">5</span>,M = <span class="number">1e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> ne[N];</span><br><span class="line"><span class="keyword">char</span> p[N],s[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; p + <span class="number">1</span>; <span class="comment">// 模板串，下标从1开始</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m &gt;&gt; s + <span class="number">1</span>; <span class="comment">// 模式串，下标从1开始</span></span><br><span class="line">    <span class="comment">// 求模板串的prefix table，即前缀数组ne，模板串自己和自己匹配</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>,j = <span class="number">0</span>;i &lt;= n;i ++)&#123; <span class="comment">// 默认ne[1] = 0，每轮循环求出ne[i]</span></span><br><span class="line">        <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j+<span class="number">1</span>]) j = ne[j]; <span class="comment">// i与j+1的位置比较</span></span><br><span class="line">        <span class="keyword">if</span> (p[i] == p[j+<span class="number">1</span>]) j ++;</span><br><span class="line">        ne[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// KMP匹配过程</span></span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>; <span class="comment">// 记录KMP单个字符的比较次数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>,j = <span class="number">0</span>;i &lt;= m;i ++)&#123;</span><br><span class="line">        <span class="keyword">while</span> (j)&#123;</span><br><span class="line">            cnt ++;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == p[j+<span class="number">1</span>]) <span class="keyword">break</span>;</span><br><span class="line">            j = ne[j]; <span class="comment">// 失配则指针j回到ne[j]位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!j) cnt ++;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == p[j+<span class="number">1</span>]) j ++;</span><br><span class="line">        <span class="keyword">if</span> (j == n) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入：</span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">abaabc</span></span><br><span class="line"><span class="comment">15</span></span><br><span class="line"><span class="comment">abaabaabcabaabc</span></span><br><span class="line"><span class="comment">输出：</span></span><br><span class="line"><span class="comment">10*/</span></span><br></pre></td></tr></table></figure>
 <p>手动模拟KMP匹配过程，计算比较次数。</p>
@@ -393,7 +393,7 @@
 <li>将新元素插入到该位置后</li>
 <li>重复步骤2~5</li>
 </ol>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011352546.gif" alt="图片"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011352546.gif" alt="图片"></p>
 <p>插入排序就类似打扑克抓牌。</p>
 <p>插入排序将数组分成已排序和未排序两个部分，过程就是将待插入元素插入如有序部分。这里的做法是<strong>从后往前枚举有序部分</strong>来确定插入位置。</p>
 <p><strong>代码实现：</strong></p>
@@ -411,7 +411,7 @@
 <hr>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ekGdneZrMa23ALxt5mvKpQ">十大经典排序算法大梳理 (动图+代码)</a></p>
 <p>各类排序算法的复杂度及稳定性总结：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202201011349014.png" alt="1.png"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202201011349014.png" alt="1.png"></p>
 <p>注：快排的时间复杂度是O(logn)，上图中标错了。</p>
 
     </div>
@@ -576,20 +576,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -638,13 +638,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -679,7 +679,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

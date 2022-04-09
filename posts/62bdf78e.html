@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.grantdrew.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第四周T1—1812. 方形牧场">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022春季每日一题笔记（四）">
+<meta property="og:url" content="https://www.grantdrew.top/posts/62bdf78e.html">
+<meta property="og:site_name" content="grant&#39;s Blog">
+<meta property="og:description" content="第四周T1—1812. 方形牧场">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-04T05:34:43.000Z">
+<meta property="article:modified_time" content="2022-04-09T12:57:19.698Z">
+<meta property="article:author" content="grant">
+<meta property="article:tag" content="哈希表">
+<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.grantdrew.top/posts/62bdf78e.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>2022春季每日一题笔记（四） | grant's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">grant's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活中的点点滴滴</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/grant1499" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.grantdrew.top/posts/62bdf78e.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="grant">
+      <meta itemprop="description" content="Tough times never last, but tough people do.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="grant's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022春季每日一题笔记（四）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-04 13:34:43" itemprop="dateCreated datePublished" datetime="2022-04-04T13:34:43+08:00">2022-04-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-09 20:57:19" itemprop="dateModified" datetime="2022-04-09T20:57:19+08:00">2022-04-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+            <span>&emsp;</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span>
+            <span class="post-meta-item-text">阅读次数：</span>
+            <span id="busuanzi_value_page_pv"></span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/62bdf78e.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/62bdf78e.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第四周"><a href="#第四周" class="headerlink" title="第四周"></a>第四周</h1><h2 id="T1—1812-方形牧场"><a href="#T1—1812-方形牧场" class="headerlink" title="T1—1812. 方形牧场"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1814/">T1—1812. 方形牧场</a></h2><span id="more"></span>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰决定翻修他的农场以简化其几何形状。</span><br><span class="line">以前，他的牛在两个栅栏围起来的长方形牧场上吃草。</span><br><span class="line">现在，约翰想要用栅栏修建一个新的正方形牧场。</span><br><span class="line">正方形牧场需要覆盖之前两个长方形牧场所包围的全部区域。</span><br><span class="line">请你确定，新修建的正方形牧场的面积最小是多少。</span><br><span class="line">正方形牧场的边应与 x 轴和 y 轴平行。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含四个整数 x1,y1,x2,y2，表示第一个长方形牧场的左下角坐标 (x1,y1) 和右上角坐标 (x2,y2)。</span><br><span class="line">第二行同样包含四个整数 x1,y1,x2,y2，表示第二个长方形牧场的左下角坐标 (x1,y1) 和右上角坐标 (x2,y2)。</span><br><span class="line">两个牧场之间不会发生重叠或接触。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出能够覆盖之前两个长方形牧场所包围的全部区域的正方形牧场的最小面积。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤x1&lt;x2≤<span class="number">10</span>,</span><br><span class="line"><span class="number">0</span>≤y1&lt;y2≤<span class="number">10</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">8</span> <span class="number">8</span></span><br><span class="line"><span class="number">1</span> <span class="number">8</span> <span class="number">4</span> <span class="number">9</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">49</span></span><br><span class="line">样例解释</span><br><span class="line">在此样例中，想要将两个原始长方形覆盖，一种可行方法是建立左下角坐标为 (<span class="number">1</span>,<span class="number">6</span>) 右上角坐标为 (<span class="number">8</span>,<span class="number">13</span>) 的边长为 <span class="number">7</span> 的正方形。</span><br></pre></td></tr></table></figure>
+<p>水题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> x[<span class="number">2</span>][<span class="number">2</span>],y[<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Mx = <span class="number">-1</span>,mx = <span class="number">11</span>,My = <span class="number">-1</span>,my = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">2</span>;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x[i][<span class="number">0</span>] &gt;&gt; y[i][<span class="number">0</span>] &gt;&gt; x[i][<span class="number">1</span>] &gt;&gt; y[i][<span class="number">1</span>];</span><br><span class="line">        Mx = max(Mx,max(x[i][<span class="number">0</span>],x[i][<span class="number">1</span>]));</span><br><span class="line">        My = max(My,max(y[i][<span class="number">0</span>],y[i][<span class="number">1</span>]));</span><br><span class="line">        mx = min(mx,min(x[i][<span class="number">0</span>],x[i][<span class="number">1</span>]));</span><br><span class="line">        my = min(my,min(y[i][<span class="number">0</span>],y[i][<span class="number">1</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> len = max(Mx - mx,My - my);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; len*len &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T2—1800-不做最后一个！"><a href="#T2—1800-不做最后一个！" class="headerlink" title="T2—1800. 不做最后一个！"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1802/">T2—1800. 不做最后一个！</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰有 <span class="number">7</span> 头奶牛：Bessie，Elsie，Daisy，Gertie，Annabelle，Maggie，Henrietta。</span><br><span class="line">他每天都给它们挤奶，并详细记录每次挤奶过程中每头牛的产奶量。</span><br><span class="line">毫无疑问，产奶量大的奶牛会受到约翰的高度赞扬。</span><br><span class="line">牛是一种懒惰的动物，并不愿意产出过多的牛奶。</span><br><span class="line">对于它们来说，每头牛都十分乐意成为牛群中产奶量最低的奶牛。</span><br><span class="line">然而，他们不断听到约翰和他的人类朋友提到“从农场到餐桌”这句话，虽然不知道是什么意思，但他们怀疑，实际上，奶牛产奶量最低并不是最好的主意。</span><br><span class="line">取代这一想法的是，它们认为在牛群中产奶量第二低的位置相对来说更为安全。</span><br><span class="line">请帮助奶牛们搞清楚哪头奶牛目前处在这个相对理想的位置。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N，表示共有 N 条挤奶记录。</span><br><span class="line">接下来的 N 行，每行都包含一头奶牛的名字（上述七头之一），后跟一个正整数（不超过 <span class="number">100</span>），表示该头奶牛在一次挤奶过程中产生的奶量。</span><br><span class="line">完全没有在记录中出现过的奶牛的产奶量视为 <span class="number">0</span>。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">在一行中输出产奶量第二低的奶牛的名字。</span><br><span class="line">更准确的说，假设 M 是所有奶牛中产奶量的最小值，那么请输出所有产奶量超过 M 的奶牛中产奶量最小的那头奶牛的名字。</span><br><span class="line">如果有很多头奶牛满足这一条件，或者没有奶牛满足这一条件（即所有奶牛的产奶量都为 M），请输出 Tie。</span><br><span class="line">如果某头奶牛完全没有在挤奶记录中出现过，则 M=<span class="number">0</span>，因为那头奶牛根本就没有产奶。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">10</span></span><br><span class="line">Bessie <span class="number">1</span></span><br><span class="line">Maggie <span class="number">13</span></span><br><span class="line">Elsie <span class="number">3</span></span><br><span class="line">Elsie <span class="number">4</span></span><br><span class="line">Henrietta <span class="number">4</span></span><br><span class="line">Gertie <span class="number">12</span></span><br><span class="line">Daisy <span class="number">7</span></span><br><span class="line">Annabelle <span class="number">10</span></span><br><span class="line">Bessie <span class="number">6</span></span><br><span class="line">Henrietta <span class="number">5</span></span><br><span class="line">输出样例：</span><br><span class="line">Henrietta</span><br><span class="line">样例解释</span><br><span class="line">在此样例中，Bessie，Elsie，Daisy 的产奶量为 <span class="number">7</span>，并列产奶量最低，除了它们三个以外，产奶量最低的是 Henrietta，其产奶量为 <span class="number">9</span>。</span><br></pre></td></tr></table></figure>
+<p>比较简单。</p>
+<p>题解一：我的处理麻烦了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; m = &#123;&#123;<span class="string">&quot;Bessie&quot;</span>,<span class="number">0</span>&#125;,&#123;<span class="string">&quot;Elsie&quot;</span>,<span class="number">0</span>&#125;,&#123;<span class="string">&quot;Daisy&quot;</span>,<span class="number">0</span>&#125;,&#123;<span class="string">&quot;Gertie&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;Annabelle&quot;</span>,<span class="number">0</span>&#125;,&#123;<span class="string">&quot;Maggie&quot;</span>,<span class="number">0</span>&#125;,&#123;<span class="string">&quot;Henrietta&quot;</span>,<span class="number">0</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; d;</span><br><span class="line">        m[s] += d;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> p1 = <span class="number">1e7</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator it = m.begin();it != m.end();it ++)&#123;</span><br><span class="line">        p1 = min(p1,it-&gt;second);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> p2 = <span class="number">1e7</span>;<span class="built_in">string</span> ans;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator it = m.begin();it != m.end();it ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (it-&gt;second &gt; p1 &amp;&amp; it-&gt;second &lt; p2)&#123;</span><br><span class="line">            p2 = it-&gt;second,ans = it-&gt;first;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;::iterator it = m.begin();it != m.end();it ++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (it-&gt;second == p2) cnt ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//cout &lt;&lt; p1 &lt;&lt; &#x27; &#x27; &lt;&lt; p2 &lt;&lt; &#x27; &#x27; &lt;&lt; cnt &lt;&lt; &#x27;\n&#x27;;</span></span><br><span class="line">    <span class="keyword">if</span> (p2 == <span class="number">1e7</span> || cnt &gt; <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Tie\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>题解二：巧用<code>sort</code>和<code>erase</code>，<code>unique</code>函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt; hash = &#123;</span><br><span class="line">        &#123;<span class="string">&quot;Bessie&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Elsie&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Daisy&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Gertie&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Annabelle&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Maggie&quot;</span>,<span class="number">0</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;Henrietta&quot;</span>,<span class="number">0</span>&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">string</span> str;<span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; str &gt;&gt; x;</span><br><span class="line">        hash[str] += x;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[k , v] : hash) q.push_back(v); <span class="comment">// 复习一下怎么遍历map</span></span><br><span class="line">    sort(q.begin(),q.end());</span><br><span class="line">    q.erase(unique(q.begin(),q.end()),q.end());</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (q.size() == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Tie\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;<span class="built_in">string</span> name;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;[k , v] : hash)&#123;</span><br><span class="line">            <span class="keyword">if</span> (v == q[<span class="number">1</span>])&#123;</span><br><span class="line">                name = k;</span><br><span class="line">                cnt ++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (cnt &gt; <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Tie\n&quot;</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt == <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; name &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T3—1788-牛为什么过马路"><a href="#T3—1788-牛为什么过马路" class="headerlink" title="T3—1788. 牛为什么过马路"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1790/">T3—1788. 牛为什么过马路</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">尽管科学界已经深入探究了鸡为什么过马路这一问题，令人惊讶的是，关于牛过马路的的研究文献却很少发表。</span><br><span class="line">农夫约翰很清楚这一问题的重要性，当一所当地的大学联系他，要求他协助进行一项关于奶牛为什么要过马路的科学研究时，他非常激动并热心的表示愿意帮忙。</span><br><span class="line">作为研究的一部分，约翰被要求记录下他的每头奶牛穿过马路的次数。</span><br><span class="line">他仔细记录了奶牛的位置数据，在一天时间里，他进行了 N 次观察，每次观察都会记录一头牛的 ID （约翰共有 <span class="number">10</span> 头牛，ID 从 <span class="number">1</span> 到 <span class="number">10</span>）以及牛在路的哪一边。</span><br><span class="line">根据约翰记录的数据，请帮助他计算可以确定的奶牛穿过马路的次数。</span><br><span class="line">当连续观察到一头奶牛在道路的两侧时，就可以确定它穿过了一次马路。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 N。</span><br><span class="line">接下来 N 行，用来描述观察结果，首先包含一个整数表示观察奶牛的 ID，然后包含一个整数 <span class="number">0</span> 或 <span class="number">1</span>，<span class="number">0</span> 表示它在马路一边，<span class="number">1</span> 表示它在马路另一边。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出可以确认发生的穿过马路的次数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤N≤<span class="number">100</span>,</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">0</span></span><br><span class="line"><span class="number">6</span> <span class="number">0</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">4</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">0</span></span><br><span class="line"><span class="number">4</span> <span class="number">0</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line">样例解释</span><br><span class="line">在此样例中，<span class="number">3</span> 号奶牛穿过马路两次，先 <span class="number">1</span>→<span class="number">0</span>，然后 <span class="number">0</span>→<span class="number">1</span>。</span><br><span class="line"><span class="number">4</span> 号奶牛穿过马路一次 <span class="number">1</span>→<span class="number">0</span>。</span><br><span class="line"><span class="number">2</span> 号和 <span class="number">6</span> 号奶牛没有穿过马路。</span><br></pre></td></tr></table></figure>
+<p>水题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">10</span>;i ++) p[i] = <span class="number">-1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> x,y,res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n--)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="keyword">if</span> (p[x] != <span class="number">-1</span> &amp;&amp; p[x] ^ y) res ++;</span><br><span class="line">        p[x] = y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T4—1775-丢失的牛"><a href="#T4—1775-丢失的牛" class="headerlink" title="T4—1775. 丢失的牛"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1777/">T4—1775. 丢失的牛</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">农夫约翰丢掉了他最宝贵的奶牛贝茜，他需要找到她！</span><br><span class="line">幸运的是，农场只有一条长长的小路，约翰知道贝茜一定在这条小路上的某个地方。</span><br><span class="line">如果我们将这条路看作一个数轴，那么约翰当前位于位置 x，贝茜当前位于位置 y（约翰不知道其具体位置）。</span><br><span class="line">如果约翰知道贝茜所处的具体位置，那么只需直接朝她走去，找到她只需行进 |x−y| 的距离。</span><br><span class="line">不幸的是，外面很黑，农夫约翰什么也看不见。</span><br><span class="line">他找到贝茜的唯一办法就是来回走动，直到他最终到达她的位置。</span><br><span class="line">为了找出在搜索过程中来回走动的最佳策略，约翰查阅了计算机科学研究文献，发现这个确切的问题不仅在过去被计算机科学家研究过，而且它实际上被称为“丢失的奶牛问题”（这是真的！）。</span><br><span class="line">农民约翰找到贝茜的推荐行动方式是首先移动到位置 x+<span class="number">1</span>，然后反向移动到位置 x−<span class="number">2</span>，然后移动到位置 x+<span class="number">4</span>，依此类推，以“之字形”模式，每一次移动到的位置与初始位置之间的距离都是上一次移动到的位置与初始位置之间的距离的两倍。</span><br><span class="line">正如他在研究解决丢失奶牛问题的算法时了解到的那样，这种方法保证了在最坏的情况下，找到贝茜之前，他需要行进 <span class="number">9</span> 倍于他与贝茜之间的直接距离的路程。（事实上，相比于其他策略的最坏情况，<span class="number">9</span> 倍于实际距离已经是最好的了）</span><br><span class="line">农夫约翰很想验证这个结果。</span><br><span class="line">给定 x 和 y，请根据上面的“之字形”搜索策略计算直到找到贝茜为止，他将要行进的总距离是多少。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共一行，包含两个整数 x,y。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出一个整数，表示总行进距离。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤x,y≤<span class="number">1000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">3</span> <span class="number">6</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>模拟题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>,c = x,i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span> (c &lt; y &amp;&amp; x + i &gt;= y || c &gt; y &amp;&amp; x + i &lt;= y)&#123;</span><br><span class="line">            res += <span class="built_in">abs</span>(c - y);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        res += <span class="built_in">abs</span>(c - x - i);</span><br><span class="line">        c = x + i;</span><br><span class="line">        i *= <span class="number">-2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T5—1866-围栏刷漆"><a href="#T5—1866-围栏刷漆" class="headerlink" title="T5—1866. 围栏刷漆"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/1868/">T5—1866. 围栏刷漆</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">几经酷暑严冬，农夫约翰的围栏已经破旧不堪。</span><br><span class="line">他觉得是时候重新粉刷围栏了。</span><br><span class="line">他最喜欢的奶牛贝茜也会帮助他完成这一工作。</span><br><span class="line">不幸的是，尽管贝茜非常擅长刷漆，但她并不擅长理解农夫约翰的指示。</span><br><span class="line">如果我们将围栏看作一条一维数轴，约翰会负责粉刷 x=a 到 x=b 之间的围栏。</span><br><span class="line">例如，如果 a=<span class="number">3</span>,b=<span class="number">5</span>，则约翰将粉刷的围栏长度为 <span class="number">2</span>。</span><br><span class="line">贝茜误解了约翰的指示，因此，她将粉刷 x=c 到 x=d 之间的围栏。</span><br><span class="line">这段区域可能会与约翰需要粉刷的区域部分或完全重叠。</span><br><span class="line">现在，请你确定被粉刷围栏的总长度。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">第一行包含两个整数 a,b。</span><br><span class="line">第二行包含两个整数 c,d。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">输出被粉刷围栏的总长度。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">0</span>≤a&lt;b≤<span class="number">100</span>,</span><br><span class="line"><span class="number">0</span>≤c&lt;d≤<span class="number">100</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">7</span> <span class="number">10</span></span><br><span class="line"><span class="number">4</span> <span class="number">8</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">6</span></span><br><span class="line">样例解释</span><br><span class="line">从 x=<span class="number">4</span> 到 x=<span class="number">10</span> 的总计长度为 <span class="number">6</span> 的围栏被粉刷。</span><br></pre></td></tr></table></figure>
+<p>究极水题。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b,c,d;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d - c + b - a - max(min(b,d)-max(a,c),<span class="number">0</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T6—1854-晋升计数"><a href="#T6—1854-晋升计数" class="headerlink" title="T6—1854. 晋升计数"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/1856/">T6—1854. 晋升计数</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">奶牛贝茜正在帮助农夫约翰举办全美奶牛奥林匹克竞赛(USACO)。</span><br><span class="line">这是一个线上比赛，参赛者通过回答具有挑战性的问题，来展示自己对牛的琐事的掌握。</span><br><span class="line">为了迎合更大范围的参与者，约翰最近扩大了比赛范围，将比赛按难度分为四个组：铜、银、金和白金。</span><br><span class="line">所有新的参赛者都从铜组开始，只要他们在比赛中取得完美的成绩，他们就会被提升到下一个更高的组。</span><br><span class="line">一个参赛者甚至有可能在同一场比赛中被多次提升。</span><br><span class="line">农夫约翰会记录所有参赛者的名单和他们当前所在的分组。</span><br><span class="line">这样就可以在举办比赛时，让每个人都在属于自己水平的分组开始。</span><br><span class="line">在公布最近一次比赛的结果时，约翰希望包含铜组晋升银组、银组晋升金组、金组晋升白金组的人员数量信息。</span><br><span class="line">然而，在比赛中他却忘记统计每组的晋升人数了。</span><br><span class="line">贝茜是一头聪明的奶牛，她发现可以仅根据比赛前后处于各个组别的人员数量来推断晋升的次数。</span><br><span class="line">请帮她做出这个计算。</span><br><span class="line"></span><br><span class="line">输入格式</span><br><span class="line">共四行，每行两个整数。</span><br><span class="line">第一行表示比赛前后铜组人员数量。</span><br><span class="line">第二行表示比赛前后银组人员数量。</span><br><span class="line">第三行表示比赛前后金组人员数量。</span><br><span class="line">第四行表示比赛前后白金组人员数量。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">共三行，每行输出一个整数。</span><br><span class="line">第一行整数表示铜组晋升银组的人数。</span><br><span class="line">第二行整数表示银组晋升金组的人数。</span><br><span class="line">第三行整数表示金组晋升白金组的人数。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line">输入整数范围 [<span class="number">0</span>,<span class="number">10</span>^<span class="number">6</span>]。</span><br><span class="line"></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">样例解释</span><br><span class="line">在此样例中，比赛前各组都只有 <span class="number">1</span> 人，比赛后铜组和白金组各增加 <span class="number">1</span> 人。</span><br><span class="line">一种可能的情况是，赛后出现了两个新报名人员，加入铜组，赛前处于铜组的人员一路升入白金组。</span><br></pre></td></tr></table></figure>
+<p>数学推理。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> q[<span class="number">4</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; q[i][<span class="number">0</span>] &gt;&gt; q[i][<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> a = q[<span class="number">3</span>][<span class="number">1</span>] - q[<span class="number">3</span>][<span class="number">0</span>]; <span class="comment">// 白金增加的人数只能全部由金晋升而来</span></span><br><span class="line">    <span class="keyword">int</span> b = q[<span class="number">2</span>][<span class="number">1</span>] - q[<span class="number">2</span>][<span class="number">0</span>] + a; <span class="comment">// 金的变化人数 = 新来的 - 往上升的</span></span><br><span class="line">    <span class="keyword">int</span> c = q[<span class="number">1</span>][<span class="number">1</span>] - q[<span class="number">1</span>][<span class="number">0</span>] + b;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&#x27;\n&#x27;</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="grant 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="grant 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>grant
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.grantdrew.top/posts/62bdf78e.html" title="2022春季每日一题笔记（四）">https://www.grantdrew.top/posts/62bdf78e.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag"><i class="fa fa-tag"></i> 哈希表</a>
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/d590eeeb.html" rel="prev" title="2022春季每日一题笔记（三）">
+      <i class="fa fa-chevron-left"></i> 2022春季每日一题笔记（三）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/331a6217.html" rel="next" title="PAT甲级辅导课笔记（一）">
+      PAT甲级辅导课笔记（一） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <!-- require MetingJS-->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script> 
+    <!--网易云-->   
+    <meting-js
+      server="netease"
+      id="6745862996"
+	    type="playlist" 
+	    mini="false"
+      fixed="false"
+      list-folded="true"
+      autoplay="false"
+      volume="0.4"
+      theme="#FADFA3"
+      order="random"
+	    loop="all"
+      preload="auto"
+      mutex="true">
+    </meting-js>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      
+      
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%91%A8"><span class="nav-text">第四周</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#T1%E2%80%941812-%E6%96%B9%E5%BD%A2%E7%89%A7%E5%9C%BA"><span class="nav-text">T1—1812. 方形牧场</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2%E2%80%941800-%E4%B8%8D%E5%81%9A%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%EF%BC%81"><span class="nav-text">T2—1800. 不做最后一个！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T3%E2%80%941788-%E7%89%9B%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%87%E9%A9%AC%E8%B7%AF"><span class="nav-text">T3—1788. 牛为什么过马路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T4%E2%80%941775-%E4%B8%A2%E5%A4%B1%E7%9A%84%E7%89%9B"><span class="nav-text">T4—1775. 丢失的牛</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T5%E2%80%941866-%E5%9B%B4%E6%A0%8F%E5%88%B7%E6%BC%86"><span class="nav-text">T5—1866. 围栏刷漆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T6%E2%80%941854-%E6%99%8B%E5%8D%87%E8%AE%A1%E6%95%B0"><span class="nav-text">T6—1854. 晋升计数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="grant"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">grant</p>
+  <div class="site-description" itemprop="description">Tough times never last, but tough people do.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">171</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/grant1499" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;grant1499" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">grant</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">1.6m</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24:56</span>
+</div>
+
+<span id="sitetime"></span>
+<script language=javascript>
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+		var t1 = Date.UTC(2021,02,23,15,14,18); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+	siteTime();
+</script>
+<!--  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <span class="site-uv" title="总访客量">
+    我的第<span id="busuanzi_value_site_uv"></span>位朋友, 
+  </span>
+
+  <span class="site-pv" title="总访问量">
+    经过<span id="busuanzi_value_site_pv"></span>次回眸与你相遇
+  </span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'OdbFCadjRb7QMs5hG6qqLvoU-gzGzoHsz',
+      appKey     : 'BgcDfU4sp6INxetvnIOpYo2W',
+      placeholder: "Just go go",
+      avatar     : 'identicon',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+</html>

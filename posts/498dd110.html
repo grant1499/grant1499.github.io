@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="6.3 联表查询在关系型数据库中，表与表之间是有联系的，所以在实际应用中，经常使用多表查询。多表查询就是同时查询两个或两个以上的表。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137813.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137073.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137146.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137813.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137073.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137146.png">
 <meta property="article:published_time" content="2021-09-21T05:12:10.000Z">
-<meta property="article:modified_time" content="2021-10-23T13:38:02.774Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.029Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137813.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137813.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/498dd110.html">
 
@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 21:38:02" itemprop="dateModified" datetime="2021-10-23T21:38:02+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,7 +283,7 @@
 <p>在 MySQL 中，多表查询主要有交叉连接、内连接和外连接。</p>
 <p>参考资料： <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/7463.html。">http://c.biancheng.net/view/7463.html。</a></p>
 <p>SQL JOINS：七种join（联结）方式。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137813.png" alt="image-20210921150037470"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137813.png" alt="image-20210921150037470"></p>
 <p>内连接的语法格式如下：</p>
 <p><code>SELECT &lt;字段名&gt; FROM &lt;表1&gt; INNER JOIN &lt;表2&gt; [ON子句]</code></p>
 <p>内连接使用 <strong>INNER JOIN</strong> 关键字连接两张表，并使用 ON 子句来设置连接条件。</p>
@@ -329,9 +329,9 @@
 <p>上面的测试表实际上是两张表糅合成一张表。</p>
 <p><code>pid</code>为1的是最大的分类（父类）：</p>
 <p>子类的<code>pid</code>对应父类的<code>categoryid</code>，确定每个子类属于哪个父类。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137073.png" alt="image-20210922100625454"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137073.png" alt="image-20210922100625454"></p>
 <p>整理父类和子类的关系可以得到下图：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232137146.png" alt="image-20210922100823667"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232137146.png" alt="image-20210922100823667"></p>
 <p>下面用<code>mysql</code>语句来查询父类和子类的关系：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-- 查询父子信息：把一张表拆成两张表</span><br><span class="line">SELECT a.&#96;categoryname&#96; AS &#39;父类&#39;, b.&#96;categoryname&#96; AS &#39;子类&#39;</span><br><span class="line">FROM &#96;category&#96; AS a,&#96;category&#96; AS b</span><br><span class="line">WHERE a.&#96;categoryid&#96; &#x3D; b.&#96;pid&#96;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-- 联表查询小练习</span><br><span class="line">-- 方式1</span><br><span class="line">SELECT g.&#96;gradeid&#96;,g.&#96;gradename&#96;,s.&#96;studentname&#96;</span><br><span class="line">FROM &#96;grade&#96; AS g</span><br><span class="line">INNER JOIN &#96;student&#96; AS s</span><br><span class="line">ON g.&#96;gradeid&#96; &#x3D; s.&#96;gradeid&#96;;</span><br><span class="line">-- 方式2</span><br><span class="line">SELECT g.&#96;gradeid&#96;,g.&#96;gradename&#96;,s.&#96;studentname&#96;</span><br><span class="line">FROM &#96;grade&#96; AS g,&#96;student&#96; AS s</span><br><span class="line">WHERE g.&#96;gradeid&#96; &#x3D; s.&#96;gradeid&#96;;</span><br><span class="line">-- 两种方式的区别</span><br><span class="line">INNER JOIN 是一样的。 如果换成 left join 或right join ，是有区别的； A left join B on 后面的语句，是对 表 B 数据的过滤 ，而 where 是对结果集（笛卡尔积）的过滤。</span><br></pre></td></tr></table></figure>
@@ -507,20 +507,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -569,13 +569,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -610,7 +610,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

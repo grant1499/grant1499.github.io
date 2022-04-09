@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="Day_01 104.货仓选址这题考察绝对值不等式 参考题解  由绝对值不等式可证明：将n个数两两分组，如果n是奇数，货仓取中位数时取到不等式的等号，此时为最小值；如果n是偶数，货仓取中间两个数的中间即可。结论：中位数就是此题的最优解。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816652.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816685.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231816652.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231816685.png">
 <meta property="article:published_time" content="2021-02-23T23:01:20.000Z">
-<meta property="article:modified_time" content="2021-10-23T10:16:38.691Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.030Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="中位数">
 <meta property="article:tag" content="绝对值不等式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816652.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231816652.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/baabc5c0.html">
 
@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 18:16:38" itemprop="dateModified" datetime="2021-10-23T18:16:38+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,7 +284,7 @@
       
         <h2 id="Day-01-104-货仓选址"><a href="#Day-01-104-货仓选址" class="headerlink" title="Day_01 104.货仓选址"></a>Day_01 104.货仓选址</h2><p><strong>这题考察绝对值不等式</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/36228/">参考题解</a></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816652.png" alt="image-20210222105937470"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231816652.png" alt="image-20210222105937470"></p>
 <p>由绝对值不等式可证明：<br>将n个数两两分组，如果n是奇数，货仓取中位数时取到不等式的等号，此时为最小值；如果n是偶数，货仓取中间两个数的中间即可。<br><strong>结论：中位数就是此题的最优解。</strong></p>
 <span id="more"></span>
 <hr>
@@ -296,7 +296,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i ++) res += a[i] - a[i&gt;&gt;<span class="number">1</span>];</span><br><span class="line">    <span class="comment">// ==&gt; res += abs(a[i] - a[n&gt;&gt;1])</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>将 abs(a[i] - a[n &gt;&gt; 1]) 改为 a[i] - a[i &gt;&gt; 1]也可以 AC（这样可以不用取绝对值）</p>
-<p>证明如下：<br><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231816685.png" alt="image-20210222110203712"></p>
+<p>证明如下：<br><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231816685.png" alt="image-20210222110203712"></p>
 <h3 id="算法2：快速选择-中位数"><a href="#算法2：快速选择-中位数" class="headerlink" title="算法2：快速选择+中位数"></a><strong>算法2：快速选择+中位数</strong></h3><p>快速选择函数nth_element(数组初位置，寻找元素，数组末位置)（STL）</p>
 <p>C++的STL库中的nth_element()方法，默认是求区间<strong>第k小</strong>的（划重点）。</p>
 <p>举个栗子求第3小，对于 a[9]={4,7,6,9,1,8,2,3,5};</p>
@@ -469,20 +469,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -531,13 +531,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -572,7 +572,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

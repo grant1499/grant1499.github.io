@@ -23,21 +23,21 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.第五讲 二叉排序树、表达式树先回顾一下上一讲的几道真题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301516714.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301522595.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301528745.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301541179.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012245270.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012254689.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012254991.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112021050447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301516714.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301522595.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301528745.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301541179.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012245270.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012254689.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012254991.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112021050447.png">
 <meta property="article:published_time" content="2021-11-30T06:51:40.000Z">
-<meta property="article:modified_time" content="2021-12-26T08:06:06.086Z">
+<meta property="article:modified_time" content="2022-04-07T00:52:24.189Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="二叉树">
 <meta property="article:tag" content="AVL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301516714.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301516714.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/f62be3c6.html">
 
@@ -133,17 +133,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-26 16:06:06" itemprop="dateModified" datetime="2021-12-26T16:06:06+08:00">2021-12-26</time>
+                <time title="修改时间：2022-04-07 08:52:24" itemprop="dateModified" datetime="2022-04-07T08:52:24+08:00">2022-04-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,14 +300,14 @@
 <p>解法二：考虑总节点数为4的不同二叉树的个数。</p>
 <p>套用公式，节点数为n的不同二叉树的个数就是：</p>
 <p><strong>卡特兰数</strong>： $\frac {\binom{2n}{n}} {n+1}$. 代入n = 4得到14。（前面介绍n个元素的出栈顺序也是卡特兰数）</p>
-<h3 id="2016-42"><a href="#2016-42" class="headerlink" title="2016-42"></a>2016-42</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301516714.png" alt="image-20211130151625669"></p>
+<h3 id="2016-42"><a href="#2016-42" class="headerlink" title="2016-42"></a>2016-42</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301516714.png" alt="image-20211130151625669"></p>
 <p>（1）</p>
 <p>解法一：数学归纳法，如图。</p>
 <p>解法二：利用树的重要性质：<code>节点数 = 边数 + 1</code>，建立方程直接计算，如图。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301522595.png" alt="image-20211130152254519"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301522595.png" alt="image-20211130152254519"></p>
 <p>（2）很容易想到。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301528745.png" alt="image-20211130152841676"></p>
-<h3 id="2020-3（不会）"><a href="#2020-3（不会）" class="headerlink" title="2020-3（不会）"></a>2020-3（不会）</h3><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202111301541179.png" alt="image-20211130154145132"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301528745.png" alt="image-20211130152841676"></p>
+<h3 id="2020-3（不会）"><a href="#2020-3（不会）" class="headerlink" title="2020-3（不会）"></a>2020-3（不会）</h3><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202111301541179.png" alt="image-20211130154145132"></p>
 <p>解答：题目给出的节点数没用，考虑最坏情况，所有节点都只有右子树，需要2^5 - 1个存储单元。</p>
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
 <li>二叉排序树</li>
@@ -371,7 +371,7 @@
 <p><strong>平衡操作：</strong>（为了处理插入，删除操作导致的失衡现象）</p>
 <p>插入一个节点只会导致它的所有祖先可能失衡，其他节点不受影响。</p>
 <p>删除一个节点只会导致它的父亲可能失衡，其他节点不受影响。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012245270.png" alt="image-20211201224528178"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012245270.png" alt="image-20211201224528178"></p>
 <p>旋转操作不改变BT的中序遍历；</p>
 <p>左旋与右旋是对称的操作；</p>
 <p>上图中得到：</p>
@@ -380,10 +380,10 @@
 <p><strong>插入节点的单旋与双旋：</strong></p>
 <p><strong>其中单旋还可以分为：LL平衡旋转（左单旋），RR平衡旋转（右单旋）；</strong></p>
 <p><strong>其中双旋还可以分为：LR平衡旋转（先左后右双旋），RL平衡旋转（先右后左双旋）。</strong></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012254689.png" alt="image-20211201225428624"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112012254991.png" alt="image-20211201225447916"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012254689.png" alt="image-20211201225428624"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112012254991.png" alt="image-20211201225447916"></p>
 <p>最后看看y总的总结：（必须掌握如何旋转，往哪个方向旋转，但不用深究为什么这样做能重平衡）</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112021050447.png" alt="image-20211202105012369"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112021050447.png" alt="image-20211202105012369"></p>
 <h3 id="acwing-3786-二叉排序树"><a href="#acwing-3786-二叉排序树" class="headerlink" title="acwing.3786. 二叉排序树"></a>acwing.3786. 二叉排序树</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">你需要写一种数据结构，来维护一些数，其中需要提供以下操作：</span><br><span class="line">插入数值 x。</span><br><span class="line">删除数值 x。</span><br><span class="line">输出数值 x 的前驱(前驱定义为现有所有数中小于 x 的最大的数)。</span><br><span class="line">输出数值 x 的后继(后继定义为现有所有数中大于 x 的最小的数)。</span><br><span class="line">题目保证：</span><br><span class="line">操作 <span class="number">1</span> 插入的数值各不相同。</span><br><span class="line">操作 <span class="number">2</span> 删除的数值一定存在。</span><br><span class="line">操作 <span class="number">3</span> 和 <span class="number">4</span> 的结果一定存在。</span><br><span class="line">    </span><br><span class="line">输入格式</span><br><span class="line">第一行包含整数 n，表示共有 n 个操作命令。</span><br><span class="line">接下来 n 行，每行包含两个整数 opt 和 x，表示操作序号和操作数值。</span><br><span class="line"></span><br><span class="line">输出格式</span><br><span class="line">对于操作 <span class="number">3</span>,<span class="number">4</span>，每行输出一个操作结果。</span><br><span class="line"></span><br><span class="line">数据范围</span><br><span class="line"><span class="number">1</span>≤n≤<span class="number">2000</span>，</span><br><span class="line">−<span class="number">10000</span>≤x≤<span class="number">10000</span></span><br><span class="line">输入样例：</span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">4</span> <span class="number">2</span></span><br><span class="line">输出样例：</span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>参考题解： <a target="_blank" rel="noopener" href="https://www.acwing.com/solution/content/55445/">https://www.acwing.com/solution/content/55445/</a></p>
 <p>思路：</p>
@@ -558,20 +558,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -620,13 +620,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -661,7 +661,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

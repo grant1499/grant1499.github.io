@@ -23,19 +23,19 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.3 acwing.1222. 密码脱落第七届蓝桥杯省赛C++A&#x2F;C组,第七届蓝桥杯省赛JAVAC组">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913609.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913643.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913666.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913695.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913609.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913643.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913666.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913695.png">
 <meta property="article:published_time" content="2021-06-21T05:18:47.000Z">
-<meta property="article:modified_time" content="2021-10-23T11:13:55.767Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.031Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="树形DP">
 <meta property="article:tag" content="区间DP">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="竞赛">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913609.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913609.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/eb5cdad3.html">
 
@@ -131,17 +131,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -228,7 +228,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-23 19:13:55" itemprop="dateModified" datetime="2021-10-23T19:13:55+08:00">2021-10-23</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,7 +303,7 @@
 <p>所以最终的答案就是：<strong>至少脱落的种子数量=序列总长度 - 最长回文子序列长度</strong>。</p>
 <p>注意：子串和子序列有区别，前者要求是序列中连续的一段，后者没有要求连续。</p>
 <p><strong>算法1：y氏DP分析法。</strong></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913609.png" alt="image-20210625200659435"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913609.png" alt="image-20210625200659435"></p>
 <p>关于第2和3种情况：情况2是包含L且不包含R；而f[L,R-1]表示的是所有从L到R-1的回文子序列的集合，它一定不包含R，但L是否包含不确定，所以它表示的子序列范围比情况2更大。由于集合属性是长度的最大值，且包含L的长度一定比不包含L的长度大，所以情况2集合的属性等价于f[L,R-1]的属性。（情况3分析类似）</p>
 <p>我们发现第4种情况实际上是包含在第2和3种情况中的，所以可以省略第4种情况，前3种情况就能覆盖全部情况了。</p>
 <p>对于端点从小到大枚举，这种做法是错误的，因为求f[L,R]会涉及到f[L+1,R-1]，而后者还没计算。</p>
@@ -321,14 +321,14 @@
 <p>图的存储方式在蓝桥杯总结（二一）介绍过了，这里就不重复了。（这里用邻接表存储）</p>
 <p>题意：找到一个无向图中的连通块，使得它的节点权值的总和最大。</p>
 <p>深度优先遍历每个子结点。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913643.png" alt="image-20210625231338415"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913643.png" alt="image-20210625231338415"></p>
 <p>状态表示：f[u]:在以u为根的子树中包含u的所有连通块的权值的最大值</p>
 <p>状态计算：假设s1，s2,…sk 是u的孩子，f[u]=w[u]+max(f[s1],0)+max(f[s2],0)+…max(f[sk],0)从根结点开始</p>
 <p>时间复杂度：O(n)。只需要计算每条边，一共n-1条边。</p>
 <p>这里采用数组实现邻接表来存储图。（图论一章介绍过数组实现单链表，忘记了的话看看826.单链表）</p>
 <p>对于图的各种存储方式还不懂的话建议参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/linfangnan/p/12745834.html">https://www.cnblogs.com/linfangnan/p/12745834.html</a></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913666.png" alt="image-20210626100745550"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110231913695.png" alt="image-20210626111810469"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913666.png" alt="image-20210626100745550"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110231913695.png" alt="image-20210626111810469"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>, M = N * <span class="number">2</span>;<span class="comment">// N个顶点至多2*N条有向边</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> w[N];<span class="comment">// 节点的权值</span></span><br><span class="line"><span class="keyword">int</span> h[N], e[M], ne[M], idx;</span><br><span class="line"><span class="comment">// h是顶点集（头结点），e[i]=b表示a指向b（一条边），ne[i]表示结点i的next的指针，idx指向当前需要插入（已经用过）的结点</span></span><br><span class="line">LL f[N];<span class="comment">// 在以u为根的子树中包含u的所有连通块的权值的最大值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><span class="comment">// 这里采用数组实现邻接表来存储图，也就是将多个单链表h[i]拼起来</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx ++ ;<span class="comment">// 头插法创建单链表，新节点指向已有节点</span></span><br><span class="line">    <span class="comment">// h[a]是单链表a的起点，相当于头结点，最后一个插入元素的地址，也是idx区间的终点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> father)</span><span class="comment">// 求f[i]，第二个参数记录父节点，防止往回走</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    f[u] = w[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])<span class="comment">// i != -1等价于~i</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span> (j != father)</span><br><span class="line">        &#123;</span><br><span class="line">            dfs(j, u);</span><br><span class="line">            f[u] += max(<span class="number">0ll</span>, f[j]);<span class="comment">// long long的0，和0比较一下，如果&lt;=0没必要加上</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);<span class="comment">// 记得h数组置-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;w[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i ++ )<span class="comment">// 一共n-1条边</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">        add(a, b), add(b, a);<span class="comment">// 构建无向图</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">    LL res = f[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i ++ ) res = max(res, f[i]);<span class="comment">// 求f[1]到f[n]的max</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, res);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -495,20 +495,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -557,13 +557,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -598,7 +598,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

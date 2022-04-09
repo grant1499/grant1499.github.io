@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.java简介本教程推荐配合大佬笔记食用！ B站视频倍速播放：F12—&gt;console—&gt;输入：document.querySelector(&#39;video&#39;).playbackRate &#x3D; 2.5，控制倍速。 随着Java的发展，SUN给Java又分出了三个不同版本：  Java SE：Standard Edition Java EE：Enterprise Editi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122048.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122079.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122110.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122048.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122079.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122110.png">
 <meta property="article:published_time" content="2021-02-23T23:04:32.000Z">
-<meta property="article:modified_time" content="2021-12-07T13:39:58.070Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.027Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122048.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122048.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/b67a5797.html">
 
@@ -127,17 +127,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-07 21:39:58" itemprop="dateModified" datetime="2021-12-07T21:39:58+08:00">2021-12-07</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -465,7 +465,7 @@
 <li><p><strong>标识符命名规范</strong>：</p>
 <p>所有的标识符都应该以英文字母、$、或者_开始。</p>
 <p>首字符之后可以是英文字母、$_或者数字`的任意组合。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122048.png" alt="image-20210210101349712"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122048.png" alt="image-20210210101349712"></p>
 </li>
 </ul>
 <p><strong>小结</strong></p>
@@ -476,7 +476,7 @@
 <h2 id="8-java变量与数据类型"><a href="#8-java变量与数据类型" class="headerlink" title="8.java变量与数据类型"></a>8.java变量与数据类型</h2><p>Java变量就好像一个容器，可以保存程序在运行过程中的值，它在声明的时候会定义对应的数据类型（Java分为两种数据类型：基本数据类型和引用数据类型）。变量按作用域的范围又可分为三种类型：<strong>局部变量，成员变量和静态变量</strong>。</p>
 <p>Java中并没有全局变量的概念，这与C/C++不同！！</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variable</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> allClicks = <span class="number">0</span>;<span class="comment">// 类变量，静态变量</span></span><br><span class="line">    String s = <span class="string">&quot;helloworld&quot;</span>;<span class="comment">// 实例变量，成员变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;<span class="comment">// 局部变量</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="8-1-主要分类"><a href="#8-1-主要分类" class="headerlink" title="8.1 主要分类"></a>8.1 主要分类</h5><p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122079.png" alt="image-20210210102225703"></p>
+<h5 id="8-1-主要分类"><a href="#8-1-主要分类" class="headerlink" title="8.1 主要分类"></a>8.1 主要分类</h5><p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122079.png" alt="image-20210210102225703"></p>
 <p>八大基本数据类型</p>
 <ul>
 <li>1字节 的是 byte 、boolean</li>
@@ -512,7 +512,7 @@
 <p>文件是以UTF-8的形式保存的。</p>
 <p>这样做保证javac和java的字符集统一为UTF-8，就不会出现中文乱码。</p>
 <p>在VScode通过右键code-Runner编译时发现这样做还是乱码。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232122110.png" alt="image-20210723082254496"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232122110.png" alt="image-20210723082254496"></p>
 <p>需要修改powershell的编码格式为UTF-8，才能保证格式统一。</p>
 <p>还是通过main方法上面的run来运行。</p>
 
@@ -677,20 +677,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -739,13 +739,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -780,7 +780,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>

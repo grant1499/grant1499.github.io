@@ -23,21 +23,21 @@
 <meta property="og:site_name" content="grant&#39;s Blog">
 <meta property="og:description" content="1.Java反射机制">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105855.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105206.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202112082244669.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105109.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105248.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105419.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105598.png">
-<meta property="og:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105022.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105855.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105206.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112082244669.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105109.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105248.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105419.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105598.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105022.png">
 <meta property="article:published_time" content="2021-07-25T01:11:43.000Z">
-<meta property="article:modified_time" content="2021-12-08T14:53:19.662Z">
+<meta property="article:modified_time" content="2022-03-26T02:11:49.027Z">
 <meta property="article:author" content="grant">
 <meta property="article:tag" content="Java入门">
 <meta property="article:tag" content="反射">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105855.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105855.png">
 
 <link rel="canonical" href="https://www.grantdrew.top/posts/41769e7b.html">
 
@@ -133,17 +133,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">163</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">171</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">20</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">23</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">331</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">349</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-08 22:53:19" itemprop="dateModified" datetime="2021-12-08T22:53:19+08:00">2021-12-08</time>
+                <time title="修改时间：2022-03-26 10:11:49" itemprop="dateModified" datetime="2022-03-26T10:11:49+08:00">2022-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,9 +285,9 @@
 
       
         <h2 id="1-Java反射机制"><a href="#1-Java反射机制" class="headerlink" title="1.Java反射机制"></a>1.Java反射机制</h2><span id="more"></span>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105855.png" alt="image-20210727172953297"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105855.png" alt="image-20210727172953297"></p>
 <p>红色要求重点掌握，其他作为了解内容。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105206.png" alt="image-20210727173601290"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105206.png" alt="image-20210727173601290"></p>
 <p>反射示例。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Person.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String  name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Person</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;helloworld&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showNation</span><span class="params">(String Nation)</span></span>&#123;</span><br><span class="line">        System.out.println(Nation);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ReflectionTest.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectionTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 反射之前对Person类的操作</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 1.创建Person类对象</span></span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person(<span class="string">&quot;Tom&quot;</span>,<span class="number">12</span>);</span><br><span class="line">        <span class="comment">// 2.通过对象调用内部的属性、方法</span></span><br><span class="line">        p1.age = <span class="number">11</span>;</span><br><span class="line">        System.out.println(p1.toString());</span><br><span class="line">        p1.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 反射之后对Person类的操作</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Class clazz = Person.class;</span><br><span class="line">        Constructor cons = clazz.getConstructor(String.class,<span class="keyword">int</span>.class);</span><br><span class="line">        <span class="comment">// 1.通过反射创建Person类对象</span></span><br><span class="line">        Object obj = cons.newInstance(<span class="string">&quot;Tom&quot;</span>,<span class="number">12</span>);</span><br><span class="line">        Person p = (Person) obj;</span><br><span class="line">        System.out.println(p.toString());</span><br><span class="line">        <span class="comment">// 2.通过反射调用对象内部的属性、方法</span></span><br><span class="line">        <span class="comment">// 调用属性</span></span><br><span class="line">        Field age = clazz.getDeclaredField(<span class="string">&quot;age&quot;</span>);</span><br><span class="line">        age.set(p,<span class="number">11</span>);</span><br><span class="line">        System.out.println(p.toString());</span><br><span class="line">        <span class="comment">// 调用方法</span></span><br><span class="line">        Method show = clazz.getDeclaredMethod(<span class="string">&quot;show&quot;</span>);</span><br><span class="line">        show.invoke(p);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 通过反射调用Person类的私有结构</span></span><br><span class="line">        <span class="comment">// 调用私有构造器</span></span><br><span class="line">        Constructor cons1 = clazz.getDeclaredConstructor(String.class);</span><br><span class="line">        cons1.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        Object obj1 = cons1.newInstance(<span class="string">&quot;Mike&quot;</span>);</span><br><span class="line">        Person p2 = (Person) obj1;</span><br><span class="line">        System.out.println(p2);</span><br><span class="line">        <span class="comment">// 调用私有属性</span></span><br><span class="line">        Field name = clazz.getDeclaredField(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">        name.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        name.set(p2,<span class="string">&quot;James&quot;</span>);</span><br><span class="line">        System.out.println(p2);</span><br><span class="line">        <span class="comment">// 调用私有方法</span></span><br><span class="line">        Method showNation = clazz.getDeclaredMethod(<span class="string">&quot;showNation&quot;</span>, String.class);</span><br><span class="line">        showNation.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        String nation = (String)showNation.invoke(p2,<span class="string">&quot;IceLand&quot;</span>);</span><br><span class="line">        System.out.println(nation);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="2-疑问解答"><a href="#2-疑问解答" class="headerlink" title="2.疑问解答"></a>2.疑问解答</h2><p>1.通过直接new的方式和反射的方式都能调用类的公共结构，开发中用哪个？</p>
@@ -312,7 +312,7 @@
 <p><code>Class cls = new Class(String);</code></p>
 <p>这个<code>Class</code>实例是JVM内部创建的，如果我们查看JDK源码，可以发现<code>Class</code>类的构造方法是<code>private</code>，只有JVM能创建<code>Class</code>实例，我们自己的Java程序是无法创建<code>Class</code>实例的。</p>
 <p>所以，JVM持有的每个<code>Class</code>实例都指向一个数据类型（<code>class</code>或<code>interface</code>）：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202112082244669.png" alt="image-20211208224410611"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202112082244669.png" alt="image-20211208224410611"></p>
 <p>Class类定义在<code>java.lang.Class</code>之下。</p>
 <p>类的加载过程：程序经过javac命令编译后生成一个或多个字节码(.class)文件，接着用java命令对某个字节码文件解释执行。</p>
 <p>解释执行的过程相当于将某个字节码文件加载到内存中，此过程称为类的加载。</p>
@@ -326,13 +326,13 @@
 <p><strong>因为<code>Class</code>实例在JVM中是唯一的</strong>，所以，上述方法获取的<code>Class</code>实例是同一个实例。可以用<code>==</code>比较两个<code>Class</code>实例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Class cls1 = String.class;</span><br><span class="line"></span><br><span class="line">String s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">Class cls2 = s.getClass();</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> sameClass = cls1 == cls2; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>Class实例可以是哪些结构？</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105109.png" alt="image-20210730121121036"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105248.png" alt="image-20210730121243893"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105109.png" alt="image-20210730121121036"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105248.png" alt="image-20210730121243893"></p>
 <h2 id="5-类的加载与ClassLoader的理解"><a href="#5-类的加载与ClassLoader的理解" class="headerlink" title="5.类的加载与ClassLoader的理解"></a>5.类的加载与ClassLoader的理解</h2><p>了解内容。</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105419.png" alt="image-20210730121854721"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105419.png" alt="image-20210730121854721"></p>
 <p>类加/装载器的作用：</p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105598.png" alt="image-20210730122635446"></p>
-<p><img src="https://gitee.com/grant1499/blog-pic/raw/master/img/202110232105022.png" alt="image-20210730122814235"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105598.png" alt="image-20210730122635446"></p>
+<p><img src="https://raw.githubusercontent.com/grant1499/Blog-img/master/img/202110232105022.png" alt="image-20210730122814235"></p>
 <p>例子演示。</p>
 <p>使用Classloader加载src目录下的配置文件。<br>        Properties：用来读取配置文件。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    Properties pros =  <span class="keyword">new</span> Properties();</span><br><span class="line">    <span class="comment">//此时的文件默认在当前的module下。</span></span><br><span class="line">    <span class="comment">//读取配置文件的方式一：</span></span><br><span class="line">    <span class="comment">//        FileInputStream fis = new FileInputStream(&quot;jdbc.properties&quot;);</span></span><br><span class="line">    <span class="comment">//        FileInputStream fis = new FileInputStream(&quot;src\\jdbc1.properties&quot;);</span></span><br><span class="line">    <span class="comment">//        pros.load(fis);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取配置文件的方式二：使用ClassLoader</span></span><br><span class="line">    <span class="comment">//配置文件默认识别为：当前module的src下</span></span><br><span class="line">    ClassLoader classLoader = ClassLoaderTest.class.getClassLoader();</span><br><span class="line">    InputStream is = classLoader.getResourceAsStream(<span class="string">&quot;jdbc1.properties&quot;</span>);</span><br><span class="line">    pros.load(is);</span><br><span class="line"></span><br><span class="line">    String user = pros.getProperty(<span class="string">&quot;user&quot;</span>);</span><br><span class="line">    String password = pros.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;user = &quot;</span> + user + <span class="string">&quot;,password = &quot;</span> + password);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -536,20 +536,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">331</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">163</span>
+        <span class="site-state-item-count">171</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -598,13 +598,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">1.5m</span>
+    <span title="站点总字数">1.6m</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">23:17</span>
+    <span title="站点阅读时长">24:56</span>
 </div>
 
 <span id="sitetime"></span>
@@ -639,7 +639,7 @@
 		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
 		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
 		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML=" 已运行"+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+		document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
 	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
 	siteTime();
 </script>
