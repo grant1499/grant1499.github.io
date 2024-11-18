@@ -53,8 +53,35 @@
         <mxCell id="3i4N--CUoDsbIN8EMX7h-21" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_1;align=left;pointerEvents=1;direction=north;" vertex="1" parent="1">
           <mxGeometry x="103" y="179" width="168" height="28" as="geometry" />
         </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-29" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;版本较低&lt;/font&gt;" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="3i4N--CUoDsbIN8EMX7h-23" target="3i4N--CUoDsbIN8EMX7h-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="3i4N--CUoDsbIN8EMX7h-23" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;检测 Agent 版本&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="94.5" y="321" width="182" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-32" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;entryX=0.56;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="3i4N--CUoDsbIN8EMX7h-27" target="3i4N--CUoDsbIN8EMX7h-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="191" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-34" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;自动升级&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="3i4N--CUoDsbIN8EMX7h-32">
+          <mxGeometry x="0.0059" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-27" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;Agent 重启&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="44" y="434" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-28" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;拉取采集配置&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="122.75" y="554" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-30" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.592;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="3i4N--CUoDsbIN8EMX7h-23" target="3i4N--CUoDsbIN8EMX7h-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3i4N--CUoDsbIN8EMX7h-31" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;版本正常&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="3i4N--CUoDsbIN8EMX7h-30">
+          <mxGeometry x="-0.1703" y="4" relative="1" as="geometry">
+            <mxPoint x="2" y="5" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
