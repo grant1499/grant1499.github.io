@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Safari/605.1.15" version="24.8.6">
   <diagram name="第 1 页" id="uQV4d3QOdv5ZGM-Fy3Eu">
-    <mxGraphModel dx="1099" dy="895" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1420" dy="1122" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -130,8 +130,24 @@
         <mxCell id="H1M93Ht1NQZLoZktQNuY-16" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;Agent 心跳检测&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="106.25" y="758" width="142" height="42" as="geometry" />
         </mxCell>
+        <mxCell id="H1M93Ht1NQZLoZktQNuY-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="H1M93Ht1NQZLoZktQNuY-17" target="H1M93Ht1NQZLoZktQNuY-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="H1M93Ht1NQZLoZktQNuY-17" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;Agent 停止&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="233" y="657" width="123" height="40" as="geometry" />
+          <mxGeometry x="233" y="657" width="125" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="H1M93Ht1NQZLoZktQNuY-20" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;结束&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="142" y="873" width="79" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="H1M93Ht1NQZLoZktQNuY-23" style="edgeStyle=none;curved=0;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="H1M93Ht1NQZLoZktQNuY-22" target="H1M93Ht1NQZLoZktQNuY-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="97" y="891" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H1M93Ht1NQZLoZktQNuY-22" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_1;align=left;pointerEvents=1;direction=north;" vertex="1" parent="1">
+          <mxGeometry x="13" y="800" width="168" height="28" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
